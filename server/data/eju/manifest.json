@@ -1,0 +1,66 @@
+{
+  "description": "Master index of EJU (Examination for Japanese University Admission) past-paper files in the Drive source folder. This is the index for later full ingestion into the EJU knowledge base.",
+  "driveFolderId": "17DvZi-aBDjPz34yZNZYyKnA8g_gYwdY3",
+  "generatedDate": "2026-06-01",
+  "sessionLegend": { "1": "Session 1 (June)", "2": "Session 2 (November)" },
+  "typeLegend": ["question", "answer", "syllabus"],
+  "notes": "Science (理科) question papers are a single combined booklet containing Physics + Chemistry + Biology sections (examinees pick 2 of 3); subjects are listed as [physics, chemistry, biology] for every science paper. Mathematics is a separate booklet (Course 1 / Course 2). The Science answer-key PDFs also contain the Mathematics answer key, so those answer files are tagged with subjects [physics, chemistry, biology, math]. extractionOk=false marks files whose text extraction returned essentially no usable content (image-only/scanned PDFs or web-redacted answer keys). One non-EJU file present in the folder is recorded under nonEjuFiles and excluded from the main index.",
+  "files": [
+    { "fileId": "1BBjxCauM-RYkqsEkXeOM8tqipa0PEuzV", "title": "2026_syllabus_phy_e.pdf", "year": 2026, "session": 1, "type": "syllabus", "subjects": ["physics"], "language": "en", "extractionOk": true },
+    { "fileId": "1YGIfmpIDDwxFO38dkMXjIWtuaCiFNeDu", "title": "2026_syllabus_chem_e.pdf", "year": 2026, "session": 1, "type": "syllabus", "subjects": ["chemistry"], "language": "en", "extractionOk": true },
+
+    { "fileId": "18zMUZMALKNFNOSsNd2FP-l_BvxMOqdsA", "title": "2021_1question_science_1.pdf", "year": 2021, "session": 1, "type": "question", "subjects": ["physics", "chemistry", "biology"], "language": "ja", "extractionOk": true },
+    { "fileId": "16fCKoVqX-rr6cQgvOI9rjGWEHz86fZZj", "title": "2021_1question_math_e_1.pdf", "year": 2021, "session": 1, "type": "question", "subjects": ["math"], "language": "en", "extractionOk": null },
+    { "fileId": "1CCQ3RloF9lVbnn0gxey8r3g5Oad4Nftx", "title": "2021_1answer_2_1.pdf", "year": 2021, "session": 1, "type": "answer", "subjects": ["physics", "chemistry", "biology", "math"], "language": "en", "extractionOk": true },
+
+    { "fileId": "1C3fgNrOPvXKGLSt_JMdsTfTcdmlqIfgI", "title": "2020_2question_science_1.pdf", "year": 2020, "session": 2, "type": "question", "subjects": ["physics", "chemistry", "biology"], "language": "ja", "extractionOk": true },
+    { "fileId": "1aNaeDTdMeuGotg0ExquHyAJhOWxXuQ_t", "title": "2020_2answer_2_e.pdf", "year": 2020, "session": 2, "type": "answer", "subjects": ["physics", "chemistry", "biology", "math"], "language": "en", "extractionOk": null },
+
+    { "fileId": "12smUu1_-LP4ylDMBsGB9HQX4L5zt6cC7", "title": "2019_1question_science_1.pdf", "year": 2019, "session": 1, "type": "question", "subjects": ["physics", "chemistry", "biology"], "language": "ja", "extractionOk": true },
+    { "fileId": "1CW1ERITvvteo1AVSzz0oF7u02ukUEb39", "title": "2019_1answer_2_e.pdf", "year": 2019, "session": 1, "type": "answer", "subjects": ["physics", "chemistry", "biology", "math"], "language": "en", "extractionOk": true },
+
+    { "fileId": "1BTuCMg1gOO92-Y9TbLeYUfuIYaqQKe5R", "title": "2018_1question_science_1.pdf", "year": 2018, "session": 1, "type": "question", "subjects": ["physics", "chemistry", "biology"], "language": "ja", "extractionOk": false },
+    { "fileId": "1xXR68ek8xpuk6UM7lMHM4Ge1ThynZ6hV", "title": "2018_1answer_e202512_1.pdf", "year": 2018, "session": 1, "type": "answer", "subjects": ["physics", "chemistry", "biology", "math"], "language": "en", "extractionOk": false },
+    { "fileId": "1R86sJdI8MFWbe_4i9D8ihabWYyC8DTgm", "title": "2018_2question_science_1.pdf", "year": 2018, "session": 2, "type": "question", "subjects": ["physics", "chemistry", "biology"], "language": "ja", "extractionOk": true },
+    { "fileId": "1G7DAyFphO1DXvITE2GuiibQZf3_aQjzZ", "title": "2018_2answer_2_1.pdf", "year": 2018, "session": 2, "type": "answer", "subjects": ["physics", "chemistry", "biology", "math"], "language": "ja", "extractionOk": null },
+
+    { "fileId": "1xD9F_hYjydiY-BQ5yOeu6RF8-AZ62whe", "title": "2017_1answer_e.pdf", "year": 2017, "session": 1, "type": "answer", "subjects": ["physics", "chemistry", "biology", "math"], "language": "en", "extractionOk": null },
+    { "fileId": "17L3webIDFY-jfe-xkLgdMmBQiAP3kP4E", "title": "2017_2question_science.pdf", "year": 2017, "session": 2, "type": "question", "subjects": ["physics", "chemistry", "biology"], "language": "ja", "extractionOk": null },
+    { "fileId": "1D3t8Gj29nA-9Z2HKBbABl-2aH5fKLz4N", "title": "2017_2answer_e.pdf", "year": 2017, "session": 2, "type": "answer", "subjects": ["physics", "chemistry", "biology", "math"], "language": "en", "extractionOk": null },
+
+    { "fileId": "1cGmZVgdXNCqRGnU9x2xr54fzOuhPvRa6", "title": "2016_1question_science_1.pdf", "year": 2016, "session": 1, "type": "question", "subjects": ["physics", "chemistry", "biology"], "language": "ja", "extractionOk": null },
+    { "fileId": "1CY0e8gbHGhSVh8DmDIsyaP0lvoTISuqv", "title": "2016_1answer5.pdf", "year": 2016, "session": 1, "type": "answer", "subjects": ["physics", "chemistry", "biology", "math"], "language": "ja", "extractionOk": null },
+    { "fileId": "1QlG19QEC_W0afvi5LdcuWoM9vsttrITu", "title": "2016_2question_science.pdf", "year": 2016, "session": 2, "type": "question", "subjects": ["physics", "chemistry", "biology"], "language": "ja", "extractionOk": null },
+    { "fileId": "1cncvxRQqzHA9OU_IC17EwWDoK3hkMHsC", "title": "2016_2answer5_1.pdf", "year": 2016, "session": 2, "type": "answer", "subjects": ["physics", "chemistry", "biology", "math"], "language": "ja", "extractionOk": null },
+
+    { "fileId": "14QePGytcPH1NZUaBzRXiWDC_i3Cr7KWw", "title": "2015_1question_science_2.pdf", "year": 2015, "session": 1, "type": "question", "subjects": ["physics", "chemistry", "biology"], "language": "ja", "extractionOk": null },
+    { "fileId": "1Tf0cNbE4YDmF2a0dPe2GA7f6qXEs93NU", "title": "2015_1answer5.pdf", "year": 2015, "session": 1, "type": "answer", "subjects": ["physics", "chemistry", "biology", "math"], "language": "ja", "extractionOk": null },
+    { "fileId": "1Noae5OTQ8JTUyupTJ6JL3W7drPHAo9ae", "title": "2015_2question_science_1.pdf", "year": 2015, "session": 2, "type": "question", "subjects": ["physics", "chemistry", "biology"], "language": "ja", "extractionOk": null },
+    { "fileId": "1u6DnRu1hLtm6XjnfjEAzu9NA3nB1QYIQ", "title": "2015_2answer5.pdf", "year": 2015, "session": 2, "type": "answer", "subjects": ["physics", "chemistry", "biology", "math"], "language": "ja", "extractionOk": null },
+
+    { "fileId": "1YtyM7BupKbOw1hmsYgzm_TJYw13zXIIZ", "title": "2014_1question_science_jp_2.pdf", "year": 2014, "session": 1, "type": "question", "subjects": ["physics", "chemistry", "biology"], "language": "ja", "extractionOk": null },
+    { "fileId": "1hTk-KZj7HsVbQJYS2GPCB9qa5Pfh9uLZ", "title": "2014_1answer5.pdf", "year": 2014, "session": 1, "type": "answer", "subjects": ["physics", "chemistry", "biology", "math"], "language": "ja", "extractionOk": null },
+    { "fileId": "1UTZM4Ihqcf1S0qHy5vbfh1oj2KN7jq76", "title": "2014_2question_science_jp.pdf", "year": 2014, "session": 2, "type": "question", "subjects": ["physics", "chemistry", "biology"], "language": "ja", "extractionOk": null },
+    { "fileId": "1gewIFu1nGdZTvPEri5aInlwxtaNRL6vl", "title": "2014_2answer5.pdf", "year": 2014, "session": 2, "type": "answer", "subjects": ["physics", "chemistry", "biology", "math"], "language": "ja", "extractionOk": null },
+
+    { "fileId": "1MLDJv1HeE3MqrLSIBgJMJnvy6iCfVxq7", "title": "2013_1question_science_jp_1.pdf", "year": 2013, "session": 1, "type": "question", "subjects": ["physics", "chemistry", "biology"], "language": "ja", "extractionOk": null },
+    { "fileId": "1W5AO-n27yHZEVoo-DSkTdKUf21pDMhat", "title": "2013_1answer5.pdf", "year": 2013, "session": 1, "type": "answer", "subjects": ["physics", "chemistry", "biology", "math"], "language": "ja", "extractionOk": null },
+    { "fileId": "1bSK0C99TvLLfc17uhzqZsn1Opi5XHIXK", "title": "2013_2question_science_jp_1.pdf", "year": 2013, "session": 2, "type": "question", "subjects": ["physics", "chemistry", "biology"], "language": "ja", "extractionOk": null },
+    { "fileId": "1jCoBfbsz0eqB4qVFKW3e9HgiatdDogHA", "title": "2013_2answer5.pdf", "year": 2013, "session": 2, "type": "answer", "subjects": ["physics", "chemistry", "biology", "math"], "language": "ja", "extractionOk": null },
+
+    { "fileId": "1UuVPu95A464Syg8LtUZz4drwUmlL3fbt", "title": "2012_1question_science_jp_1.pdf", "year": 2012, "session": 1, "type": "question", "subjects": ["physics", "chemistry", "biology"], "language": "ja", "extractionOk": null },
+    { "fileId": "1OfoYCM4Tj1-sh8gi5Ujk9uwtfr1NoCzl", "title": "2012_1answer5.pdf", "year": 2012, "session": 1, "type": "answer", "subjects": ["physics", "chemistry", "biology", "math"], "language": "ja", "extractionOk": null },
+    { "fileId": "1fLqPOetKW9J3etZDroOKGYXAPDbm8Spe", "title": "2012_2question_science_jp_1.pdf", "year": 2012, "session": 2, "type": "question", "subjects": ["physics", "chemistry", "biology"], "language": "ja", "extractionOk": null },
+    { "fileId": "1tia15lyR1U-mQcomg-LDGULBkCzywSZW", "title": "2012_2answer5_1.pdf", "year": 2012, "session": 2, "type": "answer", "subjects": ["physics", "chemistry", "biology", "math"], "language": "ja", "extractionOk": null },
+
+    { "fileId": "1hBjO0w8xkf8B-BTIleHmHF9qohfN5GkL", "title": "2011_1question_science_jp_1.pdf", "year": 2011, "session": 1, "type": "question", "subjects": ["physics", "chemistry", "biology"], "language": "ja", "extractionOk": null },
+    { "fileId": "18aDbg9WLwaq87V2gtt7GCFlx0yeLU0J5", "title": "2011_1answer5.pdf", "year": 2011, "session": 1, "type": "answer", "subjects": ["physics", "chemistry", "biology", "math"], "language": "ja", "extractionOk": null },
+    { "fileId": "1Dr8SNNqPhd-AsNyt6xtPqU_6wHiktnGt", "title": "2011_2question_science_jp_1.pdf", "year": 2011, "session": 2, "type": "question", "subjects": ["physics", "chemistry", "biology"], "language": "ja", "extractionOk": null },
+
+    { "fileId": "10PH9k2akTYBt0hiJc6VNU_jDjUDLDiwH", "title": "eju_2010_01question_science_ja.pdf", "year": 2010, "session": 1, "type": "question", "subjects": ["physics", "chemistry", "biology"], "language": "ja", "extractionOk": null },
+    { "fileId": "1Q60uuxBPo43pxuzsHbOwRPn9le06Y_Qa", "title": "eju_2010_01answer.pdf", "year": 2010, "session": 1, "type": "answer", "subjects": ["physics", "chemistry", "biology", "math"], "language": "ja", "extractionOk": null }
+  ],
+  "nonEjuFiles": [
+    { "fileId": "1cUS4Mb0J9gA00TioXMEL03LlUM-y4rJK", "title": "930004106.pdf", "actualContent": "Japanese immigration 'Application for Extension of Period of Stay' (在留期間更新許可申請書) form, not an EJU document. Excluded from the EJU index." }
+  ]
+}
