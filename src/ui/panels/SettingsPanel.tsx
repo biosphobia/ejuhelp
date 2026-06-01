@@ -4,6 +4,7 @@ import { useUI, type Lang } from '../../lib/ui';
 import { useDebug } from '../../lib/debug';
 import { useT } from '../../i18n';
 import { GlobeIcon } from '../icons';
+import { useApiStore } from '../../lib/apiStore';
 
 export default function SettingsPanel() {
   const t = useT();
@@ -13,6 +14,13 @@ export default function SettingsPanel() {
   const setFingerDraw = useUI((s) => s.setFingerDraw);
   const debugEnabled = useDebug((s) => s.enabled);
   const setDebug = useDebug((s) => s.setEnabled);
+
+  // BYOK State
+  const activeModel = useApiStore((s) => s.activeModel);
+  const claudeKey = useApiStore((s) => s.claudeKey);
+  const gptKey = useApiStore((s) => s.gptKey);
+  const setModel = useApiStore((s) => s.setModel);
+  const setKeys = useApiStore((s) => s.setKeys);
 
   const LangBtn = ({ value, label }: { value: Lang; label: string }) => (
     <button
@@ -47,6 +55,64 @@ export default function SettingsPanel() {
           <ModeBtn on={!fingerDraw} onClick={() => setFingerDraw(false)} label={t('pencilOnly')} />
         </div>
         <p className="mt-2 text-xs leading-relaxed text-slate-500">{t('inputHint')}</p>
+      </div>
+
+      {/* AI Model Selection & BYOK Inputs */}
+      <div className="mb-6">
+        <Label>{lang === 'ja' ? 'AIモデル' : 'AI Model'}</Label>
+        <div className="flex gap-2">
+          <ModeBtn on={activeModel === 'gemini'} onClick={() => setModel('gemini')} label="Gemini" />
+          <ModeBtn on={activeModel === 'claude'} onClick={() => setModel('claude')} label="Claude" />
+          <ModeBtn on={activeModel === 'gpt'} onClick={() => setModel('gpt')} label="GPT" />
+        </div>
+        
+        {activeModel === 'claude' && (
+          <div className="mt-3">
+            <label className="mb-1 block text-xs font-medium text-slate-500">Claude API Key</label>
+            <input
+              type="password"
+              value={claudeKey}
+              onChange={(e) => setKeys(e.target.value, gptKey)}
+              placeholder="sk-ant-..."
+              className="w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm text-slate-800 placeholder:text-slate-400 focus:border-slate-800 focus:outline-none focus:ring-1 focus:ring-slate-800 transition"
+            />
+            <div className="mt-1 flex items-center justify-between">
+              <p className="text-[10px] text-slate-400">
+                {lang === 'ja' ? 'デバイスにローカル保存されます' : 'Stored locally on your device.'}
+              </p>
+              <a href="https://console.anthropic.com/settings/keys" target="_blank" rel="noreferrer" className="text-[10px] text-blue-500 hover:underline">
+                {lang === 'ja' ? 'キーを取得 ↗' : 'Get Key ↗'}
+              </a>
+            </div>
+          </div>
+        )}
+
+        {activeModel === 'gpt' && (
+          <div className="mt-3">
+            <label className="mb-1 block text-xs font-medium text-slate-500">OpenAI API Key</label>
+            <input
+              type="password"
+              value={gptKey}
+              onChange={(e) => setKeys(claudeKey, e.target.value)}
+              placeholder="sk-..."
+              className="w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm text-slate-800 placeholder:text-slate-400 focus:border-slate-800 focus:outline-none focus:ring-1 focus:ring-slate-800 transition"
+            />
+            <div className="mt-1 flex items-center justify-between">
+              <p className="text-[10px] text-slate-400">
+                {lang === 'ja' ? 'デバイスにローカル保存されます' : 'Stored locally on your device.'}
+              </p>
+              <a href="https://platform.openai.com/api-keys" target="_blank" rel="noreferrer" className="text-[10px] text-blue-500 hover:underline">
+                {lang === 'ja' ? 'キーを取得 ↗' : 'Get Key ↗'}
+              </a>
+            </div>
+          </div>
+        )}
+
+        {activeModel === 'gemini' && (
+          <p className="mt-2 text-xs leading-relaxed text-slate-500">
+            {lang === 'ja' ? 'デフォルトのAI。設定は不要です。' : 'Default AI. No setup required.'}
+          </p>
+        )}
       </div>
 
       <div className="mb-6">
