@@ -19,6 +19,7 @@ export default function SettingsPanel() {
   const activeModel = useApiStore((s) => s.activeModel);
   const claudeKey = useApiStore((s) => s.claudeKey);
   const gptKey = useApiStore((s) => s.gptKey);
+  const geminiKey = useApiStore((s) => s.geminiKey);
   const setModel = useApiStore((s) => s.setModel);
   const setKeys = useApiStore((s) => s.setKeys);
 
@@ -65,14 +66,14 @@ export default function SettingsPanel() {
           <ModeBtn on={activeModel === 'claude'} onClick={() => setModel('claude')} label="Claude" />
           <ModeBtn on={activeModel === 'gpt'} onClick={() => setModel('gpt')} label="GPT" />
         </div>
-        
+
         {activeModel === 'claude' && (
           <div className="mt-3">
             <label className="mb-1 block text-xs font-medium text-slate-500">Claude API Key</label>
             <input
               type="password"
               value={claudeKey}
-              onChange={(e) => setKeys(e.target.value, gptKey)}
+              onChange={(e) => setKeys(e.target.value, gptKey, geminiKey)}
               placeholder="sk-ant-..."
               className="w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm text-slate-800 placeholder:text-slate-400 focus:border-slate-800 focus:outline-none focus:ring-1 focus:ring-slate-800 transition"
             />
@@ -93,7 +94,7 @@ export default function SettingsPanel() {
             <input
               type="password"
               value={gptKey}
-              onChange={(e) => setKeys(claudeKey, e.target.value)}
+              onChange={(e) => setKeys(claudeKey, e.target.value, geminiKey)}
               placeholder="sk-..."
               className="w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm text-slate-800 placeholder:text-slate-400 focus:border-slate-800 focus:outline-none focus:ring-1 focus:ring-slate-800 transition"
             />
@@ -109,9 +110,24 @@ export default function SettingsPanel() {
         )}
 
         {activeModel === 'gemini' && (
-          <p className="mt-2 text-xs leading-relaxed text-slate-500">
-            {lang === 'ja' ? 'デフォルトのAI。設定は不要です。' : 'Default AI. No setup required.'}
-          </p>
+          <div className="mt-3">
+            <label className="mb-1 block text-xs font-medium text-slate-500">Gemini API Key (Optional)</label>
+            <input
+              type="password"
+              value={geminiKey}
+              onChange={(e) => setKeys(claudeKey, gptKey, e.target.value)}
+              placeholder={lang === 'ja' ? '空白の場合はデフォルトを使用' : 'Leave blank to use default'}
+              className="w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm text-slate-800 placeholder:text-slate-400 focus:border-slate-800 focus:outline-none focus:ring-1 focus:ring-slate-800 transition"
+            />
+            <div className="mt-1 flex items-center justify-between">
+              <p className="text-[10px] text-slate-400">
+                {lang === 'ja' ? 'デバイスにローカル保存されます' : 'Stored locally on your device.'}
+              </p>
+              <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noreferrer" className="text-[10px] text-blue-500 hover:underline">
+                {lang === 'ja' ? 'キーを取得 ↗' : 'Get Key ↗'}
+              </a>
+            </div>
+          </div>
         )}
       </div>
 
