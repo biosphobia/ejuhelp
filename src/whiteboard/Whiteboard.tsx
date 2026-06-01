@@ -35,6 +35,11 @@ export default function Whiteboard() {
     let rafId = 0;
     let skipInvalidate = false;
     let penSeen = false; // once we've seen a real "pen" pointer, trust it for drawing
+    let lastPenDown = 0; // perf time of the most recent pen/mouse pointerdown
+    // Apple Pencil quick taps can arrive as raw touch events ("stylus") with NO
+    // pointer events. We record those here and draw them on touchend if the pointer
+    // system never picked them up.
+    const stylusTouches = new Map<number, { pts: Pt[]; t0: number }>();
 
     // interaction state
     let drawing: { color: InkColor; size: number; points: Pt[] } | null = null;
@@ -59,6 +64,12 @@ export default function Whiteboard() {
       const r = rect();
       return { x: clientX - r.left, y: clientY - r.top };
     }
+    function toWorldPt(t: Touch): Pt {
+      const w = toWorld(t.clientX, t.clientY);
+      const f = (t as unknown as { force?: number }).force;
+      return { x: w.x, y: w.y, p: typeof f === 'number' && f > 0 ? f : 0.5 };
+    }
+    const isStylus = (t: Touch) => (t as unknown as { touchType?: string }).touchType === 'stylus';
     function pressureFor(e: PointerEvent) {
       if (e.pointerType === 'pen') return e.pressure > 0 ? e.pressure : 0.5;
       return 0.5;
@@ -184,6 +195,7 @@ export default function Whiteboard() {
     }
 
     function beginStroke(e: PointerEvent, kind: 'pen' | 'finger') {
+      lastPenDown = performance.now(); // mark that the pointer system handled this interaction
       drawId = e.pointerId;
       drawKind = kind;
       const { tool, color, size } = useBoard.getState();
@@ -301,6 +313,7 @@ export default function Whiteboard() {
 
       // Pen / mouse always draw and take priority.
       if (e.pointerType === 'pen' || e.pointerType === 'mouse') {
+        lastPenDown = performance.now();
         cancelGesture();
         // Finish any previous stroke first, so a missed pointerup can't strand it:
         // commit a stuck stylus stroke; discard a stray finger/palm stroke.
@@ -403,6 +416,54 @@ export default function Whiteboard() {
       }
     }
 
+    // ---- raw touch fallback for Apple Pencil quick taps (no pointer events) ----
+    function onTouchStart(e: TouchEvent) {
+      for (const t of Array.from(e.changedTouches)) {
+        if (!isStylus(t)) continue;
+        stylusTouches.set(t.identifier, { pts: [toWorldPt(t)], t0: performance.now() });
+        dbgTouch('Tdown', t);
+      }
+    }
+    function onTouchMove(e: TouchEvent) {
+      for (const t of Array.from(e.changedTouches)) {
+        const ent = stylusTouches.get(t.identifier);
+        if (ent) ent.pts.push(toWorldPt(t));
+      }
+    }
+    function onTouchEnd(e: TouchEvent) {
+      for (const t of Array.from(e.changedTouches)) {
+        const ent = stylusTouches.get(t.identifier);
+        if (!ent) continue;
+        stylusTouches.delete(t.identifier);
+        const handledByPointer = lastPenDown >= ent.t0; // a pen pointerdown fired during this touch
+        dbgTouch(handledByPointer ? 'Tup(ptr)' : 'Tup(draw)', t, ent.pts.length);
+        if (handledByPointer) continue;
+        // The pointer system never saw this stylus stroke — draw it ourselves.
+        const { tool, color, size } = useBoard.getState();
+        if (tool === 'eraser') {
+          for (const p of ent.pts) doErase(p.x, p.y);
+          if (pendingErase.size) {
+            useBoard.getState().eraseStrokes([...pendingErase]);
+            pendingErase.clear();
+          }
+          invalidate();
+        } else {
+          const stroke = { id: newId(), color, size, points: ent.pts };
+          setWorldTransform(cctx);
+          drawStroke(cctx, stroke);
+          skipInvalidate = true;
+          useBoard.getState().addStroke(stroke);
+          skipInvalidate = false;
+          commitPresent();
+        }
+      }
+    }
+    function dbgTouch(tag: string, t: Touch, n?: number) {
+      if (!useDebug.getState().enabled) return;
+      const f = (t as unknown as { force?: number }).force ?? 0;
+      useDebug.getState().push(`${tag} #${t.identifier} f${f.toFixed(2)}${n !== undefined ? ` pts${n}` : ''}`);
+    }
+
     function onWheel(e: WheelEvent) {
       e.preventDefault();
       const l = localPt(e.clientX, e.clientY);
@@ -425,6 +486,12 @@ export default function Whiteboard() {
     window.addEventListener('pointermove', onPointerMove);
     window.addEventListener('pointerup', endPointer);
     window.addEventListener('pointercancel', endPointer);
+    // Passive touch listeners: a fallback for Apple Pencil quick taps that emit no
+    // pointer events. Passive (no preventDefault) so they don't suppress pointer events.
+    canvas.addEventListener('touchstart', onTouchStart, { passive: true });
+    canvas.addEventListener('touchmove', onTouchMove, { passive: true });
+    canvas.addEventListener('touchend', onTouchEnd, { passive: true });
+    canvas.addEventListener('touchcancel', onTouchEnd, { passive: true });
     canvas.addEventListener('wheel', onWheel, { passive: false });
     canvas.addEventListener('gesturestart', stop as EventListener);
     canvas.addEventListener('gesturechange', stop as EventListener);
@@ -475,6 +542,10 @@ export default function Whiteboard() {
       window.removeEventListener('pointermove', onPointerMove);
       window.removeEventListener('pointerup', endPointer);
       window.removeEventListener('pointercancel', endPointer);
+      canvas.removeEventListener('touchstart', onTouchStart);
+      canvas.removeEventListener('touchmove', onTouchMove);
+      canvas.removeEventListener('touchend', onTouchEnd);
+      canvas.removeEventListener('touchcancel', onTouchEnd);
       canvas.removeEventListener('wheel', onWheel);
       canvas.removeEventListener('gesturestart', stop as EventListener);
       canvas.removeEventListener('gesturechange', stop as EventListener);
