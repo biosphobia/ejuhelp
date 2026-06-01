@@ -35,7 +35,7 @@ export default function BoardQuestions() {
   useEffect(() => {
     if (!q) return;
     const ch = q.choices?.length ? '\n' + q.choices.map((c, k) => `${LETTERS[k]}. ${c}`).join('\n') : '';
-    setActiveQuestion(`${q.prompt}${ch}`);
+    setActiveQuestion(`${q.prompt}${ch}`, q);
     setShowAnswer(false);
   }, [q?.id]); // eslint-disable-line react-hooks/exhaustive-deps
 

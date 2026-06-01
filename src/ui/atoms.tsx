@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import { ApiError } from '../lib/api';
+import { ApiError, EmptyBoardError } from '../lib/api';
 import { SpinnerIcon } from './icons';
 import { useT, type TFunc } from '../i18n';
 
@@ -46,6 +46,7 @@ export function useErrorMessage() {
 }
 
 export function errorMessage(e: unknown, t: TFunc): string {
+  if (e instanceof EmptyBoardError) return t('emptyBoard');
   if (e instanceof ApiError) {
     if (e.code === 'no_api_key') return t('needKey');
     if (e.code === 'auth_not_configured') return t('authBackendErr');

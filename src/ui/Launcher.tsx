@@ -4,7 +4,6 @@ import {
   AskIcon,
   GenerateIcon,
   NotesIcon,
-  CheckIcon,
   ChartIcon,
   SettingsIcon,
   UserIcon,
@@ -15,9 +14,8 @@ import {
 type Item = { id: Exclude<PanelId, null>; label: StringKey; Icon: typeof AskIcon };
 
 const PRIMARY: Item[] = [
-  { id: 'ask', label: 'ask', Icon: AskIcon },
+  { id: 'ask', label: 'askCoach', Icon: AskIcon },
   { id: 'generate', label: 'generate', Icon: GenerateIcon },
-  { id: 'check', label: 'check', Icon: CheckIcon },
   { id: 'progress', label: 'progress', Icon: ChartIcon },
   { id: 'notes', label: 'notes', Icon: NotesIcon },
 ];

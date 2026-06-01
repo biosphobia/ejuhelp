@@ -14,6 +14,13 @@ export class ApiError extends Error {
   }
 }
 
+/** Thrown locally (no network call) when the page has nothing to check. */
+export class EmptyBoardError extends Error {
+  constructor() {
+    super('empty_board');
+  }
+}
+
 async function call<T>(path: string, body: unknown): Promise<T> {
   const token = await getIdToken();
   
@@ -87,6 +94,8 @@ export interface CheckResponse {
   correct: 'yes' | 'no' | 'partial' | 'unknown';
   topic: string;
   errorTags: string[];
+  /** 0-based choice the student concluded for an MCQ, or -1 if none/unclear. */
+  studentAnswerIndex: number;
 }
 export const checkWork = (p: {
   subject: Subject;

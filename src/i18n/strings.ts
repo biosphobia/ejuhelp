@@ -4,6 +4,7 @@ export const strings = {
 
   // Launcher / features
   ask: { en: 'Ask Claude', ja: 'AIに質問' },
+  askCoach: { en: 'Ask Coach', ja: 'AIコーチ' },
   generate: { en: 'Practice questions', ja: '練習問題' },
   notes: { en: 'Key points', ja: '要点ノート' },
   check: { en: 'Check my work', ja: '答案チェック' },
@@ -67,6 +68,14 @@ export const strings = {
     en: 'Answers are tuned to the EJU syllabus and past-paper style.',
     ja: 'EJUのシラバスと過去問の傾向に沿って回答します。',
   },
+  coachHint: {
+    en: 'Ask anything about this subject — or tap "Check my work" to grade your handwritten page. You can keep asking follow-ups afterwards.',
+    ja: 'この科目について何でも質問できます。「答案チェック」を押すと手書きの答案を採点します。その後も続けて質問できます。',
+  },
+  autoAnswered: {
+    en: 'Recorded your answer on the pinned question.',
+    ja: '固定中の問題に解答を記録しました。',
+  },
 
   // Generate
   generateTitle: { en: 'EJU-style practice', ja: 'EJU形式の練習問題' },
@@ -92,22 +101,8 @@ export const strings = {
   showAnswerShort: { en: 'Answer', ja: '解答' },
   pinnedHidden: { en: 'Pinned questions hidden', ja: '固定中の問題（非表示）' },
 
-  // Check
-  checkTitle: { en: 'Check my work', ja: '答案チェック' },
-  checkHint: {
-    en: 'Claude reads your current page and checks your reasoning.',
-    ja: '現在のページを読み取り、解答の筋道を確認します。',
-  },
-  captureCheck: { en: 'Read my page & check', ja: 'ページを読んで確認' },
+  // Check my work (now part of Ask Coach)
   checking: { en: 'Reading your work…', ja: '答案を読み取り中…' },
-  attachedQuestion: {
-    en: 'Checking against your active question.',
-    ja: '取り組み中の問題と照らし合わせます。',
-  },
-  noActiveQuestion: {
-    en: 'No active question — Claude will just review what you wrote.',
-    ja: '取り組み中の問題はありません。書いた内容をそのまま確認します。',
-  },
 
   // Notes
   notesTitle: { en: 'Key points', ja: '要点ノート' },

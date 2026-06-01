@@ -4,11 +4,12 @@ A fast study app for the **EJU** (Examination for Japanese University Admission 
 
 The whole screen is a notebook you write on with the Pencil. A small, non‑intrusive tab on the right opens the AI features, all grounded in **a decade of real EJU past papers**:
 
-- **Ask Claude** – ask anything about a subject; answers are tuned to the EJU syllabus and past‑paper style. Memorize‑worthy formulas/facts from each answer are auto‑saved to your Key points.
+- **Ask Coach** – one tutor chat that does double duty: ask anything about a subject (answers tuned to the EJU syllabus and past‑paper style; memorize‑worthy formulas/facts are auto‑saved to your Key points), and tap **Check my work** right inside it to have Claude read your handwritten page (vision). The check verdict lands in the same conversation, so you can keep asking follow‑ups about it. If the page clearly shows a final choice for the active question (e.g. a circled **E**), it's recorded as your answer to that question automatically — graded right/wrong — on top of the usual feedback.
 - **Practice questions** – generate fresh, EJU‑style questions by subject / **specific sub‑topic** (Physics & Chemistry) / difficulty. Multiple‑choice questions are answerable and graded instantly — both in the panel **and pinned to the board**, so you can answer right on the whiteboard. Either way you see if you're right or wrong, can reveal the worked answer, and can tap **Explain** for a step‑by‑step walk‑through; or send one to the board to solve by hand.
 - **Weak points** – your accuracy by topic and your most common mistake types (units, sign, concept, …) are tracked from your answers and shared back to you, with a one‑tap **"focus on my weak points"** practice mode.
 - **Key points** – a personal, growing sheet of formulas and facts to remember, auto‑collected from your questions plus anything you generate.
-- **Check my work** – Claude reads your handwritten page (vision), tells you if it's correct, pinpoints the first mistake, classifies the error type, and feeds that into your weak‑points profile.
+
+(The **Check my work** capture — correctness, the first mistake, and an error‑type classification that feeds your weak‑points profile — now lives inside **Ask Coach** above, rather than as its own tab.)
 
 Subjects: **Physics, Chemistry, Biology** (built from your past papers + official 2026 syllabi) and **Mathematics** (placeholder until math papers are added). UI toggles between **English and 日本語** at any time.
 

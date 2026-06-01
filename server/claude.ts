@@ -284,6 +284,9 @@ export interface CheckResult {
   correct: 'yes' | 'no' | 'partial' | 'unknown';
   topic: string;
   errorTags: string[];
+  /** If the attached question is multiple-choice and the work clearly concludes one
+   *  option, the 0-based index of that choice (counting the listed options in order); else -1. */
+  studentAnswerIndex: number;
 }
 
 export async function check(args: {
@@ -307,7 +310,8 @@ export async function check(args: {
     '{"feedback":"<markdown with short headings: transcribe the key readable steps; say whether it is correct; pinpoint the FIRST error precisely; give a short hint to fix it without revealing the full answer unless already complete; end with a one-line encouraging summary>",',
     `"correct":"yes"|"no"|"partial"|"unknown" (partial = on the right track but incomplete/with a fixable slip${args.question ? '' : '; often "unknown" with no question attached'}),`,
     '"topic":"<the specific EJU sub-topic>",',
-    `"errorTags":[ subset of ${JSON.stringify(ERROR_TAGS)} ; use ["none"] if correct ]}.`,
+    `"errorTags":[ subset of ${JSON.stringify(ERROR_TAGS)} ; use ["none"] if correct ],`,
+    '"studentAnswerIndex":<if the attached question is multiple-choice AND the work clearly arrives at one final choice (e.g. a circled letter, "answer: B", or a boxed option), the 0-based index of that option counting the listed choices in order; otherwise -1>}.',
     `Write "feedback" in ${writeLang(args.lang)}.`,
   ].join('\n');
 
@@ -328,11 +332,13 @@ export async function check(args: {
     ? (p.correct as CheckResult['correct'])
     : 'unknown';
   const errorTags = Array.isArray(p.errorTags) ? p.errorTags.filter((t) => ERROR_TAGS.includes(t)) : [];
+  const studentAnswerIndex = Number.isInteger(p.studentAnswerIndex) ? Number(p.studentAnswerIndex) : -1;
   return {
     feedback: String(p.feedback ?? raw ?? ''),
     correct,
     topic: String(p.topic ?? ''),
     errorTags,
+    studentAnswerIndex,
   };
 }
 

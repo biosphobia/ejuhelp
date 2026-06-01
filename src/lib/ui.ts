@@ -7,7 +7,6 @@ export type PanelId =
   | 'ask'
   | 'generate'
   | 'notes'
-  | 'check'
   | 'progress'
   | 'settings'
   | 'account'
