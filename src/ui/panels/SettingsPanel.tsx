@@ -43,9 +43,11 @@ export default function SettingsPanel() {
             <GlobeIcon className="h-4 w-4" /> {t('language')}
           </span>
         </Label>
-        <div className="flex gap-2">
+        <div className="grid grid-cols-2 gap-2">
           <LangBtn value="en" label="English" />
           <LangBtn value="ja" label="日本語" />
+          <LangBtn value="zh" label="中文" />
+          <LangBtn value="tr" label="Türkçe" />
         </div>
       </div>
 
@@ -60,7 +62,7 @@ export default function SettingsPanel() {
 
       {/* AI Model Selection & BYOK Inputs */}
       <div className="mb-6">
-        <Label>{lang === 'ja' ? 'AIモデル' : 'AI Model'}</Label>
+        <Label>{t('aiModel')}</Label>
         <div className="flex gap-2">
           <ModeBtn on={activeModel === 'gemini'} onClick={() => setModel('gemini')} label="Gemini" />
           <ModeBtn on={activeModel === 'claude'} onClick={() => setModel('claude')} label="Claude" />
@@ -69,7 +71,7 @@ export default function SettingsPanel() {
 
         {activeModel === 'claude' && (
           <div className="mt-3">
-            <label className="mb-1 block text-xs font-medium text-slate-500">Claude API Key</label>
+            <label className="mb-1 block text-xs font-medium text-slate-500">Claude {t('apiKey')}</label>
             <input
               type="password"
               value={claudeKey}
@@ -78,11 +80,9 @@ export default function SettingsPanel() {
               className="w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm text-slate-800 placeholder:text-slate-400 focus:border-slate-800 focus:outline-none focus:ring-1 focus:ring-slate-800 transition"
             />
             <div className="mt-1 flex items-center justify-between">
-              <p className="text-[10px] text-slate-400">
-                {lang === 'ja' ? 'デバイスにローカル保存されます' : 'Stored locally on your device.'}
-              </p>
+              <p className="text-[10px] text-slate-400">{t('apiKeyStoredLocally')}</p>
               <a href="https://console.anthropic.com/settings/keys" target="_blank" rel="noreferrer" className="text-[10px] text-blue-500 hover:underline">
-                {lang === 'ja' ? 'キーを取得 ↗' : 'Get Key ↗'}
+                {t('getKey')}
               </a>
             </div>
           </div>
@@ -90,7 +90,7 @@ export default function SettingsPanel() {
 
         {activeModel === 'gpt' && (
           <div className="mt-3">
-            <label className="mb-1 block text-xs font-medium text-slate-500">OpenAI API Key</label>
+            <label className="mb-1 block text-xs font-medium text-slate-500">OpenAI {t('apiKey')}</label>
             <input
               type="password"
               value={gptKey}
@@ -99,11 +99,9 @@ export default function SettingsPanel() {
               className="w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm text-slate-800 placeholder:text-slate-400 focus:border-slate-800 focus:outline-none focus:ring-1 focus:ring-slate-800 transition"
             />
             <div className="mt-1 flex items-center justify-between">
-              <p className="text-[10px] text-slate-400">
-                {lang === 'ja' ? 'デバイスにローカル保存されます' : 'Stored locally on your device.'}
-              </p>
+              <p className="text-[10px] text-slate-400">{t('apiKeyStoredLocally')}</p>
               <a href="https://platform.openai.com/api-keys" target="_blank" rel="noreferrer" className="text-[10px] text-blue-500 hover:underline">
-                {lang === 'ja' ? 'キーを取得 ↗' : 'Get Key ↗'}
+                {t('getKey')}
               </a>
             </div>
           </div>
@@ -111,20 +109,18 @@ export default function SettingsPanel() {
 
         {activeModel === 'gemini' && (
           <div className="mt-3">
-            <label className="mb-1 block text-xs font-medium text-slate-500">Gemini API Key (Optional)</label>
+            <label className="mb-1 block text-xs font-medium text-slate-500">Gemini {t('apiKey')} ({t('optional')})</label>
             <input
               type="password"
               value={geminiKey}
               onChange={(e) => setKeys(claudeKey, gptKey, e.target.value)}
-              placeholder={lang === 'ja' ? '空白の場合はデフォルトを使用' : 'Leave blank to use default'}
+              placeholder={t('geminiKeyPlaceholder')}
               className="w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm text-slate-800 placeholder:text-slate-400 focus:border-slate-800 focus:outline-none focus:ring-1 focus:ring-slate-800 transition"
             />
             <div className="mt-1 flex items-center justify-between">
-              <p className="text-[10px] text-slate-400">
-                {lang === 'ja' ? 'デバイスにローカル保存されます' : 'Stored locally on your device.'}
-              </p>
+              <p className="text-[10px] text-slate-400">{t('apiKeyStoredLocally')}</p>
               <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noreferrer" className="text-[10px] text-blue-500 hover:underline">
-                {lang === 'ja' ? 'キーを取得 ↗' : 'Get Key ↗'}
+                {t('getKey')}
               </a>
             </div>
           </div>

@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { askClaude, checkWork, EmptyBoardError, type ChatMessage } from './api';
-import { useUI } from './ui';
+import { useUI, type Lang } from './ui';
 import { usePractice } from './practice';
 import { useAnswers } from './answers';
 import { useProgress, useKeyPoints } from './userdata';
@@ -16,6 +16,27 @@ export interface CheckMeta {
 export interface Message extends ChatMessage {
   check?: CheckMeta;
 }
+
+const CHECK_REQUEST: Record<Lang, string> = {
+  en: 'Please check my work on this page.',
+  ja: 'このページの答案をチェックしてください。',
+  zh: '请检查这一页上我的解答。',
+  tr: 'Lütfen bu sayfadaki çözümümü kontrol et.',
+};
+
+const EXPLAIN_INTRO: Record<Lang, string> = {
+  en: 'Explain how to solve this question in a simple, clear, step-by-step way a beginner can follow.',
+  ja: '次の問題の解き方を、初心者にもわかるように、順を追って丁寧に説明してください。',
+  zh: '请用简单清晰、循序渐进的方式讲解这道题的解法，让初学者也能看懂。',
+  tr: 'Bu sorunun nasıl çözüleceğini, yeni başlayan birinin takip edebileceği basit ve net adımlarla açıkla.',
+};
+
+const CORRECT_ANSWER_NOTE: Record<Lang, (a: string) => string> = {
+  en: (a) => `\n\n(Correct answer: ${a})`,
+  ja: (a) => `\n\n（正解：${a}）`,
+  zh: (a) => `\n\n（正确答案：${a}）`,
+  tr: (a) => `\n\n(Doğru cevap: ${a})`,
+};
 
 interface AskState {
   messages: Message[];
@@ -61,9 +82,7 @@ export const useAsk = create<AskState>((set, get) => ({
       return;
     }
     const { activeQuestion, activeItem } = usePractice.getState();
-    const reqText =
-      lang === 'ja' ? 'このページの答案をチェックしてください。' : 'Please check my work on this page.';
-    const next: Message[] = [...get().messages, { role: 'user', content: reqText }];
+    const next: Message[] = [...get().messages, { role: 'user', content: CHECK_REQUEST[lang] }];
     set({ messages: next, busy: true, error: null, lastSaved: 0, lastAutoAnswered: false });
     try {
       const res = await checkWork({ subject, lang, imageDataUrl: img, question: activeQuestion ?? undefined });
@@ -108,11 +127,8 @@ export function explainQuestion(prompt: string, choices: string[] | undefined, a
   const choiceStr = choices?.length
     ? '\n' + choices.map((c, i) => `${letters[i]}. ${c}`).join('\n')
     : '';
-  const ans = answer ? (lang === 'ja' ? `\n\n（正解：${answer}）` : `\n\n(Correct answer: ${answer})`) : '';
-  const msg =
-    lang === 'ja'
-      ? `次の問題の解き方を、初心者にもわかるように、順を追って丁寧に説明してください。\n\n${prompt}${choiceStr}${ans}`
-      : `Explain how to solve this question in a simple, clear, step-by-step way a beginner can follow.\n\n${prompt}${choiceStr}${ans}`;
+  const ans = answer ? CORRECT_ANSWER_NOTE[lang](answer) : '';
+  const msg = `${EXPLAIN_INTRO[lang]}\n\n${prompt}${choiceStr}${ans}`;
   useUI.getState().openPanel('ask');
   void useAsk.getState().send(msg);
 }

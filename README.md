@@ -11,7 +11,7 @@ The whole screen is a notebook you write on with the Pencil. A small, non‑intr
 
 (The **Check my work** capture — correctness, the first mistake, and an error‑type classification that feeds your weak‑points profile — now lives inside **Ask Coach** above, rather than as its own tab.)
 
-Subjects: **Physics, Chemistry, Biology** (built from your past papers + official 2026 syllabi) and **Mathematics** (placeholder until math papers are added). UI toggles between **English and 日本語** at any time.
+Subjects: **Physics, Chemistry, Biology** (built from your past papers + official 2026 syllabi) and **Mathematics** (placeholder until math papers are added). The UI — and the AI's answers — switch between **English, 日本語, 中文, and Türkçe** at any time (Settings → Language).
 
 ---
 

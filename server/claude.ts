@@ -8,7 +8,16 @@ const USE_THINKING = process.env.ANTHROPIC_THINKING !== 'off';
 const GEMINI_MODEL = process.env.GEMINI_MODEL || 'gemini-3.1-flash-lite';
 const OPENAI_MODEL = process.env.OPENAI_MODEL || 'gpt-4o';
 
-type Lang = 'en' | 'ja';
+type Lang = 'en' | 'ja' | 'zh' | 'tr';
+
+// Name used both to tell the model which language to reply in and inside
+// "Write everything in {…}" directives.
+const LANG_NAME: Record<Lang, string> = {
+  en: 'English',
+  ja: 'Japanese (日本語)',
+  zh: 'Simplified Chinese (简体中文)',
+  tr: 'Turkish (Türkçe)',
+};
 type ChatMessage = { role: 'user' | 'assistant'; content: string };
 
 export interface KeyPointDTO {
@@ -39,8 +48,7 @@ const GLOBAL_INSTRUCTIONS =
   'it MUST be valid: escape every backslash as \\\\ and every newline as \\n inside string values. ' +
   'Never invent claims about the EJU format; rely on the knowledge base provided below.';
 
-const langLine = (lang: Lang) =>
-  lang === 'ja' ? 'Always respond in Japanese (日本語).' : 'Always respond in English.';
+const langLine = (lang: Lang) => `Always respond in ${LANG_NAME[lang]}.`;
 
 function systemBlocks(subject: Subject, lang: Lang, extra?: string) {
   const blocks: any[] = [
@@ -221,7 +229,7 @@ function extractJson<T>(raw: string, fallback: T): T {
   return fallback;
 }
 
-const writeLang = (lang: Lang) => (lang === 'ja' ? 'Japanese' : 'English');
+const writeLang = (lang: Lang) => LANG_NAME[lang];
 
 function cleanKeyPoints(arr: any): KeyPointDTO[] {
   if (!Array.isArray(arr)) return [];

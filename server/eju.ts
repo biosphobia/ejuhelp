@@ -8,10 +8,17 @@ const DATA_DIR = join(here, 'data', 'eju');
 export type Subject = 'physics' | 'chemistry' | 'biology' | 'math';
 export const SUBJECTS: Subject[] = ['physics', 'chemistry', 'biology', 'math'];
 
+export type Lang = 'en' | 'ja' | 'zh' | 'tr';
+
 interface LocalizedName {
   en: string;
   ja: string;
+  zh?: string;
+  tr?: string;
 }
+
+// The topic taxonomy currently ships en/ja labels; zh/tr fall back to English.
+const pick = (n: LocalizedName, lang: Lang): string => n[lang] || n.en;
 interface Subtopic {
   id: string;
   name: LocalizedName;
@@ -69,34 +76,34 @@ export function getKB(subject: Subject): SubjectKB | null {
   return kbCache.get(subject) ?? null;
 }
 
-export function topicsFor(subject: Subject, lang: 'en' | 'ja') {
+export function topicsFor(subject: Subject, lang: Lang) {
   const kb = getKB(subject);
   if (!kb) return [];
-  return kb.topics.map((t) => ({ id: t.id, name: t.name[lang] || t.name.en }));
+  return kb.topics.map((t) => ({ id: t.id, name: pick(t.name, lang) }));
 }
 
 /** Flattened subtopics with their parent topic name as `group` (for grouped selects). */
-export function subtopicsFor(subject: Subject, lang: 'en' | 'ja') {
+export function subtopicsFor(subject: Subject, lang: Lang) {
   const kb = getKB(subject);
   if (!kb) return [];
   const out: { id: string; name: string; group: string }[] = [];
   for (const t of kb.topics) {
-    const group = t.name[lang] || t.name.en;
+    const group = pick(t.name, lang);
     for (const s of t.subtopics ?? []) {
-      out.push({ id: s.id, name: s.name[lang] || s.name.en, group });
+      out.push({ id: s.id, name: pick(s.name, lang), group });
     }
   }
   return out;
 }
 
 /** Resolve a topic OR subtopic id to a human label. */
-export function labelFor(subject: Subject, id: string, lang: 'en' | 'ja'): string {
+export function labelFor(subject: Subject, id: string, lang: Lang): string {
   const kb = getKB(subject);
   if (!kb) return id;
   for (const t of kb.topics) {
-    if (t.id === id) return t.name[lang] || t.name.en;
+    if (t.id === id) return pick(t.name, lang);
     for (const s of t.subtopics ?? []) {
-      if (s.id === id) return s.name[lang] || s.name.en;
+      if (s.id === id) return pick(s.name, lang);
     }
   }
   return id;

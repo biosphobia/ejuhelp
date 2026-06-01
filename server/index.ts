@@ -16,7 +16,10 @@ app.use(express.json({ limit: '16mb' }));
 
 const isSubject = (s: unknown): s is Subject =>
   typeof s === 'string' && (SUBJECTS as string[]).includes(s);
-const toLang = (l: unknown): 'en' | 'ja' => (l === 'ja' ? 'ja' : 'en');
+const LANGS = ['en', 'ja', 'zh', 'tr'] as const;
+type Lang = (typeof LANGS)[number];
+const toLang = (l: unknown): Lang =>
+  typeof l === 'string' && (LANGS as readonly string[]).includes(l) ? (l as Lang) : 'en';
 
 function handleErr(e: any, res: Response) {
   const status = Number.isInteger(e?.status) && e.status >= 400 && e.status < 600 ? e.status : 500;

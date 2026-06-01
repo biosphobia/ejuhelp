@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import Panel, { SubjectChips } from '../Panel';
 import Markdown from '../Markdown';
 import { ErrorNote, errorMessage } from '../atoms';
-import { SpinnerIcon, CheckIcon } from '../icons';
+import { SpinnerIcon, CheckIcon, TrashIcon } from '../icons';
 import { useAsk, type CheckMeta } from '../../lib/ask';
 import { usePractice } from '../../lib/practice';
 import { errorTagLabel } from '../../lib/labels';
@@ -113,9 +113,10 @@ export default function AskPanel() {
           <button
             type="button"
             onClick={reset}
-            className="shrink-0 text-xs font-semibold text-slate-400 hover:text-slate-700"
+            title={t('clearChatHint')}
+            className="inline-flex shrink-0 items-center gap-1 text-xs font-semibold text-slate-400 hover:text-red-600"
           >
-            {t('clearChat')}
+            <TrashIcon className="h-3.5 w-3.5" /> {t('clearChat')}
           </button>
         ) : null}
       </div>
