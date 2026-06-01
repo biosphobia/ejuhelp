@@ -12,7 +12,7 @@ const here = dirname(fileURLToPath(import.meta.url));
 const app = express();
 
 app.use(cors());
-app.use(express.json({ limit: '16mb' })); // whiteboard PNGs can be a few MB
+app.use(express.json({ limit: '16mb' })); 
 
 const isSubject = (s: unknown): s is Subject =>
   typeof s === 'string' && (SUBJECTS as string[]).includes(s);
@@ -40,20 +40,17 @@ app.post('/api/eju/topics', (req: Request, res: Response) => {
 
 // Helper to extract BYOK credentials from requests
 const getAiContext = (req: Request) => {
-  const model = req.body?.model || 'gemini'; // Default to gemini
+  const model = req.body?.model || 'gemini'; 
   const userKey = req.headers['x-user-api-key'] as string | undefined;
   return { model, userKey };
 };
 
-// Unified Chat Router endpoints
 app.post('/api/claude/ask', requireAuth, async (req: Request, res: Response) => {
   try {
     const { subject, lang, messages } = req.body ?? {};
     const { model, userKey } = getAiContext(req);
     if (!isSubject(subject)) return res.status(400).json({ error: 'bad_subject' });
     
-    // TODO: Add Gemini / GPT routing branches here. 
-    // For now, if model is claude (or fallback), route to Anthropic API
     const result = await ask({
       subject,
       lang: toLang(lang),
