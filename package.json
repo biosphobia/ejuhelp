@@ -13,6 +13,8 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@google/generative-ai": "^0.11.0",
+    "openai": "^4.47.1",
     "@anthropic-ai/sdk": "^0.65.0",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
