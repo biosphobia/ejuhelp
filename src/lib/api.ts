@@ -1,5 +1,6 @@
 import { getIdToken } from './auth';
 import type { Subject, Lang } from './ui';
+import { useApiStore } from './apiStore';
 
 export class ApiError extends Error {
   status: number;
@@ -15,14 +16,20 @@ export class ApiError extends Error {
 
 async function call<T>(path: string, body: unknown): Promise<T> {
   const token = await getIdToken();
+  
+  const { activeModel, claudeKey, gptKey } = useApiStore.getState();
+  const userKey = activeModel === 'claude' ? claudeKey : activeModel === 'gpt' ? gptKey : undefined;
+
   const res = await fetch(`/api/${path}`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
       ...(token ? { Authorization: `Bearer ${token}` } : {}),
+      ...(userKey ? { 'x-user-api-key': userKey } : {}),
     },
-    body: JSON.stringify(body),
+    body: JSON.stringify({ ...(body as Record<string, unknown>), model: activeModel }),
   });
+  
   const data = (await res.json().catch(() => ({}))) as Record<string, unknown>;
   if (!res.ok) {
     throw new ApiError(
