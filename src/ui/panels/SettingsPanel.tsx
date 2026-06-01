@@ -8,6 +8,8 @@ export default function SettingsPanel() {
   const t = useT();
   const lang = useUI((s) => s.lang);
   const setLang = useUI((s) => s.setLang);
+  const fingerDraw = useUI((s) => s.fingerDraw);
+  const setFingerDraw = useUI((s) => s.setFingerDraw);
 
   const LangBtn = ({ value, label }: { value: Lang; label: string }) => (
     <button
@@ -35,10 +37,33 @@ export default function SettingsPanel() {
         </div>
       </div>
 
+      <div className="mb-6">
+        <Label>{t('inputMode')}</Label>
+        <div className="flex gap-2">
+          <ModeBtn on={fingerDraw} onClick={() => setFingerDraw(true)} label={t('fingerDraw')} />
+          <ModeBtn on={!fingerDraw} onClick={() => setFingerDraw(false)} label={t('pencilOnly')} />
+        </div>
+        <p className="mt-2 text-xs leading-relaxed text-slate-500">{t('inputHint')}</p>
+      </div>
+
       <div>
         <Label>{t('defaultSubject')}</Label>
         <SubjectChips />
       </div>
     </Panel>
+  );
+}
+
+function ModeBtn({ on, onClick, label }: { on: boolean; onClick: () => void; label: string }) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className={`flex-1 rounded-xl px-3 py-2.5 text-sm font-semibold transition ${
+        on ? 'bg-slate-900 text-white' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+      }`}
+    >
+      {label}
+    </button>
   );
 }

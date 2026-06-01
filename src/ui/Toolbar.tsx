@@ -4,8 +4,9 @@ import {
   useBoard,
   type InkColor,
 } from '../lib/board';
+import { useUI } from '../lib/ui';
 import { useT } from '../i18n';
-import { PenIcon, EraserIcon, UndoIcon, TrashIcon } from './icons';
+import { PenIcon, EraserIcon, UndoIcon, TrashIcon, HandIcon } from './icons';
 
 const COLORS: InkColor[] = ['black', 'red', 'blue', 'green'];
 
@@ -45,6 +46,8 @@ export default function Toolbar() {
   const setSize = useBoard((s) => s.setSize);
   const undoLast = useBoard((s) => s.undoLast);
   const clearCurrentPage = useBoard((s) => s.clearCurrentPage);
+  const fingerDraw = useUI((s) => s.fingerDraw);
+  const setFingerDraw = useUI((s) => s.setFingerDraw);
 
   return (
     <div className="pointer-events-auto absolute left-3 top-3 flex max-w-[92vw] flex-wrap items-center gap-1 rounded-2xl bg-white/90 p-1.5 shadow-lg ring-1 ring-black/5 backdrop-blur safe-pad-top">
@@ -103,6 +106,16 @@ export default function Toolbar() {
       </IconBtn>
       <IconBtn onClick={clearCurrentPage} title={t('clearPage')}>
         <TrashIcon />
+      </IconBtn>
+
+      <span className="mx-1 h-7 w-px bg-slate-200" />
+
+      <IconBtn
+        active={fingerDraw}
+        onClick={() => setFingerDraw(!fingerDraw)}
+        title={fingerDraw ? t('fingerDraw') : t('pencilOnly')}
+      >
+        <HandIcon />
       </IconBtn>
     </div>
   );

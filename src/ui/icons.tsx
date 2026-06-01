@@ -101,6 +101,20 @@ export const MenuIcon = (p: SVGProps<SVGSVGElement>) => (
     <path d="M4 7h16M4 12h16M4 17h16" />
   </svg>
 );
+export const HandIcon = (p: SVGProps<SVGSVGElement>) => (
+  <svg {...base(p)}>
+    <path d="M7 11V6a1.5 1.5 0 0 1 3 0v4" />
+    <path d="M10 10V4.5a1.5 1.5 0 0 1 3 0V10" />
+    <path d="M13 10V5.5a1.5 1.5 0 0 1 3 0V12" />
+    <path d="M16 11.5a1.5 1.5 0 0 1 3 0V15a6 6 0 0 1-6 6h-1.5a5 5 0 0 1-3.6-1.5L4 16s1-1 2.2-.5L9 17" />
+  </svg>
+);
+export const PencilTipIcon = (p: SVGProps<SVGSVGElement>) => (
+  <svg {...base(p)}>
+    <path d="M5 19l2.5-.5L19 7l-2.5-2.5L5 16l-.5 2.5z" />
+    <path d="M14.5 6.5l3 3" />
+  </svg>
+);
 export const GlobeIcon = (p: SVGProps<SVGSVGElement>) => (
   <svg {...base(p)}>
     <circle cx="12" cy="12" r="9" />

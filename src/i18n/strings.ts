@@ -111,6 +111,13 @@ export const strings = {
   // Settings
   settingsTitle: { en: 'Settings', ja: '設定' },
   defaultSubject: { en: 'Default subject', ja: '初期科目' },
+  inputMode: { en: 'Drawing input', ja: '描画の入力' },
+  fingerDraw: { en: 'Finger / Pencil draws', ja: '指・ペンシルで描く' },
+  pencilOnly: { en: 'Stylus only (palm rejection)', ja: 'スタイラスのみ（手のひら無視）' },
+  inputHint: {
+    en: 'On: one finger or any Pencil draws, two fingers pan/zoom — best if your Apple Pencil isn’t detected. Off: only a pressure stylus draws and touches navigate, so you can rest your palm.',
+    ja: 'オン：指やペンシルで描き、2本指で移動・拡大。Apple Pencilが認識されない場合に最適。オフ：筆圧スタイラスのみ描画、タッチは移動操作になり手のひらを置けます。',
+  },
 
   // Errors / misc
   needKey: {
