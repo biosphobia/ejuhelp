@@ -591,10 +591,14 @@ export default function Whiteboard() {
       invalidate();
     }
 
-    // ---- pointer events ----
-    function onPointerDown(e: PointerEvent) {
+function onPointerDown(e: PointerEvent) {
       dbg(e);
-      if (e.pointerType === 'pen') penSeen = true;
+      if (e.pointerType === 'pen') {
+        penSeen = true;
+        // CRITICAL FIX: Prevent the browser from intercepting or delaying low-latency pen inputs.
+        // This solves iOS Safari dropping pointerup/pointermove events on rapid taps/dashes.
+        e.preventDefault();
+      }
 
       // SELECT tool: pen/mouse/single-touch manipulate the selection; two fingers pan/zoom.
       if (useBoard.getState().tool === 'select') {
@@ -624,9 +628,7 @@ export default function Whiteboard() {
           if (drawKind === 'finger') abortStroke();
           else endStroke();
         }
-        // Deliberately NO e.preventDefault() and NO setPointerCapture here — both can
-        // make iOS Safari drop the pointerup of a quick Pencil tap. touch-action:none
-        // already blocks scrolling; window-level move/up keep strokes continuous.
+        
         beginStroke(e, 'pen');
         commitPresent();
         return;
