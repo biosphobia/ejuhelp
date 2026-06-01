@@ -20,8 +20,12 @@ const toLang = (l: unknown): 'en' | 'ja' => (l === 'ja' ? 'ja' : 'en');
 
 function handleErr(e: any, res: Response) {
   const status = Number.isInteger(e?.status) && e.status >= 400 && e.status < 600 ? e.status : 500;
-  console.error('[api] error', status, e?.message ?? e);
-  res.status(status).json({ error: e?.error?.type ?? e?.message ?? 'server_error' });
+  // Anthropic SDK errors carry the real reason at e.error.error.{type,message}
+  const inner = e?.error?.error;
+  const code = inner?.type ?? e?.code ?? e?.message ?? 'server_error';
+  const message = inner?.message ?? e?.message ?? 'Unexpected server error';
+  console.error('[api] error', status, code, '-', message);
+  res.status(status).json({ error: code, message, status });
 }
 
 app.get('/api/health', (_req, res) => {

@@ -181,6 +181,16 @@ export const strings = {
     en: 'The Claude backend is not configured (missing API key).',
     ja: 'Claudeバックエンドが未設定です（APIキーがありません）。',
   },
+  authBackendErr: {
+    en: 'Backend login verification is not set up. Set ALLOW_ANON=true, or add Firebase Admin credentials.',
+    ja: 'バックエンドのログイン検証が未設定です。ALLOW_ANON=true にするか、Firebase Admin の認証情報を設定してください。',
+  },
+  needSignIn: {
+    en: 'Please sign in to use the AI features.',
+    ja: 'AI機能を使うにはログインしてください。',
+  },
+  mixedTopics: { en: 'Mixed — all topics', ja: 'ミックス（全分野）' },
+  wholeSubject: { en: 'Whole subject', ja: '科目全体' },
   emptyBoard: {
     en: 'Your page looks empty — write your solution first.',
     ja: 'ページが空のようです。まず答案を書いてください。',

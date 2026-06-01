@@ -63,7 +63,7 @@ export default function NotesPanel() {
               onChange={(e) => setTopic(e.target.value)}
               className="min-w-0 flex-1 rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:border-slate-400"
             >
-              <option value="">{t('anyTopic')}</option>
+              <option value="">{t('wholeSubject')}</option>
               {topics.map((tp) => (
                 <option key={tp.id} value={tp.id}>
                   {tp.name}

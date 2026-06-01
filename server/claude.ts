@@ -2,7 +2,7 @@ import Anthropic from '@anthropic-ai/sdk';
 import { systemContextFor, labelFor, type Subject } from './eju';
 
 const MODEL = process.env.ANTHROPIC_MODEL || 'claude-opus-4-8';
-const EFFORT = (process.env.ANTHROPIC_EFFORT || 'medium') as 'low' | 'medium' | 'high' | 'max';
+const USE_THINKING = process.env.ANTHROPIC_THINKING !== 'off';
 
 type Lang = 'en' | 'ja';
 type ChatMessage = { role: 'user' | 'assistant'; content: string };
@@ -22,6 +22,34 @@ export function hasApiKey(): boolean {
   return Boolean(process.env.ANTHROPIC_API_KEY);
 }
 
+/**
+ * Create a message. If the model/SDK rejects a newer parameter with a 400,
+ * retry once without `thinking` so the call still succeeds on older models.
+ */
+async function createMessage(params: any): Promise<any> {
+  try {
+    return await getClient().messages.create(params);
+  } catch (e: any) {
+    const status = e?.status;
+    if (status === 400 && params.thinking) {
+      const { thinking, ...rest } = params;
+      console.warn('[claude] 400 with thinking; retrying without it:', e?.error?.error?.message ?? e?.message);
+      return await getClient().messages.create(rest);
+    }
+    throw e;
+  }
+}
+
+function baseParams(subject: Subject, lang: Lang, opts: { maxTokens: number; extra?: string }) {
+  const p: any = {
+    model: MODEL,
+    max_tokens: opts.maxTokens,
+    system: systemBlocks(subject, lang, opts.extra),
+  };
+  if (USE_THINKING) p.thinking = { type: 'adaptive' };
+  return p;
+}
+
 const GLOBAL_INSTRUCTIONS =
   'You are an expert tutor and question-writer for the EJU (Examination for Japanese University ' +
   'Admission for International Students). You help students study efficiently and accurately. Be ' +
@@ -32,7 +60,6 @@ const GLOBAL_INSTRUCTIONS =
 const langLine = (lang: Lang) =>
   lang === 'ja' ? 'Always respond in Japanese (日本語).' : 'Always respond in English.';
 
-// system = stable global + cached subject KB + small per-call directives (after the cache breakpoint)
 function systemBlocks(subject: Subject, lang: Lang, extra?: string) {
   const blocks: any[] = [
     { type: 'text', text: GLOBAL_INSTRUCTIONS },
@@ -51,26 +78,35 @@ function textOf(message: { content?: Array<{ type: string; text?: string }> }): 
     .trim();
 }
 
-function parseJson<T>(raw: string, fallback: T): T {
+/** Robustly pull a JSON value out of a model reply (handles code fences / stray prose). */
+function extractJson<T>(raw: string, fallback: T): T {
+  if (!raw) return fallback;
+  let s = raw.trim();
+  const fence = /```(?:json)?\s*([\s\S]*?)```/i.exec(s);
+  if (fence) s = fence[1].trim();
   try {
-    return JSON.parse(raw) as T;
+    return JSON.parse(s) as T;
   } catch {
-    return fallback;
+    /* fall through */
   }
+  const startObj = s.indexOf('{');
+  const startArr = s.indexOf('[');
+  let start = -1;
+  if (startObj === -1) start = startArr;
+  else if (startArr === -1) start = startObj;
+  else start = Math.min(startObj, startArr);
+  const end = Math.max(s.lastIndexOf('}'), s.lastIndexOf(']'));
+  if (start !== -1 && end > start) {
+    try {
+      return JSON.parse(s.slice(start, end + 1)) as T;
+    } catch {
+      /* fall through */
+    }
+  }
+  return fallback;
 }
 
 const writeLang = (lang: Lang) => (lang === 'ja' ? 'Japanese' : 'English');
-
-const KEYPOINT_ITEM = {
-  type: 'object',
-  additionalProperties: false,
-  properties: {
-    kind: { type: 'string', enum: ['formula', 'fact'] },
-    text: { type: 'string' },
-    topic: { type: 'string' },
-  },
-  required: ['kind', 'text'],
-};
 
 function cleanKeyPoints(arr: any): KeyPointDTO[] {
   if (!Array.isArray(arr)) return [];
@@ -85,19 +121,10 @@ function cleanKeyPoints(arr: any): KeyPointDTO[] {
 }
 
 // ─── Ask: conversational tutor that also auto-extracts memorize-worthy points ───
-const ASK_SCHEMA = {
-  type: 'object',
-  additionalProperties: false,
-  properties: {
-    answer: { type: 'string' },
-    keyPoints: { type: 'array', items: KEYPOINT_ITEM },
-  },
-  required: ['answer', 'keyPoints'],
-};
 const ASK_DIRECTIVE =
-  'Respond as JSON: put your full tutoring reply (markdown allowed) in "answer", and 0-4 genuinely ' +
-  'memorize-worthy formulas or key facts from your reply in "keyPoints" (kind "formula" or "fact", ' +
-  'with the relevant topic). Leave "keyPoints" empty if nothing is truly worth memorizing.';
+  'Respond with ONLY a single JSON object and no other text or code fences: ' +
+  '{"answer": "<your full tutoring reply, markdown allowed>", "keyPoints": [{"kind":"formula"|"fact","text":"...","topic":"..."}]}. ' +
+  'Put 0-4 genuinely memorize-worthy formulas/key facts from your reply in "keyPoints" (empty array if none).';
 
 export async function ask(args: {
   subject: Subject;
@@ -109,44 +136,17 @@ export async function ask(args: {
     .map((m) => ({ role: m.role === 'assistant' ? 'assistant' : 'user', content: m.content }));
   if (!messages.length) return { text: '', keyPoints: [] };
 
-  const params: any = {
-    model: MODEL,
-    max_tokens: 8000,
-    thinking: { type: 'adaptive' },
-    output_config: { effort: EFFORT, format: { type: 'json_schema', schema: ASK_SCHEMA } },
-    system: systemBlocks(args.subject, args.lang, ASK_DIRECTIVE),
+  const r = await createMessage({
+    ...baseParams(args.subject, args.lang, { maxTokens: 8000, extra: ASK_DIRECTIVE }),
     messages,
-  };
-  const r = await getClient().messages.create(params);
-  const parsed = parseJson<{ answer?: string; keyPoints?: any }>(textOf(r), {});
-  return { text: String(parsed.answer ?? ''), keyPoints: cleanKeyPoints(parsed.keyPoints) };
+  });
+  const raw = textOf(r);
+  const parsed = extractJson<{ answer?: string; keyPoints?: any } | null>(raw, null);
+  if (!parsed) return { text: raw, keyPoints: [] }; // graceful: show the reply even if not JSON
+  return { text: String(parsed.answer ?? raw), keyPoints: cleanKeyPoints(parsed.keyPoints) };
 }
 
 // ─── Generate EJU-style questions (with optional weak-point focus) ───
-const QUESTION_SCHEMA = {
-  type: 'object',
-  additionalProperties: false,
-  properties: {
-    questions: {
-      type: 'array',
-      items: {
-        type: 'object',
-        additionalProperties: false,
-        properties: {
-          topic: { type: 'string' },
-          prompt: { type: 'string' },
-          choices: { type: 'array', items: { type: 'string' } },
-          answerIndex: { type: 'integer' },
-          answer: { type: 'string' },
-          explanation: { type: 'string' },
-        },
-        required: ['topic', 'prompt', 'answerIndex', 'answer', 'explanation'],
-      },
-    },
-  },
-  required: ['questions'],
-};
-
 export interface GenQuestion {
   id: string;
   topic: string;
@@ -172,33 +172,27 @@ export async function generate(args: {
     `Generate ${n} EJU-style ${args.subject} question(s)${tName ? ` specifically on: ${tName}` : ' across the most exam-relevant topics'}.`,
     `Difficulty: ${args.difficulty} ("medium" = typical EJU exam level).`,
     'Match the authentic EJU question style, format, topic scope, and difficulty from the knowledge base.',
-    'Prefer multiple-choice: include 4-5 plausible choices and set "answerIndex" to the 0-based index of the correct choice. For a non-multiple-choice question, leave "choices" empty and set "answerIndex" to -1.',
-    'Always also fill "answer" with the correct answer in words, and "explanation" with a clear worked solution.',
-    '"topic" = the specific sub-topic tested.',
+    'Prefer multiple-choice with 4-5 plausible choices.',
   ];
   if (args.focus && (args.focus.topics?.length || args.focus.tags?.length)) {
-    if (args.focus.topics?.length) {
-      parts.push(`Personalize for this student — they are currently weakest in: ${args.focus.topics.join('; ')}. Prioritize these.`);
-    }
-    if (args.focus.tags?.length) {
+    if (args.focus.topics?.length)
+      parts.push(`Personalize: the student is currently weakest in: ${args.focus.topics.join('; ')}. Prioritize these.`);
+    if (args.focus.tags?.length)
       parts.push(
-        `They frequently make these mistakes: ${args.focus.tags.join(', ')}. Design questions that specifically probe and help correct these (e.g. require careful unit conversion if "units"; sign-sensitive steps if "sign").`
+        `They frequently make these mistakes: ${args.focus.tags.join(', ')}. Design questions that specifically probe and help fix them (e.g. require careful unit conversion if "units").`
       );
-    }
   }
   parts.push(`Write everything in ${writeLang(args.lang)}.`);
+  parts.push(
+    'Respond with ONLY a single JSON object, no other text or code fences: ' +
+      '{"questions":[{"topic":"<sub-topic>","prompt":"...","choices":["..."],"answerIndex":<0-based index of the correct choice, or -1 if not multiple-choice>,"answer":"<correct answer in words>","explanation":"<clear worked solution>"}]}.'
+  );
 
-  const params: any = {
-    model: MODEL,
-    max_tokens: 16000,
-    thinking: { type: 'adaptive' },
-    output_config: { effort: EFFORT, format: { type: 'json_schema', schema: QUESTION_SCHEMA } },
-    system: systemBlocks(args.subject, args.lang),
+  const r = await createMessage({
+    ...baseParams(args.subject, args.lang, { maxTokens: 16000 }),
     messages: [{ role: 'user', content: parts.join(' ') }],
-  };
-
-  const r = await getClient().messages.create(params);
-  const parsed = parseJson<{ questions?: any[] }>(textOf(r), { questions: [] });
+  });
+  const parsed = extractJson<{ questions?: any[] }>(textOf(r), { questions: [] });
   const questions: GenQuestion[] = (parsed.questions ?? []).map((q: any, i: number) => {
     const choices = Array.isArray(q.choices) && q.choices.length ? q.choices.map(String) : undefined;
     const idx = Number.isInteger(q.answerIndex) ? q.answerIndex : -1;
@@ -217,17 +211,6 @@ export async function generate(args: {
 
 // ─── Check handwritten work: structured grading that classifies the error type ───
 const ERROR_TAGS = ['units', 'sign', 'arithmetic', 'algebra', 'concept', 'formula', 'misread', 'incomplete', 'none'];
-const CHECK_SCHEMA = {
-  type: 'object',
-  additionalProperties: false,
-  properties: {
-    feedback: { type: 'string' },
-    correct: { type: 'string', enum: ['yes', 'no', 'partial', 'unknown'] },
-    topic: { type: 'string' },
-    errorTags: { type: 'array', items: { type: 'string', enum: ERROR_TAGS } },
-  },
-  required: ['feedback', 'correct', 'topic', 'errorTags'],
-};
 
 export interface CheckResult {
   feedback: string;
@@ -251,23 +234,16 @@ export async function check(args: {
       ? `The student is working on this EJU practice question:\n"""\n${args.question}\n"""\n`
       : 'The student has written some work below (no specific question attached).\n',
     "The image is the student's handwritten work captured from a whiteboard.",
-    'Produce JSON:',
-    '- "feedback": markdown with short headings — briefly transcribe the key readable steps; say whether it is correct; pinpoint the FIRST error/misconception precisely; give a short hint to fix it WITHOUT revealing the full answer unless already complete; end with a one-line encouraging summary.',
-    `- "correct": "yes" if fully correct, "no" if wrong, "partial" if on the right track but incomplete/with a fixable slip, "unknown" if you cannot tell${args.question ? '' : ' (often "unknown" with no question attached)'}.`,
-    '- "topic": the specific EJU sub-topic this work is about.',
-    '- "errorTags": the kinds of mistakes present, from this set only: units, sign, arithmetic, algebra, concept, formula, misread, incomplete, none. Use ["none"] if correct.',
+    'Respond with ONLY a single JSON object, no other text or code fences:',
+    '{"feedback":"<markdown with short headings: transcribe the key readable steps; say whether it is correct; pinpoint the FIRST error precisely; give a short hint to fix it without revealing the full answer unless already complete; end with a one-line encouraging summary>",',
+    `"correct":"yes"|"no"|"partial"|"unknown" (partial = on the right track but incomplete/with a fixable slip${args.question ? '' : '; often "unknown" with no question attached'}),`,
+    '"topic":"<the specific EJU sub-topic>",',
+    `"errorTags":[ subset of ${JSON.stringify(ERROR_TAGS)} ; use ["none"] if correct ]}.`,
     `Write "feedback" in ${writeLang(args.lang)}.`,
   ].join('\n');
 
-  const params: any = {
-    model: MODEL,
-    max_tokens: 4000,
-    thinking: { type: 'adaptive' },
-    output_config: {
-      effort: EFFORT === 'low' ? 'medium' : EFFORT,
-      format: { type: 'json_schema', schema: CHECK_SCHEMA },
-    },
-    system: systemBlocks(args.subject, args.lang),
+  const r = await createMessage({
+    ...baseParams(args.subject, args.lang, { maxTokens: 4000 }),
     messages: [
       {
         role: 'user',
@@ -277,17 +253,15 @@ export async function check(args: {
         ],
       },
     ],
-  };
-  const r = await getClient().messages.create(params);
-  const p = parseJson<Partial<CheckResult>>(textOf(r), {});
+  });
+  const raw = textOf(r);
+  const p = extractJson<Partial<CheckResult>>(raw, {});
   const correct = (['yes', 'no', 'partial', 'unknown'] as const).includes(p.correct as any)
     ? (p.correct as CheckResult['correct'])
     : 'unknown';
-  const errorTags = Array.isArray(p.errorTags)
-    ? p.errorTags.filter((t) => ERROR_TAGS.includes(t))
-    : [];
+  const errorTags = Array.isArray(p.errorTags) ? p.errorTags.filter((t) => ERROR_TAGS.includes(t)) : [];
   return {
-    feedback: String(p.feedback ?? ''),
+    feedback: String(p.feedback ?? raw ?? ''),
     correct,
     topic: String(p.topic ?? ''),
     errorTags,
@@ -295,13 +269,6 @@ export async function check(args: {
 }
 
 // ─── Key points generator (formulas/facts to memorize) ───
-const KP_SCHEMA = {
-  type: 'object',
-  additionalProperties: false,
-  properties: { keyPoints: { type: 'array', items: KEYPOINT_ITEM } },
-  required: ['keyPoints'],
-};
-
 export async function keypoints(args: {
   subject: Subject;
   lang: Lang;
@@ -310,20 +277,15 @@ export async function keypoints(args: {
   const tName = args.topic ? labelFor(args.subject, args.topic, args.lang) : null;
   const userText = [
     `List the most important must-memorize formulas and key facts for EJU ${args.subject}${tName ? ` on: ${tName}` : ''}.`,
-    'Focus strictly on what a student must be able to recall in the exam, based on the past-paper archetypes.',
-    'Return 5-10 concise key points, each tagged kind "formula" or "fact" with its topic.',
+    'Focus strictly on what a student must recall in the exam, based on the past-paper archetypes. Return 5-10 concise key points.',
     `Write each point in ${writeLang(args.lang)}.`,
+    'Respond with ONLY a single JSON object, no other text or code fences: {"keyPoints":[{"kind":"formula"|"fact","text":"...","topic":"..."}]}.',
   ].join(' ');
 
-  const params: any = {
-    model: MODEL,
-    max_tokens: 4000,
-    thinking: { type: 'adaptive' },
-    output_config: { effort: EFFORT, format: { type: 'json_schema', schema: KP_SCHEMA } },
-    system: systemBlocks(args.subject, args.lang),
+  const r = await createMessage({
+    ...baseParams(args.subject, args.lang, { maxTokens: 4000 }),
     messages: [{ role: 'user', content: userText }],
-  };
-  const r = await getClient().messages.create(params);
-  const parsed = parseJson<{ keyPoints?: any }>(textOf(r), {});
+  });
+  const parsed = extractJson<{ keyPoints?: any }>(textOf(r), {});
   return { keyPoints: cleanKeyPoints(parsed.keyPoints) };
 }

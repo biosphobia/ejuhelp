@@ -59,6 +59,10 @@ export default function GeneratePanel() {
         if (!alive) return;
         setTopics(r.topics);
         setSubtopics(r.subtopics ?? []);
+        // Default to a specific category rather than "mixed".
+        const us = subject === 'physics' || subject === 'chemistry';
+        const first = (us ? r.subtopics?.[0]?.id : r.topics?.[0]?.id) ?? '';
+        setTopic(first);
       })
       .catch(() => {
         if (!alive) return;
@@ -146,7 +150,6 @@ export default function GeneratePanel() {
             onChange={(e) => setTopic(e.target.value)}
             className="w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:border-slate-400 disabled:opacity-50"
           >
-            <option value="">{t('anyTopic')}</option>
             {useSub
               ? grouped.map(([group, items]) => (
                   <optgroup key={group} label={group}>
@@ -162,6 +165,7 @@ export default function GeneratePanel() {
                     {tp.name}
                   </option>
                 ))}
+            <option value="">{t('mixedTopics')}</option>
           </select>
         </div>
         <div>

@@ -33,13 +33,20 @@ export interface AuthedRequest extends Request {
  * Verify the caller's Firebase ID token. In local dev (ALLOW_ANON=true) or when
  * Firebase Admin isn't configured, requests pass through anonymously.
  */
+let warnedNoAdmin = false;
+
 export async function requireAuth(req: AuthedRequest, res: Response, next: NextFunction) {
   initAdmin();
   const allowAnon = process.env.ALLOW_ANON === 'true';
 
+  // No Admin credentials means we cannot verify logins at all — allow through so the
+  // app works with just an API key. Add Firebase Admin creds to actually enforce login.
   if (!adminAvailable) {
-    if (allowAnon) return next();
-    return res.status(401).json({ error: 'auth_not_configured' });
+    if (!warnedNoAdmin) {
+      warnedNoAdmin = true;
+      console.warn('[auth] Firebase Admin not configured — API is open. Set FIREBASE_SERVICE_ACCOUNT to require login.');
+    }
+    return next();
   }
 
   const header = req.headers.authorization ?? '';

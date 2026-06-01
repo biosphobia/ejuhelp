@@ -48,7 +48,9 @@ export function useErrorMessage() {
 export function errorMessage(e: unknown, t: TFunc): string {
   if (e instanceof ApiError) {
     if (e.code === 'no_api_key') return t('needKey');
-    if (e.status === 401) return t('error');
+    if (e.code === 'auth_not_configured') return t('authBackendErr');
+    if (e.code === 'missing_token' || e.code === 'invalid_token') return t('needSignIn');
+    if (e.detail) return e.detail; // the real backend / Claude API message
   }
   return t('error');
 }

@@ -4,10 +4,12 @@ import type { Subject, Lang } from './ui';
 export class ApiError extends Error {
   status: number;
   code: string;
-  constructor(code: string, status: number) {
-    super(code);
+  detail?: string;
+  constructor(code: string, status: number, detail?: string) {
+    super(detail || code);
     this.code = code;
     this.status = status;
+    this.detail = detail;
   }
 }
 
@@ -23,7 +25,11 @@ async function call<T>(path: string, body: unknown): Promise<T> {
   });
   const data = (await res.json().catch(() => ({}))) as Record<string, unknown>;
   if (!res.ok) {
-    throw new ApiError(String(data?.error ?? 'request_failed'), res.status);
+    throw new ApiError(
+      String(data?.error ?? 'request_failed'),
+      res.status,
+      typeof data?.message === 'string' ? (data.message as string) : undefined
+    );
   }
   return data as T;
 }

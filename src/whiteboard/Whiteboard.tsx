@@ -12,6 +12,7 @@ import { drawStroke, strokeHit } from './render';
 import { boardEvents } from './view';
 
 const ERASER_RADIUS = 14; // screen px
+const PALM_SIZE = 40; // touch contacts wider/taller than this (px) are treated as a resting palm
 
 const clamp = (n: number, lo: number, hi: number) => Math.max(lo, Math.min(hi, n));
 
@@ -244,6 +245,8 @@ export default function Whiteboard() {
 
     // ---- pointer events ----
     function onPointerDown(e: PointerEvent) {
+      // Reject a resting palm: large contact area, never a pen tip or fingertip.
+      if (e.pointerType === 'touch' && (e.width > PALM_SIZE || e.height > PALM_SIZE)) return;
       if (e.pointerType === 'touch') touches.set(e.pointerId, { x: e.clientX, y: e.clientY });
 
       // A real stylus / mouse always draws and takes priority over finger interaction.
