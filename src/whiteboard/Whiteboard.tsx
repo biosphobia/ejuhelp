@@ -291,12 +291,17 @@ export default function Whiteboard() {
       // Pen / mouse always draw and take priority.
       if (e.pointerType === 'pen' || e.pointerType === 'mouse') {
         cancelGesture();
-        if (drawId !== null && drawKind === 'finger') abortStroke();
-        // No setPointerCapture: on iOS it can swallow the pointerup of a quick tap.
-        // Continuity across the floating UI is handled by window-level move/up listeners.
+        // Finish any previous stroke first, so a missed pointerup can't strand it:
+        // commit a stuck stylus stroke; discard a stray finger/palm stroke.
+        if (drawId !== null) {
+          if (drawKind === 'finger') abortStroke();
+          else endStroke();
+        }
+        // Deliberately NO e.preventDefault() and NO setPointerCapture here — both can
+        // make iOS Safari drop the pointerup of a quick Pencil tap. touch-action:none
+        // already blocks scrolling; window-level move/up keep strokes continuous.
         beginStroke(e, 'pen');
         commitPresent();
-        e.preventDefault();
         return;
       }
 
@@ -358,8 +363,11 @@ export default function Whiteboard() {
     }
 
     function endPointer(e: PointerEvent) {
-      // Active draw (pen/mouse/touch) — commit it.
-      if (drawId === e.pointerId) {
+      const penUp = e.pointerType === 'pen' || e.pointerType === 'mouse';
+      // Commit the active draw. Tolerate a pointerId mismatch on pen/mouse up (iOS can
+      // report a different id for up than down on a quick tap), but never let a
+      // palm/finger lift end an active stylus stroke.
+      if (drawId !== null && (drawId === e.pointerId || (drawKind === 'pen' && penUp))) {
         if (e.pointerType === 'touch') touches.delete(e.pointerId);
         endStroke();
         return;
