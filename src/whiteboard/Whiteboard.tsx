@@ -140,6 +140,12 @@ export default function Whiteboard() {
         });
       }
     }
+    // Paint now (low latency) AND queue one rAF frame, so a static result like a
+    // single dot is actually presented on the desynchronized (low-latency) canvas.
+    function commitPresent() {
+      paintNow();
+      schedule();
+    }
     function invalidate() {
       cacheDirty = true;
       schedule();
@@ -215,7 +221,7 @@ export default function Whiteboard() {
         drawing = null;
         drawId = null;
         drawKind = null;
-        paintNow();
+        commitPresent();
         return;
       }
       if (erasing) {
@@ -292,7 +298,7 @@ export default function Whiteboard() {
           /* noop */
         }
         beginStroke(e, 'pen');
-        paintNow();
+        commitPresent();
         e.preventDefault();
         return;
       }
@@ -316,10 +322,10 @@ export default function Whiteboard() {
         !penSeen && e.width > 0 && e.width <= STYLUS_MAX && e.height > 0 && e.height <= STYLUS_MAX;
       if (fingerDraw) {
         beginStroke(e, 'finger');
-        paintNow();
+        commitPresent();
       } else if (tinyStylus) {
         beginStroke(e, 'pen'); // a touch-reported stylus tip
-        paintNow();
+        commitPresent();
       } else {
         gestureActive = true; // single-finger pan
         startGesture();
