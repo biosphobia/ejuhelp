@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { existsSync } from 'node:fs';
 import { requireAuth } from './auth';
-import { topicsFor, subtopicsFor, SUBJECTS, type Subject } from './eju';
+import { topicsFor, subtopicsFor, mockExamList, mockExam, SUBJECTS, type Subject } from './eju';
 import { hasApiKey, ask, generate, check, keypoints } from './claude';
 
 const here = dirname(fileURLToPath(import.meta.url));
@@ -39,6 +39,18 @@ app.post('/api/eju/topics', (req: Request, res: Response) => {
   if (!isSubject(subject)) return res.status(400).json({ error: 'bad_subject' });
   const l = toLang(lang);
   res.json({ topics: topicsFor(subject, l), subtopics: subtopicsFor(subject, l) });
+});
+
+// Mock exams (exact past-paper review) — public, no Claude call needed.
+app.post('/api/eju/exams', (_req: Request, res: Response) => {
+  res.json({ exams: mockExamList() });
+});
+
+app.post('/api/eju/exam', (req: Request, res: Response) => {
+  const id = req.body?.id;
+  const exam = typeof id === 'string' ? mockExam(id) : null;
+  if (!exam) return res.status(404).json({ error: 'not_found' });
+  res.json(exam);
 });
 
 // Helper to extract BYOK credentials from requests

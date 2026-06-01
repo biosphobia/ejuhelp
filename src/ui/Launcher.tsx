@@ -3,6 +3,7 @@ import { useT, type StringKey } from '../i18n';
 import {
   AskIcon,
   GenerateIcon,
+  ExamIcon,
   NotesIcon,
   ChartIcon,
   TimerIcon,
@@ -17,6 +18,7 @@ type Item = { id: Exclude<PanelId, null>; label: StringKey; Icon: typeof AskIcon
 const PRIMARY: Item[] = [
   { id: 'ask', label: 'askCoach', Icon: AskIcon },
   { id: 'generate', label: 'generate', Icon: GenerateIcon },
+  { id: 'exams', label: 'exams', Icon: ExamIcon },
   { id: 'progress', label: 'progress', Icon: ChartIcon },
   { id: 'notes', label: 'notes', Icon: NotesIcon },
   { id: 'timer', label: 'timer', Icon: TimerIcon },

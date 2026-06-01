@@ -7,6 +7,7 @@ export type Subject = 'physics' | 'chemistry' | 'biology' | 'math';
 export type PanelId =
   | 'ask'
   | 'generate'
+  | 'exams'
   | 'notes'
   | 'progress'
   | 'timer'

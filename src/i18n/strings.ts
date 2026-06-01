@@ -181,6 +181,25 @@ export const strings = {
     tr: 'Varsayılan için boş bırak',
   },
 
+  // Mock exams
+  exams: { en: 'Mock exams', ja: '模擬試験', zh: '模拟考试', tr: 'Deneme sınavları' },
+  examsTitle: { en: 'Mock exams', ja: '模擬試験', zh: '模拟考试', tr: 'Deneme sınavları' },
+  examsHint: {
+    en: 'Real past EJU questions with the official answers. Pick a paper to review.',
+    ja: '実際のEJU過去問と公式解答です。復習する試験を選んでください。',
+    zh: '真实的 EJU 历年真题与官方答案。选择一套试卷开始复习。',
+    tr: 'Gerçek EJU çıkmış soruları ve resmî cevaplar. İncelemek için bir sınav seç.',
+  },
+  noExams: {
+    en: 'No mock exams available yet.',
+    ja: '利用できる模擬試験はまだありません。',
+    zh: '暂时没有可用的模拟考试。',
+    tr: 'Henüz deneme sınavı yok.',
+  },
+  backToExams: { en: 'All exams', ja: '試験一覧', zh: '全部试卷', tr: 'Tüm sınavlar' },
+  questionsCount: { en: '{n} questions', ja: '{n} 問', zh: '{n} 题', tr: '{n} soru' },
+  sessionLabel: { en: 'Session {n}', ja: '第{n}回', zh: '第 {n} 期', tr: '{n}. oturum' },
+
   // Timer
   timer: { en: 'Timer', ja: 'タイマー', zh: '计时器', tr: 'Zamanlayıcı' },
   timerHint: {

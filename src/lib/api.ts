@@ -116,3 +116,24 @@ export interface TopicsResponse {
 }
 export const fetchTopics = (p: { subject: Subject; lang: Lang }) =>
   call<TopicsResponse>('eju/topics', p);
+
+export interface ExamMeta {
+  id: string;
+  year: number;
+  session: number;
+  subject: Subject;
+  title: string;
+  source?: string;
+  count: number;
+}
+export interface Exam {
+  id: string;
+  year: number;
+  session: number;
+  subject: Subject;
+  title: string;
+  source?: string;
+  questions: GenQuestion[];
+}
+export const fetchExams = () => call<{ exams: ExamMeta[] }>('eju/exams', {});
+export const fetchExam = (id: string) => call<Exam>('eju/exam', { id });

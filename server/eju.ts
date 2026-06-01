@@ -112,6 +112,51 @@ export function labelFor(subject: Subject, id: string, lang: Lang): string {
 // Backwards-compatible alias.
 export const topicName = labelFor;
 
+// ─────────────────────────── Mock exams (past-paper review) ───────────────────────────
+export interface MockQuestion {
+  id: string;
+  number?: number;
+  topic: string;
+  prompt: string;
+  choices?: string[];
+  answerIndex: number;
+  answer: string;
+  explanation: string;
+}
+export interface MockExam {
+  id: string;
+  year: number;
+  session: number;
+  subject: Subject;
+  title: string;
+  source?: string;
+  questions: MockQuestion[];
+}
+
+let mockExamsCache: MockExam[] | null = null;
+function loadMockExams(): MockExam[] {
+  if (mockExamsCache) return mockExamsCache;
+  try {
+    const raw = JSON.parse(readFileSync(join(DATA_DIR, 'mock-exams.json'), 'utf8'));
+    mockExamsCache = Array.isArray(raw?.exams) ? (raw.exams as MockExam[]) : [];
+  } catch (e) {
+    console.warn('[eju] could not load mock-exams.json:', (e as Error).message);
+    mockExamsCache = [];
+  }
+  return mockExamsCache;
+}
+
+/** Exam metadata (no questions) plus a question count, newest first. */
+export function mockExamList() {
+  return loadMockExams()
+    .map(({ questions, ...meta }) => ({ ...meta, count: questions.length }))
+    .sort((a, b) => b.year - a.year || b.session - a.session || a.subject.localeCompare(b.subject));
+}
+
+export function mockExam(id: string): MockExam | null {
+  return loadMockExams().find((e) => e.id === id) ?? null;
+}
+
 // Build the (large, stable) per-subject system context. This is what we mark
 // for prompt caching, so it must be byte-identical across requests for a subject.
 const contextCache = new Map<Subject, string>();

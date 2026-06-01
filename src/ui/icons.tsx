@@ -161,3 +161,11 @@ export const PauseIcon = (p: SVGProps<SVGSVGElement>) => (
     <path d="M9 5v14M15 5v14" />
   </svg>
 );
+export const ExamIcon = (p: SVGProps<SVGSVGElement>) => (
+  <svg {...base(p)}>
+    <rect x="5" y="3" width="14" height="18" rx="2" />
+    <path d="M9 3v2h6V3" />
+    <path d="M8.5 11l1.5 1.5L13 9.5" />
+    <path d="M9 16h6" />
+  </svg>
+);
