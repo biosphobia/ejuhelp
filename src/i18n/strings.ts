@@ -119,6 +119,13 @@ export const strings = {
   // Settings
   settingsTitle: { en: 'Settings', ja: '設定' },
   defaultSubject: { en: 'Default subject', ja: '初期科目' },
+  diagnostics: { en: 'Diagnostics', ja: '診断' },
+  diagnosticsToggle: { en: 'Show pointer log', ja: 'ポインタログを表示' },
+  diagnosticsHint: {
+    en: 'Overlays a live log of pen/finger events (bottom-left). Use it to diagnose input issues.',
+    ja: 'ペン/指の入力イベントを左下に表示します。入力の不具合の診断に使います。',
+  },
+  version: { en: 'Version', ja: 'バージョン' },
   inputMode: { en: 'Drawing input', ja: '描画の入力' },
   fingerDraw: { en: 'Finger draws', ja: '指で描く' },
   pencilOnly: { en: 'Finger navigates', ja: '指で移動' },

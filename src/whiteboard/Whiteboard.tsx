@@ -9,6 +9,7 @@ import {
   type Pt,
 } from '../lib/board';
 import { useUI } from '../lib/ui';
+import { useDebug } from '../lib/debug';
 import { drawStroke, strokeHit } from './render';
 import { boardEvents } from './view';
 
@@ -61,6 +62,15 @@ export default function Whiteboard() {
     function pressureFor(e: PointerEvent) {
       if (e.pointerType === 'pen') return e.pressure > 0 ? e.pressure : 0.5;
       return 0.5;
+    }
+    let lastMoveLog = 0;
+    function dbg(e: PointerEvent) {
+      if (!useDebug.getState().enabled) return;
+      const w = Math.round(e.width || 0);
+      const h = Math.round(e.height || 0);
+      useDebug
+        .getState()
+        .push(`${e.type.replace('pointer', '')} ${e.pointerType} #${e.pointerId} p${(e.pressure || 0).toFixed(2)} ${w}x${h}`);
     }
     function setWorldTransform(c: CanvasRenderingContext2D) {
       c.setTransform(vp.scale * dpr, 0, 0, vp.scale * dpr, vp.x * dpr, vp.y * dpr);
@@ -286,6 +296,7 @@ export default function Whiteboard() {
 
     // ---- pointer events ----
     function onPointerDown(e: PointerEvent) {
+      dbg(e);
       if (e.pointerType === 'pen') penSeen = true;
 
       // Pen / mouse always draw and take priority.
@@ -335,6 +346,11 @@ export default function Whiteboard() {
     }
 
     function onPointerMove(e: PointerEvent) {
+      const now = performance.now();
+      if (now - lastMoveLog > 120) {
+        lastMoveLog = now;
+        dbg(e);
+      }
       if (e.pointerType === 'touch' && touches.has(e.pointerId)) {
         touches.set(e.pointerId, { x: e.clientX, y: e.clientY });
       }
@@ -363,6 +379,7 @@ export default function Whiteboard() {
     }
 
     function endPointer(e: PointerEvent) {
+      dbg(e);
       const penUp = e.pointerType === 'pen' || e.pointerType === 'mouse';
       // Commit the active draw. Tolerate a pointerId mismatch on pen/mouse up (iOS can
       // report a different id for up than down on a quick tap), but never let a

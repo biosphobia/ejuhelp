@@ -1,6 +1,7 @@
 import Panel, { SubjectChips } from '../Panel';
 import { Label } from '../atoms';
 import { useUI, type Lang } from '../../lib/ui';
+import { useDebug } from '../../lib/debug';
 import { useT } from '../../i18n';
 import { GlobeIcon } from '../icons';
 
@@ -10,6 +11,8 @@ export default function SettingsPanel() {
   const setLang = useUI((s) => s.setLang);
   const fingerDraw = useUI((s) => s.fingerDraw);
   const setFingerDraw = useUI((s) => s.setFingerDraw);
+  const debugEnabled = useDebug((s) => s.enabled);
+  const setDebug = useDebug((s) => s.setEnabled);
 
   const LangBtn = ({ value, label }: { value: Lang; label: string }) => (
     <button
@@ -46,9 +49,28 @@ export default function SettingsPanel() {
         <p className="mt-2 text-xs leading-relaxed text-slate-500">{t('inputHint')}</p>
       </div>
 
-      <div>
+      <div className="mb-6">
         <Label>{t('defaultSubject')}</Label>
         <SubjectChips />
+      </div>
+
+      <div>
+        <Label>{t('diagnostics')}</Label>
+        <label className="flex cursor-pointer items-start gap-2 rounded-xl p-2 hover:bg-slate-50">
+          <input
+            type="checkbox"
+            className="mt-0.5 h-4 w-4"
+            checked={debugEnabled}
+            onChange={(e) => setDebug(e.target.checked)}
+          />
+          <span className="text-sm">
+            <span className="font-medium text-slate-800">{t('diagnosticsToggle')}</span>
+            <span className="block text-xs text-slate-500">{t('diagnosticsHint')}</span>
+          </span>
+        </label>
+        <div className="mt-2 px-2 text-xs tabular-nums text-slate-400">
+          {t('version')}: v{__APP_VERSION__} · {__BUILD_ID__}
+        </div>
       </div>
     </Panel>
   );

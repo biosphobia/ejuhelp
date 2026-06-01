@@ -5,6 +5,7 @@ import PageBar from './ui/PageBar';
 import Launcher from './ui/Launcher';
 import PanelHost from './ui/PanelHost';
 import BoardQuestions from './ui/BoardQuestions';
+import DebugHud from './ui/DebugHud';
 import { initPersistence } from './lib/persistence';
 import { initUserData } from './lib/userdata';
 import './lib/auth'; // registers the Firebase auth listener on load
@@ -27,6 +28,7 @@ export default function App() {
         <BoardQuestions />
         <Launcher />
         <PanelHost />
+        <DebugHud />
       </div>
     </div>
   );
