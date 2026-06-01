@@ -5,11 +5,13 @@ import PageBar from './ui/PageBar';
 import Launcher from './ui/Launcher';
 import PanelHost from './ui/PanelHost';
 import { initPersistence } from './lib/persistence';
+import { initUserData } from './lib/userdata';
 import './lib/auth'; // registers the Firebase auth listener on load
 
 export default function App() {
   useEffect(() => {
     initPersistence();
+    initUserData();
   }, []);
 
   return (

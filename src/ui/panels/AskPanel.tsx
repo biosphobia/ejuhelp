@@ -5,6 +5,7 @@ import { ErrorNote } from '../atoms';
 import { SpinnerIcon } from '../icons';
 import { askClaude, type ChatMessage } from '../../lib/api';
 import { useUI } from '../../lib/ui';
+import { useKeyPoints } from '../../lib/userdata';
 import { useT } from '../../i18n';
 import { errorMessage } from '../atoms';
 
@@ -16,6 +17,8 @@ export default function AskPanel() {
   const [input, setInput] = useState('');
   const [busy, setBusy] = useState(false);
   const [err, setErr] = useState<string | null>(null);
+  const [savedCount, setSavedCount] = useState(0);
+  const addKeyPoints = useKeyPoints((s) => s.addMany);
   const scrollRef = useRef<HTMLDivElement>(null);
 
   const send = async () => {
@@ -26,9 +29,12 @@ export default function AskPanel() {
     setInput('');
     setBusy(true);
     setErr(null);
+    setSavedCount(0);
     try {
       const res = await askClaude({ subject, lang, messages: next });
       setMessages([...next, { role: 'assistant', content: res.text }]);
+      const added = addKeyPoints(subject, res.keyPoints ?? []);
+      setSavedCount(added);
       requestAnimationFrame(() => scrollRef.current?.scrollTo({ top: 1e9 }));
     } catch (e) {
       setErr(errorMessage(e, t)); // keep the user's message visible; just surface the error
@@ -93,6 +99,11 @@ export default function AskPanel() {
         {busy ? (
           <div className="flex items-center gap-2 text-sm text-slate-400">
             <SpinnerIcon className="h-4 w-4" /> {t('loading')}
+          </div>
+        ) : null}
+        {!busy && savedCount > 0 ? (
+          <div className="rounded-xl bg-emerald-50 px-3 py-1.5 text-xs font-medium text-emerald-700 ring-1 ring-emerald-100">
+            ★ {t('savedKeyPoints', { n: savedCount })}
           </div>
         ) : null}
         {err ? <ErrorNote>{err}</ErrorNote> : null}

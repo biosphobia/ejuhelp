@@ -34,14 +34,18 @@ export interface ChatMessage {
   content: string;
 }
 
+export interface KeyPointDTO {
+  kind: 'formula' | 'fact';
+  text: string;
+  topic?: string;
+}
+
 export interface AskResponse {
   text: string;
+  keyPoints: KeyPointDTO[];
 }
-export const askClaude = (p: {
-  subject: Subject;
-  lang: Lang;
-  messages: ChatMessage[];
-}) => call<AskResponse>('claude/ask', p);
+export const askClaude = (p: { subject: Subject; lang: Lang; messages: ChatMessage[] }) =>
+  call<AskResponse>('claude/ask', p);
 
 export type Difficulty = 'easy' | 'medium' | 'hard';
 export interface GenQuestion {
@@ -49,6 +53,7 @@ export interface GenQuestion {
   topic: string;
   prompt: string;
   choices?: string[];
+  answerIndex: number; // 0-based correct choice, or -1 if not multiple-choice
   answer: string;
   explanation: string;
 }
@@ -61,10 +66,14 @@ export const generateQuestions = (p: {
   topic?: string;
   difficulty: Difficulty;
   count: number;
+  focus?: { topics?: string[]; tags?: string[] };
 }) => call<GenerateResponse>('claude/generate', p);
 
 export interface CheckResponse {
-  text: string;
+  feedback: string;
+  correct: 'yes' | 'no' | 'partial' | 'unknown';
+  topic: string;
+  errorTags: string[];
 }
 export const checkWork = (p: {
   subject: Subject;
@@ -73,17 +82,15 @@ export const checkWork = (p: {
   question?: string;
 }) => call<CheckResponse>('claude/check', p);
 
-export interface NotesResponse {
-  text: string;
+export interface KeyPointsResponse {
+  keyPoints: KeyPointDTO[];
 }
-export const makeNotes = (p: {
-  subject: Subject;
-  lang: Lang;
-  topic?: string;
-}) => call<NotesResponse>('claude/notes', p);
+export const generateKeyPoints = (p: { subject: Subject; lang: Lang; topic?: string }) =>
+  call<KeyPointsResponse>('claude/keypoints', p);
 
 export interface TopicsResponse {
   topics: { id: string; name: string }[];
+  subtopics: { id: string; name: string; group: string }[];
 }
 export const fetchTopics = (p: { subject: Subject; lang: Lang }) =>
   call<TopicsResponse>('eju/topics', p);

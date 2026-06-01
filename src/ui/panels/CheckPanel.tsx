@@ -2,11 +2,13 @@ import { useState } from 'react';
 import Panel from '../Panel';
 import Markdown from '../Markdown';
 import { PrimaryButton, ErrorNote, errorMessage } from '../atoms';
-import { checkWork } from '../../lib/api';
+import { checkWork, type CheckResponse } from '../../lib/api';
 import { useUI } from '../../lib/ui';
 import { usePractice } from '../../lib/practice';
 import { useBoard } from '../../lib/board';
+import { useProgress } from '../../lib/userdata';
 import { exportPagePng } from '../../whiteboard/export';
+import { errorTagLabel } from '../../lib/labels';
 import { useT } from '../../i18n';
 
 export default function CheckPanel() {
@@ -15,8 +17,9 @@ export default function CheckPanel() {
   const lang = useUI((s) => s.lang);
   const activeQuestion = usePractice((s) => s.activeQuestion);
   const setActiveQuestion = usePractice((s) => s.setActiveQuestion);
+  const addAttempt = useProgress((s) => s.addAttempt);
 
-  const [text, setText] = useState('');
+  const [result, setResult] = useState<CheckResponse | null>(null);
   const [busy, setBusy] = useState(false);
   const [err, setErr] = useState<string | null>(null);
 
@@ -36,13 +39,29 @@ export default function CheckPanel() {
         imageDataUrl: img,
         question: activeQuestion ?? undefined,
       });
-      setText(res.text);
+      setResult(res);
+      if (res.correct !== 'unknown') {
+        addAttempt({
+          subject,
+          topic: res.topic || subject,
+          correct: res.correct === 'yes',
+          source: 'check',
+          errorTags: res.errorTags,
+        });
+      }
     } catch (e) {
       setErr(errorMessage(e, t));
     } finally {
       setBusy(false);
     }
   };
+
+  const verdict =
+    result?.correct === 'yes'
+      ? { label: t('correctMark'), cls: 'bg-emerald-50 text-emerald-700 ring-emerald-100' }
+      : result?.correct === 'no' || result?.correct === 'partial'
+        ? { label: t('incorrectMark'), cls: 'bg-amber-50 text-amber-700 ring-amber-100' }
+        : null;
 
   return (
     <Panel
@@ -76,9 +95,24 @@ export default function CheckPanel() {
       )}
 
       {err ? <ErrorNote>{err}</ErrorNote> : null}
-      {text ? (
-        <div className="mt-2 rounded-2xl bg-slate-50 p-3 ring-1 ring-slate-100">
-          <Markdown text={text} />
+
+      {result ? (
+        <div className="mt-2 space-y-3">
+          {verdict ? (
+            <div className={`flex flex-wrap items-center gap-2 rounded-xl px-3 py-2 text-sm font-semibold ring-1 ${verdict.cls}`}>
+              <span>{verdict.label}</span>
+              {result.errorTags
+                .filter((tag) => tag !== 'none')
+                .map((tag) => (
+                  <span key={tag} className="rounded-full bg-white/70 px-2 py-0.5 text-xs">
+                    {errorTagLabel(tag, t)}
+                  </span>
+                ))}
+            </div>
+          ) : null}
+          <div className="rounded-2xl bg-slate-50 p-3 ring-1 ring-slate-100">
+            <Markdown text={result.feedback} />
+          </div>
         </div>
       ) : null}
     </Panel>

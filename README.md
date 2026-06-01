@@ -4,10 +4,11 @@ A fast study app for the **EJU** (Examination for Japanese University Admission 
 
 The whole screen is a notebook you write on with the Pencil. A small, non‑intrusive tab on the right opens the AI features, all grounded in **a decade of real EJU past papers**:
 
-- **Ask Claude** – ask anything about a subject; answers are tuned to the EJU syllabus and past‑paper style.
-- **Practice questions** – generate fresh, EJU‑style questions by subject / topic / difficulty, with answers + worked explanations. Send one to the board to solve it.
-- **Key points** – high‑yield, exam‑focused notes per topic.
-- **Check my work** – Claude reads your handwritten page (vision) and checks your solution, pinpointing the first mistake and giving a hint.
+- **Ask Claude** – ask anything about a subject; answers are tuned to the EJU syllabus and past‑paper style. Memorize‑worthy formulas/facts from each answer are auto‑saved to your Key points.
+- **Practice questions** – generate fresh, EJU‑style questions by subject / **specific sub‑topic** (Physics & Chemistry) / difficulty. Multiple‑choice questions are answerable in‑app and graded instantly; or send one to the board to solve by hand.
+- **Weak points** – your accuracy by topic and your most common mistake types (units, sign, concept, …) are tracked from your answers and shared back to you, with a one‑tap **"focus on my weak points"** practice mode.
+- **Key points** – a personal, growing sheet of formulas and facts to remember, auto‑collected from your questions plus anything you generate.
+- **Check my work** – Claude reads your handwritten page (vision), tells you if it's correct, pinpoints the first mistake, classifies the error type, and feeds that into your weak‑points profile.
 
 Subjects: **Physics, Chemistry, Biology** (built from your past papers + official 2026 syllabi) and **Mathematics** (placeholder until math papers are added). UI toggles between **English and 日本語** at any time.
 

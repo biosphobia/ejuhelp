@@ -75,10 +75,35 @@ export function topicsFor(subject: Subject, lang: 'en' | 'ja') {
   return kb.topics.map((t) => ({ id: t.id, name: t.name[lang] || t.name.en }));
 }
 
-export function topicName(subject: Subject, topicId: string, lang: 'en' | 'ja'): string {
-  const t = getKB(subject)?.topics.find((x) => x.id === topicId);
-  return t ? t.name[lang] || t.name.en : topicId;
+/** Flattened subtopics with their parent topic name as `group` (for grouped selects). */
+export function subtopicsFor(subject: Subject, lang: 'en' | 'ja') {
+  const kb = getKB(subject);
+  if (!kb) return [];
+  const out: { id: string; name: string; group: string }[] = [];
+  for (const t of kb.topics) {
+    const group = t.name[lang] || t.name.en;
+    for (const s of t.subtopics ?? []) {
+      out.push({ id: s.id, name: s.name[lang] || s.name.en, group });
+    }
+  }
+  return out;
 }
+
+/** Resolve a topic OR subtopic id to a human label. */
+export function labelFor(subject: Subject, id: string, lang: 'en' | 'ja'): string {
+  const kb = getKB(subject);
+  if (!kb) return id;
+  for (const t of kb.topics) {
+    if (t.id === id) return t.name[lang] || t.name.en;
+    for (const s of t.subtopics ?? []) {
+      if (s.id === id) return s.name[lang] || s.name.en;
+    }
+  }
+  return id;
+}
+
+// Backwards-compatible alias.
+export const topicName = labelFor;
 
 // Build the (large, stable) per-subject system context. This is what we mark
 // for prompt caching, so it must be byte-identical across requests for a subject.

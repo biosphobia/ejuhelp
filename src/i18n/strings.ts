@@ -119,6 +119,63 @@ export const strings = {
     ja: 'オン：指やペンシルで描き、2本指で移動・拡大。Apple Pencilが認識されない場合に最適。オフ：筆圧スタイラスのみ描画、タッチは移動操作になり手のひらを置けます。',
   },
 
+  // Generate — answering + focus
+  selectAnswer: { en: 'Tap your answer', ja: '解答をタップ' },
+  correctMark: { en: 'Correct!', ja: '正解！' },
+  incorrectMark: { en: 'Not quite', ja: '惜しい' },
+  correctAnswerLabel: { en: 'Correct answer', ja: '正解' },
+  focusWeak: { en: 'Focus on my weak points', ja: '弱点を重点的に' },
+  focusWeakHint: {
+    en: 'Targets the topics and mistake types you struggle with most.',
+    ja: '苦手な分野とミスの傾向を重点的に出題します。',
+  },
+  noWeakDataShort: { en: 'Answer a few questions first to use this.', ja: 'まず数問解いてください。' },
+
+  // Progress / weak points
+  progress: { en: 'Weak points', ja: '弱点' },
+  progressTitle: { en: 'Your weak points', ja: 'あなたの弱点' },
+  progressHint: {
+    en: 'Built from your quiz answers and checked solutions.',
+    ja: '練習問題の解答と答案チェックから集計しています。',
+  },
+  noProgress: {
+    en: 'No data yet. Answer practice questions or use "Check my work" to build your profile.',
+    ja: 'データがありません。練習問題に答えるか「答案チェック」を使うと作成されます。',
+  },
+  overallAccuracy: { en: 'Overall accuracy', ja: '総合正答率' },
+  byTopic: { en: 'By topic (weakest first)', ja: '分野別（苦手順）' },
+  commonMistakes: { en: 'Common mistakes', ja: 'よくあるミス' },
+  attemptsLabel: { en: 'attempts', ja: '回' },
+  resetProgress: { en: 'Reset stats', ja: '統計をリセット' },
+  practiceWeak: { en: 'Practice my weak points', ja: '弱点を練習' },
+
+  // Key points (personal)
+  keyPointsHint: {
+    en: 'Formulas and facts to remember — auto-collected from your questions to Claude, plus any you generate.',
+    ja: '覚えるべき公式・重要事項。AIへの質問から自動収集し、生成したものも追加できます。',
+  },
+  noKeyPoints: {
+    en: 'No key points yet. Ask Claude a question, or add some below.',
+    ja: 'まだ要点がありません。AIに質問するか、下から追加してください。',
+  },
+  addKeyFormulas: { en: 'Add key formulas for this subject', ja: 'この科目の重要公式を追加' },
+  addForTopic: { en: 'Add for topic', ja: '分野を指定して追加' },
+  clearAll: { en: 'Clear all', ja: 'すべて消去' },
+  kindFormula: { en: 'Formula', ja: '公式' },
+  kindFact: { en: 'Fact', ja: '重要事項' },
+  savedKeyPoints: { en: 'Saved {n} key point(s)', ja: '{n}件の要点を保存しました' },
+  saveKeyPoints: { en: 'Save key points', ja: '要点を保存' },
+
+  // Error-type labels
+  tagUnits: { en: 'units', ja: '単位' },
+  tagSign: { en: 'sign', ja: '符号' },
+  tagArithmetic: { en: 'arithmetic', ja: '計算' },
+  tagAlgebra: { en: 'algebra', ja: '式変形' },
+  tagConcept: { en: 'concept', ja: '概念理解' },
+  tagFormula: { en: 'formula', ja: '公式' },
+  tagMisread: { en: 'misread', ja: '読み違い' },
+  tagIncomplete: { en: 'incomplete', ja: '未完成' },
+
   // Errors / misc
   needKey: {
     en: 'The Claude backend is not configured (missing API key).',

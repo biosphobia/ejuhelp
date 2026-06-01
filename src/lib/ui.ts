@@ -8,6 +8,7 @@ export type PanelId =
   | 'generate'
   | 'notes'
   | 'check'
+  | 'progress'
   | 'settings'
   | 'account'
   | null;
