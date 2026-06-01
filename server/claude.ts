@@ -1,4 +1,6 @@
 import Anthropic from '@anthropic-ai/sdk';
+import OpenAI from 'openai';
+import { GoogleGenerativeAI } from '@google/generative-ai';
 import { systemContextFor, labelFor, type Subject } from './eju';
 
 const MODEL = process.env.ANTHROPIC_MODEL || 'claude-opus-4-8';
@@ -13,49 +15,15 @@ export interface KeyPointDTO {
   topic?: string;
 }
 
-let defaultClient: Anthropic | null = null;
-
-function getClient(userKey?: string): Anthropic {
-  if (userKey) {
-    return new Anthropic({ apiKey: userKey });
-  }
-  if (!defaultClient) {
-    defaultClient = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
-  }
-  return defaultClient;
+let defaultClaudeClient: Anthropic | null = null;
+function getClaudeClient(userKey?: string): Anthropic {
+  if (userKey) return new Anthropic({ apiKey: userKey });
+  if (!defaultClaudeClient) defaultClaudeClient = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
+  return defaultClaudeClient;
 }
 
 export function hasApiKey(): boolean {
-  return Boolean(process.env.ANTHROPIC_API_KEY);
-}
-
-/**
- * Create a message. If the model/SDK rejects a newer parameter with a 400,
- * retry once without `thinking` so the call still succeeds on older models.
- */
-async function createMessage(params: any, userKey?: string): Promise<any> {
-  const client = getClient(userKey);
-  try {
-    return await client.messages.create(params);
-  } catch (e: any) {
-    const status = e?.status;
-    if (status === 400 && params.thinking) {
-      const { thinking, ...rest } = params;
-      console.warn('[claude] 400 with thinking; retrying without it:', e?.error?.error?.message ?? e?.message);
-      return await client.messages.create(rest);
-    }
-    throw e;
-  }
-}
-
-function baseParams(subject: Subject, lang: Lang, opts: { maxTokens: number; extra?: string }) {
-  const p: any = {
-    model: MODEL,
-    max_tokens: opts.maxTokens,
-    system: systemBlocks(subject, lang, opts.extra),
-  };
-  if (USE_THINKING) p.thinking = { type: 'adaptive' };
-  return p;
+  return Boolean(process.env.ANTHROPIC_API_KEY || process.env.GEMINI_API_KEY);
 }
 
 const GLOBAL_INSTRUCTIONS =
@@ -71,6 +39,7 @@ const langLine = (lang: Lang) =>
 function systemBlocks(subject: Subject, lang: Lang, extra?: string) {
   const blocks: any[] = [
     { type: 'text', text: GLOBAL_INSTRUCTIONS },
+    // CRITICAL: We restored the cache_control block for EJU Context
     { type: 'text', text: systemContextFor(subject), cache_control: { type: 'ephemeral' } },
     { type: 'text', text: langLine(lang) },
   ];
@@ -78,20 +47,103 @@ function systemBlocks(subject: Subject, lang: Lang, extra?: string) {
   return blocks;
 }
 
-function textOf(message: { content?: Array<{ type: string; text?: string }> }): string {
-  return (message.content ?? [])
-    .filter((b) => b.type === 'text' && typeof b.text === 'string')
-    .map((b) => b.text as string)
-    .join('\n')
-    .trim();
+// ─── UNIVERSAL ROUTER ───
+// Preserves perfect Claude caching while translating for Gemini/GPT
+async function executeModelCall(
+  modelType: string | undefined,
+  userKey: string | undefined,
+  subject: Subject,
+  lang: Lang,
+  extraSystem: string | undefined,
+  messages: any[],
+  maxTokens: number
+): Promise<string> {
+  const targetModel = modelType || 'gemini';
+  const sysBlocks = systemBlocks(subject, lang, extraSystem);
+
+  if (targetModel === 'gpt') {
+    if (!userKey) throw new Error('OpenAI API key required');
+    const client = new OpenAI({ apiKey: userKey });
+    const systemText = sysBlocks.map(b => b.text).join('\n\n');
+    
+    const formattedMessages = messages.map(m => {
+      let content = m.content;
+      if (Array.isArray(content)) {
+        content = content.map((p: any) => {
+          if (p.type === 'text') return { type: 'text', text: p.text };
+          if (p.type === 'image') return { type: 'image_url', image_url: { url: `data:${p.source.media_type};base64,${p.source.data}` } };
+          return p;
+        });
+      }
+      return { role: m.role, content };
+    });
+
+    const res = await client.chat.completions.create({
+      model: 'gpt-4o',
+      messages: [{ role: 'system', content: systemText }, ...formattedMessages] as any,
+      max_tokens: maxTokens,
+    });
+    return res.choices[0].message.content || '';
+  } 
+  
+  else if (targetModel === 'gemini') {
+    const apiKey = process.env.GEMINI_API_KEY;
+    if (!apiKey) throw new Error('Gemini API key missing on server');
+    const client = new GoogleGenerativeAI(apiKey);
+    const systemText = sysBlocks.map(b => b.text).join('\n\n');
+    
+    const model = client.getGenerativeModel({ 
+        model: 'gemini-1.5-pro', 
+        systemInstruction: systemText 
+    });
+
+    const formattedMessages = messages.map(m => {
+      const parts: any[] = [];
+      if (Array.isArray(m.content)) {
+        for (const p of m.content) {
+          if (p.type === 'text') parts.push({ text: p.text });
+          if (p.type === 'image') parts.push({ inlineData: { data: p.source.data, mimeType: p.source.media_type } });
+        }
+      } else {
+        parts.push({ text: m.content });
+      }
+      return { role: m.role === 'assistant' ? 'model' : 'user', parts };
+    });
+
+    const res = await model.generateContent({ contents: formattedMessages });
+    return res.response.text();
+  } 
+  
+  else {
+    // Claude Logic - Unmodified to perfectly preserve EJU caching
+    const client = getClaudeClient(userKey);
+    const p: any = {
+      model: MODEL,
+      max_tokens: maxTokens,
+      system: sysBlocks,
+      messages: messages
+    };
+    if (USE_THINKING) p.thinking = { type: 'adaptive' };
+
+    try {
+      const res = await client.messages.create(p);
+      return (res.content ?? []).filter((b: any) => b.type === 'text').map((b: any) => b.text).join('\n').trim();
+    } catch (e: any) {
+      if (e?.status === 400 && p.thinking) {
+        const { thinking, ...rest } = p;
+        console.warn('[claude] 400 with thinking; retrying without it');
+        const res = await client.messages.create(rest);
+        return (res.content ?? []).filter((b: any) => b.type === 'text').map((b: any) => b.text).join('\n').trim();
+      }
+      throw e;
+    }
+  }
 }
 
-/** Robustly pull a JSON value out of a model reply (handles code fences / stray prose). */
 function extractJson<T>(raw: string, fallback: T): T {
   if (!raw) return fallback;
   let s = raw.trim();
-  const fence = /```(?:json)?\s*([\s\S]*?)
-```/i.exec(s);
+  const fence = /\`\`\`(?:json)?\s*([\s\S]*?)\`\`\`/i.exec(s);
   if (fence) s = fence[1].trim();
   try {
     return JSON.parse(s) as T;
@@ -129,7 +181,7 @@ function cleanKeyPoints(arr: any): KeyPointDTO[] {
     }));
 }
 
-// ─── Ask: conversational tutor that also auto-extracts memorize-worthy points ───
+// ─── Ask ───
 const ASK_DIRECTIVE =
   'Respond with ONLY a single JSON object and no other text or code fences: ' +
   '{"answer": "<your full tutoring reply, markdown allowed>", "keyPoints": [{"kind":"formula"|"fact","text":"...","topic":"..."}]}. ' +
@@ -139,6 +191,7 @@ export async function ask(args: {
   subject: Subject;
   lang: Lang;
   messages: ChatMessage[];
+  model?: string;
   userKey?: string;
 }): Promise<{ text: string; keyPoints: KeyPointDTO[] }> {
   const messages = args.messages
@@ -146,18 +199,16 @@ export async function ask(args: {
     .map((m) => ({ role: m.role === 'assistant' ? 'assistant' : 'user', content: m.content }));
   if (!messages.length) return { text: '', keyPoints: [] };
 
-  const r = await createMessage({
-    ...baseParams(args.subject, args.lang, { maxTokens: 8000, extra: ASK_DIRECTIVE }),
-    messages,
-  }, args.userKey);
+  const raw = await executeModelCall(
+    args.model, args.userKey, args.subject, args.lang, ASK_DIRECTIVE, messages, 8000
+  );
   
-  const raw = textOf(r);
   const parsed = extractJson<{ answer?: string; keyPoints?: any } | null>(raw, null);
-  if (!parsed) return { text: raw, keyPoints: [] }; // graceful: show the reply even if not JSON
+  if (!parsed) return { text: raw, keyPoints: [] };
   return { text: String(parsed.answer ?? raw), keyPoints: cleanKeyPoints(parsed.keyPoints) };
 }
 
-// ─── Generate EJU-style questions (with optional weak-point focus) ───
+// ─── Generate Questions ───
 export interface GenQuestion {
   id: string;
   topic: string;
@@ -175,6 +226,7 @@ export async function generate(args: {
   difficulty: 'easy' | 'medium' | 'hard';
   count: number;
   focus?: { topics?: string[]; tags?: string[] };
+  model?: string;
   userKey?: string;
 }): Promise<{ questions: GenQuestion[] }> {
   const n = Math.max(1, Math.min(5, args.count || 3));
@@ -200,12 +252,11 @@ export async function generate(args: {
       '{"questions":[{"topic":"<sub-topic>","prompt":"...","choices":["..."],"answerIndex":<0-based index of the correct choice, or -1 if not multiple-choice>,"answer":"<correct answer in words>","explanation":"<clear worked solution>"}]}.'
   );
 
-  const r = await createMessage({
-    ...baseParams(args.subject, args.lang, { maxTokens: 16000 }),
-    messages: [{ role: 'user', content: parts.join(' ') }],
-  }, args.userKey);
+  const raw = await executeModelCall(
+    args.model, args.userKey, args.subject, args.lang, undefined, [{ role: 'user', content: parts.join(' ') }], 16000
+  );
   
-  const parsed = extractJson<{ questions?: any[] }>(textOf(r), { questions: [] });
+  const parsed = extractJson<{ questions?: any[] }>(raw, { questions: [] });
   const questions: GenQuestion[] = (parsed.questions ?? []).map((q: any, i: number) => {
     const choices = Array.isArray(q.choices) && q.choices.length ? q.choices.map(String) : undefined;
     const idx = Number.isInteger(q.answerIndex) ? q.answerIndex : -1;
@@ -222,7 +273,7 @@ export async function generate(args: {
   return { questions };
 }
 
-// ─── Check handwritten work: structured grading that classifies the error type ───
+// ─── Check Work ───
 const ERROR_TAGS = ['units', 'sign', 'arithmetic', 'algebra', 'concept', 'formula', 'misread', 'incomplete', 'none'];
 
 export interface CheckResult {
@@ -237,6 +288,7 @@ export async function check(args: {
   lang: Lang;
   imageDataUrl: string;
   question?: string;
+  model?: string;
   userKey?: string;
 }): Promise<CheckResult> {
   const m = /^data:(image\/[a-zA-Z0-9.+-]+);base64,(.+)$/s.exec(args.imageDataUrl ?? '');
@@ -256,9 +308,8 @@ export async function check(args: {
     `Write "feedback" in ${writeLang(args.lang)}.`,
   ].join('\n');
 
-  const r = await createMessage({
-    ...baseParams(args.subject, args.lang, { maxTokens: 4000 }),
-    messages: [
+  const raw = await executeModelCall(
+    args.model, args.userKey, args.subject, args.lang, undefined, [
       {
         role: 'user',
         content: [
@@ -266,10 +317,9 @@ export async function check(args: {
           { type: 'text', text: instructions },
         ],
       },
-    ],
-  }, args.userKey);
+    ], 4000
+  );
   
-  const raw = textOf(r);
   const p = extractJson<Partial<CheckResult>>(raw, {});
   const correct = (['yes', 'no', 'partial', 'unknown'] as const).includes(p.correct as any)
     ? (p.correct as CheckResult['correct'])
@@ -283,11 +333,12 @@ export async function check(args: {
   };
 }
 
-// ─── Key points generator (formulas/facts to memorize) ───
+// ─── Keypoints ───
 export async function keypoints(args: {
   subject: Subject;
   lang: Lang;
   topic?: string;
+  model?: string;
   userKey?: string;
 }): Promise<{ keyPoints: KeyPointDTO[] }> {
   const tName = args.topic ? labelFor(args.subject, args.topic, args.lang) : null;
@@ -298,11 +349,10 @@ export async function keypoints(args: {
     'Respond with ONLY a single JSON object, no other text or code fences: {"keyPoints":[{"kind":"formula"|"fact","text":"...","topic":"..."}]}.',
   ].join(' ');
 
-  const r = await createMessage({
-    ...baseParams(args.subject, args.lang, { maxTokens: 4000 }),
-    messages: [{ role: 'user', content: userText }],
-  }, args.userKey);
+  const raw = await executeModelCall(
+    args.model, args.userKey, args.subject, args.lang, undefined, [{ role: 'user', content: userText }], 4000
+  );
   
-  const parsed = extractJson<{ keyPoints?: any }>(textOf(r), {});
+  const parsed = extractJson<{ keyPoints?: any }>(raw, {});
   return { keyPoints: cleanKeyPoints(parsed.keyPoints) };
 }
