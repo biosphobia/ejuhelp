@@ -248,8 +248,20 @@ function cleanKeyPoints(arr: any): KeyPointDTO[] {
 // JSON-encoded), followed by an optional delimited key-points block we strip off.
 const KEYPOINTS_MARK = '###KEYPOINTS###';
 const ASK_DIRECTIVE =
-  'Write your tutoring reply directly as GitHub-flavored Markdown with LaTeX math ($...$ inline, ' +
-  '$$...$$ display). Do NOT wrap the reply in JSON and do NOT put it in a code fence. ' +
+  // Teaching style: beginner-friendly, then exam-ready.
+  'Teach as a patient tutor whose student may be new to the topic and is sitting the EJU exam very soon. ' +
+  'Explain in plain, everyday language a beginner can follow: avoid jargon, and whenever a technical term is ' +
+  'unavoidable, define it in simple words the first time you use it. Build intuition first — a short analogy ' +
+  'or a concrete example with real numbers — then walk through the reasoning step by step instead of just ' +
+  'stating the result. Keep sentences short. For these coaching replies, favour a clear, complete explanation ' +
+  'over terseness (this overrides the general "be concise" instruction), but stay on point and do not ramble. ' +
+  'Because the exam is near, make the must-know parts impossible to miss: bold the key terms and results, and ' +
+  'finish with a short "**Exam essentials**" section — a few bullets giving the formula(s) to memorise, the ' +
+  'common traps/mistakes, and what EJU typically asks on this topic. ' +
+  // Formatting.
+  'Write your reply directly as GitHub-flavored Markdown with LaTeX math ($...$ inline, $$...$$ display). ' +
+  'Do NOT wrap the reply in JSON and do NOT put it in a code fence. ' +
+  // Key points (machine-parsed; separate from the human-facing "Exam essentials" bullets above).
   'After the reply, ONLY if it contains genuinely memorize-worthy formulas or key facts, add a final ' +
   `line that is exactly "${KEYPOINTS_MARK}" and then 1-4 lines, one point per line, each formatted as ` +
   '`kind | text | topic` (kind is the word formula or fact; topic may be left blank). Write nothing after those lines.';
@@ -399,7 +411,7 @@ export async function check(args: {
     'Grade ONLY what is actually written in the image. Do NOT solve the problem yourself, and never report an answer or conclusion that is not physically written on the page.',
     'CRITICAL: If the page is blank, almost blank, or shows no genuine solution attempt (only the question text, doodles, or a few stray marks), do NOT grade it — set correct to "unknown", and in the feedback say there is nothing to check yet and invite the student to write their working. An empty or missing solution is never "correct".',
     '',
-    'First write the FEEDBACK as Markdown with LaTeX math ($...$ inline, $$...$$ display): briefly transcribe the key readable steps; state whether the written work is correct; pinpoint the FIRST error precisely; give a short hint to fix it (reveal the full answer only if the work is already complete and correct); finish with a one-line encouraging summary.',
+    'First write the FEEDBACK as Markdown with LaTeX math ($...$ inline, $$...$$ display), in plain beginner-friendly language (define any jargon): briefly transcribe the key readable steps; state whether the written work is correct; pinpoint the FIRST error precisely and explain in simple terms WHY it is wrong; give a short hint to fix it (reveal the full answer only if the work is already complete and correct); finish with a one-line encouraging summary.',
     `Write the feedback in ${writeLang(args.lang)}.`,
     `Then, on a new line, write exactly ${CHECK_META_MARK} and, on the next line, a single-line JSON object (and nothing after it):`,
     `{"correct":"yes"|"no"|"partial"|"unknown","topic":"<specific EJU sub-topic in English>","errorTags":[subset of ${JSON.stringify(ERROR_TAGS)}; use ["none"] when correct and [] when unknown],"studentAnswerIndex":<for a multiple-choice question, the 0-based index of the option the WRITTEN work clearly concludes, counting the listed choices in order; use -1 if it is not multiple-choice or no final choice is written>}`,
