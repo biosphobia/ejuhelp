@@ -93,7 +93,7 @@ async function executeModelCall(
     const systemText = sysBlocks.map(b => b.text).join('\n\n');
     
     const model = client.getGenerativeModel({ 
-        model: 'gemini-1.5-pro', 
+        model: 'gemini-3.5-flash', 
         systemInstruction: systemText 
     });
 
