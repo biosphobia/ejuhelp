@@ -61,10 +61,11 @@ export const useAsk = create<AskState>((set, get) => ({
     const t = text.trim();
     if (!t || get().busy) return;
     const { subject, lang } = useUI.getState();
+    const { activeQuestion } = usePractice.getState();
     const next: Message[] = [...get().messages, { role: 'user', content: t }];
     set({ messages: next, busy: true, error: null, lastSaved: 0, lastAutoAnswered: false });
     try {
-      const res = await askClaude({ subject, lang, messages: next });
+      const res = await askClaude({ subject, lang, messages: next, context: activeQuestion ?? undefined });
       const added = useKeyPoints.getState().addMany(subject, res.keyPoints ?? []);
       set({ messages: [...next, { role: 'assistant', content: res.text }], lastSaved: added });
     } catch (e) {

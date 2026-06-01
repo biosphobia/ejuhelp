@@ -62,14 +62,15 @@ const getAiContext = (req: Request) => {
 
 app.post('/api/claude/ask', requireAuth, async (req: Request, res: Response) => {
   try {
-    const { subject, lang, messages } = req.body ?? {};
+    const { subject, lang, messages, context } = req.body ?? {};
     const { model, userKey } = getAiContext(req);
     if (!isSubject(subject)) return res.status(400).json({ error: 'bad_subject' });
-    
+
     const result = await ask({
       subject,
       lang: toLang(lang),
       messages: Array.isArray(messages) ? messages : [],
+      context: typeof context === 'string' ? context : undefined,
       model,
       userKey
     });
