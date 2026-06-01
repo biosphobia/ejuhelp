@@ -13,11 +13,18 @@ export interface KeyPointDTO {
   topic?: string;
 }
 
-let client: Anthropic | null = null;
-function getClient(): Anthropic {
-  if (!client) client = new Anthropic();
-  return client;
+let defaultClient: Anthropic | null = null;
+
+function getClient(userKey?: string): Anthropic {
+  if (userKey) {
+    return new Anthropic({ apiKey: userKey });
+  }
+  if (!defaultClient) {
+    defaultClient = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
+  }
+  return defaultClient;
 }
+
 export function hasApiKey(): boolean {
   return Boolean(process.env.ANTHROPIC_API_KEY);
 }
@@ -26,15 +33,16 @@ export function hasApiKey(): boolean {
  * Create a message. If the model/SDK rejects a newer parameter with a 400,
  * retry once without `thinking` so the call still succeeds on older models.
  */
-async function createMessage(params: any): Promise<any> {
+async function createMessage(params: any, userKey?: string): Promise<any> {
+  const client = getClient(userKey);
   try {
-    return await getClient().messages.create(params);
+    return await client.messages.create(params);
   } catch (e: any) {
     const status = e?.status;
     if (status === 400 && params.thinking) {
       const { thinking, ...rest } = params;
       console.warn('[claude] 400 with thinking; retrying without it:', e?.error?.error?.message ?? e?.message);
-      return await getClient().messages.create(rest);
+      return await client.messages.create(rest);
     }
     throw e;
   }
@@ -82,7 +90,8 @@ function textOf(message: { content?: Array<{ type: string; text?: string }> }): 
 function extractJson<T>(raw: string, fallback: T): T {
   if (!raw) return fallback;
   let s = raw.trim();
-  const fence = /```(?:json)?\s*([\s\S]*?)```/i.exec(s);
+  const fence = /```(?:json)?\s*([\s\S]*?)
+```/i.exec(s);
   if (fence) s = fence[1].trim();
   try {
     return JSON.parse(s) as T;
@@ -130,6 +139,7 @@ export async function ask(args: {
   subject: Subject;
   lang: Lang;
   messages: ChatMessage[];
+  userKey?: string;
 }): Promise<{ text: string; keyPoints: KeyPointDTO[] }> {
   const messages = args.messages
     .filter((m) => m && typeof m.content === 'string' && m.content.trim())
@@ -139,7 +149,8 @@ export async function ask(args: {
   const r = await createMessage({
     ...baseParams(args.subject, args.lang, { maxTokens: 8000, extra: ASK_DIRECTIVE }),
     messages,
-  });
+  }, args.userKey);
+  
   const raw = textOf(r);
   const parsed = extractJson<{ answer?: string; keyPoints?: any } | null>(raw, null);
   if (!parsed) return { text: raw, keyPoints: [] }; // graceful: show the reply even if not JSON
@@ -164,6 +175,7 @@ export async function generate(args: {
   difficulty: 'easy' | 'medium' | 'hard';
   count: number;
   focus?: { topics?: string[]; tags?: string[] };
+  userKey?: string;
 }): Promise<{ questions: GenQuestion[] }> {
   const n = Math.max(1, Math.min(5, args.count || 3));
   const tName = args.topic ? labelFor(args.subject, args.topic, args.lang) : null;
@@ -191,7 +203,8 @@ export async function generate(args: {
   const r = await createMessage({
     ...baseParams(args.subject, args.lang, { maxTokens: 16000 }),
     messages: [{ role: 'user', content: parts.join(' ') }],
-  });
+  }, args.userKey);
+  
   const parsed = extractJson<{ questions?: any[] }>(textOf(r), { questions: [] });
   const questions: GenQuestion[] = (parsed.questions ?? []).map((q: any, i: number) => {
     const choices = Array.isArray(q.choices) && q.choices.length ? q.choices.map(String) : undefined;
@@ -224,6 +237,7 @@ export async function check(args: {
   lang: Lang;
   imageDataUrl: string;
   question?: string;
+  userKey?: string;
 }): Promise<CheckResult> {
   const m = /^data:(image\/[a-zA-Z0-9.+-]+);base64,(.+)$/s.exec(args.imageDataUrl ?? '');
   if (!m) throw Object.assign(new Error('bad_image'), { status: 400 });
@@ -253,7 +267,8 @@ export async function check(args: {
         ],
       },
     ],
-  });
+  }, args.userKey);
+  
   const raw = textOf(r);
   const p = extractJson<Partial<CheckResult>>(raw, {});
   const correct = (['yes', 'no', 'partial', 'unknown'] as const).includes(p.correct as any)
@@ -273,6 +288,7 @@ export async function keypoints(args: {
   subject: Subject;
   lang: Lang;
   topic?: string;
+  userKey?: string;
 }): Promise<{ keyPoints: KeyPointDTO[] }> {
   const tName = args.topic ? labelFor(args.subject, args.topic, args.lang) : null;
   const userText = [
@@ -285,7 +301,8 @@ export async function keypoints(args: {
   const r = await createMessage({
     ...baseParams(args.subject, args.lang, { maxTokens: 4000 }),
     messages: [{ role: 'user', content: userText }],
-  });
+  }, args.userKey);
+  
   const parsed = extractJson<{ keyPoints?: any }>(textOf(r), {});
   return { keyPoints: cleanKeyPoints(parsed.keyPoints) };
 }
