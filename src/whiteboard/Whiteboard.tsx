@@ -292,11 +292,8 @@ export default function Whiteboard() {
       if (e.pointerType === 'pen' || e.pointerType === 'mouse') {
         cancelGesture();
         if (drawId !== null && drawKind === 'finger') abortStroke();
-        try {
-          canvas.setPointerCapture(e.pointerId);
-        } catch {
-          /* noop */
-        }
+        // No setPointerCapture: on iOS it can swallow the pointerup of a quick tap.
+        // Continuity across the floating UI is handled by window-level move/up listeners.
         beginStroke(e, 'pen');
         commitPresent();
         e.preventDefault();
@@ -357,27 +354,26 @@ export default function Whiteboard() {
         return;
       }
 
-      if (e.pointerType === 'touch' && gestureActive) updateGesture();
+      if (e.pointerType === 'touch' && gestureActive && touches.has(e.pointerId)) updateGesture();
     }
 
     function endPointer(e: PointerEvent) {
-      if (e.pointerType === 'touch') touches.delete(e.pointerId);
-      try {
-        canvas.releasePointerCapture(e.pointerId);
-      } catch {
-        /* noop */
-      }
-
+      // Active draw (pen/mouse/touch) — commit it.
       if (drawId === e.pointerId) {
+        if (e.pointerType === 'touch') touches.delete(e.pointerId);
         endStroke();
         return;
       }
-      if (gestureActive && e.pointerType === 'touch') {
-        if (touches.size === 0) {
-          cancelGesture();
-          commitViewport();
-        } else {
-          startGesture(); // rebaseline remaining finger(s)
+      // One of our gesture fingers lifted.
+      if (e.pointerType === 'touch') {
+        const wasOurs = touches.delete(e.pointerId);
+        if (gestureActive && wasOurs) {
+          if (touches.size === 0) {
+            cancelGesture();
+            commitViewport();
+          } else {
+            startGesture(); // rebaseline remaining finger(s)
+          }
         }
       }
     }
@@ -398,10 +394,12 @@ export default function Whiteboard() {
 
     const stop = (e: Event) => e.preventDefault();
 
+    // pointerdown starts on the canvas; move/up listen on window so a stroke
+    // continues even when the pointer crosses over the floating UI (no capture needed).
     canvas.addEventListener('pointerdown', onPointerDown);
-    canvas.addEventListener('pointermove', onPointerMove);
-    canvas.addEventListener('pointerup', endPointer);
-    canvas.addEventListener('pointercancel', endPointer);
+    window.addEventListener('pointermove', onPointerMove);
+    window.addEventListener('pointerup', endPointer);
+    window.addEventListener('pointercancel', endPointer);
     canvas.addEventListener('wheel', onWheel, { passive: false });
     canvas.addEventListener('gesturestart', stop as EventListener);
     canvas.addEventListener('gesturechange', stop as EventListener);
@@ -449,9 +447,9 @@ export default function Whiteboard() {
 
     return () => {
       canvas.removeEventListener('pointerdown', onPointerDown);
-      canvas.removeEventListener('pointermove', onPointerMove);
-      canvas.removeEventListener('pointerup', endPointer);
-      canvas.removeEventListener('pointercancel', endPointer);
+      window.removeEventListener('pointermove', onPointerMove);
+      window.removeEventListener('pointerup', endPointer);
+      window.removeEventListener('pointercancel', endPointer);
       canvas.removeEventListener('wheel', onWheel);
       canvas.removeEventListener('gesturestart', stop as EventListener);
       canvas.removeEventListener('gesturechange', stop as EventListener);
