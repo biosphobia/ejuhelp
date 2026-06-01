@@ -84,6 +84,12 @@ export const CheckIcon = (p: SVGProps<SVGSVGElement>) => (
     <path d="M5 13l4 4L19 7" />
   </svg>
 );
+export const PinIcon = (p: SVGProps<SVGSVGElement>) => (
+  <svg {...base(p)}>
+    <path d="M9 4h6l-1 5 3 3v2H7v-2l3-3-1-5z" />
+    <path d="M12 14v6" />
+  </svg>
+);
 export const ChartIcon = (p: SVGProps<SVGSVGElement>) => (
   <svg {...base(p)}>
     <path d="M4 20V4M4 20h16" />

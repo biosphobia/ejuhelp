@@ -10,6 +10,8 @@ import {
 } from '../../lib/api';
 import { useUI } from '../../lib/ui';
 import { usePractice } from '../../lib/practice';
+import { usePinned } from '../../lib/pinned';
+import { explainQuestion } from '../../lib/ask';
 import { useProgress, summarize, focusFromSummary } from '../../lib/userdata';
 import { useT } from '../../i18n';
 
@@ -19,12 +21,14 @@ export default function GeneratePanel() {
   const t = useT();
   const subject = useUI((s) => s.subject);
   const lang = useUI((s) => s.lang);
-  const closePanel = useUI((s) => s.closePanel);
-  const setActiveQuestion = usePractice((s) => s.setActiveQuestion);
   const wantFocus = usePractice((s) => s.wantFocus);
   const setWantFocus = usePractice((s) => s.setWantFocus);
   const addAttempt = useProgress((s) => s.addAttempt);
   const attempts = useProgress((s) => s.attempts);
+  const pin = usePinned((s) => s.pin);
+  const pinMany = usePinned((s) => s.pinMany);
+  const unpin = usePinned((s) => s.unpin);
+  const pinnedItems = usePinned((s) => s.items);
 
   const [topics, setTopics] = useState<{ id: string; name: string }[]>([]);
   const [subtopics, setSubtopics] = useState<{ id: string; name: string; group: string }[]>([]);
@@ -122,13 +126,7 @@ export default function GeneratePanel() {
     addAttempt({ subject, topic: q.topic || subject, correct, source: 'quiz' });
   };
 
-  const practice = (q: GenQuestion) => {
-    const choices = q.choices?.length
-      ? '\n' + q.choices.map((c, i) => `${LETTERS[i]}. ${c}`).join('\n')
-      : '';
-    setActiveQuestion(`${q.prompt}${choices}`);
-    closePanel();
-  };
+  const isPinned = (id: string) => pinnedItems.some((p) => p.id === id);
 
   return (
     <Panel
@@ -216,7 +214,19 @@ export default function GeneratePanel() {
 
       {err ? <ErrorNote>{err}</ErrorNote> : null}
 
-      <div className="mt-4 space-y-3">
+      {questions.length ? (
+        <div className="mt-4 flex justify-end">
+          <button
+            type="button"
+            onClick={() => pinMany(subject, questions)}
+            className="inline-flex items-center gap-1 rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-semibold text-slate-700 hover:bg-slate-50"
+          >
+            📌 {t('pinAll')}
+          </button>
+        </div>
+      ) : null}
+
+      <div className="mt-3 space-y-3">
         {questions.map((q, i) => {
           const chosen = picked[q.id];
           const answered = chosen !== undefined;
@@ -273,10 +283,21 @@ export default function GeneratePanel() {
                 ) : null}
                 <button
                   type="button"
-                  onClick={() => practice(q)}
-                  className="rounded-lg bg-slate-900 px-3 py-1.5 text-xs font-semibold text-white hover:bg-slate-800"
+                  onClick={() => (isPinned(q.id) ? unpin(q.id) : pin(subject, q))}
+                  className={`rounded-lg px-3 py-1.5 text-xs font-semibold ${
+                    isPinned(q.id)
+                      ? 'bg-emerald-100 text-emerald-700 hover:bg-emerald-200'
+                      : 'bg-slate-900 text-white hover:bg-slate-800'
+                  }`}
                 >
-                  {t('practiceThis')}
+                  {isPinned(q.id) ? `✓ ${t('unpin')}` : t('pinToBoard')}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => explainQuestion(q.prompt, q.choices, q.answer)}
+                  className="rounded-lg bg-slate-100 px-3 py-1.5 text-xs font-semibold text-slate-700 hover:bg-slate-200"
+                >
+                  {t('explain')}
                 </button>
               </div>
 

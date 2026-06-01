@@ -1,46 +1,32 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Panel, { SubjectChips } from '../Panel';
 import Markdown from '../Markdown';
-import { ErrorNote } from '../atoms';
+import { ErrorNote, errorMessage } from '../atoms';
 import { SpinnerIcon } from '../icons';
-import { askClaude, type ChatMessage } from '../../lib/api';
-import { useUI } from '../../lib/ui';
-import { useKeyPoints } from '../../lib/userdata';
+import { useAsk } from '../../lib/ask';
 import { useT } from '../../i18n';
-import { errorMessage } from '../atoms';
 
 export default function AskPanel() {
   const t = useT();
-  const subject = useUI((s) => s.subject);
-  const lang = useUI((s) => s.lang);
-  const [messages, setMessages] = useState<ChatMessage[]>([]);
+  const messages = useAsk((s) => s.messages);
+  const busy = useAsk((s) => s.busy);
+  const error = useAsk((s) => s.error);
+  const savedCount = useAsk((s) => s.lastSaved);
+  const send = useAsk((s) => s.send);
+  const reset = useAsk((s) => s.reset);
+
   const [input, setInput] = useState('');
-  const [busy, setBusy] = useState(false);
-  const [err, setErr] = useState<string | null>(null);
-  const [savedCount, setSavedCount] = useState(0);
-  const addKeyPoints = useKeyPoints((s) => s.addMany);
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  const send = async () => {
+  useEffect(() => {
+    requestAnimationFrame(() => scrollRef.current?.scrollTo({ top: 1e9 }));
+  }, [messages, busy]);
+
+  const submit = () => {
     const text = input.trim();
     if (!text || busy) return;
-    const next = [...messages, { role: 'user' as const, content: text }];
-    setMessages(next);
     setInput('');
-    setBusy(true);
-    setErr(null);
-    setSavedCount(0);
-    try {
-      const res = await askClaude({ subject, lang, messages: next });
-      setMessages([...next, { role: 'assistant', content: res.text }]);
-      const added = addKeyPoints(subject, res.keyPoints ?? []);
-      setSavedCount(added);
-      requestAnimationFrame(() => scrollRef.current?.scrollTo({ top: 1e9 }));
-    } catch (e) {
-      setErr(errorMessage(e, t)); // keep the user's message visible; just surface the error
-    } finally {
-      setBusy(false);
-    }
+    void send(text);
   };
 
   return (
@@ -54,7 +40,7 @@ export default function AskPanel() {
             onKeyDown={(e) => {
               if (e.key === 'Enter' && (e.metaKey || e.ctrlKey)) {
                 e.preventDefault();
-                void send();
+                submit();
               }
             }}
             rows={2}
@@ -63,7 +49,7 @@ export default function AskPanel() {
           />
           <button
             type="button"
-            onClick={() => void send()}
+            onClick={submit}
             disabled={busy || !input.trim()}
             className="grid h-10 shrink-0 place-items-center rounded-xl bg-slate-900 px-4 text-sm font-semibold text-white disabled:opacity-40"
           >
@@ -72,20 +58,26 @@ export default function AskPanel() {
         </div>
       }
     >
-      <SubjectChips />
+      <div className="mb-2 flex items-center justify-between">
+        <SubjectChips />
+        {messages.length ? (
+          <button
+            type="button"
+            onClick={reset}
+            className="shrink-0 text-xs font-semibold text-slate-400 hover:text-slate-700"
+          >
+            {t('clearChat')}
+          </button>
+        ) : null}
+      </div>
       <p className="mb-3 text-xs text-slate-500">{t('askHint')}</p>
 
       <div ref={scrollRef} className="space-y-3">
         {messages.map((m, i) => (
-          <div
-            key={i}
-            className={m.role === 'user' ? 'flex justify-end' : 'flex justify-start'}
-          >
+          <div key={i} className={m.role === 'user' ? 'flex justify-end' : 'flex justify-start'}>
             <div
               className={`max-w-[92%] rounded-2xl px-3 py-2 ${
-                m.role === 'user'
-                  ? 'bg-slate-900 text-white'
-                  : 'bg-slate-50 text-slate-800 ring-1 ring-slate-100'
+                m.role === 'user' ? 'bg-slate-900 text-white' : 'bg-slate-50 text-slate-800 ring-1 ring-slate-100'
               }`}
             >
               {m.role === 'user' ? (
@@ -106,7 +98,7 @@ export default function AskPanel() {
             ★ {t('savedKeyPoints', { n: savedCount })}
           </div>
         ) : null}
-        {err ? <ErrorNote>{err}</ErrorNote> : null}
+        {error ? <ErrorNote>{errorMessage(error, t)}</ErrorNote> : null}
       </div>
     </Panel>
   );

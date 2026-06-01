@@ -82,6 +82,14 @@ export const strings = {
   hideAnswer: { en: 'Hide answer', ja: '解答を隠す' },
   practiceThis: { en: 'Practice this on the board', ja: 'この問題をボードで解く' },
   activeQuestion: { en: 'Active question', ja: '取り組み中の問題' },
+  pinToBoard: { en: 'Pin to board', ja: 'ボードに固定' },
+  unpin: { en: 'Unpin', ja: '固定を外す' },
+  pinAll: { en: 'Pin all to board', ja: 'すべてボードに固定' },
+  explain: { en: 'Explain', ja: '解説' },
+  question: { en: 'Question', ja: '問題' },
+  clearChat: { en: 'Clear', ja: 'クリア' },
+  showAnswerShort: { en: 'Answer', ja: '解答' },
+  pinnedHidden: { en: 'Pinned questions hidden', ja: '固定中の問題（非表示）' },
 
   // Check
   checkTitle: { en: 'Check my work', ja: '答案チェック' },
