@@ -1,0 +1,24 @@
+# One-service deploy on Render (https://render.com) — free tier friendly.
+# The Express server serves both the API and the built frontend.
+services:
+  - type: web
+    name: ejuhelp
+    runtime: node
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_VERSION
+        value: '22'
+      # Your Anthropic API key (set in the Render dashboard, not in git):
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      # Optional model override (defaults to claude-opus-4-8):
+      # - key: ANTHROPIC_MODEL
+      #   value: claude-sonnet-4-6
+      # Set to "false" once FIREBASE_SERVICE_ACCOUNT is configured to require login:
+      - key: ALLOW_ANON
+        value: 'true'
+      # Paste the Firebase service-account JSON (single line) to verify logins:
+      - key: FIREBASE_SERVICE_ACCOUNT
+        sync: false

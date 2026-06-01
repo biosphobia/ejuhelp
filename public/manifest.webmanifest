@@ -1,0 +1,12 @@
+{
+  "name": "EJU Study",
+  "short_name": "EJU Study",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
+  "description": "Whiteboard + Claude tutor for the EJU (Examination for Japanese University Admission).",
+  "icons": []
+}
