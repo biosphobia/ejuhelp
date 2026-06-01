@@ -30,6 +30,7 @@ export default function Whiteboard() {
     let lastPageId = useBoard.getState().currentPageId;
     let cacheDirty = true;
     let rafId = 0;
+    let skipInvalidate = false; // set while committing a stroke we've already baked into the cache
 
     // ---- interaction state ----
     let drawing: { color: InkColor; size: number; points: Pt[] } | null = null;
@@ -175,14 +176,25 @@ export default function Whiteboard() {
     function endStroke() {
       if (drawing) {
         if (drawing.points.length >= 1) {
-          useBoard.getState().addStroke({
+          const committed = {
             id: newId(),
             color: drawing.color,
             size: drawing.size,
             points: drawing.points,
-          });
+          };
+          // Bake just this one stroke into the cache so committing is O(1) — this is
+          // what removes the pause before you can write the next stroke.
+          setWorldTransform(cctx);
+          drawStroke(cctx, committed);
+          skipInvalidate = true;
+          useBoard.getState().addStroke(committed);
+          skipInvalidate = false;
         }
         drawing = null;
+        drawId = null;
+        drawType = null;
+        schedule();
+        return;
       }
       if (erasing) {
         erasing = false;
@@ -191,10 +203,10 @@ export default function Whiteboard() {
           useBoard.getState().eraseStrokes([...pendingErase]);
           pendingErase.clear();
         }
+        invalidate(); // erasing must rebuild the cache to drop the removed strokes
       }
       drawId = null;
       drawType = null;
-      invalidate();
     }
     function abortStroke() {
       // discard an in-progress stroke (e.g. a palm/finger stroke superseded by a gesture or pen)
@@ -392,6 +404,13 @@ export default function Whiteboard() {
         gestureActive = false;
         gesture = null;
         touches.clear();
+        invalidate();
+        return;
+      }
+      // A stroke we already baked into the cache — just repaint, don't rebuild.
+      if (skipInvalidate) {
+        schedule();
+        return;
       }
       invalidate();
     });

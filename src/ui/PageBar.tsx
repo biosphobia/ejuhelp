@@ -11,17 +11,17 @@ import {
 
 export default function PageBar() {
   const t = useT();
-  const pages = useBoard((s) => s.pages);
+  // Select only primitives so this bar does NOT re-render on every drawn stroke.
+  const total = useBoard((s) => s.pages.length);
+  const index = useBoard((s) => s.pages.findIndex((p) => p.id === s.currentPageId));
   const currentPageId = useBoard((s) => s.currentPageId);
   const goToPage = useBoard((s) => s.goToPage);
   const addPage = useBoard((s) => s.addPage);
   const deletePage = useBoard((s) => s.deletePage);
 
-  const index = pages.findIndex((p) => p.id === currentPageId);
-  const total = pages.length;
-
   const go = (delta: number) => {
-    const next = pages[index + delta];
+    const st = useBoard.getState();
+    const next = st.pages[index + delta];
     if (next) goToPage(next.id);
   };
 
