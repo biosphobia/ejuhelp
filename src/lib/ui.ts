@@ -39,7 +39,7 @@ export const useUI = create<UIState>()(
       subject: 'physics',
       panel: null,
       launcherOpen: false,
-      fingerDraw: true,
+      fingerDraw: false, // default: pen draws, fingers navigate (pan / pinch-zoom)
       setLang: (lang) => set({ lang }),
       toggleLang: () => set({ lang: get().lang === 'en' ? 'ja' : 'en' }),
       setSubject: (subject) => set({ subject }),
@@ -50,6 +50,12 @@ export const useUI = create<UIState>()(
     }),
     {
       name: 'eju-ui',
+      version: 1,
+      // Drop the old fingerDraw value so the new default (fingers navigate) applies.
+      migrate: (persisted: any, version: number) => {
+        if (version < 1 && persisted && 'fingerDraw' in persisted) delete persisted.fingerDraw;
+        return persisted;
+      },
       partialize: (s) => ({ lang: s.lang, subject: s.subject, fingerDraw: s.fingerDraw }),
     }
   )

@@ -12,7 +12,7 @@ import { drawStroke, strokeHit } from './render';
 import { boardEvents } from './view';
 
 const ERASER_RADIUS = 14; // screen px
-const PALM_SIZE = 40; // touch contacts wider/taller than this (px) are treated as a resting palm
+const STYLUS_MAX = 14; // px: a lone touch this tiny (and positive) is treated as a stylus tip
 
 const clamp = (n: number, lo: number, hi: number) => Math.max(lo, Math.min(hi, n));
 
@@ -30,23 +30,22 @@ export default function Whiteboard() {
     let lastPageId = useBoard.getState().currentPageId;
     let cacheDirty = true;
     let rafId = 0;
-    let skipInvalidate = false; // set while committing a stroke we've already baked into the cache
+    let skipInvalidate = false;
+    let penSeen = false; // once we've seen a real "pen" pointer, trust it for drawing
 
-    // ---- interaction state ----
+    // interaction state
     let drawing: { color: InkColor; size: number; points: Pt[] } | null = null;
     let erasing = false;
     const pendingErase = new Set<string>();
     let eraserScreen: { x: number; y: number } | null = null;
-    // which pointer currently owns the stroke (and whether it's a real stylus)
     let drawId: number | null = null;
-    let drawType: string | null = null;
+    let drawKind: 'pen' | 'finger' | null = null; // 'pen' = stylus/mouse (palm-rejecting)
 
     const touches = new Map<number, { x: number; y: number }>();
     let gestureActive = false;
-    let gesture: { cx: number; cy: number; dist: number; vx: number; vy: number; scale: number } | null =
-      null;
+    let gesture: { cx: number; cy: number; dist: number; vx: number; vy: number; scale: number } | null = null;
 
-    // ---- geometry helpers ----
+    // ---- geometry ----
     const rect = () => canvas.getBoundingClientRect();
     function toWorld(clientX: number, clientY: number) {
       const r = rect();
@@ -103,21 +102,14 @@ export default function Whiteboard() {
       cacheDirty = false;
     }
 
-    function paint() {
-      rafId = 0;
+    function render() {
       if (cacheDirty) renderCache();
       ctx.setTransform(1, 0, 0, 1, 0, 0);
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       ctx.drawImage(cache, 0, 0);
-
       if (drawing && drawing.points.length) {
         setWorldTransform(ctx);
-        drawStroke(ctx, {
-          id: 'tmp',
-          color: drawing.color,
-          size: drawing.size,
-          points: drawing.points,
-        });
+        drawStroke(ctx, { id: 'tmp', color: drawing.color, size: drawing.size, points: drawing.points });
       }
       if (eraserScreen) {
         ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
@@ -129,8 +121,21 @@ export default function Whiteboard() {
       }
     }
 
+    // Synchronous paint — lowest latency for the active stroke (no rAF wait).
+    function paintNow() {
+      if (rafId) {
+        cancelAnimationFrame(rafId);
+        rafId = 0;
+      }
+      render();
+    }
     function schedule() {
-      if (!rafId) rafId = requestAnimationFrame(paint);
+      if (!rafId) {
+        rafId = requestAnimationFrame(() => {
+          rafId = 0;
+          render();
+        });
+      }
     }
     function invalidate() {
       cacheDirty = true;
@@ -145,7 +150,7 @@ export default function Whiteboard() {
       invalidate();
     }
 
-    // ---- stroke lifecycle ----
+    // ---- strokes ----
     function doErase(wx: number, wy: number) {
       const r = ERASER_RADIUS / vp.scale;
       const page = useBoard.getState().getCurrentPage();
@@ -156,12 +161,12 @@ export default function Whiteboard() {
           changed = true;
         }
       }
-      if (changed) invalidate();
+      if (changed) cacheDirty = true;
     }
 
-    function beginStroke(e: PointerEvent) {
+    function beginStroke(e: PointerEvent, kind: 'pen' | 'finger') {
       drawId = e.pointerId;
-      drawType = e.pointerType;
+      drawKind = kind;
       const { tool, color, size } = useBoard.getState();
       const w = toWorld(e.clientX, e.clientY);
       if (tool === 'eraser') {
@@ -171,29 +176,21 @@ export default function Whiteboard() {
       } else {
         drawing = { color, size, points: [{ x: w.x, y: w.y, p: pressureFor(e) }] };
       }
-      schedule();
     }
     function endStroke() {
       if (drawing) {
         if (drawing.points.length >= 1) {
-          const committed = {
-            id: newId(),
-            color: drawing.color,
-            size: drawing.size,
-            points: drawing.points,
-          };
-          // Bake just this one stroke into the cache so committing is O(1) — this is
-          // what removes the pause before you can write the next stroke.
+          const committed = { id: newId(), color: drawing.color, size: drawing.size, points: drawing.points };
           setWorldTransform(cctx);
-          drawStroke(cctx, committed);
+          drawStroke(cctx, committed); // bake into cache (O(1), no full rebuild)
           skipInvalidate = true;
           useBoard.getState().addStroke(committed);
           skipInvalidate = false;
         }
         drawing = null;
         drawId = null;
-        drawType = null;
-        schedule();
+        drawKind = null;
+        paintNow();
         return;
       }
       if (erasing) {
@@ -203,23 +200,22 @@ export default function Whiteboard() {
           useBoard.getState().eraseStrokes([...pendingErase]);
           pendingErase.clear();
         }
-        invalidate(); // erasing must rebuild the cache to drop the removed strokes
+        invalidate();
       }
       drawId = null;
-      drawType = null;
+      drawKind = null;
     }
     function abortStroke() {
-      // discard an in-progress stroke (e.g. a palm/finger stroke superseded by a gesture or pen)
       drawing = null;
       erasing = false;
       eraserScreen = null;
       pendingErase.clear();
       drawId = null;
-      drawType = null;
+      drawKind = null;
       invalidate();
     }
 
-    // ---- two-finger pan + pinch-to-scale (never rotate) ----
+    // ---- gestures (touch navigation: 1 finger pan, 2 fingers pinch-scale) ----
     function readGesture() {
       const r = rect();
       const locals = [...touches.values()].map((p) => ({ x: p.x - r.left, y: p.y - r.top }));
@@ -243,9 +239,7 @@ export default function Whiteboard() {
       const anchorX = (gesture.cx - gesture.vx) / gesture.scale;
       const anchorY = (gesture.cy - gesture.vy) / gesture.scale;
       let scale = gesture.scale;
-      if (g.n >= 2 && gesture.dist > 0) {
-        scale = clamp(gesture.scale * (g.dist / gesture.dist), MIN_SCALE, MAX_SCALE);
-      }
+      if (g.n >= 2 && gesture.dist > 0) scale = clamp(gesture.scale * (g.dist / gesture.dist), MIN_SCALE, MAX_SCALE);
       vp.scale = scale;
       vp.x = g.cx - anchorX * scale;
       vp.y = g.cy - anchorY * scale;
@@ -254,47 +248,55 @@ export default function Whiteboard() {
     function commitViewport() {
       useBoard.getState().setViewport({ scale: vp.scale, x: vp.x, y: vp.y });
     }
+    function cancelGesture() {
+      gestureActive = false;
+      gesture = null;
+    }
 
     // ---- pointer events ----
     function onPointerDown(e: PointerEvent) {
-      // Reject a resting palm: large contact area, never a pen tip or fingertip.
-      if (e.pointerType === 'touch' && (e.width > PALM_SIZE || e.height > PALM_SIZE)) return;
-      if (e.pointerType === 'touch') touches.set(e.pointerId, { x: e.clientX, y: e.clientY });
+      if (e.pointerType === 'pen') penSeen = true;
 
-      // A real stylus / mouse always draws and takes priority over finger interaction.
+      // Pen / mouse always draw and take priority.
       if (e.pointerType === 'pen' || e.pointerType === 'mouse') {
-        if (gestureActive) {
-          gestureActive = false;
-          gesture = null;
-        }
-        if (drawId !== null && drawType === 'touch') abortStroke(); // palm started; pen takes over
+        cancelGesture();
+        if (drawId !== null && drawKind === 'finger') abortStroke();
         try {
           canvas.setPointerCapture(e.pointerId);
         } catch {
           /* noop */
         }
-        beginStroke(e);
+        beginStroke(e, 'pen');
+        paintNow();
         e.preventDefault();
         return;
       }
 
-      // touch
-      // If a real stylus is mid-stroke, ignore touches entirely (palm rejection).
-      if (drawId !== null && drawType !== 'touch') return;
+      // TOUCH ────────────────────────────────────────────────
+      // While a stylus is drawing, ignore touches entirely (palm rejection).
+      if (drawId !== null && drawKind === 'pen') return;
 
+      touches.set(e.pointerId, { x: e.clientX, y: e.clientY });
       const fingerDraw = useUI.getState().fingerDraw;
+
       if (touches.size >= 2) {
-        // second finger down -> this is a navigation gesture, not drawing
-        if (drawId !== null && drawType === 'touch') abortStroke();
+        if (drawId !== null) abortStroke(); // a 1-finger draw becomes a gesture
         gestureActive = true;
         startGesture();
         return;
       }
+
       // exactly one touch
+      const tinyStylus =
+        !penSeen && e.width > 0 && e.width <= STYLUS_MAX && e.height > 0 && e.height <= STYLUS_MAX;
       if (fingerDraw) {
-        beginStroke(e);
+        beginStroke(e, 'finger');
+        paintNow();
+      } else if (tinyStylus) {
+        beginStroke(e, 'pen'); // a touch-reported stylus tip
+        paintNow();
       } else {
-        gestureActive = true;
+        gestureActive = true; // single-finger pan
         startGesture();
       }
     }
@@ -319,7 +321,7 @@ export default function Whiteboard() {
           const w = toWorld(e.clientX, e.clientY);
           doErase(w.x, w.y);
         }
-        schedule();
+        paintNow(); // synchronous = minimal ink latency
         return;
       }
 
@@ -338,11 +340,9 @@ export default function Whiteboard() {
         endStroke();
         return;
       }
-
       if (gestureActive && e.pointerType === 'touch') {
         if (touches.size === 0) {
-          gestureActive = false;
-          gesture = null;
+          cancelGesture();
           commitViewport();
         } else {
           startGesture(); // rebaseline remaining finger(s)
@@ -364,7 +364,6 @@ export default function Whiteboard() {
       invalidate();
     }
 
-    // Block Safari's non-standard pinch-zoom of the page.
     const stop = (e: Event) => e.preventDefault();
 
     canvas.addEventListener('pointerdown', onPointerDown);
@@ -385,7 +384,6 @@ export default function Whiteboard() {
     };
     boardEvents.addEventListener('reset', onReset);
 
-    // Keep the canvas in sync with store changes (page switch, undo, cloud load).
     const unsub = useBoard.subscribe((st) => {
       if (st.currentPageId !== lastPageId) {
         lastPageId = st.currentPageId;
@@ -400,14 +398,12 @@ export default function Whiteboard() {
         erasing = false;
         eraserScreen = null;
         drawId = null;
-        drawType = null;
-        gestureActive = false;
-        gesture = null;
+        drawKind = null;
+        cancelGesture();
         touches.clear();
         invalidate();
         return;
       }
-      // A stroke we already baked into the cache — just repaint, don't rebuild.
       if (skipInvalidate) {
         schedule();
         return;
@@ -435,10 +431,5 @@ export default function Whiteboard() {
     };
   }, []);
 
-  return (
-    <canvas
-      ref={canvasRef}
-      className="canvas-surface absolute inset-0 h-full w-full touch-none"
-    />
-  );
+  return <canvas ref={canvasRef} className="canvas-surface absolute inset-0 h-full w-full touch-none" />;
 }
