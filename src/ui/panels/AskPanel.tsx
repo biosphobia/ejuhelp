@@ -136,7 +136,9 @@ export default function AskPanel() {
               {t('close')}
             </button>
           </div>
-          <div className="max-h-24 overflow-y-auto whitespace-pre-wrap text-sm text-amber-900">{activeQuestion}</div>
+          <div className="max-h-24 overflow-y-auto text-sm text-amber-900">
+            <Markdown text={activeQuestion} />
+          </div>
         </div>
       ) : null}
 
