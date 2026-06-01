@@ -17,8 +17,8 @@ export class ApiError extends Error {
 async function call<T>(path: string, body: unknown): Promise<T> {
   const token = await getIdToken();
   
-  const { activeModel, claudeKey, gptKey } = useApiStore.getState();
-  const userKey = activeModel === 'claude' ? claudeKey : activeModel === 'gpt' ? gptKey : undefined;
+  const { activeModel, claudeKey, gptKey, geminiKey } = useApiStore.getState();
+  const userKey = activeModel === 'claude' ? claudeKey : activeModel === 'gpt' ? gptKey : activeModel === 'gemini' ? geminiKey : undefined;
 
   const res = await fetch(`/api/${path}`, {
     method: 'POST',
