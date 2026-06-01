@@ -45,6 +45,7 @@ export default function Whiteboard() {
     let drawId: number | null = null;
     let drawKind: 'pen' | 'finger' | 'touch-pen' | null = null; 
     let activeStylusTouchId: number | null = null; 
+    let touchPenStartTime = 0; // Ensures we don't upgrade stale/stuck touches
     let liveLastIdx = 0; // last live stroke point already painted incrementally
 
     const touches = new Map<number, { x: number; y: number }>();
@@ -326,6 +327,7 @@ export default function Whiteboard() {
       ctx.stroke();
       liveLastIdx = pts.length - 1;
     }
+
     function endStroke() {
       if (drawing) {
         if (drawing.points.length >= 1) {
@@ -339,6 +341,7 @@ export default function Whiteboard() {
         drawing = null;
         drawId = null;
         drawKind = null;
+        activeStylusTouchId = null; // SAFEGUARD: clean up ghost touches
         commitPresent();
         return;
       }
@@ -353,7 +356,9 @@ export default function Whiteboard() {
       }
       drawId = null;
       drawKind = null;
+      activeStylusTouchId = null; // SAFEGUARD: clean up ghost touches
     }
+
     function abortStroke() {
       drawing = null;
       erasing = false;
@@ -361,6 +366,7 @@ export default function Whiteboard() {
       pendingErase.clear();
       drawId = null;
       drawKind = null;
+      activeStylusTouchId = null;
       invalidate();
     }
 
@@ -593,8 +599,6 @@ export default function Whiteboard() {
       dbg(e);
       if (e.pointerType === 'pen') {
         penSeen = true;
-        // CRITICAL FIX: Prevent the browser from intercepting or delaying low-latency pen inputs.
-        // This solves iOS Safari dropping pointerup/pointermove events on rapid taps/dashes.
         e.preventDefault();
       }
 
@@ -621,11 +625,15 @@ export default function Whiteboard() {
         lastPenDown = performance.now();
         cancelGesture();
         
-        // UPGRADE: If a raw touch event already instantly started this stroke,
+        // UPGRADE: If a raw touch event recently instantly started this stroke,
         // seamlessly transition it to the high-fidelity pointer tracker.
-        if (drawId !== null && drawKind === 'touch-pen' && e.pointerType === 'pen') {
+        // We enforce a 200ms time limit to ensure we don't accidentally merge with an old, stuck touch.
+        const isRecentTouch = performance.now() - touchPenStartTime < 200;
+        if (drawId !== null && drawKind === 'touch-pen' && e.pointerType === 'pen' && isRecentTouch) {
             drawId = e.pointerId;
             drawKind = 'pen';
+            activeStylusTouchId = null; // CRITICAL: Detach the touch so touchend doesn't violently kill this stroke
+            
             const w = toWorld(e.clientX, e.clientY);
             if (drawing) {
                 drawing.points.push({ x: w.x, y: w.y, p: pressureFor(e) });
@@ -634,10 +642,10 @@ export default function Whiteboard() {
             return;
         }
 
-        // Finish any previous stroke first, so a missed pointerup can't strand it:
-        // commit a stuck stylus stroke; discard a stray finger/palm stroke.
+        // Finish any previous stroke first. 
+        // If an old 'touch-pen' ghost state got stuck and wasn't caught by the upgrade above, safely abort it.
         if (drawId !== null) {
-          if (drawKind === 'finger') abortStroke();
+          if (drawKind === 'finger' || drawKind === 'touch-pen') abortStroke();
           else endStroke();
         }
         
@@ -721,9 +729,6 @@ export default function Whiteboard() {
         return;
       }
       const penUp = e.pointerType === 'pen' || e.pointerType === 'mouse';
-      // Commit the active draw. Tolerate a pointerId mismatch on pen/mouse up (iOS can
-      // report a different id for up than down on a quick tap), but never let a
-      // palm/finger lift end an active stylus stroke.
       if (drawId !== null && (drawId === e.pointerId || (drawKind === 'pen' && penUp))) {
         if (e.pointerType === 'touch') touches.delete(e.pointerId);
         endStroke();
@@ -749,13 +754,11 @@ export default function Whiteboard() {
       for (const t of Array.from(e.changedTouches)) {
         if (isStylus(t)) hasStylus = true;
       }
-      // CRITICAL: Prevent default to kill Safari Pencil delays and Scribble interception
       if (hasStylus && e.cancelable) e.preventDefault();
 
       for (const t of Array.from(e.changedTouches)) {
         if (!isStylus(t)) continue;
         
-        // Fast tap/instant stroke catch: start drawing immediately before pointer events wake up
         if (drawId === null && useBoard.getState().tool !== 'select') {
            const w = toWorldPt(t);
            const { tool, color, size } = useBoard.getState();
@@ -770,6 +773,7 @@ export default function Whiteboard() {
            drawId = t.identifier;
            drawKind = 'touch-pen';
            activeStylusTouchId = t.identifier;
+           touchPenStartTime = performance.now();
            commitPresent();
         }
       }
@@ -783,7 +787,6 @@ export default function Whiteboard() {
       if (hasStylus && e.cancelable) e.preventDefault();
 
       for (const t of Array.from(e.changedTouches)) {
-        // If it hasn't upgraded to a pointer yet, draw it live via touch
         if (t.identifier === activeStylusTouchId && drawKind === 'touch-pen') {
            if (drawing) {
                drawing.points.push(toWorldPt(t));
@@ -801,8 +804,10 @@ export default function Whiteboard() {
     function onTouchEnd(e: TouchEvent) {
       for (const t of Array.from(e.changedTouches)) {
         if (t.identifier === activeStylusTouchId) {
-           // Commits the stroke. This acts as the reliable safety net for quick dots/dashes
-           endStroke();
+           // ONLY commit if Safari hasn't cleanly handed this off to a Pointer event yet
+           if (drawKind === 'touch-pen') {
+               endStroke();
+           }
            activeStylusTouchId = null;
         }
       }
@@ -824,13 +829,10 @@ export default function Whiteboard() {
 
     const stop = (e: Event) => e.preventDefault();
 
-    // pointerdown starts on the canvas; move/up listen on window so a stroke
-    // continues even when the pointer crosses over the floating UI (no capture needed).
     canvas.addEventListener('pointerdown', onPointerDown);
     window.addEventListener('pointermove', onPointerMove);
     window.addEventListener('pointerup', endPointer);
     window.addEventListener('pointercancel', endPointer);
-    // Touch listeners are now passive: false to allow e.preventDefault() to kill Safari delays
     canvas.addEventListener('touchstart', onTouchStart, { passive: false });
     canvas.addEventListener('touchmove', onTouchMove, { passive: false });
     canvas.addEventListener('touchend', onTouchEnd, { passive: false });
@@ -864,13 +866,13 @@ export default function Whiteboard() {
         eraserScreen = null;
         drawId = null;
         drawKind = null;
+        activeStylusTouchId = null;
         cancelGesture();
         touches.clear();
         resetSelection();
         invalidate();
         return;
       }
-      // Leaving the select tool clears any active selection.
       if (st.tool !== 'select' && (selectedIds.length || marquee || manip)) {
         resetSelection();
       }
