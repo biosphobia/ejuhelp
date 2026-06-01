@@ -54,6 +54,27 @@ export default function Whiteboard() {
     let gestureActive = false;
     let gesture: { cx: number; cy: number; dist: number; vx: number; vy: number; scale: number } | null = null;
 
+    // ---- selection (select tool: marquee -> move / scale / rotate / delete) ----
+    type Live = { tx: number; ty: number; scale: number; rot: number };
+    const IDENT: Live = { tx: 0, ty: 0, scale: 1, rot: 0 };
+    const HANDLE_HIT = 24; // screen px
+    let selectedIds: string[] = [];
+    let selBox: { minX: number; minY: number; maxX: number; maxY: number } | null = null;
+    let marquee: { x0: number; y0: number; x1: number; y1: number } | null = null; // world coords
+    const manipHidden = new Set<string>();
+    let manip:
+      | {
+          type: 'marquee' | 'move' | 'scale' | 'rotate';
+          pointerId: number;
+          startWorld: { x: number; y: number };
+          center: { x: number; y: number };
+          startDist: number;
+          startAngle: number;
+          snapshot: Map<string, { color: InkColor; size: number; points: Pt[] }>;
+          live: Live;
+        }
+      | null = null;
+
     // ---- geometry ----
     const rect = () => canvas.getBoundingClientRect();
     function toWorld(clientX: number, clientY: number) {
@@ -120,7 +141,7 @@ export default function Whiteboard() {
       drawGrid(cctx);
       const page = useBoard.getState().getCurrentPage();
       for (const s of page.strokes) {
-        if (pendingErase.has(s.id)) continue;
+        if (pendingErase.has(s.id) || manipHidden.has(s.id)) continue;
         drawStroke(cctx, s);
       }
       cacheDirty = false;
@@ -143,6 +164,84 @@ export default function Whiteboard() {
         ctx.lineWidth = 1.5;
         ctx.stroke();
       }
+
+      // selected strokes, transformed live during a manipulation
+      if (manip && manip.type !== 'marquee') {
+        const mp = manip;
+        setWorldTransform(ctx);
+        for (const [, s] of mp.snapshot) {
+          drawStroke(ctx, {
+            id: 'sel',
+            color: s.color,
+            size: s.size,
+            points: s.points.map((p) => transformPoint(p, mp.center, mp.live)),
+          });
+        }
+      }
+
+      // selection overlay (box, handles, marquee) in screen space
+      if (useBoard.getState().tool === 'select') {
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        if (marquee) {
+          const a = worldToScreen(Math.min(marquee.x0, marquee.x1), Math.min(marquee.y0, marquee.y1));
+          const b = worldToScreen(Math.max(marquee.x0, marquee.x1), Math.max(marquee.y0, marquee.y1));
+          ctx.fillStyle = 'rgba(37,99,235,0.08)';
+          ctx.strokeStyle = '#2563eb';
+          ctx.lineWidth = 1.5;
+          ctx.setLineDash([6, 4]);
+          ctx.beginPath();
+          ctx.rect(a.x, a.y, b.x - a.x, b.y - a.y);
+          ctx.fill();
+          ctx.stroke();
+          ctx.setLineDash([]);
+        }
+        const g = selScreenGeom();
+        if (g && selectedIds.length) {
+          ctx.strokeStyle = '#2563eb';
+          ctx.lineWidth = 1.5;
+          ctx.setLineDash([6, 4]);
+          ctx.beginPath();
+          ctx.moveTo(g.corners[0].x, g.corners[0].y);
+          for (let i = 1; i < 4; i++) ctx.lineTo(g.corners[i].x, g.corners[i].y);
+          ctx.closePath();
+          ctx.stroke();
+          ctx.setLineDash([]);
+          for (const cpt of g.corners) drawHandle(cpt, false);
+          ctx.strokeStyle = '#2563eb';
+          ctx.lineWidth = 1.5;
+          ctx.beginPath();
+          ctx.moveTo(g.topMid.x, g.topMid.y);
+          ctx.lineTo(g.rotate.x, g.rotate.y);
+          ctx.stroke();
+          drawHandle(g.rotate, true);
+          drawDelete(g.del);
+        }
+      }
+    }
+
+    function drawHandle(c2: { x: number; y: number }, circle: boolean) {
+      ctx.fillStyle = '#ffffff';
+      ctx.strokeStyle = '#2563eb';
+      ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      if (circle) ctx.arc(c2.x, c2.y, 7, 0, Math.PI * 2);
+      else ctx.rect(c2.x - 6, c2.y - 6, 12, 12);
+      ctx.fill();
+      ctx.stroke();
+    }
+    function drawDelete(c2: { x: number; y: number }) {
+      ctx.fillStyle = '#dc2626';
+      ctx.beginPath();
+      ctx.arc(c2.x, c2.y, 11, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.strokeStyle = '#ffffff';
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(c2.x - 4, c2.y - 4);
+      ctx.lineTo(c2.x + 4, c2.y + 4);
+      ctx.moveTo(c2.x + 4, c2.y - 4);
+      ctx.lineTo(c2.x - 4, c2.y + 4);
+      ctx.stroke();
     }
 
     // Synchronous paint — lowest latency for the active stroke (no rAF wait).
@@ -306,10 +405,214 @@ export default function Whiteboard() {
       gesture = null;
     }
 
+    // ---- selection helpers ----
+    function worldToScreen(wx: number, wy: number) {
+      return { x: wx * vp.scale + vp.x, y: wy * vp.scale + vp.y };
+    }
+    function transformPoint(p: Pt, c: { x: number; y: number }, live: Live): Pt {
+      const dx = p.x - c.x;
+      const dy = p.y - c.y;
+      const cos = Math.cos(live.rot);
+      const sin = Math.sin(live.rot);
+      return {
+        x: c.x + (dx * cos - dy * sin) * live.scale + live.tx,
+        y: c.y + (dx * sin + dy * cos) * live.scale + live.ty,
+        p: p.p,
+      };
+    }
+    function computeSelBox(ids: string[]) {
+      let minX = Infinity;
+      let minY = Infinity;
+      let maxX = -Infinity;
+      let maxY = -Infinity;
+      const idset = new Set(ids);
+      for (const s of useBoard.getState().getCurrentPage().strokes) {
+        if (!idset.has(s.id)) continue;
+        for (const p of s.points) {
+          if (p.x < minX) minX = p.x;
+          if (p.y < minY) minY = p.y;
+          if (p.x > maxX) maxX = p.x;
+          if (p.y > maxY) maxY = p.y;
+        }
+      }
+      return minX === Infinity ? null : { minX, minY, maxX, maxY };
+    }
+    function selScreenGeom() {
+      if (!selBox) return null;
+      const c =
+        manip && manip.type !== 'marquee'
+          ? manip.center
+          : { x: (selBox.minX + selBox.maxX) / 2, y: (selBox.minY + selBox.maxY) / 2 };
+      const live = manip && manip.type !== 'marquee' ? manip.live : IDENT;
+      const cw = [
+        { x: selBox.minX, y: selBox.minY },
+        { x: selBox.maxX, y: selBox.minY },
+        { x: selBox.maxX, y: selBox.maxY },
+        { x: selBox.minX, y: selBox.maxY },
+      ];
+      const corners = cw.map((p) => {
+        const tp = transformPoint({ x: p.x, y: p.y, p: 0 }, c, live);
+        return worldToScreen(tp.x, tp.y);
+      });
+      const topMid = { x: (corners[0].x + corners[1].x) / 2, y: (corners[0].y + corners[1].y) / 2 };
+      const cs = worldToScreen(c.x + live.tx, c.y + live.ty);
+      let dx = topMid.x - cs.x;
+      let dy = topMid.y - cs.y;
+      const L = Math.hypot(dx, dy) || 1;
+      dx /= L;
+      dy /= L;
+      const rotate = { x: topMid.x + dx * 34, y: topMid.y + dy * 34 };
+      const del = { x: corners[1].x + 16, y: corners[1].y - 16 };
+      return { corners, topMid, rotate, del };
+    }
+    function resetSelection() {
+      selectedIds = [];
+      selBox = null;
+      marquee = null;
+      manip = null;
+      manipHidden.clear();
+    }
+    function clearSelection() {
+      resetSelection();
+      invalidate();
+    }
+    function cancelManip() {
+      manip = null;
+      marquee = null;
+      manipHidden.clear();
+    }
+    function beginManip(type: 'move' | 'scale' | 'rotate', pointerId: number, world: { x: number; y: number }) {
+      if (!selBox) return;
+      const center = { x: (selBox.minX + selBox.maxX) / 2, y: (selBox.minY + selBox.maxY) / 2 };
+      const snapshot = new Map<string, { color: InkColor; size: number; points: Pt[] }>();
+      const idset = new Set(selectedIds);
+      for (const s of useBoard.getState().getCurrentPage().strokes) {
+        if (idset.has(s.id)) snapshot.set(s.id, { color: s.color, size: s.size, points: s.points });
+      }
+      manipHidden.clear();
+      for (const id of selectedIds) manipHidden.add(id);
+      manip = {
+        type,
+        pointerId,
+        startWorld: world,
+        center,
+        startDist: Math.hypot(world.x - center.x, world.y - center.y) || 1,
+        startAngle: Math.atan2(world.y - center.y, world.x - center.x),
+        snapshot,
+        live: { ...IDENT },
+      };
+      invalidate();
+    }
+    function startSelect(e: PointerEvent) {
+      const local = localPt(e.clientX, e.clientY);
+      const world = toWorld(e.clientX, e.clientY);
+      if (selBox && selectedIds.length) {
+        const g = selScreenGeom();
+        if (g) {
+          const near = (h: { x: number; y: number }) => Math.hypot(local.x - h.x, local.y - h.y) <= HANDLE_HIT;
+          if (near(g.del)) {
+            useBoard.getState().eraseStrokes(selectedIds);
+            clearSelection();
+            return;
+          }
+          if (near(g.rotate)) return beginManip('rotate', e.pointerId, world);
+          if (g.corners.some(near)) return beginManip('scale', e.pointerId, world);
+          if (world.x >= selBox.minX && world.x <= selBox.maxX && world.y >= selBox.minY && world.y <= selBox.maxY) {
+            return beginManip('move', e.pointerId, world);
+          }
+        }
+      }
+      // start a fresh marquee
+      resetSelection();
+      marquee = { x0: world.x, y0: world.y, x1: world.x, y1: world.y };
+      manip = {
+        type: 'marquee',
+        pointerId: e.pointerId,
+        startWorld: world,
+        center: { x: 0, y: 0 },
+        startDist: 0,
+        startAngle: 0,
+        snapshot: new Map(),
+        live: { ...IDENT },
+      };
+      invalidate();
+    }
+    function updateSelect(e: PointerEvent) {
+      if (!manip) return;
+      const world = toWorld(e.clientX, e.clientY);
+      if (manip.type === 'marquee') {
+        if (marquee) {
+          marquee.x1 = world.x;
+          marquee.y1 = world.y;
+        }
+        invalidate();
+        return;
+      }
+      const c = manip.center;
+      if (manip.type === 'move') {
+        manip.live = { tx: world.x - manip.startWorld.x, ty: world.y - manip.startWorld.y, scale: 1, rot: 0 };
+      } else if (manip.type === 'scale') {
+        manip.live = { tx: 0, ty: 0, scale: clamp(Math.hypot(world.x - c.x, world.y - c.y) / manip.startDist, 0.1, 20), rot: 0 };
+      } else {
+        manip.live = { tx: 0, ty: 0, scale: 1, rot: Math.atan2(world.y - c.y, world.x - c.x) - manip.startAngle };
+      }
+      paintNow();
+    }
+    function endSelect() {
+      if (!manip) return;
+      if (manip.type === 'marquee') {
+        const m = marquee;
+        marquee = null;
+        manip = null;
+        if (m) {
+          const minX = Math.min(m.x0, m.x1);
+          const maxX = Math.max(m.x0, m.x1);
+          const minY = Math.min(m.y0, m.y1);
+          const maxY = Math.max(m.y0, m.y1);
+          const ids = useBoard
+            .getState()
+            .getCurrentPage()
+            .strokes.filter((s) => s.points.some((p) => p.x >= minX && p.x <= maxX && p.y >= minY && p.y <= maxY))
+            .map((s) => s.id);
+          selectedIds = ids;
+          selBox = ids.length ? computeSelBox(ids) : null;
+        }
+        invalidate();
+        return;
+      }
+      const live = manip.live;
+      const c = manip.center;
+      const updates: { id: string; points: Pt[] }[] = [];
+      for (const [id, s] of manip.snapshot) updates.push({ id, points: s.points.map((p) => transformPoint(p, c, live)) });
+      manipHidden.clear();
+      manip = null;
+      if (updates.length) useBoard.getState().updateStrokes(updates);
+      selBox = computeSelBox(selectedIds);
+      invalidate();
+    }
+
     // ---- pointer events ----
     function onPointerDown(e: PointerEvent) {
       dbg(e);
       if (e.pointerType === 'pen') penSeen = true;
+
+      // SELECT tool: pen/mouse/single-touch manipulate the selection; two fingers pan/zoom.
+      if (useBoard.getState().tool === 'select') {
+        if (e.pointerType === 'touch') {
+          touches.set(e.pointerId, { x: e.clientX, y: e.clientY });
+          if (touches.size >= 2) {
+            cancelManip();
+            gestureActive = true;
+            startGesture();
+            invalidate();
+            return;
+          }
+        } else {
+          lastPenDown = performance.now();
+        }
+        startSelect(e);
+        return;
+      }
 
       // Pen / mouse always draw and take priority.
       if (e.pointerType === 'pen' || e.pointerType === 'mouse') {
@@ -368,6 +671,11 @@ export default function Whiteboard() {
         touches.set(e.pointerId, { x: e.clientX, y: e.clientY });
       }
 
+      if (manip && manip.pointerId === e.pointerId) {
+        updateSelect(e);
+        return;
+      }
+
       if (drawId === e.pointerId && (drawing || erasing)) {
         if (drawing) {
           const evs =
@@ -393,6 +701,11 @@ export default function Whiteboard() {
 
     function endPointer(e: PointerEvent) {
       dbg(e);
+      if (manip && manip.pointerId === e.pointerId) {
+        if (e.pointerType === 'touch') touches.delete(e.pointerId);
+        endSelect();
+        return;
+      }
       const penUp = e.pointerType === 'pen' || e.pointerType === 'mouse';
       // Commit the active draw. Tolerate a pointerId mismatch on pen/mouse up (iOS can
       // report a different id for up than down on a quick tap), but never let a
@@ -435,11 +748,19 @@ export default function Whiteboard() {
         const ent = stylusTouches.get(t.identifier);
         if (!ent) continue;
         stylusTouches.delete(t.identifier);
+        // If a pen pointer stroke is still open (its pointerup was dropped), commit it
+        // now using the reliable touchend — catches the shortest taps/dashes.
+        if ((drawing || erasing) && drawKind === 'pen') {
+          dbgTouch('Tup(commit)', t, ent.pts.length);
+          endStroke();
+          continue;
+        }
         const handledByPointer = lastPenDown >= ent.t0; // a pen pointerdown fired during this touch
         dbgTouch(handledByPointer ? 'Tup(ptr)' : 'Tup(draw)', t, ent.pts.length);
         if (handledByPointer) continue;
         // The pointer system never saw this stylus stroke — draw it ourselves.
         const { tool, color, size } = useBoard.getState();
+        if (tool === 'select') continue; // don't inject strokes while selecting
         if (tool === 'eraser') {
           for (const p of ent.pts) doErase(p.x, p.y);
           if (pendingErase.size) {
@@ -523,8 +844,13 @@ export default function Whiteboard() {
         drawKind = null;
         cancelGesture();
         touches.clear();
+        resetSelection();
         invalidate();
         return;
+      }
+      // Leaving the select tool clears any active selection.
+      if (st.tool !== 'select' && (selectedIds.length || marquee || manip)) {
+        resetSelection();
       }
       if (skipInvalidate) {
         schedule();

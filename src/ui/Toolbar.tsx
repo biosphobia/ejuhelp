@@ -6,7 +6,7 @@ import {
 } from '../lib/board';
 import { useUI } from '../lib/ui';
 import { useT } from '../i18n';
-import { PenIcon, EraserIcon, UndoIcon, TrashIcon, HandIcon } from './icons';
+import { PenIcon, EraserIcon, UndoIcon, TrashIcon, HandIcon, SelectIcon } from './icons';
 
 const COLORS: InkColor[] = ['black', 'red', 'blue', 'green'];
 
@@ -56,6 +56,9 @@ export default function Toolbar() {
       </IconBtn>
       <IconBtn active={tool === 'eraser'} onClick={() => setTool('eraser')} title={t('eraser')}>
         <EraserIcon />
+      </IconBtn>
+      <IconBtn active={tool === 'select'} onClick={() => setTool('select')} title={t('select')}>
+        <SelectIcon />
       </IconBtn>
 
       <span className="mx-1 h-7 w-px bg-slate-200" />

@@ -21,6 +21,7 @@ export const strings = {
   // Toolbar
   pen: { en: 'Pen', ja: 'ペン' },
   eraser: { en: 'Eraser', ja: '消しゴム' },
+  select: { en: 'Select (move / scale / rotate)', ja: '選択（移動・拡大・回転）' },
   undo: { en: 'Undo', ja: '元に戻す' },
   clearPage: { en: 'Clear page', ja: 'ページを消去' },
   addPage: { en: 'Add page', ja: 'ページ追加' },

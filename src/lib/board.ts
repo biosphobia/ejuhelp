@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 
 export type InkColor = 'black' | 'red' | 'blue' | 'green';
-export type Tool = 'pen' | 'eraser';
+export type Tool = 'pen' | 'eraser' | 'select';
 
 export interface Pt {
   x: number; // world coordinates
@@ -62,6 +62,7 @@ interface BoardState {
 
   addStroke: (s: Stroke) => void;
   eraseStrokes: (ids: string[]) => void;
+  updateStrokes: (updates: { id: string; points: Pt[] }[]) => void;
   setViewport: (v: Viewport) => void;
 
   addPage: () => void;
@@ -122,6 +123,20 @@ export const useBoard = create<BoardState>((set, get) => {
             : pg
         );
         return { pages, undo: pushUndo(st.undo, id, prev), rev: st.rev + 1 };
+      }),
+
+    updateStrokes: (updates) =>
+      set((st) => {
+        if (updates.length === 0) return st;
+        const id = st.currentPageId;
+        const prev = st.pages.find((p) => p.id === id)?.strokes ?? [];
+        const map = new Map(updates.map((u) => [u.id, u.points]));
+        const next = prev.map((s) => (map.has(s.id) ? { ...s, points: map.get(s.id)! } : s));
+        return {
+          pages: st.pages.map((pg) => (pg.id === id ? { ...pg, strokes: next } : pg)),
+          undo: pushUndo(st.undo, id, prev),
+          rev: st.rev + 1,
+        };
       }),
 
     setViewport: (viewport) =>

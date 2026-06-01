@@ -60,9 +60,6 @@ export default function Launcher() {
             {SECONDARY.map((it) => (
               <Row key={it.id} {...it} />
             ))}
-            <div className="mt-1 px-3 pt-1 text-[10px] tabular-nums text-slate-400">
-              v{__APP_VERSION__} · {__BUILD_ID__}
-            </div>
           </div>
         </div>
 
