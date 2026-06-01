@@ -137,5 +137,5 @@ Any other Node host (Railway, Fly.io, a VPS) works the same: `npm run build` the
 - **Math papers** not yet ingested (subject is stubbed and ready).
 - **Japanese-language study module** is a planned later phase (sciences + math first).
 - Whiteboard sync stores the notebook as one compact Firestore document; for very heavy ink, per‑page sharding is a future improvement.
-- Notation renders as plain text (no LaTeX/KaTeX yet); Claude is instructed to use readable plain‑text math.
+- Math and formulas render as proper LaTeX via KaTeX (Claude is prompted to emit `$…$` / `$$…$$`); the KaTeX CSS + fonts add to the bundle.
 - Bundle includes the full Firebase SDK; code‑splitting is a future optimization.

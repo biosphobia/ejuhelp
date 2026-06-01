@@ -31,8 +31,12 @@ export function hasApiKey(): boolean {
 const GLOBAL_INSTRUCTIONS =
   'You are an expert tutor and question-writer for the EJU (Examination for Japanese University ' +
   'Admission for International Students). You help students study efficiently and accurately. Be ' +
-  'concise and exam-focused. Render math/science notation in clear plain text (e.g. x^2, sqrt(x), ' +
-  '1/2, H2O, ->, Δ) so it reads well in a simple notes view — do not use LaTeX or `$` unless asked. ' +
+  'concise and exam-focused. Write ALL mathematical expressions, equations and formulas as LaTeX: ' +
+  'use $...$ for inline math and $$...$$ for displayed equations (e.g. $v=u+at$, ' +
+  '$$x=\\frac{-b\\pm\\sqrt{b^2-4ac}}{2a}$$). Use \\frac, \\sqrt, ^{} , _{}, \\vec{} and Greek-letter ' +
+  'commands; for chemistry use math mode with subscripts/superscripts (e.g. $\\mathrm{H_2O}$, ' +
+  '$\\mathrm{SO_4^{2-}}$). Do not put ordinary prose inside math delimiters. When your reply is JSON, ' +
+  'it MUST be valid: escape every backslash as \\\\ and every newline as \\n inside string values. ' +
   'Never invent claims about the EJU format; rely on the knowledge base provided below.';
 
 const langLine = (lang: Lang) =>
@@ -143,16 +147,66 @@ async function executeModelCall(
   }
 }
 
+// LLMs routinely return JSON whose string values contain raw newlines (invalid)
+// and single-backslash LaTeX like \frac or \sqrt (invalid escapes). Both make
+// JSON.parse throw, which previously leaked the raw JSON to the user. This walks
+// the text and repairs string contents: raw control chars are escaped, and any
+// backslash that isn't a valid JSON escape (\" \\ \/ \uXXXX) is doubled — which
+// is exactly what an unescaped LaTeX command needs.
+function repairJson(s: string): string {
+  let out = '';
+  let inStr = false;
+  for (let i = 0; i < s.length; i++) {
+    const c = s[i];
+    if (!inStr) {
+      out += c;
+      if (c === '"') inStr = true;
+      continue;
+    }
+    if (c === '"') {
+      inStr = false;
+      out += c;
+    } else if (c === '\\') {
+      const next = s[i + 1];
+      if (next === '"' || next === '\\' || next === '/') {
+        out += c + next; // already a valid escape
+        i++;
+      } else if (next === 'u' && /^[0-9a-fA-F]{4}$/.test(s.slice(i + 2, i + 6))) {
+        out += s.slice(i, i + 6); // \uXXXX
+        i += 5;
+      } else {
+        out += '\\\\'; // lone backslash (e.g. a LaTeX command) -> escape it
+      }
+    } else if (c === '\n') out += '\\n';
+    else if (c === '\r') out += '\\r';
+    else if (c === '\t') out += '\\t';
+    else out += c;
+  }
+  return out;
+}
+
+function tryParse<T>(s: string): T | null {
+  try {
+    return JSON.parse(s) as T;
+  } catch {
+    /* try to repair */
+  }
+  try {
+    return JSON.parse(repairJson(s)) as T;
+  } catch {
+    return null;
+  }
+}
+
 function extractJson<T>(raw: string, fallback: T): T {
   if (!raw) return fallback;
   let s = raw.trim();
   const fence = /\`\`\`(?:json)?\s*([\s\S]*?)\`\`\`/i.exec(s);
   if (fence) s = fence[1].trim();
-  try {
-    return JSON.parse(s) as T;
-  } catch {
-    /* fall through */
-  }
+
+  const direct = tryParse<T>(s);
+  if (direct !== null) return direct;
+
   const startObj = s.indexOf('{');
   const startArr = s.indexOf('[');
   let start = -1;
@@ -161,11 +215,8 @@ function extractJson<T>(raw: string, fallback: T): T {
   else start = Math.min(startObj, startArr);
   const end = Math.max(s.lastIndexOf('}'), s.lastIndexOf(']'));
   if (start !== -1 && end > start) {
-    try {
-      return JSON.parse(s.slice(start, end + 1)) as T;
-    } catch {
-      /* fall through */
-    }
+    const sliced = tryParse<T>(s.slice(start, end + 1));
+    if (sliced !== null) return sliced;
   }
   return fallback;
 }

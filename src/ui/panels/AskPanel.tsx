@@ -9,24 +9,19 @@ import { errorTagLabel } from '../../lib/labels';
 import { useT, type TFunc } from '../../i18n';
 
 function CheckVerdict({ meta, t }: { meta: CheckMeta; t: TFunc }) {
+  if (meta.correct === 'unknown') return null; // nothing definitive to show
   const tone =
-    meta.correct === 'yes'
-      ? 'bg-emerald-100 text-emerald-800'
-      : meta.correct === 'no' || meta.correct === 'partial'
-        ? 'bg-amber-100 text-amber-800'
-        : 'bg-slate-200 text-slate-600';
-  const label =
-    meta.correct === 'yes' ? t('correctMark') : meta.correct === 'unknown' ? t('check') : t('incorrectMark');
+    meta.correct === 'yes' ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-800';
+  const label = meta.correct === 'yes' ? t('correctMark') : t('incorrectMark');
+  const tags = meta.errorTags.filter((tag) => tag !== 'none');
   return (
     <div className="mb-1.5 flex flex-wrap items-center gap-1.5">
       <span className={`rounded-full px-2 py-0.5 text-xs font-semibold ${tone}`}>{label}</span>
-      {meta.errorTags
-        .filter((tag) => tag !== 'none')
-        .map((tag) => (
-          <span key={tag} className="rounded-full bg-white/70 px-2 py-0.5 text-xs text-slate-600 ring-1 ring-slate-200">
-            {errorTagLabel(tag, t)}
-          </span>
-        ))}
+      {tags.map((tag) => (
+        <span key={tag} className="rounded-full bg-white/70 px-2 py-0.5 text-xs text-slate-600 ring-1 ring-slate-200">
+          {errorTagLabel(tag, t)}
+        </span>
+      ))}
     </div>
   );
 }

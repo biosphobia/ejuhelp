@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import Panel, { SubjectChips } from '../Panel';
-import Markdown from '../Markdown';
+import Markdown, { Inline } from '../Markdown';
 import { Label, PrimaryButton, ErrorNote, errorMessage } from '../atoms';
 import {
   fetchTopics,
@@ -253,7 +253,9 @@ export default function GeneratePanel() {
                         className={`flex w-full items-start gap-2 rounded-xl border px-3 py-2 text-left text-sm transition ${cls}`}
                       >
                         <span className="font-semibold text-slate-500">{LETTERS[idx]}</span>
-                        <span className="flex-1">{c}</span>
+                        <span className="flex-1">
+                          <Inline text={c} />
+                        </span>
                       </button>
                     );
                   })}
@@ -302,7 +304,7 @@ export default function GeneratePanel() {
               {revealed.has(q.id) ? (
                 <div className="mt-3 rounded-xl bg-slate-50 p-3 ring-1 ring-slate-100">
                   <div className="mb-1 text-sm font-semibold text-emerald-800">
-                    {t('correctAnswerLabel')}: {q.answer}
+                    {t('correctAnswerLabel')}: <Inline text={q.answer} />
                   </div>
                   <Markdown text={q.explanation} />
                 </div>

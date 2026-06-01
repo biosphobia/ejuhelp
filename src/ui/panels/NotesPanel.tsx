@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import Panel, { SubjectChips } from '../Panel';
+import { Inline } from '../Markdown';
 import { Label, PrimaryButton, ErrorNote, errorMessage } from '../atoms';
 import { fetchTopics, generateKeyPoints } from '../../lib/api';
 import { useUI } from '../../lib/ui';
@@ -117,7 +118,9 @@ export default function NotesPanel() {
                   {kp.kind === 'formula' ? t('kindFormula') : t('kindFact')}
                 </span>
                 <div className="min-w-0 flex-1">
-                  <div className="break-words text-sm text-slate-800">{kp.text}</div>
+                  <div className="break-words text-sm text-slate-800">
+                    <Inline text={kp.text} />
+                  </div>
                   {kp.topic ? <div className="mt-0.5 text-xs text-slate-400">{kp.topic}</div> : null}
                 </div>
                 <button
