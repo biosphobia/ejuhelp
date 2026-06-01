@@ -2,6 +2,7 @@ import { useEffect, useState, type PointerEvent as ReactPointerEvent } from 'rea
 import Markdown from './Markdown';
 import { usePinned } from '../lib/pinned';
 import { usePractice } from '../lib/practice';
+import { useAnswers } from '../lib/answers';
 import { explainQuestion } from '../lib/ask';
 import { useT } from '../i18n';
 import { ChevronLeft, ChevronRight, CloseIcon, AskIcon, TrashIcon, PinIcon } from './icons';
@@ -22,6 +23,8 @@ export default function BoardQuestions() {
   const unpin = usePinned((s) => s.unpin);
   const clear = usePinned((s) => s.clear);
   const setActiveQuestion = usePractice((s) => s.setActiveQuestion);
+  const picked = useAnswers((s) => s.picked);
+  const answer = useAnswers((s) => s.answer);
 
   const [showAnswer, setShowAnswer] = useState(false);
 
@@ -37,6 +40,10 @@ export default function BoardQuestions() {
   }, [q?.id]); // eslint-disable-line react-hooks/exhaustive-deps
 
   if (!items.length || !q) return null;
+
+  const chosen = picked[q.id];
+  const answered = chosen !== undefined;
+  const mcq = (q.choices?.length ?? 0) > 0 && q.answerIndex >= 0;
 
   const left = pos ? pos.x : Math.max(8, (window.innerWidth - WIDTH) / 2);
   const top = pos ? pos.y : 12;
@@ -129,7 +136,38 @@ export default function BoardQuestions() {
       <div className="thin-scroll max-h-[46vh] overflow-y-auto px-3 py-2.5">
         <div className="mb-1 text-[11px] font-semibold uppercase tracking-wide text-slate-400">{q.topic}</div>
         <Markdown text={q.prompt} />
-        {q.choices?.length ? (
+        {mcq ? (
+          <div className="mt-2 space-y-1.5">
+            {q.choices!.map((c, k) => {
+              const isAnswer = k === q.answerIndex;
+              const isChosen = chosen === k;
+              let cls = 'border-slate-200 hover:bg-slate-50';
+              if (answered && isAnswer) cls = 'border-emerald-300 bg-emerald-50';
+              else if (answered && isChosen) cls = 'border-red-300 bg-red-50';
+              return (
+                <button
+                  key={k}
+                  type="button"
+                  disabled={answered}
+                  onClick={() => answer(q.subject, q, k)}
+                  className={`flex w-full items-start gap-2 rounded-xl border px-2.5 py-1.5 text-left text-sm transition ${cls}`}
+                >
+                  <span className="font-semibold text-slate-500">{LETTERS[k]}</span>
+                  <span className="flex-1">{c}</span>
+                </button>
+              );
+            })}
+            {answered ? (
+              <p
+                className={`pt-0.5 text-sm font-semibold ${chosen === q.answerIndex ? 'text-emerald-700' : 'text-red-600'}`}
+              >
+                {chosen === q.answerIndex ? t('correctMark') : t('incorrectMark')}
+              </p>
+            ) : (
+              <p className="pt-0.5 text-xs italic text-slate-400">{t('selectAnswer')}</p>
+            )}
+          </div>
+        ) : q.choices?.length ? (
           <ol className="mt-2 ml-5 list-[upper-alpha] space-y-1 text-sm text-slate-700">
             {q.choices.map((c, k) => (
               <li key={k}>{c}</li>

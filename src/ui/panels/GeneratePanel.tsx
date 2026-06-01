@@ -11,6 +11,7 @@ import {
 import { useUI } from '../../lib/ui';
 import { usePractice } from '../../lib/practice';
 import { usePinned } from '../../lib/pinned';
+import { useAnswers } from '../../lib/answers';
 import { explainQuestion } from '../../lib/ask';
 import { useProgress, summarize, focusFromSummary } from '../../lib/userdata';
 import { useT } from '../../i18n';
@@ -23,8 +24,9 @@ export default function GeneratePanel() {
   const lang = useUI((s) => s.lang);
   const wantFocus = usePractice((s) => s.wantFocus);
   const setWantFocus = usePractice((s) => s.setWantFocus);
-  const addAttempt = useProgress((s) => s.addAttempt);
   const attempts = useProgress((s) => s.attempts);
+  const picked = useAnswers((s) => s.picked);
+  const answer = useAnswers((s) => s.answer);
   const pin = usePinned((s) => s.pin);
   const pinMany = usePinned((s) => s.pinMany);
   const unpin = usePinned((s) => s.unpin);
@@ -38,7 +40,6 @@ export default function GeneratePanel() {
   const [focus, setFocus] = useState(false);
   const [questions, setQuestions] = useState<GenQuestion[]>([]);
   const [revealed, setRevealed] = useState<Set<string>>(new Set());
-  const [picked, setPicked] = useState<Record<string, number>>({});
   const [busy, setBusy] = useState(false);
   const [err, setErr] = useState<string | null>(null);
 
@@ -103,7 +104,6 @@ export default function GeneratePanel() {
       });
       setQuestions(res.questions);
       setRevealed(new Set());
-      setPicked({});
     } catch (e) {
       setErr(errorMessage(e, t));
     } finally {
@@ -120,10 +120,8 @@ export default function GeneratePanel() {
 
   const pick = (q: GenQuestion, idx: number) => {
     if (picked[q.id] !== undefined) return; // answer once
-    const correct = idx === q.answerIndex;
-    setPicked((p) => ({ ...p, [q.id]: idx }));
+    answer(subject, q, idx);
     setRevealed((prev) => new Set(prev).add(q.id));
-    addAttempt({ subject, topic: q.topic || subject, correct, source: 'quiz' });
   };
 
   const isPinned = (id: string) => pinnedItems.some((p) => p.id === id);

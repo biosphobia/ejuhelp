@@ -3,6 +3,7 @@ import Panel, { SubjectChips } from '../Panel';
 import { Label } from '../atoms';
 import { useUI } from '../../lib/ui';
 import { usePractice } from '../../lib/practice';
+import { useAnswers } from '../../lib/answers';
 import { useProgress, summarize } from '../../lib/userdata';
 import { errorTagLabel } from '../../lib/labels';
 import { useT } from '../../i18n';
@@ -13,7 +14,12 @@ export default function ProgressPanel() {
   const openPanel = useUI((s) => s.openPanel);
   const setWantFocus = usePractice((s) => s.setWantFocus);
   const attempts = useProgress((s) => s.attempts);
-  const reset = useProgress((s) => s.reset);
+  const resetProgress = useProgress((s) => s.reset);
+  const clearAnswers = useAnswers((s) => s.clear);
+  const reset = () => {
+    resetProgress();
+    clearAnswers();
+  };
 
   const mine = useMemo(() => attempts.filter((a) => a.subject === subject), [attempts, subject]);
   const sum = useMemo(() => summarize(mine), [mine]);
