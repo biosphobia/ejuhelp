@@ -36,10 +36,6 @@ export default function Whiteboard() {
     let skipInvalidate = false;
     let penSeen = false; // once we've seen a real "pen" pointer, trust it for drawing
     let lastPenDown = 0; // perf time of the most recent pen/mouse pointerdown
-    // Apple Pencil quick taps can arrive as raw touch events ("stylus") with NO
-    // pointer events. We record those here and draw them on touchend if the pointer
-    // system never picked them up.
-    const stylusTouches = new Map<number, { pts: Pt[]; t0: number }>();
 
     // interaction state
     let drawing: { color: InkColor; size: number; points: Pt[] } | null = null;
@@ -47,7 +43,8 @@ export default function Whiteboard() {
     const pendingErase = new Set<string>();
     let eraserScreen: { x: number; y: number } | null = null;
     let drawId: number | null = null;
-    let drawKind: 'pen' | 'finger' | null = null; // 'pen' = stylus/mouse (palm-rejecting)
+    let drawKind: 'pen' | 'finger' | 'touch-pen' | null = null; 
+    let activeStylusTouchId: number | null = null; 
     let liveLastIdx = 0; // last live stroke point already painted incrementally
 
     const touches = new Map<number, { x: number; y: number }>();
@@ -591,7 +588,8 @@ export default function Whiteboard() {
       invalidate();
     }
 
-function onPointerDown(e: PointerEvent) {
+    // ---- pointer events ----
+    function onPointerDown(e: PointerEvent) {
       dbg(e);
       if (e.pointerType === 'pen') {
         penSeen = true;
@@ -622,6 +620,20 @@ function onPointerDown(e: PointerEvent) {
       if (e.pointerType === 'pen' || e.pointerType === 'mouse') {
         lastPenDown = performance.now();
         cancelGesture();
+        
+        // UPGRADE: If a raw touch event already instantly started this stroke,
+        // seamlessly transition it to the high-fidelity pointer tracker.
+        if (drawId !== null && drawKind === 'touch-pen' && e.pointerType === 'pen') {
+            drawId = e.pointerId;
+            drawKind = 'pen';
+            const w = toWorld(e.clientX, e.clientY);
+            if (drawing) {
+                drawing.points.push({ x: w.x, y: w.y, p: pressureFor(e) });
+                drawLiveSegments();
+            }
+            return;
+        }
+
         // Finish any previous stroke first, so a missed pointerup can't strand it:
         // commit a stuck stylus stroke; discard a stray finger/palm stroke.
         if (drawId !== null) {
@@ -731,60 +743,69 @@ function onPointerDown(e: PointerEvent) {
       }
     }
 
-    // ---- raw touch fallback for Apple Pencil quick taps (no pointer events) ----
+    // ---- Proactive touch handling for instant Apple Pencil response ----
     function onTouchStart(e: TouchEvent) {
+      let hasStylus = false;
+      for (const t of Array.from(e.changedTouches)) {
+        if (isStylus(t)) hasStylus = true;
+      }
+      // CRITICAL: Prevent default to kill Safari Pencil delays and Scribble interception
+      if (hasStylus && e.cancelable) e.preventDefault();
+
       for (const t of Array.from(e.changedTouches)) {
         if (!isStylus(t)) continue;
-        stylusTouches.set(t.identifier, { pts: [toWorldPt(t)], t0: performance.now() });
-        dbgTouch('Tdown', t);
+        
+        // Fast tap/instant stroke catch: start drawing immediately before pointer events wake up
+        if (drawId === null && useBoard.getState().tool !== 'select') {
+           const w = toWorldPt(t);
+           const { tool, color, size } = useBoard.getState();
+           if (tool === 'eraser') {
+               erasing = true;
+               eraserScreen = localPt(t.clientX, t.clientY);
+               doErase(w.x, w.y);
+           } else {
+               drawing = { color, size, points: [w] };
+               liveLastIdx = 0;
+           }
+           drawId = t.identifier;
+           drawKind = 'touch-pen';
+           activeStylusTouchId = t.identifier;
+           commitPresent();
+        }
       }
     }
+
     function onTouchMove(e: TouchEvent) {
+      let hasStylus = false;
       for (const t of Array.from(e.changedTouches)) {
-        const ent = stylusTouches.get(t.identifier);
-        if (ent) ent.pts.push(toWorldPt(t));
+        if (isStylus(t)) hasStylus = true;
+      }
+      if (hasStylus && e.cancelable) e.preventDefault();
+
+      for (const t of Array.from(e.changedTouches)) {
+        // If it hasn't upgraded to a pointer yet, draw it live via touch
+        if (t.identifier === activeStylusTouchId && drawKind === 'touch-pen') {
+           if (drawing) {
+               drawing.points.push(toWorldPt(t));
+               drawLiveSegments();
+           } else if (erasing) {
+               eraserScreen = localPt(t.clientX, t.clientY);
+               const w = toWorldPt(t);
+               doErase(w.x, w.y);
+               paintNow();
+           }
+        }
       }
     }
+
     function onTouchEnd(e: TouchEvent) {
       for (const t of Array.from(e.changedTouches)) {
-        const ent = stylusTouches.get(t.identifier);
-        if (!ent) continue;
-        stylusTouches.delete(t.identifier);
-        // If a pen pointer stroke is still open (its pointerup was dropped), commit it
-        // now using the reliable touchend — catches the shortest taps/dashes.
-        if ((drawing || erasing) && drawKind === 'pen') {
-          dbgTouch('Tup(commit)', t, ent.pts.length);
-          endStroke();
-          continue;
-        }
-        const handledByPointer = lastPenDown >= ent.t0; // a pen pointerdown fired during this touch
-        dbgTouch(handledByPointer ? 'Tup(ptr)' : 'Tup(draw)', t, ent.pts.length);
-        if (handledByPointer) continue;
-        // The pointer system never saw this stylus stroke — draw it ourselves.
-        const { tool, color, size } = useBoard.getState();
-        if (tool === 'select') continue; // don't inject strokes while selecting
-        if (tool === 'eraser') {
-          for (const p of ent.pts) doErase(p.x, p.y);
-          if (pendingErase.size) {
-            useBoard.getState().eraseStrokes([...pendingErase]);
-            pendingErase.clear();
-          }
-          invalidate();
-        } else {
-          const stroke = { id: newId(), color, size, points: ent.pts };
-          setWorldTransform(cctx);
-          drawStroke(cctx, stroke);
-          skipInvalidate = true;
-          useBoard.getState().addStroke(stroke);
-          skipInvalidate = false;
-          commitPresent();
+        if (t.identifier === activeStylusTouchId) {
+           // Commits the stroke. This acts as the reliable safety net for quick dots/dashes
+           endStroke();
+           activeStylusTouchId = null;
         }
       }
-    }
-    function dbgTouch(tag: string, t: Touch, n?: number) {
-      if (!useDebug.getState().enabled) return;
-      const f = (t as unknown as { force?: number }).force ?? 0;
-      useDebug.getState().push(`${tag} #${t.identifier} f${f.toFixed(2)}${n !== undefined ? ` pts${n}` : ''}`);
     }
 
     function onWheel(e: WheelEvent) {
@@ -809,12 +830,11 @@ function onPointerDown(e: PointerEvent) {
     window.addEventListener('pointermove', onPointerMove);
     window.addEventListener('pointerup', endPointer);
     window.addEventListener('pointercancel', endPointer);
-    // Passive touch listeners: a fallback for Apple Pencil quick taps that emit no
-    // pointer events. Passive (no preventDefault) so they don't suppress pointer events.
-    canvas.addEventListener('touchstart', onTouchStart, { passive: true });
-    canvas.addEventListener('touchmove', onTouchMove, { passive: true });
-    canvas.addEventListener('touchend', onTouchEnd, { passive: true });
-    canvas.addEventListener('touchcancel', onTouchEnd, { passive: true });
+    // Touch listeners are now passive: false to allow e.preventDefault() to kill Safari delays
+    canvas.addEventListener('touchstart', onTouchStart, { passive: false });
+    canvas.addEventListener('touchmove', onTouchMove, { passive: false });
+    canvas.addEventListener('touchend', onTouchEnd, { passive: false });
+    canvas.addEventListener('touchcancel', onTouchEnd, { passive: false });
     canvas.addEventListener('wheel', onWheel, { passive: false });
     canvas.addEventListener('gesturestart', stop as EventListener);
     canvas.addEventListener('gesturechange', stop as EventListener);
