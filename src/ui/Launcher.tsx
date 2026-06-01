@@ -5,6 +5,7 @@ import {
   GenerateIcon,
   NotesIcon,
   ChartIcon,
+  TimerIcon,
   SettingsIcon,
   UserIcon,
   MenuIcon,
@@ -18,6 +19,7 @@ const PRIMARY: Item[] = [
   { id: 'generate', label: 'generate', Icon: GenerateIcon },
   { id: 'progress', label: 'progress', Icon: ChartIcon },
   { id: 'notes', label: 'notes', Icon: NotesIcon },
+  { id: 'timer', label: 'timer', Icon: TimerIcon },
 ];
 const SECONDARY: Item[] = [
   { id: 'settings', label: 'settings', Icon: SettingsIcon },

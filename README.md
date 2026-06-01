@@ -8,6 +8,7 @@ The whole screen is a notebook you write on with the Pencil. A small, non‑intr
 - **Practice questions** – generate fresh, EJU‑style questions by subject / **specific sub‑topic** (Physics & Chemistry) / difficulty. Multiple‑choice questions are answerable and graded instantly — both in the panel **and pinned to the board**, so you can answer right on the whiteboard. Either way you see if you're right or wrong, can reveal the worked answer, and can tap **Explain** for a step‑by‑step walk‑through; or send one to the board to solve by hand.
 - **Weak points** – your accuracy by topic and your most common mistake types (units, sign, concept, …) are tracked from your answers and shared back to you, with a one‑tap **"focus on my weak points"** practice mode.
 - **Key points** – a personal, growing sheet of formulas and facts to remember, auto‑collected from your questions plus anything you generate.
+- **Timer** – a study timer that **counts up** (stopwatch) or **down** (from a set time), configurable from the sidebar. Toggle a small draggable timer onto the page to keep an eye on the clock while you work; countdowns chime when they finish.
 
 (The **Check my work** capture — correctness, the first mistake, and an error‑type classification that feeds your weak‑points profile — now lives inside **Ask Coach** above, rather than as its own tab.)
 

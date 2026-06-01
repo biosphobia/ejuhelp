@@ -9,6 +9,7 @@ export type PanelId =
   | 'generate'
   | 'notes'
   | 'progress'
+  | 'timer'
   | 'settings'
   | 'account'
   | null;

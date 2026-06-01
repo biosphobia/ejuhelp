@@ -181,6 +181,32 @@ export const strings = {
     tr: 'Varsayılan için boş bırak',
   },
 
+  // Timer
+  timer: { en: 'Timer', ja: 'タイマー', zh: '计时器', tr: 'Zamanlayıcı' },
+  timerHint: {
+    en: 'Track your study time — count up like a stopwatch, or down from a set time.',
+    ja: '学習時間を記録します。ストップウォッチのようにカウントアップするか、設定した時間からカウントダウンします。',
+    zh: '记录你的学习时间——像秒表一样正计时，或从设定的时间倒计时。',
+    tr: 'Çalışma süreni takip et — kronometre gibi yukarı say ya da belirlenen süreden geri say.',
+  },
+  countUp: { en: 'Count up', ja: 'カウントアップ', zh: '正计时', tr: 'İleri say' },
+  countDown: { en: 'Count down', ja: 'カウントダウン', zh: '倒计时', tr: 'Geri say' },
+  start: { en: 'Start', ja: '開始', zh: '开始', tr: 'Başlat' },
+  pause: { en: 'Pause', ja: '一時停止', zh: '暂停', tr: 'Duraklat' },
+  resume: { en: 'Resume', ja: '再開', zh: '继续', tr: 'Devam et' },
+  reset: { en: 'Reset', ja: 'リセット', zh: '重置', tr: 'Sıfırla' },
+  duration: { en: 'Duration', ja: '時間', zh: '时长', tr: 'Süre' },
+  minutesShort: { en: 'min', ja: '分', zh: '分', tr: 'dk' },
+  secondsShort: { en: 'sec', ja: '秒', zh: '秒', tr: 'sn' },
+  showOnBoard: { en: 'Show on board', ja: 'ボードに表示', zh: '在白板上显示', tr: 'Tahtada göster' },
+  showOnBoardHint: {
+    en: 'Keep a small floating timer on the page while you study.',
+    ja: '学習中、小さなタイマーをページ上に表示し続けます。',
+    zh: '学习时在页面上保留一个小的浮动计时器。',
+    tr: 'Çalışırken sayfada küçük, yüzen bir zamanlayıcı tut.',
+  },
+  timeUp: { en: "Time's up!", ja: '時間です！', zh: '时间到！', tr: 'Süre doldu!' },
+
   // Generate — answering + focus
   selectAnswer: { en: 'Tap your answer', ja: '解答をタップ', zh: '点击你的答案', tr: 'Cevabına dokun' },
   correctMark: { en: 'Correct!', ja: '正解！', zh: '正确！', tr: 'Doğru!' },
