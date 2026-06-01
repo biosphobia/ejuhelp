@@ -5,6 +5,8 @@ import { systemContextFor, labelFor, type Subject } from './eju';
 
 const MODEL = process.env.ANTHROPIC_MODEL || 'claude-opus-4-8';
 const USE_THINKING = process.env.ANTHROPIC_THINKING !== 'off';
+const GEMINI_MODEL = process.env.GEMINI_MODEL || 'gemini-2.0-flash';
+const OPENAI_MODEL = process.env.OPENAI_MODEL || 'gpt-4o';
 
 type Lang = 'en' | 'ja';
 type ChatMessage = { role: 'user' | 'assistant'; content: string };
@@ -62,10 +64,10 @@ async function executeModelCall(
   const sysBlocks = systemBlocks(subject, lang, extraSystem);
 
   if (targetModel === 'gpt') {
-    if (!userKey) throw new Error('OpenAI API key required');
+    if (!userKey) throw Object.assign(new Error('Add your OpenAI API key in Settings to use GPT.'), { status: 400 });
     const client = new OpenAI({ apiKey: userKey });
     const systemText = sysBlocks.map(b => b.text).join('\n\n');
-    
+
     const formattedMessages = messages.map(m => {
       let content = m.content;
       if (Array.isArray(content)) {
@@ -79,22 +81,23 @@ async function executeModelCall(
     });
 
     const res = await client.chat.completions.create({
-      model: 'gpt-4o',
+      model: OPENAI_MODEL,
       messages: [{ role: 'system', content: systemText }, ...formattedMessages] as any,
       max_tokens: maxTokens,
     });
     return res.choices[0].message.content || '';
-  } 
-  
+  }
+
   else if (targetModel === 'gemini') {
-    const apiKey = process.env.GEMINI_API_KEY;
-    if (!apiKey) throw new Error('Gemini API key missing on server');
+    // Use the user's own key if they provided one, otherwise the server default.
+    const apiKey = userKey || process.env.GEMINI_API_KEY;
+    if (!apiKey) throw Object.assign(new Error('No Gemini API key (set GEMINI_API_KEY on the server, or add your own in Settings).'), { status: 400 });
     const client = new GoogleGenerativeAI(apiKey);
     const systemText = sysBlocks.map(b => b.text).join('\n\n');
-    
-    const model = client.getGenerativeModel({ 
-        model: 'gemini-3.5-flash', 
-        systemInstruction: systemText 
+
+    const model = client.getGenerativeModel({
+        model: GEMINI_MODEL,
+        systemInstruction: systemText
     });
 
     const formattedMessages = messages.map(m => {

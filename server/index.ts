@@ -55,6 +55,7 @@ app.post('/api/claude/ask', requireAuth, async (req: Request, res: Response) => 
       subject,
       lang: toLang(lang),
       messages: Array.isArray(messages) ? messages : [],
+      model,
       userKey
     });
     res.json(result);
@@ -83,6 +84,7 @@ app.post('/api/claude/generate', requireAuth, async (req: Request, res: Response
       difficulty: difficulty === 'easy' || difficulty === 'hard' ? difficulty : 'medium',
       count: Number(count) || 3,
       focus: cleanFocus,
+      model,
       userKey
     });
     res.json(result);
@@ -103,6 +105,7 @@ app.post('/api/claude/check', requireAuth, async (req: Request, res: Response) =
       lang: toLang(lang),
       imageDataUrl,
       question: typeof question === 'string' ? question : undefined,
+      model,
       userKey
     });
     res.json(result);
@@ -121,6 +124,7 @@ app.post('/api/claude/keypoints', requireAuth, async (req: Request, res: Respons
       subject,
       lang: toLang(lang),
       topic: typeof topic === 'string' && topic ? topic : undefined,
+      model,
       userKey
     });
     res.json(result);
