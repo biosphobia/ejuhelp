@@ -17,7 +17,7 @@ Workflow per paper:
 |------|------|-----------------|---------------|--------|
 | 2021 | 1 | 18zMUZMALKNFNOSsNd2FP-l_BvxMOqdsA | 1CCQ3RloF9lVbnn0gxey8r3g5Oad4Nftx | ✅ done (19) |
 | 2020 | 2 | 1C3fgNrOPvXKGLSt_JMdsTfTcdmlqIfgI | 1aNaeDTdMeuGotg0ExquHyAJhOWxXuQ_t | ✅ done (19) |
-| 2019 | 1 | 12smUu1_-LP4ylDMBsGB9HQX4L5zt6cC7 | 1CW1ERITvvteo1AVSzz0oF7u02ukUEb39 | ⬜ |
+| 2019 | 1 | 12smUu1_-LP4ylDMBsGB9HQX4L5zt6cC7 | 1CW1ERITvvteo1AVSzz0oF7u02ukUEb39 | ✅ done (19) |
 | 2018 | 2 | 1R86sJdI8MFWbe_4i9D8ihabWYyC8DTgm | 1G7DAyFphO1DXvITE2GuiibQZf3_aQjzZ | ⬜ |
 | 2018 | 1 | 1BTuCMg1gOO92-Y9TbLeYUfuIYaqQKe5R | 1xXR68ek8xpuk6UM7lMHM4Ge1ThynZ6hV | ⬜ |
 | 2017 | 2 | 17L3webIDFY-jfe-xkLgdMmBQiAP3kP4E | 1D3t8Gj29nA-9Z2HKBbABl-2aH5fKLz4N | ⬜ |
