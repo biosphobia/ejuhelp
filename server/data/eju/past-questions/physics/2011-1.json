@@ -1,0 +1,252 @@
+{
+  "id": "2011-1-physics",
+  "year": 2011,
+  "session": 1,
+  "subject": "physics",
+  "title": "EJU 2011 · Session 1 · Physics",
+  "source": "平成23年度（2011年度）日本留学試験（第1回）理科〈物理〉 © Japan Student Services Organization (JASSO)",
+  "attribution": "EJU past questions © JASSO. Question text transcribed from the official past paper; figures described in text; correct answers taken from the official JASSO answer key and independently re-solved for verification.",
+  "languages": ["ja", "en"],
+  "answerKeyVerified": true,
+  "structure": {
+    "blocks": [
+      { "id": "I", "topicId": "mech", "name": { "ja": "力学", "en": "Mechanics" }, "questionCount": 7 },
+      { "id": "II", "topicId": "thermo", "name": { "ja": "熱力学", "en": "Thermodynamics" }, "questionCount": 3 },
+      { "id": "III", "topicId": "waves", "name": { "ja": "波動", "en": "Waves" }, "questionCount": 3 },
+      { "id": "IV", "topicId": "em", "name": { "ja": "電気と磁気", "en": "Electricity & Magnetism" }, "questionCount": 6 }
+    ],
+    "totalQuestions": 19,
+    "note": "Older 7/3/3/6 split (Mechanics has 7 items), no Atoms (V) block.",
+    "givens": { "ja": "重力加速度の大きさを g とし，空気の抵抗は無視できるものとする。", "en": "Take the magnitude of gravitational acceleration as g; air resistance is negligible." }
+  },
+  "questions": [
+    {
+      "id": "2011-1-phy-1", "answerRow": 1, "block": "I", "topicId": "mech",
+      "subtopic": "Three weights over two pulleys (3-4-5 right angle)",
+      "patternTags": ["statics", "force-balance", "vector-addition"], "hasFigure": true,
+      "figure": { "ja": "天井に 2 つの定滑車。左の滑車に 4 kg、右の滑車に 3 kg がぶら下がり、中央の点 O から 5 kg が真下に下がる。O から左右の滑車へ伸びるロープのなす角を x とする。x=θ で手を離すとつり合って静止。", "en": "Two fixed pulleys on the ceiling: 4 kg hangs over the left, 3 kg over the right, and 5 kg hangs straight down from the central knot O. The angle between the two upper ropes at O is x; released at x=θ, the system balances." },
+      "ja": { "prompt": "3 つのおもり（質量 $3.0\\,$kg, $4.0\\,$kg, $5.0\\,$kg）をロープでつなぎ，なめらかに回転する定滑車に下げた。左の滑車に $4.0\\,$kg，右の滑車に $3.0\\,$kg がかかり，中央の点 O から $5.0\\,$kg が真下に下がる。O で左右のロープがなす角を $x$ とする。$x=\\theta$ で手を離すと 3 つのおもりはつり合って静止した。角度 $\\theta$ はいくらか。", "choices": ["$30°$", "$45°$", "$60°$", "$90°$", "$120°$"] },
+      "en": { "prompt": "Three weights ($3.0$, $4.0$, $5.0\\,$kg) are connected by ropes over frictionless pulleys: $4.0\\,$kg over the left pulley, $3.0\\,$kg over the right, and $5.0\\,$kg hanging straight down from the central knot O. The angle between the two upper ropes at O is $x$; released at $x=\\theta$ the system is in equilibrium. Find $\\theta$.", "choices": ["$30°$", "$45°$", "$60°$", "$90°$", "$120°$"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "$90°$", "en": "$90°$" },
+      "explanation": { "en": "At O three tensions balance: $4g$ and $3g$ along the upper ropes, $5g$ downward. The two upper tensions must resultant to $5g$ upward. Since $3^2+4^2=5^2$, the $3g$ and $4g$ ropes are perpendicular, so $\\theta=90°$.", "ja": "O では 3 つの張力がつり合う：上の 2 本が $4g$ と $3g$，下が $5g$。上の 2 力の合力が $5g$（上向き）になるはず。$3^2+4^2=5^2$ より $3g$ と $4g$ のロープは直交するので $\\theta=90°$。" }
+    },
+    {
+      "id": "2011-1-phy-2", "answerRow": 2, "block": "I", "topicId": "mech",
+      "subtopic": "Bar on two supports; slip condition (friction ratio)",
+      "patternTags": ["statics", "friction", "torque-balance", "express-formula"], "hasFigure": true,
+      "figure": { "ja": "一様な角棒を 2 つの支持台 A,B で水平に支える。B は床に固定。A を等速で棒の中心 O に近づけると、はじめ A は棒の下を滑り棒は静止、ある位置で棒が B 上を滑り始める。静止摩擦係数 0.50、動摩擦係数 0.20。a=O から A まで、b=O から B まで。", "en": "A uniform bar rests on two supports A and B; B is fixed to the floor. A moves at constant speed toward the bar's center O; at first A slides under the bar (bar static), and at some point the bar starts to slip on B. μ_s=0.50, μ_k=0.20. a = O-to-A distance, b = O-to-B distance." },
+      "ja": { "prompt": "一様な角棒を 2 つの支持台 A,B で水平に保つ。B は床に固定。A を等速で棒の中心 O に近づけると，はじめ A は棒の下を滑り棒は B に対して静止していたが，ある位置で棒が B の上を滑り始めた。A,B と棒の間の静止摩擦係数は $0.50$，動摩擦係数は $0.20$。距離 $a$（O–A），$b$（O–B）を定めると，棒が B 上を滑り始める瞬間の $\\dfrac{b}{a}$ はいくらか。", "choices": ["$0.40$", "$0.50$", "$1.0$", "$2.0$", "$2.5$"] },
+      "en": { "prompt": "A uniform bar is held by two supports A, B; B is fixed. A moves toward the bar's centre O; at first A slides under the bar (bar static on B), then the bar begins to slip on B. μ_s=0.50, μ_k=0.20. With $a$ = O–A and $b$ = O–B, find $\\dfrac{b}{a}$ at the slip instant.", "choices": ["$0.40$", "$0.50$", "$1.0$", "$2.0$", "$2.5$"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "$2.5$", "en": "$2.5$" },
+      "explanation": { "en": "Torque about O for the uniform bar (weight at O): $N_A a=N_B b$. The bar slips when the kinetic friction from A equals the maximum static friction at B: $0.20 N_A=0.50 N_B$, so $N_A/N_B=2.5$. Hence $b/a=N_A/N_B=2.5$.", "ja": "一様な棒（重心 O）の O まわりのモーメント：$N_A a=N_B b$。棒が滑り始めるのは A の動摩擦が B の最大静止摩擦に等しくなるとき：$0.20 N_A=0.50 N_B$，よって $N_A/N_B=2.5$。ゆえに $b/a=N_A/N_B=2.5$。" }
+    },
+    {
+      "id": "2011-1-phy-3", "answerRow": 3, "block": "I", "topicId": "mech",
+      "subtopic": "Spring-mass on rough floor: stopping position (energy)",
+      "patternTags": ["energy-conservation", "friction", "spring", "express-formula"], "hasFigure": true,
+      "figure": { "ja": "ばね定数 k のばねの一端を壁に、他端を粗い水平床上の質量 m の物体に結ぶ。x 軸の原点はばね自然長のときの物体位置。物体を x=a (a>0) まで引いて静かに離すと x=b で静止。動摩擦係数 μ'。", "en": "A spring (constant k) is fixed to a wall, the other end attached to mass m on a rough floor; origin at natural length. The block is pulled to x=a (a>0), released from rest, and stops at x=b. Kinetic friction μ'." },
+      "ja": { "prompt": "ばね定数 $k$ のばねの一端を壁に，他端を粗い水平床上の質量 $m$ の物体に結ぶ。$x$ 軸の原点はばねが自然長のときの物体の位置。物体を $x=a\\ (a>0)$ まで引いて静かに離すと，物体は $x=b$ で静止した。物体と床の間の動摩擦係数を $\\mu'$ とする。$b$ はいくらか。", "choices": ["$a-\\dfrac{\\mu'mg}{k}$", "$-a+\\dfrac{\\mu'mg}{k}$", "$a-\\dfrac{2\\mu'mg}{k}$", "$-a+\\dfrac{2\\mu'mg}{k}$"] },
+      "en": { "prompt": "A spring (constant $k$, fixed to a wall) is attached to mass $m$ on a rough floor; origin at natural length. The block is pulled to $x=a\\ (a>0)$, released from rest, and stops at $x=b$. Kinetic friction $\\mu'$. Find $b$.", "choices": ["$a-\\dfrac{\\mu'mg}{k}$", "$-a+\\dfrac{\\mu'mg}{k}$", "$a-\\dfrac{2\\mu'mg}{k}$", "$-a+\\dfrac{2\\mu'mg}{k}$"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "$-a+\\dfrac{2\\mu'mg}{k}$", "en": "$-a+\\dfrac{2\\mu'mg}{k}$" },
+      "explanation": { "en": "Energy from $a$ to $b$: $\\tfrac12 k a^2=\\tfrac12 k b^2+\\mu'mg(a-b)$. So $\\tfrac12 k(a-b)(a+b)=\\mu'mg(a-b)$; dividing by $(a-b)$ gives $\\tfrac12 k(a+b)=\\mu'mg$, i.e. $b=-a+\\dfrac{2\\mu'mg}{k}$.", "ja": "$a$ から $b$ へのエネルギー：$\\tfrac12 k a^2=\\tfrac12 k b^2+\\mu'mg(a-b)$。よって $\\tfrac12 k(a-b)(a+b)=\\mu'mg(a-b)$，$(a-b)$ で割って $\\tfrac12 k(a+b)=\\mu'mg$，すなわち $b=-a+\\dfrac{2\\mu'mg}{k}$。" }
+    },
+    {
+      "id": "2011-1-phy-4", "answerRow": 4, "block": "I", "topicId": "mech",
+      "subtopic": "Slide down a slope, launch at 45°, clear an obstacle",
+      "patternTags": ["energy-conservation", "projectile-motion", "express-formula"], "hasFigure": true,
+      "figure": { "ja": "斜面上の点 S（A より高さ H 上）から初速 0 で滑り下り、点 A で水平から 45° 上方に飛び出す。A から水平距離 ℓ の所に高さ h の障害物（ℓ>h）。斜面は摩擦なし。", "en": "A body slides from rest at S (height H above A), launches at A at 45° above horizontal. An obstacle of height h sits at horizontal distance ℓ from A (ℓ>h). Frictionless slope." },
+      "ja": { "prompt": "斜面上の点 S（A より高さ $H$ 上）から初速 0 で滑り下りた小物体が，点 A で水平から $45°$ 上方に飛び出した。A から水平に距離 $\\ell$ の所に高さ $h$ の障害物がある（$\\ell>h$）。斜面と小物体の間の摩擦は無視できる。小物体がこの障害物を越えるための条件はどれか。", "choices": ["$H>\\dfrac{\\ell^2}{2h}$", "$H>\\dfrac{\\ell^2}{4h}$", "$H>\\dfrac{\\ell^2}{8h}$", "$H>\\dfrac{\\ell^2}{2(\\ell-h)}$", "$H>\\dfrac{\\ell^2}{4(\\ell-h)}$", "$H>\\dfrac{\\ell^2}{8(\\ell-h)}$"] },
+      "en": { "prompt": "A body slides from rest at S (height $H$ above A) and launches at A at $45°$ above horizontal. An obstacle of height $h$ is at horizontal distance $\\ell$ ($\\ell>h$). Frictionless slope. Condition to clear the obstacle?", "choices": ["$H>\\dfrac{\\ell^2}{2h}$", "$H>\\dfrac{\\ell^2}{4h}$", "$H>\\dfrac{\\ell^2}{8h}$", "$H>\\dfrac{\\ell^2}{2(\\ell-h)}$", "$H>\\dfrac{\\ell^2}{4(\\ell-h)}$", "$H>\\dfrac{\\ell^2}{8(\\ell-h)}$"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "$H>\\dfrac{\\ell^2}{2(\\ell-h)}$", "en": "$H>\\dfrac{\\ell^2}{2(\\ell-h)}$" },
+      "explanation": { "en": "Launch speed $v=\\sqrt{2gH}$ at $45°$: $v_x=v_y=v/\\sqrt2$. At $x=\\ell$, $t=\\sqrt2\\,\\ell/v$ and $y=\\ell-\\dfrac{g\\ell^2}{v^2}=\\ell-\\dfrac{\\ell^2}{2H}$. To clear: $y>h\\Rightarrow \\ell-\\dfrac{\\ell^2}{2H}>h\\Rightarrow H>\\dfrac{\\ell^2}{2(\\ell-h)}$.", "ja": "飛び出し速さ $v=\\sqrt{2gH}$，$45°$ なので $v_x=v_y=v/\\sqrt2$。$x=\\ell$ で $t=\\sqrt2\\,\\ell/v$，$y=\\ell-\\dfrac{g\\ell^2}{v^2}=\\ell-\\dfrac{\\ell^2}{2H}$。越える条件 $y>h\\Rightarrow \\ell-\\dfrac{\\ell^2}{2H}>h\\Rightarrow H>\\dfrac{\\ell^2}{2(\\ell-h)}$。" }
+    },
+    {
+      "id": "2011-1-phy-5", "answerRow": 5, "block": "I", "topicId": "mech",
+      "subtopic": "Ball bouncing down identical stairs (restitution)",
+      "patternTags": ["restitution", "projectile-motion", "energy", "express-formula"], "hasFigure": true,
+      "figure": { "ja": "なめらかな水平面でできた階段を質量 m の小球がどの段でも同じようにはね返りながら 1 段ずつ下る。段の高さ h、幅 d。1 回のはね返り後に到達する高さ h'。小球と段のはね返り係数 e。", "en": "A ball bounces identically down stairs (step height h, width d), descending one step per bounce. After each bounce it rises to height h'; restitution coefficient e." },
+      "ja": { "prompt": "なめらかな水平面でできた階段を，質量 $m$ の小球がどの段でも全く同じようにはね返りながら 1 段ずつ下っている。階段 1 段分の高さは $h$，幅は $d$。1 回のはね返りの後に到達する高さを $h'$，小球と段のはね返り係数を $e$ とする。$\\dfrac{h'}{h}$ として正しいものはどれか。", "choices": ["$\\dfrac{e}{1-e}$", "$\\dfrac{e}{1-e^2}$", "$\\dfrac{e}{(1-e)^2}$", "$\\dfrac{e^2}{1-e}$", "$\\dfrac{e^2}{1-e^2}$", "$\\dfrac{e^2}{(1-e)^2}$"] },
+      "en": { "prompt": "A ball bounces identically down stairs (step height $h$, width $d$), descending one step per bounce, rising to $h'$ after each bounce; restitution $e$. Find $\\dfrac{h'}{h}$.", "choices": ["$\\dfrac{e}{1-e}$", "$\\dfrac{e}{1-e^2}$", "$\\dfrac{e}{(1-e)^2}$", "$\\dfrac{e^2}{1-e}$", "$\\dfrac{e^2}{1-e^2}$", "$\\dfrac{e^2}{(1-e)^2}$"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "$\\dfrac{e^2}{1-e^2}$", "en": "$\\dfrac{e^2}{1-e^2}$" },
+      "explanation": { "en": "For identical bounces the pre-impact downward speed $v$ is the same each step. After impact the upward speed is $ev$, rising to $h'=\\dfrac{(ev)^2}{2g}=e^2\\dfrac{v^2}{2g}$. The ball then falls $h'+h$ to the next (lower) step, so $\\dfrac{v^2}{2g}=h'+h$. Thus $h'=e^2(h'+h)\\Rightarrow h'(1-e^2)=e^2h\\Rightarrow \\dfrac{h'}{h}=\\dfrac{e^2}{1-e^2}$.", "ja": "同じはね返りなら衝突直前の下向き速さ $v$ は各段で等しい。衝突後の上向き速さは $ev$ で，$h'=\\dfrac{(ev)^2}{2g}=e^2\\dfrac{v^2}{2g}$。その後 $h'+h$ だけ落ちて次の段に当たるので $\\dfrac{v^2}{2g}=h'+h$。よって $h'=e^2(h'+h)\\Rightarrow h'(1-e^2)=e^2h\\Rightarrow \\dfrac{h'}{h}=\\dfrac{e^2}{1-e^2}$。" }
+    },
+    {
+      "id": "2011-1-phy-6", "answerRow": 6, "block": "I", "topicId": "mech",
+      "subtopic": "Pendulum and spring periods on the Moon",
+      "patternTags": ["simple-pendulum", "spring-pendulum", "period", "scaling"], "hasFigure": true,
+      "figure": { "ja": "図1: 単振り子（周期 T1）。図2: ばね振り子（鉛直、周期 T2）。月面の重力加速度は地球の 1/6。", "en": "Fig1: simple pendulum (period T1). Fig2: vertical spring pendulum (period T2). Moon gravity = 1/6 of Earth's." },
+      "ja": { "prompt": "地球上での単振り子の周期は $T_1$，ばね振り子（鉛直）の周期は $T_2$ である。この 2 つの振り子を月面にもっていったとき，それぞれの周期はどうなるか。月面の重力加速度は地球上の $\\dfrac16$ とする。", "choices": ["単振り子 $\\sqrt6\\,T_1$，ばね振り子 $\\sqrt6\\,T_2$", "単振り子 $\\dfrac{T_1}{\\sqrt6}$，ばね振り子 $T_2$", "単振り子 $T_1$，ばね振り子 $\\dfrac{T_2}{\\sqrt6}$", "単振り子 $\\sqrt6\\,T_1$，ばね振り子 $T_2$", "単振り子 $\\dfrac{T_1}{\\sqrt6}$，ばね振り子 $\\dfrac{T_2}{\\sqrt6}$", "単振り子 $T_1$，ばね振り子 $\\sqrt6\\,T_2$"] },
+      "en": { "prompt": "On Earth, a simple pendulum has period $T_1$ and a (vertical) spring pendulum has period $T_2$. Taken to the Moon (gravity = $\\dfrac16$ of Earth's), what are the periods?", "choices": ["pendulum $\\sqrt6\\,T_1$, spring $\\sqrt6\\,T_2$", "pendulum $\\dfrac{T_1}{\\sqrt6}$, spring $T_2$", "pendulum $T_1$, spring $\\dfrac{T_2}{\\sqrt6}$", "pendulum $\\sqrt6\\,T_1$, spring $T_2$", "pendulum $\\dfrac{T_1}{\\sqrt6}$, spring $\\dfrac{T_2}{\\sqrt6}$", "pendulum $T_1$, spring $\\sqrt6\\,T_2$"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "単振り子 $\\sqrt6\\,T_1$，ばね振り子 $T_2$", "en": "pendulum $\\sqrt6\\,T_1$, spring $T_2$" },
+      "explanation": { "en": "Simple pendulum $T=2\\pi\\sqrt{L/g}\\propto 1/\\sqrt g$; $g\\to g/6$ multiplies it by $\\sqrt6$, giving $\\sqrt6\\,T_1$. Spring pendulum $T=2\\pi\\sqrt{m/k}$ is independent of $g$, so it stays $T_2$.", "ja": "単振り子 $T=2\\pi\\sqrt{L/g}\\propto 1/\\sqrt g$。$g\\to g/6$ で $\\sqrt6$ 倍となり $\\sqrt6\\,T_1$。ばね振り子 $T=2\\pi\\sqrt{m/k}$ は $g$ に依らないので $T_2$ のまま。" }
+    },
+    {
+      "id": "2011-1-phy-7", "answerRow": 7, "block": "I", "topicId": "mech",
+      "subtopic": "Conical pendulum via a tube, balanced by a hanging weight",
+      "patternTags": ["circular-motion", "conical-pendulum", "express-formula"], "hasFigure": true,
+      "figure": { "ja": "鉛直に立てた細い管に軽い糸を通し、一端にボール A（質量 m）、他端におもり B（質量 M>m）。A を水平面内で半径 r の等速円運動させると B は静止し、点 O から A の中心まで ℓ。O での摩擦は無視。", "en": "A light string runs through a vertical tube; ball A (mass m) on one end does horizontal circular motion of radius r, weight B (mass M>m) on the other end is stationary; O-to-A length = ℓ. Frictionless at O." },
+      "ja": { "prompt": "鉛直に立てた細い管に軽い糸を通し，その一端に質量 $m$ のボール A を，他端に質量 $M(>m)$ のおもり B を取り付け，A を水平面内で半径 $r$ の等速円運動させた。このとき B は静止しており，点 O から A の中心までの長さが $\\ell$ であった。O における摩擦は無視できる。A の円運動の周期はいくらか。", "choices": ["$2\\pi\\sqrt{\\dfrac{\\ell}{g}}$", "$2\\pi\\sqrt{\\dfrac{r}{g}}$", "$2\\pi\\sqrt{\\dfrac{\\sqrt{\\ell^2-r^2}}{g}}$", "$2\\pi\\sqrt{\\dfrac{r\\sqrt{\\ell^2-r^2}}{g\\ell}}$", "$2\\pi\\sqrt{\\dfrac{r\\ell}{g\\sqrt{\\ell^2-r^2}}}$"] },
+      "en": { "prompt": "A light string through a vertical tube has ball A (mass $m$) doing horizontal circular motion of radius $r$ on one end, and weight B (mass $M>m$) stationary on the other; O-to-A length $\\ell$, frictionless at O. Find the period of A's circular motion.", "choices": ["$2\\pi\\sqrt{\\dfrac{\\ell}{g}}$", "$2\\pi\\sqrt{\\dfrac{r}{g}}$", "$2\\pi\\sqrt{\\dfrac{\\sqrt{\\ell^2-r^2}}{g}}$", "$2\\pi\\sqrt{\\dfrac{r\\sqrt{\\ell^2-r^2}}{g\\ell}}$", "$2\\pi\\sqrt{\\dfrac{r\\ell}{g\\sqrt{\\ell^2-r^2}}}$"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "$2\\pi\\sqrt{\\dfrac{\\sqrt{\\ell^2-r^2}}{g}}$", "en": "$2\\pi\\sqrt{\\dfrac{\\sqrt{\\ell^2-r^2}}{g}}$" },
+      "explanation": { "en": "Conical pendulum: with vertical depth $\\sqrt{\\ell^2-r^2}$ ($\\cos\\theta=\\sqrt{\\ell^2-r^2}/\\ell$, $\\sin\\theta=r/\\ell$). Vertical balance $T\\cos\\theta=mg$ and centripetal $T\\sin\\theta=m\\omega^2 r$ give $\\omega^2=g\\tan\\theta/r=g/\\sqrt{\\ell^2-r^2}$. Period $=2\\pi/\\omega=2\\pi\\sqrt{\\sqrt{\\ell^2-r^2}/g}$. (The hanging $M$ just sets the tension; the geometry $r,\\ell$ fixes the period.)", "ja": "円錐振り子：鉛直の深さ $\\sqrt{\\ell^2-r^2}$（$\\cos\\theta=\\sqrt{\\ell^2-r^2}/\\ell$，$\\sin\\theta=r/\\ell$）。鉛直つり合い $T\\cos\\theta=mg$ と向心 $T\\sin\\theta=m\\omega^2 r$ から $\\omega^2=g\\tan\\theta/r=g/\\sqrt{\\ell^2-r^2}$。周期 $=2\\pi/\\omega=2\\pi\\sqrt{\\sqrt{\\ell^2-r^2}/g}$。（おもり $M$ は張力を決めるだけで，周期は $r,\\ell$ の幾何で決まる。）" }
+    },
+    {
+      "id": "2011-1-phy-8", "answerRow": 8, "block": "II", "topicId": "thermo",
+      "subtopic": "Mixing ice and steam to make water (latent heat)",
+      "patternTags": ["calorimetry", "latent-heat", "heat-balance", "plug-in-numbers"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "密閉容器に $0\\,$°C・$10\\,$g の氷を入れ，$100\\,$°C の水蒸気を吹き込んだ。十分時間後，氷と水蒸気はともに $40\\,$°C の水になった。容器の熱容量は無視でき，熱は外部に逃げない。氷の融解熱 $3.3\\times10^2\\,$J/g，水の比熱 $4.2\\,$J/(g·K)，水の蒸発熱 $2.3\\times10^3\\,$J/g とする。加えた水蒸気の量は何 g か。", "choices": ["$0.66$", "$1.3$", "$2.0$", "$6.6$", "$13$", "$20$"] },
+      "en": { "prompt": "In a sealed container, $10\\,$g of ice at $0\\,$°C and steam at $100\\,$°C are combined; all becomes water at $40\\,$°C. Container heat capacity negligible, no heat loss. Heat of fusion $3.3\\times10^2\\,$J/g, specific heat of water $4.2\\,$J/(g·K), heat of vaporization $2.3\\times10^3\\,$J/g. How many grams of steam were added?", "choices": ["$0.66$", "$1.3$", "$2.0$", "$6.6$", "$13$", "$20$"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "約 $2.0\\,$g", "en": "≈ 2.0 g" },
+      "explanation": { "en": "Heat gained by ice: melt $10\\times330=3300\\,$J, then warm $10\\times4.2\\times40=1680\\,$J → $4980\\,$J. Heat lost by mass $M$ of steam: condense $2300M$, then cool $4.2\\times60\\,M=252M$ → $2552M$. Setting $2552M=4980\\Rightarrow M\\approx2.0\\,$g.", "ja": "氷が得る熱：融解 $10\\times330=3300\\,$J，昇温 $10\\times4.2\\times40=1680\\,$J → $4980\\,$J。水蒸気 $M$ g が失う熱：凝縮 $2300M$，冷却 $4.2\\times60\\,M=252M$ → $2552M$。$2552M=4980\\Rightarrow M\\approx2.0\\,$g。" }
+    },
+    {
+      "id": "2011-1-phy-9", "answerRow": 9, "block": "II", "topicId": "thermo",
+      "subtopic": "Heated gas pushing a spring-loaded piston (first law, work)",
+      "patternTags": ["first-law", "monatomic-gas", "spring", "work", "express-formula"], "hasFigure": true,
+      "figure": { "ja": "断熱シリンダー＋ピストン＋ヒーター。1 mol の単原子分子理想気体。ピストン（断面積 S、質量無視）はなめらかに動き、ばね定数 k のばねの一端が付き、他端は壁に固定。初め気体充填状態でばねは自然長。外気圧 p0。加熱で温度 ΔT 上昇、ばねは Δx 縮む。", "en": "Adiabatic cylinder+piston+heater, 1 mol monatomic ideal gas. Smooth massless piston (area S) carries a spring (constant k) fixed to a wall; initially the spring is at natural length. External pressure p0. Heating raises T by ΔT and compresses the spring by Δx." },
+      "ja": { "prompt": "断熱材のシリンダーとピストンからなる，ヒーターのついた容器に $1\\,$mol の単原子分子理想気体がつめられている。ピストン（断面積 $S$，質量無視）はなめらかに動き，ばね定数 $k$ のばねの一端が付き他端は壁に固定。初め，気体がつめられた状態でばねは自然長。外気圧を $p_0$ とする。ヒーターで熱を与えると気体の温度は $\\Delta T$ 上がり，ばねは $\\Delta x$ 縮んだ。気体の内部エネルギーの変化 $\\Delta U$ と気体がした仕事 $W$ の組み合わせはどれか。", "choices": ["$\\Delta U=\\dfrac32 R\\Delta T,\\ W=p_0 S\\Delta x+\\dfrac{k}{2}(\\Delta x)^2$", "$\\Delta U=\\dfrac32 R\\Delta T,\\ W=p_0 S\\Delta x+k(\\Delta x)^2$", "$\\Delta U=\\dfrac52 R\\Delta T,\\ W=p_0 S\\Delta x+\\dfrac{k}{2}(\\Delta x)^2$", "$\\Delta U=\\dfrac52 R\\Delta T,\\ W=p_0 S\\Delta x+k(\\Delta x)^2$"] },
+      "en": { "prompt": "An adiabatic cylinder+piston with a heater holds $1\\,$mol of monatomic ideal gas. The smooth massless piston (area $S$) carries a spring (constant $k$) fixed to a wall (initially natural length). External pressure $p_0$. Heating raises $T$ by $\\Delta T$ and compresses the spring by $\\Delta x$. Give $\\Delta U$ and the work $W$ done by the gas.", "choices": ["$\\Delta U=\\dfrac32 R\\Delta T,\\ W=p_0 S\\Delta x+\\dfrac{k}{2}(\\Delta x)^2$", "$\\Delta U=\\dfrac32 R\\Delta T,\\ W=p_0 S\\Delta x+k(\\Delta x)^2$", "$\\Delta U=\\dfrac52 R\\Delta T,\\ W=p_0 S\\Delta x+\\dfrac{k}{2}(\\Delta x)^2$", "$\\Delta U=\\dfrac52 R\\Delta T,\\ W=p_0 S\\Delta x+k(\\Delta x)^2$"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "$\\Delta U=\\dfrac32 R\\Delta T,\\ W=p_0 S\\Delta x+\\dfrac{k}{2}(\\Delta x)^2$", "en": "$\\Delta U=\\dfrac32 R\\Delta T,\\ W=p_0 S\\Delta x+\\dfrac{k}{2}(\\Delta x)^2$" },
+      "explanation": { "en": "Monatomic: $\\Delta U=\\tfrac32 nR\\Delta T=\\tfrac32 R\\Delta T$ ($n=1$). The massless piston balance gives gas pressure $P S=p_0 S+kx$ when the spring is compressed by $x$. Work by gas $=\\int_0^{\\Delta x}PS\\,dx=\\int_0^{\\Delta x}(p_0 S+kx)dx=p_0 S\\Delta x+\\tfrac{k}{2}(\\Delta x)^2$.", "ja": "単原子：$\\Delta U=\\tfrac32 nR\\Delta T=\\tfrac32 R\\Delta T$（$n=1$）。質量無視のピストンのつり合いより，ばねが $x$ 縮んだとき気体圧力は $P S=p_0 S+kx$。気体がした仕事 $=\\int_0^{\\Delta x}PS\\,dx=\\int_0^{\\Delta x}(p_0 S+kx)dx=p_0 S\\Delta x+\\tfrac{k}{2}(\\Delta x)^2$。" }
+    },
+    {
+      "id": "2011-1-phy-10", "answerRow": 10, "block": "II", "topicId": "thermo",
+      "subtopic": "Work over a rectangular p–V cycle (sign of net work)",
+      "patternTags": ["pv-cycle", "work", "read-from-graph"], "hasFigure": true,
+      "figure": { "ja": "p–V 図の長方形サイクル A→B→C→D→A。A(1×10⁻³, 2×10⁵)、B(1×10⁻³, 1×10⁵)、C(2×10⁻³, 1×10⁵)、D(2×10⁻³, 2×10⁵)。反時計回り。", "en": "Rectangular p–V cycle A→B→C→D→A. A(1e-3, 2e5), B(1e-3, 1e5), C(2e-3, 1e5), D(2e-3, 2e5). Counterclockwise." },
+      "ja": { "prompt": "気体の状態を $A\\to B\\to C\\to D\\to A$ と変化させた。$A(1\\times10^{-3}\\,\\mathrm{m^3},\\,2\\times10^5\\,\\mathrm{Pa})$，$B(1\\times10^{-3},\\,1\\times10^5)$，$C(2\\times10^{-3},\\,1\\times10^5)$，$D(2\\times10^{-3},\\,2\\times10^5)$。気体が外にした仕事はいくらか（マイナスは外から仕事をされたことを示す）。", "choices": ["$-4\\times10^2$", "$-2\\times10^2$", "$-1\\times10^2$", "$1\\times10^2$", "$2\\times10^2$", "$4\\times10^2$"] },
+      "en": { "prompt": "A gas is taken around $A\\to B\\to C\\to D\\to A$: $A(1\\times10^{-3}\\,\\mathrm{m^3},\\,2\\times10^5\\,\\mathrm{Pa})$, $B(1\\times10^{-3},\\,1\\times10^5)$, $C(2\\times10^{-3},\\,1\\times10^5)$, $D(2\\times10^{-3},\\,2\\times10^5)$. Find the net work done by the gas (J); a minus sign means work was done on the gas.", "choices": ["$-4\\times10^2$", "$-2\\times10^2$", "$-1\\times10^2$", "$1\\times10^2$", "$2\\times10^2$", "$4\\times10^2$"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "$-1\\times10^2\\,$J", "en": "$-1\\times10^2\\,$J" },
+      "explanation": { "en": "Only the isobaric legs do work. $B\\to C$ (expand at $1\\times10^5$): $+10^5\\times10^{-3}=+100\\,$J. $D\\to A$ (compress at $2\\times10^5$): $-2\\times10^5\\times10^{-3}=-200\\,$J. Isochoric legs do none. Net $=+100-200=-1\\times10^2\\,$J (counterclockwise loop ⇒ net work on the gas).", "ja": "仕事をするのは定圧の辺のみ。$B\\to C$（$1\\times10^5$ で膨張）：$+10^5\\times10^{-3}=+100\\,$J。$D\\to A$（$2\\times10^5$ で圧縮）：$-2\\times10^5\\times10^{-3}=-200\\,$J。定積の辺は 0。合計 $+100-200=-1\\times10^2\\,$J（反時計回り＝気体は仕事をされる）。" }
+    },
+    {
+      "id": "2011-1-phy-11", "answerRow": 11, "block": "III", "topicId": "waves",
+      "subtopic": "Moving wave source on water (Doppler for wavelengths)",
+      "patternTags": ["doppler-effect", "wavelength", "plug-in-numbers"], "hasFigure": true,
+      "figure": { "ja": "一様な深さの水槽。周期 0.20 s の振動子 P。静止時は円形波が広がる。P を速さ v で動かすと進行方向前方の波長 0.70 m、後方の波長 0.90 m。", "en": "Uniform water tank, vibrator P of period 0.20 s. Stationary → circular waves. When P moves at speed v, the forward wavelength is 0.70 m and the backward wavelength is 0.90 m." },
+      "ja": { "prompt": "一様な深さの水槽の水面に，周期 $0.20\\,$s の振動子 P を置くと円形の波面が広がった。同じ水槽で P を一定の速さ $v$ で動かすと，進行方向前方の波長は $0.70\\,$m，後方の波長は $0.90\\,$m となった。$v$ は何 m/s か。", "choices": ["$0.020$", "$0.040$", "$0.10$", "$0.20$", "$0.50$", "$1.0$"] },
+      "en": { "prompt": "On a uniform water tank, a vibrator P of period $0.20\\,$s makes circular waves when stationary. Moving at speed $v$, the forward wavelength is $0.70\\,$m and the backward wavelength is $0.90\\,$m. Find $v$ (m/s).", "choices": ["$0.020$", "$0.040$", "$0.10$", "$0.20$", "$0.50$", "$1.0$"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "$0.50\\,$m/s", "en": "0.50 m/s" },
+      "explanation": { "en": "Forward $\\lambda_f=(c-v)T$ and backward $\\lambda_b=(c+v)T$ with $T=0.20\\,$s. So $c-v=0.70/0.20=3.5$ and $c+v=0.90/0.20=4.5$. Subtracting: $2v=1.0\\Rightarrow v=0.50\\,$m/s.", "ja": "前方 $\\lambda_f=(c-v)T$，後方 $\\lambda_b=(c+v)T$，$T=0.20\\,$s。よって $c-v=0.70/0.20=3.5$，$c+v=0.90/0.20=4.5$。引き算して $2v=1.0\\Rightarrow v=0.50\\,$m/s。" }
+    },
+    {
+      "id": "2011-1-phy-12", "answerRow": 12, "block": "III", "topicId": "waves",
+      "subtopic": "Resonant frequencies of a closed pipe",
+      "patternTags": ["closed-pipe", "resonance", "harmonics", "plug-in-numbers"], "hasFigure": true,
+      "figure": { "ja": "長さ 0.680 m の閉管。音速 340 m/s。開口端補正は無視。", "en": "Closed pipe of length 0.680 m; speed of sound 340 m/s; ignore end correction." },
+      "ja": { "prompt": "長さが $0.680\\,$m の閉管がある。音の速さを $340\\,$m/s とする。この閉管に共鳴する振動数の組み合わせはどれか。開口端の補正は無視できる。", "choices": ["$125\\,$Hz, $250\\,$Hz", "$150\\,$Hz, $450\\,$Hz", "$250\\,$Hz, $500\\,$Hz", "$250\\,$Hz, $625\\,$Hz", "$375\\,$Hz, $625\\,$Hz", "$375\\,$Hz, $750\\,$Hz"] },
+      "en": { "prompt": "A closed pipe of length $0.680\\,$m, speed of sound $340\\,$m/s. Which pair of frequencies resonates? Ignore end correction.", "choices": ["$125\\,$Hz, $250\\,$Hz", "$150\\,$Hz, $450\\,$Hz", "$250\\,$Hz, $500\\,$Hz", "$250\\,$Hz, $625\\,$Hz", "$375\\,$Hz, $625\\,$Hz", "$375\\,$Hz, $750\\,$Hz"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "$375\\,$Hz, $625\\,$Hz", "en": "375 Hz, 625 Hz" },
+      "explanation": { "en": "Closed pipe: $f_n=(2n-1)\\dfrac{v}{4L}$, odd multiples of the fundamental $f_1=\\dfrac{340}{4\\times0.680}=125\\,$Hz. So allowed: $125, 375, 625, 875,\\dots$ The only pair both odd multiples is $375$ ($=3f_1$) and $625$ ($=5f_1$).", "ja": "閉管：$f_n=(2n-1)\\dfrac{v}{4L}$，基本振動 $f_1=\\dfrac{340}{4\\times0.680}=125\\,$Hz の奇数倍。許される値は $125,375,625,875,\\dots$。両方が奇数倍なのは $375(=3f_1)$ と $625(=5f_1)$。" }
+    },
+    {
+      "id": "2011-1-phy-13", "answerRow": 13, "block": "III", "topicId": "waves",
+      "subtopic": "Interference in an air gap between two glass plates (transmitted light)",
+      "patternTags": ["thin-film-interference", "optical-path", "phase-change", "express-formula"], "hasFigure": true,
+      "figure": { "ja": "2 枚の平面ガラス板 A,B を距離 d だけ離して平行配置。A に垂直に波長 λ の単色光が入射、B を透過。直接出た光と、B で反射→A で反射してから出た光が干渉。", "en": "Two parallel glass plates A, B separated by d. Monochromatic light (wavelength λ) hits A perpendicularly, passes B. The directly transmitted beam interferes with the beam reflected at B then at A." },
+      "ja": { "prompt": "2 枚の平面ガラス板 A,B を距離 $d$ だけ離して平行に配置した。A に垂直に波長 $\\lambda$ の単色光が入射し，B を透過して出てくる。直接出てきた光と，B と A で反射した後に出てきた光が干渉する。光が強めあうときの $d$ はどれか（$m=1,2,\\dots$）。", "choices": ["$\\left(m-\\dfrac12\\right)\\dfrac{\\lambda}{2}$", "$m\\dfrac{\\lambda}{2}$", "$\\left(m-\\dfrac12\\right)\\lambda$", "$m\\lambda$"] },
+      "en": { "prompt": "Two parallel glass plates A, B are separated by $d$. Monochromatic light (wavelength $\\lambda$) hits A perpendicularly and emerges through B. The directly transmitted beam interferes with the beam reflected at B then at A. For constructive interference, find $d$ ($m=1,2,\\dots$).", "choices": ["$\\left(m-\\dfrac12\\right)\\dfrac{\\lambda}{2}$", "$m\\dfrac{\\lambda}{2}$", "$\\left(m-\\dfrac12\\right)\\lambda$", "$m\\lambda$"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "$m\\dfrac{\\lambda}{2}$", "en": "$m\\dfrac{\\lambda}{2}$" },
+      "explanation": { "en": "The twice-reflected beam travels an extra $2d$ in the air gap. Both reflections are air→glass (low→high index), each adding a $\\pi$ phase shift; the two shifts cancel. So constructive interference needs $2d=m\\lambda$, i.e. $d=m\\dfrac{\\lambda}{2}$.", "ja": "2 回反射した光は空気層を $2d$ 余分に進む。反射はどちらも空気→ガラス（低→高屈折率）で各 $\\pi$ の位相変化が生じ，2 つは打ち消し合う。よって強めあう条件は $2d=m\\lambda$，すなわち $d=m\\dfrac{\\lambda}{2}$。" }
+    },
+    {
+      "id": "2011-1-phy-14", "answerRow": 14, "block": "IV", "topicId": "em",
+      "subtopic": "Zero-potential points of two point charges",
+      "patternTags": ["electric-potential", "superposition", "solve-equation"], "hasFigure": true,
+      "figure": { "ja": "x 軸上、x=a (a>0) に電荷 -Q (Q>0)、x=-a に電荷 2Q。無限遠で電位 0。", "en": "On the x-axis: charge -Q (Q>0) at x=a, charge 2Q at x=-a. Potential zero at infinity." },
+      "ja": { "prompt": "$x$ 軸上の点 $x=a\\,(>0)$ に電荷 $-Q\\,(Q>0)$ の点電荷を，$x=-a$ に電荷 $2Q$ の点電荷を置いた。無限遠での電位を 0 とする。$x$ 軸上で電位が 0 になる点の $x$ 座標はいくらか。", "choices": ["$-\\dfrac12 a,\\ -2a$", "$-\\dfrac13 a,\\ -3a$", "$0$", "$\\dfrac13 a,\\ 3a$", "$\\dfrac12 a,\\ 2a$"] },
+      "en": { "prompt": "On the $x$-axis, charge $-Q\\,(Q>0)$ is at $x=a\\,(>0)$ and charge $2Q$ at $x=-a$; potential zero at infinity. Find the $x$-coordinates where the potential is zero.", "choices": ["$-\\dfrac12 a,\\ -2a$", "$-\\dfrac13 a,\\ -3a$", "$0$", "$\\dfrac13 a,\\ 3a$", "$\\dfrac12 a,\\ 2a$"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "$\\dfrac13 a,\\ 3a$", "en": "$\\dfrac13 a,\\ 3a$" },
+      "explanation": { "en": "$V=k\\!\\left(\\dfrac{2Q}{|x+a|}-\\dfrac{Q}{|x-a|}\\right)=0\\Rightarrow 2|x-a|=|x+a|$. For $-a<x<a$: $2(a-x)=x+a\\Rightarrow x=\\tfrac{a}{3}$. For $x>a$: $2(x-a)=x+a\\Rightarrow x=3a$. So $x=\\tfrac{a}{3},\\,3a$.", "ja": "$V=k\\!\\left(\\dfrac{2Q}{|x+a|}-\\dfrac{Q}{|x-a|}\\right)=0\\Rightarrow 2|x-a|=|x+a|$。$-a<x<a$ で $2(a-x)=x+a\\Rightarrow x=\\tfrac{a}{3}$。$x>a$ で $2(x-a)=x+a\\Rightarrow x=3a$。よって $x=\\tfrac{a}{3},\\,3a$。" }
+    },
+    {
+      "id": "2011-1-phy-15", "answerRow": 15, "block": "IV", "topicId": "em",
+      "subtopic": "Three-plate capacitor: energy after disconnect and moving the middle plate",
+      "patternTags": ["capacitor", "energy-stored", "charge-conservation", "express-formula"], "hasFigure": true,
+      "figure": { "ja": "極板 A,B 間 3d のコンデンサーに、A から 2d の所に薄い極板 P を挿入（AP=2d, PB=d）。S1,S2 を閉じて AP,PB をそれぞれ電位差 V に充電。その後 S1,S2 を開き（電荷一定）、P を d だけ A に近づける（AP=d, PB=2d）。", "en": "Plates A,B separated by 3d; a thin plate P sits 2d from A (AP=2d, PB=d). Closing S1,S2 charges AP and PB each to potential difference V. Then the switches open (charge fixed) and P is moved d toward A (AP=d, PB=2d)." },
+      "ja": { "prompt": "極板 A,B 間の距離 $3d$ のコンデンサーに，A から $2d$ の距離に同じ面積の薄い極板 P を挿入（AP$=2d$，PB$=d$）。図2 のように S₁,S₂ を閉じて AP,PB 間をそれぞれ電位差 $V$ とした。しばらくして S₁,S₂ を開き，その後 P を $d$ だけ A に近づけた（AP$=d$，PB$=2d$）。図2 から図3 にしたとき，コンデンサーに蓄えられている静電エネルギーは何倍になるか。", "choices": ["$\\dfrac12$", "$\\dfrac23$", "$\\dfrac34$", "$1$", "$\\dfrac43$", "$\\dfrac32$", "$2$"] },
+      "en": { "prompt": "Plates A,B (gap $3d$) with a thin plate P at $2d$ from A (AP$=2d$, PB$=d$). Closing S₁,S₂ charges AP and PB each to voltage $V$. The switches open (charge fixed), then P is moved $d$ toward A (AP$=d$, PB$=2d$). By what factor does the stored energy change from Fig2 to Fig3?", "choices": ["$\\dfrac12$", "$\\dfrac23$", "$\\dfrac34$", "$1$", "$\\dfrac43$", "$\\dfrac32$", "$2$"] },
+      "answerIndex": 5, "answerOption": 6, "answer": { "ja": "$\\dfrac32$ 倍", "en": "$\\dfrac32$ times" },
+      "explanation": { "en": "Frozen charges (let $\\varepsilon_0 S/d\\equiv c$): $q_{AP}=\\dfrac{\\varepsilon_0 S}{2d}V=\\tfrac12 cV$, $q_{PB}=\\dfrac{\\varepsilon_0 S}{d}V=cV$. Energy $U=\\dfrac{q^2}{2C}$. Fig2 ($C_{AP}=\\tfrac12 c$, $C_{PB}=c$): $U_2=\\dfrac{(cV/2)^2}{2(c/2)}+\\dfrac{(cV)^2}{2c}=\\dfrac{cV^2}{4}+\\dfrac{cV^2}{2}=\\dfrac34 cV^2$. Fig3 ($C_{AP}=c$, $C_{PB}=\\tfrac12 c$): $U_3=\\dfrac{(cV/2)^2}{2c}+\\dfrac{(cV)^2}{2(c/2)}=\\dfrac{cV^2}{8}+cV^2=\\dfrac98 cV^2$. Ratio $U_3/U_2=\\dfrac{9/8}{3/4}=\\dfrac32$.", "ja": "電荷は凍結（$\\varepsilon_0 S/d\\equiv c$）：$q_{AP}=\\dfrac{\\varepsilon_0 S}{2d}V=\\tfrac12 cV$，$q_{PB}=\\dfrac{\\varepsilon_0 S}{d}V=cV$。$U=\\dfrac{q^2}{2C}$。図2（$C_{AP}=\\tfrac12 c$，$C_{PB}=c$）：$U_2=\\dfrac{(cV/2)^2}{2(c/2)}+\\dfrac{(cV)^2}{2c}=\\dfrac34 cV^2$。図3（$C_{AP}=c$，$C_{PB}=\\tfrac12 c$）：$U_3=\\dfrac{(cV/2)^2}{2c}+\\dfrac{(cV)^2}{2(c/2)}=\\dfrac98 cV^2$。比 $U_3/U_2=\\dfrac{9/8}{3/4}=\\dfrac32$。" }
+    },
+    {
+      "id": "2011-1-phy-16", "answerRow": 16, "block": "IV", "topicId": "em",
+      "subtopic": "Find R3 from I–V graphs of a series/parallel network",
+      "patternTags": ["dc-circuit", "read-from-graph", "current-divider", "plug-in-numbers"], "hasFigure": true,
+      "figure": { "ja": "可変直流電源と R1, R2, R3。R1=3.0 Ω。R2 と R3 が並列、その組が R1 と直列で電源に接続。図2: I1（=全電流）vs 電源電圧（V=10 で I1≈2.25 A）。図3: I2（R2 を流れる）vs 電源電圧（V=10 で I2≈0.70 A）。", "en": "Variable DC source with R1, R2, R3. R1=3.0 Ω. R2 and R3 in parallel, in series with R1. Fig2: I1 (total) vs source voltage (I1≈2.25 A at 10 V). Fig3: I2 (through R2) vs source voltage (I2≈0.70 A at 10 V)." },
+      "ja": { "prompt": "可変直流電源と 3 つの抵抗 $R_1,R_2,R_3$ を，$R_2$ と $R_3$ を並列にし $R_1$ と直列にして接続した（$R_1=3.0\\,\\Omega$）。電源電圧を変えたとき，$R_1$ を流れる電流 $I_1$ と $R_2$ を流れる電流 $I_2$ はグラフのように変化した（電圧 $10\\,$V で $I_1\\approx2.25\\,$A，$I_2\\approx0.70\\,$A）。$R_3$ の抵抗値はいくらか。", "choices": ["$1.2$", "$1.6$", "$2.1$", "$2.7$", "$3.1$", "$3.8$"] },
+      "en": { "prompt": "A variable DC source feeds $R_1$ in series with ($R_2\\parallel R_3$), $R_1=3.0\\,\\Omega$. As the voltage varies, $I_1$ (through $R_1$) and $I_2$ (through $R_2$) follow the graphs (at $10\\,$V, $I_1\\approx2.25\\,$A, $I_2\\approx0.70\\,$A). Find $R_3$ ($\\Omega$).", "choices": ["$1.2$", "$1.6$", "$2.1$", "$2.7$", "$3.1$", "$3.8$"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "約 $2.1\\,\\Omega$", "en": "≈ 2.1 Ω" },
+      "explanation": { "en": "Slopes: $s_1=I_1/V=0.225$, $s_2=I_2/V=0.070$. Total resistance $1/s_1=4.44\\,\\Omega$, so $R_2\\parallel R_3=4.44-3.0=1.44\\,\\Omega$. Parallel-section voltage $=V-R_1I_1$, giving $R_2=\\dfrac{1-R_1 s_1}{s_2}=\\dfrac{1-0.675}{0.070}\\approx4.6\\,\\Omega$. Current divider $\\dfrac{I_2}{I_1}=\\dfrac{R_3}{R_2+R_3}=\\dfrac{s_2}{s_1}$ ⇒ $R_3=\\dfrac{s_2 R_2}{s_1-s_2}=\\dfrac{0.070\\times4.6}{0.155}\\approx2.1\\,\\Omega$.", "ja": "傾き：$s_1=I_1/V=0.225$，$s_2=I_2/V=0.070$。全抵抗 $1/s_1=4.44\\,\\Omega$ なので $R_2\\parallel R_3=4.44-3.0=1.44\\,\\Omega$。並列部の電圧 $=V-R_1I_1$ より $R_2=\\dfrac{1-R_1 s_1}{s_2}=\\dfrac{1-0.675}{0.070}\\approx4.6\\,\\Omega$。分流則 $\\dfrac{I_2}{I_1}=\\dfrac{R_3}{R_2+R_3}=\\dfrac{s_2}{s_1}$ より $R_3=\\dfrac{s_2 R_2}{s_1-s_2}=\\dfrac{0.070\\times4.6}{0.155}\\approx2.1\\,\\Omega$。" }
+    },
+    {
+      "id": "2011-1-phy-17", "answerRow": 17, "block": "IV", "topicId": "em",
+      "subtopic": "Shunt resistor to extend an ammeter range",
+      "patternTags": ["dc-circuit", "shunt", "ammeter", "plug-in-numbers"], "hasFigure": true,
+      "figure": { "ja": "最大測定電流 10 mA、内部抵抗 0.90 Ω の電流計に、抵抗 R を並列接続して最大測定電流を 100 mA にする。", "en": "An ammeter (full scale 10 mA, internal resistance 0.90 Ω) gets a parallel resistor R so that full scale becomes 100 mA." },
+      "ja": { "prompt": "最大測定電流値が $10\\,$mA，内部抵抗が $0.90\\,\\Omega$ の電流計がある。この電流計に抵抗 $R$ を並列に接続して，最大測定電流値を $100\\,$mA とする。$R$ の抵抗値はいくらか。", "choices": ["$0.010$", "$0.10$", "$1.0$", "$10$"] },
+      "en": { "prompt": "An ammeter (full scale $10\\,$mA, internal resistance $0.90\\,\\Omega$) has a parallel resistor $R$ added so the full-scale reading becomes $100\\,$mA. Find $R$ ($\\Omega$).", "choices": ["$0.010$", "$0.10$", "$1.0$", "$10$"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "$0.10\\,\\Omega$", "en": "0.10 Ω" },
+      "explanation": { "en": "At full scale, $10\\,$mA goes through the meter and $100-10=90\\,$mA through the shunt. Equal voltage across both: $10\\,\\text{mA}\\times0.90=90\\,\\text{mA}\\times R\\Rightarrow R=\\dfrac{0.009}{0.090}=0.10\\,\\Omega$.", "ja": "最大時，電流計に $10\\,$mA，分流抵抗に $100-10=90\\,$mA。両者の電圧が等しい：$10\\,\\text{mA}\\times0.90=90\\,\\text{mA}\\times R\\Rightarrow R=\\dfrac{0.009}{0.090}=0.10\\,\\Omega$。" }
+    },
+    {
+      "id": "2011-1-phy-18", "answerRow": 18, "block": "IV", "topicId": "em",
+      "subtopic": "Cancel the field of a current loop with a straight wire",
+      "patternTags": ["magnetic-field-loop", "magnetic-field-wire", "superposition", "directions"], "hasFigure": true,
+      "figure": { "ja": "長い直線導線 AB と、AB から 2a 離れた点 C を中心とする半径 a の円形導線。円に電流 I（反時計回り、C で面の手前向きの磁場を作る）。AB に電流を流して C での磁場を 0 にする。", "en": "A long straight wire AB and a circular loop of radius a centred at C, 2a from AB. The loop carries current I (counterclockwise → field out of the page at C). Run current in AB to make the field at C zero." },
+      "ja": { "prompt": "長い導線 AB と，AB から $2a$ 離れた点 C を中心とする半径 $a$ の円形導線がある。この円に電流 $I$ が流れているとき，AB 間に電流を流して C での磁場を 0 にした。AB 間に流した電流の向きと大きさはどれか。", "choices": ["$A\\to B$，$\\pi I$", "$A\\to B$，$2\\pi I$", "$A\\to B$，$4\\pi I$", "$B\\to A$，$\\pi I$", "$B\\to A$，$2\\pi I$", "$B\\to A$，$4\\pi I$"] },
+      "en": { "prompt": "A long straight wire AB and a circular loop (radius $a$, centre C) lie with C a distance $2a$ from AB. The loop carries current $I$; current is run in AB to cancel the field at C. Give the direction and magnitude of the AB current.", "choices": ["$A\\to B$, $\\pi I$", "$A\\to B$, $2\\pi I$", "$A\\to B$, $4\\pi I$", "$B\\to A$, $\\pi I$", "$B\\to A$, $2\\pi I$", "$B\\to A$, $4\\pi I$"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "$B\\to A$，$2\\pi I$", "en": "$B\\to A$, $2\\pi I$" },
+      "explanation": { "en": "Loop field at its centre: $H_{\\text{loop}}=\\dfrac{I}{2a}$. Straight-wire field at distance $2a$: $H_{\\text{wire}}=\\dfrac{I_{AB}}{2\\pi(2a)}=\\dfrac{I_{AB}}{4\\pi a}$. Cancellation: $\\dfrac{I_{AB}}{4\\pi a}=\\dfrac{I}{2a}\\Rightarrow I_{AB}=2\\pi I$. The loop field at C is out of the page, so the wire must give into-the-page above it, which requires current $B\\to A$.", "ja": "円の中心での磁場：$H_{\\text{loop}}=\\dfrac{I}{2a}$。直線導線の距離 $2a$ での磁場：$H_{\\text{wire}}=\\dfrac{I_{AB}}{2\\pi(2a)}=\\dfrac{I_{AB}}{4\\pi a}$。打ち消し条件：$\\dfrac{I_{AB}}{4\\pi a}=\\dfrac{I}{2a}\\Rightarrow I_{AB}=2\\pi I$。円の磁場は C で手前向きなので，導線は上側で奥向きの磁場を作る必要があり，電流は $B\\to A$。" }
+    },
+    {
+      "id": "2011-1-phy-19", "answerRow": 19, "block": "IV", "topicId": "em",
+      "subtopic": "Velocity selector: E field for straight-line motion in a magnetic field",
+      "patternTags": ["lorentz-force", "velocity-selector", "directions"], "hasFigure": true,
+      "figure": { "ja": "x>0 の領域に一様磁場が紙面に垂直・表から裏向き（⊗）。荷電粒子を y 軸となす角 45°（右上向き）に入射すると円軌道を描いた。次に電場をかけると入射方向に等速直進した。電場の向きを 8 方位（①上, ②右上, ③右, ④右下, ⑤下, ⑥左下, ⑦左, ⑧左上）から選ぶ。", "en": "Region x>0 has uniform B into the page (⊗). A charged particle injected at 45° from the y-axis (up-right) follows a circular arc. Then an electric field makes it go straight at constant speed in the injection direction. Choose E's direction from 8 compass options (①up ②up-right ③right ④down-right ⑤down ⑥down-left ⑦left ⑧up-left)." },
+      "ja": { "prompt": "$x>0$ の領域に一様な磁場が紙面に垂直で表から裏向きにかかっている。荷電粒子を $y$ 軸とのなす角 $45°$（右上）の向きに入射させると円軌道を描いた。次にこの領域に適切な強さの電場をかけて同じ実験を行うと，荷電粒子は入射方向に等速で直進した。電場の向きとして最も適当なものを，図中の①〜⑧（①上, ②右上, ③右, ④右下, ⑤下, ⑥左下, ⑦左, ⑧左上）から選べ。", "choices": ["① 上 (+y)", "② 右上", "③ 右 (+x)", "④ 右下", "⑤ 下 (-y)", "⑥ 左下", "⑦ 左 (-x)", "⑧ 左上"] },
+      "en": { "prompt": "Region $x>0$ has uniform B into the page. A charged particle injected at $45°$ from the $y$-axis (up-right) follows a circle. An electric field then makes it travel straight at constant speed in the injection direction. Choose E's direction (①up ②up-right ③right ④down-right ⑤down ⑥down-left ⑦left ⑧up-left).", "choices": ["① up (+y)", "② up-right", "③ right (+x)", "④ down-right", "⑤ down (-y)", "⑥ down-left", "⑦ left (-x)", "⑧ up-left"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "④ 右下（down-right）", "en": "④ down-right" },
+      "explanation": { "en": "Straight-line motion needs zero net force: $q\\mathbf{E}+q\\mathbf{v}\\times\\mathbf{B}=0\\Rightarrow \\mathbf{E}=-\\mathbf{v}\\times\\mathbf{B}$ (independent of the charge sign). With $\\mathbf{v}$ up-right $(+,+)$ and $\\mathbf{B}=-B\\hat z$ (into page), $\\mathbf{v}\\times\\mathbf{B}=(-v_yB,\\,v_xB,0)$ points up-left, so $\\mathbf{E}=-\\mathbf{v}\\times\\mathbf{B}$ points down-right — option ④.", "ja": "等速直進には合力 0：$q\\mathbf{E}+q\\mathbf{v}\\times\\mathbf{B}=0\\Rightarrow \\mathbf{E}=-\\mathbf{v}\\times\\mathbf{B}$（電荷の符号によらない）。$\\mathbf{v}$ は右上 $(+,+)$，$\\mathbf{B}=-B\\hat z$（奥向き）なので $\\mathbf{v}\\times\\mathbf{B}=(-v_yB,\\,v_xB,0)$ は左上を向き，$\\mathbf{E}=-\\mathbf{v}\\times\\mathbf{B}$ は右下を向く ― ④。" }
+    }
+  ],
+  "patterns": {
+    "blockSkeleton": "Older 7/3/3/6 format: Mechanics ×7, Thermodynamics ×3, Waves ×3, Electricity & Magnetism ×6, no Atoms block (19 items).",
+    "newArchetypesVsPrevious": [
+      "Three weights over two pulleys meeting at a knot: a 3-4-5 tension triple makes the two upper ropes perpendicular (θ=90°).",
+      "Bar on two supports, one creeping inward: slip starts when kinetic friction under the moving support equals max static friction under the fixed one; b/a equals the friction-coefficient ratio.",
+      "Ball bouncing identically down stairs: steady-state vertical motion fixes v²=2g(h'+h), giving h'/h=e²/(1−e²).",
+      "Conical pendulum fed through a vertical tube and balanced by a hanging weight: period 2π√(√(ℓ²−r²)/g).",
+      "Moving water-wave source: forward/back wavelengths give (c∓v)T, solve for v.",
+      "Air gap between two glass plates (transmitted-light interference): two air→glass reflections both flip phase, so 2d=mλ.",
+      "Three-plate capacitor: freeze the charges by opening the switches, then re-evaluate energy as the middle plate moves (Σq²/2C).",
+      "Read two I–V slopes to back out a hidden resistor via series resistance + current divider.",
+      "Velocity selector: E=−v×B makes a charged particle go straight regardless of charge sign."
+    ],
+    "recurringWithPrevious": [
+      "Spring-mass on a rough floor: stopping position from ½k(a²−b²)=μ'mg(a−b).",
+      "Slide-then-projectile clearing an obstacle (energy → 45° launch → trajectory).",
+      "Simple pendulum period scales as 1/√g; spring pendulum independent of g.",
+      "Calorimetry with latent heats (ice melt + steam condense to a common temperature).",
+      "First law with a spring-loaded piston: ΔU=(3/2)RΔT, W=∫(p₀S+kx)dx.",
+      "Net work over a rectangular p–V loop = ±enclosed area, sign from the sense.",
+      "Closed-pipe resonance = odd multiples of v/4L.",
+      "Zero-potential points of two unequal point charges.",
+      "Shunt resistor to extend an ammeter; field of a loop vs a straight wire."
+    ],
+    "examTacticNotes": [
+      "When three tensions meet at a point and their magnitudes form a 3-4-5 set, two of the ropes are perpendicular.",
+      "Two-support bar: take torques about the fixed support's load line; slip ⇔ μ_k·N(moving) = μ_s·N(fixed).",
+      "Identical stair bounces: the pre-impact speed repeats, so v²/2g = h'+h links the rise to the step height.",
+      "Conical pendulum: ω² = g/(vertical depth); here depth = √(ℓ²−r²).",
+      "Moving wave source: λ_front=(c−v)T, λ_back=(c+v)T — add/subtract to get c and v.",
+      "Disconnect the battery first ⇒ charge is frozen; then energy changes as U=q²/2C when capacitance changes.",
+      "Transmitted-light gap interference: count the reflections — an even number of half-shift reflections means bright at 2d=mλ.",
+      "Hidden resistor from graphs: total resistance = 1/(I₁ slope); split the rest with the current-divider ratio I₂/I₁.",
+      "Loop-vs-wire field cancellation: set I/(2a) = I_AB/(2π·2a).",
+      "For straight-line motion in crossed fields use E=−v×B (the charge sign drops out)."
+    ],
+    "difficulty": "Standard EJU level with a 7-item Mechanics section. The most discriminating items are the 3-4-5 pulley knot (Q1), the two-support slip ratio (Q2), the conical-pendulum-through-a-tube period (Q7), the frozen-charge three-plate capacitor energy ratio (Q15), and reading a hidden resistor off two I–V graphs (Q16)."
+  }
+}
