@@ -1,0 +1,248 @@
+{
+  "id": "2013-1-physics",
+  "year": 2013,
+  "session": 1,
+  "subject": "physics",
+  "title": "EJU 2013 · Session 1 · Physics",
+  "source": "平成25年度（2013年度）日本留学試験（第1回）理科〈物理〉 © Japan Student Services Organization (JASSO)",
+  "attribution": "EJU past questions © JASSO. Question text transcribed from the official past paper; figures described in text; correct answers taken from the official JASSO answer key and independently re-solved for verification.",
+  "languages": ["ja", "en"],
+  "answerKeyVerified": true,
+  "structure": {
+    "blocks": [
+      { "id": "I", "topicId": "mech", "name": { "ja": "力学", "en": "Mechanics" }, "questionCount": 7 },
+      { "id": "II", "topicId": "thermo", "name": { "ja": "熱力学", "en": "Thermodynamics" }, "questionCount": 3 },
+      { "id": "III", "topicId": "waves", "name": { "ja": "波動", "en": "Waves" }, "questionCount": 3 },
+      { "id": "IV", "topicId": "em", "name": { "ja": "電気と磁気", "en": "Electricity & Magnetism" }, "questionCount": 6 }
+    ],
+    "totalQuestions": 19,
+    "note": "Older 7/3/3/6 split (Mechanics has 7 items), no Atoms (V) block.",
+    "givens": { "ja": "重力加速度の大きさを g とし，空気の抵抗は無視できるものとする。", "en": "Take the magnitude of gravitational acceleration as g; air resistance is negligible." }
+  },
+  "questions": [
+    {
+      "id": "2013-1-phy-1", "answerRow": 1, "block": "I", "topicId": "mech",
+      "subtopic": "Distance from a v–t graph (area)",
+      "patternTags": ["read-from-graph", "kinematics"], "hasFigure": true,
+      "figure": { "ja": "自転車の v–t グラフ。v は 0 から S 字状に上昇し約 t=6 s で 4 m/s に達し，以後一定。", "en": "A bicycle's v–t graph: v rises S-shaped from 0 to 4 m/s by about t=6 s, then stays constant." },
+      "ja": { "prompt": "ある自転車が直線上を走行している。$v$–$t$ グラフは，$v$ が $0$ から S 字状に増加して約 $t=6\\,$s で $4\\,$m/s に達し，以後一定である。$t=0$ から $t=10\\,$s までに走行した距離はおよそいくらか。", "choices": ["$12$", "$16$", "$20$", "$28$", "$40$"] },
+      "en": { "prompt": "A bicycle moves along a line; its $v$–$t$ graph rises S-shaped from $0$ to $4\\,$m/s by about $t=6\\,$s, then stays constant. About how far does it travel from $t=0$ to $t=10\\,$s (m)?", "choices": ["$12$", "$16$", "$20$", "$28$", "$40$"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "$28$", "en": "$28$" },
+      "explanation": { "en": "Distance = area under the v–t graph. The S-curve (0→4 m/s, symmetric about (3 s, 2 m/s)) over 0–6 s gives ≈$2\\times6=12\\,$m; the constant $4\\,$m/s from 6–10 s gives $4\\times4=16\\,$m. Total ≈$28\\,$m.", "ja": "距離は $v$–$t$ グラフの面積。S 字（0→4 m/s，(3 s, 2 m/s) 対称）の 0–6 s で約 $2\\times6=12\\,$m，6–10 s の一定 $4\\,$m/s で $4\\times4=16\\,$m。計 約 $28\\,$m。" }
+    },
+    {
+      "id": "2013-1-phy-2", "answerRow": 2, "block": "I", "topicId": "mech",
+      "subtopic": "Rod resting on a half-cylinder (torque about floor contact)",
+      "patternTags": ["express-formula", "torque-balance", "statics"], "hasFigure": true,
+      "figure": { "ja": "半径 r の半円柱を床に固定。長さ ℓ・質量 m の一様な棒を，床と点 A，半円柱と点 B で接して置く。棒は床と角 θ。", "en": "A half-cylinder (radius r) fixed on the floor; a uniform rod (length ℓ, mass m) touches the floor at A and the cylinder at B, making angle θ with the floor." },
+      "ja": { "prompt": "半径 $r$ の半円柱を床に固定し，長さ $\\ell$，質量 $m$ の一様な細い棒を，床と点 A で，半円柱と点 B で接するように置いたところ棒は静止した。棒と床のなす角は $\\theta$。棒が B で半円柱から受ける垂直抗力の大きさはどれか。", "choices": ["$\\dfrac{mg\\ell\\sin\\theta}{2r}$", "$\\dfrac{mg\\ell\\cos\\theta}{2r}$", "$\\dfrac{mg\\ell}{2r\\sin\\theta}$", "$\\dfrac{mg\\ell}{2r\\cos\\theta}$", "$\\dfrac{mg\\ell\\sin^2\\theta}{2r\\cos\\theta}$", "$\\dfrac{mg\\ell\\cos^2\\theta}{2r\\sin\\theta}$"] },
+      "en": { "prompt": "A half-cylinder (radius $r$) is fixed on the floor; a uniform rod (length $\\ell$, mass $m$) rests touching the floor at A and the cylinder at B, making angle $\\theta$ with the floor. Find the normal force on the rod at B.", "choices": ["$\\dfrac{mg\\ell\\sin\\theta}{2r}$", "$\\dfrac{mg\\ell\\cos\\theta}{2r}$", "$\\dfrac{mg\\ell}{2r\\sin\\theta}$", "$\\dfrac{mg\\ell}{2r\\cos\\theta}$", "$\\dfrac{mg\\ell\\sin^2\\theta}{2r\\cos\\theta}$", "$\\dfrac{mg\\ell\\cos^2\\theta}{2r\\sin\\theta}$"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "$\\dfrac{mg\\ell\\sin\\theta}{2r}$", "en": "$\\dfrac{mg\\ell\\sin\\theta}{2r}$" },
+      "explanation": { "en": "At B the normal is perpendicular to the rod. The tangent point is a distance $AB=\\dfrac{r\\cos\\theta}{\\sin\\theta}$ along the rod from A (since the perpendicular from the centre to the rod is $r$ and $AL=r/\\sin\\theta$). Torque about A: $N_B\\cdot\\dfrac{r\\cos\\theta}{\\sin\\theta}=mg\\cdot\\dfrac{\\ell}{2}\\cos\\theta$, giving $N_B=\\dfrac{mg\\ell\\sin\\theta}{2r}$.", "ja": "B での垂直抗力は棒に垂直。接点 B は A から棒に沿って $AB=\\dfrac{r\\cos\\theta}{\\sin\\theta}$（中心から棒への垂線が $r$，$AL=r/\\sin\\theta$）。A まわりのモーメント $N_B\\cdot\\dfrac{r\\cos\\theta}{\\sin\\theta}=mg\\cdot\\dfrac{\\ell}{2}\\cos\\theta$ より $N_B=\\dfrac{mg\\ell\\sin\\theta}{2r}$。" }
+    },
+    {
+      "id": "2013-1-phy-3", "answerRow": 3, "block": "I", "topicId": "mech",
+      "subtopic": "Three stacked cylinders (minimum holding force)",
+      "patternTags": ["express-formula", "statics", "geometry"], "hasFigure": true,
+      "figure": { "ja": "同じ質量 m・半径の 3 円柱 A,B,C を床に積む。A,B が床に並び C が谷に乗る。A は左の壁に接し，B は右の板から水平力 F で押される。摩擦なし。", "en": "Three equal cylinders A,B,C: A,B on the floor side by side, C resting in the valley. A touches the left wall; B is pushed by a plate with horizontal force F. Frictionless." },
+      "ja": { "prompt": "質量 $m$・同じ半径の 3 円柱 A,B,C が水平な床に積み重なっている。A,B が床に並び，C がその谷に乗る。A は左の鉛直壁に接し，B は右の板から水平力 $F$ で押されている。円柱間・床との摩擦はない。この状態を保つための $F$ の最小値はどれか。", "choices": ["$\\sqrt3\\,mg$", "$\\dfrac{\\sqrt3}{2}mg$", "$\\dfrac{\\sqrt3}{3}mg$", "$\\dfrac{\\sqrt3}{4}mg$", "$\\dfrac{\\sqrt3}{6}mg$", "$\\dfrac{\\sqrt3}{12}mg$"] },
+      "en": { "prompt": "Three equal cylinders A,B,C (mass $m$) on a floor: A,B side by side, C in the valley. A touches the left wall; B is pushed by a plate with horizontal force $F$ (no friction). Find the minimum $F$ to maintain this.", "choices": ["$\\sqrt3\\,mg$", "$\\dfrac{\\sqrt3}{2}mg$", "$\\dfrac{\\sqrt3}{3}mg$", "$\\dfrac{\\sqrt3}{4}mg$", "$\\dfrac{\\sqrt3}{6}mg$", "$\\dfrac{\\sqrt3}{12}mg$"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "$\\dfrac{\\sqrt3}{6}mg$", "en": "$\\dfrac{\\sqrt3}{6}mg$" },
+      "explanation": { "en": "The three centres form an equilateral triangle, so each lower cylinder pushes on C along a line at $60°$ to the horizontal. For C: $2N\\sin60°=mg\\Rightarrow N=\\dfrac{mg}{\\sqrt3}$. C pushes B outward with horizontal component $N\\cos60°$; with no friction (and A–B not compressed), $F$ must balance it: $F_{\\min}=N\\cos60°=\\dfrac{mg}{\\sqrt3}\\cdot\\dfrac12=\\dfrac{\\sqrt3}{6}mg$.", "ja": "3 中心は正三角形をなすので下の各円柱は C を水平から $60°$ の線に沿って押す。C：$2N\\sin60°=mg$ より $N=\\dfrac{mg}{\\sqrt3}$。C は B を外向きに水平成分 $N\\cos60°$ で押す。摩擦なし（A–B は圧縮されない）なので $F_{\\min}=N\\cos60°=\\dfrac{mg}{\\sqrt3}\\cdot\\dfrac12=\\dfrac{\\sqrt3}{6}mg$。" }
+    },
+    {
+      "id": "2013-1-phy-4", "answerRow": 4, "block": "I", "topicId": "mech",
+      "subtopic": "Friction below a point on an incline (find μ')",
+      "patternTags": ["express-formula", "energy-conservation", "friction", "incline"], "hasFigure": true,
+      "figure": { "ja": "傾角 θ の斜面。点 A より上は摩擦なし，A より下は摩擦あり。質量 m を A より上の P に静かに置くと滑り出し，A より下の Q で静止。PA=d1，AQ=d2，動摩擦係数 μ'。", "en": "Incline angle θ; above A frictionless, below A has friction. Mass m released at P (above A) slides and stops at Q (below A). PA=d1, AQ=d2, kinetic friction μ'." },
+      "ja": { "prompt": "傾角 $\\theta$ の斜面で，点 A より上は摩擦がなく，A より下は摩擦がある。質量 $m$ の小物体を A より上の点 P に静かに置くと滑り始め，A より下の点 Q で静止した。$PA=d_1$，$AQ=d_2$，A より下の動摩擦係数は $\\mu'$。$\\mu'$ はどれか。", "choices": ["$\\dfrac{d_1}{d_2}\\sin\\theta$", "$\\dfrac{d_1}{d_2}\\cos\\theta$", "$\\dfrac{d_1}{d_2}\\tan\\theta$", "$\\dfrac{d_1+d_2}{d_2}\\sin\\theta$", "$\\dfrac{d_1+d_2}{d_2}\\cos\\theta$", "$\\dfrac{d_1+d_2}{d_2}\\tan\\theta$"] },
+      "en": { "prompt": "On an incline (angle $\\theta$), above A is frictionless and below A has friction. A block (mass $m$) released at P (above A) slides and stops at Q (below A); $PA=d_1$, $AQ=d_2$, kinetic friction $\\mu'$. Find $\\mu'$.", "choices": ["$\\dfrac{d_1}{d_2}\\sin\\theta$", "$\\dfrac{d_1}{d_2}\\cos\\theta$", "$\\dfrac{d_1}{d_2}\\tan\\theta$", "$\\dfrac{d_1+d_2}{d_2}\\sin\\theta$", "$\\dfrac{d_1+d_2}{d_2}\\cos\\theta$", "$\\dfrac{d_1+d_2}{d_2}\\tan\\theta$"] },
+      "answerIndex": 5, "answerOption": 6, "answer": { "ja": "$\\dfrac{d_1+d_2}{d_2}\\tan\\theta$", "en": "$\\dfrac{d_1+d_2}{d_2}\\tan\\theta$" },
+      "explanation": { "en": "Start and end at rest. Total drop in height $=(d_1+d_2)\\sin\\theta$; all that PE is dissipated by friction, which acts only over $d_2$: $mg(d_1+d_2)\\sin\\theta=\\mu'mg\\cos\\theta\\cdot d_2$. So $\\mu'=\\dfrac{d_1+d_2}{d_2}\\tan\\theta$.", "ja": "静止から静止。落下高さ $(d_1+d_2)\\sin\\theta$ がすべて摩擦（$d_2$ のみ）で失われる：$mg(d_1+d_2)\\sin\\theta=\\mu'mg\\cos\\theta\\cdot d_2$。よって $\\mu'=\\dfrac{d_1+d_2}{d_2}\\tan\\theta$。" }
+    },
+    {
+      "id": "2013-1-phy-5", "answerRow": 5, "block": "I", "topicId": "mech",
+      "subtopic": "Coefficient of restitution from a 1-D collision",
+      "patternTags": ["express-formula", "collision", "restitution", "momentum"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "直線上を運動する質量 $m$ の A が，静止した質量 $M$ の B に速さ $v$ で衝突した。衝突後，B は速さ $\\dfrac{1}{2}v$ で同じ直線上を運動した。A と B の間のはね返り係数はどれか。", "choices": ["$\\dfrac{1}{2}\\left(\\dfrac{M}{m}+1\\right)$", "$\\dfrac{1}{2}\\dfrac{M}{m}$", "$\\dfrac{1}{2}\\left(\\dfrac{M}{m}-1\\right)$", "$\\dfrac{1}{2}\\left(1+\\dfrac{m}{M}\\right)$", "$\\dfrac{1}{2}\\dfrac{m}{M}$", "$\\dfrac{1}{2}\\left(1-\\dfrac{m}{M}\\right)$"] },
+      "en": { "prompt": "A (mass $m$) moving at $v$ hits stationary B (mass $M$). After the collision B moves at $\\dfrac{1}{2}v$ along the same line. Find the coefficient of restitution between A and B.", "choices": ["$\\dfrac{1}{2}\\left(\\dfrac{M}{m}+1\\right)$", "$\\dfrac{1}{2}\\dfrac{M}{m}$", "$\\dfrac{1}{2}\\left(\\dfrac{M}{m}-1\\right)$", "$\\dfrac{1}{2}\\left(1+\\dfrac{m}{M}\\right)$", "$\\dfrac{1}{2}\\dfrac{m}{M}$", "$\\dfrac{1}{2}\\left(1-\\dfrac{m}{M}\\right)$"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "$\\dfrac{1}{2}\\left(\\dfrac{M}{m}-1\\right)$", "en": "$\\dfrac{1}{2}\\left(\\dfrac{M}{m}-1\\right)$" },
+      "explanation": { "en": "Momentum: $mv=m\\,v_A'+M\\cdot\\tfrac{v}{2}$, so $v_A'=v\\left(1-\\dfrac{M}{2m}\\right)$. Restitution $e=\\dfrac{v_B'-v_A'}{v}=\\dfrac{\\tfrac{v}{2}-v+\\tfrac{Mv}{2m}}{v}=\\dfrac{1}{2}\\left(\\dfrac{M}{m}-1\\right)$.", "ja": "運動量 $mv=m\\,v_A'+M\\cdot\\tfrac{v}{2}$ より $v_A'=v\\left(1-\\dfrac{M}{2m}\\right)$。はね返り係数 $e=\\dfrac{v_B'-v_A'}{v}=\\dfrac{\\tfrac{v}{2}-v+\\tfrac{Mv}{2m}}{v}=\\dfrac{1}{2}\\left(\\dfrac{M}{m}-1\\right)$。" }
+    },
+    {
+      "id": "2013-1-phy-6", "answerRow": 6, "block": "I", "topicId": "mech",
+      "subtopic": "Frictionless slide + spring with a different mass",
+      "patternTags": ["plug-in-numbers", "energy-conservation", "spring"], "hasFigure": true,
+      "figure": { "ja": "摩擦のない斜面と床がつながる。床のばねは壁に固定。A(20 g)を P から離すと床で 2.0 m/s，ばねの最大の縮み 2.0 cm。次に B(80 g)を同じ P から離す。", "en": "A frictionless incline joins a floor with a wall-fixed spring. Block A (20 g) released from P reaches 2.0 m/s on the floor and compresses the spring 2.0 cm. Then block B (80 g) is released from the same P." },
+      "ja": { "prompt": "摩擦のない斜面と床がなめらかにつながり，床のばねの一端は壁に固定されている。斜面上の点 P から $20\\,$g の A を静かに離すと，ばねに当たる前の床での速さは $2.0\\,$m/s，ばねの最大の縮みは $2.0\\,$cm であった。同じ P から $80\\,$g の B を離すとき，床での速さとばねの最大の縮みの組み合わせはどれか。", "choices": ["速さ2.0, 縮み2.0", "速さ2.0, 縮み4.0", "速さ2.0, 縮み8.0", "速さ4.0, 縮み2.0", "速さ4.0, 縮み4.0", "速さ4.0, 縮み8.0"] },
+      "en": { "prompt": "A frictionless incline joins a floor with a wall-fixed spring. From point P, block A ($20\\,$g) reaches $2.0\\,$m/s on the floor and compresses the spring $2.0\\,$cm. Released from the same P, what are block B's ($80\\,$g) floor speed and maximum compression?", "choices": ["speed 2.0, compression 2.0", "speed 2.0, compression 4.0", "speed 2.0, compression 8.0", "speed 4.0, compression 2.0", "speed 4.0, compression 4.0", "speed 4.0, compression 8.0"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "床での速さ $2.0\\,$m/s，最大の縮み $4.0\\,$cm", "en": "floor speed $2.0\\,$m/s, max compression $4.0\\,$cm" },
+      "explanation": { "en": "On a frictionless incline the floor speed depends only on the drop height, not on mass, so B also reaches $2.0\\,$m/s. For the spring, $\\tfrac12mv^2=\\tfrac12kx^2$ gives $x\\propto\\sqrt m$ (same $v$), so $x_B=x_A\\sqrt{\\dfrac{80}{20}}=2.0\\times2=4.0\\,$cm.", "ja": "摩擦のない斜面では床での速さは高さだけで決まり質量によらないので B も $2.0\\,$m/s。ばねは $\\tfrac12mv^2=\\tfrac12kx^2$ より（同じ $v$）$x\\propto\\sqrt m$ なので $x_B=x_A\\sqrt{\\dfrac{80}{20}}=2.0\\times2=4.0\\,$cm。" }
+    },
+    {
+      "id": "2013-1-phy-7", "answerRow": 7, "block": "I", "topicId": "mech",
+      "subtopic": "Conical-table circular motion balanced by a hanging weight",
+      "patternTags": ["express-formula", "circular-motion", "tension"], "hasFigure": true,
+      "figure": { "ja": "水平な板の小穴に軽い糸を通し，上の端に質量 m の小球 A（半径 r の等速円運動），下の端に質量 4m のおもり B（静止）。摩擦なし。", "en": "A light string through a hole in a horizontal table: on top, ball A (mass m) in a circle of radius r; below, weight B (mass 4m) hanging static. Frictionless." },
+      "ja": { "prompt": "固定された水平な板の小穴に軽い糸を通し，板の上の端に質量 $m$ の小球 A，もう一方の端に質量 $4m$ のおもり B を付ける。A が半径 $r$ の等速円運動をしているとき B は静止していた。摩擦は無視できる。A の速さはどれか。", "choices": ["$\\dfrac{1}{4}\\sqrt{gr}$", "$\\dfrac{1}{2}\\sqrt{gr}$", "$\\sqrt{gr}$", "$2\\sqrt{gr}$", "$4\\sqrt{gr}$"] },
+      "en": { "prompt": "A light string runs through a hole in a horizontal table: ball A (mass $m$) on top moves in a circle of radius $r$; weight B (mass $4m$) hangs below, static. Frictionless. Find A's speed.", "choices": ["$\\dfrac{1}{4}\\sqrt{gr}$", "$\\dfrac{1}{2}\\sqrt{gr}$", "$\\sqrt{gr}$", "$2\\sqrt{gr}$", "$4\\sqrt{gr}$"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "$2\\sqrt{gr}$", "en": "$2\\sqrt{gr}$" },
+      "explanation": { "en": "The hanging weight is in equilibrium, so the string tension $T=4mg$. This tension is A's centripetal force: $4mg=\\dfrac{mv^2}{r}$, so $v^2=4gr$ and $v=2\\sqrt{gr}$.", "ja": "おもりがつり合うので糸の張力 $T=4mg$。これが A の向心力：$4mg=\\dfrac{mv^2}{r}$ より $v^2=4gr$，$v=2\\sqrt{gr}$。" }
+    },
+    {
+      "id": "2013-1-phy-8", "answerRow": 8, "block": "II", "topicId": "thermo",
+      "subtopic": "Heat-capacity ratios from successive equilibria",
+      "patternTags": ["plug-in-numbers", "calorimetry", "heat-capacity"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "3 物体 A,B,C。まず A と B を接触させると A は $4.0\\,$K 下がり B は $16.0\\,$K 上がって共に $75.0\\,$℃ になった。次に B と C を接触させると B は $15.0\\,$K 下がり C は $2.5\\,$K 上がって共に $60.0\\,$℃ になった。外部との熱の出入りはない。$75.0\\,$℃ の A と $60.0\\,$℃ の C を接触させると，じゅうぶん時間後の温度は何 ℃ か。", "choices": ["$63.0$", "$66.0$", "$69.0$", "$72.0$"] },
+      "en": { "prompt": "Objects A,B,C. A+B: A falls $4.0\\,$K, B rises $16.0\\,$K, both reach $75.0\\,$℃. B+C: B falls $15.0\\,$K, C rises $2.5\\,$K, both reach $60.0\\,$℃. (No heat loss.) Contacting A ($75.0\\,$℃) with C ($60.0\\,$℃), find the final temperature (℃).", "choices": ["$63.0$", "$66.0$", "$69.0$", "$72.0$"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "$66.0$", "en": "$66.0$" },
+      "explanation": { "en": "Heat capacities: from A+B, $C_A\\cdot4.0=C_B\\cdot16.0\\Rightarrow C_A=4C_B$; from B+C, $C_B\\cdot15.0=C_C\\cdot2.5\\Rightarrow C_C=6C_B$. For A($75$)+C($60$): $4C_B(75-T)=6C_B(T-60)$, so $300-4T=6T-360$, $T=66.0\\,$℃.", "ja": "熱容量：A+B より $C_A\\cdot4.0=C_B\\cdot16.0$ で $C_A=4C_B$，B+C より $C_B\\cdot15.0=C_C\\cdot2.5$ で $C_C=6C_B$。A($75$)+C($60$)：$4C_B(75-T)=6C_B(T-60)$ より $300-4T=6T-360$，$T=66.0\\,$℃。" }
+    },
+    {
+      "id": "2013-1-phy-9", "answerRow": 9, "block": "II", "topicId": "thermo",
+      "subtopic": "Heat absorbed/released over each leg of a cycle",
+      "patternTags": ["conceptual", "pv-diagram", "first-law"], "hasFigure": true,
+      "figure": { "ja": "p–V 図の三角形サイクル A→B→C→A。A($V_A,p_B$)，B($V_B,p_B$)，C($V_B,p_C$)。A→B 定圧で圧縮，B→C 定積で昇圧，C→A 等温膨張。", "en": "Triangular p–V cycle A→B→C→A: A($V_A,p_B$), B($V_B,p_B$), C($V_B,p_C$). A→B isobaric compression, B→C isochoric pressure rise, C→A isothermal expansion." },
+      "ja": { "prompt": "一定量の理想気体を $p$-$V$ 図のように A→B→C→A と変化させた。A は $(V_A,p_B)$，B は $(V_B,p_B)$，C は $(V_B,p_C)$ で，C→A は等温変化である。各過程 A→B，B→C，C→A で気体は熱を吸収するか放出するか。正しい組み合わせはどれか。", "choices": ["A→B 吸収, B→C 吸収, C→A 放出", "A→B 吸収, B→C 放出, C→A 吸収", "A→B 放出, B→C 吸収, C→A 吸収", "A→B 放出, B→C 放出, C→A 吸収", "A→B 放出, B→C 吸収, C→A 放出", "A→B 吸収, B→C 放出, C→A 放出"] },
+      "en": { "prompt": "An ideal gas runs A→B→C→A: A$(V_A,p_B)$, B$(V_B,p_B)$, C$(V_B,p_C)$; C→A is isothermal. For each leg, does the gas absorb or release heat? Choose the correct set.", "choices": ["A→B absorb, B→C absorb, C→A release", "A→B absorb, B→C release, C→A absorb", "A→B release, B→C absorb, C→A absorb", "A→B release, B→C release, C→A absorb", "A→B release, B→C absorb, C→A release", "A→B absorb, B→C release, C→A release"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "A→B 放出, B→C 吸収, C→A 吸収", "en": "A→B release, B→C absorb, C→A absorb" },
+      "explanation": { "en": "A→B (isobaric, volume decreasing): $T$ falls, $\\Delta U<0$, $W<0$ ⇒ heat released. B→C (isochoric, pressure rising): $T$ rises ⇒ $Q=\\Delta U>0$, absorbed. C→A (isothermal expansion): $\\Delta U=0$, $W>0$ ⇒ $Q>0$, absorbed.", "ja": "A→B（定圧で体積減）：$T$ 下降，$\\Delta U<0$，$W<0$ ⇒ 放出。B→C（定積で昇圧）：$T$ 上昇 ⇒ $Q=\\Delta U>0$，吸収。C→A（等温膨張）：$\\Delta U=0$，$W>0$ ⇒ $Q>0$，吸収。" }
+    },
+    {
+      "id": "2013-1-phy-10", "answerRow": 10, "block": "II", "topicId": "thermo",
+      "subtopic": "Mean-square molecular speed with a loaded piston",
+      "patternTags": ["express-formula", "kinetic-theory", "ideal-gas"], "hasFigure": true,
+      "figure": { "ja": "質量無視のピストン（断面積 S）で n mol の単原子分子理想気体を封入。ピストン上に質量 M のおもり。底からの高さ h で静止。外圧 p0，重力 g，アボガドロ数 N_A，分子 1 個の質量 m。", "en": "A massless piston (area S) seals n mol monatomic ideal gas; weight M on the piston, at rest at height h above the base. External pressure p0, g, Avogadro N_A, molecular mass m." },
+      "ja": { "prompt": "質量の無視できる断面積 $S$ のピストンで $n$ モルの単原子分子理想気体を封入し，ピストン上に質量 $M$ のおもりをのせると底から高さ $h$ で静止した。外圧 $p_0$，重力加速度 $g$，アボガドロ定数 $N_A$，気体分子 1 個の質量 $m$。気体分子の速さの 2 乗平均 $\\overline{v^2}$ はどれか。", "choices": ["$\\dfrac{(p_0S+Mg)h}{2nN_Am}$", "$\\dfrac{(p_0S+Mg)h}{nN_Am}$", "$\\dfrac{3(p_0S+Mg)h}{2nN_Am}$", "$\\dfrac{2(p_0S+Mg)h}{nN_Am}$", "$\\dfrac{5(p_0S+Mg)h}{2nN_Am}$", "$\\dfrac{3(p_0S+Mg)h}{nN_Am}$"] },
+      "en": { "prompt": "A massless piston (area $S$) seals $n$ mol monatomic ideal gas; a weight $M$ on it rests at height $h$ above the base. External pressure $p_0$, $g$, Avogadro $N_A$, molecular mass $m$. Find the mean-square speed $\\overline{v^2}$.", "choices": ["$\\dfrac{(p_0S+Mg)h}{2nN_Am}$", "$\\dfrac{(p_0S+Mg)h}{nN_Am}$", "$\\dfrac{3(p_0S+Mg)h}{2nN_Am}$", "$\\dfrac{2(p_0S+Mg)h}{nN_Am}$", "$\\dfrac{5(p_0S+Mg)h}{2nN_Am}$", "$\\dfrac{3(p_0S+Mg)h}{nN_Am}$"] },
+      "answerIndex": 5, "answerOption": 6, "answer": { "ja": "$\\dfrac{3(p_0S+Mg)h}{nN_Am}$", "en": "$\\dfrac{3(p_0S+Mg)h}{nN_Am}$" },
+      "explanation": { "en": "Pressure $P=p_0+\\dfrac{Mg}{S}$, volume $V=Sh$, so $PV=(p_0S+Mg)h=nRT$. From $\\tfrac12m\\overline{v^2}=\\tfrac32kT=\\tfrac32\\dfrac{R}{N_A}T$: $\\overline{v^2}=\\dfrac{3RT}{N_Am}=\\dfrac{3(p_0S+Mg)h}{nN_Am}$.", "ja": "圧力 $P=p_0+\\dfrac{Mg}{S}$，体積 $V=Sh$ より $PV=(p_0S+Mg)h=nRT$。$\\tfrac12m\\overline{v^2}=\\tfrac32kT=\\tfrac32\\dfrac{R}{N_A}T$ より $\\overline{v^2}=\\dfrac{3RT}{N_Am}=\\dfrac{3(p_0S+Mg)h}{nN_Am}$。" }
+    },
+    {
+      "id": "2013-1-phy-11", "answerRow": 11, "block": "III", "topicId": "waves",
+      "subtopic": "Number of nodes between two coherent sources",
+      "patternTags": ["plug-in-numbers", "interference", "nodes"], "hasFigure": true,
+      "figure": { "ja": "水面上で 11.0 cm 離れた 2 点 S1,S2 が波源（波長 3.0 cm，同振幅・同位相の円形波）。", "en": "On a water surface, two sources S1,S2 are 11.0 cm apart emitting circular waves of wavelength 3.0 cm, same amplitude and phase." },
+      "ja": { "prompt": "水面上の $11.0\\,$cm 離れた 2 点 S$_1$,S$_2$ を波源として，波長 $3.0\\,$cm で同振幅・同位相の円形波が出ている。S$_1$,S$_2$ を結ぶ直線上で，水面がほとんど振動しない点はいくつあるか。", "choices": ["$3$", "$4$", "$5$", "$6$", "$7$", "$8$", "$9$"] },
+      "en": { "prompt": "Two in-phase sources S$_1$,S$_2$ are $11.0\\,$cm apart, wavelength $3.0\\,$cm. On the line segment joining them, how many points hardly move (nodes)?", "choices": ["$3$", "$4$", "$5$", "$6$", "$7$", "$8$", "$9$"] },
+      "answerIndex": 5, "answerOption": 6, "answer": { "ja": "$8$", "en": "$8$" },
+      "explanation": { "en": "At a point a distance $x$ from S$_1$, the path difference is $|2x-11|$. Nodes (destructive) occur where this equals $(n+\\tfrac12)\\times3.0=1.5,4.5,7.5,10.5$ (all $\\le11$). Each value occurs on both sides of the midpoint, giving $4\\times2=8$ nodes.", "ja": "S$_1$ から距離 $x$ の点で経路差は $|2x-11|$。弱め合いは $(n+\\tfrac12)\\times3.0=1.5,4.5,7.5,10.5$（いずれも $\\le11$）。各値が中点の両側に現れ $4\\times2=8$ 個。" }
+    },
+    {
+      "id": "2013-1-phy-12", "answerRow": 12, "block": "III", "topicId": "waves",
+      "subtopic": "Doppler effect (approaching source)",
+      "patternTags": ["plug-in-numbers", "doppler-effect"], "hasFigure": true,
+      "figure": { "ja": "振動数 500 Hz の音源 S が速さ 20 m/s で静止観測者 O に近づく。音速 340 m/s。", "en": "A 500 Hz source S approaches a stationary observer O at 20 m/s; sound speed 340 m/s." },
+      "ja": { "prompt": "振動数 $500\\,$Hz の音源 S が速さ $20\\,$m/s で静止している観測者 O に近づいている。音速を $340\\,$m/s とする。O が観測する音波の波長と振動数の組み合わせはどれか。", "choices": ["0.64 m, 4.7×10² Hz", "0.64 m, 5.0×10² Hz", "0.64 m, 5.3×10² Hz", "0.68 m, 4.7×10² Hz", "0.68 m, 5.0×10² Hz", "0.68 m, 5.3×10² Hz", "0.72 m, 4.7×10² Hz", "0.72 m, 5.0×10² Hz", "0.72 m, 5.3×10² Hz"] },
+      "en": { "prompt": "A $500\\,$Hz source S approaches a stationary observer O at $20\\,$m/s (sound speed $340\\,$m/s). Give the wavelength and frequency observed by O.", "choices": ["0.64 m, 4.7×10² Hz", "0.64 m, 5.0×10² Hz", "0.64 m, 5.3×10² Hz", "0.68 m, 4.7×10² Hz", "0.68 m, 5.0×10² Hz", "0.68 m, 5.3×10² Hz", "0.72 m, 4.7×10² Hz", "0.72 m, 5.0×10² Hz", "0.72 m, 5.3×10² Hz"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "波長 $0.64\\,$m，振動数 $5.3\\times10^2\\,$Hz", "en": "wavelength $0.64\\,$m, frequency $5.3\\times10^2\\,$Hz" },
+      "explanation": { "en": "Ahead of an approaching source the wavelength is compressed: $\\lambda'=\\dfrac{v-v_s}{f}=\\dfrac{340-20}{500}=0.64\\,$m. The observed frequency $f'=\\dfrac{v}{\\lambda'}=\\dfrac{340}{0.64}\\approx5.3\\times10^2\\,$Hz.", "ja": "近づく音源の前方では波長が縮む：$\\lambda'=\\dfrac{v-v_s}{f}=\\dfrac{340-20}{500}=0.64\\,$m。観測振動数 $f'=\\dfrac{v}{\\lambda'}=\\dfrac{340}{0.64}\\approx5.3\\times10^2\\,$Hz。" }
+    },
+    {
+      "id": "2013-1-phy-13", "answerRow": 13, "block": "III", "topicId": "waves",
+      "subtopic": "Total internal reflection across two prisms",
+      "patternTags": ["express-formula", "total-internal-reflection", "snells-law", "geometry"], "hasFigure": true,
+      "figure": { "ja": "屈折率 1.5 の角柱 I と屈折率 1.2 の角柱 II が接する。空気中から I の上面の点 P に入射し，I 内を進み，I–II の境界で全反射する。入射角を大きくすると一部が II にも進む。空気の屈折率 1.0。", "en": "Prism I (index 1.5) touches prism II (index 1.2). Light enters from air at P on prism I's top, travels in I, and totally reflects at the I–II boundary; raising the incidence eventually transmits some into II. Air index 1.0." },
+      "ja": { "prompt": "屈折率 $1.5$ の角柱 I と屈折率 $1.2$ の角柱 II が接している。空気中から I の上面の点 P に入射した光線は I 内を進み，I–II の境界面で全反射した。P での入射角を大きくすると光の一部は II にも進んだ。全反射が起きる P での入射角の最大値を $\\theta$ とするとき，$\\sin\\theta$ はいくらか。", "choices": ["$0.50$", "$0.56$", "$0.71$", "$0.86$", "$0.90$"] },
+      "en": { "prompt": "Prism I (index $1.5$) touches prism II (index $1.2$). Light from air enters at P on prism I's top, travels in I, and totally reflects at the I–II boundary; raising the incidence at P eventually transmits some into II. With $\\theta$ the largest incidence at P for which total reflection still occurs, find $\\sin\\theta$.", "choices": ["$0.50$", "$0.56$", "$0.71$", "$0.86$", "$0.90$"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "$0.90$", "en": "$0.90$" },
+      "explanation": { "en": "Critical angle at the I–II boundary: $\\sin\\phi_c=\\dfrac{1.2}{1.5}=0.8$, so $\\cos\\phi_c=0.6$. The internal ray makes angle $r$ with the top-surface normal and meets the vertical boundary at $\\phi=90°-r$; the limiting case is $\\phi=\\phi_c$, so $\\sin r=\\cos\\phi_c=0.6$. Snell at P: $\\sin\\theta=1.5\\sin r=1.5\\times0.6=0.90$.", "ja": "I–II 境界の臨界角：$\\sin\\phi_c=\\dfrac{1.2}{1.5}=0.8$ より $\\cos\\phi_c=0.6$。I 内の光線は上面の法線と角 $r$ をなし，鉛直境界に $\\phi=90°-r$ で当たる。限界は $\\phi=\\phi_c$ なので $\\sin r=\\cos\\phi_c=0.6$。P でのスネル $\\sin\\theta=1.5\\sin r=0.90$。" }
+    },
+    {
+      "id": "2013-1-phy-14", "answerRow": 14, "block": "IV", "topicId": "em",
+      "subtopic": "Force components vs position from a fixed charge",
+      "patternTags": ["read-from-graph", "coulombs-law", "vectors"], "hasFigure": true,
+      "figure": { "ja": "正電荷 Q_A を (0,a) に固定（a>0）。別の正電荷 Q_B を (x,0) に置く。x を変えたときの力の x 成分 F_x と y 成分 F_y のグラフを選ぶ。", "en": "Positive charge Q_A fixed at (0,a) (a>0); positive Q_B at (x,0). Choose the graphs of force components F_x and F_y as x varies." },
+      "ja": { "prompt": "$xy$ 平面の $(0,a)$ に正電荷 $Q_A$ を固定し（$a>0$），別の正電荷 $Q_B$ を $(x,0)$ に置く。$Q_B$ が $Q_A$ から受ける力の $x$ 成分 $F_x$ と $y$ 成分 $F_y$ は $x$ を変えるとどう変化するか。グラフ (a)〜(f) の組み合わせはどれか。", "choices": ["F_x:(b), F_y:(a)", "F_x:(c), F_y:(a)", "F_x:(e), F_y:(a)", "F_x:(f), F_y:(a)", "F_x:(b), F_y:(d)", "F_x:(c), F_y:(d)", "F_x:(e), F_y:(d)", "F_x:(f), F_y:(d)"] },
+      "en": { "prompt": "$Q_A$ (positive) is fixed at $(0,a)$ ($a>0$); positive $Q_B$ is at $(x,0)$. As $x$ varies, how do the force components $F_x$ and $F_y$ on $Q_B$ change (graphs (a)–(f))?", "choices": ["F_x:(b), F_y:(a)", "F_x:(c), F_y:(a)", "F_x:(e), F_y:(a)", "F_x:(f), F_y:(a)", "F_x:(b), F_y:(d)", "F_x:(c), F_y:(d)", "F_x:(e), F_y:(d)", "F_x:(f), F_y:(d)"] },
+      "answerIndex": 7, "answerOption": 8, "answer": { "ja": "F_x:(f)（奇関数：左で負・右で正），F_y:(d)（常に負，原点で最小）", "en": "F_x:(f) (odd: negative left, positive right), F_y:(d) (always negative, deepest at the origin)" },
+      "explanation": { "en": "The repulsive force lies along $(x,-a)$: $F_x=\\dfrac{kQ_AQ_Bx}{(x^2+a^2)^{3/2}}$ is zero at $x=0$, negative for $x<0$, positive for $x>0$ (an odd 'dip-then-bump' = graph (f)); $F_y=\\dfrac{-kQ_AQ_Ba}{(x^2+a^2)^{3/2}}$ is always negative, deepest at $x=0$, tending to $0$ at large $|x|$ (graph (d)).", "ja": "斥力は $(x,-a)$ 方向：$F_x=\\dfrac{kQ_AQ_Bx}{(x^2+a^2)^{3/2}}$ は $x=0$ で 0，$x<0$ で負，$x>0$ で正（奇関数＝(f)）。$F_y=\\dfrac{-kQ_AQ_Ba}{(x^2+a^2)^{3/2}}$ は常に負で原点で最も深く，$|x|$ 大で 0（(d)）。" }
+    },
+    {
+      "id": "2013-1-phy-15", "answerRow": 15, "block": "IV", "topicId": "em",
+      "subtopic": "Capacitor field: remove dielectric and widen gap (isolated)",
+      "patternTags": ["express-formula", "capacitors", "dielectric"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "平行板コンデンサーの極板間を比誘電率 $3$ の誘電体で満たし，電池につないで充電した。このときの極板間の電場を $E$ とする。次に電池を切り離した後，誘電体を外し，さらに極板間の距離を $2$ 倍に広げた。このときの電場を $E'$ とする。$\\dfrac{E'}{E}$ はいくらか。", "choices": ["$\\dfrac{1}{6}$", "$\\dfrac{1}{3}$", "$\\dfrac{1}{2}$", "$\\dfrac{2}{3}$", "$\\dfrac{3}{2}$", "$2$", "$3$", "$6$"] },
+      "en": { "prompt": "A parallel-plate capacitor is filled with a dielectric ($\\varepsilon_r=3$), connected to a battery, and charged; the field is $E$. The battery is disconnected, the dielectric removed, and the plate separation doubled; the new field is $E'$. Find $\\dfrac{E'}{E}$.", "choices": ["$\\dfrac{1}{6}$", "$\\dfrac{1}{3}$", "$\\dfrac{1}{2}$", "$\\dfrac{2}{3}$", "$\\dfrac{3}{2}$", "$2$", "$3$", "$6$"] },
+      "answerIndex": 6, "answerOption": 7, "answer": { "ja": "$3$", "en": "$3$" },
+      "explanation": { "en": "With the dielectric and battery, $E=\\dfrac{\\sigma}{\\varepsilon_r\\varepsilon_0}$ with fixed surface charge $\\sigma$. After disconnecting (charge fixed) and removing the dielectric, $E'=\\dfrac{\\sigma}{\\varepsilon_0}=\\varepsilon_r E$. The field of a fixed-charge capacitor is independent of separation, so doubling the gap changes nothing. Thus $\\dfrac{E'}{E}=\\varepsilon_r=3$.", "ja": "誘電体＋電池で $E=\\dfrac{\\sigma}{\\varepsilon_r\\varepsilon_0}$（電荷一定）。切り離して誘電体を外すと $E'=\\dfrac{\\sigma}{\\varepsilon_0}=\\varepsilon_r E$。電荷一定の電場は間隔によらないので距離 2 倍でも不変。よって $\\dfrac{E'}{E}=\\varepsilon_r=3$。" }
+    },
+    {
+      "id": "2013-1-phy-16", "answerRow": 16, "block": "IV", "topicId": "em",
+      "subtopic": "Transverse deflection in a uniform field (find entry speed)",
+      "patternTags": ["express-formula", "electric-field", "projectile-analogy"], "hasFigure": true,
+      "figure": { "ja": "大きさ E の一様電場の長さ L の領域。電荷 q・質量 m の粒子を速さ v で電場に垂直入射。垂直方向に d だけ離れた取り出し口を通過。重力無視。", "en": "A uniform field E over a region of length L. A particle (charge q, mass m) enters at speed v perpendicular to the field, exiting through a port displaced d transversely. Gravity ignored." },
+      "ja": { "prompt": "大きさ $E$ の一様電場の領域（長さ $L$）に，電荷 $q$・質量 $m$ の粒子を速さ $v$ で電場に垂直に入射させると，入射方向に対し垂直に $d$ だけ離れた取り出し口を通過した。重力は無視。$v$ はどれか。", "choices": ["$L\\sqrt{\\dfrac{qE}{2md}}$", "$L\\sqrt{\\dfrac{qE}{md}}$", "$L\\sqrt{\\dfrac{2qE}{md}}$", "$\\dfrac{1}{L}\\sqrt{\\dfrac{md}{2qE}}$", "$\\dfrac{1}{L}\\sqrt{\\dfrac{md}{qE}}$", "$\\dfrac{1}{L}\\sqrt{\\dfrac{2md}{qE}}$"] },
+      "en": { "prompt": "A particle (charge $q$, mass $m$) enters a uniform field $E$ (region length $L$) at speed $v$ perpendicular to the field and exits through a port displaced $d$ transversely (gravity ignored). Find $v$.", "choices": ["$L\\sqrt{\\dfrac{qE}{2md}}$", "$L\\sqrt{\\dfrac{qE}{md}}$", "$L\\sqrt{\\dfrac{2qE}{md}}$", "$\\dfrac{1}{L}\\sqrt{\\dfrac{md}{2qE}}$", "$\\dfrac{1}{L}\\sqrt{\\dfrac{md}{qE}}$", "$\\dfrac{1}{L}\\sqrt{\\dfrac{2md}{qE}}$"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "$L\\sqrt{\\dfrac{qE}{2md}}$", "en": "$L\\sqrt{\\dfrac{qE}{2md}}$" },
+      "explanation": { "en": "Time in the field $t=\\dfrac{L}{v}$; transverse acceleration $a=\\dfrac{qE}{m}$; deflection $d=\\tfrac12at^2=\\dfrac{qEL^2}{2mv^2}$. Solving, $v=L\\sqrt{\\dfrac{qE}{2md}}$.", "ja": "領域内の時間 $t=\\dfrac{L}{v}$，垂直加速度 $a=\\dfrac{qE}{m}$，変位 $d=\\tfrac12at^2=\\dfrac{qEL^2}{2mv^2}$。解いて $v=L\\sqrt{\\dfrac{qE}{2md}}$。" }
+    },
+    {
+      "id": "2013-1-phy-17", "answerRow": 17, "block": "IV", "topicId": "em",
+      "subtopic": "Two batteries (internal resistance) across a resistor",
+      "patternTags": ["express-formula", "dc-circuit", "kirchhoff"], "hasFigure": true,
+      "figure": { "ja": "起電力 V1,V2 の電池（各内部抵抗 r）と抵抗 R。A–B 間に，左に V1(+r)，中央に R，右に V2(+r) を並列接続。B を電位の基準（接地）。", "en": "Batteries V1,V2 (each internal resistance r) and resistor R. Between A and B: left V1(+r), middle R, right V2(+r) in parallel. B is the reference (grounded)." },
+      "ja": { "prompt": "起電力 $V_1,V_2$ の電池（ともに内部抵抗 $r$）と抵抗 $R$ を図のように接続した。A–B 間に，左に電池 $V_1$（内部抵抗 $r$），中央に $R$，右に電池 $V_2$（内部抵抗 $r$）が並列。点 B を電位の基準とする。点 A の電位はどれか。", "choices": ["$\\dfrac{R(V_1+V_2)}{R+2r}$", "$-\\dfrac{R(V_1+V_2)}{R+2r}$", "$\\dfrac{R(V_1-V_2)}{R+2r}$", "$\\dfrac{R(V_2-V_1)}{R+2r}$", "$\\dfrac{R(V_1+V_2)}{2R+r}$", "$-\\dfrac{R(V_1+V_2)}{2R+r}$", "$\\dfrac{R(V_1-V_2)}{2R+r}$", "$\\dfrac{R(V_2-V_1)}{2R+r}$"] },
+      "en": { "prompt": "Batteries $V_1,V_2$ (each internal resistance $r$) and resistor $R$ are connected between A and B: left $V_1$(with $r$), middle $R$, right $V_2$(with $r$), all in parallel; B is the reference. Find the potential at A.", "choices": ["$\\dfrac{R(V_1+V_2)}{R+2r}$", "$-\\dfrac{R(V_1+V_2)}{R+2r}$", "$\\dfrac{R(V_1-V_2)}{R+2r}$", "$\\dfrac{R(V_2-V_1)}{R+2r}$", "$\\dfrac{R(V_1+V_2)}{2R+r}$", "$-\\dfrac{R(V_1+V_2)}{2R+r}$", "$\\dfrac{R(V_1-V_2)}{2R+r}$", "$\\dfrac{R(V_2-V_1)}{2R+r}$"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "$\\dfrac{R(V_1+V_2)}{2R+r}$", "en": "$\\dfrac{R(V_1+V_2)}{2R+r}$" },
+      "explanation": { "en": "With B$=0$, KCL at A over the three parallel branches: $\\dfrac{V_1-V_A}{r}+\\dfrac{V_2-V_A}{r}-\\dfrac{V_A}{R}=0$. Multiplying by $rR$: $R(V_1+V_2)=V_A(2R+r)$, so $V_A=\\dfrac{R(V_1+V_2)}{2R+r}$.", "ja": "B$=0$ とし，A での電流則（3 並列枝）：$\\dfrac{V_1-V_A}{r}+\\dfrac{V_2-V_A}{r}-\\dfrac{V_A}{R}=0$。$rR$ 倍して $R(V_1+V_2)=V_A(2R+r)$，よって $V_A=\\dfrac{R(V_1+V_2)}{2R+r}$。" }
+    },
+    {
+      "id": "2013-1-phy-18", "answerRow": 18, "block": "IV", "topicId": "em",
+      "subtopic": "Field direction near a wire and near a solenoid",
+      "patternTags": ["conceptual", "magnetic-field", "right-hand-rule"], "hasFigure": true,
+      "figure": { "ja": "図1：直線導線に電流 I（上向き）。水平面上の点 P（導線の左）での磁場の向きを a(右)/b(右上)/c(左)/d(左下) から選ぶ。図2：コイル（ソレノイド）に電流 I。右端の外の点 Q での向きを e(右)/f(左) から選ぶ。", "en": "Fig 1: straight wire, current I (up); choose the field direction at P (left of the wire) from a(right)/b/c(left)/d. Fig 2: solenoid with current I; choose the field direction at Q (outside the right end) from e(right)/f(left)." },
+      "ja": { "prompt": "図1 のように直線導線に電流 $I$（上向き）を流したとき，水平面上の点 P（導線の左側）の磁場の向きを a〜d から，図2 のようにコイル（ソレノイド）に電流 $I$ を流したとき，右端の外の点 Q の磁場の向きを e,f から示す。最も適当な組み合わせはどれか。", "choices": ["P:a, Q:e", "P:b, Q:e", "P:c, Q:e", "P:d, Q:e", "P:a, Q:f", "P:b, Q:f", "P:c, Q:f", "P:d, Q:f"] },
+      "en": { "prompt": "Fig 1: a straight wire carries current $I$ (up); give the field direction at P (left of the wire) among a–d. Fig 2: a solenoid carries $I$; give the field direction at Q (outside the right end) among e,f. Choose the best combination.", "choices": ["P:a, Q:e", "P:b, Q:e", "P:c, Q:e", "P:d, Q:e", "P:a, Q:f", "P:b, Q:f", "P:c, Q:f", "P:d, Q:f"] },
+      "answerIndex": 7, "answerOption": 8, "answer": { "ja": "P:d, Q:f", "en": "P:d, Q:f" },
+      "explanation": { "en": "Fig 1: for an upward current the field circles by the right-hand rule; at P (to the wire's left) it points toward the viewer/front, i.e. direction d. Fig 2: the right end of the solenoid is its S pole, so just outside it the field points back into the coil, i.e. direction f. Hence (P:d, Q:f).", "ja": "図1：上向き電流の磁場は右ねじの法則で円を描き，P（導線の左）では手前向き＝d。図2：ソレノイドの右端は S 極で，その外側の磁場はコイル側を向く＝f。よって (P:d, Q:f)。" }
+    },
+    {
+      "id": "2013-1-phy-19", "answerRow": 19, "block": "IV", "topicId": "em",
+      "subtopic": "Velocity selector then circular motion (find mass)",
+      "patternTags": ["express-formula", "velocity-selector", "magnetic-force"], "hasFigure": true,
+      "figure": { "ja": "長方形 PQRS に紙面裏→表の磁場 B。灰色領域には加えて紙面上向きの電場 E。正電荷 q・質量 m の粒子を E,B と垂直に入射。灰色域で等速直線、その後 B のみの領域で半径 r の等速円運動。重力無視。", "en": "Field B (out of page) over rectangle PQRS; the gray strip also has an upward field E. A positive charge q (mass m) enters perpendicular to E,B: straight in the gray strip, then a circle of radius r in the B-only region. Gravity ignored." },
+      "ja": { "prompt": "長方形 PQRS の領域に紙面の裏から表向きの一様磁場 $B$。灰色領域には加えて紙面に平行で上向きの一様電場 $E$。正電荷 $q$・質量 $m$ の粒子を $E,B$ と垂直に入射させると，灰色領域を等速直線運動し，その後 $B$ だけの領域で半径 $r$ の等速円運動をした。重力は無視。$m$ はどれか。", "choices": ["$rqE$", "$\\dfrac{rqB^2}{E}$", "$\\dfrac{qE}{r}$", "$\\dfrac{qB^2}{rE}$"] },
+      "en": { "prompt": "Field $B$ (out of page) fills rectangle PQRS; the gray strip also has an upward field $E$. A positive charge $q$ (mass $m$) enters perpendicular to $E,B$: straight through the gray strip, then a circle of radius $r$ in the B-only region (gravity ignored). Find $m$.", "choices": ["$rqE$", "$\\dfrac{rqB^2}{E}$", "$\\dfrac{qE}{r}$", "$\\dfrac{qB^2}{rE}$"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "$\\dfrac{rqB^2}{E}$", "en": "$\\dfrac{rqB^2}{E}$" },
+      "explanation": { "en": "The gray strip is a velocity selector: the electric and magnetic forces balance, $qE=qvB$, so $v=\\dfrac{E}{B}$. In the B-only region $r=\\dfrac{mv}{qB}$, so $m=\\dfrac{rqB}{v}=\\dfrac{rqB}{E/B}=\\dfrac{rqB^2}{E}$.", "ja": "灰色域は速度選別器で電気力と磁気力がつり合う：$qE=qvB$ より $v=\\dfrac{E}{B}$。$B$ のみの領域で $r=\\dfrac{mv}{qB}$ なので $m=\\dfrac{rqB}{v}=\\dfrac{rqB^2}{E}$。" }
+    }
+  ],
+  "patterns": {
+    "blockSkeleton": "Older 7/3/3/6 format: Mechanics ×7, Thermodynamics ×3, Waves ×3, Electricity & Magnetism ×6, no Atoms block (19 items).",
+    "newArchetypesVsPrevious": [
+      "Rod leaning on a half-cylinder: the contact normal is ⊥ rod; torque about the floor contact gives N=mgℓsinθ/(2r).",
+      "Three stacked cylinders held by a horizontal force: equilateral-triangle geometry, F_min = (√3/6)mg.",
+      "Friction only below a point on an incline: total height drop = total friction work over the rough length d2.",
+      "Coefficient of restitution from a 1-D collision with momentum conservation.",
+      "Conical-table circular motion balanced by a hanging weight: T = (hanging weight) = centripetal force.",
+      "Heat-capacity ratios from two successive equilibria, then a third mixing.",
+      "Velocity selector (qE=qvB) followed by circular motion (r=mv/qB) to find mass.",
+      "Number of interference nodes on the segment between two sources via path difference (n+½)λ."
+    ],
+    "recurringWithPrevious": [
+      "Distance as the area under a v–t graph (including an S-shaped acceleration).",
+      "Frictionless slide speed depends only on height, not mass; spring compression x∝√m.",
+      "Heat absorbed/released signs on each p–V leg.",
+      "Mean-square speed from a loaded piston: PV=(p0S+Mg)h=nRT, then ½m⟨v²⟩=(3/2)kT.",
+      "Doppler shift for an approaching source (λ compressed).",
+      "Total internal reflection / critical angle across two media; field & potential superposition.",
+      "Capacitor with fixed charge: field independent of separation, removing a dielectric multiplies the field by ε_r.",
+      "Two-battery node potential via KCL; right-hand rule for wire/solenoid field directions."
+    ],
+    "examTacticNotes": [
+      "Rod on a curved support: the normal there is perpendicular to the rod; take torques about the other contact point.",
+      "Stacked cylinders: contact forces act along the lines joining centres; an equilateral triangle gives 60° lines.",
+      "Start-and-stop on an incline: equate the total gravitational drop to the friction work over only the rough length.",
+      "Restitution e = (separation speed)/(approach speed); get the unknown final velocity from momentum first.",
+      "Object on a table pulled by a hanging mass: string tension equals the hanging weight (if it is static), and that tension is the centripetal force.",
+      "Successive calorimetry: convert each 'ΔT_A : ΔT_B' into a heat-capacity ratio, then apply to the new pair.",
+      "Velocity selector: speed set by qE=qvB independent of mass; the later radius then fixes the mass.",
+      "Fixed-charge capacitor: E=σ/ε depends on the medium, not on the plate spacing."
+    ],
+    "difficulty": "Standard EJU level with a 7-item Mechanics section. The rod-on-cylinder torque (Q2), the three-cylinder force balance (Q3), the prism total-reflection geometry (Q13) and the velocity-selector mass (Q19) are the most discriminating."
+  }
+}
