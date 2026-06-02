@@ -1,0 +1,256 @@
+{
+  "id": "2010-1-physics",
+  "year": 2010,
+  "session": 1,
+  "subject": "physics",
+  "title": "EJU 2010 · Session 1 · Physics",
+  "source": "平成22年度（2010年度）日本留学試験（第1回）理科〈物理〉 © Japan Student Services Organization (JASSO)",
+  "attribution": "EJU past questions © JASSO. Question text transcribed from the official past paper; figures described in text; correct answers taken from the official JASSO answer key and independently re-solved for verification.",
+  "languages": ["ja", "en"],
+  "answerKeyVerified": true,
+  "structure": {
+    "blocks": [
+      { "id": "I", "topicId": "mech", "name": { "ja": "力学", "en": "Mechanics" }, "questionCount": 7 },
+      { "id": "II", "topicId": "thermo", "name": { "ja": "熱力学", "en": "Thermodynamics" }, "questionCount": 3 },
+      { "id": "III", "topicId": "waves", "name": { "ja": "波動", "en": "Waves" }, "questionCount": 3 },
+      { "id": "IV", "topicId": "em", "name": { "ja": "電気と磁気", "en": "Electricity & Magnetism" }, "questionCount": 6 }
+    ],
+    "totalQuestions": 19,
+    "note": "Older 7/3/3/6 split (Mechanics has 7 items), no Atoms (V) block.",
+    "givens": { "ja": "重力加速度の大きさを g とし，空気の抵抗は無視できるものとする。", "en": "Take the magnitude of gravitational acceleration as g; air resistance is negligible." }
+  },
+  "questions": [
+    {
+      "id": "2010-1-phy-1", "answerRow": 1, "block": "I", "topicId": "mech",
+      "subtopic": "SI base-unit combinations for pressure and resistance",
+      "patternTags": ["dimensional-analysis", "si-units"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "国際単位系（SI）では，長さ [m]，質量 [kg]，時間 [s]，電流 [A] が基本単位の一部として使われている。圧力と電気抵抗（electric resistance）の単位を，これらの基本単位の組み合わせで表すとどうなるか。", "choices": ["圧力 $[\\mathrm{m^{-1}kg\\,s^{-2}}]$，抵抗 $[\\mathrm{m^{2}kg\\,s^{-2}A^{-2}}]$", "圧力 $[\\mathrm{m^{-2}kg\\,s^{-2}}]$，抵抗 $[\\mathrm{m^{2}kg\\,s^{-2}A^{-2}}]$", "圧力 $[\\mathrm{m^{-1}kg\\,s^{-2}}]$，抵抗 $[\\mathrm{m^{2}kg\\,s^{-3}A^{-2}}]$", "圧力 $[\\mathrm{m^{-2}kg\\,s^{-2}}]$，抵抗 $[\\mathrm{m^{2}kg\\,s^{-3}A^{-2}}]$", "圧力 $[\\mathrm{m^{-1}kg\\,s^{-2}}]$，抵抗 $[\\mathrm{m^{2}kg\\,s^{-4}A^{-2}}]$", "圧力 $[\\mathrm{m^{-2}kg\\,s^{-2}}]$，抵抗 $[\\mathrm{m^{2}kg\\,s^{-4}A^{-2}}]$"] },
+      "en": { "prompt": "In SI the base units include length [m], mass [kg], time [s], current [A]. Express the units of pressure and electric resistance as combinations of these base units.", "choices": ["pressure $[\\mathrm{m^{-1}kg\\,s^{-2}}]$, resistance $[\\mathrm{m^{2}kg\\,s^{-2}A^{-2}}]$", "pressure $[\\mathrm{m^{-2}kg\\,s^{-2}}]$, resistance $[\\mathrm{m^{2}kg\\,s^{-2}A^{-2}}]$", "pressure $[\\mathrm{m^{-1}kg\\,s^{-2}}]$, resistance $[\\mathrm{m^{2}kg\\,s^{-3}A^{-2}}]$", "pressure $[\\mathrm{m^{-2}kg\\,s^{-2}}]$, resistance $[\\mathrm{m^{2}kg\\,s^{-3}A^{-2}}]$", "pressure $[\\mathrm{m^{-1}kg\\,s^{-2}}]$, resistance $[\\mathrm{m^{2}kg\\,s^{-4}A^{-2}}]$", "pressure $[\\mathrm{m^{-2}kg\\,s^{-2}}]$, resistance $[\\mathrm{m^{2}kg\\,s^{-4}A^{-2}}]$"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "圧力 $[\\mathrm{m^{-1}kg\\,s^{-2}}]$，抵抗 $[\\mathrm{m^{2}kg\\,s^{-3}A^{-2}}]$", "en": "pressure $[\\mathrm{m^{-1}kg\\,s^{-2}}]$, resistance $[\\mathrm{m^{2}kg\\,s^{-3}A^{-2}}]$" },
+      "explanation": { "en": "Pressure $=\\dfrac{\\text{force}}{\\text{area}}=\\dfrac{\\mathrm{kg\\,m\\,s^{-2}}}{\\mathrm{m^2}}=\\mathrm{m^{-1}kg\\,s^{-2}}$. Resistance $=\\dfrac{V}{A}=\\dfrac{\\text{power}/A}{A}=\\dfrac{\\mathrm{kg\\,m^2 s^{-3}}}{\\mathrm{A^2}}=\\mathrm{m^{2}kg\\,s^{-3}A^{-2}}$.", "ja": "圧力 $=\\dfrac{\\text{力}}{\\text{面積}}=\\dfrac{\\mathrm{kg\\,m\\,s^{-2}}}{\\mathrm{m^2}}=\\mathrm{m^{-1}kg\\,s^{-2}}$。抵抗 $=\\dfrac{V}{A}=\\dfrac{\\text{電力}/A}{A}=\\dfrac{\\mathrm{kg\\,m^2 s^{-3}}}{\\mathrm{A^2}}=\\mathrm{m^{2}kg\\,s^{-3}A^{-2}}$。" }
+    },
+    {
+      "id": "2010-1-phy-2", "answerRow": 2, "block": "I", "topicId": "mech",
+      "subtopic": "Density of a weight from spring stretch in air vs in water",
+      "patternTags": ["buoyancy", "hookes-law", "density", "plug-in-numbers"], "hasFigure": true,
+      "figure": { "ja": "軽いばねの一端を持ち他端におもりをつるすと、自然長より 20 cm 伸びてつりあう（図1）。おもり全体を水中に入れると 15 cm 伸びてつりあう（図2）。", "en": "A weight on a light spring stretches it 20 cm in air (Fig1); fully submerged in water it stretches only 15 cm (Fig2)." },
+      "ja": { "prompt": "軽いばねの一方の端を持ち，もう一方の端におもりをつけてつるすと，ばねは自然長より $20\\,$cm 伸びてつりあった。次に，おもり全体を水中に入れてつるすと，ばねは自然長より $15\\,$cm 伸びてつりあった。このおもりの密度は水の密度の何倍か。", "choices": ["$1.5$", "$2.0$", "$2.5$", "$3.0$", "$3.5$", "$4.0$"] },
+      "en": { "prompt": "A weight on a light spring stretches it $20\\,$cm in air; fully submerged in water it stretches only $15\\,$cm. The weight's density is how many times the water's density?", "choices": ["$1.5$", "$2.0$", "$2.5$", "$3.0$", "$3.5$", "$4.0$"] },
+      "answerIndex": 5, "answerOption": 6, "answer": { "ja": "$4.0$ 倍", "en": "×4.0" },
+      "explanation": { "en": "In air $k(0.20)=\\rho V g$. In water $k(0.15)=(\\rho-\\rho_w)Vg$. Dividing: $\\dfrac{0.15}{0.20}=1-\\dfrac{\\rho_w}{\\rho}$, so $\\dfrac{\\rho_w}{\\rho}=0.25$ and $\\dfrac{\\rho}{\\rho_w}=4.0$.", "ja": "空気中 $k(0.20)=\\rho V g$，水中 $k(0.15)=(\\rho-\\rho_w)Vg$。割り算して $\\dfrac{0.15}{0.20}=1-\\dfrac{\\rho_w}{\\rho}$，よって $\\dfrac{\\rho_w}{\\rho}=0.25$，$\\dfrac{\\rho}{\\rho_w}=4.0$。" }
+    },
+    {
+      "id": "2010-1-phy-3", "answerRow": 3, "block": "I", "topicId": "mech",
+      "subtopic": "v–t graph of a block thrown up a rough incline",
+      "patternTags": ["kinematics", "friction", "inclined-plane", "read-from-graph"], "hasFigure": true,
+      "figure": { "ja": "粗い斜面上の小物体に斜面に沿って上向きの初速度を与える。上昇して最高点に達した後、下りてきた。v は斜面を上る向きを正、t は運動開始からの経過時間。", "en": "A block on a rough incline is given an initial velocity up the slope; it rises, reaches the top, and slides back down. v positive up the slope; t from the start." },
+      "ja": { "prompt": "粗い斜面上の小物体に，斜面に沿って上向きの初速度を与えたところ，小物体は斜面を上り，最高点に達した後，下ってきた。速度を $v$（上る向きを正），経過時間を $t$ とする。$v$ と $t$ の関係を表すグラフはどれか。", "choices": ["上昇中の傾きより下降中の傾きが急（折れ点で急になる）", "正から減少し，折れ点の後はゆるやかな傾きで負へ続く", "一定の傾きの直線で正から負へ（折れなし）", "正→0→（折れ点）→再び正へ増加（V字の右肩上がり）", "正→0→（折れ点）→ゆるやかに正へ増加", "正→0→（折れ点）→急に正へ増加"] },
+      "en": { "prompt": "A block is sent up a rough incline, reaches the top, and slides back ($v$ positive up the slope; $t$ from start). Which $v$–$t$ graph is correct?", "choices": ["steeper slope while descending than ascending (kink gets steeper)", "decreasing from positive, then a gentler (shallower) slope continuing into negative", "single straight line, constant slope from + to − (no kink)", "+ → 0 → kink → rises back to positive (V going up steeply)", "+ → 0 → kink → rises gently to positive", "+ → 0 → kink → rises steeply to positive"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "正から急な傾きで減少して 0 になり，その後ゆるやかな傾きで負へ続く（②）", "en": "steep decrease from positive to 0, then a shallower negative slope (②)" },
+      "explanation": { "en": "Going up, the deceleration is $g(\\sin\\theta+\\mu\\cos\\theta)$ (gravity and friction both oppose motion) — a steep negative slope. Coming down, the acceleration is $g(\\sin\\theta-\\mu\\cos\\theta)$ (friction now opposes the downward motion) — a smaller magnitude. So $v$ falls steeply to 0, then continues into negative values with a gentler slope.", "ja": "上昇中の減速度は $g(\\sin\\theta+\\mu\\cos\\theta)$（重力も摩擦も運動を妨げる）で急な負の傾き。下降中の加速度は $g(\\sin\\theta-\\mu\\cos\\theta)$（摩擦が下向き運動を妨げる）で小さい。よって $v$ は急に減少して 0 になり，その後ゆるやかな傾きで負へ続く。" }
+    },
+    {
+      "id": "2010-1-phy-4", "answerRow": 4, "block": "I", "topicId": "mech",
+      "subtopic": "Recoil of a wagon when a ball is launched (momentum)",
+      "patternTags": ["momentum-conservation", "recoil", "express-formula"], "hasFigure": true,
+      "figure": { "ja": "質量 4m の台車が質量 m の小球をのせ、なめらかな床を右向きに動いている。小球が左向き上方へ発射された直後、地上の観測者から見て台車は右へ速さ v、小球は水平から 60° の向き（左上）に速さ 2v で動いていた。", "en": "A wagon (mass 4m) carrying a ball (mass m) moves right on a smooth floor. The ball is launched up-and-left; just after, a ground observer sees the wagon moving right at v and the ball moving at 2v at 60° above horizontal (up-left)." },
+      "ja": { "prompt": "質量 $4m$ の台車が質量 $m$ の小球をのせ，なめらかで水平な床の上を右向きに動いている。この小球が左向き上方へ発射された。発射直後，床上に静止している人が観測すると，台車は水平右向きに速さ $v$ で，小球は水平方向から角度 $60°$ の向き（左上）に速さ $2v$ で動いていた。発射前の台車の速さはいくらか。", "choices": ["$\\dfrac{2}{5}v$", "$\\dfrac{4-\\sqrt3}{5}v$", "$\\dfrac{3}{5}v$", "$\\dfrac{4}{5}v$", "$\\dfrac{6}{5}v$"] },
+      "en": { "prompt": "A wagon (mass $4m$) carrying a ball (mass $m$) moves right on a smooth floor. The ball is launched up-and-left; just after, a ground observer sees the wagon moving right at $v$ and the ball at $2v$, $60°$ above horizontal (up-left). Find the wagon's speed before launch.", "choices": ["$\\dfrac{2}{5}v$", "$\\dfrac{4-\\sqrt3}{5}v$", "$\\dfrac{3}{5}v$", "$\\dfrac{4}{5}v$", "$\\dfrac{6}{5}v$"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "$\\dfrac{3}{5}v$", "en": "$\\dfrac{3}{5}v$" },
+      "explanation": { "en": "Horizontal momentum is conserved (smooth floor). Before: $(4m+m)V_0=5mV_0$ (rightward). After: wagon $+4mv$ (right); ball horizontal $=m(2v)\\cos60°=mv$ but directed left, so $-mv$. Thus $5mV_0=4mv-mv=3mv\\Rightarrow V_0=\\dfrac{3}{5}v$.", "ja": "水平方向の運動量保存（なめらかな床）。発射前：$(4m+m)V_0=5mV_0$（右向き）。発射後：台車 $+4mv$（右），小球の水平成分 $=m(2v)\\cos60°=mv$ だが左向きなので $-mv$。よって $5mV_0=4mv-mv=3mv\\Rightarrow V_0=\\dfrac{3}{5}v$。" }
+    },
+    {
+      "id": "2010-1-phy-5", "answerRow": 5, "block": "I", "topicId": "mech",
+      "subtopic": "Collision then projectile off a table edge (restitution)",
+      "patternTags": ["collision", "restitution", "projectile-motion", "express-formula"], "hasFigure": true,
+      "figure": { "ja": "水平な台の上で質量 M の A が静止している質量 m の B に衝突。その後 A と B は台の端から水平に飛び出し床に落下。台の端から A の落下点までの水平距離 D は、B の落下点までの距離 d の 1/2。A,B と台の間に摩擦なし。", "en": "On a table, A (mass M) hits stationary B (mass m); both fly off the edge horizontally and land. A's horizontal range D is half of B's range d. Frictionless table." },
+      "ja": { "prompt": "水平な台の上で，質量 $M$ の小物体 A が静止していた質量 $m$ の小物体 B に衝突した。その後 A と B は台の端から水平に飛び出し，床に落下した。台の端から A の落下地点までの水平距離 $D$ は，B の落下地点までの水平距離 $d$ の $\\dfrac12$ であった。A，B と台の間に摩擦はない。A と B の間のはねかえり係数はいくらか。", "choices": ["$\\dfrac{M}{m+2M}$", "$\\dfrac{M}{2m+M}$", "$\\dfrac{2M}{m+2M}$", "$\\dfrac{m}{m+2M}$", "$\\dfrac{m}{2m+M}$", "$\\dfrac{2m}{m+2M}$"] },
+      "en": { "prompt": "On a frictionless table, A (mass $M$) strikes stationary B (mass $m$); both fly off the edge horizontally. A's landing distance $D$ equals half of B's distance $d$. Find the restitution coefficient between A and B.", "choices": ["$\\dfrac{M}{m+2M}$", "$\\dfrac{M}{2m+M}$", "$\\dfrac{2M}{m+2M}$", "$\\dfrac{m}{m+2M}$", "$\\dfrac{m}{2m+M}$", "$\\dfrac{2m}{m+2M}$"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "$\\dfrac{M}{2m+M}$", "en": "$\\dfrac{M}{2m+M}$" },
+      "explanation": { "en": "Both fall the same height, so the same flight time; range $\\propto$ launch speed, hence $\\dfrac{v_A}{v_B}=\\dfrac{D}{d}=\\dfrac12$, i.e. $v_A=\\tfrac12 v_B$. Momentum: $Mu=Mv_A+mv_B=v_B\\!\\left(\\tfrac{M}{2}+m\\right)$. Restitution $e=\\dfrac{v_B-v_A}{u}=\\dfrac{v_B/2}{v_B(M/2+m)/M}=\\dfrac{M}{M+2m}$.", "ja": "両者は同じ高さを落ちるので飛行時間が等しく，到達距離は飛び出し速さに比例：$\\dfrac{v_A}{v_B}=\\dfrac{D}{d}=\\dfrac12$，すなわち $v_A=\\tfrac12 v_B$。運動量：$Mu=Mv_A+mv_B=v_B\\!\\left(\\tfrac{M}{2}+m\\right)$。はねかえり係数 $e=\\dfrac{v_B-v_A}{u}=\\dfrac{v_B/2}{v_B(M/2+m)/M}=\\dfrac{M}{M+2m}$。" }
+    },
+    {
+      "id": "2010-1-phy-6", "answerRow": 6, "block": "I", "topicId": "mech",
+      "subtopic": "Pendulum hits a block (equal-mass elastic collision + friction)",
+      "patternTags": ["energy-conservation", "elastic-collision", "friction", "express-formula"], "hasFigure": true,
+      "figure": { "ja": "質量 m の A は軽い糸で鉛直につるされ、質量 m の B は A に接して粗い床の上に置かれている。糸を張ったまま A を高さ h まで持ち上げ静かに離す。A は B と弾性衝突し、B は床を距離 d 滑って止まった。", "en": "A (mass m) hangs on a light string; B (mass m) rests on a rough floor touching A. A is raised to height h and released; A elastically collides with B, and B slides distance d before stopping." },
+      "ja": { "prompt": "質量 $m$ の物体 A は軽い糸で鉛直につるされ，質量 $m$ の物体 B は A に接するように粗い水平な床の上に置かれている。糸を張ったまま最初の位置から高さ $h$ まで A を持ち上げ，静かに手を離した。A は B と弾性衝突し，B は床の上を距離 $d$ だけ滑って止まった。B と床の間の動摩擦係数はいくらか。", "choices": ["$\\dfrac{h}{2d}$", "$\\dfrac{h}{d}$", "$\\dfrac{2h}{d}$", "$\\dfrac{d}{2h}$", "$\\dfrac{d}{h}$", "$\\dfrac{2d}{h}$"] },
+      "en": { "prompt": "A (mass $m$) hangs on a light string; B (mass $m$) sits on a rough floor touching A. A is raised to height $h$ and released, elastically collides with B, and B slides distance $d$ before stopping. Find the kinetic friction coefficient between B and the floor.", "choices": ["$\\dfrac{h}{2d}$", "$\\dfrac{h}{d}$", "$\\dfrac{2h}{d}$", "$\\dfrac{d}{2h}$", "$\\dfrac{d}{h}$", "$\\dfrac{2d}{h}$"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "$\\dfrac{h}{d}$", "en": "$\\dfrac{h}{d}$" },
+      "explanation": { "en": "A reaches the bottom at $v=\\sqrt{2gh}$. Equal-mass elastic collision swaps velocities, so B leaves at $\\sqrt{2gh}$ and A stops. B then slides: $\\tfrac12 m v^2=\\mu m g d\\Rightarrow \\mu=\\dfrac{v^2}{2gd}=\\dfrac{2gh}{2gd}=\\dfrac{h}{d}$.", "ja": "A は最下点で $v=\\sqrt{2gh}$。等質量の弾性衝突では速度が入れ替わるので B は $\\sqrt{2gh}$ で動き出し A は止まる。B は滑って止まる：$\\tfrac12 m v^2=\\mu m g d\\Rightarrow \\mu=\\dfrac{v^2}{2gd}=\\dfrac{2gh}{2gd}=\\dfrac{h}{d}$。" }
+    },
+    {
+      "id": "2010-1-phy-7", "answerRow": 7, "block": "I", "topicId": "mech",
+      "subtopic": "Bead on a rotating vertical hoop (angular velocity)",
+      "patternTags": ["circular-motion", "rotating-hoop", "express-formula"], "hasFigure": true,
+      "figure": { "ja": "質量 m の小さいリング A を半径 R の大きいリング B に通し、A は B に沿って自由に動ける。B を鉛直に立て、中心 O を通る鉛直軸の周りに角速度 ω で回転させると、A は OA が鉛直軸と角 θ をなす点で留まった。A と B の摩擦なし。", "en": "A small ring A (mass m) slides freely on a large hoop B (radius R). B stands vertically and rotates about a vertical axis through its centre O at angular velocity ω; A rests at a point where OA makes angle θ with the vertical axis. Frictionless." },
+      "ja": { "prompt": "質量 $m$ の小さいリング A を半径 $R$ の大きいリング B に通し，A が B に沿って自由に動けるようにした。B を鉛直に立て，中心 O を通る鉛直軸の周りに角速度 $\\omega$ で回転させると，A は B 上のある点で留まった。OA と鉛直軸とのなす角は $\\theta$。A と B の間の摩擦はない。角速度 $\\omega$ はいくらか。", "choices": ["$\\cos\\theta\\sqrt{\\dfrac{g}{R}}$", "$\\sqrt{\\dfrac{g\\cos\\theta}{R}}$", "$\\sqrt{\\dfrac{g}{R\\cos\\theta}}$", "$\\sqrt{\\dfrac{g\\sin\\theta}{R}}$", "$\\sqrt{\\dfrac{g\\tan\\theta}{R}}$", "$\\dfrac{1}{\\cos\\theta}\\sqrt{\\dfrac{g\\sin\\theta}{R}}$"] },
+      "en": { "prompt": "A small ring A (mass $m$) slides freely on a large hoop B (radius $R$) standing vertically and rotating about a vertical axis through centre O at $\\omega$. A rests where OA makes angle $\\theta$ with the vertical axis (frictionless). Find $\\omega$.", "choices": ["$\\cos\\theta\\sqrt{\\dfrac{g}{R}}$", "$\\sqrt{\\dfrac{g\\cos\\theta}{R}}$", "$\\sqrt{\\dfrac{g}{R\\cos\\theta}}$", "$\\sqrt{\\dfrac{g\\sin\\theta}{R}}$", "$\\sqrt{\\dfrac{g\\tan\\theta}{R}}$", "$\\dfrac{1}{\\cos\\theta}\\sqrt{\\dfrac{g\\sin\\theta}{R}}$"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "$\\sqrt{\\dfrac{g}{R\\cos\\theta}}$", "en": "$\\sqrt{\\dfrac{g}{R\\cos\\theta}}$" },
+      "explanation": { "en": "The bead moves in a horizontal circle of radius $R\\sin\\theta$. The hoop's normal force $N$ acts along OA. Vertical: $N\\cos\\theta=mg$. Horizontal (centripetal): $N\\sin\\theta=m\\omega^2 R\\sin\\theta\\Rightarrow N=m\\omega^2 R$. Combining: $m\\omega^2 R\\cos\\theta=mg\\Rightarrow \\omega=\\sqrt{\\dfrac{g}{R\\cos\\theta}}$.", "ja": "ビーズは半径 $R\\sin\\theta$ の水平円運動。リングの垂直抗力 $N$ は OA 方向。鉛直：$N\\cos\\theta=mg$。水平（向心）：$N\\sin\\theta=m\\omega^2 R\\sin\\theta\\Rightarrow N=m\\omega^2 R$。合わせて $m\\omega^2 R\\cos\\theta=mg\\Rightarrow \\omega=\\sqrt{\\dfrac{g}{R\\cos\\theta}}$。" }
+    },
+    {
+      "id": "2010-1-phy-8", "answerRow": 8, "block": "II", "topicId": "thermo",
+      "subtopic": "Mass of a copper container from a heating curve",
+      "patternTags": ["calorimetry", "latent-heat", "read-from-graph", "plug-in-numbers"], "hasFigure": true,
+      "figure": { "ja": "銅の容器に氷を入れ断熱材で囲み、1.0×10³ J/s で加熱。θ–t グラフ：t=0 で −15 °C、t≈20 s で 0 °C（昇温）、t≈20〜120 s は 0 °C の平坦（融解）、t≈120〜200 s で 0→40 °C（昇温）。水の比熱 4.2 J/(g·K)、銅 0.39 J/(g·K)、氷の融解熱 3.3×10² J/g。", "en": "A copper container with ice (insulated) is heated at 1.0×10³ J/s. θ–t graph: −15 °C at t=0, reaches 0 °C at t≈20 s, flat 0 °C from t≈20–120 s (melting), then 0→40 °C from t≈120–200 s. Water 4.2 J/(g·K), copper 0.39 J/(g·K), heat of fusion 3.3×10² J/g." },
+      "ja": { "prompt": "銅の容器に氷を入れ断熱材で囲み，ヒーターで $1.0\\times10^3\\,$J/s の割合で加熱した。グラフは時間 $t$ と温度 $\\theta$ の関係を示す（$0\\,$°C で約 $100\\,$s 平坦＝融解，その後 $80\\,$s で $0\\to40\\,$°C）。水の比熱を $4.2\\,$J/(g·K)，銅の比熱を $0.39\\,$J/(g·K)，氷の融解熱を $3.3\\times10^2\\,$J/g とする。銅の容器の質量はいくらか。", "choices": ["$3.0\\times10^2$", "$1.2\\times10^3$", "$1.9\\times10^3$", "$2.6\\times10^3$"] },
+      "en": { "prompt": "A copper container with ice (insulated) is heated at $1.0\\times10^3\\,$J/s. From the graph the melting plateau at $0\\,$°C lasts $\\approx100\\,$s, then the water+container warms $0\\to40\\,$°C over $80\\,$s. Water $4.2\\,$J/(g·K), copper $0.39\\,$J/(g·K), heat of fusion $3.3\\times10^2\\,$J/g. Find the copper container's mass (g).", "choices": ["$3.0\\times10^2$", "$1.2\\times10^3$", "$1.9\\times10^3$", "$2.6\\times10^3$"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "約 $1.9\\times10^3\\,$g", "en": "≈ 1.9×10³ g" },
+      "explanation": { "en": "Melting plateau ($100\\,$s): $1.0\\times10^3\\times100=1.0\\times10^5\\,$J melts the ice, so $m_{ice}=\\dfrac{10^5}{330}\\approx303\\,$g (= the water mass). Warming segment ($80\\,$s, $\\Delta\\theta=40$): $1.0\\times10^3\\times80=8.0\\times10^4\\,$J $=(m_w\\cdot4.2+m_{Cu}\\cdot0.39)\\times40$, so $m_w\\cdot4.2+m_{Cu}\\cdot0.39=2000$. With $m_w=303$: $0.39 m_{Cu}=2000-1273\\Rightarrow m_{Cu}\\approx1.9\\times10^3\\,$g.", "ja": "融解平坦（$100\\,$s）：$1.0\\times10^3\\times100=1.0\\times10^5\\,$J で氷が融け，$m_{氷}=\\dfrac{10^5}{330}\\approx303\\,$g（＝水の質量）。昇温部（$80\\,$s，$\\Delta\\theta=40$）：$1.0\\times10^3\\times80=8.0\\times10^4\\,$J $=(m_w\\cdot4.2+m_{Cu}\\cdot0.39)\\times40$，よって $m_w\\cdot4.2+m_{Cu}\\cdot0.39=2000$。$m_w=303$ を入れて $0.39 m_{Cu}=2000-1273\\Rightarrow m_{Cu}\\approx1.9\\times10^3\\,$g。" }
+    },
+    {
+      "id": "2010-1-phy-9", "answerRow": 9, "block": "II", "topicId": "thermo",
+      "subtopic": "Gas heated back to original height after loading the piston",
+      "patternTags": ["ideal-gas-law", "constant-volume", "express-formula"], "hasFigure": true,
+      "figure": { "ja": "鉛直シリンダー、断面積 S・質量 M のなめらかなピストンで理想気体を閉じ込める。初め気体の高さ L0、絶対温度 T0。ピストンの上に質量 m のおもりをのせ、気体の高さが再び L0 になるまで温めると全体の絶対温度が T になった。大気圧 p0、重力加速度 g。", "en": "A vertical cylinder with a smooth piston (area S, mass M) encloses ideal gas at height L0, temperature T0. A mass m is placed on the piston, and the gas is heated until its height is again L0, reaching temperature T. Atmospheric pressure p0, gravity g." },
+      "ja": { "prompt": "鉛直に置かれたシリンダーと，断面積 $S$・質量 $M$ のなめらかに動くピストンで理想気体を閉じ込めた。初め気体部分の高さは $L_0$，絶対温度は $T_0$。次にピストンの上に質量 $m$ のおもりをのせ，気体部分の高さが再び $L_0$ になるまで温めると，全体の絶対温度は $T$ になった。大気圧を $p_0$，重力加速度を $g$ とする。$T$ はいくらか。", "choices": ["$\\left(1+\\dfrac{M}{m}\\right)T_0$", "$\\left(1+\\dfrac{Mg}{p_0 S}\\right)T_0$", "$\\left(1+\\dfrac{Mg}{p_0 S+mg}\\right)T_0$", "$\\left(1+\\dfrac{m}{M}\\right)T_0$", "$\\left(1+\\dfrac{mg}{p_0 S}\\right)T_0$", "$\\left(1+\\dfrac{mg}{p_0 S+Mg}\\right)T_0$"] },
+      "en": { "prompt": "A vertical cylinder with a smooth piston (area $S$, mass $M$) encloses ideal gas at height $L_0$, temperature $T_0$. A mass $m$ is placed on the piston and the gas heated until its height is again $L_0$, reaching $T$. Atmospheric pressure $p_0$, gravity $g$. Find $T$.", "choices": ["$\\left(1+\\dfrac{M}{m}\\right)T_0$", "$\\left(1+\\dfrac{Mg}{p_0 S}\\right)T_0$", "$\\left(1+\\dfrac{Mg}{p_0 S+mg}\\right)T_0$", "$\\left(1+\\dfrac{m}{M}\\right)T_0$", "$\\left(1+\\dfrac{mg}{p_0 S}\\right)T_0$", "$\\left(1+\\dfrac{mg}{p_0 S+Mg}\\right)T_0$"] },
+      "answerIndex": 5, "answerOption": 6, "answer": { "ja": "$\\left(1+\\dfrac{mg}{p_0 S+Mg}\\right)T_0$", "en": "$\\left(1+\\dfrac{mg}{p_0 S+Mg}\\right)T_0$" },
+      "explanation": { "en": "Same height $L_0$ ⇒ same volume, so by Gay-Lussac $\\dfrac{P_1}{T_0}=\\dfrac{P_2}{T}$. With $P_1=p_0+\\dfrac{Mg}{S}$ and $P_2=p_0+\\dfrac{(M+m)g}{S}$: $T=T_0\\dfrac{p_0 S+(M+m)g}{p_0 S+Mg}=\\left(1+\\dfrac{mg}{p_0 S+Mg}\\right)T_0$.", "ja": "高さが同じ $L_0$ ⇒ 体積一定なので，シャルル（圧力一定でなく体積一定）の法則 $\\dfrac{P_1}{T_0}=\\dfrac{P_2}{T}$。$P_1=p_0+\\dfrac{Mg}{S}$，$P_2=p_0+\\dfrac{(M+m)g}{S}$ より $T=T_0\\dfrac{p_0 S+(M+m)g}{p_0 S+Mg}=\\left(1+\\dfrac{mg}{p_0 S+Mg}\\right)T_0$。" }
+    },
+    {
+      "id": "2010-1-phy-10", "answerRow": 10, "block": "II", "topicId": "thermo",
+      "subtopic": "Heat added over an isochoric-then-isobaric path",
+      "patternTags": ["first-law", "monatomic-gas", "pv-diagram", "express-formula"], "hasFigure": true,
+      "figure": { "ja": "n mol 単原子分子理想気体。p-V 図で A→B→C。A(V0, p0)、B(V0, 2p0)、C(2V0, 2p0)。状態 A の絶対温度 T、気体定数 R。", "en": "n mol monatomic ideal gas, A→B→C on a p–V diagram: A(V0, p0), B(V0, 2p0), C(2V0, 2p0). State A temperature T, gas constant R." },
+      "ja": { "prompt": "$n\\,$mol の単原子分子理想気体を，$p$-$V$ 図で $A(V_0,p_0)\\to B(V_0,2p_0)\\to C(2V_0,2p_0)$ と変化させた。初めの状態 A の絶対温度を $T$，気体定数を $R$ とする。過程 $A\\to B\\to C$ で気体に加えた熱量はいくらか。", "choices": ["$\\dfrac92 nRT$", "$\\dfrac{11}{2} nRT$", "$\\dfrac{13}{2} nRT$", "$\\dfrac{15}{2} nRT$", "$\\dfrac{17}{2} nRT$", "$\\dfrac{19}{2} nRT$"] },
+      "en": { "prompt": "$n\\,$mol monatomic ideal gas goes $A(V_0,p_0)\\to B(V_0,2p_0)\\to C(2V_0,2p_0)$ on a $p$–$V$ diagram; state A temperature $T$, gas constant $R$. Find the heat added over $A\\to B\\to C$.", "choices": ["$\\dfrac92 nRT$", "$\\dfrac{11}{2} nRT$", "$\\dfrac{13}{2} nRT$", "$\\dfrac{15}{2} nRT$", "$\\dfrac{17}{2} nRT$", "$\\dfrac{19}{2} nRT$"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "$\\dfrac{13}{2} nRT$", "en": "$\\dfrac{13}{2} nRT$" },
+      "explanation": { "en": "From $p_0V_0=nRT$: $T_A=T$, $T_B=2T$ (isochoric), $T_C=4T$ (isobaric). $A\\to B$ ($V$ const): $Q=\\Delta U=\\tfrac32 nR(2T-T)=\\tfrac32 nRT$. $B\\to C$ ($p$ const): $Q=nC_p\\Delta T=\\tfrac52 nR(4T-2T)=5nRT$. Total $=\\tfrac32 nRT+5nRT=\\tfrac{13}{2}nRT$.", "ja": "$p_0V_0=nRT$ より $T_A=T$，$T_B=2T$（定積），$T_C=4T$（定圧）。$A\\to B$（$V$ 一定）：$Q=\\Delta U=\\tfrac32 nR(2T-T)=\\tfrac32 nRT$。$B\\to C$（$p$ 一定）：$Q=nC_p\\Delta T=\\tfrac52 nR(4T-2T)=5nRT$。合計 $\\tfrac32 nRT+5nRT=\\tfrac{13}{2}nRT$。" }
+    },
+    {
+      "id": "2010-1-phy-11", "answerRow": 11, "block": "III", "topicId": "waves",
+      "subtopic": "Oblique reflection of a water plane wave (crest motion direction)",
+      "patternTags": ["wave-reflection", "interference", "directions", "free-end"], "hasFigure": true,
+      "figure": { "ja": "水面上の平面波が鉛直な壁に斜めに入射（真上から見た図）。実線は入射波の山。壁では自由端反射。入射波は右下向きに進む。8 方位 a〜h（a 右、c 上、e 左、g 下 など）から、干渉して強め合う山の移動方向を選ぶ。", "en": "A plane water wave hits a vertical wall obliquely (top view); solid lines are incident crests; free-end reflection. Incident wave travels down-right. Choose the direction (a–h) in which the constructive-interference crests move." },
+      "ja": { "prompt": "水面上の平面波が鉛直な壁に斜めに入射している（真上から見た図）。実線は入射波の山で，壁では自由端反射が起こる。入射波と反射波が干渉して強め合ってできる山は，時間とともに図中の矢印 a〜h（a:右，b:右上，c:上，d:左上，e:左，f:左下，g:下，h:右下）のどの向きに移動するか。", "choices": ["a", "b", "c", "d", "e", "f", "g", "h"] },
+      "en": { "prompt": "A plane water wave hits a vertical wall obliquely (top view); solid lines are incident crests, free-end reflection occurs. In which direction (a:right, b:up-right, c:up, d:up-left, e:left, f:down-left, g:down, h:down-right) do the constructive-interference crests move with time?", "choices": ["a", "b", "c", "d", "e", "f", "g", "h"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "a（右）", "en": "a (right)" },
+      "explanation": { "en": "Incident plus reflected wave form a pattern that is a standing wave perpendicular to the wall (no net motion there) and a travelling wave parallel to the wall. The reinforced crests move parallel to the wall in the direction of the incident wave's wall-parallel component. The incident wave travels down-right, so its horizontal (wall-parallel) component is to the right — direction a.", "ja": "入射波＋反射波は，壁に垂直な方向には定常波（移動なし），壁に平行な方向には進行波になる。強め合う山は，入射波の壁に平行な成分の向きに壁に沿って移動する。入射波は右下向きなので壁に平行な成分は右向き ― a。" }
+    },
+    {
+      "id": "2010-1-phy-12", "answerRow": 12, "block": "III", "topicId": "waves",
+      "subtopic": "Doppler effect with a moving observer (frequency and wavelength)",
+      "patternTags": ["doppler-effect", "moving-observer", "directions"], "hasFigure": true,
+      "figure": { "ja": "振動数 f・波長 λ の音を出す静止音源 S のそばを、観測者 O が一定の速さで通過する。", "en": "An observer O passes a stationary source S (frequency f, wavelength λ) at constant speed." },
+      "ja": { "prompt": "振動数 $f$，波長 $\\lambda$ の音を発している（静止した）音源 S のそばを，観測者 O が一定の速さで通過する。O が S に近づくときと遠ざかるときのそれぞれで，O が観測する音の振動数 $f'$，波長 $\\lambda'$ は $f,\\lambda$ と比べてどうなるか。", "choices": ["近づく $f'<f,\\lambda'<\\lambda$／遠ざかる $f'>f,\\lambda'<\\lambda$", "近づく $f'<f,\\lambda'=\\lambda$／遠ざかる $f'>f,\\lambda'=\\lambda$", "近づく $f'<f,\\lambda'>\\lambda$／遠ざかる $f'>f,\\lambda'>\\lambda$", "近づく $f'>f,\\lambda'<\\lambda$／遠ざかる $f'<f,\\lambda'<\\lambda$", "近づく $f'>f,\\lambda'=\\lambda$／遠ざかる $f'<f,\\lambda'=\\lambda$", "近づく $f'>f,\\lambda'>\\lambda$／遠ざかる $f'<f,\\lambda'>\\lambda$"] },
+      "en": { "prompt": "An observer O passes a stationary source S (frequency $f$, wavelength $\\lambda$) at constant speed. When O approaches and when O recedes, how do the observed $f'$, $\\lambda'$ compare with $f,\\lambda$?", "choices": ["approach $f'<f,\\lambda'<\\lambda$ / recede $f'>f,\\lambda'<\\lambda$", "approach $f'<f,\\lambda'=\\lambda$ / recede $f'>f,\\lambda'=\\lambda$", "approach $f'<f,\\lambda'>\\lambda$ / recede $f'>f,\\lambda'>\\lambda$", "approach $f'>f,\\lambda'<\\lambda$ / recede $f'<f,\\lambda'<\\lambda$", "approach $f'>f,\\lambda'=\\lambda$ / recede $f'<f,\\lambda'=\\lambda$", "approach $f'>f,\\lambda'>\\lambda$ / recede $f'<f,\\lambda'>\\lambda$"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "近づくとき $f'>f,\\ \\lambda'=\\lambda$／遠ざかるとき $f'<f,\\ \\lambda'=\\lambda$", "en": "approaching $f'>f,\\ \\lambda'=\\lambda$; receding $f'<f,\\ \\lambda'=\\lambda$" },
+      "explanation": { "en": "The source is stationary, so the wavelength in the air is fixed: $\\lambda'=\\lambda$ always. Only the observer's motion changes the observed frequency: approaching gives $f'>f$, receding gives $f'<f$.", "ja": "音源が静止しているので空気中の波長は変わらず $\\lambda'=\\lambda$。観測者の運動だけが振動数を変える：近づくと $f'>f$，遠ざかると $f'<f$。" }
+    },
+    {
+      "id": "2010-1-phy-13", "answerRow": 13, "block": "III", "topicId": "waves",
+      "subtopic": "Primary vs secondary rainbow (radius and colour order)",
+      "patternTags": ["dispersion", "rainbow", "geometric-optics", "directions"], "hasFigure": true,
+      "figure": { "ja": "虹は水滴での屈折・反射・分散による。虹A（図3）は水滴内で 1 回反射（紫 40°・赤 42°、赤が外側）。虹B（図4）は 2 回反射（角度 51°・53°）。虹の半径＝見込む角。", "en": "Rainbows form by refraction/reflection/dispersion in droplets. Rainbow A (Fig3): one internal reflection (violet 40°, red 42°, red outermost). Rainbow B (Fig4): two internal reflections (angles 51°, 53°). Rainbow radius = viewing angle." },
+      "ja": { "prompt": "虹は水滴での屈折・反射・分散による。一方の虹 A は水滴内で 1 回反射してでき（紫 $40°$・赤 $42°$），もう一方の虹 B は 2 回反射してできる（角度 $51°$・$53°$）。虹 B は半径の大きい虹か小さい虹か。また，その色は内側からどのように変化するか。", "choices": ["半径 小，内側から 赤から紫へ", "半径 小，内側から 紫から赤へ", "半径 大，内側から 赤から紫へ", "半径 大，内側から 紫から赤へ"] },
+      "en": { "prompt": "Rainbow A forms from one internal reflection (violet $40°$, red $42°$); rainbow B from two internal reflections (angles $51°$, $53°$). Is rainbow B the larger- or smaller-radius rainbow, and how does its colour change from the inside outward?", "choices": ["small radius, red→violet from inside", "small radius, violet→red from inside", "large radius, red→violet from inside", "large radius, violet→red from inside"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "半径 大，内側から 赤から紫へ", "en": "large radius, red→violet from inside" },
+      "explanation": { "en": "The viewing angle is the rainbow's angular radius. Rainbow B ($51$–$53°$) has a larger angle than rainbow A ($40$–$42°$), so B is the larger (secondary) rainbow. With two internal reflections the colour order reverses: red sits at the smaller angle ($51°$, inner) and violet at the larger ($53°$, outer), so from inside it goes red→violet.", "ja": "見込む角が虹の半径（角半径）。虹 B（$51$〜$53°$）は虹 A（$40$〜$42°$）より角が大きいので，B は大きい（副）虹。2 回反射では色の順が逆転し，赤が小さい角（$51°$，内側），紫が大きい角（$53°$，外側）。よって内側から 赤→紫。" }
+    },
+    {
+      "id": "2010-1-phy-14", "answerRow": 14, "block": "IV", "topicId": "em",
+      "subtopic": "Zero-force point near two opposite point charges",
+      "patternTags": ["coulombs-law", "superposition", "solve-equation"], "hasFigure": true,
+      "figure": { "ja": "x 軸の原点に +9.0×10⁻⁸ C、x=4.0 m に −1.0×10⁻⁸ C を固定。x 軸上に正の点電荷を置く。", "en": "+9.0×10⁻⁸ C fixed at the origin, −1.0×10⁻⁸ C at x=4.0 m. A positive test charge is placed on the x-axis." },
+      "ja": { "prompt": "$x$ 軸上の原点に $9.0\\times10^{-8}\\,$C の点電荷を固定し，$x=4.0\\,$m の位置に $-1.0\\times10^{-8}\\,$C の点電荷を固定した。$x$ 軸上に正の点電荷を置いたとき，この点電荷に働く力の合力が 0 となる位置はどこか。", "choices": ["$x=3.0$", "$x=3.5$", "$x=4.5$", "$x=6.0$"] },
+      "en": { "prompt": "$9.0\\times10^{-8}\\,$C is fixed at the origin and $-1.0\\times10^{-8}\\,$C at $x=4.0\\,$m. Where on the $x$-axis is the net force on a positive test charge zero?", "choices": ["$x=3.0$", "$x=3.5$", "$x=4.5$", "$x=6.0$"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "$x=6.0\\,$m", "en": "$x=6.0\\,$m" },
+      "explanation": { "en": "The forces can only cancel beyond the smaller (negative) charge, i.e. $x>4$. Set $\\dfrac{9}{x^2}=\\dfrac{1}{(x-4)^2}$: $9(x-4)^2=x^2\\Rightarrow 3(x-4)=x\\Rightarrow x=6.0\\,$m.", "ja": "力が打ち消し合うのは小さい（負の）電荷の外側 $x>4$。$\\dfrac{9}{x^2}=\\dfrac{1}{(x-4)^2}$ とおくと $9(x-4)^2=x^2\\Rightarrow 3(x-4)=x\\Rightarrow x=6.0\\,$m。" }
+    },
+    {
+      "id": "2010-1-phy-15", "answerRow": 15, "block": "IV", "topicId": "em",
+      "subtopic": "Potential along x for a charge at the centre of a hollow metal sphere",
+      "patternTags": ["electric-potential", "conductor", "read-from-graph"], "hasFigure": true,
+      "figure": { "ja": "帯電していない中空の金属球の中心 O に正の点電荷を置く。内半径 x1、外半径 x2。x 軸上の電位 V のグラフを選ぶ。", "en": "A positive point charge at the centre O of an uncharged hollow metal sphere (inner radius x1, outer x2). Choose the graph of potential V along the x-axis." },
+      "ja": { "prompt": "帯電していない中空の金属球の中心 O に正の点電荷を置いた。内半径 $x_1$，外半径 $x_2$。$x$ 軸上の電位 $V$ を表すグラフはどれか。", "choices": ["全域でなめらかに減少する曲線（平坦部なし）", "$x_1$ まで減少、$x_1$〜$x_2$ は軸上（$V=0$）、$x_2$ から再び曲線", "$x_1$ まで減少、$x_1$〜$x_2$ は水平、$x_2$ で不連続に下がってから曲線", "$x_1$ まで減少、$x_1$〜$x_2$ は水平、$x_2$ から連続して減少曲線", "$x_1$ まで減少、$x_1$ 以降は $V=0$"] },
+      "en": { "prompt": "A positive point charge sits at the centre O of an uncharged hollow metal sphere (inner radius $x_1$, outer $x_2$). Which graph shows the potential $V$ along the $x$-axis?", "choices": ["smoothly decreasing everywhere (no flat part)", "decrease to $x_1$, then on the axis ($V=0$) from $x_1$ to $x_2$, then a curve from $x_2$", "decrease to $x_1$, flat from $x_1$ to $x_2$, then a discontinuous drop at $x_2$, then a curve", "decrease to $x_1$, flat from $x_1$ to $x_2$, then continuously decreasing curve from $x_2$", "decrease to $x_1$, then $V=0$ beyond $x_1$"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "$x_1$ まで $1/x$ 状に減少，$x_1$〜$x_2$ は水平，$x_2$ から連続して減少する曲線（④）", "en": "1/x decrease to $x_1$, flat in the metal, then a continuous decreasing curve from $x_2$ (④)" },
+      "explanation": { "en": "Inside the cavity the field is $kQ/r^2$, so $V$ falls like $1/r$. Inside the metal $E=0$, so $V$ is constant (flat). Outside the net charge is $+Q$, so $V=kQ/r$ falls again — and $V$ is continuous everywhere (no jump at $x_2$). That is graph ④.", "ja": "空洞内では電場 $kQ/r^2$ なので $V$ は $1/r$ で減少。金属内は $E=0$ で $V$ 一定（水平）。外部の正味電荷は $+Q$ なので $V=kQ/r$ で再び減少し，$V$ は全域で連続（$x_2$ で跳びはない）。よって ④。" }
+    },
+    {
+      "id": "2010-1-phy-16", "answerRow": 16, "block": "IV", "topicId": "em",
+      "subtopic": "Capacitor energy after disconnecting battery and inserting a dielectric",
+      "patternTags": ["capacitor", "energy-stored", "dielectric", "express-formula"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "誘電体を入れられる平行平板コンデンサーを，まず誘電体を入れない状態で電池に接続して充電した。その後，電池を外してから比誘電率 $\\varepsilon_r$ の誘電体を電極間全体に入れた。このときコンデンサーに蓄えられているエネルギーは，誘電体を入れる前の何倍か。", "choices": ["$1$", "$\\dfrac{1}{\\varepsilon_r}$", "$\\dfrac{1}{\\varepsilon_r^2}$", "$\\varepsilon_r$", "$\\varepsilon_r^2$"] },
+      "en": { "prompt": "A parallel-plate capacitor is charged by a battery (no dielectric), then the battery is removed and a dielectric of relative permittivity $\\varepsilon_r$ fills the gap. The stored energy is how many times that before inserting the dielectric?", "choices": ["$1$", "$\\dfrac{1}{\\varepsilon_r}$", "$\\dfrac{1}{\\varepsilon_r^2}$", "$\\varepsilon_r$", "$\\varepsilon_r^2$"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "$\\dfrac{1}{\\varepsilon_r}$ 倍", "en": "$\\dfrac{1}{\\varepsilon_r}$ times" },
+      "explanation": { "en": "Battery removed ⇒ charge $Q$ fixed. The dielectric multiplies the capacitance: $C\\to\\varepsilon_r C$. With $U=\\dfrac{Q^2}{2C}$, the energy becomes $\\dfrac{1}{\\varepsilon_r}$ times the original.", "ja": "電池を外すので電荷 $Q$ は一定。誘電体で容量は $C\\to\\varepsilon_r C$。$U=\\dfrac{Q^2}{2C}$ より，エネルギーは元の $\\dfrac{1}{\\varepsilon_r}$ 倍。" }
+    },
+    {
+      "id": "2010-1-phy-17", "answerRow": 17, "block": "IV", "topicId": "em",
+      "subtopic": "Combined resistance of a balanced Wheatstone bridge",
+      "patternTags": ["dc-circuit", "wheatstone-bridge", "series-parallel"], "hasFigure": true,
+      "figure": { "ja": "A から上の枝：10 Ω—頂点—10 Ω—B。A から下の枝：30 Ω—底点—30 Ω—B。頂点と底点の間に 40 Ω（橋）。", "en": "From A, top branch: 10 Ω—node—10 Ω—B; bottom branch: 30 Ω—node—30 Ω—B; a 40 Ω bridge connects the two middle nodes." },
+      "ja": { "prompt": "抵抗値 $10\\,\\Omega$ 2 個，$30\\,\\Omega$ 2 個，$40\\,\\Omega$ 1 個を図のように接続した（A—$10$—頂点—$10$—B，A—$30$—底点—$30$—B，頂点と底点の間に $40\\,\\Omega$）。端子 AB 間の合成抵抗は何 $\\Omega$ か。", "choices": ["$10$", "$15$", "$20$", "$30$", "$45$", "$60$"] },
+      "en": { "prompt": "Resistors of $10\\,\\Omega$ (×2), $30\\,\\Omega$ (×2), $40\\,\\Omega$ (×1) are connected as a bridge (A—$10$—node—$10$—B, A—$30$—node—$30$—B, with $40\\,\\Omega$ between the two middle nodes). Find the combined resistance across AB ($\\Omega$).", "choices": ["$10$", "$15$", "$20$", "$30$", "$45$", "$60$"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "$15\\,\\Omega$", "en": "15 Ω" },
+      "explanation": { "en": "The bridge is balanced ($\\tfrac{10}{10}=\\tfrac{30}{30}$), so no current flows in the $40\\,\\Omega$ and it can be removed. Top path $10+10=20\\,\\Omega$ in parallel with bottom path $30+30=60\\,\\Omega$: $\\dfrac{20\\times60}{20+60}=15\\,\\Omega$.", "ja": "ブリッジは平衡（$\\tfrac{10}{10}=\\tfrac{30}{30}$）なので $40\\,\\Omega$ に電流は流れず無視できる。上の経路 $10+10=20\\,\\Omega$ と下の経路 $30+30=60\\,\\Omega$ の並列：$\\dfrac{20\\times60}{20+60}=15\\,\\Omega$。" }
+    },
+    {
+      "id": "2010-1-phy-18", "answerRow": 18, "block": "IV", "topicId": "em",
+      "subtopic": "Charged particle crossing a boundary between two magnetic fields",
+      "patternTags": ["lorentz-force", "circular-motion", "magnetic-field", "express-formula"], "hasFigure": true,
+      "figure": { "ja": "境界面で接する 2 領域：領域 I は磁束密度 B（裏向き ⊗）、領域 II は B/2（裏向き）。正電荷 q・質量 m の粒子を境界上の点 P から境界に垂直に領域 I へ速さ v で打ち出すと、点線の軌道を描いて再び P に戻った。重力なし。", "en": "Two regions meet at a boundary: region I has field B (into page ⊗), region II has B/2 (into page). A positive particle (charge q, mass m) is launched from P on the boundary, perpendicular to it, into region I at speed v; it returns to P. No gravity." },
+      "ja": { "prompt": "境界面で接する 2 領域があり，領域 I には磁束密度 $B$（裏向き），領域 II には $\\dfrac12 B$（裏向き）の一様磁場がある。正の電荷 $q$，質量 $m$ の粒子を境界上の点 P から境界に垂直に領域 I へ速さ $v$ で打ち出すと，点線の軌道を描いて再び P に戻った。重力の影響はない。点 P を出発して再び P に戻るまでの時間はいくらか。", "choices": ["$\\dfrac{2\\pi m}{qB}$", "$\\dfrac{3\\pi m}{qB}$", "$\\dfrac{4\\pi m}{qB}$", "$\\dfrac{5\\pi m}{qB}$", "$\\dfrac{6\\pi m}{qB}$"] },
+      "en": { "prompt": "Two regions meet at a boundary: region I has field $B$, region II has $\\dfrac12 B$ (both into the page). A positive particle ($q$, $m$) is launched from P on the boundary, perpendicular to it, into region I at speed $v$, and returns to P. No gravity. Find the time to return to P.", "choices": ["$\\dfrac{2\\pi m}{qB}$", "$\\dfrac{3\\pi m}{qB}$", "$\\dfrac{4\\pi m}{qB}$", "$\\dfrac{5\\pi m}{qB}$", "$\\dfrac{6\\pi m}{qB}$"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "$\\dfrac{4\\pi m}{qB}$", "en": "$\\dfrac{4\\pi m}{qB}$" },
+      "explanation": { "en": "In region I the radius is $r_1=\\dfrac{mv}{qB}$; in region II ($B/2$) it is $r_2=\\dfrac{2mv}{qB}=2r_1$. The path is a semicircle in region I, then a semicircle in region II, then another semicircle in region I, which brings it back to P. Time $=2\\times\\dfrac{\\pi m}{qB}+\\dfrac{\\pi m}{q(B/2)}=\\dfrac{2\\pi m}{qB}+\\dfrac{2\\pi m}{qB}=\\dfrac{4\\pi m}{qB}$.", "ja": "領域 I の半径は $r_1=\\dfrac{mv}{qB}$，領域 II（$B/2$）では $r_2=\\dfrac{2mv}{qB}=2r_1$。軌道は 領域 I の半円 → 領域 II の半円 → 領域 I の半円 で P に戻る。時間 $=2\\times\\dfrac{\\pi m}{qB}+\\dfrac{\\pi m}{q(B/2)}=\\dfrac{2\\pi m}{qB}+\\dfrac{2\\pi m}{qB}=\\dfrac{4\\pi m}{qB}$。" }
+    },
+    {
+      "id": "2010-1-phy-19", "answerRow": 19, "block": "IV", "topicId": "em",
+      "subtopic": "Transformer voltage and current ratios vs turns ratio",
+      "patternTags": ["transformer", "ratios", "read-from-graph"], "hasFigure": true,
+      "figure": { "ja": "1 次側巻数 N1・電圧 V1・電流 I1、2 次側巻数 N2・抵抗 R・電圧 V2・電流 I2 の理想変圧器。横軸 N2/N1。グラフ a＝水平一定、b＝原点を通る直線、c＝1/x 状の減少。電力損失は無視。", "en": "Ideal transformer: primary N1, V1, I1; secondary N2, R, V2, I2. x-axis = N2/N1. Graph a = horizontal constant, b = straight line through origin, c = 1/x decreasing. No power loss." },
+      "ja": { "prompt": "1 次側巻数 $N_1$・電圧 $V_1$・電流 $I_1$，2 次側巻数 $N_2$・抵抗 $R$・電圧 $V_2$・電流 $I_2$ の変圧器（電力損失は無視）。横軸に $\\dfrac{N_2}{N_1}$，縦軸に $\\dfrac{V_2}{V_1}$ または $\\dfrac{I_2}{I_1}$ をとる。グラフ（a:水平一定，b:原点を通る直線，c:$1/x$ 状の減少）の正しい組み合わせはどれか。", "choices": ["$V_2/V_1$:a, $I_2/I_1$:a", "$V_2/V_1$:a, $I_2/I_1$:b", "$V_2/V_1$:a, $I_2/I_1$:c", "$V_2/V_1$:b, $I_2/I_1$:a", "$V_2/V_1$:b, $I_2/I_1$:b", "$V_2/V_1$:b, $I_2/I_1$:c", "$V_2/V_1$:c, $I_2/I_1$:a", "$V_2/V_1$:c, $I_2/I_1$:b", "$V_2/V_1$:c, $I_2/I_1$:c"] },
+      "en": { "prompt": "An ideal transformer (no loss): primary $N_1,V_1,I_1$; secondary $N_2,R,V_2,I_2$. With $\\dfrac{N_2}{N_1}$ on the x-axis, which graphs (a: constant, b: line through origin, c: $1/x$ decrease) give $\\dfrac{V_2}{V_1}$ and $\\dfrac{I_2}{I_1}$?", "choices": ["$V_2/V_1$:a, $I_2/I_1$:a", "$V_2/V_1$:a, $I_2/I_1$:b", "$V_2/V_1$:a, $I_2/I_1$:c", "$V_2/V_1$:b, $I_2/I_1$:a", "$V_2/V_1$:b, $I_2/I_1$:b", "$V_2/V_1$:b, $I_2/I_1$:c", "$V_2/V_1$:c, $I_2/I_1$:a", "$V_2/V_1$:c, $I_2/I_1$:b", "$V_2/V_1$:c, $I_2/I_1$:c"] },
+      "answerIndex": 5, "answerOption": 6, "answer": { "ja": "$\\dfrac{V_2}{V_1}$ は b（直線），$\\dfrac{I_2}{I_1}$ は c（$1/x$）", "en": "$\\dfrac{V_2}{V_1}$ = b (line), $\\dfrac{I_2}{I_1}$ = c ($1/x$)" },
+      "explanation": { "en": "Ideal transformer: $\\dfrac{V_2}{V_1}=\\dfrac{N_2}{N_1}$ — proportional, a straight line through the origin (b). Power conservation $V_1 I_1=V_2 I_2$ gives $\\dfrac{I_2}{I_1}=\\dfrac{V_1}{V_2}=\\dfrac{N_1}{N_2}=\\dfrac{1}{N_2/N_1}$ — an inverse curve (c).", "ja": "理想変圧器：$\\dfrac{V_2}{V_1}=\\dfrac{N_2}{N_1}$ で比例，原点を通る直線（b）。電力保存 $V_1 I_1=V_2 I_2$ より $\\dfrac{I_2}{I_1}=\\dfrac{V_1}{V_2}=\\dfrac{N_1}{N_2}=\\dfrac{1}{N_2/N_1}$ で反比例の曲線（c）。" }
+    }
+  ],
+  "patterns": {
+    "blockSkeleton": "Older 7/3/3/6 format: Mechanics ×7, Thermodynamics ×3, Waves ×3, Electricity & Magnetism ×6, no Atoms block (19 items).",
+    "newArchetypesVsPrevious": [
+      "SI base-unit decomposition of pressure and resistance.",
+      "Density of a weight from spring stretch in air vs submerged (buoyancy + Hooke's law).",
+      "Recoil of a wagon when a ball is fired off it (2-D momentum, only the horizontal component matters).",
+      "Collision then horizontal projectile off a table edge: equal fall time ⇒ range ratio = speed ratio.",
+      "Bead free on a vertical rotating hoop: normal force along the radius gives ω=√(g/(R cosθ)).",
+      "Copper-container mass from a heating curve (melt plateau gives the ice mass, the warming slope gives the heat capacity).",
+      "Gas reheated to its original height after loading the piston: same volume ⇒ Gay-Lussac.",
+      "Oblique water-wave reflection: reinforced crests travel parallel to the wall.",
+      "Primary vs secondary rainbow: the two-reflection bow is larger and has reversed colours.",
+      "Potential profile for a point charge inside a hollow conductor: 1/r, flat in the metal, 1/r — all continuous.",
+      "Balanced Wheatstone bridge (the bridge resistor carries no current).",
+      "Charged particle threading a boundary between two field strengths (semicircles of different radii).",
+      "Transformer ratios vs turns ratio: V2/V1 linear, I2/I1 inverse."
+    ],
+    "recurringWithPrevious": [
+      "v–t graph of a block on a rough incline (steep up-slope, shallow down-slope).",
+      "Equal-mass elastic collision swaps velocities (pendulum hits a block, then friction).",
+      "Heat added over an isochoric-then-isobaric p–V path (C_V then C_P).",
+      "Doppler effect — here a moving observer past a fixed source (wavelength unchanged).",
+      "Capacitor energy after disconnecting the battery (Q fixed, U=Q²/2C).",
+      "Zero-field / zero-force point of two point charges on a line."
+    ],
+    "examTacticNotes": [
+      "Pressure = m⁻¹kg s⁻²; resistance = m²kg s⁻³A⁻² — derive from N/m² and V/A.",
+      "Spring in air vs water: divide the two stretch equations to get 1−ρ_w/ρ = (stretch in water)/(stretch in air).",
+      "Recoil problems: conserve only the component of momentum along the frictionless direction.",
+      "Two bodies leaving the same height have equal flight time, so horizontal-range ratio = launch-speed ratio.",
+      "Bead on a rotating hoop: the constraint force is radial (along OA); balance vertical and centripetal to get ω.",
+      "Heating curve: the flat melting segment gives the mass of ice; the post-melt slope gives water-plus-container heat capacity.",
+      "Same gas volume before and after ⇒ pressure/temperature constant (Gay-Lussac).",
+      "Wall reflection of an oblique wave: the reinforcement pattern slides along the wall in the incident wave's wall-parallel direction.",
+      "Secondary rainbow (two reflections) is larger and colour-reversed relative to the primary.",
+      "Inside a charged hollow conductor, V is constant through the metal and continuous everywhere.",
+      "Spot a balanced Wheatstone bridge by equal arm ratios, then drop the bridge resistor.",
+      "Crossing a field boundary, the radius scales as 1/B; piece the orbit together from semicircles.",
+      "Ideal transformer: V2/V1 = N2/N1 (linear); I2/I1 = N1/N2 (inverse) from power conservation."
+    ],
+    "difficulty": "Standard EJU level with a 7-item Mechanics section. The most discriminating items are the bead-on-a-rotating-hoop ω (Q7), the copper-mass heating curve (Q8), the continuous potential profile inside a hollow conductor (Q15), and the two-field boundary orbit time (Q18)."
+  }
+}

@@ -32,7 +32,7 @@ Workflow per paper:
 | 2012 | 2 | 1fLqPOetKW9J3etZDroOKGYXAPDbm8Spe | 1tia15lyR1U-mQcomg-LDGULBkCzywSZW | ✅ done (19, I×7 no-V) |
 | 2012 | 1 | 1UuVPu95A464Syg8LtUZz4drwUmlL3fbt | 1OfoYCM4Tj1-sh8gi5Ujk9uwtfr1NoCzl | ✅ done (19, I×7 no-V) |
 | 2011 | 1 | 1hBjO0w8xkf8B-BTIleHmHF9qohfN5GkL | 18aDbg9WLwaq87V2gtt7GCFlx0yeLU0J5 | ✅ done (19, I×7 no-V) |
-| 2010 | 1 | 10PH9k2akTYBt0hiJc6VNU_jDjUDLDiwH | 1Q60uuxBPo43pxuzsHbOwRPn9le06Y_Qa | ⬜ |
+| 2010 | 1 | 10PH9k2akTYBt0hiJc6VNU_jDjUDLDiwH | 1Q60uuxBPo43pxuzsHbOwRPn9le06Y_Qa | ✅ done (19, I×7 no-V) |
 
 ## Gaps (cannot fully verify — held)
 - **2011 Session 2**: question present (1Dr8SNNqPhd-AsNyt6xtPqU_6wHiktnGt) but **answer key missing**.
