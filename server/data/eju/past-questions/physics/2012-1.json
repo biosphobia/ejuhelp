@@ -1,0 +1,251 @@
+{
+  "id": "2012-1-physics",
+  "year": 2012,
+  "session": 1,
+  "subject": "physics",
+  "title": "EJU 2012 · Session 1 · Physics",
+  "source": "平成24年度（2012年度）日本留学試験（第1回）理科〈物理〉 © Japan Student Services Organization (JASSO)",
+  "attribution": "EJU past questions © JASSO. Question text transcribed from the official past paper; figures described in text; correct answers taken from the official JASSO answer key and independently re-solved for verification.",
+  "languages": ["ja", "en"],
+  "answerKeyVerified": true,
+  "structure": {
+    "blocks": [
+      { "id": "I", "topicId": "mech", "name": { "ja": "力学", "en": "Mechanics" }, "questionCount": 7 },
+      { "id": "II", "topicId": "thermo", "name": { "ja": "熱力学", "en": "Thermodynamics" }, "questionCount": 3 },
+      { "id": "III", "topicId": "waves", "name": { "ja": "波動", "en": "Waves" }, "questionCount": 3 },
+      { "id": "IV", "topicId": "em", "name": { "ja": "電気と磁気", "en": "Electricity & Magnetism" }, "questionCount": 6 }
+    ],
+    "totalQuestions": 19,
+    "note": "Older 7/3/3/6 split (Mechanics has 7 items), no Atoms (V) block.",
+    "givens": { "ja": "重力加速度の大きさを g とし，空気の抵抗は無視できるものとする。", "en": "Take the magnitude of gravitational acceleration as g; air resistance is negligible." }
+  },
+  "questions": [
+    {
+      "id": "2012-1-phy-1", "answerRow": 1, "block": "I", "topicId": "mech",
+      "subtopic": "Three equal blocks pushed in a row (contact force)",
+      "patternTags": ["newtons-second-law", "connected-bodies", "express-formula"], "hasFigure": true,
+      "figure": { "ja": "なめらかな水平面に質量の等しい物体 A,B,C を一列に接して置き、A を右向きに力 F で押し続ける。3 物体は接したまま右へ動く。", "en": "On a smooth horizontal surface, equal-mass blocks A,B,C touch in a row; A is pushed right with force F, and the three move together still in contact." },
+      "ja": { "prompt": "なめらかな水平面上に質量がすべて等しい物体 A，B，C が一列に接して置かれている。A を水平右向きに大きさ $F$ の力で押し続けたところ，3 つの物体は接したまま右に動き続けた。C が B を左向きに押す力の大きさはいくらか。", "choices": ["$\\dfrac{1}{3}F$", "$\\dfrac{1}{2}F$", "$\\dfrac{2}{3}F$", "$F$"] },
+      "en": { "prompt": "On a smooth horizontal surface, three blocks A, B, C of equal mass touch in a row. A is pushed to the right with a force of magnitude $F$, and the three move together. What is the magnitude of the force that C exerts on B (to the left)?", "choices": ["$\\dfrac{1}{3}F$", "$\\dfrac{1}{2}F$", "$\\dfrac{2}{3}F$", "$F$"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "$\\dfrac{1}{3}F$", "en": "$\\dfrac{1}{3}F$" },
+      "explanation": { "en": "Total mass $3m$ gives $a=\\dfrac{F}{3m}$. C is accelerated only by the contact force from B, so that force is $m a=\\dfrac{F}{3}$; by Newton's third law C pushes back on B with the same $\\dfrac{F}{3}$.", "ja": "全体の質量 $3m$ より $a=\\dfrac{F}{3m}$。C を加速するのは B からの接触力だけなので，その力は $m a=\\dfrac{F}{3}$。作用反作用より C が B を押す力も $\\dfrac{F}{3}$。" }
+    },
+    {
+      "id": "2012-1-phy-2", "answerRow": 2, "block": "I", "topicId": "mech",
+      "subtopic": "Projectile range on a planet with half g",
+      "patternTags": ["projectile-motion", "scaling", "express-formula"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "ある惑星の表面での重力加速度の大きさは $\\dfrac{g}{2}$（地球の $\\dfrac12$）であった。この惑星表面で物体をある角度・ある速さで斜めに投げ上げると，投げ上げた点から落下点までの水平距離は，地球上で同じ物体を同じ角度・同じ速さで投げ上げたときと比べて何倍になるか。", "choices": ["$\\dfrac14$", "$\\dfrac12$", "$1$", "$2$", "$4$"] },
+      "en": { "prompt": "On a planet the surface gravity is $\\dfrac{g}{2}$ (half of Earth's). A body launched at some angle and speed undergoes projectile motion. Compared with the same launch on Earth, by what factor is the horizontal range multiplied?", "choices": ["$\\dfrac14$", "$\\dfrac12$", "$1$", "$2$", "$4$"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "$2$ 倍", "en": "×2" },
+      "explanation": { "en": "Range $R=\\dfrac{v^2\\sin2\\theta}{g}\\propto\\dfrac1g$. Halving $g$ doubles $R$, so the factor is $2$.", "ja": "水平到達距離 $R=\\dfrac{v^2\\sin2\\theta}{g}\\propto\\dfrac1g$。$g$ が半分になれば $R$ は 2 倍。よって 2 倍。" }
+    },
+    {
+      "id": "2012-1-phy-3", "answerRow": 3, "block": "I", "topicId": "mech",
+      "subtopic": "Two masses over a pulley; friction on B in three geometries",
+      "patternTags": ["statics", "friction", "inclined-plane", "compare-cases"], "hasFigure": true,
+      "figure": { "ja": "質量 m の A と質量 5m/2 の B を軽い糸で結び、なめらかに回る滑車にかける。A 側の面はなめらか、B 側の面には摩擦がある。図1: A は傾角 θ の斜面、B は水平面。図2: A も B も傾角 θ の斜面（左右対称の山）。図3: A は傾角 θ の斜面の下方、B はその上方のより急な斜面。いずれも糸はたるまず静止。", "en": "A (mass m) and B (mass 5m/2) joined by a light string over a frictionless pulley; A's surface is smooth, B's surface has friction. Fig1: A on an incline θ, B on a horizontal top. Fig2: A and B each on inclines of angle θ (symmetric peak). Fig3: A on the lower part of an incline θ, B higher up on a steeper slope. All static, string taut." },
+      "ja": { "prompt": "質量 $m$ の物体 A と質量 $\\dfrac52 m$ の物体 B を軽くて伸びない糸の両端につけ，なめらかに回る滑車にかける。A を置いた面はなめらかで，B を置いた面には摩擦がある。図1（B は水平面），図2（A・B とも傾角 $\\theta$ の斜面），図3（B は A より急な斜面）の各場合で B にはたらく摩擦力を $F_1,F_2,F_3$ とする。大小関係はどれか。", "choices": ["$F_1<F_2<F_3$", "$F_1<F_3<F_2$", "$F_2<F_1<F_3$", "$F_2<F_3<F_1$", "$F_3<F_1<F_2$", "$F_3<F_2<F_1$"] },
+      "en": { "prompt": "A (mass $m$) and B (mass $\\dfrac52 m$) are joined by a light string over a frictionless pulley; A's surface is smooth, B's has friction. The friction on B is $F_1$ (Fig1: B on a horizontal top), $F_2$ (Fig2: B on an incline $\\theta$), $F_3$ (Fig3: B on a steeper slope). Order them.", "choices": ["$F_1<F_2<F_3$", "$F_1<F_3<F_2$", "$F_2<F_1<F_3$", "$F_2<F_3<F_1$", "$F_3<F_1<F_2$", "$F_3<F_2<F_1$"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "$F_1<F_2<F_3$", "en": "$F_1<F_2<F_3$" },
+      "explanation": { "en": "A is on a smooth incline $\\theta$ in all three cases, so the tension is the same: $T=mg\\sin\\theta$. Friction balances B: Fig1 (B horizontal) $F_1=T=mg\\sin\\theta$; Fig2 (B on slope $\\theta$) $F_2=\\tfrac52 mg\\sin\\theta-T=\\tfrac32 mg\\sin\\theta$; Fig3 (B on a steeper slope $\\varphi>\\theta$) $F_3=\\tfrac52 mg\\sin\\varphi-T>F_2$. Hence $F_1<F_2<F_3$.", "ja": "A は 3 例ともなめらかな傾角 $\\theta$ の斜面上なので張力は一定で $T=mg\\sin\\theta$。B の摩擦はつり合い：図1（水平）$F_1=T=mg\\sin\\theta$，図2（傾角 $\\theta$）$F_2=\\tfrac52 mg\\sin\\theta-T=\\tfrac32 mg\\sin\\theta$，図3（より急な傾角 $\\varphi>\\theta$）$F_3=\\tfrac52 mg\\sin\\varphi-T>F_2$。よって $F_1<F_2<F_3$。" }
+    },
+    {
+      "id": "2012-1-phy-4", "answerRow": 4, "block": "I", "topicId": "mech",
+      "subtopic": "Block B bouncing elastically inside cart A (momentum)",
+      "patternTags": ["momentum-conservation", "elastic-collision", "read-from-graph", "express-formula"], "hasFigure": true,
+      "figure": { "ja": "なめらかな床の上に物体 A（質量 M）、その上のなめらかな面に物体 B（質量 m, M>m）。B は A の両端の壁と弾性衝突を繰り返す。B の A に対する相対速度の大きさ v は一定。A は時間 T/2 ごとに「距離 L の移動」と「静止」を繰り返す。図2 は A の移動距離の時間変化のグラフ。", "en": "On a smooth floor, cart A (mass M) carries block B (mass m, M>m) on a smooth top; B repeatedly collides elastically with A's end walls. B's relative speed v with respect to A is constant. A alternates every T/2 between moving distance L and resting. Fig2 is A's displacement vs time." },
+      "ja": { "prompt": "なめらかな床の上の物体 A（質量 $M$）の上で，物体 B（質量 $m$，$M>m$）が A の両端の壁と弾性衝突を繰り返している。B の A に対する相対速度の大きさ $v$ は一定で，A は時間 $\\dfrac{T}{2}$ ごとに「距離 $L$ の移動」と「静止」を繰り返す。$v$ はいくらか。", "choices": ["$\\dfrac{2L}{T}$", "$\\dfrac{4M}{M+m}\\cdot\\dfrac{L}{T}$", "$\\dfrac{4m}{M+m}\\cdot\\dfrac{L}{T}$", "$\\dfrac{M+m}{M}\\cdot\\dfrac{L}{T}$", "$\\dfrac{M+m}{m}\\cdot\\dfrac{L}{T}$"] },
+      "en": { "prompt": "On a smooth floor, block B (mass $m$, $M>m$) bounces elastically between the end walls of cart A (mass $M$). The relative speed $v$ of B with respect to A is constant, and A alternates every $\\dfrac{T}{2}$ between moving a distance $L$ and being at rest. Find $v$.", "choices": ["$\\dfrac{2L}{T}$", "$\\dfrac{4M}{M+m}\\cdot\\dfrac{L}{T}$", "$\\dfrac{4m}{M+m}\\cdot\\dfrac{L}{T}$", "$\\dfrac{M+m}{M}\\cdot\\dfrac{L}{T}$", "$\\dfrac{M+m}{m}\\cdot\\dfrac{L}{T}$"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "$\\dfrac{M+m}{m}\\cdot\\dfrac{L}{T}$", "en": "$\\dfrac{M+m}{m}\\cdot\\dfrac{L}{T}$" },
+      "explanation": { "en": "Total momentum is zero-frame constant. While A is at rest only B moves, so its speed equals the relative speed: $|v_B|=v$ and $P=mv$. While A moves, $V_A=\\dfrac{2L}{T}$ (distance $L$ in $T/2$); each elastic wall hit reverses the relative velocity, so $v_B'=V_A-v$ and $P=MV_A+m(V_A-v)$. Setting the two $P$ equal: $mv=(M+m)V_A-mv\\Rightarrow 2mv=(M+m)\\dfrac{2L}{T}$, giving $v=\\dfrac{M+m}{m}\\cdot\\dfrac{L}{T}$.", "ja": "全運動量は保存。A が静止する間は B だけが動くのでその速さは相対速度に等しく $|v_B|=v$，$P=mv$。A が動く間は $V_A=\\dfrac{2L}{T}$（$T/2$ で距離 $L$），弾性衝突ごとに相対速度が反転して $v_B'=V_A-v$，$P=MV_A+m(V_A-v)$。両者を等しくおくと $mv=(M+m)V_A-mv\\Rightarrow 2mv=(M+m)\\dfrac{2L}{T}$。よって $v=\\dfrac{M+m}{m}\\cdot\\dfrac{L}{T}$。" }
+    },
+    {
+      "id": "2012-1-phy-5", "answerRow": 5, "block": "I", "topicId": "mech",
+      "subtopic": "SHM: reading velocity and spring force directions from x–t graph",
+      "patternTags": ["simple-harmonic-motion", "read-from-graph", "directions"], "hasFigure": true,
+      "figure": { "ja": "壁にばねの一端を固定し、他端に小球をつけてなめらかな床上で単振動させる。ばねに沿って x 軸、自然長のときの小球位置を原点 O。図2 の x–t は $x=A\\sin(\\omega t)$ 型で正の山から始まり、t_A は最初の正の山を過ぎて x>0 のまま下降している時刻。", "en": "A spring is fixed to a wall, a ball on its free end performs SHM on a smooth floor; x along the spring, origin O at natural length. The x–t graph is $x=A\\sin(\\omega t)$, starting with a positive crest; t_A is after the first crest where x is still positive but decreasing." },
+      "ja": { "prompt": "壁に一端を固定したばねの他端に小球をつけ，なめらかな床上で単振動させる。ばねに沿って $x$ 軸をとり，自然長のときの小球の位置を原点 O とする。図2 の $x$–$t$ グラフ上の時刻 $t_A$（$x>0$ で減少中）における，小球の速度の向きと，ばねが壁に及ぼす力の向きの正しい組み合わせはどれか。", "choices": ["速度 $+x$，壁への力 $+x$", "速度 $+x$，壁への力 $-x$", "速度 $-x$，壁への力 $+x$", "速度 $-x$，壁への力 $-x$"] },
+      "en": { "prompt": "A ball on the free end of a wall-mounted spring performs SHM on a smooth floor; $x$ is along the spring, O at natural length. On the $x$–$t$ graph at time $t_A$ (where $x>0$ and decreasing), give the directions of (i) the ball's velocity and (ii) the force the spring exerts on the wall.", "choices": ["velocity $+x$, force on wall $+x$", "velocity $+x$, force on wall $-x$", "velocity $-x$, force on wall $+x$", "velocity $-x$, force on wall $-x$"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "速度は $-x$ 向き，ばねが壁に及ぼす力は $+x$ 向き", "en": "velocity in $-x$, force on wall in $+x$" },
+      "explanation": { "en": "At $t_A$ the displacement is positive but decreasing, so the velocity $\\dfrac{dx}{dt}<0$: $-x$ direction. With $x>0$ the spring is stretched; a stretched spring pulls inward at both ends, pulling the wall toward the ball, i.e. in $+x$. Hence velocity $-x$, force on wall $+x$.", "ja": "$t_A$ では $x>0$ かつ減少中なので速度 $\\dfrac{dx}{dt}<0$，すなわち $-x$ 向き。$x>0$ ではばねは伸びており，伸びたばねは両端を内側へ引くので壁を小球側（$+x$）へ引く。よって速度 $-x$，壁への力 $+x$。" }
+    },
+    {
+      "id": "2012-1-phy-6", "answerRow": 6, "block": "I", "topicId": "mech",
+      "subtopic": "Ballistic pendulum height",
+      "patternTags": ["momentum-conservation", "energy-conservation", "perfectly-inelastic", "express-formula"], "hasFigure": true,
+      "figure": { "ja": "質量 M の物体 A が等しい長さの 2 本の糸で天井からつるされ静止。質量 m の粘土の小球 B が左から水平に速さ v で飛んできて A に瞬間的にはりつき、一体となって運動。A の最高点は初めの位置から高さ h。", "en": "Block A (mass M) hangs from two equal-length strings, at rest. A clay ball B (mass m) flies in horizontally at speed v and sticks to A; together they rise to height h above the initial position." },
+      "ja": { "prompt": "質量 $M$ の物体 A が等しい長さの 2 本の糸で天井からつるされて静止している。質量 $m$ の粘土の小球 B が左から水平に速さ $v$ で飛んできて A に瞬間的にはりつき，A と B は一体となって運動を始めた。A の達した最高点は初めの位置から高さ $h$ であった。$h$ はいくらか。", "choices": ["$\\dfrac{m}{2(M+m)g}v^2$", "$\\dfrac{m^2}{2(M+m)^2 g}v^2$", "$\\dfrac{v^2}{2g}$", "$\\dfrac{M}{2(M+m)g}v^2$", "$\\dfrac{M^2}{2(M+m)^2 g}v^2$"] },
+      "en": { "prompt": "Block A (mass $M$) hangs at rest from two strings. A clay ball B (mass $m$) hits A horizontally at speed $v$ and sticks; together they rise to height $h$. Find $h$.", "choices": ["$\\dfrac{m}{2(M+m)g}v^2$", "$\\dfrac{m^2}{2(M+m)^2 g}v^2$", "$\\dfrac{v^2}{2g}$", "$\\dfrac{M}{2(M+m)g}v^2$", "$\\dfrac{M^2}{2(M+m)^2 g}v^2$"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "$\\dfrac{m^2}{2(M+m)^2 g}v^2$", "en": "$\\dfrac{m^2}{2(M+m)^2 g}v^2$" },
+      "explanation": { "en": "Perfectly inelastic stick: $v'=\\dfrac{mv}{M+m}$. Then energy conservation in the swing: $\\tfrac12(M+m)v'^2=(M+m)gh\\Rightarrow h=\\dfrac{v'^2}{2g}=\\dfrac{m^2 v^2}{2(M+m)^2 g}$.", "ja": "完全非弾性で合体：$v'=\\dfrac{mv}{M+m}$。振り上がりで力学的エネルギー保存：$\\tfrac12(M+m)v'^2=(M+m)gh\\Rightarrow h=\\dfrac{v'^2}{2g}=\\dfrac{m^2 v^2}{2(M+m)^2 g}$。" }
+    },
+    {
+      "id": "2012-1-phy-7", "answerRow": 7, "block": "I", "topicId": "mech",
+      "subtopic": "Vertical launch with altitude-dependent gravity",
+      "patternTags": ["gravitation", "energy-conservation", "express-formula"], "hasFigure": true,
+      "figure": { "ja": "地表から速さ v0 で物体を鉛直上方に打ち上げ、地表からの高さ h まで到達して落下。地球の半径 R、地表での重力加速度 g。自転は無視。", "en": "A body launched vertically from the ground at v0 rises to height h above the surface. Earth radius R, surface gravity g; ignore Earth's rotation." },
+      "ja": { "prompt": "地上から速さ $v_0$ で物体を鉛直上方に打ち上げたところ，地表からの高さ $h$ まで到達して落下した。地球の半径を $R$，地表での重力加速度の大きさを $g$ とし，自転の影響は無視する。$h$ はいくらか（万有引力は高さとともに変化する）。", "choices": ["$\\dfrac{v_0^2 R}{gR+v_0^2}$", "$\\dfrac{v_0^2 R}{gR-v_0^2}$", "$\\dfrac{v_0^2 R}{2gR+v_0^2}$", "$\\dfrac{v_0^2 R}{2gR-v_0^2}$", "$\\dfrac{2v_0^2 R}{2gR+v_0^2}$", "$\\dfrac{2v_0^2 R}{2gR-v_0^2}$"] },
+      "en": { "prompt": "A body launched vertically from the ground at $v_0$ reaches height $h$ above the surface. Earth radius $R$, surface gravity $g$; rotation ignored. Find $h$ (gravity varies with altitude).", "choices": ["$\\dfrac{v_0^2 R}{gR+v_0^2}$", "$\\dfrac{v_0^2 R}{gR-v_0^2}$", "$\\dfrac{v_0^2 R}{2gR+v_0^2}$", "$\\dfrac{v_0^2 R}{2gR-v_0^2}$", "$\\dfrac{2v_0^2 R}{2gR+v_0^2}$", "$\\dfrac{2v_0^2 R}{2gR-v_0^2}$"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "$\\dfrac{v_0^2 R}{2gR-v_0^2}$", "en": "$\\dfrac{v_0^2 R}{2gR-v_0^2}$" },
+      "explanation": { "en": "Use $GM=gR^2$ and energy conservation with potential $-\\dfrac{GM m}{r}$: $\\tfrac12 v_0^2-\\dfrac{GM}{R}=-\\dfrac{GM}{R+h}$. Substituting $GM=gR^2$: $gR-\\tfrac12 v_0^2=\\dfrac{gR^2}{R+h}$, so $R+h=\\dfrac{2gR^2}{2gR-v_0^2}$ and $h=\\dfrac{v_0^2 R}{2gR-v_0^2}$.", "ja": "$GM=gR^2$ と位置エネルギー $-\\dfrac{GM m}{r}$ でエネルギー保存：$\\tfrac12 v_0^2-\\dfrac{GM}{R}=-\\dfrac{GM}{R+h}$。$GM=gR^2$ を代入して $gR-\\tfrac12 v_0^2=\\dfrac{gR^2}{R+h}$，ゆえに $R+h=\\dfrac{2gR^2}{2gR-v_0^2}$，$h=\\dfrac{v_0^2 R}{2gR-v_0^2}$。" }
+    },
+    {
+      "id": "2012-1-phy-8", "answerRow": 8, "block": "II", "topicId": "thermo",
+      "subtopic": "Calorimetry: identify container material from specific heat",
+      "patternTags": ["calorimetry", "heat-balance", "plug-in-numbers"], "hasFigure": true,
+      "figure": { "ja": "5 物質の比熱の表：銀 0.24, 銅 0.39, 鉄 0.45, ガラス 0.84, アルミニウム 0.90 (J/(g·K))。質量 150 g・初温 10°C の容器に 75°C の水 100 g を入れ、十分後に容器と水が 60°C。水の比熱 4.2 J/(g·K)、外部との熱の出入りなし。", "en": "Specific heats: silver 0.24, copper 0.39, iron 0.45, glass 0.84, aluminium 0.90 J/(g·K). A 150 g container at 10°C receives 100 g of water at 75°C; final equilibrium 60°C. Water's specific heat 4.2 J/(g·K); no heat loss." },
+      "ja": { "prompt": "質量 $150\\,$g・初め $10\\,$°C の容器に，$75\\,$°C の水 $100\\,$g を入れたところ，十分時間後に容器と水はともに $60\\,$°C になった。水の比熱を $4.2\\,$J/(g·K)，外部との熱の出入りはないとする。容器の材質はどれか（比熱：銀 0.24，銅 0.39，鉄 0.45，ガラス 0.84，アルミニウム 0.90）。", "choices": ["銀", "銅", "鉄", "ガラス", "アルミニウム"] },
+      "en": { "prompt": "A 150 g container at 10 °C receives 100 g of water at 75 °C; both reach 60 °C. Water's specific heat is 4.2 J/(g·K) and no heat is lost. Which material is the container? (specific heats: silver 0.24, copper 0.39, iron 0.45, glass 0.84, aluminium 0.90)", "choices": ["silver", "copper", "iron", "glass", "aluminium"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "ガラス（比熱 0.84 J/(g·K)）", "en": "glass (specific heat 0.84 J/(g·K))" },
+      "explanation": { "en": "Heat lost by water $=100\\times4.2\\times(75-60)=6300\\,$J $=$ heat gained by container $=150\\times c\\times(60-10)=7500c$. So $c=\\dfrac{6300}{7500}=0.84$ J/(g·K) → glass.", "ja": "水が失う熱 $=100\\times4.2\\times(75-60)=6300\\,$J $=$ 容器が得る熱 $=150\\times c\\times(60-10)=7500c$。よって $c=\\dfrac{6300}{7500}=0.84\\,$J/(g·K) → ガラス。" }
+    },
+    {
+      "id": "2012-1-phy-9", "answerRow": 9, "block": "II", "topicId": "thermo",
+      "subtopic": "Mass of gas from the ideal-gas law",
+      "patternTags": ["ideal-gas-law", "plug-in-numbers"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "酸素分子が体積 $400\\,$L，圧力 $7.0\\times10^5\\,$Pa，温度 $27\\,$°C の状態で容器に入っている。酸素分子 $1.0\\,$mol は $0.0\\,$°C・$1.0\\times10^5\\,$Pa で $22.4\\,$L を占め，$1.0\\,$mol の質量は $32\\,$g である。容器内の酸素分子の全質量は何 kg か。", "choices": ["$0.11$", "$0.36$", "$1.1$", "$3.6$", "$11$", "$36$"] },
+      "en": { "prompt": "Oxygen gas: volume $400\\,$L, pressure $7.0\\times10^5\\,$Pa, temperature $27\\,$°C. One mole occupies $22.4\\,$L at $0.0\\,$°C, $1.0\\times10^5\\,$Pa, and has mass $32\\,$g. Find the total mass of oxygen (kg).", "choices": ["$0.11$", "$0.36$", "$1.1$", "$3.6$", "$11$", "$36$"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "約 $3.6\\,$kg", "en": "≈ 3.6 kg" },
+      "explanation": { "en": "$n=\\dfrac{PV}{RT}$ with $R=\\dfrac{(1.0\\times10^5)(22.4\\times10^{-3})}{273}\\approx8.2$ J/(mol·K): $n=\\dfrac{(7.0\\times10^5)(0.400)}{8.2\\times300}\\approx114$ mol. Mass $=114\\times32\\,$g $\\approx3.6\\times10^3\\,$g $=3.6$ kg.", "ja": "$n=\\dfrac{PV}{RT}$，$R=\\dfrac{(1.0\\times10^5)(22.4\\times10^{-3})}{273}\\approx8.2$ J/(mol·K) として $n=\\dfrac{(7.0\\times10^5)(0.400)}{8.2\\times300}\\approx114$ mol。質量 $=114\\times32\\,$g $\\approx3.6\\times10^3\\,$g $=3.6\\,$kg。" }
+    },
+    {
+      "id": "2012-1-phy-10", "answerRow": 10, "block": "II", "topicId": "thermo",
+      "subtopic": "Heat exchange across a conducting partition: constant-V side A and constant-P side B",
+      "patternTags": ["first-law", "heat-balance", "monatomic-gas", "express-formula"], "hasFigure": true,
+      "figure": { "ja": "断熱シリンダーと断熱ピストン。単原子分子理想気体。気体を通さない固定のしきり板で、体積一定の空間 A とピストンで体積が変わる空間 B に分かれる。B の圧力は常に大気圧。B には A の 3 倍のモル数。初め A の絶対温度 2T0、B は T0。十分後に A・B とも T1。しきり板は熱をよく通し熱容量は無視。", "en": "Adiabatic cylinder and adiabatic piston, monatomic ideal gas. A fixed gas-tight partition separates constant-volume space A from space B whose volume changes via the piston (B always at atmospheric pressure). B has 3× the moles of A. Initially A at 2T0, B at T0; eventually both at T1. The partition conducts heat well, heat capacity negligible." },
+      "ja": { "prompt": "断熱材のシリンダーと断熱材のピストンからなる容器に単原子分子理想気体が入る。気体を通さない固定のしきり板で，体積の変わらない空間 A と，ピストンで体積が変化する空間 B（圧力は常に大気圧）に分けられる。B には A の 3 倍のモル数。初め A の絶対温度は $2T_0$，B は $T_0$。十分時間後に A・B とも $T_1$ になった。しきり板は熱をよく通し，その熱容量は無視できる。$T_1$ はいくらか。", "choices": ["$\\dfrac54 T_0$", "$\\dfrac76 T_0$", "$\\dfrac{11}{8} T_0$", "$\\dfrac72 T_0$"] },
+      "en": { "prompt": "An adiabatic cylinder with an adiabatic piston holds monatomic ideal gas. A fixed gas-tight partition separates constant-volume space A from space B (volume changes via the piston, always at atmospheric pressure). B has 3× the moles of A. Initially A is at $2T_0$, B at $T_0$; eventually both reach $T_1$. The partition conducts heat well with negligible heat capacity. Find $T_1$.", "choices": ["$\\dfrac54 T_0$", "$\\dfrac76 T_0$", "$\\dfrac{11}{8} T_0$", "$\\dfrac72 T_0$"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "$\\dfrac76 T_0$", "en": "$\\dfrac76 T_0$" },
+      "explanation": { "en": "No heat enters from outside, so heat released by A (constant volume, $C_V=\\tfrac32 R$) equals heat absorbed by B (constant pressure, $C_P=\\tfrac52 R$, with $n_B=3n_A$): $3n_A\\tfrac52 R(T_1-T_0)=-n_A\\tfrac32 R(T_1-2T_0)$. So $15(T_1-T_0)=-3(T_1-2T_0)\\Rightarrow 18T_1=21T_0\\Rightarrow T_1=\\tfrac76 T_0$.", "ja": "外部との熱の出入りはないので，A が放出する熱（定積 $C_V=\\tfrac32 R$）と B が吸収する熱（定圧 $C_P=\\tfrac52 R$，$n_B=3n_A$）が等しい：$3n_A\\tfrac52 R(T_1-T_0)=-n_A\\tfrac32 R(T_1-2T_0)$。よって $15(T_1-T_0)=-3(T_1-2T_0)\\Rightarrow 18T_1=21T_0\\Rightarrow T_1=\\tfrac76 T_0$。" }
+    },
+    {
+      "id": "2012-1-phy-11", "answerRow": 11, "block": "III", "topicId": "waves",
+      "subtopic": "Fixed-end reflection of a triangular pulse",
+      "patternTags": ["wave-reflection", "superposition", "fixed-end", "read-from-graph"], "hasFigure": true,
+      "figure": { "ja": "x 軸上を +x 向きに 10 cm/s で進む波。t=0 の形は x=0 で変位 0、x=4 で正の最大、x=5 で 0 に戻る三角パルス（ゆるやかに上がり急に下がる）。x=10 cm に壁があり固定端反射。選択肢①〜④は x=7〜10 付近（壁手前）の波形。", "en": "A wave travels in +x at 10 cm/s. At t=0 it is a triangular pulse: 0 at x=0, positive peak at x=4, back to 0 at x=5 (gentle rise, steep fall). A wall at x=10 cm gives fixed-end reflection. Options ①–④ show the waveform near the wall (x≈7–10)." },
+      "ja": { "prompt": "$x$ 軸上を正の向きに速さ $10\\,$cm/s で進む波の，時刻 $t=0$ の形が示されている（$x=0$ で 0，$x=4$ で正の最大，$x=5$ で 0 の三角パルス）。$x=10\\,$cm に壁があり固定端反射する。$t=0.70\\,$s における波の形に最も近いものはどれか（壁近くの波形）。", "choices": ["壁手前で正の三角（山）が立つ", "壁手前で台形状の正の波", "壁手前に小さな正の三角だけ", "$x\\approx8$ で小さな正、$x\\approx9$ で負の谷をつくり壁で 0 に戻る"] },
+      "en": { "prompt": "A wave moves in $+x$ at $10\\,$cm/s; its $t=0$ shape is a triangular pulse (0 at $x=0$, positive peak at $x=4$, 0 at $x=5$). A wall at $x=10\\,$cm gives fixed-end reflection. Which shape best matches the wave at $t=0.70\\,$s (near the wall)?", "choices": ["a positive triangular crest stands near the wall", "a trapezoidal positive pulse near the wall", "only a small positive triangle near the wall", "small positive near $x\\approx8$, a negative trough near $x\\approx9$, returning to 0 at the wall"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "$x\\approx8$ でわずかに正，$x\\approx9$ で負の谷，壁（$x=10$）で 0（④）", "en": "small positive near $x\\approx8$, a negative trough near $x\\approx9$, zero at the wall (④)" },
+      "explanation": { "en": "In $0.70\\,$s the pulse shifts $10\\times0.70=7\\,$cm, so the incident pulse would span $x=7$–$12$ (peak at $11$, beyond the wall). Using the image method for a fixed end, add the inverted, mirror pulse about $x=10$ and superpose for $x\\le10$. The sum gives $0$ at the wall, a small positive value near $x=8$, and a negative trough near $x=9$ — matching ④.", "ja": "$0.70\\,$s で波は $10\\times0.70=7\\,$cm 進むので入射パルスは $x=7$〜$12$（頂点 $x=11$，壁の外）。固定端なので $x=10$ について反転・鏡像にした波を重ね合わせて $x\\le10$ をみる。和は壁で 0，$x\\approx8$ でわずかに正，$x\\approx9$ で負の谷となり，④に一致。" }
+    },
+    {
+      "id": "2012-1-phy-12", "answerRow": 12, "block": "III", "topicId": "waves",
+      "subtopic": "Doppler effect: source frequency from approach and recede waveforms",
+      "patternTags": ["doppler-effect", "read-from-graph", "harmonic-mean"], "hasFigure": true,
+      "figure": { "ja": "x 軸の負から正へ一定速度で動く音源。原点の観測者で空気の圧力変化 Δp の時間変化を測定。図1（音源が近づくとき）は周期がやや短く 約 1.3 ms（振動数 約 770 Hz）、図2（遠ざかるとき）は周期 約 2.1 ms（約 480 Hz）。t の単位 ms = 10⁻³ s。", "en": "A source moves at constant speed along x from negative to positive. The pressure variation Δp is recorded at the origin. Fig1 (approaching): period ≈1.3 ms (≈770 Hz); Fig2 (receding): period ≈2.1 ms (≈480 Hz). t in ms (=10⁻³ s)." },
+      "ja": { "prompt": "$x$ 軸上を負から正の領域へ一定の速さで動く音源からの音波を原点で測定した。図1（音源が近づくとき）と図2（遠ざかるとき）は空気の圧力変化 $\\Delta p$ の時間変化のグラフである（$t$ の単位 ms $=10^{-3}$ s）。音源の振動数はいくらか。", "choices": ["$290$", "$590$", "$620$", "$1200$"] },
+      "en": { "prompt": "A source moves at constant speed along $x$ from negative to positive; the sound is measured at the origin. Fig1 (approaching) and Fig2 (receding) graph the pressure variation $\\Delta p$ vs $t$ (ms). Find the source frequency (Hz).", "choices": ["$290$", "$590$", "$620$", "$1200$"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "約 $590\\,$Hz", "en": "≈ 590 Hz" },
+      "explanation": { "en": "Read the periods: Fig1 (approaching) $T_1\\approx1.3\\,$ms → $f_1\\approx770$ Hz; Fig2 (receding) $T_2\\approx2.1\\,$ms → $f_2\\approx480$ Hz. With $f_1=\\dfrac{f_0 c}{c-v_s}$, $f_2=\\dfrac{f_0 c}{c+v_s}$, adding the reciprocals gives $\\dfrac{1}{f_1}+\\dfrac{1}{f_2}=\\dfrac{2}{f_0}$, so $f_0=\\dfrac{2f_1 f_2}{f_1+f_2}\\approx\\dfrac{2\\times770\\times480}{770+480}\\approx590$ Hz.", "ja": "周期を読む：図1（近づく）$T_1\\approx1.3\\,$ms → $f_1\\approx770$ Hz，図2（遠ざかる）$T_2\\approx2.1\\,$ms → $f_2\\approx480$ Hz。$f_1=\\dfrac{f_0 c}{c-v_s}$，$f_2=\\dfrac{f_0 c}{c+v_s}$ の逆数を足すと $\\dfrac{1}{f_1}+\\dfrac{1}{f_2}=\\dfrac{2}{f_0}$。よって $f_0=\\dfrac{2f_1 f_2}{f_1+f_2}\\approx\\dfrac{2\\times770\\times480}{770+480}\\approx590$ Hz。" }
+    },
+    {
+      "id": "2012-1-phy-13", "answerRow": 13, "block": "III", "topicId": "waves",
+      "subtopic": "Young's double slit with a phase plate of variable refractive index",
+      "patternTags": ["double-slit-interference", "optical-path", "directions", "fringe-spacing"], "hasFigure": true,
+      "figure": { "ja": "レーザーの平行光が 2 スリット S1（上）・S2（下）を通り、十分遠方のスクリーンに干渉縞をつくる。S2 の前に屈折率を変えられる薄い透明板。スクリーンで a は上向き、b は下向き。屈折率を大きくしたとき、中心付近の暗線の移動方向（a か b）と間隔の変化を問う。", "en": "Laser parallel light through two slits S1 (upper), S2 (lower) onto a distant screen. A thin transparent plate of variable refractive index sits in front of S2. On the screen a=up, b=down. As n increases, find the direction the central dark fringes move and how their spacing changes." },
+      "ja": { "prompt": "レーザー光源からの単色平行光が 2 つのスリット $\\mathrm{S_1}$（上），$\\mathrm{S_2}$（下）を通り，十分遠方のスクリーンに干渉縞をつくる。$\\mathrm{S_2}$ の前には屈折率を変えられる薄い透明板がある。板の屈折率を大きくしていくと，スクリーン中心近くの暗線は a（上）・b（下）どちらに移動するか，また隣り合う暗線の間隔はどうなるか。", "choices": ["a へ移動，間隔広くなる", "a へ移動，間隔同じ", "a へ移動，間隔狭くなる", "b へ移動，間隔広くなる", "b へ移動，間隔同じ", "b へ移動，間隔狭くなる"] },
+      "en": { "prompt": "Laser parallel light passes two slits $\\mathrm{S_1}$ (upper), $\\mathrm{S_2}$ (lower) to a distant screen. A thin plate of variable refractive index sits in front of $\\mathrm{S_2}$. As $n$ increases, which way do the central dark fringes move (a=up, b=down), and how does their spacing change?", "choices": ["toward a, wider", "toward a, same", "toward a, narrower", "toward b, wider", "toward b, same", "toward b, narrower"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "b（下）へ移動し，間隔は同じ", "en": "moves toward b (down), spacing unchanged" },
+      "explanation": { "en": "The plate adds optical path $(n-1)d$ to the $\\mathrm{S_2}$ beam. The point of zero path difference (pattern centre) must then sit where the geometric path from $\\mathrm{S_2}$ is shorter, i.e. closer to $\\mathrm{S_2}$ — the lower slit, direction b. The fringe spacing $\\dfrac{\\lambda L}{d_{\\text{slit}}}$ depends only on wavelength, slit separation and screen distance, so it is unchanged.", "ja": "板は $\\mathrm{S_2}$ 側の光路に $(n-1)d$ を加える。光路差 0 の点（縞の中心）は $\\mathrm{S_2}$ からの幾何学的距離が短い側，すなわち $\\mathrm{S_2}$（下スリット，b 方向）へ寄る。縞間隔 $\\dfrac{\\lambda L}{d_{\\text{slit}}}$ は波長・スリット間隔・スクリーン距離だけで決まるので変わらない。" }
+    },
+    {
+      "id": "2012-1-phy-14", "answerRow": 14, "block": "IV", "topicId": "em",
+      "subtopic": "Work to move a charge between two fixed charges",
+      "patternTags": ["coulomb-potential-energy", "work", "express-formula"], "hasFigure": true,
+      "figure": { "ja": "xy 平面の (3a,0) と (−3a,0) に電気量 Q(>0) の小球を固定（a>0）。別の電気量 Q の小球を (0,4a) から原点 (0,0) までゆっくり移動。クーロンの法則の比例定数 k。", "en": "Charges Q(>0) fixed at (3a,0) and (−3a,0) (a>0). Another charge Q is moved slowly from (0,4a) to the origin (0,0). Coulomb constant k." },
+      "ja": { "prompt": "$xy$ 平面の点 $(3a,0)$ と $(-3a,0)$ に電気量 $Q(>0)$ の小球が固定されている（$a>0$）。点 $(0,4a)$ から原点 $(0,0)$ まで電気量 $Q$ の別の小球をゆっくり移動させる。このとき必要な外力のする仕事はいくらか。クーロンの法則の比例定数を $k$ とする。", "choices": ["$\\dfrac{kQ^2}{12a}$", "$\\dfrac{2kQ^2}{15a}$", "$\\dfrac{kQ^2}{6a}$", "$\\dfrac{kQ^2}{4a}$", "$\\dfrac{4kQ^2}{15a}$", "$\\dfrac{kQ^2}{2a}$"] },
+      "en": { "prompt": "Charges $Q(>0)$ are fixed at $(3a,0)$ and $(-3a,0)$ ($a>0$). A third charge $Q$ is moved slowly from $(0,4a)$ to the origin $(0,0)$. Find the work done by the external force. Coulomb constant $k$.", "choices": ["$\\dfrac{kQ^2}{12a}$", "$\\dfrac{2kQ^2}{15a}$", "$\\dfrac{kQ^2}{6a}$", "$\\dfrac{kQ^2}{4a}$", "$\\dfrac{4kQ^2}{15a}$", "$\\dfrac{kQ^2}{2a}$"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "$\\dfrac{4kQ^2}{15a}$", "en": "$\\dfrac{4kQ^2}{15a}$" },
+      "explanation": { "en": "Distance from each fixed charge: at $(0,4a)$ it is $\\sqrt{(3a)^2+(4a)^2}=5a$; at $(0,0)$ it is $3a$. Slow move ⇒ $W=U_f-U_i=2kQ^2\\!\\left(\\dfrac{1}{3a}-\\dfrac{1}{5a}\\right)=2kQ^2\\cdot\\dfrac{2}{15a}=\\dfrac{4kQ^2}{15a}$.", "ja": "各固定電荷までの距離：$(0,4a)$ では $\\sqrt{(3a)^2+(4a)^2}=5a$，$(0,0)$ では $3a$。ゆっくり移動なので $W=U_f-U_i=2kQ^2\\!\\left(\\dfrac{1}{3a}-\\dfrac{1}{5a}\\right)=2kQ^2\\cdot\\dfrac{2}{15a}=\\dfrac{4kQ^2}{15a}$。" }
+    },
+    {
+      "id": "2012-1-phy-15", "answerRow": 15, "block": "IV", "topicId": "em",
+      "subtopic": "Capacitor energy after disconnecting battery, widening gap and inserting dielectric",
+      "patternTags": ["capacitor", "energy-stored", "dielectric", "express-formula"], "hasFigure": true,
+      "figure": { "ja": "図1: 極板間距離 d の平行平板コンデンサーを起電力 V の電池で充電。図2: 充電後に電池を外し、距離を 2d に広げ、全体に比誘電率 εr・厚さ 2d の誘電体を挿入。", "en": "Fig1: parallel-plate capacitor (separation d) charged by emf V. Fig2: after charging, battery removed, separation widened to 2d, and a dielectric (relative permittivity εr, thickness 2d) fills the gap." },
+      "ja": { "prompt": "極板間距離 $d$ の平行平板コンデンサーを起電力 $V$ の電池につないで充電した。充電後に電池を外し，極板間距離を $2d$ まで広げ，極板間全体に比誘電率 $\\varepsilon_r$ で厚さ $2d$ の誘電体を挿入した。図2 の場合に蓄えられている静電エネルギーは，図1 の場合の何倍か。", "choices": ["$\\dfrac{\\varepsilon_r}{2}$", "$\\varepsilon_r$", "$2\\varepsilon_r$", "$\\dfrac{1}{2\\varepsilon_r}$", "$\\dfrac{1}{\\varepsilon_r}$", "$\\dfrac{2}{\\varepsilon_r}$"] },
+      "en": { "prompt": "A parallel-plate capacitor (gap $d$) is charged by an emf $V$. The battery is then removed, the gap widened to $2d$, and a dielectric (relative permittivity $\\varepsilon_r$, thickness $2d$) fills the gap. The stored energy in Fig2 is how many times that in Fig1?", "choices": ["$\\dfrac{\\varepsilon_r}{2}$", "$\\varepsilon_r$", "$2\\varepsilon_r$", "$\\dfrac{1}{2\\varepsilon_r}$", "$\\dfrac{1}{\\varepsilon_r}$", "$\\dfrac{2}{\\varepsilon_r}$"] },
+      "answerIndex": 5, "answerOption": 6, "answer": { "ja": "$\\dfrac{2}{\\varepsilon_r}$ 倍", "en": "$\\dfrac{2}{\\varepsilon_r}$ times" },
+      "explanation": { "en": "Battery removed ⇒ charge $Q$ fixed. $C_1=\\dfrac{\\varepsilon_0 A}{d}$; $C_2=\\dfrac{\\varepsilon_r\\varepsilon_0 A}{2d}=\\dfrac{\\varepsilon_r}{2}C_1$. With $U=\\dfrac{Q^2}{2C}$, $\\dfrac{U_2}{U_1}=\\dfrac{C_1}{C_2}=\\dfrac{2}{\\varepsilon_r}$.", "ja": "電池を外すので電荷 $Q$ 一定。$C_1=\\dfrac{\\varepsilon_0 A}{d}$，$C_2=\\dfrac{\\varepsilon_r\\varepsilon_0 A}{2d}=\\dfrac{\\varepsilon_r}{2}C_1$。$U=\\dfrac{Q^2}{2C}$ より $\\dfrac{U_2}{U_1}=\\dfrac{C_1}{C_2}=\\dfrac{2}{\\varepsilon_r}$。" }
+    },
+    {
+      "id": "2012-1-phy-16", "answerRow": 16, "block": "IV", "topicId": "em",
+      "subtopic": "Resistor ladder: branch currents",
+      "patternTags": ["dc-circuit", "resistor-ladder", "current-divider"], "hasFigure": true,
+      "figure": { "ja": "起電力 V の電池。上の枝に直列の R が 2 個。縦枝に 2R の抵抗 A,B,C,D が 4 個。電池から I が流れ、A,B,C に流れる電流を I1,I2,I3 とする。ノード1 に A、R を経てノード2 に B、R を経てノード3 に C と D（C と D は導線で並列）。", "en": "Battery emf V; the top has two R resistors in series; four 2R resistors A,B,C,D hang as vertical branches. Battery current I; A,B,C carry I1,I2,I3. Node1 has A, then R to node2 with B, then R to node3 with C and D (C and D in parallel via a wire)." },
+      "ja": { "prompt": "抵抗値 $R$ の抵抗 2 個，$2R$ の抵抗 4 個（縦枝 A,B,C,D），起電力 $V$ の電池で図の回路をつくった。電池を流れる電流を $I$，A,B,C に流れる電流をそれぞれ $I_1,I_2,I_3$ とする。$I_1,I_2,I_3$ の正しい組み合わせはどれか。", "choices": ["$I_1=\\tfrac12 I,\\ I_2=\\tfrac14 I,\\ I_3=\\tfrac18 I$", "$I_1=\\tfrac12 I,\\ I_2=\\tfrac14 I,\\ I_3=\\tfrac16 I$", "$I_1=\\tfrac12 I,\\ I_2=\\tfrac14 I,\\ I_3=\\tfrac{1}{16} I$", "$I_1=\\tfrac12 I,\\ I_2=\\tfrac13 I,\\ I_3=\\tfrac14 I$", "$I_1=\\tfrac12 I,\\ I_2=\\tfrac19 I,\\ I_3=\\tfrac{1}{16} I$"] },
+      "en": { "prompt": "Two $R$ resistors (series, top), four $2R$ resistors (vertical branches A,B,C,D), emf $V$. Battery current $I$; A,B,C carry $I_1,I_2,I_3$. Which set is correct?", "choices": ["$I_1=\\tfrac12 I,\\ I_2=\\tfrac14 I,\\ I_3=\\tfrac18 I$", "$I_1=\\tfrac12 I,\\ I_2=\\tfrac14 I,\\ I_3=\\tfrac16 I$", "$I_1=\\tfrac12 I,\\ I_2=\\tfrac14 I,\\ I_3=\\tfrac{1}{16} I$", "$I_1=\\tfrac12 I,\\ I_2=\\tfrac13 I,\\ I_3=\\tfrac14 I$", "$I_1=\\tfrac12 I,\\ I_2=\\tfrac19 I,\\ I_3=\\tfrac{1}{16} I$"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "$I_1=\\tfrac12 I,\\ I_2=\\tfrac14 I,\\ I_3=\\tfrac18 I$", "en": "$I_1=\\tfrac12 I,\\ I_2=\\tfrac14 I,\\ I_3=\\tfrac18 I$" },
+      "explanation": { "en": "C and D ($2R\\parallel2R=R$) make the resistance to ground at node3 equal $R$; then at node2 it is $2R\\parallel(R+R)=R$, and at node1 $2R\\parallel(R+R)=R$. So $V_1=V$, and $I_1=\\dfrac{V}{2R}=\\dfrac{I}{2}$. Half the current goes on; the node voltages halve each stage: $V_2=\\dfrac V2$ → $I_2=\\dfrac{I}{4}$; $V_3=\\dfrac V4$ → $I_3=\\dfrac{I}{8}$.", "ja": "C と D（$2R\\parallel2R=R$）でノード3 の対地抵抗は $R$。するとノード2 は $2R\\parallel(R+R)=R$，ノード1 も $R$。よって $V_1=V$，$I_1=\\dfrac{V}{2R}=\\dfrac{I}{2}$。先へ進む電流は半分ずつで，各段の節点電圧は半減：$V_2=\\dfrac V2\\Rightarrow I_2=\\dfrac{I}{4}$，$V_3=\\dfrac V4\\Rightarrow I_3=\\dfrac{I}{8}$。" }
+    },
+    {
+      "id": "2012-1-phy-17", "answerRow": 17, "block": "IV", "topicId": "em",
+      "subtopic": "Steady-state voltage across capacitors in an RC network",
+      "patternTags": ["dc-circuit", "capacitor", "steady-state", "charge-conservation"], "hasFigure": true,
+      "figure": { "ja": "4.0 kΩ と 1.0 kΩ の抵抗、2.0 μF のコンデンサー 1 個と 3.0 μF を 2 個、起電力 20 V の電池、スイッチ S。上枝: 左ノード—4.0 kΩ—A—1.0 kΩ—右ノード。A から 3.0 μF で B へ。左ノードから 3.0 μF で B、B から 2.0 μF で右ノード。下に S と 20 V。初め電荷なし。", "en": "Resistors 4.0 kΩ and 1.0 kΩ, one 2.0 μF and two 3.0 μF capacitors, emf 20 V, switch S. Top: left node—4.0 kΩ—A—1.0 kΩ—right node. A to B via 3.0 μF. Left node to B via 3.0 μF, B to right node via 2.0 μF. Bottom: S and 20 V. Initially uncharged." },
+      "ja": { "prompt": "$4.0\\,$kΩ と $1.0\\,$kΩ の抵抗，$2.0\\,\\mu$F のコンデンサー 1 個と $3.0\\,\\mu$F を 2 個，起電力 $20\\,$V の電池とスイッチ S からなる回路がある。電池の内部抵抗は無視でき，S を閉じるまでコンデンサーに電荷はなかった。S を閉じてから十分時間がたったとき，図中の AB 間の電圧の大きさはいくらか。", "choices": ["$4.0$", "$5.0$", "$6.0$", "$8.0$", "$9.0$"] },
+      "en": { "prompt": "A circuit has $4.0\\,$kΩ and $1.0\\,$kΩ resistors, one $2.0\\,\\mu$F and two $3.0\\,\\mu$F capacitors, an emf of $20\\,$V and switch S (ideal battery; capacitors initially uncharged). Long after closing S, what is the magnitude of the voltage across AB (V)?", "choices": ["$4.0$", "$5.0$", "$6.0$", "$8.0$", "$9.0$"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "$5.0\\,$V", "en": "5.0 V" },
+      "explanation": { "en": "Steady state: no current in capacitor branches; current flows only through the two resistors in series, $I=\\dfrac{20}{(4.0+1.0)\\text{k}\\Omega}=4.0\\,$mA. Taking the left rail at $20\\,$V and right rail at $0$, $V_A=20-(4.0\\text{mA})(4.0\\text{k}\\Omega)=4\\,$V. Node B is isolated (only capacitors), so by charge conservation (started uncharged): $3(V_B-4)+3(V_B-20)+2(V_B-0)=0\\Rightarrow 8V_B=72\\Rightarrow V_B=9\\,$V. Thus $|V_A-V_B|=|4-9|=5.0\\,$V.", "ja": "定常状態ではコンデンサー枝に電流は流れず，2 抵抗の直列だけに電流：$I=\\dfrac{20}{(4.0+1.0)\\text{k}\\Omega}=4.0\\,$mA。左レールを $20\\,$V，右レールを $0$ とすると $V_A=20-(4.0\\text{mA})(4.0\\text{k}\\Omega)=4\\,$V。B は孤立点（コンデンサーのみ）なので，初め電荷 0 の電荷保存より $3(V_B-4)+3(V_B-20)+2(V_B-0)=0\\Rightarrow 8V_B=72\\Rightarrow V_B=9\\,$V。ゆえに $|V_A-V_B|=|4-9|=5.0\\,$V。" }
+    },
+    {
+      "id": "2012-1-phy-18", "answerRow": 18, "block": "IV", "topicId": "em",
+      "subtopic": "Magnetic field at the centroid of three current-carrying wires",
+      "patternTags": ["magnetic-field-wire", "vector-superposition", "plug-in-numbers"], "hasFigure": true,
+      "figure": { "ja": "一辺 0.10 m の正三角形の頂点 A,B,C を通る導線にそれぞれ 10 A。導線は三角形の面に垂直。A は紙面の裏から表（手前向き），B,C は表から裏（奥向き）。重心での磁場の大きさを問う。π=3.1, √3=1.7。", "en": "Wires through the vertices A,B,C of an equilateral triangle (side 0.10 m) each carry 10 A, perpendicular to the plane. A is out of the page; B,C into the page. Find the field magnitude at the centroid. π=3.1, √3=1.7." },
+      "ja": { "prompt": "一辺 $0.10\\,$m の正三角形の頂点 A,B,C を通る導線にそれぞれ $10\\,$A が流れている。導線は三角形の面に垂直で，A は紙面の裏から表，B,C は表から裏の向きである。三角形 ABC の重心での磁場の大きさはいくらか。$\\pi=3.1,\\ \\sqrt3=1.7$ として計算してよい。", "choices": ["$0$", "$37$", "$55$", "$75$", "$83$"] },
+      "en": { "prompt": "Wires through the vertices A,B,C of an equilateral triangle (side $0.10\\,$m) each carry $10\\,$A, perpendicular to the plane; A out of the page, B,C into the page. Find the magnetic field magnitude at the centroid (A/m). Use $\\pi=3.1,\\ \\sqrt3=1.7$.", "choices": ["$0$", "$37$", "$55$", "$75$", "$83$"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "約 $55\\,$A/m", "en": "≈ 55 A/m" },
+      "explanation": { "en": "Centroid-to-vertex distance $r=\\dfrac{0.10}{\\sqrt3}=\\dfrac{0.10}{1.7}\\approx0.059\\,$m. Each wire gives $H=\\dfrac{I}{2\\pi r}=\\dfrac{10}{2(3.1)(0.059)}\\approx27\\,$A/m. With A out and B,C in, the three vectors add up so that the components along the A-direction reinforce while the perpendicular parts cancel, giving $H_{\\text{tot}}=2\\times27\\approx55\\,$A/m.", "ja": "重心から頂点までの距離 $r=\\dfrac{0.10}{\\sqrt3}=\\dfrac{0.10}{1.7}\\approx0.059\\,$m。各導線の磁場 $H=\\dfrac{I}{2\\pi r}=\\dfrac{10}{2(3.1)(0.059)}\\approx27\\,$A/m。A が手前，B,C が奥向きなので 3 ベクトルを合成すると A 方向成分が強め合い垂直成分は打ち消し合い，$H_{\\text{合}}=2\\times27\\approx55\\,$A/m。" }
+    },
+    {
+      "id": "2012-1-phy-19", "answerRow": 19, "block": "IV", "topicId": "em",
+      "subtopic": "Force between a current loop and a bar magnet (action–reaction)",
+      "patternTags": ["magnetic-force", "current-loop", "dipole", "newtons-third-law", "directions"], "hasFigure": true,
+      "figure": { "ja": "xy 平面上の円形導線に電流。電流の向きは z 軸正の向きから見て右回り（時計回り）。z 軸に沿って棒磁石、その N 極は z 軸正の向き。円形導線が磁場から受ける力の向きと、円形導線が棒磁石の磁場から受ける力の向き（z 軸正か負か）を問う。", "en": "A circular wire in the xy-plane carries current, clockwise as seen from +z. A bar magnet on the z-axis has its N pole pointing in +z. Find the direction (±z) of the force on the magnet from the loop's field, and the force on the loop from the magnet's field." },
+      "ja": { "prompt": "$xy$ 平面上の円形導線に電流が流れ，その向きは $z$ 軸の正の向きから見て右回り（時計回り）。$z$ 軸に沿って棒磁石が置かれ，N 極は $z$ 軸の正の向きを向いている。棒磁石が電流のつくる磁場から受ける力の向きは $z$ 軸の正・負どちらか。また，円形導線が棒磁石のつくる磁場から受ける力の向きは $z$ 軸の正・負どちらか。正しい組み合わせはどれか。", "choices": ["棒磁石 $+z$，円形導線 $+z$", "棒磁石 $+z$，円形導線 $-z$", "棒磁石 $-z$，円形導線 $+z$", "棒磁石 $-z$，円形導線 $-z$"] },
+      "en": { "prompt": "A circular wire in the $xy$-plane carries current clockwise as seen from $+z$. A bar magnet on the $z$-axis has its N pole toward $+z$. Give the direction ($\\pm z$) of (i) the force on the magnet from the loop's field and (ii) the force on the loop from the magnet's field.", "choices": ["magnet $+z$, loop $+z$", "magnet $+z$, loop $-z$", "magnet $-z$, loop $+z$", "magnet $-z$, loop $-z$"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "棒磁石は $+z$ 向き，円形導線は $-z$ 向き", "en": "magnet $+z$, loop $-z$" },
+      "explanation": { "en": "Clockwise current seen from $+z$ ⇒ the loop's magnetic moment points in $-z$, so its upper face (toward the magnet) is an S pole. The magnet's lower face (S, since N is up) faces it — like poles repel, pushing the magnet in $+z$. By Newton's third law the loop feels the reaction force in $-z$.", "ja": "$+z$ から見て時計回りの電流 ⇒ 円形導線の磁気モーメントは $-z$ 向きで，磁石に向いた上面は S 極。磁石の下面（N が上なので S）と向き合い，同極で反発して磁石は $+z$ へ押される。作用反作用により円形導線は $-z$ 向きの力を受ける。" }
+    }
+  ],
+  "patterns": {
+    "blockSkeleton": "Older 7/3/3/6 format: Mechanics ×7, Thermodynamics ×3, Waves ×3, Electricity & Magnetism ×6, no Atoms block (19 items).",
+    "newArchetypesVsPrevious": [
+      "Two masses over a pulley with one smooth and one rough surface: tension fixed by the smooth side, friction on the rough side compared across three geometries.",
+      "Block bouncing elastically inside a moving cart: stair-step displacement graph solved by momentum + constant relative speed (v=(M+m)L/(mT)).",
+      "Vertical launch with altitude-dependent gravity: energy conservation with GM=gR² gives h=v0²R/(2gR−v0²).",
+      "Conducting partition with a constant-volume side and a constant-pressure (piston) side: balance C_V heat against C_P heat.",
+      "Doppler with separate approach/recede waveforms: source frequency is the harmonic mean f0=2f1f2/(f1+f2).",
+      "Young's double slit with a variable-index phase plate over one slit: pattern shifts toward the delayed slit, spacing unchanged.",
+      "Symmetric resistor ladder (2R rungs, R rails): each stage halves voltage and current (I/2, I/4, I/8).",
+      "Magnetic field at the centroid of three perpendicular current wires; vector superposition of I/(2πr) terms."
+    ],
+    "recurringWithPrevious": [
+      "Contact force in a train of pushed equal blocks (a=F/Nm, contact force = remaining mass × a).",
+      "Projectile range scaling with 1/g.",
+      "Ballistic pendulum: stick (momentum) then rise (energy), h=m²v²/(2(M+m)²g).",
+      "SHM direction reading from an x–t graph (velocity = slope; spring force from stretch/compression).",
+      "Calorimetry water+container; specific heat from the equilibrium temperature.",
+      "Ideal-gas mass from PV=nRT using the molar volume 22.4 L.",
+      "Capacitor energy after disconnecting the battery (Q fixed, U=Q²/2C).",
+      "Steady-state RC node by charge conservation on an isolated capacitor junction.",
+      "Force between a current loop and a magnet via the loop's equivalent dipole and Newton's third law."
+    ],
+    "examTacticNotes": [
+      "In a chain of pushed blocks, the contact force on a block equals (mass still ahead of it) × the common acceleration.",
+      "Range ∝ 1/g, so halving gravity doubles the horizontal distance.",
+      "Pulley problems with one smooth side: the tension is set entirely by the smooth side (T=mg sinθ), then friction balances the rough side.",
+      "Elastic bounce inside a cart: total momentum is conserved; when the cart is momentarily at rest the block's speed equals the (constant) relative speed.",
+      "Above the atmosphere, replace constant-g energy with −GMm/r and substitute GM=gR².",
+      "Conducting partition, one fixed-volume + one piston side: equate C_V·ΔT (rigid side) to C_P·ΔT (piston side, opposite sign).",
+      "Doppler from two graphs: f0 is the harmonic mean of the approach and recede frequencies.",
+      "A thin plate over one slit adds optical path (n−1)d and shifts the whole fringe pattern toward that slit without changing the spacing.",
+      "Long-wire field magnitude is H=I/(2πr); add the three vectors, exploiting symmetry so transverse parts cancel.",
+      "A current loop is a magnetic dipole; use the right-hand rule for its moment and Newton's third law to pair the two forces."
+    ],
+    "difficulty": "Standard EJU level with a 7-item Mechanics section. The most discriminating items are the elastic-bounce momentum graph (Q4), the conducting-partition equilibrium temperature (Q10), the Doppler harmonic mean read from two waveforms (Q12), and the RC steady-state node by charge conservation (Q17)."
+  }
+}
