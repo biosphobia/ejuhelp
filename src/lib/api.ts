@@ -136,4 +136,4 @@ export interface Exam {
   questions: GenQuestion[];
 }
 export const fetchExams = () => call<{ exams: ExamMeta[] }>('eju/exams', {});
-export const fetchExam = (id: string) => call<Exam>('eju/exam', { id });
+export const fetchExam = (id: string, lang: Lang) => call<Exam>('eju/exam', { id, lang });

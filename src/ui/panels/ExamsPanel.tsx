@@ -5,10 +5,12 @@ import { ErrorNote, errorMessage } from '../atoms';
 import { SpinnerIcon, ChevronLeft } from '../icons';
 import { fetchExams, fetchExam, type ExamMeta, type Exam, type GenQuestion } from '../../lib/api';
 import { usePinned } from '../../lib/pinned';
+import { useUI } from '../../lib/ui';
 import { useT } from '../../i18n';
 
 export default function ExamsPanel() {
   const t = useT();
+  const lang = useUI((s) => s.lang);
   const pinMany = usePinned((s) => s.pinMany);
 
   const [exams, setExams] = useState<ExamMeta[]>([]);
@@ -32,7 +34,7 @@ export default function ExamsPanel() {
     setBusy(true);
     setErr(null);
     try {
-      setExam(await fetchExam(id));
+      setExam(await fetchExam(id, lang));
     } catch (e) {
       setErr(errorMessage(e, t));
     } finally {

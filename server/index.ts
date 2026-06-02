@@ -48,7 +48,7 @@ app.post('/api/eju/exams', (_req: Request, res: Response) => {
 
 app.post('/api/eju/exam', (req: Request, res: Response) => {
   const id = req.body?.id;
-  const exam = typeof id === 'string' ? mockExam(id) : null;
+  const exam = typeof id === 'string' ? mockExam(id, toLang(req.body?.lang)) : null;
   if (!exam) return res.status(404).json({ error: 'not_found' });
   res.json(exam);
 });
