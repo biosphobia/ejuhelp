@@ -1,0 +1,234 @@
+{
+  "id": "2016-2-physics",
+  "year": 2016,
+  "session": 2,
+  "subject": "physics",
+  "title": "EJU 2016 · Session 2 · Physics",
+  "source": "平成28年度（2016年度）日本留学試験（第2回）理科〈物理〉 © Japan Student Services Organization (JASSO)",
+  "attribution": "EJU past questions © JASSO. Question text transcribed from the official past paper; figures described in text; correct answers taken from the official JASSO answer key and independently re-solved for verification.",
+  "languages": ["ja", "en"],
+  "answerKeyVerified": true,
+  "structure": {
+    "blocks": [
+      { "id": "I", "topicId": "mech", "name": { "ja": "力学", "en": "Mechanics" }, "questionCount": 6 },
+      { "id": "II", "topicId": "thermo", "name": { "ja": "熱力学", "en": "Thermodynamics" }, "questionCount": 3 },
+      { "id": "III", "topicId": "waves", "name": { "ja": "波動", "en": "Waves" }, "questionCount": 3 },
+      { "id": "IV", "topicId": "em", "name": { "ja": "電気と磁気", "en": "Electricity & Magnetism" }, "questionCount": 6 },
+      { "id": "V", "topicId": "atoms", "name": { "ja": "原子", "en": "Atoms" }, "questionCount": 1 }
+    ],
+    "totalQuestions": 19,
+    "givens": { "ja": "重力加速度の大きさを g とし，空気の抵抗は無視できるものとする。", "en": "Take the magnitude of gravitational acceleration as g; air resistance is negligible." }
+  },
+  "questions": [
+    {
+      "id": "2016-2-phy-1", "answerRow": 1, "block": "I", "topicId": "mech",
+      "subtopic": "Connected bodies (internal contact forces)",
+      "patternTags": ["express-formula", "newtons-second-law", "connected-bodies"], "hasFigure": true,
+      "figure": { "ja": "質量の等しい 5 物体 A,B,C,D,E をなめらかな床に一列（接触）に並べ，A を左から一定力 F で押すと一体で等加速度運動。", "en": "Five equal masses A,B,C,D,E in a row in contact on a smooth floor; pushing A from the left with constant force F moves them together at constant acceleration." },
+      "ja": { "prompt": "質量の等しい 5 つの物体 A〜E をなめらかな床上に一列に接して置き，A に左から一定の大きさ $F$ の力を加え続けると 5 物体は一体となって等加速度運動した。C が B から受ける力の大きさと，C が D から受ける力の大きさの正しい組み合わせはどれか。", "choices": ["C←B: $\\dfrac{2F}{5}$, C←D: $\\dfrac{2F}{5}$", "C←B: $\\dfrac{2F}{5}$, C←D: $\\dfrac{3F}{5}$", "C←B: $\\dfrac{3F}{5}$, C←D: $\\dfrac{2F}{5}$", "C←B: $\\dfrac{3F}{5}$, C←D: $\\dfrac{3F}{5}$"] },
+      "en": { "prompt": "Five equal masses A–E in a row in contact on a smooth floor; a constant force $F$ pushes A from the left and all move together. Give the magnitude of the force C receives from B and from D.", "choices": ["from B: $\\dfrac{2F}{5}$, from D: $\\dfrac{2F}{5}$", "from B: $\\dfrac{2F}{5}$, from D: $\\dfrac{3F}{5}$", "from B: $\\dfrac{3F}{5}$, from D: $\\dfrac{2F}{5}$", "from B: $\\dfrac{3F}{5}$, from D: $\\dfrac{3F}{5}$"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "C←B: $\\dfrac{3F}{5}$, C←D: $\\dfrac{2F}{5}$", "en": "from B: $\\dfrac{3F}{5}$, from D: $\\dfrac{2F}{5}$" },
+      "explanation": { "en": "Acceleration $a=F/5m$. The B–C force pushes C,D,E (3 masses): $3m\\,a=\\tfrac{3F}{5}$. The C–D force pushes D,E (2 masses): $2m\\,a=\\tfrac{2F}{5}$.", "ja": "加速度 $a=F/5m$。B–C 間は C,D,E（3 個）を押すので $3ma=\\tfrac{3F}{5}$，C–D 間は D,E（2 個）で $2ma=\\tfrac{2F}{5}$。" }
+    },
+    {
+      "id": "2016-2-phy-2", "answerRow": 2, "block": "I", "topicId": "mech",
+      "subtopic": "a–t graph (distance from rest)",
+      "patternTags": ["read-from-graph", "kinematics"], "hasFigure": true,
+      "figure": { "ja": "a–t グラフ：$t\\in[0,T/2]$ で $a=+a_0$，$t\\in[T/2,T]$ で $a=-a_0$。$t=0$ で静止。", "en": "a–t graph: $a=+a_0$ on $[0,T/2]$, $a=-a_0$ on $[T/2,T]$; starts at rest at t=0." },
+      "ja": { "prompt": "直線上を運動する小物体の加速度 $a$ が図のように，$0\\le t\\le\\frac{T}{2}$ で $+a_0$，$\\frac{T}{2}\\le t\\le T$ で $-a_0$ と変化した（$t=0$ で静止，$a_0>0$）。$t=0$ から $t=T$ の間に移動した距離 $L$ はどれか。", "choices": ["$0$", "$\\dfrac{a_0T^2}{8}$", "$\\dfrac{a_0T^2}{4}$", "$\\dfrac{a_0T^2}{2}$", "$a_0T^2$"] },
+      "en": { "prompt": "A body's acceleration is $+a_0$ for $0\\le t\\le\\frac{T}{2}$ and $-a_0$ for $\\frac{T}{2}\\le t\\le T$ (at rest at t=0, $a_0>0$). Find the distance $L$ travelled from $t=0$ to $t=T$.", "choices": ["$0$", "$\\dfrac{a_0T^2}{8}$", "$\\dfrac{a_0T^2}{4}$", "$\\dfrac{a_0T^2}{2}$", "$a_0T^2$"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "$\\dfrac{a_0T^2}{4}$", "en": "$\\dfrac{a_0T^2}{4}$" },
+      "explanation": { "en": "Phase 1: $v$ reaches $a_0T/2$, distance $\\tfrac12a_0(T/2)^2=\\tfrac{a_0T^2}{8}$. Phase 2: decelerates to rest, distance again $\\tfrac{a_0T^2}{8}$. Total $L=\\tfrac{a_0T^2}{4}$.", "ja": "前半で $v=a_0T/2$，距離 $\\tfrac{a_0T^2}{8}$。後半で減速し距離 $\\tfrac{a_0T^2}{8}$。計 $\\tfrac{a_0T^2}{4}$。" }
+    },
+    {
+      "id": "2016-2-phy-3", "answerRow": 3, "block": "I", "topicId": "mech",
+      "subtopic": "Projectile (ratio of max height to range)",
+      "patternTags": ["express-formula", "projectile-motion", "ratio"], "hasFigure": true,
+      "figure": { "ja": "点 O から水平となす角 θ・初速 v0 で投げ上げ。最高点の高さ H，落下点までの距離 L。", "en": "From O, launched at angle θ with speed v0; maximum height H, horizontal range L." },
+      "ja": { "prompt": "水平な地表面の点 O から，水平となす角 $\\theta$ の向きに初速 $v_0$ で小球を投げ上げた。最高点の高さを $H$，O から落下点までの距離を $L$ とする。$\\dfrac{H}{L}$ はどのように表されるか。", "choices": ["$\\dfrac{\\tan\\theta}{4}$", "$\\dfrac{\\tan\\theta}{2}$", "$\\tan\\theta$", "$\\dfrac{1}{4\\tan\\theta}$", "$\\dfrac{1}{2\\tan\\theta}$", "$\\dfrac{1}{\\tan\\theta}$"] },
+      "en": { "prompt": "From point O, a ball is launched at angle $\\theta$ with speed $v_0$. With max height $H$ and range $L$, express $\\dfrac{H}{L}$.", "choices": ["$\\dfrac{\\tan\\theta}{4}$", "$\\dfrac{\\tan\\theta}{2}$", "$\\tan\\theta$", "$\\dfrac{1}{4\\tan\\theta}$", "$\\dfrac{1}{2\\tan\\theta}$", "$\\dfrac{1}{\\tan\\theta}$"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "$\\dfrac{\\tan\\theta}{4}$", "en": "$\\dfrac{\\tan\\theta}{4}$" },
+      "explanation": { "en": "$H=\\dfrac{v_0^2\\sin^2\\theta}{2g}$, $L=\\dfrac{v_0^2\\sin2\\theta}{g}=\\dfrac{2v_0^2\\sin\\theta\\cos\\theta}{g}$. So $\\dfrac{H}{L}=\\dfrac{\\sin\\theta}{4\\cos\\theta}=\\dfrac{\\tan\\theta}{4}$.", "ja": "$H=\\dfrac{v_0^2\\sin^2\\theta}{2g}$，$L=\\dfrac{2v_0^2\\sin\\theta\\cos\\theta}{g}$。よって $\\dfrac{H}{L}=\\dfrac{\\tan\\theta}{4}$。" }
+    },
+    {
+      "id": "2016-2-phy-4", "answerRow": 4, "block": "I", "topicId": "mech",
+      "subtopic": "Work–energy theorem and momentum",
+      "patternTags": ["plug-in-numbers", "work-energy-theorem", "momentum"], "hasFigure": true,
+      "figure": { "ja": "なめらかな床上を A(20 kg)が 3.0 m/s で運動。運動の向きに 10 N の力を加え 16 m 移動。", "en": "On a smooth floor, A(20 kg) moves at 3.0 m/s; a 10 N force in the direction of motion acts over 16 m." },
+      "ja": { "prompt": "なめらかな水平面上を小物体 A（質量 $20\\,$kg）が速さ $3.0\\,$m/s で運動している。運動の向きに $10\\,$N の力を加え続け，A は $16\\,$m 移動した。$16\\,$m 移動した後の A の運動エネルギーと運動量の大きさの組み合わせはどれか。", "choices": ["160 J, 80 kg·m/s", "160 J, 100 kg·m/s", "250 J, 80 kg·m/s", "250 J, 100 kg·m/s"] },
+      "en": { "prompt": "On a smooth floor, A(20 kg) moves at 3.0 m/s; a 10 N force in the direction of motion acts over 16 m. After moving 16 m, give A's kinetic energy and the magnitude of its momentum.", "choices": ["160 J, 80 kg·m/s", "160 J, 100 kg·m/s", "250 J, 80 kg·m/s", "250 J, 100 kg·m/s"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "250 J, 100 kg·m/s", "en": "250 J, 100 kg·m/s" },
+      "explanation": { "en": "Initial KE $=\\tfrac12\\cdot20\\cdot3^2=90$ J. Work $=10\\cdot16=160$ J. Final KE $=250$ J $\\Rightarrow v=5$ m/s, so momentum $=20\\cdot5=100$ kg·m/s.", "ja": "初め KE $=90$ J，仕事 $=160$ J，終 KE $=250$ J → $v=5$ m/s，運動量 $=100$。" }
+    },
+    {
+      "id": "2016-2-phy-5", "answerRow": 5, "block": "I", "topicId": "mech",
+      "subtopic": "Two-dimensional collision (symmetric scattering angles)",
+      "patternTags": ["express-formula", "momentum-conservation", "2d-collision"], "hasFigure": true,
+      "figure": { "ja": "なめらかな床で A(m,v0)が静止した B(2m)に衝突。衝突後 A は進行方向に対し時計回りに角θ，B は反時計回りに角θで進む。速さ vA, vB。", "en": "On a smooth floor, A(m,v0) strikes stationary B(2m). Afterward A goes at angle θ clockwise and B at angle θ counterclockwise from the original direction, with speeds vA, vB." },
+      "ja": { "prompt": "なめらかな水平面で質量 $m$ の A が静止した質量 $2m$ の B に速さ $v_0$ で衝突した。衝突後 A は元の進行方向に対し時計回りに角 $\\theta$，B は反時計回りに角 $\\theta$ で進み，速さは $v_A,v_B$。$\\dfrac{v_B}{v_A}$ と $\\dfrac{v_A}{v_0}$ の正しい組み合わせはどれか。", "choices": ["$\\dfrac12,\\ \\dfrac{1}{2\\sin\\theta}$", "$\\dfrac12,\\ \\dfrac{1}{2\\cos\\theta}$", "$\\dfrac12,\\ \\dfrac{1}{5\\sin\\theta}$", "$\\dfrac12,\\ \\dfrac{1}{5\\cos\\theta}$", "$\\dfrac{\\sqrt2}{2},\\ \\dfrac{1}{2\\sin\\theta}$", "$\\dfrac{\\sqrt2}{2},\\ \\dfrac{1}{2\\cos\\theta}$", "$\\dfrac{\\sqrt2}{2},\\ \\dfrac{1}{5\\sin\\theta}$", "$\\dfrac{\\sqrt2}{2},\\ \\dfrac{1}{5\\cos\\theta}$"] },
+      "en": { "prompt": "A(m,v0) strikes stationary B(2m); afterward A goes θ clockwise and B θ counterclockwise from the original direction, with speeds $v_A,v_B$. Give $\\dfrac{v_B}{v_A}$ and $\\dfrac{v_A}{v_0}$.", "choices": ["$\\dfrac12,\\ \\dfrac{1}{2\\sin\\theta}$", "$\\dfrac12,\\ \\dfrac{1}{2\\cos\\theta}$", "$\\dfrac12,\\ \\dfrac{1}{5\\sin\\theta}$", "$\\dfrac12,\\ \\dfrac{1}{5\\cos\\theta}$", "$\\dfrac{\\sqrt2}{2},\\ \\dfrac{1}{2\\sin\\theta}$", "$\\dfrac{\\sqrt2}{2},\\ \\dfrac{1}{2\\cos\\theta}$", "$\\dfrac{\\sqrt2}{2},\\ \\dfrac{1}{5\\sin\\theta}$", "$\\dfrac{\\sqrt2}{2},\\ \\dfrac{1}{5\\cos\\theta}$"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "$\\dfrac12,\\ \\dfrac{1}{2\\cos\\theta}$", "en": "$\\dfrac12,\\ \\dfrac{1}{2\\cos\\theta}$" },
+      "explanation": { "en": "Perpendicular momentum: $mv_A\\sin\\theta=2mv_B\\sin\\theta\\Rightarrow v_A=2v_B$, so $v_B/v_A=\\tfrac12$. Along the line: $mv_0=mv_A\\cos\\theta+2mv_B\\cos\\theta=2mv_A\\cos\\theta$, so $v_A/v_0=\\dfrac{1}{2\\cos\\theta}$.", "ja": "横方向 $mv_A\\sin\\theta=2mv_B\\sin\\theta$ より $v_B/v_A=\\tfrac12$。縦方向 $mv_0=2mv_A\\cos\\theta$ より $v_A/v_0=\\dfrac{1}{2\\cos\\theta}$。" }
+    },
+    {
+      "id": "2016-2-phy-6", "answerRow": 6, "block": "I", "topicId": "mech",
+      "subtopic": "Pendulum tension (released from horizontal)",
+      "patternTags": ["express-formula", "circular-motion", "energy-conservation"], "hasFigure": true,
+      "figure": { "ja": "長さ ℓ の糸の一端を O に固定，他端に質量 m。O と同じ高さから静かにはなす。糸が鉛直と角 θ をなすとき張力 T。", "en": "A bob (mass m) on a string of length ℓ from O is released from O's level. At angle θ from vertical the tension is T." },
+      "ja": { "prompt": "長さ $\\ell$ の軽い糸の一端を O に固定し他端に質量 $m$ の小球を付け，O と同じ高さから静かにはなした。糸が鉛直線と角 $\\theta$ をなすとき張力は $T$ であった。$T$ はどのように表されるか。", "choices": ["$2mg\\sin\\theta$", "$2mg\\cos\\theta$", "$2mg\\tan\\theta$", "$3mg\\sin\\theta$", "$3mg\\cos\\theta$", "$3mg\\tan\\theta$"] },
+      "en": { "prompt": "A bob (mass $m$) on a string of length $\\ell$ from O is released from O's level. At angle $\\theta$ from vertical the tension is $T$. Express $T$.", "choices": ["$2mg\\sin\\theta$", "$2mg\\cos\\theta$", "$2mg\\tan\\theta$", "$3mg\\sin\\theta$", "$3mg\\cos\\theta$", "$3mg\\tan\\theta$"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "$3mg\\cos\\theta$", "en": "$3mg\\cos\\theta$" },
+      "explanation": { "en": "Drop from horizontal to angle θ is $\\ell\\cos\\theta$, so $v^2=2g\\ell\\cos\\theta$. Radial: $T-mg\\cos\\theta=\\dfrac{mv^2}{\\ell}=2mg\\cos\\theta$, giving $T=3mg\\cos\\theta$.", "ja": "水平から角θへの落下は $\\ell\\cos\\theta$，$v^2=2g\\ell\\cos\\theta$。向心方向 $T-mg\\cos\\theta=\\dfrac{mv^2}{\\ell}=2mg\\cos\\theta$，$T=3mg\\cos\\theta$。" }
+    },
+    {
+      "id": "2016-2-phy-7", "answerRow": 7, "block": "II", "topicId": "thermo",
+      "subtopic": "Calorimetry (warming ice, melting, final temperature)",
+      "patternTags": ["plug-in-numbers", "calorimetry", "heat-of-fusion"], "hasFigure": false,
+      "ja": { "prompt": "容器に $-20\\,^\\circ$C の氷 $20\\,$g を入れ，$20\\,^\\circ$C の水 $100\\,$g を加えた。氷の比熱 $2.1\\,$J/(g·K)，氷の融解熱 $3.3\\times10^2\\,$J/g，水の比熱 $4.2\\,$J/(g·K)，容器の熱容量は無視。じゅうぶん時間後の水の温度は何 $^\\circ$C か。", "choices": ["0.0", "1.9", "2.9", "5.4", "14"] },
+      "en": { "prompt": "$20\\,$g of ice at $-20\\,^\\circ$C and $100\\,$g of water at $20\\,^\\circ$C are mixed (ice specific heat $2.1$, heat of fusion $330\\,$J/g, water specific heat $4.2$, container heat capacity negligible). What is the final temperature ($^\\circ$C)?", "choices": ["0.0", "1.9", "2.9", "5.4", "14"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "1.9 $^\\circ$C", "en": "1.9 $^\\circ$C" },
+      "explanation": { "en": "All ice melts (water releases $8400$ J > $840+6600=7440$ J needed). Balance: $100\\cdot4.2\\cdot(20-T)=840+6600+20\\cdot4.2\\cdot T\\Rightarrow 960=504T\\Rightarrow T\\approx1.9$.", "ja": "氷は全融解。$100\\cdot4.2\\cdot(20-T)=840+6600+20\\cdot4.2\\cdot T$ より $T\\approx1.9$。" }
+    },
+    {
+      "id": "2016-2-phy-8", "answerRow": 8, "block": "II", "topicId": "thermo",
+      "subtopic": "Isobaric process (work done by gas)",
+      "patternTags": ["plug-in-numbers", "ideal-gas", "isobaric", "work"], "hasFigure": false,
+      "ja": { "prompt": "なめらかなピストンで理想気体を封じる。圧力 $1.0\\times10^5\\,$Pa，絶対温度 $300\\,$K で体積は $6.0\\times10^{-3}\\,$m³ であった。圧力を一定に保ち絶対温度を $400\\,$K まで上げた。気体が外部にする仕事は何 J か。", "choices": ["2.0", "$2.0\\times10^1$", "$2.0\\times10^2$", "$2.0\\times10^3$"] },
+      "en": { "prompt": "An ideal gas is at $1.0\\times10^5\\,$Pa, $300\\,$K, volume $6.0\\times10^{-3}\\,$m³. At constant pressure its temperature is raised to $400\\,$K. How much work (J) does the gas do on its surroundings?", "choices": ["2.0", "$2.0\\times10^1$", "$2.0\\times10^2$", "$2.0\\times10^3$"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "$2.0\\times10^2\\,$J", "en": "$2.0\\times10^2\\,$J" },
+      "explanation": { "en": "At constant pressure $\\Delta V=V\\dfrac{\\Delta T}{T}=6.0\\times10^{-3}\\cdot\\dfrac{100}{300}=2.0\\times10^{-3}$. $W=p\\Delta V=1.0\\times10^5\\cdot2.0\\times10^{-3}=2.0\\times10^2$ J.", "ja": "定圧で $\\Delta V=6.0\\times10^{-3}\\cdot\\tfrac{100}{300}=2.0\\times10^{-3}$。$W=p\\Delta V=2.0\\times10^2$ J。" }
+    },
+    {
+      "id": "2016-2-phy-9", "answerRow": 9, "block": "II", "topicId": "thermo",
+      "subtopic": "Convert a p–V cycle to a T–V graph",
+      "patternTags": ["choose-from-graph", "pv-diagram", "tv-diagram", "ideal-gas"], "hasFigure": true,
+      "figure": { "ja": "p–V 図：A=(V0,p0)，B=(V0,2p0)，C=(2V0,p0)。A→B 定積，B→C 等温，C→A 定圧。選択肢は T–V グラフ 6 つ。", "en": "p–V diagram: A=(V0,p0), B=(V0,2p0), C=(2V0,p0). A→B isochoric, B→C isothermal, C→A isobaric. Options are six T–V graphs." },
+      "ja": { "prompt": "$p$–$V$ 図のように一定量の理想気体を A→B→C→A と変化させる（A→B 定積，B→C 等温，C→A 定圧。A$(V_0,p_0)$，B$(V_0,2p_0)$，C$(2V_0,p_0)$）。絶対温度 $T$ と体積 $V$ の変化を表すグラフとして最も適当なものはどれか。", "choices": ["①（A 上,B 下,C: A→B 下,曲線）", "②", "③", "④（A 下,B,C 上,B→C 横）", "⑤（A 下($V_0,T_0$),B($V_0,2T_0$),C($2V_0,2T_0$); A→B 縦,B→C 横,C→A 斜め）", "⑥"] },
+      "en": { "prompt": "A fixed ideal gas is cycled A→B→C→A on the $p$–$V$ diagram (A→B isochoric, B→C isothermal, C→A isobaric; A$(V_0,p_0)$, B$(V_0,2p_0)$, C$(2V_0,p_0)$). Which $T$–$V$ graph best represents it?", "choices": ["①", "②", "③", "④", "⑤ A$(V_0,T_0)$, B$(V_0,2T_0)$, C$(2V_0,2T_0)$: A→B vertical, B→C horizontal, C→A diagonal", "⑥"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "⑤", "en": "⑤" },
+      "explanation": { "en": "$T\\propto pV$: $T_A=T_0$, $T_B=2T_0$, $T_C=2T_0$. A→B (V fixed) rises vertically; B→C (isothermal) is horizontal at $2T_0$; C→A (isobaric) is a straight line $T\\propto V$ back to A — graph ⑤.", "ja": "$T\\propto pV$ より $T_A=T_0,T_B=2T_0,T_C=2T_0$。A→B 縦，B→C 横($2T_0$)，C→A は $T\\propto V$ の直線 → ⑤。" }
+    },
+    {
+      "id": "2016-2-phy-10", "answerRow": 10, "block": "III", "topicId": "waves",
+      "subtopic": "Sinusoidal wave (time for a point to reach a trough)",
+      "patternTags": ["read-from-graph", "travelling-wave", "wave-speed"], "hasFigure": true,
+      "figure": { "ja": "x 軸正方向に進む正弦波（周期 0.8 s）。t=0 の y–x グラフ（波長 8 m，振幅 2 cm；x=4 で山，x=8 付近で谷）。", "en": "A sinusoidal wave moving +x (period 0.8 s); y–x at t=0 (wavelength 8 m, amplitude 2 cm; crest at x=4, trough near x=8)." },
+      "ja": { "prompt": "$x$ 軸正方向に進む正弦波（周期 $0.8\\,$s）の $t=0$ の $y$–$x$ グラフがある（波長 $8\\,$m）。$x=6\\,$m の位置が次に波の谷（$y=-2\\,$cm）になる時刻 $t$ はいくらか。", "choices": ["0.2", "0.4", "0.6", "0.8", "1"] },
+      "en": { "prompt": "A sinusoidal wave moves $+x$ (period $0.8\\,$s); given its $y$–$x$ graph at $t=0$ (wavelength $8\\,$m), at what time $t$ does $x=6\\,$m next become a trough ($y=-2\\,$cm)?", "choices": ["0.2", "0.4", "0.6", "0.8", "1"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "0.6 s", "en": "0.6 s" },
+      "explanation": { "en": "Speed $v=\\lambda/T=8/0.8=10$ m/s. The trough currently to the left of $x=6$ (at $x=0$) moves $+x$ and reaches $x=6$ after $6/10=0.6$ s.", "ja": "$v=\\lambda/T=10$ m/s。$x=6$ の左の谷（$x=0$）が届くまで $6/10=0.6$ s。" }
+    },
+    {
+      "id": "2016-2-phy-11", "answerRow": 11, "block": "III", "topicId": "waves",
+      "subtopic": "Beats + Doppler (observer moving toward one source)",
+      "patternTags": ["express-formula", "beats", "doppler-effect"], "hasFigure": true,
+      "figure": { "ja": "一直線上に音源 A,B と観測者 O。静止時に毎秒 n 回のうなり。O が速さ u で A に近づくとうなりが消える。A の振動数 f，音速 V。", "en": "Sources A, B and observer O on a line. At rest, n beats per second; moving toward A at speed u, the beats vanish. A's frequency f, sound speed V." },
+      "ja": { "prompt": "一直線上に音源 A,B と観測者 O が並ぶ。静止時に毎秒 $n$ 回のうなりが聞こえた。O が速さ $u$ で A に近づくとうなりが聞こえなくなった。A の振動数を $f$，音速を $V$，$u<V$ とする。B の振動数と $\\dfrac{u}{V}$ の正しい組み合わせはどれか。", "choices": ["$f+n,\\ \\dfrac{n}{2f+n}$", "$f+n,\\ \\dfrac{n}{2f-n}$", "$f-n,\\ \\dfrac{n}{2f+n}$", "$f-n,\\ \\dfrac{n}{2f-n}$"] },
+      "en": { "prompt": "Sources A, B and observer O on a line; at rest, $n$ beats/s are heard. Moving toward A at speed $u$, the beats vanish. With A's frequency $f$, sound speed $V$ ($u<V$), give B's frequency and $\\dfrac{u}{V}$.", "choices": ["$f+n,\\ \\dfrac{n}{2f+n}$", "$f+n,\\ \\dfrac{n}{2f-n}$", "$f-n,\\ \\dfrac{n}{2f+n}$", "$f-n,\\ \\dfrac{n}{2f-n}$"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "$f+n,\\ \\dfrac{n}{2f+n}$", "en": "$f+n,\\ \\dfrac{n}{2f+n}$" },
+      "explanation": { "en": "At rest beats $=|f_B-f|=n$; moving toward A raises A and lowers B, so $f_B=f+n$. No beats: $f\\dfrac{V+u}{V}=(f+n)\\dfrac{V-u}{V}\\Rightarrow u(2f+n)=nV\\Rightarrow \\dfrac{u}{V}=\\dfrac{n}{2f+n}$.", "ja": "うなり $|f_B-f|=n$，A に近づくと A 上昇・B 下降で一致 → $f_B=f+n$。$f\\tfrac{V+u}{V}=(f+n)\\tfrac{V-u}{V}$ より $\\dfrac{u}{V}=\\dfrac{n}{2f+n}$。" }
+    },
+    {
+      "id": "2016-2-phy-12", "answerRow": 12, "block": "III", "topicId": "waves",
+      "subtopic": "Total internal reflection at a glass–water boundary",
+      "patternTags": ["plug-in-numbers", "total-internal-reflection", "snells-law"], "hasFigure": true,
+      "figure": { "ja": "ガラスと水が平面で接する。ガラスから水へ入射角 θ で光を入れ θ を増すと sinθ>0.8 で全反射。水の屈折率 1.3。", "en": "Glass and water meet at a plane. Light from glass into water at angle θ; for sinθ>0.8 it totally reflects. Water index 1.3." },
+      "ja": { "prompt": "ガラスと水が平面で接している。ガラスから水へ入射角 $\\theta$ で単色光を入れ $\\theta$ を増やすと，$\\sin\\theta$ が $0.8$ をこえたところで全反射が起きた。水の屈折率を $1.3$ とする。ガラスの屈折率はいくらか。", "choices": ["1.0", "1.2", "1.4", "1.6", "1.8"] },
+      "en": { "prompt": "Glass and water meet at a plane. Light from glass into water at angle $\\theta$ totally reflects once $\\sin\\theta>0.8$. With water index $1.3$, find the glass index.", "choices": ["1.0", "1.2", "1.4", "1.6", "1.8"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "1.6", "en": "1.6" },
+      "explanation": { "en": "At the critical angle $n_{glass}\\sin\\theta_c=n_{water}$: $n_{glass}\\cdot0.8=1.3\\Rightarrow n_{glass}=1.3/0.8\\approx1.6$.", "ja": "臨界角で $n_{ガラス}\\cdot0.8=1.3$ より $n_{ガラス}\\approx1.6$。" }
+    },
+    {
+      "id": "2016-2-phy-13", "answerRow": 13, "block": "IV", "topicId": "em",
+      "subtopic": "Electric field from two point charges (superposition)",
+      "patternTags": ["express-formula", "electric-field", "superposition"], "hasFigure": true,
+      "figure": { "ja": "xy 平面：A(0,d) に Q，B(0,−d) に 3Q を固定。点 C(d,0) での電場を問う。クーロン定数 k。", "en": "On the xy-plane: Q at A(0,d), 3Q at B(0,−d). Asked: the field at C(d,0). Coulomb constant k." },
+      "ja": { "prompt": "$xy$ 平面上の点 A$(0,d)$ に電気量 $Q$，点 B$(0,-d)$ に電気量 $3Q$ を固定する（$d>0,Q>0$，クーロン定数 $k$）。点 C$(d,0)$ における電場の強さはどのように表されるか。", "choices": ["$\\dfrac{kQ}{d^2}$", "$\\dfrac{\\sqrt2\\,kQ}{d^2}$", "$\\dfrac{2kQ}{d^2}$", "$\\dfrac{\\sqrt{10}\\,kQ}{2d^2}$", "$\\dfrac{2\\sqrt2\\,kQ}{d^2}$", "$\\dfrac{4kQ}{d^2}$", "$\\dfrac{\\sqrt{10}\\,kQ}{d^2}$"] },
+      "en": { "prompt": "On the $xy$-plane, $Q$ at A$(0,d)$ and $3Q$ at B$(0,-d)$ ($d>0,Q>0$, Coulomb constant $k$). What is the electric field strength at C$(d,0)$?", "choices": ["$\\dfrac{kQ}{d^2}$", "$\\dfrac{\\sqrt2\\,kQ}{d^2}$", "$\\dfrac{2kQ}{d^2}$", "$\\dfrac{\\sqrt{10}\\,kQ}{2d^2}$", "$\\dfrac{2\\sqrt2\\,kQ}{d^2}$", "$\\dfrac{4kQ}{d^2}$", "$\\dfrac{\\sqrt{10}\\,kQ}{d^2}$"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "$\\dfrac{\\sqrt{10}\\,kQ}{2d^2}$", "en": "$\\dfrac{\\sqrt{10}\\,kQ}{2d^2}$" },
+      "explanation": { "en": "Each charge is a distance $d\\sqrt2$ from C. $E_A=\\dfrac{kQ}{2d^2}$ along $(1,-1)/\\sqrt2$; $E_B=\\dfrac{3kQ}{2d^2}$ along $(1,1)/\\sqrt2$. Sum $=\\left(\\dfrac{2kQ}{d^2\\sqrt2},\\dfrac{kQ}{d^2\\sqrt2}\\right)$, magnitude $\\dfrac{kQ}{d^2\\sqrt2}\\sqrt5=\\dfrac{\\sqrt{10}\\,kQ}{2d^2}$.", "ja": "各電荷は C から $d\\sqrt2$。$E_A=\\dfrac{kQ}{2d^2}$ 方向$(1,-1)/\\sqrt2$，$E_B=\\dfrac{3kQ}{2d^2}$ 方向$(1,1)/\\sqrt2$。合成の大きさ $\\dfrac{\\sqrt{10}\\,kQ}{2d^2}$。" }
+    },
+    {
+      "id": "2016-2-phy-14", "answerRow": 14, "block": "IV", "topicId": "em",
+      "subtopic": "Work done by the Coulomb force on a moving charge",
+      "patternTags": ["express-formula", "potential-energy", "work"], "hasFigure": true,
+      "figure": { "ja": "原点 O に電荷 q を固定。電荷 −2q を A(0,d) から B(−3d,−4d) まで直線移動。OA=d，OB=5d。", "en": "Charge q fixed at O. Charge −2q is moved from A(0,d) to B(−3d,−4d); OA=d, OB=5d." },
+      "ja": { "prompt": "原点 O に電気量 $q$ を固定する。電気量 $-2q$ の点電荷を点 A$(0,d)$ から点 B$(-3d,-4d)$ まで直線に沿って移動させた（$q>0,d>0$，クーロン定数 $k$）。この間に $q$ から受けた力がした仕事はどれか。", "choices": ["$\\dfrac{2kq^2}{5d}$", "$\\dfrac{4kq^2}{5d}$", "$\\dfrac{6kq^2}{5d}$", "$\\dfrac{8kq^2}{5d}$", "$-\\dfrac{2kq^2}{5d}$", "$-\\dfrac{4kq^2}{5d}$", "$-\\dfrac{6kq^2}{5d}$", "$-\\dfrac{8kq^2}{5d}$"] },
+      "en": { "prompt": "Charge $q$ is fixed at O. A charge $-2q$ is moved from A$(0,d)$ to B$(-3d,-4d)$ ($q>0,d>0$, Coulomb constant $k$). What work is done by the force from $q$?", "choices": ["$\\dfrac{2kq^2}{5d}$", "$\\dfrac{4kq^2}{5d}$", "$\\dfrac{6kq^2}{5d}$", "$\\dfrac{8kq^2}{5d}$", "$-\\dfrac{2kq^2}{5d}$", "$-\\dfrac{4kq^2}{5d}$", "$-\\dfrac{6kq^2}{5d}$", "$-\\dfrac{8kq^2}{5d}$"] },
+      "answerIndex": 7, "answerOption": 8, "answer": { "ja": "$-\\dfrac{8kq^2}{5d}$", "en": "$-\\dfrac{8kq^2}{5d}$" },
+      "explanation": { "en": "$OA=d$, $OB=5d$. $U=\\dfrac{kq(-2q)}{r}$, so $W=U_A-U_B=-\\dfrac{2kq^2}{d}+\\dfrac{2kq^2}{5d}=-\\dfrac{8kq^2}{5d}$.", "ja": "$OA=d,OB=5d$。$U=\\dfrac{-2kq^2}{r}$，$W=U_A-U_B=-\\dfrac{2kq^2}{d}+\\dfrac{2kq^2}{5d}=-\\dfrac{8kq^2}{5d}$。" }
+    },
+    {
+      "id": "2016-2-phy-15", "answerRow": 15, "block": "IV", "topicId": "em",
+      "subtopic": "Capacitor network with switches (final node potential)",
+      "patternTags": ["express-formula", "capacitors", "charge-conservation", "switches"], "hasFigure": true,
+      "figure": { "ja": "起電力 V1,V2 の電池，容量 C のコンデンサー A,B，スイッチ S1,S2。最初 S1,S2 開・無電荷。S1 を閉→十分後 S1 を開→その後 S2 を閉。点 O 基準の点 P（A,B の間）の電位 V。", "en": "Batteries V1, V2, two C-capacitors A and B, switches S1, S2. Initially S1,S2 open and uncharged. Close S1, then (long after) open S1, then close S2. V is the potential of P (between A and B) relative to O." },
+      "ja": { "prompt": "起電力 $V_1,V_2$ の 2 電池，容量 $C$ のコンデンサー A,B，スイッチ $S_1,S_2$ を接続する。最初 $S_1,S_2$ は開で無電荷。$S_1$ を閉じ十分時間後に開き，その後 $S_2$ を閉じた。十分時間後，点 O を基準とした点 P の電位 $V$ はどれか。", "choices": ["$\\dfrac{V_1+V_2}{2}$", "$\\dfrac{V_1-V_2}{2}$", "$\\dfrac{V_2-V_1}{2}$", "$-\\dfrac{V_1+V_2}{2}$"] },
+      "en": { "prompt": "Batteries $V_1,V_2$, two $C$-capacitors A,B, switches $S_1,S_2$. Initially open and uncharged. Close $S_1$, then open it (after a long time), then close $S_2$. After a long time, what is the potential $V$ of P relative to O?", "choices": ["$\\dfrac{V_1+V_2}{2}$", "$\\dfrac{V_1-V_2}{2}$", "$\\dfrac{V_2-V_1}{2}$", "$-\\dfrac{V_1+V_2}{2}$"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "$\\dfrac{V_1+V_2}{2}$", "en": "$\\dfrac{V_1+V_2}{2}$" },
+      "explanation": { "en": "Closing $S_1$ puts charge $CV_1$ on capacitor A; opening $S_1$ traps it on the isolated conductor at node P. Closing $S_2$ connects B (to $V_2$). Charge conservation on the isolated node P with two equal capacitors gives $V_P=\\dfrac{V_1+V_2}{2}$.", "ja": "$S_1$ で A に $CV_1$ を蓄え，$S_1$ を開いて P 側の孤立導体に保持。$S_2$ を閉じ B を $V_2$ に接続。等容量 2 個の P での電荷保存より $V_P=\\dfrac{V_1+V_2}{2}$。" }
+    },
+    {
+      "id": "2016-2-phy-16", "answerRow": 16, "block": "IV", "topicId": "em",
+      "subtopic": "Bridge circuit (current direction & balance value)",
+      "patternTags": ["plug-in-numbers", "bridge-circuit", "direction"], "hasFigure": true,
+      "figure": { "ja": "5.0 V 電池。ブリッジ：左上 1.0Ω,右上 2.0Ω,左下 可変抵抗,右下 3.0Ω，橋に 4.0Ω（矢印 (a) 左→右，(b) 右→左）。可変抵抗 0〜5.0Ω。", "en": "5.0 V battery. Bridge: top-left 1.0Ω, top-right 2.0Ω, bottom-left variable resistor, bottom-right 3.0Ω; the 4.0Ω is the bridge arm (arrow (a) left→right, (b) right→left). Variable resistor 0–5.0Ω." },
+      "ja": { "prompt": "起電力 $5.0\\,$V の電池と，$1.0,2.0,3.0,4.0\\,\\Omega$ の抵抗，$0$〜$5.0\\,\\Omega$ の可変抵抗をブリッジ状に接続した（橋に $4.0\\,\\Omega$）。可変抵抗が $0\\,\\Omega$ のとき $4.0\\,\\Omega$ を流れる電流の向き（矢印 (a)左→右 / (b)右→左）と，$4.0\\,\\Omega$ に電流が流れなくなる可変抵抗の値の正しい組み合わせはどれか。", "choices": ["(a), 0.67 Ω", "(a), 1.5 Ω", "(b), 0.67 Ω", "(b), 1.5 Ω"] },
+      "en": { "prompt": "A 5.0 V battery with $1.0,2.0,3.0,4.0\\,\\Omega$ resistors and a $0$–$5.0\\,\\Omega$ variable resistor form a bridge (the $4.0\\,\\Omega$ is the bridge arm). When the variable resistor is $0\\,\\Omega$, give the direction of current in the $4.0\\,\\Omega$ ((a) left→right / (b) right→left) and the variable-resistor value that makes its current zero.", "choices": ["(a), 0.67 Ω", "(a), 1.5 Ω", "(b), 0.67 Ω", "(b), 1.5 Ω"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "(b), 1.5 Ω", "en": "(b), 1.5 Ω" },
+      "explanation": { "en": "Balance (no bridge current): $\\dfrac{1.0}{R}=\\dfrac{2.0}{3.0}\\Rightarrow R=1.5\\,\\Omega$. With $R=0$, the left-middle node sits at the bottom-rail potential (0 V) while the right-middle is at 3 V, so current flows from right to left = (b).", "ja": "平衡条件 $\\dfrac{1.0}{R}=\\dfrac{2.0}{3.0}$ より $R=1.5\\,\\Omega$。$R=0$ では左中点 0 V，右中点 3 V で右→左 = (b)。" }
+    },
+    {
+      "id": "2016-2-phy-17", "answerRow": 17, "block": "IV", "topicId": "em",
+      "subtopic": "Diode bridge (full-wave rectified current)",
+      "patternTags": ["choose-from-graph", "diode", "rectifier"], "hasFigure": true,
+      "figure": { "ja": "ダイオード 4 個と抵抗のブリッジ整流回路（図3）。入力 V（端子 A 基準の端子 B）は時刻 t とともに図4 のように変化する交流のこぎり波。抵抗電流 I（C→D を正）を問う。", "en": "A bridge rectifier of 4 diodes and a resistor (Fig 3). The input V (B relative to A) is the AC sawtooth of Fig 4. Asked: resistor current I (C→D positive)." },
+      "ja": { "prompt": "ダイオード 4 個と抵抗のブリッジ整流回路に，入力端子 AB 間に図4 のように変化する交流の起電力 $V$（端子 A 基準の端子 B の電位）を加えた。C から D の向きの電流を正とするとき，抵抗を流れる電流 $I$ の時間変化として最も適当なグラフはどれか。", "choices": ["①", "②", "③", "④", "⑤（全波整流：常に正で，入力の絶対値の波形）", "⑥", "⑦", "⑧"] },
+      "en": { "prompt": "A bridge rectifier (4 diodes + resistor) receives the AC input $V$ of Fig 4 (B relative to A). Taking C→D as positive, which graph best shows the resistor current $I$ vs time?", "choices": ["①", "②", "③", "④", "⑤ full-wave rectified: always positive, the |input| waveform", "⑥", "⑦", "⑧"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "⑤", "en": "⑤" },
+      "explanation": { "en": "A 4-diode bridge full-wave rectifies: current through the resistor always flows C→D regardless of input polarity, so $I\\propto|V|$ — the all-positive folded waveform of option ⑤.", "ja": "4 ダイオードのブリッジは全波整流。抵抗には入力の極性によらず常に C→D に電流が流れ $I\\propto|V|$ → ⑤。" }
+    },
+    {
+      "id": "2016-2-phy-18", "answerRow": 18, "block": "IV", "topicId": "em",
+      "subtopic": "Force between two wires vs separation (Fx vs X)",
+      "patternTags": ["choose-from-graph", "force-between-currents", "function-shape"], "hasFigure": true,
+      "figure": { "ja": "原点に導線 A（裏→表に電流 I），点 (X,a) に導線 B（表→裏に電流 I）。A が B から受ける力の x 成分 Fx を X の関数として問う。選択肢は Fx–X グラフ。", "en": "Wire A at the origin (current I out of page); wire B at (X,a) (current I into page). Asked: the x-component Fx of the force on A vs X. Options are Fx–X graphs." },
+      "ja": { "prompt": "原点を通る導線 A に裏から表へ電流 $I$，点 $(X,a)$ を通る導線 B に表から裏へ電流 $I$ を流す（$a>0$）。導線 A が導線 B の電流から受ける力の $x$ 成分 $F_x$ は，$X$ を変えるとどう変化するか。最も適当なグラフはどれか。", "choices": ["①（$X<0$ で正,$X>0$ で負,原点 0,$\\pm a$ で極値）", "②", "③", "④"] },
+      "en": { "prompt": "Wire A at the origin (current $I$ out of page) and wire B at $(X,a)$ (current $I$ into page, $a>0$). How does the $x$-component $F_x$ of the force on A vary with $X$? Choose the best graph.", "choices": ["① positive for $X<0$, negative for $X>0$, zero at origin, extrema at $\\pm a$", "②", "③", "④"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "①", "en": "①" },
+      "explanation": { "en": "Opposite currents repel, so the force on A points from B toward A. $F_x\\propto-\\dfrac{X}{X^2+a^2}$: zero at $X=0$, positive for $X<0$, negative for $X>0$, with extrema at $X=\\pm a$ — graph ①.", "ja": "逆向き電流は反発し，A は B から離れる向き。$F_x\\propto-\\dfrac{X}{X^2+a^2}$：$X=0$ で 0，$X<0$ で正，$X>0$ で負，$\\pm a$ で極値 → ①。" }
+    },
+    {
+      "id": "2016-2-phy-19", "answerRow": 19, "block": "V", "topicId": "atoms",
+      "subtopic": "Radioactive half-life",
+      "patternTags": ["plug-in-numbers", "half-life", "exponential-decay"], "hasFigure": false,
+      "ja": { "prompt": "ウラン 235（$^{235}$U）は半減期 $7.0\\times10^8$ 年で放射性崩壊する。原子核の数が現在の $\\dfrac{1}{1024}$ になるのは何年後か。", "choices": ["$5.6\\times10^9$", "$6.3\\times10^9$", "$7.0\\times10^9$", "$7.7\\times10^9$"] },
+      "en": { "prompt": "Uranium-235 decays with a half-life of $7.0\\times10^8$ years. After how many years will the number of nuclei be $\\dfrac{1}{1024}$ of the present amount?", "choices": ["$5.6\\times10^9$", "$6.3\\times10^9$", "$7.0\\times10^9$", "$7.7\\times10^9$"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "$7.0\\times10^9$ 年", "en": "$7.0\\times10^9$ years" },
+      "explanation": { "en": "$\\dfrac{1}{1024}=\\left(\\dfrac12\\right)^{10}$, so 10 half-lives: $10\\times7.0\\times10^8=7.0\\times10^9$ years.", "ja": "$\\dfrac{1}{1024}=(\\tfrac12)^{10}$ なので半減期 10 回分：$10\\times7.0\\times10^8=7.0\\times10^9$ 年。" }
+    }
+  ],
+  "patterns": {
+    "blockSkeleton": "Same 5-block skeleton (I Mechanics ×6, II Thermo ×3, III Waves ×3, IV E&M ×6, V Atoms ×1).",
+    "newArchetypesVsPrevious": [
+      "Internal contact forces in a chain of equal blocks (Q1).",
+      "Two-dimensional (symmetric-angle) collision (Q5).",
+      "Convert a p–V cycle to a T–V graph (Q9) — a representation-translation task.",
+      "Beats that vanish when the observer moves (Q11).",
+      "Capacitor network with sequenced switches (Q15).",
+      "Bridge balance + bridge-arm current direction (Q16).",
+      "Diode full-wave rectifier output waveform (Q17).",
+      "Force-vs-separation function shape for two wires (Q18).",
+      "Half-life as a power of 1/2 (Q19)."
+    ],
+    "recurringWithPrevious": ["a–t / v–t area kinematics (Q2)", "projectile H/L (Q3)", "work–energy + momentum (Q4)", "pendulum tension from horizontal release (Q6, cf 2018-2 Q5 family)", "calorimetry with ice (Q7, cf 2021-1/2017-2)", "isobaric work (Q8)", "wave snapshot timing (Q10, recurring)", "field/work from point charges (Q13,Q14)", "force between parallel currents (Q18, every year)"],
+    "examTacticNotes": [
+      "Two-equal-capacitor switching networks tend to leave the floating node at the AVERAGE of the involved EMFs — (V₁+V₂)/2 (Q15).",
+      "Bridge balance: no current in the bridge arm when the two side ratios match (1.0/R = 2.0/3.0) (Q16).",
+      "A 4-diode bridge full-wave rectifies: output ∝ |input| (Q17).",
+      "Half-life problems: write the fraction as (1/2)ⁿ and read off n half-lives (Q19).",
+      "For T–V or p–T conversions, compute T ∝ pV at each labelled state, then connect."
+    ],
+    "difficulty": "Standard 'Basic + Advanced Physics'; conceptual with light computation."
+  }
+}
