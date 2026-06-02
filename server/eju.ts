@@ -183,6 +183,11 @@ const BLOCK_NAME: Record<string, LocalizedName> = {
   waves: { en: 'Waves', ja: '波動' },
   em: { en: 'Electricity & Magnetism', ja: '電気と磁気' },
   atoms: { en: 'Atoms', ja: '原子' },
+  // Chemistry topic categories (match data/eju/chemistry.json topic ids)
+  'matter-structure': { en: 'Structure of Matter', ja: '物質の構成' },
+  'states-and-change': { en: 'State & Change of Substances', ja: '物質の状態と変化' },
+  inorganic: { en: 'Inorganic Chemistry', ja: '無機化学' },
+  organic: { en: 'Organic Chemistry', ja: '有機化学' },
 };
 
 let richExamsCache: RichExam[] | null = null;
