@@ -1,0 +1,247 @@
+{
+  "id": "2012-2-physics",
+  "year": 2012,
+  "session": 2,
+  "subject": "physics",
+  "title": "EJU 2012 · Session 2 · Physics",
+  "source": "平成24年度（2012年度）日本留学試験（第2回）理科〈物理〉 © Japan Student Services Organization (JASSO)",
+  "attribution": "EJU past questions © JASSO. Question text transcribed from the official past paper; figures described in text; correct answers taken from the official JASSO answer key and independently re-solved for verification.",
+  "languages": ["ja", "en"],
+  "answerKeyVerified": true,
+  "structure": {
+    "blocks": [
+      { "id": "I", "topicId": "mech", "name": { "ja": "力学", "en": "Mechanics" }, "questionCount": 7 },
+      { "id": "II", "topicId": "thermo", "name": { "ja": "熱力学", "en": "Thermodynamics" }, "questionCount": 3 },
+      { "id": "III", "topicId": "waves", "name": { "ja": "波動", "en": "Waves" }, "questionCount": 3 },
+      { "id": "IV", "topicId": "em", "name": { "ja": "電気と磁気", "en": "Electricity & Magnetism" }, "questionCount": 6 }
+    ],
+    "totalQuestions": 19,
+    "note": "Older 7/3/3/6 split (Mechanics has 7 items), no Atoms (V) block.",
+    "givens": { "ja": "重力加速度の大きさを g とし，空気の抵抗は無視できるものとする。", "en": "Take the magnitude of gravitational acceleration as g; air resistance is negligible." }
+  },
+  "questions": [
+    {
+      "id": "2012-2-phy-1", "answerRow": 1, "block": "I", "topicId": "mech",
+      "subtopic": "Two connected blocks pulled (acceleration and tension)",
+      "patternTags": ["plug-in-numbers", "newtons-second-law", "connected-bodies"], "hasFigure": true,
+      "figure": { "ja": "なめらかな床に A(2.0 kg) と B(3.0 kg) を軽い糸でつなぎ、B の右端を 10 N で水平に引く。糸の張力 T。", "en": "On a smooth floor, A(2.0 kg) and B(3.0 kg) joined by a light string; B's right end is pulled with 10 N. String tension T." },
+      "ja": { "prompt": "質量 $2.0\\,$kg の A と質量 $3.0\\,$kg の B を軽くて伸びない糸でつなぎ，なめらかな水平面に置いて，B の右端を $10\\,$N の力で水平に引いた。A の加速度の大きさ $a$ と糸の張力 $T$ の組み合わせはどれか。", "choices": ["$a=2.0,\\ T=4.0$", "$a=2.0,\\ T=6.0$", "$a=3.0,\\ T=4.0$", "$a=3.0,\\ T=6.0$"] },
+      "en": { "prompt": "A(2.0 kg) and B(3.0 kg) are joined by a light string on a smooth floor; B's right end is pulled with $10\\,$N. Give A's acceleration $a$ (m/s²) and the string tension $T$ (N).", "choices": ["$a=2.0,\\ T=4.0$", "$a=2.0,\\ T=6.0$", "$a=3.0,\\ T=4.0$", "$a=3.0,\\ T=6.0$"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "$a=2.0\\,$m/s², $T=4.0\\,$N", "en": "$a=2.0\\,$m/s², $T=4.0\\,$N" },
+      "explanation": { "en": "Whole system: $a=\\dfrac{10}{2.0+3.0}=2.0\\,$m/s². Block A is accelerated only by the string: $T=m_A a=2.0\\times2.0=4.0\\,$N.", "ja": "全系：$a=\\dfrac{10}{2.0+3.0}=2.0\\,$m/s²。A は糸の張力だけで加速：$T=m_A a=2.0\\times2.0=4.0\\,$N。" }
+    },
+    {
+      "id": "2012-2-phy-2", "answerRow": 2, "block": "I", "topicId": "mech",
+      "subtopic": "From a triangular v–t graph to the x–t graph",
+      "patternTags": ["read-from-graph", "kinematics"], "hasFigure": true,
+      "figure": { "ja": "t=0 で原点。v–t は三角波：0→+1(t=2)→0(t=4)→−1(t=6)→0(t=8)。", "en": "At t=0 at the origin. v–t is triangular: 0→+1(t=2)→0(t=4)→−1(t=6)→0(t=8)." },
+      "ja": { "prompt": "$x$ 軸上を運動する A は $t=0$ で原点にある。速度 $v$ は三角波で，$0\\to+1$（$t=2$）$\\to0$（$t=4$）$\\to-1$（$t=6$）$\\to0$（$t=8$）と変化した。A の位置 $x$ の $t$ 変化を表すグラフはどれか。", "choices": ["x は一定値で正負に折れ線", "x は 0 から最大 2（t=4）まで滑らかに上がり 0 に戻る滑らかな山（カクなし）", "x は正弦曲線（+1 と −1 の間）", "x は最大 2 の滑らかな山（最大は t=4）", "x は最大 2 だが頂点が尖り肩のある形（t=4 で尖る）"] },
+      "en": { "prompt": "A is at the origin at $t=0$; its velocity is triangular: $0\\to+1(t{=}2)\\to0(t{=}4)\\to-1(t{=}6)\\to0(t{=}8)$. Which graph shows $x$ vs $t$?", "choices": ["x: piecewise-constant steps", "x: rises smoothly from 0 to max 2 at t=4 then back (smooth hump)", "x: a sine curve between +1 and −1", "x: smooth hump peaking at 2 (max at t=4)", "x: peaks at 2 but with a pointed top and shoulders"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "0 から最大 2（t=4）まで滑らかに上がり 0 に戻る山型（④）", "en": "a smooth hump rising to a maximum of 2 at t=4, returning to 0 (④)" },
+      "explanation": { "en": "$x=\\int v\\,dt$. For $0\\le t\\le4$, $v\\ge0$ (positive triangle, area $\\tfrac12\\cdot4\\cdot1=2$), so $x$ rises to $2$ at $t=4$ — steepest where $v$ peaks ($t=2$), flat top where $v=0$ ($t=4$). For $4\\le t\\le8$ it mirrors back to $0$. A smooth single hump peaking at $(4,2)$.", "ja": "$x=\\int v\\,dt$。$0\\le t\\le4$ で $v\\ge0$（面積 $\\tfrac12\\cdot4\\cdot1=2$）なので $x$ は $t=4$ で $2$ に達する（$v$ 最大の $t=2$ で最も急，$v=0$ の $t=4$ で頂点平坦）。$4\\le t\\le8$ は対称に $0$ へ。滑らかな山（頂点 $(4,2)$）。" }
+    },
+    {
+      "id": "2012-2-phy-3", "answerRow": 3, "block": "I", "topicId": "mech",
+      "subtopic": "Tilted rod hung by two vertical strings (tension)",
+      "patternTags": ["express-formula", "torque-balance", "statics"], "hasFigure": true,
+      "figure": { "ja": "長さ ℓ の軽い棒の両端 A,B を鉛直な糸で天井につるし，棒は水平と 30°。A から距離 a の点 C に質量 m のおもり。", "en": "A light rod (length ℓ), ends A,B hung from the ceiling by vertical strings, tilted 30° from horizontal. A weight m hangs at C, distance a from A." },
+      "ja": { "prompt": "長さ $\\ell$ の軽い棒の両端 A,B を鉛直な糸で天井からつるし，棒は水平と $30°$ をなす。A から距離 $a$ の点 C に質量 $m$ のおもりをつるす。B と天井を結ぶ糸の張力の大きさはどれか。", "choices": ["$\\dfrac{a}{2\\ell}mg$", "$\\dfrac{\\ell-a}{\\ell}mg$", "$\\dfrac{a}{\\ell}mg$", "$\\dfrac{\\sqrt3\\,a}{6\\ell}mg$", "$\\dfrac{\\sqrt3(\\ell-a)}{3\\ell}mg$", "$\\dfrac{\\sqrt3\\,a}{3\\ell}mg$"] },
+      "en": { "prompt": "A light rod (length $\\ell$) has its ends A,B hung from the ceiling by vertical strings; the rod tilts $30°$ from horizontal. A weight $m$ hangs at C, distance $a$ from A. Find the tension in the B-string.", "choices": ["$\\dfrac{a}{2\\ell}mg$", "$\\dfrac{\\ell-a}{\\ell}mg$", "$\\dfrac{a}{\\ell}mg$", "$\\dfrac{\\sqrt3\\,a}{6\\ell}mg$", "$\\dfrac{\\sqrt3(\\ell-a)}{3\\ell}mg$", "$\\dfrac{\\sqrt3\\,a}{3\\ell}mg$"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "$\\dfrac{a}{\\ell}mg$", "en": "$\\dfrac{a}{\\ell}mg$" },
+      "explanation": { "en": "Both string tensions and the weight are vertical, so the moment arms about A are the horizontal distances ($\\propto\\cos30°$). Torque about A: $T_B(\\ell\\cos30°)=mg(a\\cos30°)$; the $\\cos30°$ cancels, giving $T_B=\\dfrac{a}{\\ell}mg$.", "ja": "糸の張力も重力も鉛直なので，A まわりの腕は水平距離（$\\propto\\cos30°$）。$T_B(\\ell\\cos30°)=mg(a\\cos30°)$ で $\\cos30°$ が消え，$T_B=\\dfrac{a}{\\ell}mg$。" }
+    },
+    {
+      "id": "2012-2-phy-4", "answerRow": 4, "block": "I", "topicId": "mech",
+      "subtopic": "Work to submerge a floating cylinder (buoyancy)",
+      "patternTags": ["read-from-graph", "buoyancy", "work"], "hasFigure": true,
+      "figure": { "ja": "円筒形の物体 A が水に浮き，上面が水面から h 出ている。棒で押し込んで沈める。押した距離 x と仕事 W のグラフを選ぶ。", "en": "A cylinder A floats with height h above water; a rod pushes it down. Choose the graph of work W vs push distance x." },
+      "ja": { "prompt": "円筒形の物体 A が水に浮き，水面上に出ている高さは $h$。細い棒で上面の中心を鉛直下方に押し，A をゆっくり水中に沈める。押し始めてからの移動距離を $x$，棒の力が A にした仕事を $W$ とする。$x$–$W$ のグラフはどれか。", "choices": ["x<h で直線上昇，x>h で折れて急勾配", "x<h で直線上昇，x>h で一定（水平）", "x<h で直線上昇，x>h で 0（止まる）", "x<h で上に凸の放物線，x>h で直線（傾き一定で増加）", "x<h で放物線，x>h で水平（一定）", "x<h で放物線，x>h で頭打ち"] },
+      "en": { "prompt": "A floating cylinder A sticks out a height $h$ above the water; a rod slowly pushes it under. With push distance $x$ and rod's work $W$, which graph shows $W$ vs $x$?", "choices": ["linear rise for x<h, then a steeper line for x>h", "linear rise for x<h, then constant (flat) for x>h", "linear rise for x<h, then 0 for x>h", "upward parabola for x<h, then a straight increasing line for x>h", "parabola for x<h, then flat for x>h", "parabola for x<h, then leveling off for x>h"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "x<h は上に凸の放物線，x>h は傾き一定の直線で増加（④）", "en": "concave-up parabola for x<h, straight increasing line for x>h (④)" },
+      "explanation": { "en": "Pushing down by $x$ (while $x<h$) adds buoyancy $F=\\rho gAx$ (linear), so $W=\\int F\\,dx=\\tfrac12\\rho gAx^2$ — a concave-up parabola. Once fully submerged ($x>h$) the buoyancy is constant ($F=\\rho gAh$), so $W$ rises linearly. Parabola then straight line.", "ja": "$x<h$ で押すと浮力が $F=\\rho gAx$（一次）増え，$W=\\int F\\,dx=\\tfrac12\\rho gAx^2$（上に凸の放物線）。完全に沈むと（$x>h$）浮力一定（$F=\\rho gAh$）で $W$ は直線的に増加。放物線→直線。" }
+    },
+    {
+      "id": "2012-2-phy-5", "answerRow": 5, "block": "I", "topicId": "mech",
+      "subtopic": "Spring collision (maximum compression)",
+      "patternTags": ["express-formula", "momentum", "energy-conservation", "spring"], "hasFigure": true,
+      "figure": { "ja": "水平な円筒中に 2 球 A,B（各質量 m）。B にばね定数 k のばね。B は静止。A が速さ v でばねに衝突し B が動き出す。", "en": "Two balls A,B (each mass m) in a horizontal tube; a spring (constant k) on B. B at rest. A hits the spring at speed v and B starts moving." },
+      "ja": { "prompt": "水平な長い円筒中に質量 $m$ の 2 球 A,B が入り，B にばね定数 $k$ のばねが付く。ばねは軽く，A,B はなめらかに動く。B ははじめ静止。A が速さ $v$ でばねに衝突し，同時に B も動き出した。ばねが最も縮んだときの縮みはどれか。", "choices": ["$\\dfrac{v}{2}\\sqrt{\\dfrac{m}{k}}$", "$v\\sqrt{\\dfrac{m}{2k}}$", "$v\\sqrt{\\dfrac{m}{k}}$", "$v\\sqrt{\\dfrac{2m}{k}}$", "$2v\\sqrt{\\dfrac{m}{k}}$"] },
+      "en": { "prompt": "Two balls A,B (each mass $m$) are in a horizontal tube; a spring (constant $k$) is on B. B is at rest; A hits the spring at speed $v$ and B starts moving. Find the maximum spring compression.", "choices": ["$\\dfrac{v}{2}\\sqrt{\\dfrac{m}{k}}$", "$v\\sqrt{\\dfrac{m}{2k}}$", "$v\\sqrt{\\dfrac{m}{k}}$", "$v\\sqrt{\\dfrac{2m}{k}}$", "$2v\\sqrt{\\dfrac{m}{k}}$"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "$v\\sqrt{\\dfrac{m}{2k}}$", "en": "$v\\sqrt{\\dfrac{m}{2k}}$" },
+      "explanation": { "en": "At maximum compression A and B share a common velocity: $mv=2m\\,v'\\Rightarrow v'=\\tfrac{v}{2}$. Energy: $\\tfrac12mv^2=\\tfrac12(2m)\\left(\\tfrac{v}{2}\\right)^2+\\tfrac12kx^2$, so $\\tfrac{mv^2}{4}=\\tfrac12kx^2$ and $x=v\\sqrt{\\dfrac{m}{2k}}$.", "ja": "最大圧縮で A,B は同速度：$mv=2m\\,v'$ より $v'=\\tfrac{v}{2}$。エネルギー $\\tfrac12mv^2=\\tfrac12(2m)\\left(\\tfrac{v}{2}\\right)^2+\\tfrac12kx^2$ より $\\tfrac{mv^2}{4}=\\tfrac12kx^2$，$x=v\\sqrt{\\dfrac{m}{2k}}$。" }
+    },
+    {
+      "id": "2012-2-phy-6", "answerRow": 6, "block": "I", "topicId": "mech",
+      "subtopic": "Slide + inelastic stick + friction on one stretch",
+      "patternTags": ["express-formula", "energy-conservation", "collision", "friction"], "hasFigure": true,
+      "figure": { "ja": "斜面 AB と水平面 BCDE。CD（長さ ℓ）以外はなめらか。A の高さ h。質量 m の P を A から初速 0 で滑らせる。B で静止していた質量 M の Q と一体になり，速さ v で E を通過。CD の動摩擦係数 μ'。", "en": "Incline AB joins a floor BCDE; all smooth except CD (length ℓ). A is height h. Block P (mass m) slides from rest at A, sticks to stationary Q (mass M) at B, and passes E at speed v. Kinetic friction μ' on CD." },
+      "ja": { "prompt": "斜面 AB と水平面 BCDE があり，区間 CD（長さ $\\ell$）以外はなめらか。A の高さは $h$。質量 $m$ の P を A から初速 $0$ で滑らせると，B で静止していた質量 $M$ の Q と一体となり，速さ $v$ で E を通過した。一体物体と CD の動摩擦係数を $\\mu'$ とする。$v$ はどれか。", "choices": ["$\\sqrt{2g(h-\\mu'\\ell)}$", "$\\sqrt{2g\\left(h-\\dfrac{m}{M+m}\\mu'\\ell\\right)}$", "$\\sqrt{2g\\left(h-\\dfrac{M}{M+m}\\mu'\\ell\\right)}$", "$\\sqrt{2g\\left(\\dfrac{M}{M+m}h-\\mu'\\ell\\right)}$", "$\\sqrt{2g\\left(\\dfrac{m}{M+m}h-\\mu'\\ell\\right)}$", "$\\sqrt{2g\\left(\\dfrac{m^2}{(M+m)^2}h-\\mu'\\ell\\right)}$"] },
+      "en": { "prompt": "An incline AB joins a floor BCDE; all smooth except CD (length $\\ell$). A is height $h$. P (mass $m$) slides from rest at A, sticks to stationary Q (mass $M$) at B, and passes E at speed $v$; kinetic friction $\\mu'$ on CD. Find $v$.", "choices": ["$\\sqrt{2g(h-\\mu'\\ell)}$", "$\\sqrt{2g\\left(h-\\dfrac{m}{M+m}\\mu'\\ell\\right)}$", "$\\sqrt{2g\\left(h-\\dfrac{M}{M+m}\\mu'\\ell\\right)}$", "$\\sqrt{2g\\left(\\dfrac{M}{M+m}h-\\mu'\\ell\\right)}$", "$\\sqrt{2g\\left(\\dfrac{m}{M+m}h-\\mu'\\ell\\right)}$", "$\\sqrt{2g\\left(\\dfrac{m^2}{(M+m)^2}h-\\mu'\\ell\\right)}$"] },
+      "answerIndex": 5, "answerOption": 6, "answer": { "ja": "$\\sqrt{2g\\left(\\dfrac{m^2}{(M+m)^2}h-\\mu'\\ell\\right)}$", "en": "$\\sqrt{2g\\left(\\dfrac{m^2}{(M+m)^2}h-\\mu'\\ell\\right)}$" },
+      "explanation": { "en": "P at B: $v_P=\\sqrt{2gh}$. Inelastic stick: $v_1=\\dfrac{m\\sqrt{2gh}}{M+m}$. Friction acts only on CD: $v^2=v_1^2-2\\mu'g\\ell=2g\\dfrac{m^2h}{(M+m)^2}-2\\mu'g\\ell$. So $v=\\sqrt{2g\\left(\\dfrac{m^2}{(M+m)^2}h-\\mu'\\ell\\right)}$.", "ja": "B での P：$v_P=\\sqrt{2gh}$。完全非弾性で一体化：$v_1=\\dfrac{m\\sqrt{2gh}}{M+m}$。摩擦は CD のみ：$v^2=v_1^2-2\\mu'g\\ell=2g\\dfrac{m^2h}{(M+m)^2}-2\\mu'g\\ell$。よって上式。" }
+    },
+    {
+      "id": "2012-2-phy-7", "answerRow": 7, "block": "I", "topicId": "mech",
+      "subtopic": "Orbital speed condition (gravitation)",
+      "patternTags": ["express-formula", "circular-motion", "gravitation"], "hasFigure": true,
+      "figure": { "ja": "恒星 M1 のまわりを惑星 m1 が速さ v1・半径 r1 で回り、恒星 M2 のまわりを m2 が v2・半径 r2 で回る。恒星は静止とみなす。", "en": "Planet m1 orbits star M1 at speed v1, radius r1; planet m2 orbits star M2 at v2, radius r2. Stars are taken as fixed." },
+      "ja": { "prompt": "恒星 $M_1$ のまわりを惑星 $m_1$ が速さ $v_1$・半径 $r_1$ の等速円運動，恒星 $M_2$ のまわりを $m_2$ が $v_2$・半径 $r_2$ で回る（恒星は静止とみなす）。$v_1=v_2$ となる条件はどれか。", "choices": ["$M_1=M_2$", "$m_1=m_2$", "$M_1m_1=M_2m_2$", "$\\dfrac{M_1}{r_1}=\\dfrac{M_2}{r_2}$", "$\\dfrac{m_1}{r_1}=\\dfrac{m_2}{r_2}$", "$\\dfrac{M_1m_1}{r_1}=\\dfrac{M_2m_2}{r_2}$"] },
+      "en": { "prompt": "Planet $m_1$ orbits star $M_1$ at speed $v_1$, radius $r_1$; planet $m_2$ orbits $M_2$ at $v_2$, radius $r_2$ (stars fixed). What is the condition for $v_1=v_2$?", "choices": ["$M_1=M_2$", "$m_1=m_2$", "$M_1m_1=M_2m_2$", "$\\dfrac{M_1}{r_1}=\\dfrac{M_2}{r_2}$", "$\\dfrac{m_1}{r_1}=\\dfrac{m_2}{r_2}$", "$\\dfrac{M_1m_1}{r_1}=\\dfrac{M_2m_2}{r_2}$"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "$\\dfrac{M_1}{r_1}=\\dfrac{M_2}{r_2}$", "en": "$\\dfrac{M_1}{r_1}=\\dfrac{M_2}{r_2}$" },
+      "explanation": { "en": "Gravity is the centripetal force: $\\dfrac{GMm}{r^2}=\\dfrac{mv^2}{r}$, so $v=\\sqrt{\\dfrac{GM}{r}}$, independent of the planet's mass. $v_1=v_2$ requires $\\dfrac{M_1}{r_1}=\\dfrac{M_2}{r_2}$.", "ja": "万有引力が向心力：$\\dfrac{GMm}{r^2}=\\dfrac{mv^2}{r}$ より $v=\\sqrt{\\dfrac{GM}{r}}$（惑星質量によらない）。$v_1=v_2$ なら $\\dfrac{M_1}{r_1}=\\dfrac{M_2}{r_2}$。" }
+    },
+    {
+      "id": "2012-2-phy-8", "answerRow": 8, "block": "II", "topicId": "thermo",
+      "subtopic": "Calorimetry (water + iron)",
+      "patternTags": ["plug-in-numbers", "calorimetry"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "$20\\,$℃ の水 $90\\,$g に $100\\,$℃ に熱した $210\\,$g の鉄を入れた。水の比熱 $4.2$，鉄の比熱 $0.45\\,$J/(g·K)，外部との熱の出入りはない。じゅうぶん時間後の水の温度はいくらか。", "choices": ["$24$", "$36$", "$48$", "$60$"] },
+      "en": { "prompt": "$90\\,$g of $20\\,$℃ water receives a $210\\,$g iron block heated to $100\\,$℃. $c_{water}=4.2$, $c_{iron}=0.45\\,$J/(g·K), no heat loss. Find the final water temperature (℃).", "choices": ["$24$", "$36$", "$48$", "$60$"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "$36$", "en": "$36$" },
+      "explanation": { "en": "Heat balance: $90\\cdot4.2\\cdot(T-20)=210\\cdot0.45\\cdot(100-T)$, i.e. $378(T-20)=94.5(100-T)$, so $472.5T=17010$ and $T=36\\,$℃.", "ja": "熱量保存：$90\\cdot4.2\\cdot(T-20)=210\\cdot0.45\\cdot(100-T)$，$378(T-20)=94.5(100-T)$，$472.5T=17010$，$T=36\\,$℃。" }
+    },
+    {
+      "id": "2012-2-phy-9", "answerRow": 9, "block": "II", "topicId": "thermo",
+      "subtopic": "T–V line through the origin (pressure & heat sign)",
+      "patternTags": ["read-from-graph", "ideal-gas", "first-law"], "hasFigure": true,
+      "figure": { "ja": "T–V 図（横軸 T，縦軸 V）。状態変化 A→B は原点を通る直線上を，A（高 T,V）から B（低 T,V）へ向かう。", "en": "T–V diagram (horizontal T, vertical V). A→B runs along a line through the origin, from A (high T,V) to B (low T,V)." },
+      "ja": { "prompt": "ある理想気体の状態変化 A→B が，原点を通る直線上を A（高い $T,V$）から B（低い $T,V$）へ進む（横軸 $T$，縦軸 $V$）。A→B で圧力 $p$ はどうなり，気体は熱を吸収するか放出するか。", "choices": ["p 増加・吸収", "p 増加・放出", "p 減少・吸収", "p 減少・放出", "p 一定・吸収", "p 一定・放出"] },
+      "en": { "prompt": "An ideal gas changes A→B along a line through the origin in the T–V plane (horizontal $T$, vertical $V$), from A (high $T,V$) to B (low $T,V$). What happens to the pressure $p$, and does the gas absorb or release heat?", "choices": ["p increases, absorbs", "p increases, releases", "p decreases, absorbs", "p decreases, releases", "p constant, absorbs", "p constant, releases"] },
+      "answerIndex": 5, "answerOption": 6, "answer": { "ja": "p 一定・放出", "en": "p constant, releases heat" },
+      "explanation": { "en": "A line through the origin has $V/T=$ const, so $p=\\dfrac{nRT}{V}=$ const (isobaric). Going A→B, $T$ decreases (gas cooled), so $Q=nC_p\\Delta T<0$ — heat is released.", "ja": "原点を通る直線は $V/T=$ 一定なので $p=\\dfrac{nRT}{V}=$ 一定（定圧）。A→B で $T$ が減る（冷却）ので $Q=nC_p\\Delta T<0$，熱を放出する。" }
+    },
+    {
+      "id": "2012-2-phy-10", "answerRow": 10, "block": "II", "topicId": "thermo",
+      "subtopic": "Heat-capacity ratio from equilibrium temperatures",
+      "patternTags": ["read-from-graph", "calorimetry", "heat-capacity"], "hasFigure": true,
+      "figure": { "ja": "断熱容器内で A(熱容量 C_A) と B(C_B) を接触。図2：A は 50℃ から、B は 10℃ から始まり、ともに 20℃ に近づく。", "en": "A (heat capacity C_A) and B (C_B) in contact, insulated. Fig 2: A starts 50℃, B starts 10℃, both approach 20℃." },
+      "ja": { "prompt": "熱容量 $C_A$ の A と熱容量 $C_B$ の B を接触させ断熱材で囲んだ。温度の時間変化（図2）では，A は $50\\,$℃ から，B は $10\\,$℃ から始まり，ともに $20\\,$℃ に近づいた。$\\dfrac{C_B}{C_A}$ はいくらか。", "choices": ["$0.2$", "$0.3$", "$3$", "$5$"] },
+      "en": { "prompt": "A (heat capacity $C_A$) and B ($C_B$) in contact, insulated. From the graph, A starts at $50\\,$℃ and B at $10\\,$℃, both approaching $20\\,$℃. Find $\\dfrac{C_B}{C_A}$.", "choices": ["$0.2$", "$0.3$", "$3$", "$5$"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "$3$", "en": "$3$" },
+      "explanation": { "en": "Heat lost by A equals heat gained by B: $C_A(50-20)=C_B(20-10)$, i.e. $30C_A=10C_B$, so $\\dfrac{C_B}{C_A}=3$.", "ja": "A の放出熱＝B の吸収熱：$C_A(50-20)=C_B(20-10)$，$30C_A=10C_B$ より $\\dfrac{C_B}{C_A}=3$。" }
+    },
+    {
+      "id": "2012-2-phy-11", "answerRow": 11, "block": "III", "topicId": "waves",
+      "subtopic": "From a wave snapshot to y–t graphs at two points",
+      "patternTags": ["read-from-graph", "travelling-wave", "transverse-velocity"], "hasFigure": true,
+      "figure": { "ja": "+x に進む波長 λ の正弦波の t=0 波形。x=λ/2 では変位が負・傾き負、x=λ では変位が正・傾き正。x=λ/2 と x=λ での y–t グラフ (a)〜(d) を選ぶ。", "en": "Snapshot of a +x-moving wave (wavelength λ) at t=0: at x=λ/2 displacement is negative with negative slope; at x=λ it is positive with positive slope. Choose the y–t graphs (a)–(d)." },
+      "ja": { "prompt": "波長 $\\lambda$ の正弦波が $x$ 軸正方向に進む。$t=0$ の波形で，$x=\\dfrac{\\lambda}{2}$ では変位が負で傾き負，$x=\\lambda$ では変位が正で傾き正である。$x=\\dfrac{\\lambda}{2}$ と $x=\\lambda$ での $y$–$t$ グラフ（(a)〜(d)）の組み合わせはどれか。", "choices": ["x=λ/2:(a), x=λ:(c)", "x=λ/2:(a), x=λ:(d)", "x=λ/2:(b), x=λ:(c)", "x=λ/2:(b), x=λ:(d)"] },
+      "en": { "prompt": "A wave (wavelength $\\lambda$) travels in $+x$. At $t=0$, at $x=\\dfrac{\\lambda}{2}$ the displacement is negative with negative slope, and at $x=\\lambda$ it is positive with positive slope. Which y–t graphs ((a)–(d)) apply at $x=\\lambda/2$ and $x=\\lambda$?", "choices": ["x=λ/2:(a), x=λ:(c)", "x=λ/2:(a), x=λ:(d)", "x=λ/2:(b), x=λ:(c)", "x=λ/2:(b), x=λ:(d)"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "x=λ/2:(b), x=λ:(d)", "en": "x=λ/2:(b), x=λ:(d)" },
+      "explanation": { "en": "For a $+x$-moving wave a point's transverse velocity has the opposite sign to the spatial slope: $\\dfrac{\\partial y}{\\partial t}=-v\\dfrac{\\partial y}{\\partial x}$. At $x=\\lambda/2$ the slope is negative so the point moves up → graph (b); at $x=\\lambda$ the slope is positive so the point moves down → graph (d).", "ja": "$+x$ に進む波では点の横方向速度は空間の傾きと逆符号：$\\dfrac{\\partial y}{\\partial t}=-v\\dfrac{\\partial y}{\\partial x}$。$x=\\lambda/2$ は傾き負なので上向き→(b)，$x=\\lambda$ は傾き正なので下向き→(d)。" }
+    },
+    {
+      "id": "2012-2-phy-12", "answerRow": 12, "block": "III", "topicId": "waves",
+      "subtopic": "Resonance multiples identify pipe type & wavelength",
+      "patternTags": ["conceptual", "resonance", "open-pipe"], "hasFigure": true,
+      "figure": { "ja": "周波数可変のスピーカーを長さ L の円管の口に置く。周波数を 0 から上げ最初の共鳴は f。その後 2f,3f,4f でも共鳴。右端は開／閉か、f の波長は。", "en": "A variable-frequency speaker at the mouth of a length-L pipe; first resonance at f, then also 2f,3f,4f. Is the far end open or closed, and what is λ of f?" },
+      "ja": { "prompt": "周波数可変のスピーカーを長さ $L$ の円管の口に置き，周波数を $0$ から上げると最初に $f$ で共鳴し，その後 $2f,3f,4f$ でも音量が大きくなった。管の右端は開いているか閉じているか，また $f$ の波長は。", "choices": ["波長 L, 右端 開", "波長 L, 右端 閉", "波長 2L, 右端 開", "波長 2L, 右端 閉", "波長 4L, 右端 開", "波長 4L, 右端 閉"] },
+      "en": { "prompt": "A variable-frequency speaker at the mouth of a length-$L$ pipe resonates first at $f$, then also at $2f,3f,4f$. Is the far end open or closed, and what is the wavelength of $f$?", "choices": ["λ=L, far end open", "λ=L, far end closed", "λ=2L, far end open", "λ=2L, far end closed", "λ=4L, far end open", "λ=4L, far end closed"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "波長 $2L$，右端 開", "en": "λ=2L, far end open" },
+      "explanation": { "en": "Resonances at $f,2f,3f,4f$ (all integer multiples) occur only for an open–open pipe (an open–closed pipe gives only odd multiples). The fundamental of an open–open pipe has $\\lambda=2L$. So the far end is open and $\\lambda=2L$.", "ja": "$f,2f,3f,4f$（整数倍すべて）で共鳴するのは両端開管（片側閉管は奇数倍のみ）。両端開管の基本振動は $\\lambda=2L$。よって右端は開，$\\lambda=2L$。" }
+    },
+    {
+      "id": "2012-2-phy-13", "answerRow": 13, "block": "III", "topicId": "waves",
+      "subtopic": "Dispersion by a glass prism vs an air cavity",
+      "patternTags": ["conceptual", "dispersion", "refraction"], "hasFigure": true,
+      "figure": { "ja": "図1：ガラスのプリズム（頂点上）で白色光が下方に分散，スクリーン上で上から 赤・黄・紫。図2：同形にくりぬいたガラス（中は空気の三角形）に白色光を通す。", "en": "Fig 1: a glass prism (apex up) disperses white light downward; on the screen top-to-bottom is red/yellow/violet. Fig 2: a triangular air cavity (same shape) in glass is illuminated." },
+      "ja": { "prompt": "ガラスのプリズム（頂点上）に白色光を入れると図1 のように分散し，スクリーン上で上から 赤・黄・紫 の帯が下側に映った。次に，同じ形をくりぬいたガラス（中は空気の三角形）の空気部分に白色光を入れる。スクリーンに映る色の帯はどうなるか。", "choices": ["スクリーン下側に 赤・黄・紫（上から）", "スクリーン下側に 紫・黄・赤（上から）", "スクリーン上側に 赤・黄・紫（上から）", "スクリーン上側に 紫・黄・赤（上から）"] },
+      "en": { "prompt": "A glass prism (apex up) disperses white light as in fig 1: on the screen, top-to-bottom, red/yellow/violet in the lower region. Then white light is sent through a triangular air cavity (same shape) cut in glass. What appears on the screen?", "choices": ["lower screen: red/yellow/violet (top→bottom)", "lower screen: violet/yellow/red", "upper screen: red/yellow/violet", "upper screen: violet/yellow/red"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "スクリーン上側に 紫・黄・赤（上から）", "en": "upper screen: violet/yellow/red (top→bottom)" },
+      "explanation": { "en": "A solid glass prism (apex up) bends light toward its base (downward), violet most, giving red/yellow/violet (top→bottom) in the lower screen. A triangular air cavity in glass acts like an inverted prism, reversing BOTH the deflection direction (band moves to the upper screen) and the colour order → violet/yellow/red top-to-bottom.", "ja": "ガラスのプリズム（頂点上）は底辺側（下）へ曲げ，紫が最も曲がるので下側に 赤・黄・紫。空気の三角形は逆向きプリズムとして働き，曲げる向き（帯は上側へ）も色順も逆転 → 上から 紫・黄・赤。" }
+    },
+    {
+      "id": "2012-2-phy-14", "answerRow": 14, "block": "IV", "topicId": "em",
+      "subtopic": "Field at the centre of a hexagon of point charges",
+      "patternTags": ["conceptual", "electric-field", "superposition", "symmetry"], "hasFigure": true,
+      "figure": { "ja": "正六角形の頂点 A〜F に等しい正電荷を置く配置（●あり／○なし）。中心 O での電場が最大になる配置を選ぶ。①全部 ②A欠 ③A,B欠 ④A,D欠 ⑤A,C欠 ⑥B,Fのみ。", "en": "Equal positive charges on a hexagon's vertices A–F (● present / ○ absent). Choose the arrangement giving the largest field at centre O. ① all ② A missing ③ A,B missing ④ A,D missing ⑤ A,C missing ⑥ only B,F." },
+      "ja": { "prompt": "正六角形の頂点 A〜F（A 右，B 右上，C 左上，D 左，E 左下，F 右下）に等しい正電荷を置く。中心 O での電場が最も大きくなる配置はどれか（● 電荷あり，○ なし）。①A〜F 全部 ②A 以外 ③A,B 以外 ④A,D 以外 ⑤A,C 以外 ⑥B,F のみ。", "choices": ["①（全頂点）", "②（A を除く 5 個）", "③（A,B を除く 4 個：C,D,E,F）", "④（A,D を除く 4 個）", "⑤（A,C を除く 4 個）", "⑥（B,F のみ）"] },
+      "en": { "prompt": "Equal positive charges sit on a hexagon's vertices A–F (A right, B upper-right, C upper-left, D left, E lower-left, F lower-right). Which arrangement gives the largest field at the centre O? ① all ② all but A ③ all but A,B ④ all but A,D ⑤ all but A,C ⑥ only B,F.", "choices": ["① (all vertices)", "② (5: all but A)", "③ (4: C,D,E,F — A,B missing)", "④ (4: A,D missing)", "⑤ (4: A,C missing)", "⑥ (only B,F)"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "③（C,D,E,F：A,B を除く配置）", "en": "③ (C,D,E,F — the A,B-missing arrangement)" },
+      "explanation": { "en": "Each vertex charge gives a field at O of equal magnitude $E_0$ pointing away from that vertex; all six together sum to zero. So a configuration's field equals $-($sum of the missing vertices' fields$)$. Magnitudes: ① 0; ② $E_0$; ③ (A,B adjacent missing) $\\sqrt3E_0$; ④ (A,D opposite missing) 0; ⑤ $E_0$; ⑥ $E_0$. The largest is ③.", "ja": "各頂点の電荷は O で同じ大きさ $E_0$ の電場を，その頂点と反対向きに作り，6 個合わせると 0。よって配置の電場は「欠けた頂点の電場の和の逆」。大きさは ①0，②$E_0$，③（隣り合う A,B 欠）$\\sqrt3E_0$，④（対角 A,D 欠）0，⑤$E_0$，⑥$E_0$。最大は③。" }
+    },
+    {
+      "id": "2012-2-phy-15", "answerRow": 15, "block": "IV", "topicId": "em",
+      "subtopic": "Charge sharing between capacitors via a switch",
+      "patternTags": ["plug-in-numbers", "capacitors", "charge-conservation"], "hasFigure": true,
+      "figure": { "ja": "未充電の C1(2.0 μF) と C2(3.0 μF)、スイッチ S1,S2、6.0 V 電池。S1 を閉じて C1 を充電後、S1 を開いて S2 を閉じる。", "en": "Uncharged C1(2.0 μF), C2(3.0 μF), switches S1,S2, 6.0 V battery. Close S1 to charge C1, then open S1 and close S2." },
+      "ja": { "prompt": "未充電の $2.0\\,\\mu$F の $C_1$，未充電の $3.0\\,\\mu$F の $C_2$，スイッチ $S_1,S_2$，起電力 $6.0\\,$V の電池がある。まず $S_1$ だけを閉じて $C_1$ を充電し，その後 $S_1$ を開いてから $S_2$ を閉じた。$C_1$ の極板間の電位差は何 V か。", "choices": ["$2.4$", "$3.6$", "$6.0$", "$10$"] },
+      "en": { "prompt": "Uncharged $C_1$ ($2.0\\,\\mu$F) and $C_2$ ($3.0\\,\\mu$F), switches $S_1,S_2$, and a $6.0\\,$V battery. Closing only $S_1$ charges $C_1$; then $S_1$ is opened and $S_2$ closed. Find the voltage across $C_1$ (V).", "choices": ["$2.4$", "$3.6$", "$6.0$", "$10$"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "$2.4$", "en": "$2.4$" },
+      "explanation": { "en": "$C_1$ charges to $6.0\\,$V: $Q=2.0\\times6.0=12\\,\\mu$C. Opening $S_1$ keeps this charge; closing $S_2$ puts $C_1\\parallel C_2$ (uncharged), so the $12\\,\\mu$C spreads over $2.0+3.0=5.0\\,\\mu$F: $V=\\dfrac{12}{5.0}=2.4\\,$V.", "ja": "$C_1$ は $6.0\\,$V に充電：$Q=2.0\\times6.0=12\\,\\mu$C。$S_1$ を開くと電荷一定，$S_2$ を閉じると $C_1\\parallel C_2$（未充電）で $12\\,\\mu$C が $5.0\\,\\mu$F に分かれ $V=\\dfrac{12}{5.0}=2.4\\,$V。" }
+    },
+    {
+      "id": "2012-2-phy-16", "answerRow": 16, "block": "IV", "topicId": "em",
+      "subtopic": "Maximum power transfer to n parallel resistors",
+      "patternTags": ["express-formula", "dc-circuit", "max-power-transfer"], "hasFigure": true,
+      "figure": { "ja": "起電力 E の電池に直列の r/2 の抵抗 1 個と、並列の r の抵抗 n 個。n 個全体で消費される電力が最大になる n を求める。", "en": "Battery E with a series r/2 resistor and n parallel r resistors; find n that maximizes the power in the n-resistor block." },
+      "ja": { "prompt": "起電力 $E$ の電池に，抵抗値 $\\dfrac{r}{2}$ の抵抗を 1 個直列に，抵抗値 $r$ の抵抗を $n$ 個並列につないだ（内部抵抗は無視）。抵抗値 $r$ の抵抗 $n$ 個全体で消費される電力が最も大きくなる $n$ はいくらか。", "choices": ["$1$", "$2$", "$3$", "$4$"] },
+      "en": { "prompt": "A battery $E$ has one series $\\dfrac{r}{2}$ resistor and $n$ parallel $r$ resistors (no internal resistance). For which $n$ is the power dissipated in the $n$ parallel resistors greatest?", "choices": ["$1$", "$2$", "$3$", "$4$"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "$2$", "en": "$2$" },
+      "explanation": { "en": "The $n$ parallel $r$-resistors have resistance $\\dfrac{r}{n}$, in series with $\\dfrac{r}{2}$. The load power is maximized (maximum-power-transfer) when the load equals the source resistance: $\\dfrac{r}{n}=\\dfrac{r}{2}$, so $n=2$.", "ja": "$r$ の $n$ 個並列は $\\dfrac{r}{n}$，直列の $\\dfrac{r}{2}$ と組む。負荷の電力は負荷抵抗＝電源側抵抗で最大（最大電力供給）：$\\dfrac{r}{n}=\\dfrac{r}{2}$ より $n=2$。" }
+    },
+    {
+      "id": "2012-2-phy-17", "answerRow": 17, "block": "IV", "topicId": "em",
+      "subtopic": "Accelerated charge decelerated by a field (find mass)",
+      "patternTags": ["express-formula", "electric-field", "kinematics"], "hasFigure": true,
+      "figure": { "ja": "電荷 q(>0)・質量 m を電位差 V で加速し、スリット S から一様電場 E の領域に電場と逆向きに打ち出す。S 通過後、時間 t で S に戻る。", "en": "Charge q(>0), mass m accelerated through potential difference V, fired from slit S into a uniform field E opposite to the field; it returns to S after time t." },
+      "ja": { "prompt": "電気量 $q\\,(>0)$・質量 $m$ の粒子を初速 $0$ から電位差 $V$ で加速し，スリット S から一様電場 $E$ の領域に，電場の向きと逆向きに打ち出した。粒子は S 通過後，時間 $t$ で S の位置まで戻った。$m$ はいくらか。", "choices": ["$\\dfrac{8qE^2t^2}{V}$", "$\\dfrac{4qE^2t^2}{V}$", "$\\dfrac{2qE^2t^2}{V}$", "$\\dfrac{qE^2t^2}{V}$", "$\\dfrac{qE^2t^2}{2V}$", "$\\dfrac{qE^2t^2}{4V}$", "$\\dfrac{qE^2t^2}{8V}$"] },
+      "en": { "prompt": "A charge $q\\,(>0)$, mass $m$ is accelerated from rest through $V$ and fired from slit S into a uniform field $E$, opposite to the field; it returns to S after time $t$. Find $m$.", "choices": ["$\\dfrac{8qE^2t^2}{V}$", "$\\dfrac{4qE^2t^2}{V}$", "$\\dfrac{2qE^2t^2}{V}$", "$\\dfrac{qE^2t^2}{V}$", "$\\dfrac{qE^2t^2}{2V}$", "$\\dfrac{qE^2t^2}{4V}$", "$\\dfrac{qE^2t^2}{8V}$"] },
+      "answerIndex": 6, "answerOption": 7, "answer": { "ja": "$\\dfrac{qE^2t^2}{8V}$", "en": "$\\dfrac{qE^2t^2}{8V}$" },
+      "explanation": { "en": "Acceleration through $V$: $v=\\sqrt{\\dfrac{2qV}{m}}$. In the field the deceleration is $a=\\dfrac{qE}{m}$; the out-and-back time is $t=\\dfrac{2v}{a}=\\dfrac{2vm}{qE}$, so $v=\\dfrac{qEt}{2m}$. Equating and squaring: $\\dfrac{q^2E^2t^2}{4m^2}=\\dfrac{2qV}{m}$, giving $m=\\dfrac{qE^2t^2}{8V}$.", "ja": "加速で $v=\\sqrt{\\dfrac{2qV}{m}}$。電場中の減速度 $a=\\dfrac{qE}{m}$，往復時間 $t=\\dfrac{2v}{a}=\\dfrac{2vm}{qE}$ より $v=\\dfrac{qEt}{2m}$。等置して 2 乗：$\\dfrac{q^2E^2t^2}{4m^2}=\\dfrac{2qV}{m}$，$m=\\dfrac{qE^2t^2}{8V}$。" }
+    },
+    {
+      "id": "2012-2-phy-18", "answerRow": 18, "block": "IV", "topicId": "em",
+      "subtopic": "Hall effect (which face is higher, magnitude)",
+      "patternTags": ["express-formula", "hall-effect", "magnetic-force"], "hasFigure": true,
+      "figure": { "ja": "直方体導体（幅 a:x, 奥行き b:y, 高さ h:z）。磁場 B は +z。電流は +y。電子の速さ v。面 S1, S2 は x に垂直（幅 a で隔たる）。", "en": "A rectangular conductor (width a:x, depth b:y, height h:z); field B in +z, current in +y, electron speed v. Faces S1,S2 are perpendicular to x (separated by width a)." },
+      "ja": { "prompt": "幅 $a$（$x$），奥行き $b$（$y$），高さ $h$（$z$）の直方体導体が，$z$ 軸正向きの磁束密度 $B$ の磁場中にある。$y$ 軸正の向きに電流を流す。導体中を移動する電子の速さを $v$。面 $S_1$ と面 $S_2$（$x$ に垂直，幅 $a$ で隔たる）の間に電位差が生じた。電位の高い面とその電位差の絶対値はどれか。", "choices": ["S1 が高い, vBa", "S1 が高い, vBb", "S1 が高い, vBh", "S1 が高い, vB", "S2 が高い, vBa", "S2 が高い, vBb", "S2 が高い, vBh", "S2 が高い, vB"] },
+      "en": { "prompt": "A box conductor (width $a$:$x$, depth $b$:$y$, height $h$:$z$) sits in field $B$ along $+z$; current flows in $+y$; conduction electrons have speed $v$. Faces $S_1,S_2$ (perpendicular to $x$, separated by width $a$) develop a potential difference. Which face is higher, and what is $|\\Delta V|$?", "choices": ["S1 higher, vBa", "S1 higher, vBb", "S1 higher, vBh", "S1 higher, vB", "S2 higher, vBa", "S2 higher, vBb", "S2 higher, vBh", "S2 higher, vB"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "$S_1$ が高い，$vBa$", "en": "$S_1$ higher, $vBa$" },
+      "explanation": { "en": "Conventional current is $+y$, so electrons drift in $-y$ at speed $v$. The magnetic force on an electron $-e(\\vec v_e\\times\\vec B)=-e(-v\\hat y\\times B\\hat z)=+evB\\hat x$ pushes electrons toward $+x$ ($S_2$ side), making $S_2$ negative and $S_1$ the higher-potential face. In equilibrium $E_{Hall}=vB$ across the width $a$, so $|\\Delta V|=vBa$.", "ja": "電流は $+y$ なので電子は $-y$ に速さ $v$ で流れる。電子に働く磁気力 $-e(\\vec v_e\\times\\vec B)=-e(-v\\hat y\\times B\\hat z)=+evB\\hat x$ で電子は $+x$（$S_2$ 側）へ寄り，$S_2$ が負，$S_1$ が高電位。平衡で $E_{Hall}=vB$，幅 $a$ にわたるので $|\\Delta V|=vBa$。" }
+    },
+    {
+      "id": "2012-2-phy-19", "answerRow": 19, "block": "IV", "topicId": "em",
+      "subtopic": "Rod falling on rails — terminal velocity gives B",
+      "patternTags": ["express-formula", "electromagnetic-induction", "terminal-velocity"], "hasFigure": true,
+      "figure": { "ja": "鉛直なレール（間隔 L）に抵抗 R を接続し、質量 m の導体棒が落下。水平な磁束密度 B が棒に直交。棒は終端速度 v0 になる。", "en": "Vertical rails (separation L) closed by resistor R; a rod (mass m) falls. A horizontal field B is perpendicular to the rod; the rod reaches terminal speed v0." },
+      "ja": { "prompt": "間隔 $L$ の導線（一辺が抵抗 $R$）に質量 $m$ の導体棒を，常に接しながら鉛直に落下させた。水平方向に磁束密度 $B$ の一様な磁場が棒に直交してかかる。棒の速さは途中から一定の $v_0$ になった。摩擦は無視できる。$B$ はいくらか。", "choices": ["$\\dfrac{mgR}{Lv_0}$", "$\\dfrac{mgR}{L^2v_0}$", "$\\dfrac{1}{L}\\sqrt{\\dfrac{mgR}{v_0}}$", "$\\sqrt{\\dfrac{mgR}{Lv_0}}$"] },
+      "en": { "prompt": "A rod (mass $m$) falls vertically along rails of separation $L$ closed by a resistor $R$, in a horizontal field $B$ perpendicular to the rod; it reaches a constant terminal speed $v_0$ (frictionless). Find $B$.", "choices": ["$\\dfrac{mgR}{Lv_0}$", "$\\dfrac{mgR}{L^2v_0}$", "$\\dfrac{1}{L}\\sqrt{\\dfrac{mgR}{v_0}}$", "$\\sqrt{\\dfrac{mgR}{Lv_0}}$"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "$\\dfrac{1}{L}\\sqrt{\\dfrac{mgR}{v_0}}$", "en": "$\\dfrac{1}{L}\\sqrt{\\dfrac{mgR}{v_0}}$" },
+      "explanation": { "en": "At terminal velocity the motional EMF is $BLv_0$, current $I=\\dfrac{BLv_0}{R}$, and the retarding force $BIL=\\dfrac{B^2L^2v_0}{R}$ balances gravity: $mg=\\dfrac{B^2L^2v_0}{R}$. So $B=\\dfrac{1}{L}\\sqrt{\\dfrac{mgR}{v_0}}$.", "ja": "終端速度で起電力 $BLv_0$，電流 $I=\\dfrac{BLv_0}{R}$，制動力 $BIL=\\dfrac{B^2L^2v_0}{R}$ が重力とつり合う：$mg=\\dfrac{B^2L^2v_0}{R}$。よって $B=\\dfrac{1}{L}\\sqrt{\\dfrac{mgR}{v_0}}$。" }
+    }
+  ],
+  "patterns": {
+    "blockSkeleton": "Older 7/3/3/6 format: Mechanics ×7, Thermodynamics ×3, Waves ×3, Electricity & Magnetism ×6, no Atoms block (19 items).",
+    "newArchetypesVsPrevious": [
+      "Tilted rod on two vertical strings: vertical-force torque about one end; the tilt-angle cosine cancels (T_B = (a/ℓ)mg).",
+      "Work to submerge a floater: linear force ρgAx (so W parabolic) until fully submerged, then constant force (W linear).",
+      "Slide + perfectly-inelastic stick + friction on one stretch only, combined energy/momentum.",
+      "Hexagon of point charges: the field is −(sum of the missing-vertex unit vectors); adjacent-missing pair gives the maximum √3E0.",
+      "Maximum power transfer: n parallel r-resistors maximize load power when r/n equals the series r/2 (n=2).",
+      "Accelerated charge fired against a field returns after 2v/a; combine with v=√(2qV/m).",
+      "Hall effect: which face is positive and |ΔV|=vB·(width).",
+      "Rod falling on vertical rails to terminal velocity: mg = B²L²v0/R."
+    ],
+    "recurringWithPrevious": [
+      "Two connected blocks: system acceleration then tension on one block.",
+      "x–t graph as the running integral of a v–t graph.",
+      "Spring-collision maximum compression via common velocity + energy.",
+      "Calorimetry water+metal; heat-capacity ratio from equilibrium temperatures.",
+      "T–V line through the origin ⇒ isobaric; heat sign from the temperature change.",
+      "Open vs closed pipe identified by which harmonics resonate.",
+      "Prism dispersion order and direction; capacitor charge sharing across a switch.",
+      "Orbital speed v=√(GM/r) independent of the orbiting mass."
+    ],
+    "examTacticNotes": [
+      "When all string tensions and the weight are vertical, take torques about a contact point — horizontal moment arms carry a common cos θ that cancels.",
+      "Submerging a floater: force grows linearly while it is still partly out (W = parabola), then is constant once fully under (W = straight line).",
+      "Symmetric point charges: use that a complete symmetric set sums to zero, so the field equals minus the sum of whatever is missing.",
+      "Maximum power in a load: set load resistance = the rest of the circuit's resistance.",
+      "Charge launched against a field is like a vertical throw: out-and-back time = 2v/a.",
+      "Hall voltage = (drift speed)·B·(transverse width), and the force qv×B tells you which face is positive.",
+      "Terminal velocity on rails: gravity balances the induced magnetic braking force B²L²v/R."
+    ],
+    "difficulty": "Standard EJU level with a 7-item Mechanics section. The submerging-floater work graph (Q4), the hexagon field maximum (Q14), the maximum-power-transfer count (Q16) and the accelerated-charge mass (Q17) are the most discriminating."
+  }
+}

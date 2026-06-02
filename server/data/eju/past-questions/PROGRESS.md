@@ -29,7 +29,7 @@ Workflow per paper:
 | 2014 | 1 | 1YtyM7BupKbOw1hmsYgzm_TJYw13zXIIZ | 1hTk-KZj7HsVbQJYS2GPCB9qa5Pfh9uLZ | ✅ done (19, I×7 no-V) |
 | 2013 | 2 | 1bSK0C99TvLLfc17uhzqZsn1Opi5XHIXK | 1jCoBfbsz0eqB4qVFKW3e9HgiatdDogHA | ✅ done (19, I×7 no-V) |
 | 2013 | 1 | 1MLDJv1HeE3MqrLSIBgJMJnvy6iCfVxq7 | 1W5AO-n27yHZEVoo-DSkTdKUf21pDMhat | ✅ done (19, I×7 no-V) |
-| 2012 | 2 | 1fLqPOetKW9J3etZDroOKGYXAPDbm8Spe | 1tia15lyR1U-mQcomg-LDGULBkCzywSZW | ⬜ |
+| 2012 | 2 | 1fLqPOetKW9J3etZDroOKGYXAPDbm8Spe | 1tia15lyR1U-mQcomg-LDGULBkCzywSZW | ✅ done (19, I×7 no-V) |
 | 2012 | 1 | 1UuVPu95A464Syg8LtUZz4drwUmlL3fbt | 1OfoYCM4Tj1-sh8gi5Ujk9uwtfr1NoCzl | ⬜ |
 | 2011 | 1 | 1hBjO0w8xkf8B-BTIleHmHF9qohfN5GkL | 18aDbg9WLwaq87V2gtt7GCFlx0yeLU0J5 | ⬜ |
 | 2010 | 1 | 10PH9k2akTYBt0hiJc6VNU_jDjUDLDiwH | 1Q60uuxBPo43pxuzsHbOwRPn9le06Y_Qa | ⬜ |
