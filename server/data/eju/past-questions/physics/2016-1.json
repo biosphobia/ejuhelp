@@ -1,0 +1,237 @@
+{
+  "id": "2016-1-physics",
+  "year": 2016,
+  "session": 1,
+  "subject": "physics",
+  "title": "EJU 2016 · Session 1 · Physics",
+  "source": "平成28年度（2016年度）日本留学試験（第1回）理科〈物理〉 © Japan Student Services Organization (JASSO)",
+  "attribution": "EJU past questions © JASSO. Question text transcribed from the official past paper; figures described in text; correct answers read from the official JASSO answer table (image, since the text export was corrupted) and independently re-solved for verification.",
+  "languages": ["ja", "en"],
+  "answerKeyVerified": true,
+  "structure": {
+    "blocks": [
+      { "id": "I", "topicId": "mech", "name": { "ja": "力学", "en": "Mechanics" }, "questionCount": 6 },
+      { "id": "II", "topicId": "thermo", "name": { "ja": "熱力学", "en": "Thermodynamics" }, "questionCount": 3 },
+      { "id": "III", "topicId": "waves", "name": { "ja": "波動", "en": "Waves" }, "questionCount": 3 },
+      { "id": "IV", "topicId": "em", "name": { "ja": "電気と磁気", "en": "Electricity & Magnetism" }, "questionCount": 6 },
+      { "id": "V", "topicId": "atoms", "name": { "ja": "原子", "en": "Atoms" }, "questionCount": 1 }
+    ],
+    "totalQuestions": 19,
+    "givens": { "ja": "重力加速度の大きさを g とし，空気の抵抗は無視できるものとする。", "en": "Take the magnitude of gravitational acceleration as g; air resistance is negligible." }
+  },
+  "questions": [
+    {
+      "id": "2016-1-phy-1", "answerRow": 1, "block": "I", "topicId": "mech",
+      "subtopic": "Vertical motion (when is string tension greatest)",
+      "patternTags": ["read-from-graph", "newtons-second-law"], "hasFigure": true,
+      "figure": { "ja": "糸でつるしたおもりを鉛直方向に運動させる。h–t グラフ：高い所から始まり，下がって $t_3$ で最低点，再び上がる（おもりの高さ h の時間変化）。", "en": "A weight on a string moves vertically. The h–t graph starts high, dips to a minimum at $t_3$, then rises (height h vs time)." },
+      "ja": { "prompt": "糸の一端におもりを付け鉛直方向に運動させた。図2 は床からの高さ $h$ の時間変化（$t_1$ 付近で最高，$t_3$ で最低）。$t_1$〜$t_4$ のうち糸の張力が最も大きくなる時刻はどれか。", "choices": ["$t_1$", "$t_2$", "$t_3$", "$t_4$"] },
+      "en": { "prompt": "A weight on a string moves vertically; the figure shows its height $h$ vs time (highest near $t_1$, lowest at $t_3$). At which of $t_1$–$t_4$ is the string tension greatest?", "choices": ["$t_1$", "$t_2$", "$t_3$", "$t_4$"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "$t_3$", "en": "$t_3$" },
+      "explanation": { "en": "Tension is largest when the upward acceleration is largest, i.e. where the h–t graph is most concave-up — the lowest point $t_3$, where $T-mg=ma$ with $a$ upward and maximal.", "ja": "張力最大は上向き加速度最大のとき＝h–t が最も下に凸の最低点 $t_3$。" }
+    },
+    {
+      "id": "2016-1-phy-2", "answerRow": 2, "block": "I", "topicId": "mech",
+      "subtopic": "Friction between stacked blocks (slipping threshold)",
+      "patternTags": ["express-formula", "static-friction", "newtons-second-law"], "hasFigure": true,
+      "figure": { "ja": "床に質量 M の物体 A，その上に質量 m の物体 B。床–A は摩擦なし，A–B は静止摩擦係数 μ。B に水平力 F を加え F0 を超えると B が滑り出す。", "en": "Block A (mass M) on a frictionless floor; block B (mass m) on top, with static-friction coefficient μ between them. A horizontal force F on B makes B slip once F exceeds F0." },
+      "ja": { "prompt": "なめらかな床上に質量 $M$ の A，その上に質量 $m$ の B。A–B 間の静止摩擦係数を $\\mu$ とする。B に水平力 $F$ を加え，$F$ が $F_0$ を超えると B が A 上を滑り出した。$F_0$ はどのように表されるか。", "choices": ["$\\mu mg$", "$\\mu(M+m)g$", "$\\dfrac{\\mu(M+m)mg}{M}$", "$\\dfrac{\\mu(M+m)Mg}{m}$"] },
+      "en": { "prompt": "Block A (mass $M$) is on a frictionless floor; block B (mass $m$) on top has static-friction coefficient $\\mu$ with A. A horizontal force $F$ on B makes B slip once $F>F_0$. Express $F_0$.", "choices": ["$\\mu mg$", "$\\mu(M+m)g$", "$\\dfrac{\\mu(M+m)mg}{M}$", "$\\dfrac{\\mu(M+m)Mg}{m}$"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "$\\dfrac{\\mu(M+m)mg}{M}$", "en": "$\\dfrac{\\mu(M+m)mg}{M}$" },
+      "explanation": { "en": "Together: $a=F/(M+m)$. A is driven only by friction from B: $f=Ma$. Slipping at $f=\\mu mg$: $\\dfrac{MF_0}{M+m}=\\mu mg\\Rightarrow F_0=\\dfrac{\\mu(M+m)mg}{M}$.", "ja": "一体で $a=F/(M+m)$。A は B からの摩擦 $f=Ma$ のみ。$f=\\mu mg$ で滑り出し $\\dfrac{MF_0}{M+m}=\\mu mg$ より $F_0=\\dfrac{\\mu(M+m)mg}{M}$。" }
+    },
+    {
+      "id": "2016-1-phy-3", "answerRow": 3, "block": "I", "topicId": "mech",
+      "subtopic": "Block launched off a free cart (momentum + energy)",
+      "patternTags": ["express-formula", "momentum-conservation", "energy-conservation", "ratio"], "hasFigure": true,
+      "figure": { "ja": "上面 AB が水平で鉛直面 CD につながる質量 M の台。固定時：m に初速 v → 高さ H まで上昇。非固定時（なめらかな床）：同じく初速 v → 高さ h。摩擦なし。", "en": "A cart (mass M) whose horizontal top AB connects to a vertical face CD. Fixed: a mass m given speed v rises to height H. Free (frictionless floor): same speed v rises to height h. No friction." },
+      "ja": { "prompt": "上面 AB が水平で鉛直面 CD になめらかにつながる質量 $M$ の台。台を固定して水平面上の質量 $m$ の小物体に初速 $v$ を与えると，CD を経て真上に飛び出し高さ $H$ まで上がった。次に台を固定せず（なめらかな床），同じく初速 $v$ を与えると高さ $h$ まで上がった。$\\dfrac{h}{H}$ はどれか。", "choices": ["$\\dfrac{M}{M+m}$", "$\\dfrac{m}{M+m}$", "$\\sqrt{\\dfrac{M}{M+m}}$", "$\\sqrt{\\dfrac{m}{M+m}}$"] },
+      "en": { "prompt": "A cart (mass $M$) with horizontal top AB joining a vertical face CD. Fixed: a mass $m$ given speed $v$ launches up to height $H$. Free (frictionless floor): the same speed $v$ gives height $h$. Find $\\dfrac{h}{H}$.", "choices": ["$\\dfrac{M}{M+m}$", "$\\dfrac{m}{M+m}$", "$\\sqrt{\\dfrac{M}{M+m}}$", "$\\sqrt{\\dfrac{m}{M+m}}$"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "$\\dfrac{M}{M+m}$", "en": "$\\dfrac{M}{M+m}$" },
+      "explanation": { "en": "Fixed: $H=\\dfrac{v^2}{2g}$. Free: at launch m and cart share horizontal velocity $v_c=\\dfrac{mv}{M+m}$. Energy: $\\tfrac12mv^2=\\tfrac12(M+m)v_c^2+mgh\\Rightarrow h=\\dfrac{Mv^2}{2g(M+m)}$. So $\\dfrac{h}{H}=\\dfrac{M}{M+m}$.", "ja": "固定 $H=\\dfrac{v^2}{2g}$。非固定：打ち出し時に水平速度 $v_c=\\dfrac{mv}{M+m}$ を共有。エネルギー保存より $h=\\dfrac{Mv^2}{2g(M+m)}$，$\\dfrac{h}{H}=\\dfrac{M}{M+m}$。" }
+    },
+    {
+      "id": "2016-1-phy-4", "answerRow": 4, "block": "I", "topicId": "mech",
+      "subtopic": "Impulse from an F–t graph (final momentum)",
+      "patternTags": ["read-from-graph", "impulse-momentum", "area-under-curve"], "hasFigure": true,
+      "figure": { "ja": "4.0 kg の物体が 3.0 m/s で運動中、F–t（三角形：0→8 N at t=2 s→0 at t=4 s）の力を運動方向に加える。", "en": "A 4.0 kg object moving at 3.0 m/s; an F–t force (triangle: 0→8 N at t=2 s→0 at t=4 s) acts in the direction of motion." },
+      "ja": { "prompt": "なめらかな水平面上を $3.0\\,$m/s で運動する質量 $4.0\\,$kg の物体に，運動方向に図の三角形の力（$t=2\\,$s で $8\\,$N，$t=4\\,$s で 0）を加えた。力を加えた後の物体の運動量はいくらか。", "choices": ["0", "12", "16", "28", "32", "44"] },
+      "en": { "prompt": "On a smooth floor, a $4.0\\,$kg object moving at $3.0\\,$m/s is pushed in its direction of motion by the triangular force shown (8 N at $t=2\\,$s, 0 at $t=4\\,$s). What is the object's momentum afterward (kg·m/s)?", "choices": ["0", "12", "16", "28", "32", "44"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "28 kg·m/s", "en": "28 kg·m/s" },
+      "explanation": { "en": "Initial momentum $=4.0\\times3.0=12$. Impulse = triangle area $=\\tfrac12\\times4\\times8=16$. Final $=12+16=28$ kg·m/s.", "ja": "初め $12$，力積＝三角形 $\\tfrac12\\times4\\times8=16$，計 $28$。" }
+    },
+    {
+      "id": "2016-1-phy-5", "answerRow": 5, "block": "I", "topicId": "mech",
+      "subtopic": "Springs in parallel (period ratio)",
+      "patternTags": ["express-formula", "simple-harmonic-motion", "springs"], "hasFigure": true,
+      "figure": { "ja": "図1：1 つのばねでおもりをつるし周期 T1。図2：同じばね 2 本を質量無視の棒で天井から並列につなぎ，棒の中央に同じおもり → 周期 T2（並列ばね）。", "en": "Fig 1: one spring supports the weight (period T1). Fig 2: two identical springs from the ceiling joined by a light rod, with the same weight at the rod's center (parallel springs) → period T2." },
+      "ja": { "prompt": "図1 のように 1 本のばねでおもりをつるし単振動させる周期を $T_1$。図2 のように同じばね 2 本を質量の無視できる棒で並列につなぎ同じおもりで単振動させる周期を $T_2$。$\\dfrac{T_2}{T_1}$ はいくらか。", "choices": ["$\\dfrac12$", "$\\dfrac{\\sqrt2}{2}$", "$1$", "$\\sqrt2$", "$2$"] },
+      "en": { "prompt": "Fig 1: one spring supports a weight (period $T_1$). Fig 2: two identical springs in parallel (via a light rod) support the same weight (period $T_2$). Find $\\dfrac{T_2}{T_1}$.", "choices": ["$\\dfrac12$", "$\\dfrac{\\sqrt2}{2}$", "$1$", "$\\sqrt2$", "$2$"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "$\\dfrac{\\sqrt2}{2}$", "en": "$\\dfrac{\\sqrt2}{2}$" },
+      "explanation": { "en": "Two springs in parallel give $k_{eff}=2k$. $T=2\\pi\\sqrt{m/k}$, so $\\dfrac{T_2}{T_1}=\\sqrt{\\dfrac{k}{2k}}=\\dfrac{1}{\\sqrt2}=\\dfrac{\\sqrt2}{2}$.", "ja": "並列で $k_{eff}=2k$。$\\dfrac{T_2}{T_1}=\\sqrt{\\dfrac{k}{2k}}=\\dfrac{\\sqrt2}{2}$。" }
+    },
+    {
+      "id": "2016-1-phy-6", "answerRow": 6, "block": "I", "topicId": "mech",
+      "subtopic": "Object leaving a circular surface",
+      "patternTags": ["express-formula", "circular-motion", "energy-conservation"], "hasFigure": true,
+      "figure": { "ja": "半径 r の 1/4 円柱が床に固定され上端 A に水平面が接続。水平面上で小物体に速さ v0 を与えると点 B（∠AOB=θ）で表面から離れる。摩擦なし。", "en": "A quarter-cylinder (radius r) is fixed with its top A joining a horizontal surface. A block given speed v0 leaves the surface at B (∠AOB=θ). Frictionless." },
+      "ja": { "prompt": "半径 $r$ の $\\frac14$ 円柱が床に固定され，上端 A に水平面が接続している。水平面上で小物体を速さ $v_0$ で運動させたところ，$\\angle AOB=\\theta$ の点 B で円柱表面から離れた。摩擦はない。$v_0$ はどのように表されるか。", "choices": ["$\\sqrt{(3\\sin\\theta-2)gr}$", "$\\sqrt{(3\\cos\\theta-2)gr}$", "$\\sqrt{(2\\sin\\theta+\\cos\\theta-2)gr}$", "$\\sqrt{(\\sin\\theta+2\\cos\\theta-2)gr}$"] },
+      "en": { "prompt": "A quarter-cylinder (radius $r$) is fixed with top A joining a horizontal surface. A block given speed $v_0$ leaves the surface at B (∠AOB=$\\theta$). Frictionless. Express $v_0$.", "choices": ["$\\sqrt{(3\\sin\\theta-2)gr}$", "$\\sqrt{(3\\cos\\theta-2)gr}$", "$\\sqrt{(2\\sin\\theta+\\cos\\theta-2)gr}$", "$\\sqrt{(\\sin\\theta+2\\cos\\theta-2)gr}$"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "$\\sqrt{(3\\cos\\theta-2)gr}$", "en": "$\\sqrt{(3\\cos\\theta-2)gr}$" },
+      "explanation": { "en": "At angle θ, energy: $v^2=v_0^2+2gr(1-\\cos\\theta)$. Leaving the surface (N=0): $mg\\cos\\theta=\\dfrac{mv^2}{r}\\Rightarrow v^2=gr\\cos\\theta$. Setting equal: $v_0^2=3gr\\cos\\theta-2gr=(3\\cos\\theta-2)gr$.", "ja": "角θで $v^2=v_0^2+2gr(1-\\cos\\theta)$。離れる条件 $mg\\cos\\theta=\\dfrac{mv^2}{r}$ より $v^2=gr\\cos\\theta$。よって $v_0^2=(3\\cos\\theta-2)gr$。" }
+    },
+    {
+      "id": "2016-1-phy-7", "answerRow": 7, "block": "II", "topicId": "thermo",
+      "subtopic": "Melting time at constant heating power",
+      "patternTags": ["plug-in-numbers", "calorimetry", "heat-of-fusion", "power"], "hasFigure": false,
+      "ja": { "prompt": "$-20\\,^\\circ$C の容器に $1.0\\,$kg・$-20\\,^\\circ$C の氷を入れ，一定の熱量を与え続けると毎分 $1.0\\times10^1\\,$K で温度上昇し，$0\\,^\\circ$C で温度が変化しなくなった。容器の熱容量 $1.0\\times10^3\\,$J/K，氷の比熱 $2.0\\times10^3\\,$J/(kg·K)，氷の融解熱 $3.3\\times10^5\\,$J/kg。$0\\,^\\circ$C のまま温度が変化しなかった時間は何分か。", "choices": ["1.1", "2.2", "3.3", "11", "22", "33"] },
+      "en": { "prompt": "A container at $-20\\,^\\circ$C with $1.0\\,$kg of $-20\\,^\\circ$C ice is heated at a constant rate; the temperature rises $1.0\\times10^1\\,$K/min until $0\\,^\\circ$C, where it pauses. Container heat capacity $1.0\\times10^3\\,$J/K, ice specific heat $2.0\\times10^3\\,$J/(kg·K), heat of fusion $3.3\\times10^5\\,$J/kg. For how many minutes does the temperature stay at $0\\,^\\circ$C?", "choices": ["1.1", "2.2", "3.3", "11", "22", "33"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "11 分", "en": "11 minutes" },
+      "explanation": { "en": "Warming −20→0 (2 min) needs $(1.0\\cdot2.0\\times10^3+1.0\\times10^3)\\cdot20=6.0\\times10^4$ J, so power $=3.0\\times10^4$ J/min. Melting needs $3.3\\times10^5$ J, taking $330000/30000=11$ min.", "ja": "$-20\\to0$（2 分）に $(2000+1000)\\cdot20=6.0\\times10^4$ J → 出力 $3.0\\times10^4$ J/分。融解 $3.3\\times10^5$ J で $11$ 分。" }
+    },
+    {
+      "id": "2016-1-phy-8", "answerRow": 8, "block": "II", "topicId": "thermo",
+      "subtopic": "Ideal gas mixing between two connected vessels",
+      "patternTags": ["plug-in-numbers", "ideal-gas", "moles", "ratio"], "hasFigure": true,
+      "figure": { "ja": "容器 A（体積 V，圧力 8p，温度 T，nA mol）と容器 B（体積 4V，圧力 p，温度 T）を細管・コックでつなぐ。コックを開いて混合（断熱・等温）。混合後 A 内の物質量 n'A。", "en": "Vessel A (volume V, pressure 8p, temp T, nA mol) and vessel B (volume 4V, pressure p, temp T) joined by a cock. Opening it mixes the gas (insulated, same T). After mixing, A holds n'A mol." },
+      "ja": { "prompt": "体積 $V$ の容器 A（圧力 $8p$，絶対温度 $T$，$n_A$ mol）と体積 $4V$ の容器 B（圧力 $p$，絶対温度 $T$）を細管とコックでつなぐ。コックを開いて混合した（容器は断熱材）。混合後 A 内の物質量を $n'_A$ とすると，$\\dfrac{n'_A}{n_A}$ はいくらか。", "choices": ["$\\dfrac{3}{10}$", "$\\dfrac{1}{2}$", "$\\dfrac{3}{5}$", "$\\dfrac{3}{4}$", "$\\dfrac{12}{5}$"] },
+      "en": { "prompt": "Vessel A (volume $V$, pressure $8p$, temp $T$, $n_A$ mol) and vessel B (volume $4V$, pressure $p$, temp $T$) are joined by a cock. Opening it mixes the gas (insulated). After mixing A holds $n'_A$ mol. Find $\\dfrac{n'_A}{n_A}$.", "choices": ["$\\dfrac{3}{10}$", "$\\dfrac{1}{2}$", "$\\dfrac{3}{5}$", "$\\dfrac{3}{4}$", "$\\dfrac{12}{5}$"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "$\\dfrac{3}{10}$", "en": "$\\dfrac{3}{10}$" },
+      "explanation": { "en": "$n_A=\\dfrac{8pV}{RT}$, $n_B=\\dfrac{4pV}{RT}$, total $\\dfrac{12pV}{RT}$ in $5V$, so $p_f=\\dfrac{12p}{5}$ at the same $T$. Then $n'_A=\\dfrac{p_fV}{RT}=\\dfrac{12pV}{5RT}$, giving $\\dfrac{n'_A}{n_A}=\\dfrac{12/5}{8}=\\dfrac{3}{10}$.", "ja": "$n_A=\\dfrac{8pV}{RT}$，$n_B=\\dfrac{4pV}{RT}$，全 $\\dfrac{12pV}{RT}$ を $5V$ に。$p_f=\\dfrac{12p}{5}$。$n'_A=\\dfrac{p_fV}{RT}=\\dfrac{12pV}{5RT}$ より $\\dfrac{n'_A}{n_A}=\\dfrac{3}{10}$。" }
+    },
+    {
+      "id": "2016-1-phy-9", "answerRow": 9, "block": "II", "topicId": "thermo",
+      "subtopic": "p–V midpoint temperature comparison",
+      "patternTags": ["identify", "pv-diagram", "ideal-gas"], "hasFigure": true,
+      "figure": { "ja": "p–V 図：A=(V,2p)→B=(2V,p) を直線で結ぶ。中点 C=(1.5V,1.5p)。", "en": "p–V diagram: a straight line A=(V,2p) → B=(2V,p); midpoint C=(1.5V, 1.5p)." },
+      "ja": { "prompt": "一定量の理想気体を $p$–$V$ 図のように A$(V,2p)$ から B$(2V,p)$ へ直線的に変化させ，中点を C とする。A,B,C の絶対温度 $T_A,T_B,T_C$ の関係はどれか。", "choices": ["$T_A=T_B=T_C$", "$T_A=T_B<T_C$", "$T_C<T_A=T_B$", "$T_A<T_C<T_B$", "$T_B<T_C<T_A$"] },
+      "en": { "prompt": "A fixed ideal gas goes along a straight line A$(V,2p)$ → B$(2V,p)$ on the $p$–$V$ diagram, with midpoint C. What is the relation among $T_A,T_B,T_C$?", "choices": ["$T_A=T_B=T_C$", "$T_A=T_B<T_C$", "$T_C<T_A=T_B$", "$T_A<T_C<T_B$", "$T_B<T_C<T_A$"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "$T_A=T_B<T_C$", "en": "$T_A=T_B<T_C$" },
+      "explanation": { "en": "$T\\propto pV$: $T_A=2pV$, $T_B=2pV$, $T_C=(1.5p)(1.5V)=2.25pV$. So $T_A=T_B<T_C$.", "ja": "$T\\propto pV$：$T_A=2pV,T_B=2pV,T_C=2.25pV$。よって $T_A=T_B<T_C$。" }
+    },
+    {
+      "id": "2016-1-phy-10", "answerRow": 10, "block": "III", "topicId": "waves",
+      "subtopic": "Pulse reflection (fixed end + free end)",
+      "patternTags": ["choose-from-figure", "wave-reflection", "phase"], "hasFigure": true,
+      "figure": { "ja": "速さ v の波形パルスが x=L/2 にあり +x 進行。x=0(A) は固定端，x=L(B) は自由端。$t=2L/v$ での波形を問う（選択肢は A,B 間の波形 4 つ）。", "en": "A pulse at x=L/2 moving +x at speed v. x=0(A) is a fixed end, x=L(B) a free end. Asked: the waveform at $t=2L/v$ (4 options)." },
+      "ja": { "prompt": "速さ $v$ で進む波形が $t=0$ に $x=L/2$ にある。$x=0$ の A は固定端，$x=L$ の B は自由端で反射する。$t=\\dfrac{2L}{v}$ での波形として最も適当なものはどれか。", "choices": ["①（$L/2$ に上向きパルス）", "②（$L/2$ に上下反転）", "③（$L/2$ に反転したパルス）", "④（$L/2$ に元と同じ向き）"] },
+      "en": { "prompt": "A pulse moving at $v$ is at $x=L/2$ at $t=0$. The end at $x=0$ (A) is fixed, the end at $x=L$ (B) is free. Which waveform best shows it at $t=\\dfrac{2L}{v}$?", "choices": ["①", "②", "③ inverted pulse at $L/2$", "④"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "③", "en": "③" },
+      "explanation": { "en": "In time $2L/v$ the pulse travels distance $2L$: to B (free, no flip), back to A (fixed, flips), then forward to $x=L/2$. Net one inversion, so it ends at $x=L/2$ inverted — option ③.", "ja": "$2L/v$ で距離 $2L$ 進む：B（自由端・反転なし）→A（固定端・反転）→$x=L/2$。反転 1 回で $L/2$ に上下反転 → ③。" }
+    },
+    {
+      "id": "2016-1-phy-11", "answerRow": 11, "block": "III", "topicId": "waves",
+      "subtopic": "Doppler effect from a source in circular motion",
+      "patternTags": ["choose-from-graph", "doppler-effect", "phase"], "hasFigure": true,
+      "figure": { "ja": "振動数 f0 の音源が円周上を反時計回りに等速円運動。観測点 P（円の近く，右）と Q（さらに右，遠い）で振動数の時間変化を測定。選択肢 (a)〜(d) は f0 を中心に増減する曲線。", "en": "A source (frequency f0) moves counterclockwise on a circle. Observers at P (near the circle, right) and Q (farther right) measure frequency vs time. Curves (a)–(d) oscillate about f0." },
+      "ja": { "prompt": "振動数 $f_0$ の音源が円周上を反時計回りに等速円運動している。地点 P（円の近く）と Q（さらに遠く，同一直線上）で測定した振動数の時間変化は (a)〜(d) のどれか。正しい組み合わせを選びなさい。", "choices": ["P:(a), Q:(c)", "P:(b), Q:(d)", "P:(c), Q:(a)", "P:(d), Q:(b)"] },
+      "en": { "prompt": "A source (frequency $f_0$) moves counterclockwise on a circle. Observers at P (near the circle) and Q (farther, on the same line) measure frequency vs time as (a)–(d). Choose the correct pairing.", "choices": ["P:(a), Q:(c)", "P:(b), Q:(d)", "P:(c), Q:(a)", "P:(d), Q:(b)"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "P:(a), Q:(c)", "en": "P:(a), Q:(c)" },
+      "explanation": { "en": "Both observers on the line see the frequency oscillate about $f_0$ (above when the source approaches, below when it recedes); the patterns have the same form but Q's is phase-shifted relative to P's because the sound takes longer to reach the farther point — pairing ①.", "ja": "両者とも $f_0$ を中心に増減（接近で上昇・後退で下降）。Q は P より遠く音の到達に時間がかかるため位相がずれる → ①。" }
+    },
+    {
+      "id": "2016-1-phy-12", "answerRow": 12, "block": "III", "topicId": "waves",
+      "subtopic": "Air-wedge interference (find film thickness)",
+      "patternTags": ["plug-in-numbers", "interference", "air-wedge"], "hasFigure": true,
+      "figure": { "ja": "2 枚の平面ガラスの一端を密着し，距離 L=10 cm の所に厚さ D のフィルムを挟みくさび形空気層。波長 λ=5.0×10⁻⁷ m，暗線間隔 Δx=0.50 mm。D を問う。", "en": "Two flat plates touch at one end and have a film of thickness D at distance L=10 cm (air wedge). Wavelength λ=5.0×10⁻⁷ m, dark-fringe spacing Δx=0.50 mm. Asked: D." },
+      "ja": { "prompt": "2 枚の平面ガラスの一端を密着し，距離 $L=10\\,$cm の所に厚さ $D$ のフィルムを挟んでくさび形空気層をつくる。波長 $\\lambda=5.0\\times10^{-7}\\,$m の単色光で暗線間隔 $\\Delta x=0.50\\,$mm が見えた。$D$ は何 mm か。", "choices": ["0.010", "0.050", "0.10", "0.50"] },
+      "en": { "prompt": "Two flat plates touch at one end with a film of thickness $D$ at distance $L=10\\,$cm (air wedge). With light $\\lambda=5.0\\times10^{-7}\\,$m the dark-fringe spacing is $\\Delta x=0.50\\,$mm. Find $D$ (mm).", "choices": ["0.010", "0.050", "0.10", "0.50"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "0.050 mm", "en": "0.050 mm" },
+      "explanation": { "en": "$\\Delta x=\\dfrac{\\lambda L}{2D}\\Rightarrow D=\\dfrac{\\lambda L}{2\\Delta x}=\\dfrac{(5.0\\times10^{-4}\\,\\text{mm})(100\\,\\text{mm})}{2(0.50\\,\\text{mm})}=0.050$ mm.", "ja": "$\\Delta x=\\dfrac{\\lambda L}{2D}$ より $D=\\dfrac{\\lambda L}{2\\Delta x}=\\dfrac{5.0\\times10^{-4}\\times100}{2\\times0.50}=0.050$ mm。" }
+    },
+    {
+      "id": "2016-1-phy-13", "answerRow": 13, "block": "IV", "topicId": "em",
+      "subtopic": "Electric field at the apex of an equilateral triangle",
+      "patternTags": ["express-formula", "electric-field", "superposition", "geometry"], "hasFigure": true,
+      "figure": { "ja": "原点 O に +Q，点 (a,0) に −Q。点 P$(a/2,\\sqrt3a/2)$ は O・(a,0) と正三角形をなす（各距離 a）。", "en": "+Q at the origin, −Q at (a,0). Point P$(a/2,\\sqrt3a/2)$ forms an equilateral triangle with O and (a,0) (each distance a)." },
+      "ja": { "prompt": "$xy$ 平面の原点 O に電気量 $Q$，点 $(a,0)$ に $-Q$ を固定する（クーロン定数 $k$）。点 P$\\left(\\dfrac a2,\\dfrac{\\sqrt3a}{2}\\right)$ につくる電場の強さはどれか。", "choices": ["$\\dfrac{kQ}{2a^2}$", "$\\dfrac{\\sqrt3\\,kQ}{2a^2}$", "$\\dfrac{kQ}{a^2}$", "$\\dfrac{\\sqrt3\\,kQ}{a^2}$", "$\\dfrac{2kQ}{a^2}$"] },
+      "en": { "prompt": "On the $xy$-plane, $Q$ at O and $-Q$ at $(a,0)$ (Coulomb constant $k$). What is the field strength at P$\\left(\\dfrac a2,\\dfrac{\\sqrt3a}{2}\\right)$?", "choices": ["$\\dfrac{kQ}{2a^2}$", "$\\dfrac{\\sqrt3\\,kQ}{2a^2}$", "$\\dfrac{kQ}{a^2}$", "$\\dfrac{\\sqrt3\\,kQ}{a^2}$", "$\\dfrac{2kQ}{a^2}$"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "$\\dfrac{kQ}{a^2}$", "en": "$\\dfrac{kQ}{a^2}$" },
+      "explanation": { "en": "Both charges are distance $a$ from P (equilateral triangle), each giving $\\dfrac{kQ}{a^2}$. Their vertical components cancel and horizontals add: $E=2\\cdot\\dfrac{kQ}{a^2}\\cos60^\\circ=\\dfrac{kQ}{a^2}$.", "ja": "両電荷とも P から距離 $a$（正三角形）で各 $\\dfrac{kQ}{a^2}$。鉛直成分が打ち消し水平が加わり $E=2\\cdot\\dfrac{kQ}{a^2}\\cos60^\\circ=\\dfrac{kQ}{a^2}$。" }
+    },
+    {
+      "id": "2016-1-phy-14", "answerRow": 14, "block": "IV", "topicId": "em",
+      "subtopic": "Equipotential lines around a conductor in a uniform field",
+      "patternTags": ["choose-from-figure", "conductor-in-field", "equipotential"], "hasFigure": true,
+      "figure": { "ja": "一様電場（水平な電気力線，鉛直な等電位線）中に円柱状金属を置く。金属外部・内部の等電位線の形を選ぶ。正解は，金属表面が等電位で，外部の等電位線が金属を避けて湾曲する図。", "en": "A cylindrical conductor placed in a uniform field (horizontal field lines, vertical equipotentials). Choose the resulting equipotential pattern: the conductor surface is an equipotential and outside lines bend around it." },
+      "ja": { "prompt": "一様な電場中（水平な電気力線・鉛直な等電位線）に円柱状の金属を置いた。金属の外部および内部の等電位線はどうなるか。最も適当なものを①〜⑥から選びなさい。", "choices": ["①", "②", "③", "④", "⑤", "⑥（金属表面が等電位，外部の等電位線が金属を避けて湾曲，内部に線なし）"] },
+      "en": { "prompt": "A cylindrical conductor is placed in a uniform field (horizontal field lines, vertical equipotentials). What do the equipotential lines look like inside and outside? Choose ①–⑥.", "choices": ["①", "②", "③", "④", "⑤", "⑥ conductor surface equipotential; outside lines bend around it; none inside"] },
+      "answerIndex": 5, "answerOption": 6, "answer": { "ja": "⑥", "en": "⑥" },
+      "explanation": { "en": "A conductor is all one potential, so its interior has no equipotential lines passing through and its surface is an equipotential; the external equipotential lines (perpendicular to the field) bend around the conductor — figure ⑥.", "ja": "導体は等電位なので内部に等電位線は通らず表面が等電位。外部の等電位線（電場に垂直）は金属を避けて湾曲 → ⑥。" }
+    },
+    {
+      "id": "2016-1-phy-15", "answerRow": 15, "block": "IV", "topicId": "em",
+      "subtopic": "Resistance ∝ length; power ratio",
+      "patternTags": ["express-formula", "resistivity", "power", "ratio"], "hasFigure": true,
+      "figure": { "ja": "抵抗 X,Y,R と電池・スイッチ。X,Y は同材質・同断面積で Y の長さは X の 2 倍（R_Y=2R_X）。X 接続時，X の消費電力 = R の消費電力 = P_X。Y 接続時の Y の消費電力 P_Y。", "en": "Resistors X, Y, R with a battery and switch. X and Y are the same material/cross-section with Y twice as long as X (R_Y=2R_X). With X, the power in X equals that in R (P_X). With Y, the power in Y is P_Y." },
+      "ja": { "prompt": "抵抗 X,Y,R と電池，スイッチを接続する。X,Y は同材質・同断面積で Y の長さは X の 2 倍。スイッチを X 側にすると X の消費電力は R の消費電力に等しく $P_X$ であった。次に Y 側にすると Y の消費電力は $P_Y$ であった。$\\dfrac{P_Y}{P_X}$ はいくらか。", "choices": ["$\\dfrac29$", "$\\dfrac12$", "$\\dfrac23$", "$\\dfrac89$", "$\\dfrac98$", "$\\dfrac32$", "$2$", "$\\dfrac92$"] },
+      "en": { "prompt": "Resistors X, Y, R with a battery and switch; X and Y are the same material/cross-section with Y twice as long as X. With X selected, the power in X equals that in R, $=P_X$. With Y selected, the power in Y is $P_Y$. Find $\\dfrac{P_Y}{P_X}$.", "choices": ["$\\dfrac29$", "$\\dfrac12$", "$\\dfrac23$", "$\\dfrac89$", "$\\dfrac98$", "$\\dfrac32$", "$2$", "$\\dfrac92$"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "$\\dfrac89$", "en": "$\\dfrac89$" },
+      "explanation": { "en": "$R_Y=2R_X$. With X in series with R and equal powers ⇒ $R=R_X$. With X: $I=\\dfrac{V}{2R_X}$, $P_X=\\dfrac{V^2}{4R_X}$. With Y: $I'=\\dfrac{V}{3R_X}$, $P_Y=I'^2(2R_X)=\\dfrac{2V^2}{9R_X}$. So $\\dfrac{P_Y}{P_X}=\\dfrac{2/9}{1/4}=\\dfrac89$.", "ja": "$R_Y=2R_X$。X と R が直列で電力等しく $R=R_X$。X 接続 $P_X=\\dfrac{V^2}{4R_X}$，Y 接続 $P_Y=\\dfrac{2V^2}{9R_X}$。$\\dfrac{P_Y}{P_X}=\\dfrac89$。" }
+    },
+    {
+      "id": "2016-1-phy-16", "answerRow": 16, "block": "IV", "topicId": "em",
+      "subtopic": "Charge sharing between capacitors (Joule heat)",
+      "patternTags": ["express-formula", "capacitors", "energy-method", "joule-heat"], "hasFigure": true,
+      "figure": { "ja": "起電力 V の電池，容量 C_A,C_B のコンデンサー，S1,S2，抵抗。S1 を閉じ C_A を V に充電→S1 を開く→S2 を閉じると C_A と C_B が抵抗を通じて電荷を分け合う。", "en": "A battery V, capacitors C_A, C_B, switches S1, S2, and a resistor. Close S1 to charge C_A to V, open S1, then close S2 so C_A and C_B share charge through the resistor." },
+      "ja": { "prompt": "起電力 $V$ の電池，容量 $C_A,C_B$ のコンデンサー，スイッチ $S_1,S_2$，抵抗を接続する。$S_1$ を閉じ十分後に開き，その後 $S_2$ を閉じると抵抗に電流が流れ，やがて流れなくなった。$S_2$ を閉じてから電流が流れなくなるまでに抵抗で発生するジュール熱はどれか。", "choices": ["$\\dfrac12C_BV^2$", "$\\dfrac12(C_A+C_B)V^2$", "$\\dfrac12\\dfrac{C_A^2}{C_B}V^2$", "$\\dfrac12\\dfrac{C_A(C_A+C_B)}{C_B}V^2$", "$\\dfrac12\\dfrac{C_A^2}{C_A+C_B}V^2$", "$\\dfrac12\\dfrac{C_AC_B}{C_A+C_B}V^2$", "$\\dfrac12\\dfrac{C_B^2}{C_A+C_B}V^2$"] },
+      "en": { "prompt": "A battery $V$, capacitors $C_A,C_B$, switches $S_1,S_2$, and a resistor. Close $S_1$ then open it; then close $S_2$ — current flows then stops. What Joule heat is generated in the resistor after $S_2$ closes?", "choices": ["$\\dfrac12C_BV^2$", "$\\dfrac12(C_A+C_B)V^2$", "$\\dfrac12\\dfrac{C_A^2}{C_B}V^2$", "$\\dfrac12\\dfrac{C_A(C_A+C_B)}{C_B}V^2$", "$\\dfrac12\\dfrac{C_A^2}{C_A+C_B}V^2$", "$\\dfrac12\\dfrac{C_AC_B}{C_A+C_B}V^2$", "$\\dfrac12\\dfrac{C_B^2}{C_A+C_B}V^2$"] },
+      "answerIndex": 5, "answerOption": 6, "answer": { "ja": "$\\dfrac12\\dfrac{C_AC_B}{C_A+C_B}V^2$", "en": "$\\dfrac12\\dfrac{C_AC_B}{C_A+C_B}V^2$" },
+      "explanation": { "en": "$C_A$ starts with charge $C_AV$, energy $\\tfrac12C_AV^2$. After sharing with $C_B$, common voltage $\\dfrac{C_AV}{C_A+C_B}$ and energy $\\tfrac12\\dfrac{C_A^2}{C_A+C_B}V^2$. Heat $=\\tfrac12C_AV^2-\\tfrac12\\dfrac{C_A^2}{C_A+C_B}V^2=\\tfrac12\\dfrac{C_AC_B}{C_A+C_B}V^2$.", "ja": "$C_A$ は初め $\\tfrac12C_AV^2$。$C_B$ と分け合い終エネルギー $\\tfrac12\\dfrac{C_A^2}{C_A+C_B}V^2$。発熱 $=\\tfrac12\\dfrac{C_AC_B}{C_A+C_B}V^2$。" }
+    },
+    {
+      "id": "2016-1-phy-17", "answerRow": 17, "block": "IV", "topicId": "em",
+      "subtopic": "Compass deflection by a straight current (find current)",
+      "patternTags": ["express-formula", "magnetic-field-of-current", "vector-sum", "direction"], "hasFigure": true,
+      "figure": { "ja": "鉛直な長い直線導線が水平面の O を貫く。O から北→東 30° の方向にある点 P（距離 r）に方位磁針。電流なしで磁針は北。電流を流すと磁針は OP 方向を指す。地磁気は北向き強さ H0。", "en": "A vertical wire pierces a horizontal plane at O. A compass sits at P (distance r) in the direction 30° east of north from O. With no current the needle points north; with current it points along OP. Earth's field is northward with strength H0." },
+      "ja": { "prompt": "水平面の点 O を鉛直な長い直線導線が貫く。O から北向きより東へ $30^\\circ$ の点 P（OP$=r$）に方位磁針を置く。電流を流さないとき磁針は北を指す。電流を流すと磁針は $\\overrightarrow{OP}$ の向きを指した。地磁気は北向きで強さ $H_0$。流した電流の向きと大きさの正しい組み合わせはどれか。", "choices": ["裏→表, $rH_0$", "裏→表, $\\sqrt3 rH_0$", "裏→表, $\\pi rH_0$", "裏→表, $\\sqrt3\\pi rH_0$", "表→裏, $rH_0$", "表→裏, $\\sqrt3 rH_0$", "表→裏, $\\pi rH_0$", "表→裏, $\\sqrt3\\pi rH_0$"] },
+      "en": { "prompt": "A vertical wire pierces a horizontal plane at O. A compass at P (OP$=r$), in the direction $30^\\circ$ east of north from O, points north with no current and along $\\overrightarrow{OP}$ with current. Earth's field is northward, strength $H_0$. Give the current's direction (out of / into page) and magnitude.", "choices": ["out, $rH_0$", "out, $\\sqrt3 rH_0$", "out, $\\pi rH_0$", "out, $\\sqrt3\\pi rH_0$", "into, $rH_0$", "into, $\\sqrt3 rH_0$", "into, $\\pi rH_0$", "into, $\\sqrt3\\pi rH_0$"] },
+      "answerIndex": 6, "answerOption": 7, "answer": { "ja": "表→裏, $\\pi rH_0$", "en": "into the page, $\\pi rH_0$" },
+      "explanation": { "en": "For the needle to point along OP, the wire's field (tangential, magnitude $H=\\dfrac{I}{2\\pi r}$) must cancel the component of $H_0$ perpendicular to OP, $=H_0\\sin30^\\circ=\\tfrac{H_0}{2}$. So $\\dfrac{I}{2\\pi r}=\\tfrac{H_0}{2}\\Rightarrow I=\\pi rH_0$, with the current into the page to give the needed eastward field.", "ja": "磁針が OP 方向を指すには，導線の磁場（接線方向 $H=\\dfrac{I}{2\\pi r}$）が $H_0$ の OP 垂直成分 $H_0\\sin30^\\circ=\\tfrac{H_0}{2}$ を打ち消す必要がある。$\\dfrac{I}{2\\pi r}=\\tfrac{H_0}{2}$ より $I=\\pi rH_0$，向きは表→裏。" }
+    },
+    {
+      "id": "2016-1-phy-18", "answerRow": 18, "block": "IV", "topicId": "em",
+      "subtopic": "Mass spectrometer (accelerate then semicircle)",
+      "patternTags": ["express-formula", "lorentz-force", "acceleration-by-voltage", "ratio"], "hasFigure": true,
+      "figure": { "ja": "電荷 q・質量 m のイオンを電位差 V で加速し，磁束密度 B の領域に垂直入射。半円を描き OP=d。次に電荷 q・質量 m' の別イオンで OP'=4d。", "en": "An ion (charge q, mass m) accelerated through V enters a field B perpendicularly, making a semicircle with OP=d. Another ion (charge q, mass m') gives OP'=4d." },
+      "ja": { "prompt": "電荷 $q$，質量 $m$ のイオンを初速 0 から電位差 $V$ で加速し，磁束密度 $B$ の領域に磁場と垂直に点 O から入射させると半円を描き OP$=d$。次に電荷 $q$，質量 $m'$ の別のイオンで同様に行うと OP$'=4d$。$\\dfrac{m'}{m}$ はいくらか。", "choices": ["$\\dfrac{1}{16}$", "$\\dfrac14$", "$\\dfrac12$", "$2$", "$4$", "$16$"] },
+      "en": { "prompt": "An ion (charge $q$, mass $m$) accelerated from rest through $V$ enters a field $B$ perpendicularly at O, making a semicircle with OP$=d$. Another ion (charge $q$, mass $m'$) gives OP$'=4d$. Find $\\dfrac{m'}{m}$.", "choices": ["$\\dfrac{1}{16}$", "$\\dfrac14$", "$\\dfrac12$", "$2$", "$4$", "$16$"] },
+      "answerIndex": 5, "answerOption": 6, "answer": { "ja": "$16$", "en": "$16$" },
+      "explanation": { "en": "$qV=\\tfrac12mv^2\\Rightarrow v=\\sqrt{2qV/m}$; radius $r=\\dfrac{mv}{qB}=\\dfrac{1}{B}\\sqrt{\\dfrac{2mV}{q}}$, so $d=2r\\propto\\sqrt m$. With $d'=4d$: $\\sqrt{m'/m}=4\\Rightarrow m'/m=16$.", "ja": "$qV=\\tfrac12mv^2$，$r=\\dfrac{mv}{qB}=\\dfrac1B\\sqrt{\\dfrac{2mV}{q}}$ より $d\\propto\\sqrt m$。$d'=4d$ で $\\sqrt{m'/m}=4$，$m'/m=16$。" }
+    },
+    {
+      "id": "2016-1-phy-19", "answerRow": 19, "block": "V", "topicId": "atoms",
+      "subtopic": "X-ray spectrum (effect of higher accelerating voltage)",
+      "patternTags": ["identify", "x-rays", "characteristic-vs-continuous"], "hasFigure": true,
+      "figure": { "ja": "金属に高速電子を当てて発生する X 線の波長–強度グラフ。鋭いピーク 2 つ（特性 X 線）と最短波長（連続 X 線の端）。", "en": "X-ray intensity vs wavelength from electrons hitting a metal: two sharp peaks (characteristic X-rays) and the shortest wavelength (continuous-spectrum cutoff)." },
+      "ja": { "prompt": "高電圧で加速した電子を金属に当てて発生する X 線の波長–強度グラフには，鋭いピーク 2 つと最短波長がある。加速電圧を大きくして電子の運動エネルギーを大きくすると，鋭いピークの波長と最短波長はどうなるか。", "choices": ["ピーク:短く, 最短:短く", "ピーク:短く, 最短:変わらない", "ピーク:長く, 最短:長く", "ピーク:長く, 最短:変わらない", "ピーク:変わらない, 最短:変わらない", "ピーク:変わらない, 最短:短く", "ピーク:変わらない, 最短:長く"] },
+      "en": { "prompt": "An X-ray intensity–wavelength graph (electrons on a metal) has two sharp peaks and a shortest wavelength. If the accelerating voltage (electron kinetic energy) is increased, what happens to the peak wavelengths and the shortest wavelength?", "choices": ["peaks shorter, min shorter", "peaks shorter, min unchanged", "peaks longer, min longer", "peaks longer, min unchanged", "peaks unchanged, min unchanged", "peaks unchanged, min shorter", "peaks unchanged, min longer"] },
+      "answerIndex": 5, "answerOption": 6, "answer": { "ja": "ピーク:変わらない, 最短:短く", "en": "peaks unchanged, min shorter" },
+      "explanation": { "en": "The sharp peaks are characteristic X-rays set by the target's energy levels — independent of voltage, so unchanged. The shortest wavelength is the bremsstrahlung cutoff $\\lambda_{min}=\\dfrac{hc}{eV}$, which decreases (shortens) as $V$ increases.", "ja": "鋭いピークは標的の特性 X 線で電圧によらず不変。最短波長は連続 X 線の端 $\\lambda_{min}=\\dfrac{hc}{eV}$ で，$V$ を上げると短くなる。" }
+    }
+  ],
+  "patterns": {
+    "blockSkeleton": "Same 5-block skeleton (I Mechanics ×6, II Thermo ×3, III Waves ×3, IV E&M ×6, V Atoms ×1).",
+    "newArchetypesVsPrevious": [
+      "Identify when string tension is greatest from an h–t graph (Q1).",
+      "Block launched off a FREE cart — momentum + energy together (Q3).",
+      "Springs in parallel period ratio (Q5).",
+      "Object leaving a convex circular surface (N=0 condition) (Q6).",
+      "Gas mixing between two connected vessels (Q8).",
+      "Pulse reflection counting fixed/free-end inversions (Q10).",
+      "Doppler from a source in circular motion (Q11).",
+      "Compass deflection used to deduce a current (Q17).",
+      "Mass-spectrometer mass ratio (Q18); X-ray spectrum vs voltage (Q19)."
+    ],
+    "recurringWithPrevious": ["friction threshold (Q2)", "impulse from F–t (Q4, recurring)", "calorimetry/melting (Q7)", "p–V state temperature via T∝pV (Q9, cf 2016-2 Q9)", "air-wedge fringe spacing (Q12, cf 2017-2 Q12)", "field/work from point charges (Q13)", "capacitor charge-sharing Joule heat (Q16, cf 2021-1 Q14)", "field from a straight current (Q17)"],
+    "examTacticNotes": [
+      "Block-on-cart / launch-off-cart problems: use horizontal-momentum conservation to get the shared velocity, then energy conservation.",
+      "Springs in PARALLEL add (k→2k, period ×1/√2); in SERIES they halve (k→k/2, period ×√2).",
+      "Leaving a convex surface happens when the normal force = 0: mg·cosθ = mv²/r.",
+      "Capacitor charge-sharing heat = ½·(C_A C_B)/(C_A+C_B)·(ΔV)² — same form as a 'reduced capacitance'.",
+      "X-rays: sharp PEAKS = characteristic (depend only on target); the SHORT-wavelength CUTOFF = hc/eV (depends on voltage).",
+      "Mass spectrometer: r ∝ √m at fixed q,V,B, so the exit diameter scales as √m."
+    ],
+    "difficulty": "Standard 'Basic + Advanced Physics'; conceptual with light computation."
+  }
+}
