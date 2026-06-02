@@ -7,6 +7,7 @@ import {
   INK_HEX,
   type InkColor,
   type Pt,
+  type ShapeKind,
 } from '../lib/board';
 import { useUI } from '../lib/ui';
 import { useDebug } from '../lib/debug';
@@ -39,6 +40,11 @@ export default function Whiteboard() {
 
     // interaction state
     let drawing: { color: InkColor; size: number; points: Pt[] } | null = null;
+    // shapes tool: rubber-band a shape between two world points, commit on release
+    let shapeDraft:
+      | { kind: ShapeKind; color: InkColor; size: number; start: { x: number; y: number }; cur: { x: number; y: number } }
+      | null = null;
+    let shapePointer: number | null = null;
     let erasing = false;
     const pendingErase = new Set<string>();
     let eraserScreen: { x: number; y: number } | null = null;
@@ -60,16 +66,21 @@ export default function Whiteboard() {
     let selBox: { minX: number; minY: number; maxX: number; maxY: number } | null = null;
     let marquee: { x0: number; y0: number; x1: number; y1: number } | null = null; // world coords
     const manipHidden = new Set<string>();
+    type SnapVal = { color: InkColor; size: number; points: Pt[]; shape?: ShapeKind };
     let manip:
       | {
-          type: 'marquee' | 'move' | 'scale' | 'rotate';
+          type: 'marquee' | 'move' | 'scale' | 'rotate' | 'vertex';
           pointerId: number;
           startWorld: { x: number; y: number };
           center: { x: number; y: number };
           startDist: number;
           startAngle: number;
-          snapshot: Map<string, { color: InkColor; size: number; points: Pt[] }>;
+          snapshot: Map<string, SnapVal>;
           live: Live;
+          // vertex-edit only: which shape and corner are being dragged + its live points
+          shapeId?: string;
+          vertexIndex?: number;
+          livePoints?: Pt[];
         }
       | null = null;
 
@@ -154,6 +165,16 @@ export default function Whiteboard() {
         setWorldTransform(ctx);
         drawStroke(ctx, { id: 'tmp', color: drawing.color, size: drawing.size, points: drawing.points });
       }
+      if (shapeDraft) {
+        setWorldTransform(ctx);
+        drawStroke(ctx, {
+          id: 'tmp',
+          color: shapeDraft.color,
+          size: shapeDraft.size,
+          points: buildShapePoints(shapeDraft.kind, shapeDraft.start, shapeDraft.cur),
+          shape: shapeDraft.kind,
+        });
+      }
       if (eraserScreen) {
         ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
         ctx.beginPath();
@@ -167,13 +188,19 @@ export default function Whiteboard() {
       if (manip && manip.type !== 'marquee') {
         const mp = manip;
         setWorldTransform(ctx);
-        for (const [, s] of mp.snapshot) {
-          drawStroke(ctx, {
-            id: 'sel',
-            color: s.color,
-            size: s.size,
-            points: s.points.map((p) => transformPoint(p, mp.center, mp.live)),
-          });
+        if (mp.type === 'vertex' && mp.livePoints && mp.shapeId) {
+          const s = mp.snapshot.get(mp.shapeId);
+          if (s) drawStroke(ctx, { id: 'sel', color: s.color, size: s.size, points: mp.livePoints, shape: s.shape });
+        } else {
+          for (const [, s] of mp.snapshot) {
+            drawStroke(ctx, {
+              id: 'sel',
+              color: s.color,
+              size: s.size,
+              shape: s.shape,
+              points: s.points.map((p) => transformPoint(p, mp.center, mp.live)),
+            });
+          }
         }
       }
 
@@ -204,7 +231,15 @@ export default function Whiteboard() {
           ctx.closePath();
           ctx.stroke();
           ctx.setLineDash([]);
-          for (const cpt of g.corners) drawHandle(cpt, false);
+          const es = editableShape();
+          if (es) {
+            // round handles sit on the shape's actual corners for individual editing
+            const pts =
+              manip && manip.type === 'vertex' && manip.livePoints ? manip.livePoints : es.points;
+            for (const p of pts) drawHandle(worldToScreen(p.x, p.y), true);
+          } else {
+            for (const cpt of g.corners) drawHandle(cpt, false);
+          }
           ctx.strokeStyle = '#2563eb';
           ctx.lineWidth = 1.5;
           ctx.beginPath();
@@ -370,6 +405,73 @@ export default function Whiteboard() {
       invalidate();
     }
 
+    // ---- shapes tool ----
+    // Build the corner/outline points for a shape from the drag bounding box.
+    // Triangle/square are their literal corners; a circle is sampled as a polygon.
+    function buildShapePoints(kind: ShapeKind, a: { x: number; y: number }, b: { x: number; y: number }): Pt[] {
+      const minX = Math.min(a.x, b.x);
+      const maxX = Math.max(a.x, b.x);
+      const minY = Math.min(a.y, b.y);
+      const maxY = Math.max(a.y, b.y);
+      const P = (x: number, y: number): Pt => ({ x, y, p: 0.5 });
+      if (kind === 'square') {
+        return [P(minX, minY), P(maxX, minY), P(maxX, maxY), P(minX, maxY)];
+      }
+      if (kind === 'triangle') {
+        return [P((minX + maxX) / 2, minY), P(maxX, maxY), P(minX, maxY)];
+      }
+      // circle: ellipse inscribed in the drag box, sampled as a smooth polygon
+      const cx = (minX + maxX) / 2;
+      const cy = (minY + maxY) / 2;
+      const rx = (maxX - minX) / 2;
+      const ry = (maxY - minY) / 2;
+      const N = 48;
+      const out: Pt[] = [];
+      for (let i = 0; i < N; i++) {
+        const t = (i / N) * Math.PI * 2;
+        out.push(P(cx + Math.cos(t) * rx, cy + Math.sin(t) * ry));
+      }
+      return out;
+    }
+
+    function startShape(e: PointerEvent) {
+      shapePointer = e.pointerId;
+      const { color, size, shape } = useBoard.getState();
+      const w = toWorld(e.clientX, e.clientY);
+      shapeDraft = { kind: shape, color, size, start: { x: w.x, y: w.y }, cur: { x: w.x, y: w.y } };
+    }
+
+    function endShape() {
+      const d = shapeDraft;
+      shapeDraft = null;
+      shapePointer = null;
+      if (d) {
+        // ignore accidental taps that didn't actually drag out a shape
+        const drag = Math.hypot(d.cur.x - d.start.x, d.cur.y - d.start.y) * vp.scale;
+        if (drag >= 4) {
+          const committed = {
+            id: newId(),
+            color: d.color,
+            size: d.size,
+            points: buildShapePoints(d.kind, d.start, d.cur),
+            shape: d.kind,
+          };
+          setWorldTransform(cctx);
+          drawStroke(cctx, committed); // bake into cache (no full rebuild)
+          skipInvalidate = true;
+          useBoard.getState().addStroke(committed);
+          skipInvalidate = false;
+        }
+      }
+      commitPresent();
+    }
+
+    function abortShape() {
+      shapeDraft = null;
+      shapePointer = null;
+      invalidate();
+    }
+
     // ---- gestures (touch navigation: 1 finger pan, 2 fingers pinch-scale) ----
     function readGesture() {
       const r = rect();
@@ -468,6 +570,15 @@ export default function Whiteboard() {
       const del = { x: corners[1].x + 16, y: corners[1].y - 16 };
       return { corners, topMid, rotate, del };
     }
+    // The single selected shape whose corners can be edited individually.
+    // Circles are sampled polygons (too many points to edit by hand), so they
+    // fall back to the regular scale/rotate handles.
+    function editableShape() {
+      if (selectedIds.length !== 1) return null;
+      const s = useBoard.getState().getCurrentPage().strokes.find((x) => x.id === selectedIds[0]);
+      if (!s || !s.shape || s.shape === 'circle') return null;
+      return s;
+    }
     function resetSelection() {
       selectedIds = [];
       selBox = null;
@@ -487,10 +598,10 @@ export default function Whiteboard() {
     function beginManip(type: 'move' | 'scale' | 'rotate', pointerId: number, world: { x: number; y: number }) {
       if (!selBox) return;
       const center = { x: (selBox.minX + selBox.maxX) / 2, y: (selBox.minY + selBox.maxY) / 2 };
-      const snapshot = new Map<string, { color: InkColor; size: number; points: Pt[] }>();
+      const snapshot = new Map<string, SnapVal>();
       const idset = new Set(selectedIds);
       for (const s of useBoard.getState().getCurrentPage().strokes) {
-        if (idset.has(s.id)) snapshot.set(s.id, { color: s.color, size: s.size, points: s.points });
+        if (idset.has(s.id)) snapshot.set(s.id, { color: s.color, size: s.size, points: s.points, shape: s.shape });
       }
       manipHidden.clear();
       for (const id of selectedIds) manipHidden.add(id);
@@ -503,6 +614,28 @@ export default function Whiteboard() {
         startAngle: Math.atan2(world.y - center.y, world.x - center.x),
         snapshot,
         live: { ...IDENT },
+      };
+      invalidate();
+    }
+    function beginVertex(pointerId: number, world: { x: number; y: number }, shapeId: string, index: number) {
+      const s = useBoard.getState().getCurrentPage().strokes.find((x) => x.id === shapeId);
+      if (!s) return;
+      const snapshot = new Map<string, SnapVal>();
+      snapshot.set(s.id, { color: s.color, size: s.size, points: s.points, shape: s.shape });
+      manipHidden.clear();
+      manipHidden.add(s.id);
+      manip = {
+        type: 'vertex',
+        pointerId,
+        startWorld: world,
+        center: { x: 0, y: 0 },
+        startDist: 0,
+        startAngle: 0,
+        snapshot,
+        live: { ...IDENT },
+        shapeId: s.id,
+        vertexIndex: index,
+        livePoints: s.points.slice(),
       };
       invalidate();
     }
@@ -519,7 +652,16 @@ export default function Whiteboard() {
             return;
           }
           if (near(g.rotate)) return beginManip('rotate', e.pointerId, world);
-          if (g.corners.some(near)) return beginManip('scale', e.pointerId, world);
+          // Editable shape: drag a corner to reshape it; otherwise corners scale.
+          const es = editableShape();
+          if (es) {
+            for (let i = 0; i < es.points.length; i++) {
+              const sp = worldToScreen(es.points[i].x, es.points[i].y);
+              if (near(sp)) return beginVertex(e.pointerId, world, es.id, i);
+            }
+          } else if (g.corners.some(near)) {
+            return beginManip('scale', e.pointerId, world);
+          }
           if (world.x >= selBox.minX && world.x <= selBox.maxX && world.y >= selBox.minY && world.y <= selBox.maxY) {
             return beginManip('move', e.pointerId, world);
           }
@@ -551,6 +693,16 @@ export default function Whiteboard() {
         invalidate();
         return;
       }
+      if (manip.type === 'vertex') {
+        const snap = manip.snapshot.get(manip.shapeId!);
+        if (snap && manip.vertexIndex != null) {
+          const pts = snap.points.map((p) => ({ ...p }));
+          pts[manip.vertexIndex] = { x: world.x, y: world.y, p: pts[manip.vertexIndex].p };
+          manip.livePoints = pts;
+        }
+        paintNow();
+        return;
+      }
       const c = manip.center;
       if (manip.type === 'move') {
         manip.live = { tx: world.x - manip.startWorld.x, ty: world.y - manip.startWorld.y, scale: 1, rot: 0 };
@@ -580,6 +732,16 @@ export default function Whiteboard() {
           selectedIds = ids;
           selBox = ids.length ? computeSelBox(ids) : null;
         }
+        invalidate();
+        return;
+      }
+      if (manip.type === 'vertex') {
+        const sid = manip.shapeId!;
+        const pts = manip.livePoints!;
+        manipHidden.clear();
+        manip = null;
+        useBoard.getState().updateStrokes([{ id: sid, points: pts }]);
+        selBox = computeSelBox(selectedIds);
         invalidate();
         return;
       }
@@ -617,6 +779,37 @@ export default function Whiteboard() {
           lastPenDown = performance.now();
         }
         startSelect(e);
+        return;
+      }
+
+      // SHAPES tool: pen/mouse/single-touch rubber-band a shape; two fingers pan/zoom.
+      if (useBoard.getState().tool === 'shapes') {
+        if (e.pointerType === 'pen' || e.pointerType === 'mouse') {
+          lastPenDown = performance.now();
+          cancelGesture();
+          if (shapeDraft) abortShape();
+          startShape(e);
+          commitPresent();
+          return;
+        }
+        // touch
+        touches.set(e.pointerId, { x: e.clientX, y: e.clientY });
+        if (touches.size >= 2) {
+          if (shapeDraft) abortShape();
+          gestureActive = true;
+          startGesture();
+          return;
+        }
+        const fingerDraw = useUI.getState().fingerDraw;
+        const tinyStylus =
+          !penSeen && e.width > 0 && e.width <= STYLUS_MAX && e.height > 0 && e.height <= STYLUS_MAX;
+        if (fingerDraw || tinyStylus) {
+          startShape(e);
+          commitPresent();
+        } else {
+          gestureActive = true; // single-finger pan
+          startGesture();
+        }
         return;
       }
 
@@ -698,6 +891,13 @@ export default function Whiteboard() {
         return;
       }
 
+      if (shapeDraft && shapePointer === e.pointerId) {
+        const w = toWorld(e.clientX, e.clientY);
+        shapeDraft.cur = { x: w.x, y: w.y };
+        paintNow();
+        return;
+      }
+
       if (drawId === e.pointerId && (drawing || erasing)) {
         if (drawing) {
           const evs =
@@ -726,6 +926,11 @@ export default function Whiteboard() {
       if (manip && manip.pointerId === e.pointerId) {
         if (e.pointerType === 'touch') touches.delete(e.pointerId);
         endSelect();
+        return;
+      }
+      if (shapeDraft && shapePointer === e.pointerId) {
+        if (e.pointerType === 'touch') touches.delete(e.pointerId);
+        endShape();
         return;
       }
       const penUp = e.pointerType === 'pen' || e.pointerType === 'mouse';
@@ -759,7 +964,8 @@ export default function Whiteboard() {
       for (const t of Array.from(e.changedTouches)) {
         if (!isStylus(t)) continue;
         
-        if (drawId === null && useBoard.getState().tool !== 'select') {
+        const activeTool = useBoard.getState().tool;
+        if (drawId === null && activeTool !== 'select' && activeTool !== 'shapes') {
            const w = toWorldPt(t);
            const { tool, color, size } = useBoard.getState();
            if (tool === 'eraser') {
@@ -862,6 +1068,8 @@ export default function Whiteboard() {
         }
         pendingErase.clear();
         drawing = null;
+        shapeDraft = null;
+        shapePointer = null;
         erasing = false;
         eraserScreen = null;
         drawId = null;
@@ -875,6 +1083,10 @@ export default function Whiteboard() {
       }
       if (st.tool !== 'select' && (selectedIds.length || marquee || manip)) {
         resetSelection();
+      }
+      if (st.tool !== 'shapes' && shapeDraft) {
+        shapeDraft = null;
+        shapePointer = null;
       }
       if (skipInvalidate) {
         schedule();

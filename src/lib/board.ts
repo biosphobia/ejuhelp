@@ -1,7 +1,10 @@
 import { create } from 'zustand';
 
 export type InkColor = 'black' | 'red' | 'blue' | 'green';
-export type Tool = 'pen' | 'eraser' | 'select';
+export type Tool = 'pen' | 'eraser' | 'select' | 'shapes';
+/** Shapes the shapes-tool can stamp. Triangle/square store their corner vertices
+ * (individually editable); circle stores a sampled outline polygon. */
+export type ShapeKind = 'triangle' | 'square' | 'circle';
 
 export interface Pt {
   x: number; // world coordinates
@@ -13,6 +16,8 @@ export interface Stroke {
   color: InkColor;
   size: number;
   points: Pt[];
+  /** When set, the stroke is a closed, lightly-filled shape rather than freehand ink. */
+  shape?: ShapeKind;
 }
 export interface Viewport {
   scale: number;
@@ -51,6 +56,8 @@ interface BoardState {
   tool: Tool;
   color: InkColor;
   size: number;
+  /** which shape the shapes-tool stamps next */
+  shape: ShapeKind;
   /** pageId -> stack of previous stroke arrays (for undo) */
   undo: Record<string, Stroke[][]>;
   /** bumped whenever persisted content changes, so the sync layer can react */
@@ -59,6 +66,7 @@ interface BoardState {
   setTool: (t: Tool) => void;
   setColor: (c: InkColor) => void;
   setSize: (n: number) => void;
+  setShape: (s: ShapeKind) => void;
 
   addStroke: (s: Stroke) => void;
   eraseStrokes: (ids: string[]) => void;
@@ -93,12 +101,16 @@ export const useBoard = create<BoardState>((set, get) => {
     tool: 'pen',
     color: 'black',
     size: PEN_SIZES[1],
+    shape: 'square',
     undo: {},
     rev: 0,
 
     setTool: (tool) => set({ tool }),
-    setColor: (color) => set({ color, tool: 'pen' }),
+    // Picking a color from the eraser jumps back to the pen, but keep the shapes
+    // tool active so colors can be chosen while stamping shapes.
+    setColor: (color) => set((st) => ({ color, tool: st.tool === 'shapes' ? 'shapes' : 'pen' })),
     setSize: (size) => set({ size }),
+    setShape: (shape) => set({ shape, tool: 'shapes' }),
 
     addStroke: (stroke) =>
       set((st) => {

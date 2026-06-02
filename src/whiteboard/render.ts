@@ -1,11 +1,46 @@
 import { INK_HEX, type Pt, type Stroke } from '../lib/board';
 
+// Translate one of the ink hex colors to an rgba string at the given alpha — used
+// for the light interior fill of shapes.
+const FILL_RGB: Record<string, string> = {
+  '#111827': '17,24,39',
+  '#dc2626': '220,38,38',
+  '#2563eb': '37,99,235',
+  '#16a34a': '22,163,74',
+};
+function fillFor(hex: string, alpha: number): string {
+  return `rgba(${FILL_RGB[hex] ?? '17,24,39'},${alpha})`;
+}
+
+// Closed, lightly-filled polygon (triangle / square / sampled circle). Corners are
+// the literal points, so straight edges stay crisp.
+function drawShape(ctx: CanvasRenderingContext2D, stroke: Stroke) {
+  const pts = stroke.points;
+  if (pts.length < 2) return;
+  const hex = INK_HEX[stroke.color];
+  ctx.beginPath();
+  ctx.moveTo(pts[0].x, pts[0].y);
+  for (let i = 1; i < pts.length; i++) ctx.lineTo(pts[i].x, pts[i].y);
+  ctx.closePath();
+  ctx.fillStyle = fillFor(hex, 0.16);
+  ctx.fill();
+  ctx.strokeStyle = hex;
+  ctx.lineWidth = stroke.size;
+  ctx.lineJoin = 'round';
+  ctx.lineCap = 'round';
+  ctx.stroke();
+}
+
 // Fast ink renderer: a smoothed polyline with round caps/joins. Much cheaper than
 // recomputing a freehand outline polygon every frame — critical for smooth drawing
 // on older iPads (1st-gen Apple Pencil).
 export function drawStroke(ctx: CanvasRenderingContext2D, stroke: Stroke) {
   const pts = stroke.points;
   if (!pts.length) return;
+  if (stroke.shape) {
+    drawShape(ctx, stroke);
+    return;
+  }
   const hex = INK_HEX[stroke.color];
 
   if (pts.length === 1) {

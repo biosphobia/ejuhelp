@@ -89,6 +89,28 @@ export const SelectIcon = (p: SVGProps<SVGSVGElement>) => (
     <rect x="4" y="4" width="16" height="16" rx="1.5" />
   </svg>
 );
+export const ShapesIcon = (p: SVGProps<SVGSVGElement>) => (
+  <svg {...base(p)}>
+    <circle cx="7.5" cy="7.5" r="3.5" />
+    <rect x="13" y="4" width="7" height="7" rx="1" />
+    <path d="M8 13l-4 7h8z" />
+  </svg>
+);
+export const TriangleIcon = (p: SVGProps<SVGSVGElement>) => (
+  <svg {...base(p)}>
+    <path d="M12 5l7 13H5z" />
+  </svg>
+);
+export const SquareIcon = (p: SVGProps<SVGSVGElement>) => (
+  <svg {...base(p)}>
+    <rect x="5" y="5" width="14" height="14" rx="1" />
+  </svg>
+);
+export const CircleIcon = (p: SVGProps<SVGSVGElement>) => (
+  <svg {...base(p)}>
+    <circle cx="12" cy="12" r="8" />
+  </svg>
+);
 export const PinIcon = (p: SVGProps<SVGSVGElement>) => (
   <svg {...base(p)}>
     <path d="M9 4h6l-1 5 3 3v2H7v-2l3-3-1-5z" />
