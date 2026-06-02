@@ -1,0 +1,272 @@
+{
+  "id": "2011-1-chemistry",
+  "year": 2011,
+  "session": 1,
+  "subject": "chemistry",
+  "title": "EJU 2011 · Session 1 · Chemistry",
+  "source": "平成23年度（2011年度）日本留学試験（第1回）理科〈化学〉 © Japan Student Services Organization (JASSO)",
+  "attribution": "EJU past questions © JASSO. Question text transcribed from the official past paper; figures described in text; correct answers taken from the official JASSO answer key and independently re-solved for verification.",
+  "languages": ["ja", "en"],
+  "answerKeyVerified": true,
+  "structure": {
+    "format": "flat",
+    "totalQuestions": 20,
+    "note": "Chemistry is a flat list of 20 single-best-answer items (問1–問20, answer rows 1–20) — no Roman-numeral blocks. Order ≈ structure of matter & bonding → solutions/redox/electrochemistry/equilibria/acids-bases → inorganic → organic & polymers.",
+    "givens": {
+      "ja": "標準状態 $0\\,$°C・$1.0\\times10^5\\,$Pa，気体 $1\\,$mol の体積 $22.4\\,$L，気体定数 $R=8.31\\times10^3\\,$Pa·L/(K·mol)，アボガドロ定数 $N_A=6.02\\times10^{23}\\,$/mol，ファラデー定数 $F=9.65\\times10^4\\,$C/mol。原子量：H 1.0, C 12, N 14, O 16, Na 23。",
+      "en": "STP $0\\,$°C, $1.0\\times10^5\\,$Pa; molar volume $22.4\\,$L; gas constant $R=8.31\\times10^3\\,$Pa·L/(K·mol); Avogadro $N_A=6.02\\times10^{23}\\,$/mol; Faraday $F=9.65\\times10^4\\,$C/mol. Atomic weights: H 1.0, C 12, N 14, O 16, Na 23."
+    }
+  },
+  "questions": [
+    {
+      "id": "2011-1-chem-1", "answerRow": 1, "topicId": "matter-structure",
+      "subtopic": "Find the ion with a different total electron count",
+      "patternTags": ["atomic-structure", "isoelectronic", "odd-one-out"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の原子またはイオンのうち，電子の総数が他と異なるものを一つ選びなさい。", "choices": ["$\\mathrm{Al^{3+}}$", "$\\mathrm{Ca^{2+}}$", "$\\mathrm{F^-}$", "$\\mathrm{Na^+}$", "$\\mathrm{Ne}$", "$\\mathrm{O^{2-}}$"] },
+      "en": { "prompt": "Which atom or ion has a total number of electrons different from the others?", "choices": ["$\\mathrm{Al^{3+}}$", "$\\mathrm{Ca^{2+}}$", "$\\mathrm{F^-}$", "$\\mathrm{Na^+}$", "$\\mathrm{Ne}$", "$\\mathrm{O^{2-}}$"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "$\\mathrm{Ca^{2+}}$（18 個）", "en": "$\\mathrm{Ca^{2+}}$ (18 electrons)" },
+      "explanation": { "en": "$\\mathrm{Al^{3+}}$ (13−3), $\\mathrm{F^-}$ (9+1), $\\mathrm{Na^+}$ (11−1), $\\mathrm{Ne}$ (10), $\\mathrm{O^{2-}}$ (8+2) all have 10 electrons (Ne configuration). $\\mathrm{Ca^{2+}}$ has $20-2=18$ — the odd one out.", "ja": "$\\mathrm{Al^{3+}}$(13−3)，$\\mathrm{F^-}$(9+1)，$\\mathrm{Na^+}$(11−1)，$\\mathrm{Ne}$(10)，$\\mathrm{O^{2-}}$(8+2) はすべて 10 個（Ne 型）。$\\mathrm{Ca^{2+}}$ は $20-2=18$ 個で異なる。" }
+    },
+    {
+      "id": "2011-1-chem-2", "answerRow": 2, "topicId": "matter-structure",
+      "subtopic": "Correct statement about the periodic table",
+      "patternTags": ["electron-config-periodic", "periodic-law", "pick-correct-statement"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "周期表に関する次の記述①〜⑤のうち，正しいものを一つ選びなさい。", "choices": ["周期表中の元素の数は 100 以下である。", "金属元素は，どの族にも含まれている。", "Li から始まる周期の元素では，その原子の電子配置の最外殻は M 殻である。", "同族の典型元素は，互いに価電子の数が等しい。", "典型元素は，すべて非金属元素である。"] },
+      "en": { "prompt": "Which statement about the periodic table is correct?", "choices": ["The periodic table contains 100 or fewer elements.", "Metallic elements occur in every group.", "For the period that begins with Li, the outermost shell of the atoms is the M shell.", "Main-group elements in the same group have the same number of valence electrons.", "All main-group (typical) elements are non-metals."] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "「同族の典型元素は価電子数が等しい」（④）", "en": "\"same-group main-group elements have equal valence electrons\" (④)" },
+      "explanation": { "en": "④ is correct — group number fixes the valence-electron count for main-group elements. The rest are false: there are 118+ elements; groups 17/18 contain no metals; the Li period's outermost shell is the L shell (n=2); and main-group elements include metals (Na, Al, …).", "ja": "④ が正しい — 典型元素は族で価電子数が決まる。他は誤り：元素は 118 以上，17・18 族に金属はない，Li の周期の最外殻は L 殻（n=2），典型元素には金属（Na, Al…）も含まれる。" }
+    },
+    {
+      "id": "2011-1-chem-3", "answerRow": 3, "topicId": "matter-structure",
+      "subtopic": "Match: linear molecule / covalent crystal / nonpolar",
+      "patternTags": ["chemical-bonds", "molecular-geometry", "polarity", "crystal-type"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "記述(a)〜(c)にあてはまる物質の組み合わせを選びなさい。 (a) 直線状の分子である。 (b) 共有結合の結晶をつくる。 (c) 極性をもたない。", "choices": ["a:$\\mathrm{CO_2}$ b:CaO c:$\\mathrm{CCl_4}$", "a:$\\mathrm{CO_2}$ b:ダイヤモンド c:$\\mathrm{NH_3}$", "a:$\\mathrm{H_2O}$ b:$\\mathrm{SiO_2}$ c:$\\mathrm{CCl_4}$", "a:$\\mathrm{H_2O}$ b:ダイヤモンド c:$\\mathrm{CH_4}$", "a:$\\mathrm{HC{\\equiv}CH}$ b:MgO c:$\\mathrm{CH_4}$", "a:$\\mathrm{HC{\\equiv}CH}$ b:$\\mathrm{SiO_2}$ c:$\\mathrm{CCl_4}$"] },
+      "en": { "prompt": "Match substances to: (a) a linear molecule; (b) forms a covalent crystal; (c) is non-polar.", "choices": ["a:$\\mathrm{CO_2}$ b:CaO c:$\\mathrm{CCl_4}$", "a:$\\mathrm{CO_2}$ b:diamond c:$\\mathrm{NH_3}$", "a:$\\mathrm{H_2O}$ b:$\\mathrm{SiO_2}$ c:$\\mathrm{CCl_4}$", "a:$\\mathrm{H_2O}$ b:diamond c:$\\mathrm{CH_4}$", "a:$\\mathrm{HC{\\equiv}CH}$ b:MgO c:$\\mathrm{CH_4}$", "a:$\\mathrm{HC{\\equiv}CH}$ b:$\\mathrm{SiO_2}$ c:$\\mathrm{CCl_4}$"] },
+      "answerIndex": 5, "answerOption": 6, "answer": { "ja": "a:$\\mathrm{HC{\\equiv}CH}$ b:$\\mathrm{SiO_2}$ c:$\\mathrm{CCl_4}$", "en": "a: $\\mathrm{HC{\\equiv}CH}$, b: $\\mathrm{SiO_2}$, c: $\\mathrm{CCl_4}$" },
+      "explanation": { "en": "Acetylene $\\mathrm{HC{\\equiv}CH}$ is linear (a). $\\mathrm{SiO_2}$ is a covalent (network) crystal (b); CaO/MgO are ionic. $\\mathrm{CCl_4}$ is symmetric and non-polar (c); $\\mathrm{NH_3}$ is polar, $\\mathrm{H_2O}$ is bent. Only ⑥ fits all three.", "ja": "アセチレン $\\mathrm{HC{\\equiv}CH}$ は直線(a)。$\\mathrm{SiO_2}$ は共有結合の結晶(b)（CaO・MgO はイオン結晶）。$\\mathrm{CCl_4}$ は対称で無極性(c)（$\\mathrm{NH_3}$ は極性，$\\mathrm{H_2O}$ は折れ線）。すべて満たすのは⑥。" }
+    },
+    {
+      "id": "2011-1-chem-4", "answerRow": 4, "topicId": "states-and-change",
+      "subtopic": "Mass percent from molarity and density (ammonia water)",
+      "patternTags": ["concentration", "mass-percent", "density", "plug-in-numbers"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "$15\\,$mol/L のアンモニア水 $\\mathrm{NH_3}$ aq の密度は $0.90\\,$g/cm³ である。このアンモニア水中のアンモニアの質量パーセント濃度〔%〕に最も近い値はどれか。", "choices": ["14", "18", "24", "28", "34"] },
+      "en": { "prompt": "$15\\,$mol/L aqueous ammonia has density $0.90\\,$g/cm³. What is the mass-percent concentration of $\\mathrm{NH_3}$?", "choices": ["14", "18", "24", "28", "34"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "約 28%", "en": "≈ 28%" },
+      "explanation": { "en": "Take $1\\,$L: mass $=0.90\\times1000=900\\,$g; $\\mathrm{NH_3}=15\\,\\text{mol}\\times17\\,\\text{g/mol}=255\\,$g. Mass percent $=255/900\\times100\\approx28\\%$.", "ja": "$1\\,$L で考える：質量 $=0.90\\times1000=900\\,$g，$\\mathrm{NH_3}=15\\,\\text{mol}\\times17\\,\\text{g/mol}=255\\,$g。質量% $=255/900\\times100\\approx28\\%$。" }
+    },
+    {
+      "id": "2011-1-chem-5", "answerRow": 5, "topicId": "matter-structure",
+      "subtopic": "Empirical formula of a nitrogen oxide from mass composition",
+      "patternTags": ["mole-formulas", "empirical-formula", "composition", "plug-in-numbers"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "ある窒素酸化物の質量組成は，窒素 N が $63.6\\%$，酸素 O が $36.4\\%$ である。この窒素酸化物として最も適当なものはどれか。", "choices": ["$\\mathrm{NO}$", "$\\mathrm{NO_2}$", "$\\mathrm{N_2O}$", "$\\mathrm{N_2O_3}$", "$\\mathrm{N_2O_4}$"] },
+      "en": { "prompt": "A nitrogen oxide is $63.6\\%$ N and $36.4\\%$ O by mass. Which oxide is it?", "choices": ["$\\mathrm{NO}$", "$\\mathrm{NO_2}$", "$\\mathrm{N_2O}$", "$\\mathrm{N_2O_3}$", "$\\mathrm{N_2O_4}$"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "$\\mathrm{N_2O}$", "en": "$\\mathrm{N_2O}$" },
+      "explanation": { "en": "Mole ratio $\\mathrm{N:O}=\\dfrac{63.6}{14}:\\dfrac{36.4}{16}=4.54:2.28\\approx2:1$, giving $\\mathrm{N_2O}$.", "ja": "モル比 $\\mathrm{N:O}=\\dfrac{63.6}{14}:\\dfrac{36.4}{16}=4.54:2.28\\approx2:1$ より $\\mathrm{N_2O}$。" }
+    },
+    {
+      "id": "2011-1-chem-6", "answerRow": 6, "topicId": "states-and-change",
+      "subtopic": "Identify the acid and indicator from a titration curve",
+      "patternTags": ["acids-bases", "titration-curve", "indicator", "read-from-graph"], "hasFigure": true,
+      "figure": { "ja": "$0.10\\,$mol/L の酸 A $10\\,$mL を $0.10\\,$mol/L NaOH で滴定した滴定曲線：開始 pH≈3，約 $10\\,$mL でほぼ垂直に立ち上がり pH≈12 へ（中和点は塩基性側）。メチルオレンジの変色域 pH 3.1–4.4，フェノールフタレインは pH 8.0–9.8。", "en": "Titration of $10\\,$mL of $0.10\\,$mol/L acid A with $0.10\\,$mol/L NaOH: starts near pH 3, jumps almost vertically near $10\\,$mL to pH ≈ 12 (equivalence on the basic side). Methyl orange transition pH 3.1–4.4; phenolphthalein 8.0–9.8." },
+      "ja": { "prompt": "$0.10\\,$mol/L の酸 A $10\\,$mL を $0.10\\,$mol/L の NaOH で中和滴定して図の曲線を得た。酸 A と終点を決定する指示薬の組み合わせとして最も適当なものはどれか。", "choices": ["A:塩酸 指示薬:フェノールフタレイン", "A:塩酸 指示薬:メチルオレンジ", "A:酢酸 指示薬:フェノールフタレイン", "A:酢酸 指示薬:メチルオレンジ", "A:硝酸 指示薬:フェノールフタレイン", "A:硝酸 指示薬:メチルオレンジ"] },
+      "en": { "prompt": "Titrating $10\\,$mL of $0.10\\,$mol/L acid A with $0.10\\,$mol/L NaOH gives the curve shown. Which acid A and end-point indicator fit best?", "choices": ["A:HCl indicator:phenolphthalein", "A:HCl indicator:methyl orange", "A:acetic acid indicator:phenolphthalein", "A:acetic acid indicator:methyl orange", "A:nitric acid indicator:phenolphthalein", "A:nitric acid indicator:methyl orange"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "A:酢酸，指示薬:フェノールフタレイン", "en": "A: acetic acid, indicator: phenolphthalein" },
+      "explanation": { "en": "The starting pH ≈ 3 (not ~1) marks a weak acid — acetic acid. A weak-acid/strong-base titration has its equivalence point on the basic side, so phenolphthalein (8.0–9.8) brackets the steep jump; methyl orange would change too early.", "ja": "開始 pH≈3（≈1 でない）は弱酸 ＝ 酢酸を示す。弱酸×強塩基の中和点は塩基性側なので，急変部をはさむフェノールフタレイン（8.0–9.8）が適切。メチルオレンジでは早く変色してしまう。" }
+    },
+    {
+      "id": "2011-1-chem-7", "answerRow": 7, "topicId": "states-and-change",
+      "subtopic": "Largest decrease in oxidation number",
+      "patternTags": ["redox", "oxidation-number", "compare-cases"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の化学反応式①〜④のうち，下線をつけた原子の酸化数が反応前に比べて最も大きく減少しているものを選びなさい。 ① $\\mathrm{Cu+4HNO_3\\to Cu(NO_3)_2+2H_2O+2\\underline{N}O_2}$ ② $\\mathrm{2Al+Fe_2O_3\\to \\underline{Al}_2O_3+2Fe}$ ③ $\\mathrm{2NaHCO_3\\to Na_2CO_3+H_2O+\\underline{C}O_2}$ ④ $\\mathrm{5H_2O_2+2KMnO_4+3H_2SO_4\\to 5O_2+K_2SO_4+2\\underline{Mn}SO_4+8H_2O}$", "choices": ["①", "②", "③", "④"] },
+      "en": { "prompt": "In which reaction does the underlined atom's oxidation number decrease the most? ① $\\mathrm{Cu+4HNO_3\\to Cu(NO_3)_2+2H_2O+2\\underline{N}O_2}$ ② $\\mathrm{2Al+Fe_2O_3\\to \\underline{Al}_2O_3+2Fe}$ ③ $\\mathrm{2NaHCO_3\\to Na_2CO_3+H_2O+\\underline{C}O_2}$ ④ $\\mathrm{5H_2O_2+2KMnO_4+3H_2SO_4\\to 5O_2+K_2SO_4+2\\underline{Mn}SO_4+8H_2O}$", "choices": ["①", "②", "③", "④"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "④（Mn $+7\\to+2$，−5）", "en": "④ (Mn $+7\\to+2$, −5)" },
+      "explanation": { "en": "① N: $+5\\to+4$ (−1). ② Al: $0\\to+3$ (increase, not a decrease). ③ C: $+4\\to+4$ (no change). ④ Mn: $+7\\to+2$ (decrease of 5) — the largest decrease.", "ja": "① N：$+5\\to+4$（−1）。② Al：$0\\to+3$（増加）。③ C：$+4\\to+4$（変化なし）。④ Mn：$+7\\to+2$（−5）— 最大の減少。" }
+    },
+    {
+      "id": "2011-1-chem-8", "answerRow": 8, "topicId": "states-and-change",
+      "subtopic": "Electrolysis of NaCl aq: gases and volumes",
+      "patternTags": ["electrolysis", "faradays-law", "electrode-products", "plug-in-numbers"], "hasFigure": true,
+      "figure": { "ja": "Pt 電極 A（電源の −）と炭素電極 B（電源の +）を NaCl 水溶液（素焼き板で仕切り）に浸し，$1.0\\,$A で $32$ 分 $10$ 秒間電気分解。", "en": "Pt electrode A (to source −) and graphite electrode B (to source +) in NaCl aq (separated by a porous sheet), electrolysed at $1.0\\,$A for $32$ min $10$ s." },
+      "ja": { "prompt": "白金電極 A（電源の −）と炭素電極 B（電源の +）を NaCl 水溶液につなぎ，$1.0\\,$A で $32$ 分 $10$ 秒間電気分解した。電極 A と B で発生した気体とその体積（標準状態，mL）の組み合わせはどれか。", "choices": ["A:$\\mathrm{Cl_2}$ 224 / B:$\\mathrm{H_2}$ 224", "A:$\\mathrm{Cl_2}$ 448 / B:$\\mathrm{H_2}$ 448", "A:$\\mathrm{Cl_2}$ 448 / B:$\\mathrm{O_2}$ 112", "A:$\\mathrm{H_2}$ 224 / B:$\\mathrm{Cl_2}$ 224", "A:$\\mathrm{H_2}$ 224 / B:$\\mathrm{Cl_2}$ 448", "A:$\\mathrm{H_2}$ 448 / B:$\\mathrm{O_2}$ 112", "A:$\\mathrm{O_2}$ 112 / B:$\\mathrm{Cl_2}$ 224", "A:$\\mathrm{O_2}$ 112 / B:$\\mathrm{H_2}$ 224", "A:$\\mathrm{O_2}$ 224 / B:$\\mathrm{H_2}$ 448"] },
+      "en": { "prompt": "Electrolysing NaCl aq with Pt electrode A (source −) and graphite electrode B (source +) at $1.0\\,$A for $32$ min $10$ s, which gases and volumes (STP, mL) form at A and B?", "choices": ["A:$\\mathrm{Cl_2}$ 224 / B:$\\mathrm{H_2}$ 224", "A:$\\mathrm{Cl_2}$ 448 / B:$\\mathrm{H_2}$ 448", "A:$\\mathrm{Cl_2}$ 448 / B:$\\mathrm{O_2}$ 112", "A:$\\mathrm{H_2}$ 224 / B:$\\mathrm{Cl_2}$ 224", "A:$\\mathrm{H_2}$ 224 / B:$\\mathrm{Cl_2}$ 448", "A:$\\mathrm{H_2}$ 448 / B:$\\mathrm{O_2}$ 112", "A:$\\mathrm{O_2}$ 112 / B:$\\mathrm{Cl_2}$ 224", "A:$\\mathrm{O_2}$ 112 / B:$\\mathrm{H_2}$ 224", "A:$\\mathrm{O_2}$ 224 / B:$\\mathrm{H_2}$ 448"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "A:$\\mathrm{H_2}$ $224\\,$mL，B:$\\mathrm{Cl_2}$ $224\\,$mL", "en": "A: $\\mathrm{H_2}$ $224\\,$mL, B: $\\mathrm{Cl_2}$ $224\\,$mL" },
+      "explanation": { "en": "Charge $=1.0\\times(32\\times60+10)=1930\\,$C, so electrons $=1930/96500=0.020\\,$mol. Cathode A: $\\mathrm{2H_2O+2e^-\\to H_2+2OH^-}$ → $0.010\\,$mol $\\mathrm{H_2}=224\\,$mL. Anode B (concentrated $\\mathrm{Cl^-}$): $\\mathrm{2Cl^-\\to Cl_2+2e^-}$ → $0.010\\,$mol $\\mathrm{Cl_2}=224\\,$mL.", "ja": "電気量 $=1.0\\times(32\\times60+10)=1930\\,$C，電子 $=1930/96500=0.020\\,$mol。陰極 A：$\\mathrm{2H_2O+2e^-\\to H_2+2OH^-}$ → $\\mathrm{H_2}$ $0.010\\,$mol$=224\\,$mL。陽極 B（高濃度 $\\mathrm{Cl^-}$）：$\\mathrm{2Cl^-\\to Cl_2+2e^-}$ → $\\mathrm{Cl_2}$ $0.010\\,$mol$=224\\,$mL。" }
+    },
+    {
+      "id": "2011-1-chem-9", "answerRow": 9, "topicId": "states-and-change",
+      "subtopic": "Lowest freezing point (colligative, van't Hoff i)",
+      "patternTags": ["colligative-properties", "freezing-point-depression", "electrolytes", "compare-cases"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の化合物①〜⑤のうち，$0.10\\,$mol/L 水溶液の凝固点が最も低いものを一つ選びなさい。", "choices": ["アンモニア $\\mathrm{NH_3}$", "塩化ナトリウム $\\mathrm{NaCl}$", "グルコース", "尿素", "硫酸ナトリウム $\\mathrm{Na_2SO_4}$"] },
+      "en": { "prompt": "Which $0.10\\,$mol/L aqueous solution has the lowest freezing point?", "choices": ["ammonia $\\mathrm{NH_3}$", "sodium chloride $\\mathrm{NaCl}$", "glucose", "urea", "sodium sulfate $\\mathrm{Na_2SO_4}$"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "硫酸ナトリウム $\\mathrm{Na_2SO_4}$", "en": "sodium sulfate $\\mathrm{Na_2SO_4}$" },
+      "explanation": { "en": "Freezing-point depression is proportional to the total particle concentration. $\\mathrm{Na_2SO_4\\to2Na^++SO_4^{2-}}$ gives 3 particles per formula (highest $i$); $\\mathrm{NaCl}$ gives 2; glucose, urea, and (weakly ionizing) $\\mathrm{NH_3}$ give ~1. So $\\mathrm{Na_2SO_4}$ depresses the freezing point most.", "ja": "凝固点降下は全粒子濃度に比例。$\\mathrm{Na_2SO_4\\to2Na^++SO_4^{2-}}$ は 1 式量あたり 3 粒子（$i$ 最大），$\\mathrm{NaCl}$ は 2，グルコース・尿素・（ほぼ電離しない）$\\mathrm{NH_3}$ は約 1。よって $\\mathrm{Na_2SO_4}$ が最も下がる。" }
+    },
+    {
+      "id": "2011-1-chem-10", "answerRow": 10, "topicId": "states-and-change",
+      "subtopic": "Le Chatelier: increase NH₃ yield in the Haber equilibrium",
+      "patternTags": ["chemical-equilibrium", "le-chatelier", "haber-process", "pick-correct-statement"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "$\\mathrm{N_2+3H_2=2NH_3}+92.2\\,$kJ/mol が平衡状態にあるとき，アンモニアの生成量を増やす操作として最も適当なものを選びなさい。", "choices": ["触媒の量を増やす。", "反応時間を長くする。", "温度を変えないで，圧力を上げる。", "圧力を変えないで，温度を上げる。", "圧力を下げて，温度を上げる。"] },
+      "en": { "prompt": "For $\\mathrm{N_2+3H_2=2NH_3}+92.2\\,$kJ/mol at equilibrium, which operation increases the amount of $\\mathrm{NH_3}$?", "choices": ["Add more catalyst.", "Run for a longer time.", "Raise the pressure at constant temperature.", "Raise the temperature at constant pressure.", "Lower the pressure and raise the temperature."] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "温度一定で圧力を上げる（③）", "en": "Raise the pressure at constant temperature (③)" },
+      "explanation": { "en": "Catalyst and time change only the rate, not the equilibrium position. Higher pressure favours the side with fewer gas moles (4 mol → 2 mol), shifting right toward $\\mathrm{NH_3}$. Raising T (exothermic forward) would shift left. So ③.", "ja": "触媒や時間は速度を変えるだけで平衡位置は動かさない。高圧は気体分子数の少ない側（4 mol→2 mol）へ移動し $\\mathrm{NH_3}$ 増加。昇温（正反応は発熱）は左へ移動。よって③。" }
+    },
+    {
+      "id": "2011-1-chem-11", "answerRow": 11, "topicId": "states-and-change",
+      "subtopic": "Metals that deposit Cu from CuSO₄ solution",
+      "patternTags": ["redox", "ionization-tendency", "displacement", "true-false-combo"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の金属(a)〜(e)のうち，硫酸銅(II)水溶液 $\\mathrm{CuSO_4}$ aq に浸すと銅 Cu が析出するものはどれか。 (a) Ag (b) Fe (c) Hg (d) Pt (e) Zn", "choices": ["a, b", "a, c", "a, d", "b, e", "c, e", "d, e"] },
+      "en": { "prompt": "Which metals deposit copper when immersed in $\\mathrm{CuSO_4}$ aq? (a) Ag (b) Fe (c) Hg (d) Pt (e) Zn", "choices": ["a, b", "a, c", "a, d", "b, e", "c, e", "d, e"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "b（Fe）と e（Zn）", "en": "b (Fe) and e (Zn)" },
+      "explanation": { "en": "A metal deposits Cu only if it is more easily oxidized than Cu (higher in the ionization series). Fe and Zn are above Cu, so $\\mathrm{Fe/Zn+Cu^{2+}\\to Fe^{2+}/Zn^{2+}+Cu}$. Ag, Hg, Pt are below Cu and do not react.", "ja": "Cu より酸化されやすい（イオン化傾向が大きい）金属だけが Cu を析出させる。Fe・Zn は Cu より上位なので $\\mathrm{Fe/Zn+Cu^{2+}\\to Fe^{2+}/Zn^{2+}+Cu}$。Ag・Hg・Pt は Cu より下位で反応しない。" }
+    },
+    {
+      "id": "2011-1-chem-12", "answerRow": 12, "topicId": "states-and-change",
+      "subtopic": "Identify the redox reaction",
+      "patternTags": ["redox", "oxidation-number", "reaction-classification"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の化学反応式①〜⑤のうち，酸化還元反応であるものを一つ選びなさい。 ① $\\mathrm{P_4O_{10}+6H_2O\\to4H_3PO_4}$ ② $\\mathrm{Pb(NO_3)_2+H_2S\\to PbS+2HNO_3}$ ③ $\\mathrm{2K_2CrO_4+H_2SO_4\\to K_2Cr_2O_7+K_2SO_4+H_2O}$ ④ $\\mathrm{2NH_4Cl+Ca(OH)_2\\to CaCl_2+2H_2O+2NH_3}$ ⑤ $\\mathrm{3Fe_2O_3+CO\\to2Fe_3O_4+CO_2}$", "choices": ["①", "②", "③", "④", "⑤"] },
+      "en": { "prompt": "Which reaction is a redox (oxidation–reduction) reaction? ① $\\mathrm{P_4O_{10}+6H_2O\\to4H_3PO_4}$ ② $\\mathrm{Pb(NO_3)_2+H_2S\\to PbS+2HNO_3}$ ③ $\\mathrm{2K_2CrO_4+H_2SO_4\\to K_2Cr_2O_7+K_2SO_4+H_2O}$ ④ $\\mathrm{2NH_4Cl+Ca(OH)_2\\to CaCl_2+2H_2O+2NH_3}$ ⑤ $\\mathrm{3Fe_2O_3+CO\\to2Fe_3O_4+CO_2}$", "choices": ["①", "②", "③", "④", "⑤"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "⑤", "en": "⑤" },
+      "explanation": { "en": "Only ⑤ involves oxidation-number changes: C goes $+2\\to+4$ (oxidized) and Fe is reduced ($+3\\to+8/3$ in $\\mathrm{Fe_3O_4}$). ①–④ are acid–base, precipitation, or condensation with no change in oxidation numbers.", "ja": "酸化数が変わるのは⑤のみ：C は $+2\\to+4$（酸化），Fe は還元（$+3\\to$ $\\mathrm{Fe_3O_4}$ の $+8/3$）。①〜④は酸塩基・沈殿・縮合で酸化数は不変。" }
+    },
+    {
+      "id": "2011-1-chem-13", "answerRow": 13, "topicId": "states-and-change",
+      "subtopic": "Acidity/basicity of Na₂CO₃, NaHSO₄, NH₄Cl solutions",
+      "patternTags": ["acids-bases", "salt-hydrolysis", "true-false-combo"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "$\\mathrm{Na_2CO_3}$，$\\mathrm{NaHSO_4}$，$\\mathrm{NH_4Cl}$ の水溶液の性質（中性・酸性・塩基性）の組み合わせとして最も適当なものはどれか。", "choices": ["中性 / 酸性 / 中性", "中性 / 酸性 / 酸性", "中性 / 塩基性 / 中性", "中性 / 塩基性 / 酸性", "塩基性 / 酸性 / 中性", "塩基性 / 酸性 / 酸性", "塩基性 / 塩基性 / 中性", "塩基性 / 塩基性 / 酸性"] },
+      "en": { "prompt": "Give the acid/base nature of aqueous $\\mathrm{Na_2CO_3}$, $\\mathrm{NaHSO_4}$, $\\mathrm{NH_4Cl}$.", "choices": ["neutral / acidic / neutral", "neutral / acidic / acidic", "neutral / basic / neutral", "neutral / basic / acidic", "basic / acidic / neutral", "basic / acidic / acidic", "basic / basic / neutral", "basic / basic / acidic"] },
+      "answerIndex": 5, "answerOption": 6, "answer": { "ja": "$\\mathrm{Na_2CO_3}$:塩基性 / $\\mathrm{NaHSO_4}$:酸性 / $\\mathrm{NH_4Cl}$:酸性", "en": "$\\mathrm{Na_2CO_3}$: basic / $\\mathrm{NaHSO_4}$: acidic / $\\mathrm{NH_4Cl}$: acidic" },
+      "explanation": { "en": "$\\mathrm{Na_2CO_3}$ (strong base + weak acid salt) is basic; $\\mathrm{NaHSO_4}$ retains an acidic $\\mathrm{HSO_4^-}$ proton, so acidic; $\\mathrm{NH_4Cl}$ (weak base + strong acid salt) is acidic.", "ja": "$\\mathrm{Na_2CO_3}$（強塩基＋弱酸の塩）は塩基性，$\\mathrm{NaHSO_4}$ は酸性の $\\mathrm{HSO_4^-}$ をもち酸性，$\\mathrm{NH_4Cl}$（弱塩基＋強酸の塩）は酸性。" }
+    },
+    {
+      "id": "2011-1-chem-14", "answerRow": 14, "topicId": "inorganic",
+      "subtopic": "Identify metals by passivation, amphoterism, conductivity",
+      "patternTags": ["typical-elements", "passivation", "amphoteric-metal", "metal-properties"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "記述(a)〜(c)にあてはまる金属の組み合わせを選びなさい。 (a) 濃硝酸には溶けないが，希硫酸には溶ける。 (b) 塩酸や水酸化ナトリウム水溶液のいずれにも溶ける。 (c) 電気や熱を最もよく導く。", "choices": ["a:Ag b:Al c:Fe", "a:Ag b:Fe c:Al", "a:Al b:Fe c:Ag", "a:Al b:Ag c:Fe", "a:Fe b:Ag c:Al", "a:Fe b:Al c:Ag"] },
+      "en": { "prompt": "Match metals to: (a) does not dissolve in conc. $\\mathrm{HNO_3}$ but dissolves in dilute $\\mathrm{H_2SO_4}$; (b) dissolves in both HCl and NaOH; (c) is the best conductor of heat and electricity.", "choices": ["a:Ag b:Al c:Fe", "a:Ag b:Fe c:Al", "a:Al b:Fe c:Ag", "a:Al b:Ag c:Fe", "a:Fe b:Ag c:Al", "a:Fe b:Al c:Ag"] },
+      "answerIndex": 5, "answerOption": 6, "answer": { "ja": "a:Fe b:Al c:Ag", "en": "a: Fe, b: Al, c: Ag" },
+      "explanation": { "en": "(a) Fe is passivated by conc. $\\mathrm{HNO_3}$ yet dissolves in dilute $\\mathrm{H_2SO_4}$. (b) Al is amphoteric — it dissolves in both acid and strong base. (c) Ag is the best electrical/thermal conductor. (Al is also passivated, but it is needed for (b), so (a)=Fe.)", "ja": "(a) Fe は濃硝酸で不動態になり希硫酸には溶ける。(b) Al は両性金属で酸にも強塩基にも溶ける。(c) Ag は電気・熱の最良導体。（Al も不動態になるが (b) に使うので (a)=Fe。）" }
+    },
+    {
+      "id": "2011-1-chem-15", "answerRow": 15, "topicId": "inorganic",
+      "subtopic": "Separation of Ba²⁺, Cu²⁺, Zn²⁺",
+      "patternTags": ["ion-analysis", "selective-precipitation", "amphoteric-hydroxide"], "hasFigure": true,
+      "figure": { "ja": "混合液（$\\mathrm{Ba^{2+},Cu^{2+},Zn^{2+}}$）に希硫酸 $\\mathrm{H_2SO_4}$ を加え沈殿 a。ろ液に過剰の $\\mathrm{NaOH}$ aq を加えて沈殿 b とろ液 c。", "en": "From a mixture ($\\mathrm{Ba^{2+},Cu^{2+},Zn^{2+}}$): add dil. $\\mathrm{H_2SO_4}$ → precipitate a; add excess $\\mathrm{NaOH}$ aq to the filtrate → precipitate b and filtrate c." },
+      "ja": { "prompt": "金属イオン $\\mathrm{Ba^{2+},Cu^{2+},Zn^{2+}}$ を含む水溶液を，図の操作で分離した。沈殿 a，b およびろ液 c に主に含まれる金属イオンの組み合わせはどれか。", "choices": ["a:$\\mathrm{Ba^{2+}}$ b:$\\mathrm{Cu^{2+}}$ c:$\\mathrm{Zn^{2+}}$", "a:$\\mathrm{Ba^{2+}}$ b:$\\mathrm{Zn^{2+}}$ c:$\\mathrm{Cu^{2+}}$", "a:$\\mathrm{Cu^{2+}}$ b:$\\mathrm{Ba^{2+}}$ c:$\\mathrm{Zn^{2+}}$", "a:$\\mathrm{Cu^{2+}}$ b:$\\mathrm{Zn^{2+}}$ c:$\\mathrm{Ba^{2+}}$", "a:$\\mathrm{Zn^{2+}}$ b:$\\mathrm{Ba^{2+}}$ c:$\\mathrm{Cu^{2+}}$", "a:$\\mathrm{Zn^{2+}}$ b:$\\mathrm{Cu^{2+}}$ c:$\\mathrm{Ba^{2+}}$"] },
+      "en": { "prompt": "The scheme separates $\\mathrm{Ba^{2+},Cu^{2+},Zn^{2+}}$ into precipitates a, b and filtrate c. Which assignment is correct?", "choices": ["a:$\\mathrm{Ba^{2+}}$ b:$\\mathrm{Cu^{2+}}$ c:$\\mathrm{Zn^{2+}}$", "a:$\\mathrm{Ba^{2+}}$ b:$\\mathrm{Zn^{2+}}$ c:$\\mathrm{Cu^{2+}}$", "a:$\\mathrm{Cu^{2+}}$ b:$\\mathrm{Ba^{2+}}$ c:$\\mathrm{Zn^{2+}}$", "a:$\\mathrm{Cu^{2+}}$ b:$\\mathrm{Zn^{2+}}$ c:$\\mathrm{Ba^{2+}}$", "a:$\\mathrm{Zn^{2+}}$ b:$\\mathrm{Ba^{2+}}$ c:$\\mathrm{Cu^{2+}}$", "a:$\\mathrm{Zn^{2+}}$ b:$\\mathrm{Cu^{2+}}$ c:$\\mathrm{Ba^{2+}}$"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "a:$\\mathrm{Ba^{2+}}$ b:$\\mathrm{Cu^{2+}}$ c:$\\mathrm{Zn^{2+}}$", "en": "a: $\\mathrm{Ba^{2+}}$, b: $\\mathrm{Cu^{2+}}$, c: $\\mathrm{Zn^{2+}}$" },
+      "explanation": { "en": "Dilute $\\mathrm{H_2SO_4}$ precipitates $\\mathrm{BaSO_4}$ → a = $\\mathrm{Ba^{2+}}$. Excess NaOH precipitates $\\mathrm{Cu(OH)_2}$ (insoluble in excess) → b = $\\mathrm{Cu^{2+}}$, while amphoteric $\\mathrm{Zn(OH)_2}$ redissolves as $[\\mathrm{Zn(OH)_4}]^{2-}$ → c = $\\mathrm{Zn^{2+}}$.", "ja": "希硫酸で $\\mathrm{BaSO_4}$ 沈殿 → a=$\\mathrm{Ba^{2+}}$。過剰 NaOH で $\\mathrm{Cu(OH)_2}$ 沈殿（過剰でも溶けない）→ b=$\\mathrm{Cu^{2+}}$，両性の $\\mathrm{Zn(OH)_2}$ は $[\\mathrm{Zn(OH)_4}]^{2-}$ として再溶解 → c=$\\mathrm{Zn^{2+}}$。" }
+    },
+    {
+      "id": "2011-1-chem-16", "answerRow": 16, "topicId": "organic",
+      "subtopic": "Structural isomers of 1-butene (C₄H₈)",
+      "patternTags": ["structural-isomers", "alkenes", "molecular-formula", "true-false-combo"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の化合物(a)〜(f)のうち，1-ブテン（$\\mathrm{CH_2{=}CH{-}CH_2{-}CH_3}$）の構造異性体はどれか。 (a) $\\mathrm{CH_2{=}CH{-}CH_3}$ (b) $\\mathrm{CH_3CH_2CH_2CH_3}$ (c) $\\mathrm{CH_3{-}CH{=}CH{-}CH_3}$ (d) $\\mathrm{CH_2{=}CH{-}CH{=}CH_2}$ (e) $\\mathrm{CH_2{=}C(CH_3){-}CH_3}$ (f) シクロブタン（$\\mathrm{C_4H_8}$ 環）", "choices": ["a, b, d", "a, c, e", "a, d, f", "b, c, e", "b, d, f", "c, d, e", "c, e, f", "d, e, f"] },
+      "en": { "prompt": "Which compounds are structural isomers of 1-butene ($\\mathrm{CH_2{=}CH{-}CH_2{-}CH_3}$)? (a) $\\mathrm{CH_2{=}CH{-}CH_3}$ (b) $\\mathrm{CH_3CH_2CH_2CH_3}$ (c) $\\mathrm{CH_3{-}CH{=}CH{-}CH_3}$ (d) $\\mathrm{CH_2{=}CH{-}CH{=}CH_2}$ (e) $\\mathrm{CH_2{=}C(CH_3){-}CH_3}$ (f) cyclobutane ($\\mathrm{C_4H_8}$ ring)", "choices": ["a, b, d", "a, c, e", "a, d, f", "b, c, e", "b, d, f", "c, d, e", "c, e, f", "d, e, f"] },
+      "answerIndex": 6, "answerOption": 7, "answer": { "ja": "c, e, f", "en": "c, e, f" },
+      "explanation": { "en": "1-butene is $\\mathrm{C_4H_8}$. Same-formula isomers: (c) 2-butene, (e) 2-methylpropene, (f) cyclobutane — all $\\mathrm{C_4H_8}$. (a) propene $\\mathrm{C_3H_6}$, (b) butane $\\mathrm{C_4H_{10}}$, (d) 1,3-butadiene $\\mathrm{C_4H_6}$ have different formulas.", "ja": "1-ブテンは $\\mathrm{C_4H_8}$。同じ分子式の異性体は (c) 2-ブテン，(e) 2-メチルプロペン，(f) シクロブタン（いずれも $\\mathrm{C_4H_8}$）。(a) プロペン $\\mathrm{C_3H_6}$，(b) ブタン $\\mathrm{C_4H_{10}}$，(d) 1,3-ブタジエン $\\mathrm{C_4H_6}$ は分子式が異なる。" }
+    },
+    {
+      "id": "2011-1-chem-17", "answerRow": 17, "topicId": "organic",
+      "subtopic": "Which compounds react with acidic KMnO₄",
+      "patternTags": ["oxidation", "kmno4", "functional-groups", "true-false-combo"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の化合物(a)〜(f)のうち，酸性水溶液中で過マンガン酸カリウム $\\mathrm{KMnO_4}$ と反応する化合物の組み合わせを選びなさい。 (a) エタノール (b) 酢酸 (c) シクロヘキサン (d) 1-ブテン (e) プロパン (f) ベンゼン", "choices": ["a, c", "a, d", "b, d", "b, f", "d, e", "e, f"] },
+      "en": { "prompt": "Which compounds react with acidic $\\mathrm{KMnO_4}$? (a) ethanol (b) acetic acid (c) cyclohexane (d) 1-butene (e) propane (f) benzene", "choices": ["a, c", "a, d", "b, d", "b, f", "d, e", "e, f"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "a（エタノール）と d（1-ブテン）", "en": "a (ethanol) and d (1-butene)" },
+      "explanation": { "en": "Acidic $\\mathrm{KMnO_4}$ is a strong oxidant: it oxidizes ethanol (a) and the C=C of 1-butene (d). It does not react with the already-oxidized acetic acid, nor with the saturated cyclohexane/propane, nor with the resistant aromatic benzene.", "ja": "酸性 $\\mathrm{KMnO_4}$ は強い酸化剤で，エタノール(a)と 1-ブテンの C=C(d)を酸化する。すでに酸化された酢酸，飽和のシクロヘキサン・プロパン，耐酸化性のベンゼンとは反応しない。" }
+    },
+    {
+      "id": "2011-1-chem-18", "answerRow": 18, "topicId": "organic",
+      "subtopic": "Hydrogenation stoichiometry of a benzene/cyclohexene mixture",
+      "patternTags": ["hydrogenation", "stoichiometry", "simultaneous-equations", "plug-in-numbers"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "ベンゼンとシクロヘキセンの混合物を触媒で完全に水素化したところ，$10\\,$mol の水素 $\\mathrm{H_2}$ を要し，$6\\,$mol のシクロヘキサンが生成した。混合物に含まれていたベンゼンの量〔mol〕として最も適当なものはどれか。", "choices": ["1", "2", "3", "4", "5"] },
+      "en": { "prompt": "A benzene/cyclohexene mixture is completely hydrogenated, consuming $10\\,$mol $\\mathrm{H_2}$ and giving $6\\,$mol cyclohexane. How many mol of benzene were in the mixture?", "choices": ["1", "2", "3", "4", "5"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "2 mol", "en": "2 mol" },
+      "explanation": { "en": "Benzene $+3\\mathrm{H_2}\\to$ cyclohexane; cyclohexene $+\\mathrm{H_2}\\to$ cyclohexane. Let benzene $=x$, cyclohexene $=y$. Then $x+y=6$ (cyclohexane) and $3x+y=10$ ($\\mathrm{H_2}$). Subtracting: $2x=4\\Rightarrow x=2\\,$mol.", "ja": "ベンゼン$+3\\mathrm{H_2}\\to$シクロヘキサン，シクロヘキセン$+\\mathrm{H_2}\\to$シクロヘキサン。ベンゼン$=x$，シクロヘキセン$=y$ とすると $x+y=6$（シクロヘキサン），$3x+y=10$（$\\mathrm{H_2}$）。差をとると $2x=4\\Rightarrow x=2\\,$mol。" }
+    },
+    {
+      "id": "2011-1-chem-19", "answerRow": 19, "topicId": "organic",
+      "subtopic": "Products of two aromatic reactions",
+      "patternTags": ["aromatic", "nucleophilic-substitution", "side-chain-oxidation", "reaction-products"], "hasFigure": true,
+      "figure": { "ja": "生成物候補：(i) ナトリウムフェノキシド $\\mathrm{C_6H_5ONa}$，(ii) o-クロロ体の ONa，(iii) p-ジクロロベンゼン，(iv) p-クレゾール（$\\mathrm{CH_3{-}C_6H_4{-}OH}$），(v) テレフタル酸（p-$\\mathrm{C_6H_4(COOH)_2}$）。", "en": "Product candidates: (i) sodium phenoxide $\\mathrm{C_6H_5ONa}$; (ii) the o-chloro ONa compound; (iii) p-dichlorobenzene; (iv) p-cresol ($\\mathrm{CH_3{-}C_6H_4{-}OH}$); (v) terephthalic acid (p-$\\mathrm{C_6H_4(COOH)_2}$)." },
+      "ja": { "prompt": "次の反応(a),(b)で得られる生成物は(i)〜(v)のどれか。 (a) 高温・高圧でクロロベンゼンを NaOH と反応させる。 (b) 酸性条件で p-キシレンを $\\mathrm{KMnO_4}$ と反応させる。", "choices": ["a:i b:iv", "a:i b:v", "a:iii b:ii", "a:iii b:v", "a:v b:ii", "a:v b:iv"] },
+      "en": { "prompt": "Identify the products of: (a) chlorobenzene + NaOH at high T and pressure; (b) p-xylene + $\\mathrm{KMnO_4}$ under acidic conditions.", "choices": ["a:i b:iv", "a:i b:v", "a:iii b:ii", "a:iii b:v", "a:v b:ii", "a:v b:iv"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "a:(i) ナトリウムフェノキシド，b:(v) テレフタル酸", "en": "a: (i) sodium phenoxide, b: (v) terephthalic acid" },
+      "explanation": { "en": "(a) Chlorobenzene with NaOH at high T/P gives sodium phenoxide $\\mathrm{C_6H_5ONa}$ (i) — the classic phenol synthesis. (b) Acidic $\\mathrm{KMnO_4}$ oxidizes both methyl groups of p-xylene to –COOH, giving terephthalic acid (v).", "ja": "(a) 高温高圧でクロロベンゼン＋NaOH はナトリウムフェノキシド $\\mathrm{C_6H_5ONa}$(i)（フェノール合成）。(b) 酸性 $\\mathrm{KMnO_4}$ は p-キシレンの 2 つのメチル基を –COOH に酸化し，テレフタル酸(v)を与える。" }
+    },
+    {
+      "id": "2011-1-chem-20", "answerRow": 20, "topicId": "organic",
+      "subtopic": "Which polymers form by condensation polymerization",
+      "patternTags": ["polymers", "condensation-polymerization", "true-false-combo"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の化合物(a)〜(e)のうち，縮合重合反応により合成されるものはどれか。 (a) ナイロン 66 (b) ポリエチレン (c) ポリエチレンテレフタラート (d) ポリ酢酸ビニル (e) ポリスチレン", "choices": ["a, c", "a, e", "b, c", "b, e", "c, d", "d, e"] },
+      "en": { "prompt": "Which polymers are made by condensation polymerization? (a) nylon 6,6 (b) polyethylene (c) poly(ethylene terephthalate) (d) poly(vinyl acetate) (e) polystyrene", "choices": ["a, c", "a, e", "b, c", "b, e", "c, d", "d, e"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "a（ナイロン 66）と c（PET）", "en": "a (nylon 6,6) and c (PET)" },
+      "explanation": { "en": "Nylon 6,6 (amide links) and PET (ester links) are made by condensation polymerization (eliminating $\\mathrm{H_2O}$). Polyethylene, poly(vinyl acetate), and polystyrene are made by addition polymerization of C=C monomers.", "ja": "ナイロン 66（アミド結合）と PET（エステル結合）は縮合重合（$\\mathrm{H_2O}$ がとれる）。ポリエチレン・ポリ酢酸ビニル・ポリスチレンは C=C 単量体の付加重合。" }
+    }
+  ],
+  "patterns": {
+    "archetypes": [
+      "Isoelectronic odd-one-out (count electrons in ions; Ne-type = 10).",
+      "True/false single-best on periodic-table facts (valence electrons by group, metals/non-metals, shell of a period).",
+      "Match three properties (linear shape / covalent crystal / non-polarity) to substances.",
+      "Mass-percent from molarity and density (take 1 L = density×1000 g).",
+      "Empirical formula of an oxide from percent composition.",
+      "Read a titration curve to name the acid (strong vs weak from starting pH) and choose the indicator that brackets the jump.",
+      "Largest oxidation-number change across several equations (Mn +7→+2 is the showpiece).",
+      "NaCl electrolysis: charge → mol e⁻ → H₂ at cathode, Cl₂ at anode (equal volumes).",
+      "Lowest freezing point = largest van't Hoff i (Na₂SO₄ gives 3 ions).",
+      "Le Chatelier on the Haber equilibrium (catalyst/time are distractors; raise P).",
+      "Ionization-series displacement: which metals deposit Cu from Cu²⁺.",
+      "Spot the redox reaction among acid–base / precipitation / condensation distractors.",
+      "Salt-solution acidity from the parent acid/base strengths.",
+      "Identify metals by passivation (Fe), amphoterism (Al), and best conductivity (Ag).",
+      "Cation separation with H₂SO₄ (BaSO₄) then excess NaOH (Cu(OH)₂ vs soluble zincate).",
+      "Counting structural isomers of a given formula (C₄H₈ incl. the cyclic isomer).",
+      "Acidic-KMnO₄ reactivity sorting (alkenes/alcohols react; alkanes/aromatics/carboxylic acids don't).",
+      "Hydrogenation stoichiometry of a benzene/alkene mixture (3 H₂ vs 1 H₂) via simultaneous equations.",
+      "Named aromatic reactions: chlorobenzene→phenoxide (Dow), p-xylene→terephthalic acid.",
+      "Classify polymers as condensation (nylon, PET) vs addition (PE, PVAc, PS)."
+    ],
+    "recurring": [
+      "Mole↔mass↔volume conversions with M and 22.4 L/mol underpin most calculation items.",
+      "Redox shows up three ways: oxidation-number change, redox-vs-not classification, and ionization-series displacement.",
+      "Le Chatelier reasoning (gas moles + exo/endo) and indicator/titration logic recur every paper.",
+      "Qualitative inorganic separation (selective precipitation, amphoteric hydroxides) is a guaranteed item.",
+      "Organic isomer counting, KMnO₄ reactivity, and named aromatic syntheses recur.",
+      "Polymer classification (addition vs condensation) is a standard final-item."
+    ],
+    "examTacticNotes": [
+      "Isoelectronic species: subtract/add the charge from the atomic number; Ne-type ions all have 10 electrons.",
+      "Mass% from molarity: assume 1 L, mass = density×1000 g, solute mass = molarity×M.",
+      "Empirical formula: divide each percent by atomic mass, take the simplest integer ratio.",
+      "Titration: starting pH near 1 ⇒ strong acid (methyl orange OK); near 3 ⇒ weak acid (use phenolphthalein for the basic equivalence).",
+      "Electrolysis: mol e⁻ = It/F; in NaCl aq the cathode gives H₂ and the anode gives Cl₂ (concentrated) — equal mol of e⁻ → equal mol of each diatomic gas.",
+      "Freezing-point depression ∝ i·molality; count the ions a formula releases.",
+      "Le Chatelier: higher pressure → fewer-gas-mole side; exothermic forward → lower T raises yield; catalyst/time don't move equilibrium.",
+      "A metal displaces Cu only if it sits above Cu in the ionization series.",
+      "Redox ⇔ some atom's oxidation number changes; otherwise it's acid–base/precipitation/condensation.",
+      "Passivation in conc. HNO₃: Al, Fe, Ni; amphoteric (acid+strong base): Al, Zn, Sn, Pb; best conductor: Ag.",
+      "Cation scheme: dil. H₂SO₄ → BaSO₄/PbSO₄; excess NaOH redissolves amphoteric Zn(OH)₂/Al(OH)₃ but not Cu(OH)₂.",
+      "Structural isomers share the molecular formula but differ in connectivity — remember the cyclic isomer.",
+      "Acidic KMnO₄ oxidizes C=C and alcohols, not alkanes, benzene, or carboxylic acids.",
+      "Benzene needs 3 H₂, an alkene needs 1 H₂ — set up two equations from total H₂ and total product.",
+      "Condensation polymers (nylon, PET) eliminate small molecules; addition polymers come from C=C monomers."
+    ],
+    "difficulty": "Standard EJU chemistry — a balanced 20-item sweep of the syllabus. The most discriminating items are the titration-curve indicator choice (Q6), the NaCl-electrolysis gas volumes (Q8), the C₄H₈ isomer count including the ring (Q16), and the benzene/cyclohexene hydrogenation stoichiometry (Q18)."
+  }
+}
