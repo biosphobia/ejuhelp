@@ -1,0 +1,275 @@
+{
+  "id": "2016-2-chemistry",
+  "year": 2016,
+  "session": 2,
+  "subject": "chemistry",
+  "title": "EJU 2016 · Session 2 · Chemistry",
+  "source": "平成28年度（2016年度）日本留学試験（第2回）理科〈化学〉 © Japan Student Services Organization (JASSO)",
+  "attribution": "EJU past questions © JASSO. Question text paraphrased from the official past paper; figures described in text; correct answers taken from the official JASSO answer key and independently re-solved for verification.",
+  "languages": ["ja", "en"],
+  "answerKeyVerified": true,
+  "structure": {
+    "format": "flat",
+    "totalQuestions": 20,
+    "note": "Chemistry is a flat list of 20 single-best-answer items (問1–問20, answer rows 1–20) — no Roman-numeral blocks. Order ≈ structure & bonding → states/energetics/electrochemistry/equilibria → inorganic → organic.",
+    "givens": {
+      "ja": "標準状態 $0\\,$°C・$1.0\\times10^5\\,$Pa，気体 $1\\,$mol の体積 $22.4\\,$L，アボガドロ定数 $N_A=6.02\\times10^{23}\\,$/mol，ファラデー定数 $F=9.65\\times10^4\\,$C/mol。原子量：H 1.0, C 12, N 14, O 16, Na 23, S 32, Cl 35.5, Mn 55。族・周期は周期表の通り。",
+      "en": "STP $0\\,$°C, $1.0\\times10^5\\,$Pa; molar volume $22.4\\,$L; $N_A=6.02\\times10^{23}\\,$/mol; $F=9.65\\times10^4\\,$C/mol. Atomic weights: H 1.0, C 12, N 14, O 16, Na 23, S 32, Cl 35.5, Mn 55. Groups/periods per the periodic table."
+    }
+  },
+  "questions": [
+    {
+      "id": "2016-2-chem-1", "answerRow": 1, "topicId": "matter-structure",
+      "subtopic": "Neutron count of a manganese(II) ion",
+      "patternTags": ["atomic-structure", "neutrons", "ions", "plug-in-numbers"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "マンガン(II)イオン $\\mathrm{Mn^{2+}}$ の質量数は 55 であり，23 個の電子をもっている。$\\mathrm{Mn^{2+}}$ は何個の中性子をもつか。", "choices": ["23", "25", "30", "32", "55"] },
+      "en": { "prompt": "A manganese(II) ion $\\mathrm{Mn^{2+}}$ has mass number 55 and 23 electrons. How many neutrons does it have?", "choices": ["23", "25", "30", "32", "55"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "30", "en": "30" },
+      "explanation": { "en": "$\\mathrm{Mn^{2+}}$ has 23 electrons, so the atom has $23+2=25$ protons (Z = 25). Neutrons $=$ mass number $-$ protons $=55-25=30$.", "ja": "$\\mathrm{Mn^{2+}}$ は電子 23 個なので原子の陽子は $23+2=25$（Z=25）。中性子 $=$ 質量数 $-$ 陽子 $=55-25=30$。" }
+    },
+    {
+      "id": "2016-2-chem-2", "answerRow": 2, "topicId": "matter-structure",
+      "subtopic": "Pair with the same electron configuration",
+      "patternTags": ["atomic-structure", "electron-configuration", "isoelectronic", "compare-cases"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の原子やイオンの組み合わせ①〜⑤のうち，電子配置が互いに同じものを選びなさい。 ① $\\mathrm{Cl^-}$ と $\\mathrm{Na^+}$ ② $\\mathrm{H^+}$ と He ③ $\\mathrm{Na^+}$ と $\\mathrm{Ca^{2+}}$ ④ Ne と $\\mathrm{Mg^{2+}}$ ⑤ $\\mathrm{Cl^-}$ と $\\mathrm{Br^-}$", "choices": ["$\\mathrm{Cl^-},\\ \\mathrm{Na^+}$", "$\\mathrm{H^+},\\ \\mathrm{He}$", "$\\mathrm{Na^+},\\ \\mathrm{Ca^{2+}}$", "$\\mathrm{Ne},\\ \\mathrm{Mg^{2+}}$", "$\\mathrm{Cl^-},\\ \\mathrm{Br^-}$"] },
+      "en": { "prompt": "Which pair of atoms/ions has the SAME electron configuration? ① $\\mathrm{Cl^-}$ & $\\mathrm{Na^+}$ ② $\\mathrm{H^+}$ & He ③ $\\mathrm{Na^+}$ & $\\mathrm{Ca^{2+}}$ ④ Ne & $\\mathrm{Mg^{2+}}$ ⑤ $\\mathrm{Cl^-}$ & $\\mathrm{Br^-}$", "choices": ["$\\mathrm{Cl^-},\\ \\mathrm{Na^+}$", "$\\mathrm{H^+},\\ \\mathrm{He}$", "$\\mathrm{Na^+},\\ \\mathrm{Ca^{2+}}$", "$\\mathrm{Ne},\\ \\mathrm{Mg^{2+}}$", "$\\mathrm{Cl^-},\\ \\mathrm{Br^-}$"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "④ Ne と $\\mathrm{Mg^{2+}}$（ともに 10 電子）", "en": "④ Ne and $\\mathrm{Mg^{2+}}$ (both 10 electrons)" },
+      "explanation": { "en": "Ne has 10 electrons and $\\mathrm{Mg^{2+}}$ has $12-2=10$ — identical configuration. The others differ: $\\mathrm{Cl^-}(18)/\\mathrm{Na^+}(10)$, $\\mathrm{H^+}(0)/\\mathrm{He}(2)$, $\\mathrm{Na^+}(10)/\\mathrm{Ca^{2+}}(18)$, $\\mathrm{Cl^-}(18)/\\mathrm{Br^-}(36)$.", "ja": "Ne は電子 10 個，$\\mathrm{Mg^{2+}}$ は $12-2=10$ で同じ配置。他は不一致：$\\mathrm{Cl^-}(18)/\\mathrm{Na^+}(10)$，$\\mathrm{H^+}(0)/\\mathrm{He}(2)$，$\\mathrm{Na^+}(10)/\\mathrm{Ca^{2+}}(18)$，$\\mathrm{Cl^-}(18)/\\mathrm{Br^-}(36)$。" }
+    },
+    {
+      "id": "2016-2-chem-3", "answerRow": 3, "topicId": "matter-structure",
+      "subtopic": "Two correct statements about the periodic table",
+      "patternTags": ["periodic-table", "electronegativity", "noble-gas", "true-false-combo"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "周期表に関する記述(a)〜(e)のうち，正しいものが二つある。その組み合わせを選びなさい。 (a) 同じ族の元素は常温・常圧で固体・液体・気体のいずれか同じ状態にある。 (b) 同じ周期の典型元素は，18 族を除いて，一般に族の番号が大きいほど電気陰性度が大きい。 (c) 遷移元素は第 3〜7 周期にある。 (d) 18 族の元素を希ガス（貴ガス）とよぶ。 (e) 知られている元素のうちほぼ半分は非金属元素である。", "choices": ["a, b", "a, d", "b, c", "b, d", "c, e", "d, e"] },
+      "en": { "prompt": "Two of these statements about the periodic table are correct. Which pair? (a) Elements of the same group are all in the same state (solid/liquid/gas) at room conditions. (b) Among same-period main-group elements (excluding group 18), electronegativity generally increases with group number. (c) Transition elements lie in periods 3–7. (d) Group-18 elements are called noble gases. (e) About half of the known elements are non-metals.", "choices": ["a, b", "a, d", "b, c", "b, d", "c, e", "d, e"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "b と d", "en": "b and d" },
+      "explanation": { "en": "(b) True — electronegativity rises across a period. (d) True — group 18 are the noble gases. (a) False — e.g. group 17 has gas $F_2$, liquid $Br_2$, solid $I_2$. (c) False — transition elements begin in period 4. (e) False — most elements are metals, not non-metals.", "ja": "(b) 正 — 同周期で右ほど電気陰性度が大。(d) 正 — 18 族は希ガス。(a) 誤 — 17 族は $F_2$ 気体，$Br_2$ 液体，$I_2$ 固体。(c) 誤 — 遷移元素は第 4 周期から。(e) 誤 — 元素の大半は金属。" }
+    },
+    {
+      "id": "2016-2-chem-4", "answerRow": 4, "topicId": "matter-structure",
+      "subtopic": "Two methods to separate NaCl from iodine",
+      "patternTags": ["separation-methods", "sublimation", "extraction", "true-false-combo"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "塩化ナトリウム NaCl とヨウ素 $\\mathrm{I_2}$ の混合物を分離するのに適当な方法が(a)〜(e)の中に二つある。その組み合わせを選びなさい。 (a) 蒸留 (b) 昇華 (c) 再結晶 (d) 抽出 (e) 分留", "choices": ["a, b", "a, e", "b, c", "b, d", "c, d", "d, e"] },
+      "en": { "prompt": "Two of these are suitable methods for separating a mixture of NaCl and iodine $\\mathrm{I_2}$. Which pair? (a) distillation (b) sublimation (c) recrystallization (d) extraction (e) fractional distillation", "choices": ["a, b", "a, e", "b, c", "b, d", "c, d", "d, e"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "b と d", "en": "b and d" },
+      "explanation": { "en": "Iodine sublimes on warming, leaving NaCl behind (b). Iodine also dissolves in organic solvents while NaCl does not, so extraction separates them (d). Distillation/fractional distillation suit liquids; recrystallization is not the standard route here.", "ja": "ヨウ素は加熱すると昇華して NaCl と分離できる（b）。またヨウ素は有機溶媒に溶けるが NaCl は溶けないので抽出で分離できる（d）。蒸留・分留は液体向き，再結晶はここでは標準的でない。" }
+    },
+    {
+      "id": "2016-2-chem-5", "answerRow": 5, "topicId": "states-and-change",
+      "subtopic": "Gas with the most molecules per gram",
+      "patternTags": ["mole-concept", "molar-mass", "compare-cases"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の気体①〜⑤のうち，それぞれ $1\\,$g 中に含まれる分子の数が最も多いものを選びなさい。 ① 酸素 ② 窒素 ③ 塩素 ④ 一酸化窒素 ⑤ 二酸化炭素", "choices": ["酸素 $\\mathrm{O_2}$", "窒素 $\\mathrm{N_2}$", "塩素 $\\mathrm{Cl_2}$", "一酸化窒素 NO", "二酸化炭素 $\\mathrm{CO_2}$"] },
+      "en": { "prompt": "Which gas has the MOST molecules per $1\\,$g? ① oxygen ② nitrogen ③ chlorine ④ nitrogen monoxide ⑤ carbon dioxide", "choices": ["oxygen $\\mathrm{O_2}$", "nitrogen $\\mathrm{N_2}$", "chlorine $\\mathrm{Cl_2}$", "nitrogen monoxide NO", "carbon dioxide $\\mathrm{CO_2}$"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "② 窒素（$M=28$ で最小）", "en": "② nitrogen (smallest $M=28$)" },
+      "explanation": { "en": "Molecules per gram $=N_A/M$, so the smallest molar mass wins. $M$: $\\mathrm{O_2}=32$, $\\mathrm{N_2}=28$, $\\mathrm{Cl_2}=71$, NO $=30$, $\\mathrm{CO_2}=44$. Nitrogen ($28$) is smallest.", "ja": "1 g あたりの分子数 $=N_A/M$ なのでモル質量が最小のものが最多。$M$：$\\mathrm{O_2}=32$，$\\mathrm{N_2}=28$，$\\mathrm{Cl_2}=71$，NO $=30$，$\\mathrm{CO_2}=44$。窒素（28）が最小。" }
+    },
+    {
+      "id": "2016-2-chem-6", "answerRow": 6, "topicId": "states-and-change",
+      "subtopic": "Identify acid and indicator from a titration curve",
+      "patternTags": ["acids-bases", "titration-curve", "indicators", "graph-reading"], "hasFigure": true,
+      "figure": { "ja": "滴定曲線（横軸 NaOH 体積 [mL]，縦軸 pH）。$0.1\\,$mol/L の酸 A $10\\,$mL を $0.1\\,$mol/L NaOH で滴定。初めの pH は約 3，緩やかな緩衝領域を経て $10\\,$mL 付近で pH が約 6 から約 12 へ急上昇し，中和点は塩基性側にある。", "en": "Titration curve (x-axis NaOH volume [mL], y-axis pH). $0.1\\,$mol/L acid A, $10\\,$mL, titrated with $0.1\\,$mol/L NaOH. Initial pH ≈ 3, a gentle buffer region, then near $10\\,$mL pH jumps from ≈ 6 to ≈ 12; the equivalence point is on the basic side." },
+      "ja": { "prompt": "$0.1\\,$mol/L の酸 A $10\\,$mL に指示薬 B を加え，$0.1\\,$mol/L NaOH で滴定して得た滴定曲線（図）から，A と B の組み合わせとして正しいものを選びなさい。", "choices": ["A=$\\mathrm{CH_3COOH}$ / B=フェノールフタレイン", "A=$\\mathrm{CH_3COOH}$ / B=メチルオレンジ", "A=HCl / B=フェノールフタレイン", "A=HCl / B=メチルオレンジ", "A=$\\mathrm{H_2SO_4}$ / B=フェノールフタレイン", "A=$\\mathrm{H_2SO_4}$ / B=メチルオレンジ"] },
+      "en": { "prompt": "From the titration curve of $10\\,$mL of $0.1\\,$mol/L acid A with $0.1\\,$mol/L NaOH (indicator B), which A-and-B pairing is correct?", "choices": ["A=$\\mathrm{CH_3COOH}$ / B=phenolphthalein", "A=$\\mathrm{CH_3COOH}$ / B=methyl orange", "A=HCl / B=phenolphthalein", "A=HCl / B=methyl orange", "A=$\\mathrm{H_2SO_4}$ / B=phenolphthalein", "A=$\\mathrm{H_2SO_4}$ / B=methyl orange"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "① $\\mathrm{CH_3COOH}$ / フェノールフタレイン", "en": "① $\\mathrm{CH_3COOH}$ / phenolphthalein" },
+      "explanation": { "en": "The starting pH ≈ 3 (not 1) and the buffer region show A is a WEAK acid → acetic acid. A weak-acid/strong-base equivalence point is basic, so the indicator must change in the basic range → phenolphthalein (methyl orange changes in the acidic range).", "ja": "初めの pH が約 3（1 でない）で緩衝領域があるので A は弱酸＝酢酸。弱酸＋強塩基の中和点は塩基性なので，塩基性側で変色する指示薬＝フェノールフタレイン（メチルオレンジは酸性側で変色）。" }
+    },
+    {
+      "id": "2016-2-chem-7", "answerRow": 7, "topicId": "states-and-change",
+      "subtopic": "Reaction where oxygen's oxidation number decreases",
+      "patternTags": ["redox", "oxidation-number", "oxygen", "pick-statement"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の化学反応①〜④のうち，酸素 O の酸化数が減少しているものを一つ選びなさい。 ① $\\mathrm{2KClO_3\\to 2KCl+3O_2}$ ② $\\mathrm{3O_2\\to 2O_3}$ ③ $\\mathrm{H_2O_2+H_2S\\to S+2H_2O}$ ④ $\\mathrm{Na_2O+2HCl\\to 2NaCl+H_2O}$", "choices": ["①", "②", "③", "④"] },
+      "en": { "prompt": "In which reaction does oxygen's oxidation number DECREASE? ① $\\mathrm{2KClO_3\\to 2KCl+3O_2}$ ② $\\mathrm{3O_2\\to 2O_3}$ ③ $\\mathrm{H_2O_2+H_2S\\to S+2H_2O}$ ④ $\\mathrm{Na_2O+2HCl\\to 2NaCl+H_2O}$", "choices": ["①", "②", "③", "④"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "③（O：$-1\\to-2$）", "en": "③ (O: $-1\\to-2$)" },
+      "explanation": { "en": "In ③, oxygen in $\\mathrm{H_2O_2}$ is $-1$ and becomes $-2$ in $\\mathrm{H_2O}$ — a decrease (reduced). ① $-2\\to0$ (increase), ② $0\\to0$, ④ $-2\\to-2$ (no change).", "ja": "③ では $\\mathrm{H_2O_2}$ の O が $-1$ から $\\mathrm{H_2O}$ の $-2$ へ減少（還元）。① $-2\\to0$（増加），② $0\\to0$，④ $-2\\to-2$（変化なし）。" }
+    },
+    {
+      "id": "2016-2-chem-8", "answerRow": 8, "topicId": "states-and-change",
+      "subtopic": "Energy diagram, catalyst, and equilibrium",
+      "patternTags": ["thermochemistry", "activation-energy", "catalyst", "equilibrium", "energy-diagram"], "hasFigure": true,
+      "figure": { "ja": "$\\mathrm{H_2(気)+I_2(気)\\rightleftharpoons 2HI(気)}$ のエネルギー図。反応物 $\\mathrm{H_2+I_2}$ は $9\\,$kJ，生成物 $\\mathrm{2HI}$ は $0\\,$kJ。触媒なしの経路 A は山の頂点 $183\\,$kJ，触媒ありの経路 B は頂点 $67\\,$kJ。", "en": "Energy diagram for $\\mathrm{H_2(g)+I_2(g)\\rightleftharpoons 2HI(g)}$. Reactants $\\mathrm{H_2+I_2}$ at $9\\,$kJ, products $\\mathrm{2HI}$ at $0\\,$kJ. Uncatalysed path A peaks at $183\\,$kJ; catalysed path B peaks at $67\\,$kJ." },
+      "ja": { "prompt": "可逆反応 (i) $\\mathrm{H_2+I_2\\rightleftharpoons 2HI}$ のエネルギー図について，正しい記述を選びなさい。 ① 正反応が A を通るとき，活性化エネルギーは $183\\,$kJ/mol である。 ② 逆反応が B を通るとき，活性化エネルギーは $58\\,$kJ/mol である。 ③ 正反応が A を通るときの反応熱は B を通るときより大きい。 ④ 同じ温度で，A を通るときの平衡定数は B を通るときより大きい。 ⑤ 平衡状態で，温度一定で容積を小さくすると HI の割合が増加する。 ⑥ 平衡状態で，温度を下げると HI の割合が増加する。", "choices": ["①", "②", "③", "④", "⑤", "⑥"] },
+      "en": { "prompt": "For the reversible reaction (i) $\\mathrm{H_2+I_2\\rightleftharpoons 2HI}$ energy diagram, which statement is correct? ① The forward activation energy via A is $183\\,$kJ/mol. ② The reverse activation energy via B is $58\\,$kJ/mol. ③ The heat of reaction via A is larger than via B. ④ At the same temperature, the equilibrium constant via A is larger than via B. ⑤ At equilibrium, reducing the volume at constant temperature raises the HI fraction. ⑥ At equilibrium, lowering the temperature raises the HI fraction.", "choices": ["①", "②", "③", "④", "⑤", "⑥"] },
+      "answerIndex": 5, "answerOption": 6, "answer": { "ja": "⑥（正反応は発熱なので冷却で HI 増加）", "en": "⑥ (forward is exothermic, so cooling raises HI)" },
+      "explanation": { "en": "Reactants (9) are above products (0), so the forward reaction is exothermic; lowering temperature shifts it forward → more HI (⑥). ① wrong: forward $E_a$ via A $=183-9=174$. ② wrong: reverse $E_a$ via B $=67-0=67$. ③ wrong: heat of reaction is path-independent. ④ wrong: a catalyst doesn't change $K$. ⑤ wrong: equal moles of gas (2 ⇌ 2), so volume change doesn't shift it.", "ja": "反応物(9)が生成物(0)より高く正反応は発熱。冷却すると正方向に移動し HI 増加（⑥）。① 誤：A の正反応 $E_a=183-9=174$。② 誤：B の逆反応 $E_a=67-0=67$。③ 誤：反応熱は経路によらない。④ 誤：触媒は $K$ を変えない。⑤ 誤：両辺の気体 mol が等しく（2⇌2），体積変化で移動しない。" }
+    },
+    {
+      "id": "2016-2-chem-9", "answerRow": 9, "topicId": "states-and-change",
+      "subtopic": "Observations from NaCl electrolysis in a U-tube",
+      "patternTags": ["electrochemistry", "electrolysis", "chlorine", "true-false-combo"], "hasFigure": true,
+      "figure": { "ja": "U 字管に $2\\,$mol/L NaCl aq を入れ，炭素電極 C 二本（左 陽極+，右 陰極−）で $3\\,$V で電気分解する図。", "en": "Diagram: a U-tube filled with $2\\,$mol/L NaCl aq, electrolysed at $3\\,$V with two graphite electrodes C (left = anode +, right = cathode −)." },
+      "ja": { "prompt": "$2\\,$mol/L の NaCl 水溶液を U 字管に入れ炭素電極で $3\\,$V で電気分解した。観察される現象として正しいものが(a)〜(d)に二つある。その組み合わせを選びなさい。 (a) 陽極からのみ気体が発生した。 (b) U 字管の口に，純水でぬらしたヨウ化カリウムデンプン紙を近づけると陽極側で青色に変化した。 (c) U 字管の底に白色沈殿が生じた。 (d) 電気分解後，U 字管の口からフェノールフタレイン水溶液を滴下すると陰極付近の水溶液が赤色に変化した。", "choices": ["a, b", "a, c", "a, d", "b, c", "b, d", "c, d"] },
+      "en": { "prompt": "Electrolysing $2\\,$mol/L NaCl in a U-tube with graphite electrodes, two of these observations are correct. Which pair? (a) Gas evolved only from the anode. (b) Holding moistened potassium-iodide starch paper at the tube mouth, it turned blue on the anode side. (c) A white precipitate formed at the bottom of the U-tube. (d) Afterwards, adding phenolphthalein turned the solution near the cathode red.", "choices": ["a, b", "a, c", "a, d", "b, c", "b, d", "c, d"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "b と d", "en": "b and d" },
+      "explanation": { "en": "Anode: $\\mathrm{2Cl^-\\to Cl_2+2e^-}$; cathode: $\\mathrm{2H_2O+2e^-\\to H_2+2OH^-}$. (b) True — anode $\\mathrm{Cl_2}$ oxidises $\\mathrm{I^-}$, turning starch paper blue. (d) True — the cathode becomes basic ($\\mathrm{OH^-}$), so phenolphthalein turns red. (a) False — both electrodes evolve gas. (c) False — no precipitate forms.", "ja": "陽極 $\\mathrm{2Cl^-\\to Cl_2+2e^-}$，陰極 $\\mathrm{2H_2O+2e^-\\to H_2+2OH^-}$。(b) 正 — 陽極の $\\mathrm{Cl_2}$ が $\\mathrm{I^-}$ を酸化しデンプン紙が青変。(d) 正 — 陰極は塩基性（$\\mathrm{OH^-}$）でフェノールフタレインが赤変。(a) 誤 — 両極で気体発生。(c) 誤 — 沈殿は生じない。" }
+    },
+    {
+      "id": "2016-2-chem-10", "answerRow": 10, "topicId": "states-and-change",
+      "subtopic": "Henry's-law dissolved-gas volume",
+      "patternTags": ["gas-solubility", "henrys-law", "plug-in-numbers"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "$20\\,$°C，$1.0\\times10^5\\,$Pa において，酸素は水 $1.0\\,$L あたり $1.4\\times10^{-3}\\,$mol 溶解する。$20\\,$°C，$5.0\\times10^5\\,$Pa で水 $2.0\\,$L に溶解する酸素は，標準状態に換算して何 L か。最も近い値を選びなさい。", "choices": ["0.031", "0.063", "0.16", "0.31", "0.63"] },
+      "en": { "prompt": "At $20\\,$°C and $1.0\\times10^5\\,$Pa, oxygen dissolves at $1.4\\times10^{-3}\\,$mol per $1.0\\,$L of water. At $20\\,$°C and $5.0\\times10^5\\,$Pa, how much oxygen dissolves in $2.0\\,$L of water, expressed as a volume at STP (L)?", "choices": ["0.031", "0.063", "0.16", "0.31", "0.63"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "約 $0.31\\,$L", "en": "≈ 0.31 L" },
+      "explanation": { "en": "By Henry's law, dissolved amount $\\propto$ pressure $\\times$ water volume: $1.4\\times10^{-3}\\times\\dfrac{5.0}{1.0}\\times\\dfrac{2.0}{1.0}=1.4\\times10^{-2}\\,$mol. At STP: $1.4\\times10^{-2}\\times22.4=0.31\\,$L.", "ja": "ヘンリーの法則より溶解量 ∝ 圧力 × 水の体積：$1.4\\times10^{-3}\\times\\dfrac{5.0}{1.0}\\times\\dfrac{2.0}{1.0}=1.4\\times10^{-2}\\,$mol。標準状態で $1.4\\times10^{-2}\\times22.4=0.31\\,$L。" }
+    },
+    {
+      "id": "2016-2-chem-11", "answerRow": 11, "topicId": "inorganic",
+      "subtopic": "Incorrect gas property among preparation methods",
+      "patternTags": ["inorganic", "gas-preparation", "gas-properties", "pick-false-statement"], "hasFigure": true,
+      "figure": { "ja": "表（実験操作 / 発生する気体の性質）：① FeS＋希硫酸（$\\mathrm{H_2S}$）/ 還元作用 ② 濃塩酸＋$\\mathrm{MnO_2}$加熱（$\\mathrm{Cl_2}$）/ 酸化作用 ③ 水＋Ca（$\\mathrm{H_2}$）/ 最も軽い気体 ④ Cu＋希硝酸（NO）/ 褐色である ⑤ Cu＋濃硫酸加熱（$\\mathrm{SO_2}$）/ 漂白作用 ⑥ $\\mathrm{CaCO_3}$＋希塩酸（$\\mathrm{CO_2}$）/ 水に溶けて弱酸性。", "en": "Table (operation / property of the gas produced): ① FeS + dilute $\\mathrm{H_2SO_4}$ (→$\\mathrm{H_2S}$) / reducing; ② conc. HCl + $\\mathrm{MnO_2}$ heated (→$\\mathrm{Cl_2}$) / oxidising; ③ water + Ca (→$\\mathrm{H_2}$) / the lightest gas; ④ Cu + dilute $\\mathrm{HNO_3}$ (→NO) / brown; ⑤ Cu + conc. $\\mathrm{H_2SO_4}$ heated (→$\\mathrm{SO_2}$) / bleaching; ⑥ $\\mathrm{CaCO_3}$ + dilute HCl (→$\\mathrm{CO_2}$) / weakly acidic in water." },
+      "ja": { "prompt": "表①〜⑥は実験操作とそれにより発生する気体の性質を示す。気体の性質として誤っているものを一つ選びなさい。", "choices": ["① $\\mathrm{H_2S}$：還元作用をもつ", "② $\\mathrm{Cl_2}$：酸化作用をもつ", "③ $\\mathrm{H_2}$：最も軽い気体である", "④ NO：褐色である", "⑤ $\\mathrm{SO_2}$：漂白作用をもつ", "⑥ $\\mathrm{CO_2}$：水に溶けて弱酸性を示す"] },
+      "en": { "prompt": "The table pairs an operation with the property of the gas it produces. Which gas-property statement is INCORRECT?", "choices": ["① $\\mathrm{H_2S}$: reducing", "② $\\mathrm{Cl_2}$: oxidising", "③ $\\mathrm{H_2}$: the lightest gas", "④ NO: brown", "⑤ $\\mathrm{SO_2}$: bleaching", "⑥ $\\mathrm{CO_2}$: weakly acidic in water"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "④（NO は無色，褐色は $\\mathrm{NO_2}$）", "en": "④ (NO is colourless; brown is $\\mathrm{NO_2}$)" },
+      "explanation": { "en": "Cu + dilute $\\mathrm{HNO_3}$ gives NO, which is colourless; the brown gas is $\\mathrm{NO_2}$ (formed when NO meets air). The others are correct: $\\mathrm{H_2S}$ reducing, $\\mathrm{Cl_2}$ oxidising, $\\mathrm{H_2}$ lightest, $\\mathrm{SO_2}$ bleaching, $\\mathrm{CO_2}$ weakly acidic.", "ja": "Cu＋希硝酸で生じる NO は無色で，褐色なのは $\\mathrm{NO_2}$（NO が空気で酸化されて生成）。他は正しい：$\\mathrm{H_2S}$ 還元，$\\mathrm{Cl_2}$ 酸化，$\\mathrm{H_2}$ 最軽，$\\mathrm{SO_2}$ 漂白，$\\mathrm{CO_2}$ 弱酸性。" }
+    },
+    {
+      "id": "2016-2-chem-12", "answerRow": 12, "topicId": "inorganic",
+      "subtopic": "Incorrect statement about halogens",
+      "patternTags": ["inorganic", "halogens", "solubility", "pick-false-statement"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "ハロゲン X（X = F, Cl, Br, I）に関する記述①〜⑥のうち，誤っているものを一つ選びなさい。 ① $\\mathrm{X_2}$ の沸点を比較すると最も低いのは $\\mathrm{F_2}$ である。 ② $\\mathrm{X_2}$ の酸化力は分子量の小さいものほど強い。 ③ HX の沸点を比較すると最も低い物質は HCl である。 ④ フッ化水素 HF の水溶液の保存にはプラスチックのびんを用いる。 ⑤ 次亜塩素酸 HClO は酸化作用を示す。 ⑥ フッ化銀 AgF は水に溶けにくい。", "choices": ["①", "②", "③", "④", "⑤", "⑥"] },
+      "en": { "prompt": "Which statement about the halogens X (X = F, Cl, Br, I) is INCORRECT? ① The lowest boiling point of $\\mathrm{X_2}$ is $\\mathrm{F_2}$. ② $\\mathrm{X_2}$ oxidising power is stronger for smaller molecular weight. ③ Among HX the lowest boiling point is HCl. ④ Aqueous HF is stored in plastic bottles. ⑤ Hypochlorous acid HClO is oxidising. ⑥ Silver fluoride AgF is poorly soluble in water.", "choices": ["①", "②", "③", "④", "⑤", "⑥"] },
+      "answerIndex": 5, "answerOption": 6, "answer": { "ja": "⑥（AgF は水によく溶ける）", "en": "⑥ (AgF is soluble in water)" },
+      "explanation": { "en": "Unlike AgCl, AgBr and AgI, silver fluoride AgF IS soluble in water, so ⑥ is wrong. The others are correct: $\\mathrm{F_2}$ has the lowest $\\mathrm{X_2}$ boiling point; oxidising power $\\mathrm{F_2>Cl_2>Br_2>I_2}$; HCl has the lowest HX boiling point (HF is high from H-bonding); HF attacks glass so it is kept in plastic; HClO is oxidising.", "ja": "AgCl・AgBr・AgI と違い AgF は水によく溶けるので⑥が誤り。他は正：$\\mathrm{X_2}$ の沸点は $\\mathrm{F_2}$ が最低，酸化力 $\\mathrm{F_2>Cl_2>Br_2>I_2}$，HX の沸点は HCl が最低（HF は水素結合で高い），HF はガラスを侵すのでプラスチック保存，HClO は酸化作用あり。" }
+    },
+    {
+      "id": "2016-2-chem-13", "answerRow": 13, "topicId": "inorganic",
+      "subtopic": "Incorrect statement about group-14 elements",
+      "patternTags": ["inorganic", "group-14", "carbon-silicon", "pick-false-statement"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "14 族元素に関する記述①〜⑦のうち，誤っているものを一つ選びなさい。 ① 炭素 C は共有結合の結晶をつくる。 ② 炭素の同素体はいずれも電気をよく通す。 ③ ケイ素 Si はケイ砂を炭素で還元することにより得られる。 ④ ケイ素は半導体である。 ⑤ スズ Sn は酸と塩基のいずれとも反応し $\\mathrm{H_2}$ を発生する。 ⑥ 鉛 Pb は常温では希硫酸に溶けにくい。 ⑦ 鉛は放射線のしゃへい材として用いられる。", "choices": ["①", "②", "③", "④", "⑤", "⑥", "⑦"] },
+      "en": { "prompt": "Which statement about group-14 elements is INCORRECT? ① Carbon forms covalent crystals. ② All allotropes of carbon conduct electricity well. ③ Silicon is obtained by reducing quartz sand with carbon. ④ Silicon is a semiconductor. ⑤ Tin reacts with both acid and base, releasing $\\mathrm{H_2}$. ⑥ Lead is poorly soluble in dilute sulfuric acid at room temperature. ⑦ Lead is used as a radiation shielding material.", "choices": ["①", "②", "③", "④", "⑤", "⑥", "⑦"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "②（ダイヤモンドは電気を通さない）", "en": "② (diamond does not conduct electricity)" },
+      "explanation": { "en": "Not all carbon allotropes conduct: diamond is an insulator (only graphite conducts well), so ② is wrong. The others are correct — covalent crystal carbon, Si from carbon reduction of silica, Si semiconductor, amphoteric Sn, lead's low solubility in dilute $\\mathrm{H_2SO_4}$ (PbSO₄ coating), and lead as radiation shielding.", "ja": "炭素の同素体すべてが電気を通すわけではなく，ダイヤモンドは絶縁体（よく通すのは黒鉛）なので②が誤り。他は正 — 炭素は共有結合結晶，Si はケイ砂の炭素還元で得る，Si は半導体，Sn は両性，Pb は希硫酸に溶けにくい（PbSO₄ 被膜），Pb は放射線しゃへい材。" }
+    },
+    {
+      "id": "2016-2-chem-14", "answerRow": 14, "topicId": "inorganic",
+      "subtopic": "Two properties common to aluminium and iron",
+      "patternTags": ["inorganic", "metals", "reactivity", "true-false-combo"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "記述(a)〜(e)のうち，アルミニウム Al と鉄 Fe に共通するものが二つある。その組み合わせを選びなさい。 (a) どちらも遷移元素である。 (b) どちらも 3 価の陽イオンになる。 (c) どちらも塩酸と反応して $\\mathrm{H_2}$ を発生する。 (d) どちらも水酸化ナトリウム水溶液と反応して水素を発生する。 (e) どちらも塩化亜鉛水溶液に入れると亜鉛 Zn が析出する。", "choices": ["a, b", "a, e", "b, c", "b, d", "c, d", "d, e"] },
+      "en": { "prompt": "Two of these properties are common to BOTH aluminium and iron. Which pair? (a) Both are transition elements. (b) Both form trivalent (3+) cations. (c) Both react with hydrochloric acid to release $\\mathrm{H_2}$. (d) Both react with NaOH solution to release hydrogen. (e) Both deposit zinc when placed in zinc chloride solution.", "choices": ["a, b", "a, e", "b, c", "b, d", "c, d", "d, e"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "b と c", "en": "b and c" },
+      "explanation": { "en": "(b) Both form 3+ cations ($\\mathrm{Al^{3+}}$, $\\mathrm{Fe^{3+}}$). (c) Both react with HCl to give $\\mathrm{H_2}$. (a) False — Al is a main-group element. (d) False — only Al (amphoteric) reacts with NaOH. (e) False — Al displaces Zn, but Fe (less reactive than Zn) does not.", "ja": "(b) ともに 3 価の陽イオン（$\\mathrm{Al^{3+}}$，$\\mathrm{Fe^{3+}}$）。(c) ともに塩酸と反応し $\\mathrm{H_2}$。(a) 誤 — Al は典型元素。(d) 誤 — NaOH と反応するのは両性の Al だけ。(e) 誤 — Al は Zn を析出させるが，Zn よりイオン化傾向の小さい Fe は析出させない。" }
+    },
+    {
+      "id": "2016-2-chem-15", "answerRow": 15, "topicId": "inorganic",
+      "subtopic": "Incorrect product of an oxide reaction",
+      "patternTags": ["inorganic", "oxides", "reaction-products", "pick-false-statement"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "酸化物が関与する反応の記述①〜⑤のうち，下線部に示す生成物が誤っているものを一つ選びなさい。 ① 酸化アルミニウム $\\mathrm{Al_2O_3}$ は NaOH aq と反応してテトラヒドロキシドアルミン酸ナトリウム $\\mathrm{Na[Al(OH)_4]}$ を生じる。 ② 酸化カルシウム CaO は塩酸と反応して水酸化カルシウム $\\mathrm{Ca(OH)_2}$ を生じる。 ③ 酸化マンガン(IV) $\\mathrm{MnO_2}$ は $\\mathrm{H_2O_2}$ から酸素 $\\mathrm{O_2}$ を生じる反応の触媒としてはたらく。 ④ 酸化ナトリウム $\\mathrm{Na_2O}$ は水と反応して水酸化ナトリウム NaOH を生じる。 ⑤ 十酸化四リン $\\mathrm{P_4O_{10}}$ は水に溶かして熱するとリン酸 $\\mathrm{H_3PO_4}$ を生じる。", "choices": ["①", "②", "③", "④", "⑤"] },
+      "en": { "prompt": "In these oxide reactions, which underlined PRODUCT is INCORRECT? ① $\\mathrm{Al_2O_3}$ + NaOH aq → sodium tetrahydroxoaluminate $\\mathrm{Na[Al(OH)_4]}$. ② CaO + HCl → calcium hydroxide $\\mathrm{Ca(OH)_2}$. ③ $\\mathrm{MnO_2}$ catalyses $\\mathrm{H_2O_2}$ → oxygen $\\mathrm{O_2}$. ④ $\\mathrm{Na_2O}$ + water → sodium hydroxide NaOH. ⑤ $\\mathrm{P_4O_{10}}$ dissolved in water and heated → phosphoric acid $\\mathrm{H_3PO_4}$.", "choices": ["①", "②", "③", "④", "⑤"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "②（生成物は $\\mathrm{CaCl_2}$）", "en": "② (the product is $\\mathrm{CaCl_2}$)" },
+      "explanation": { "en": "$\\mathrm{CaO+2HCl\\to CaCl_2+H_2O}$ — the product is calcium chloride, not $\\mathrm{Ca(OH)_2}$ (that forms from CaO + water). The other products are correct.", "ja": "$\\mathrm{CaO+2HCl\\to CaCl_2+H_2O}$ で生成物は塩化カルシウムであり $\\mathrm{Ca(OH)_2}$（これは CaO＋水で生成）ではない。他の生成物は正しい。" }
+    },
+    {
+      "id": "2016-2-chem-16", "answerRow": 16, "topicId": "organic",
+      "subtopic": "True/false grid for alkanes and alkenes",
+      "patternTags": ["organic", "alkanes", "alkenes", "true-false-grid"], "hasFigure": true,
+      "figure": { "ja": "表は各記述 a〜d の 正/誤 の組み合わせ①〜⑧を与える。正解⑧は a=誤, b=正, c=誤, d=正。", "en": "The table lists true(正)/false(誤) combinations ①–⑧ for statements a–d. The correct row (⑧) is a=false, b=true, c=false, d=true." },
+      "ja": { "prompt": "アルカンとアルケンに関する記述(a)〜(d)の正誤の組み合わせとして正しいものを選びなさい。 (a) アルカンは硫酸酸性の過マンガン酸カリウム水溶液で酸化されやすい。 (b) 直鎖アルカンは炭素原子 C が多いほど沸点が高い。 (c) 炭素数が同じアルケンのシス体とトランス体は同じ融点を示す。 (d) アルケンは一般に付加反応を受けやすい。", "choices": ["a正 b正 c正 d正", "a正 b正 c正 d誤", "a正 b誤 c誤 d正", "a正 b誤 c誤 d誤", "a誤 b誤 c正 d誤", "a誤 b誤 c正 d正", "a誤 b正 c誤 d誤", "a誤 b正 c誤 d正"] },
+      "en": { "prompt": "Choose the correct true/false combination for these statements about alkanes and alkenes. (a) Alkanes are easily oxidised by acidified $\\mathrm{KMnO_4}$. (b) A straight-chain alkane's boiling point rises with more carbon atoms. (c) The cis and trans forms of an alkene with the same carbon number have the same melting point. (d) Alkenes readily undergo addition reactions.", "choices": ["a-T b-T c-T d-T", "a-T b-T c-T d-F", "a-T b-F c-F d-T", "a-T b-F c-F d-F", "a-F b-F c-T d-F", "a-F b-F c-T d-T", "a-F b-T c-F d-F", "a-F b-T c-F d-T"] },
+      "answerIndex": 7, "answerOption": 8, "answer": { "ja": "⑧ a誤 b正 c誤 d正", "en": "⑧ a-F b-T c-F d-T" },
+      "explanation": { "en": "(a) False — alkanes are unreactive toward $\\mathrm{KMnO_4}$ (alkenes are oxidised). (b) True — boiling point rises with chain length. (c) False — cis and trans isomers have different melting points. (d) True — alkenes readily add. So a-F, b-T, c-F, d-T → ⑧.", "ja": "(a) 誤 — アルカンは $\\mathrm{KMnO_4}$ に酸化されにくい（酸化されるのはアルケン）。(b) 正 — 鎖が長いほど沸点上昇。(c) 誤 — シス・トランスは融点が異なる。(d) 正 — アルケンは付加反応しやすい。よって a誤 b正 c誤 d正 → ⑧。" }
+    },
+    {
+      "id": "2016-2-chem-17", "answerRow": 17, "topicId": "organic",
+      "subtopic": "Incorrect statement about carboxylic acids",
+      "patternTags": ["organic", "carboxylic-acids", "chirality", "pick-false-statement"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "カルボン酸およびその塩に関する記述①〜⑤のうち，誤りであるものを一つ選びなさい。 ① フタル酸は不斉炭素原子をもつ。 ② シュウ酸は二価カルボン酸である。 ③ リノール酸は高級脂肪酸に分類される。 ④ トルエンを硫酸酸性の過マンガン酸カリウムで酸化すると安息香酸が生成する。 ⑤ ナトリウムフェノキシドと二酸化炭素を高温・高圧で反応させるとサリチル酸ナトリウムが生成する。", "choices": ["①", "②", "③", "④", "⑤"] },
+      "en": { "prompt": "Which statement about carboxylic acids and their salts is INCORRECT? ① Phthalic acid has an asymmetric carbon atom. ② Oxalic acid is a dicarboxylic acid. ③ Linoleic acid is classified as a higher fatty acid. ④ Oxidising toluene with acidified $\\mathrm{KMnO_4}$ gives benzoic acid. ⑤ Reacting sodium phenoxide with $\\mathrm{CO_2}$ at high temperature/pressure gives sodium salicylate.", "choices": ["①", "②", "③", "④", "⑤"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "①（フタル酸に不斉炭素原子はない）", "en": "① (phthalic acid has no asymmetric carbon)" },
+      "explanation": { "en": "Phthalic acid (benzene-1,2-dicarboxylic acid) has no asymmetric carbon, so ① is wrong. The others are correct: oxalic acid is diprotic; linoleic acid is a higher fatty acid; toluene → benzoic acid on $\\mathrm{KMnO_4}$ oxidation; the Kolbe–Schmitt reaction gives sodium salicylate.", "ja": "フタル酸（ベンゼン-1,2-ジカルボン酸）に不斉炭素原子はないので①が誤り。他は正：シュウ酸は二価，リノール酸は高級脂肪酸，トルエンは $\\mathrm{KMnO_4}$ 酸化で安息香酸，コルベ・シュミット反応でサリチル酸ナトリウム生成。" }
+    },
+    {
+      "id": "2016-2-chem-18", "answerRow": 18, "topicId": "organic",
+      "subtopic": "Methane volume from sodium acetate + NaOH",
+      "patternTags": ["organic", "decarboxylation", "stoichiometry", "gas-volume", "plug-in-numbers"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "酢酸ナトリウム $\\mathrm{CH_3COONa}\\ 8.2\\,$g と過剰の水酸化ナトリウム NaOH を試験管に入れて加熱したところ，反応は完全に進んでメタン $\\mathrm{CH_4}$ が発生した。発生したメタンは標準状態で何 L か。最も近い値を選びなさい。", "choices": ["1.0", "1.6", "2.2", "3.4", "4.4"] },
+      "en": { "prompt": "Heating $8.2\\,$g of sodium acetate $\\mathrm{CH_3COONa}$ with excess NaOH, the reaction goes to completion producing methane $\\mathrm{CH_4}$. What volume of methane at STP (L) is produced?", "choices": ["1.0", "1.6", "2.2", "3.4", "4.4"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "約 $2.2\\,$L", "en": "≈ 2.2 L" },
+      "explanation": { "en": "$\\mathrm{CH_3COONa+NaOH\\to CH_4+Na_2CO_3}$. $M(\\mathrm{CH_3COONa})=82$, so $8.2/82=0.10\\,$mol → $0.10\\,$mol $\\mathrm{CH_4}=0.10\\times22.4=2.24\\,$L.", "ja": "$\\mathrm{CH_3COONa+NaOH\\to CH_4+Na_2CO_3}$。$M(\\mathrm{CH_3COONa})=82$ なので $8.2/82=0.10\\,$mol → $\\mathrm{CH_4}\\ 0.10\\,$mol $=0.10\\times22.4=2.24\\,$L。" }
+    },
+    {
+      "id": "2016-2-chem-19", "answerRow": 19, "topicId": "organic",
+      "subtopic": "Polymer matched with its monomer",
+      "patternTags": ["organic", "polymers", "monomers", "compare-cases"], "hasFigure": true,
+      "figure": { "ja": "表（ポリマー / モノマー）：① グリコーゲン / マルトース ② タンパク質 / アミノ酸 ③ DNA / リボース ④ 天然ゴム / プロペン ⑤ ポリアミド / アニリン ⑥ ポリエステル / エテン。", "en": "Table (polymer / monomer): ① glycogen / maltose ② protein / amino acid ③ DNA / ribose ④ natural rubber / propene ⑤ polyamide / aniline ⑥ polyester / ethene." },
+      "ja": { "prompt": "表のポリマーとその原料のモノマーの組み合わせとして正しいものを選びなさい。", "choices": ["グリコーゲン / マルトース", "タンパク質 / アミノ酸", "DNA / リボース", "天然ゴム / プロペン", "ポリアミド / アニリン", "ポリエステル / エテン"] },
+      "en": { "prompt": "Which polymer-and-monomer pairing is correct?", "choices": ["glycogen / maltose", "protein / amino acid", "DNA / ribose", "natural rubber / propene", "polyamide / aniline", "polyester / ethene"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "② タンパク質 / アミノ酸", "en": "② protein / amino acid" },
+      "explanation": { "en": "Protein is a condensation polymer of amino acids — ② correct. ① glycogen is a glucose polymer; ③ DNA uses deoxyribose nucleotides; ④ natural rubber is polyisoprene (from isoprene); ⑤ polyamide from a diamine + dicarboxylic acid; ⑥ polyester from a diol + dicarboxylic acid.", "ja": "タンパク質はアミノ酸の縮合重合体 — ②が正。① グリコーゲンはグルコースの重合体，③ DNA はデオキシリボースのヌクレオチド，④ 天然ゴムはポリイソプレン（イソプレン由来），⑤ ポリアミドはジアミン＋ジカルボン酸，⑥ ポリエステルはジオール＋ジカルボン酸。" }
+    },
+    {
+      "id": "2016-2-chem-20", "answerRow": 20, "topicId": "organic",
+      "subtopic": "Correct statement about amino acids",
+      "patternTags": ["organic", "amino-acids", "peptide", "pick-statement"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "アミノ酸に関する記述①〜⑤のうち，正しいものを一つ選びなさい。 ① α-アミノ酸を構成するカルボキシ基とアミノ基の数は，それぞれ一つである。 ② すべての α-アミノ酸には不斉炭素原子がある。 ③ α-アミノ酸には C, H, O, N のみが含まれる。 ④ すべての必須アミノ酸はヒトの体内で合成される。 ⑤ α-アミノ酸の分子間で，一方のカルボキシ基ともう一方のアミノ基が脱水縮合して生じる化合物はペプチドとよばれる。", "choices": ["①", "②", "③", "④", "⑤"] },
+      "en": { "prompt": "Which statement about amino acids is correct? ① Each α-amino acid has exactly one carboxy group and one amino group. ② All α-amino acids have an asymmetric carbon atom. ③ α-amino acids contain only C, H, O, N. ④ All essential amino acids are synthesised in the human body. ⑤ When one amino acid's carboxy group and another's amino group undergo dehydration condensation, the product is called a peptide.", "choices": ["①", "②", "③", "④", "⑤"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "⑤（脱水縮合でペプチドが生じる）", "en": "⑤ (dehydration condensation gives a peptide)" },
+      "explanation": { "en": "⑤ is correct — a peptide bond forms by dehydration condensation. ① wrong (e.g. glutamic acid has 2 COOH, lysine 2 NH₂); ② wrong (glycine has no asymmetric carbon); ③ wrong (cysteine/methionine contain S); ④ wrong — essential amino acids cannot be synthesised in the body (must come from diet).", "ja": "⑤が正 — ペプチド結合は脱水縮合で生じる。① 誤（グルタミン酸は COOH 2 個，リシンは NH₂ 2 個）；② 誤（グリシンに不斉炭素なし）；③ 誤（システイン・メチオニンは S を含む）；④ 誤 — 必須アミノ酸は体内で合成できず食事から摂取が必要。" }
+    }
+  ],
+  "patterns": {
+    "archetypes": [
+      "Neutron count of an ion (mass number − protons, adjusting for ionic charge).",
+      "Isoelectronic pair identification (Ne vs Mg²⁺).",
+      "Two correct periodic-table statements (electronegativity trend, noble gases).",
+      "Two suitable separation methods for an NaCl/I₂ mixture (sublimation, extraction).",
+      "Gas with the most molecules per gram (smallest molar mass).",
+      "Identify acid + indicator from a titration curve (weak acid → phenolphthalein).",
+      "Reaction where oxygen's oxidation number decreases (H₂O₂ → H₂O).",
+      "Energy-diagram reasoning: activation energy, catalyst, heat of reaction, equilibrium shifts.",
+      "Observations from NaCl electrolysis (Cl₂ at anode, basic cathode).",
+      "Henry's-law dissolved-gas amount (∝ pressure × water volume) at STP.",
+      "Incorrect gas-property among preparation methods (NO is colourless, not brown).",
+      "Incorrect halogen statement (AgF is soluble, unlike other silver halides).",
+      "Incorrect group-14 statement (diamond does not conduct).",
+      "Two properties common to Al and Fe (3+ cation, react with HCl).",
+      "Incorrect oxide reaction product (CaO + HCl → CaCl₂, not Ca(OH)₂).",
+      "True/false grid for alkanes vs alkenes.",
+      "Incorrect carboxylic-acid statement (phthalic acid has no asymmetric carbon).",
+      "Methane volume from sodium acetate + NaOH (decarboxylation).",
+      "Polymer-monomer matching (protein from amino acids).",
+      "Correct amino-acid statement (peptide via dehydration condensation)."
+    ],
+    "recurring": [
+      "Atomic-structure / isoelectronic / periodic-table screens open the paper.",
+      "Quantitative physical chemistry: molecules-per-gram, titration curves, Henry's law, energy diagrams, electrolysis observations.",
+      "Qualitative inorganic is a large block: gas properties, halogens, group-14, metal comparisons, oxide reactions.",
+      "Organic: alkane/alkene grids, carboxylic acids, decarboxylation stoichiometry, polymers, and amino acids/peptides recur."
+    ],
+    "examTacticNotes": [
+      "Neutrons = mass number − Z; for Mⁿ⁺, Z = electrons + charge.",
+      "Isoelectronic: count electrons; Ne and Mg²⁺ both have 10.",
+      "Electronegativity rises across a period; group 18 = noble gases; most elements are metals.",
+      "I₂ sublimes and dissolves in organic solvents; NaCl does not — use sublimation/extraction.",
+      "Most molecules per gram ⇔ smallest molar mass (N₂ = 28).",
+      "Titration starting at pH≈3 with a buffer region ⇒ weak acid; basic equivalence ⇒ phenolphthalein.",
+      "O in H₂O₂ is −1; going to H₂O (−2) is reduction.",
+      "Forward Ea = peak − reactant level; catalyst lowers Ea but not ΔH, K, or the equilibrium position.",
+      "Equal gas moles (2⇌2) ⇒ volume change does not shift equilibrium; cooling favours the exothermic direction.",
+      "NaCl electrolysis: Cl₂ at anode (blue on KI-starch), OH⁻ at cathode (phenolphthalein red).",
+      "Henry's law: dissolved amount ∝ P × V(water); convert mol × 22.4 L for STP volume.",
+      "Cu + dilute HNO₃ gives colourless NO; the brown gas is NO₂.",
+      "AgF is water-soluble, unlike AgCl/AgBr/AgI; HF is stored in plastic; HCl has the lowest HX boiling point.",
+      "Diamond is an electrical insulator; only graphite conducts well.",
+      "Al and Fe both form 3+ cations and react with HCl; only Al reacts with NaOH.",
+      "CaO + HCl → CaCl₂ (not Ca(OH)₂); CaO + water → Ca(OH)₂.",
+      "Alkanes resist KMnO₄; cis/trans isomers differ in melting point; alkenes add readily.",
+      "Phthalic acid (o-C₆H₄(COOH)₂) has no asymmetric carbon.",
+      "CH₃COONa + NaOH → CH₄ + Na₂CO₃; 0.10 mol → 2.24 L at STP.",
+      "Protein = condensation polymer of amino acids; peptide bond forms by dehydration."
+    ],
+    "difficulty": "Standard EJU chemistry — a full-syllabus sweep heavy on qualitative inorganic and conceptual physical chemistry. The more discriminating items are the energy-diagram analysis (Q8), the Henry's-law STP conversion (Q10), the silver-halide solubility exception (Q12), and the alkane/alkene true-false grid (Q16)."
+  }
+}
