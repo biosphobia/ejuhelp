@@ -1,0 +1,271 @@
+{
+  "id": "2014-1-chemistry",
+  "year": 2014,
+  "session": 1,
+  "subject": "chemistry",
+  "title": "EJU 2014 · Session 1 · Chemistry",
+  "source": "平成26年度（2014年度）日本留学試験（第1回）理科〈化学〉 © Japan Student Services Organization (JASSO)",
+  "attribution": "EJU past questions © JASSO. Question text transcribed from the official past paper; figures described in text; correct answers taken from the official JASSO answer key and independently re-solved for verification.",
+  "languages": ["ja", "en"],
+  "answerKeyVerified": true,
+  "structure": {
+    "format": "flat",
+    "totalQuestions": 20,
+    "note": "Chemistry is a flat list of 20 single-best-answer items (問1–問20, answer rows 1–20) — no Roman-numeral blocks. Order ≈ structure & bonding → states/energetics/electrochemistry/equilibria → inorganic → organic.",
+    "givens": {
+      "ja": "標準状態 $0\\,$°C・$1.0\\times10^5\\,$Pa，気体 $1\\,$mol の体積 $22.4\\,$L，気体定数 $R=8.31\\times10^3\\,$Pa·L/(K·mol)，アボガドロ定数 $N_A=6.02\\times10^{23}\\,$/mol，ファラデー定数 $F=9.65\\times10^4\\,$C/mol。原子量：H 1.0, C 12, N 14, O 16, F 19, S 32, Cl 35, Br 80。",
+      "en": "STP $0\\,$°C, $1.0\\times10^5\\,$Pa; molar volume $22.4\\,$L; $R=8.31\\times10^3\\,$Pa·L/(K·mol); $N_A=6.02\\times10^{23}\\,$/mol; $F=9.65\\times10^4\\,$C/mol. Atomic weights: H 1.0, C 12, N 14, O 16, F 19, S 32, Cl 35, Br 80."
+    }
+  },
+  "questions": [
+    {
+      "id": "2014-1-chem-1", "answerRow": 1, "topicId": "matter-structure",
+      "subtopic": "Incorrect statement about electron configuration / structure",
+      "patternTags": ["atomic-structure", "electron-config", "isotopes", "pick-false-statement"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "原子およびイオンの電子配置と構造に関する次の記述①〜⑥のうち，下線部が正しくないものを一つ選びなさい。 ① $\\mathrm{Al^{3+}}$ と $\\mathrm{Cl^-}$ の電子配置は同じである。 ② $^{12}\\mathrm{C}$ と $^{13}\\mathrm{C}$ の電子配置は同じである。 ③ F の価電子の数は 7 である。 ④ K の最外殻は N 殻である。 ⑤ $^{23}\\mathrm{Na}$ の中性子の数は $^{24}\\mathrm{Mg}$ の中性子の数と同じである。 ⑥ S の陽子の数は 16 である。", "choices": ["①", "②", "③", "④", "⑤", "⑥"] },
+      "en": { "prompt": "Which underlined part is INCORRECT? ① $\\mathrm{Al^{3+}}$ and $\\mathrm{Cl^-}$ have the same electron configuration. ② $^{12}\\mathrm{C}$ and $^{13}\\mathrm{C}$ have the same configuration. ③ F has 7 valence electrons. ④ K's outermost shell is the N shell. ⑤ $^{23}\\mathrm{Na}$ has the same number of neutrons as $^{24}\\mathrm{Mg}$. ⑥ S has 16 protons.", "choices": ["①", "②", "③", "④", "⑤", "⑥"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "①（$\\mathrm{Al^{3+}}$ は 10，$\\mathrm{Cl^-}$ は 18 個で異なる）", "en": "① ($\\mathrm{Al^{3+}}$ has 10, $\\mathrm{Cl^-}$ has 18 electrons)" },
+      "explanation": { "en": "$\\mathrm{Al^{3+}}$ has 10 electrons (Ne) while $\\mathrm{Cl^-}$ has 18 (Ar) — different configurations, so ① is wrong. The others are correct (same-element isotopes share configuration; F has 7 valence e⁻; K's outermost shell is N; $^{23}$Na and $^{24}$Mg both have 12 neutrons; S has 16 protons).", "ja": "$\\mathrm{Al^{3+}}$ は電子 10（Ne 型），$\\mathrm{Cl^-}$ は 18（Ar 型）で配置が異なるので①が誤り。他は正しい（同元素の同位体は同配置，F の価電子 7，K の最外殻 N，$^{23}$Na と $^{24}$Mg はともに中性子 12，S の陽子 16）。" }
+    },
+    {
+      "id": "2014-1-chem-2", "answerRow": 2, "topicId": "matter-structure",
+      "subtopic": "Two compounds bonded only by single bonds",
+      "patternTags": ["chemical-bonds", "single-bond", "true-false-combo"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の化合物(a)〜(e)のうち，原子が単結合だけでつながっているものが二つある。それらの組み合わせを選びなさい。 (a) 酢酸 (b) アンモニア (c) 二酸化炭素 (d) エチレン (e) メタノール", "choices": ["a, b", "a, d", "a, e", "b, c", "b, d", "b, e", "c, d", "d, e"] },
+      "en": { "prompt": "Two of these have only single bonds. Which pair? (a) acetic acid (b) ammonia (c) carbon dioxide (d) ethylene (e) methanol", "choices": ["a, b", "a, d", "a, e", "b, c", "b, d", "b, e", "c, d", "d, e"] },
+      "answerIndex": 5, "answerOption": 6, "answer": { "ja": "b（アンモニア）と e（メタノール）", "en": "b (ammonia) and e (methanol)" },
+      "explanation": { "en": "$\\mathrm{NH_3}$ and $\\mathrm{CH_3OH}$ contain only single bonds. Acetic acid and $\\mathrm{CO_2}$ have C=O, and ethylene has C=C.", "ja": "$\\mathrm{NH_3}$ と $\\mathrm{CH_3OH}$ は単結合のみ。酢酸と $\\mathrm{CO_2}$ は C=O，エチレンは C=C をもつ。" }
+    },
+    {
+      "id": "2014-1-chem-3", "answerRow": 3, "topicId": "matter-structure",
+      "subtopic": "Two molecules that are fully planar",
+      "patternTags": ["chemical-bonds", "molecular-geometry", "planarity", "true-false-combo"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の分子(a)〜(d)のうち，構成するすべての原子が一つの平面内にあるものが二つある。それらの組み合わせを選びなさい。 (a) $\\mathrm{CH_4}$ (b) $\\mathrm{C_2H_4}$ (c) $\\mathrm{C_2H_6}$ (d) $\\mathrm{C_6H_6}$", "choices": ["a, b", "a, c", "a, d", "b, c", "b, d", "c, d"] },
+      "en": { "prompt": "Two of these molecules have all atoms in one plane. Which pair? (a) $\\mathrm{CH_4}$ (b) $\\mathrm{C_2H_4}$ (c) $\\mathrm{C_2H_6}$ (d) $\\mathrm{C_6H_6}$", "choices": ["a, b", "a, c", "a, d", "b, c", "b, d", "c, d"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "b（$\\mathrm{C_2H_4}$）と d（$\\mathrm{C_6H_6}$）", "en": "b ($\\mathrm{C_2H_4}$) and d ($\\mathrm{C_6H_6}$)" },
+      "explanation": { "en": "Ethylene ($\\mathrm{C_2H_4}$) and benzene ($\\mathrm{C_6H_6}$) are flat. Methane ($\\mathrm{CH_4}$) is tetrahedral and ethane ($\\mathrm{C_2H_6}$) has sp³ carbons, so they are non-planar.", "ja": "エチレン（$\\mathrm{C_2H_4}$）とベンゼン（$\\mathrm{C_6H_6}$）は平面。メタンは正四面体，エタンは sp³ 炭素で非平面。" }
+    },
+    {
+      "id": "2014-1-chem-4", "answerRow": 4, "topicId": "states-and-change",
+      "subtopic": "Balancing coefficient in propane combustion",
+      "patternTags": ["stoichiometry", "balancing-equations", "combustion"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "化学反応式 $\\mathrm{C_3H_8}+x\\,\\mathrm{O_2}\\to y\\,\\mathrm{CO_2}+z\\,\\mathrm{H_2O}$ における係数 $x$ の値を選びなさい。", "choices": ["1", "2", "3", "4", "5", "6"] },
+      "en": { "prompt": "In $\\mathrm{C_3H_8}+x\\,\\mathrm{O_2}\\to y\\,\\mathrm{CO_2}+z\\,\\mathrm{H_2O}$, find the coefficient $x$.", "choices": ["1", "2", "3", "4", "5", "6"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "$x=5$", "en": "$x=5$" },
+      "explanation": { "en": "$\\mathrm{C_3H_8+5O_2\\to3CO_2+4H_2O}$: C gives $y=3$, H gives $z=4$, O balance $2x=3\\times2+4=10$, so $x=5$.", "ja": "$\\mathrm{C_3H_8+5O_2\\to3CO_2+4H_2O}$：C より $y=3$，H より $z=4$，O のつり合い $2x=3\\times2+4=10$ で $x=5$。" }
+    },
+    {
+      "id": "2014-1-chem-5", "answerRow": 5, "topicId": "states-and-change",
+      "subtopic": "Density ratio of H₂, CH₄, O₂",
+      "patternTags": ["gas-law", "density", "molar-mass", "compare-cases"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "$0\\,$°C，$1\\,$atm での気体 $\\mathrm{H_2}$，$\\mathrm{CH_4}$，$\\mathrm{O_2}$ の密度の比として正しいものを選びなさい。", "choices": ["1 : 1 : 1", "1 : 2 : 4", "1 : 4 : 8", "1 : 8 : 16", "1 : 16 : 16"] },
+      "en": { "prompt": "What is the density ratio of $\\mathrm{H_2}$, $\\mathrm{CH_4}$, $\\mathrm{O_2}$ at $0\\,$°C, $1\\,$atm?", "choices": ["1 : 1 : 1", "1 : 2 : 4", "1 : 4 : 8", "1 : 8 : 16", "1 : 16 : 16"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "1 : 8 : 16", "en": "1 : 8 : 16" },
+      "explanation": { "en": "At the same T and P, gas density is proportional to molar mass. $M$: $\\mathrm{H_2}$ 2, $\\mathrm{CH_4}$ 16, $\\mathrm{O_2}$ 32 → ratio $2:16:32=1:8:16$.", "ja": "同温・同圧では密度はモル質量に比例。$M$：$\\mathrm{H_2}$ 2，$\\mathrm{CH_4}$ 16，$\\mathrm{O_2}$ 32 → 比 $2:16:32=1:8:16$。" }
+    },
+    {
+      "id": "2014-1-chem-6", "answerRow": 6, "topicId": "states-and-change",
+      "subtopic": "Pressure after changing T and V (combined gas law)",
+      "patternTags": ["gas-law", "combined-gas-law", "plug-in-numbers"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "$300\\,$K，$1.0\\,$atm で $3.0\\,$L を占めるアルゴンの温度を $360\\,$K に上げ，体積を $7.2\\,$L に増やした。このときの圧力は何 atm か。", "choices": ["0.30", "0.50", "1.0", "2.0", "2.4", "3.0"] },
+      "en": { "prompt": "Argon occupying $3.0\\,$L at $300\\,$K and $1.0\\,$atm is heated to $360\\,$K and expanded to $7.2\\,$L. What is the new pressure (atm)?", "choices": ["0.30", "0.50", "1.0", "2.0", "2.4", "3.0"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "$0.50\\,$atm", "en": "0.50 atm" },
+      "explanation": { "en": "$\\dfrac{P_1V_1}{T_1}=\\dfrac{P_2V_2}{T_2}$: $P_2=\\dfrac{1.0\\times3.0\\times360}{300\\times7.2}=\\dfrac{1080}{2160}=0.50\\,$atm.", "ja": "$\\dfrac{P_1V_1}{T_1}=\\dfrac{P_2V_2}{T_2}$：$P_2=\\dfrac{1.0\\times3.0\\times360}{300\\times7.2}=\\dfrac{1080}{2160}=0.50\\,$atm。" }
+    },
+    {
+      "id": "2014-1-chem-7", "answerRow": 7, "topicId": "states-and-change",
+      "subtopic": "Cooling curve of a glucose solution",
+      "patternTags": ["colligative-properties", "freezing-point-depression", "cooling-curve", "read-from-graph"], "hasFigure": true,
+      "figure": { "ja": "$0.1\\,$mol/kg グルコース水溶液の冷却曲線。温度は下がり過冷却で 0 °C 下に一度落ち込み，凝固が始まると凝固点（0 °C よりわずかに下）まで戻り，その後 溶液が濃縮して凝固点が下がるため 0 °C 以下で緩やかに下降する。", "en": "Cooling curve of $0.1\\,$mol/kg glucose solution: the temperature falls, supercools below 0 °C, then on freezing rebounds to the (slightly-below-0) freezing point, then declines gradually below 0 °C as the solution concentrates." },
+      "ja": { "prompt": "濃度 $0.1\\,$mol/kg のグルコース水溶液を冷却した。冷却時間と水溶液の温度の関係を表すグラフとして最も適当なものを①〜⑤から選びなさい。", "choices": ["過冷却後 0 °C より上に戻りほぼ水平", "過冷却後 0 °C 付近に戻り緩やかに下降", "過冷却小さく 0 °C 付近でほぼ水平", "過冷却後 0 °C に戻り 0 °C 以下へ下降", "過冷却後 0 °C より下に戻り 0 °C 以下で緩やかに下降"] },
+      "en": { "prompt": "Which graph best shows the temperature vs cooling time for a $0.1\\,$mol/kg glucose solution? (①–⑤)", "choices": ["rebounds above 0 °C, ~flat", "rebounds near 0 °C, gently falling", "small supercool, ~flat near 0 °C", "rebounds to 0 °C then falls below", "rebounds below 0 °C and falls gradually below 0 °C"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "過冷却後，凝固点（0 °C より下）まで戻り，0 °C 以下で緩やかに下降する（⑤）", "en": "supercools, rebounds to a below-0 freezing point, then declines gradually below 0 °C (⑤)" },
+      "explanation": { "en": "A solution freezes below 0 °C (freezing-point depression), so after the supercooling dip the temperature recovers to a point just BELOW 0 °C. Then, because ice forming makes the remaining solution more concentrated, the freezing point keeps dropping, so the curve declines gradually below 0 °C — graph ⑤.", "ja": "溶液は凝固点降下のため 0 °C より下で凍る。過冷却の落ち込みの後，温度は 0 °C より下の凝固点に戻り，その後 氷ができて残り溶液が濃くなるため凝固点が下がり続け，0 °C 以下で緩やかに下降する — ⑤。" }
+    },
+    {
+      "id": "2014-1-chem-8", "answerRow": 8, "topicId": "states-and-change",
+      "subtopic": "Incorrect statement about reaction rate/catalyst",
+      "patternTags": ["rate-equilibrium", "catalyst", "pick-false-statement"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "化学反応に関する記述として誤っているものを一つ選びなさい。", "choices": ["温度を変えると反応速度が変化する。", "気体どうしの反応では，分圧を変えると反応速度が変化する。", "触媒の量を変えても反応速度は変化しない。", "触媒の量を変えても反応の平衡定数は変化しない。", "触媒の量を変えても反応熱は変化しない。"] },
+      "en": { "prompt": "Which statement about chemical reactions is INCORRECT?", "choices": ["Changing temperature changes the reaction rate.", "For gas reactions, changing partial pressures changes the rate.", "Changing the amount of catalyst does not change the rate.", "Changing the catalyst amount does not change the equilibrium constant.", "Changing the catalyst amount does not change the heat of reaction."] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "「触媒の量を変えても反応速度は変化しない」は誤り（③）", "en": "\"catalyst amount doesn't change the rate\" is wrong (③)" },
+      "explanation": { "en": "More catalyst (more active surface/sites) speeds up the reaction, so ③ is false. A catalyst does not change the equilibrium constant or the heat of reaction (④, ⑤ are correct).", "ja": "触媒を増やすと活性表面・活性点が増えて反応は速くなるので③は誤り。触媒は平衡定数や反応熱は変えない（④⑤は正しい）。" }
+    },
+    {
+      "id": "2014-1-chem-9", "answerRow": 9, "topicId": "states-and-change",
+      "subtopic": "Concentration of sulfuric acid from neutralization",
+      "patternTags": ["acids-bases", "neutralization", "diprotic", "plug-in-numbers"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "ある濃度の硫酸 $10\\,$mL を中和するのに，$0.20\\,$mol/L の NaOH $40\\,$mL を要した。硫酸の濃度〔mol/L〕として最も近い値を選びなさい。", "choices": ["0.10", "0.20", "0.40", "0.80", "1.0"] },
+      "en": { "prompt": "Neutralizing $10\\,$mL of a sulfuric acid required $40\\,$mL of $0.20\\,$mol/L NaOH. What is the acid's concentration (mol/L)?", "choices": ["0.10", "0.20", "0.40", "0.80", "1.0"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "$0.40\\,$mol/L", "en": "0.40 mol/L" },
+      "explanation": { "en": "NaOH $=0.20\\times0.040=8.0\\times10^{-3}\\,$mol. $\\mathrm{H_2SO_4}$ is diprotic, so it needs half as many mol: $4.0\\times10^{-3}\\,$mol in $0.010\\,$L $=0.40\\,$mol/L.", "ja": "NaOH $=0.20\\times0.040=8.0\\times10^{-3}\\,$mol。$\\mathrm{H_2SO_4}$ は 2 価なので半分の $4.0\\times10^{-3}\\,$mol，$0.010\\,$L で $0.40\\,$mol/L。" }
+    },
+    {
+      "id": "2014-1-chem-10", "answerRow": 10, "topicId": "states-and-change",
+      "subtopic": "Electrolysis time to evolve a given volume of H₂",
+      "patternTags": ["electrolysis", "faradays-law", "time", "plug-in-numbers"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "白金電極を用いて塩化ナトリウム水溶液 NaCl aq を電気分解した。$2.00\\,$A の電流を流したところ，陰極で水素 $\\mathrm{H_2}$ が標準状態で $224\\,$mL 発生した。電気分解に要した時間は何秒か。", "choices": ["$4.83\\times10$", "$9.65\\times10$", "$4.83\\times10^2$", "$9.65\\times10^2$", "$4.83\\times10^3$", "$9.65\\times10^3$"] },
+      "en": { "prompt": "NaCl aq is electrolysed with platinum electrodes at $2.00\\,$A; the cathode evolves $224\\,$mL of $\\mathrm{H_2}$ at STP. How long (s) did this take?", "choices": ["$4.83\\times10$", "$9.65\\times10$", "$4.83\\times10^2$", "$9.65\\times10^2$", "$4.83\\times10^3$", "$9.65\\times10^3$"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "$9.65\\times10^2\\,$秒（965 s）", "en": "$9.65\\times10^2\\,$s (965 s)" },
+      "explanation": { "en": "$224\\,$mL $\\mathrm{H_2}=0.010\\,$mol → $0.020\\,$mol $e^-$. Charge $=0.020\\times96500=1930\\,$C. Time $=1930/2.00=965\\,$s $=9.65\\times10^2\\,$s.", "ja": "$224\\,$mL の $\\mathrm{H_2}=0.010\\,$mol → 電子 $0.020\\,$mol。電気量 $=0.020\\times96500=1930\\,$C。時間 $=1930/2.00=965\\,$s $=9.65\\times10^2\\,$s。" }
+    },
+    {
+      "id": "2014-1-chem-11", "answerRow": 11, "topicId": "inorganic",
+      "subtopic": "Identify the solute of a colourless solution",
+      "patternTags": ["ion-analysis", "flame-test", "precipitation", "electrolysis"], "hasFigure": false,
+      "figure": { "ja": "(a) 白金線で炎色反応→黄色。(b) $\\mathrm{CaCl_2}$ aq を加えると白色沈殿。(c) 白金電極で電気分解すると陰極 $\\mathrm{H_2}$，陽極 $\\mathrm{O_2}$。", "en": "(a) flame test → yellow; (b) adding $\\mathrm{CaCl_2}$ aq gives a white precipitate; (c) electrolysis with Pt gives $\\mathrm{H_2}$ at the cathode and $\\mathrm{O_2}$ at the anode." },
+      "ja": { "prompt": "ある無色の水溶液について，(a) 白金線につけて炎の中に入れると炎が黄色，(b) $\\mathrm{CaCl_2}$ aq を加えると白色沈殿，(c) 白金電極で電気分解すると陰極 $\\mathrm{H_2}$・陽極 $\\mathrm{O_2}$ が発生した。溶質として最も適当なものを選びなさい。", "choices": ["$\\mathrm{AgNO_3}$", "HCl", "$\\mathrm{H_2SO_4}$", "NaCl", "$\\mathrm{Na_2SO_4}$"] },
+      "en": { "prompt": "A colourless solution gives: (a) a yellow flame, (b) a white precipitate with $\\mathrm{CaCl_2}$, (c) $\\mathrm{H_2}$ (cathode) and $\\mathrm{O_2}$ (anode) on electrolysis with Pt. What is the solute?", "choices": ["$\\mathrm{AgNO_3}$", "HCl", "$\\mathrm{H_2SO_4}$", "NaCl", "$\\mathrm{Na_2SO_4}$"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "$\\mathrm{Na_2SO_4}$", "en": "$\\mathrm{Na_2SO_4}$" },
+      "explanation": { "en": "(a) yellow flame ⇒ $\\mathrm{Na^+}$; (b) white precipitate with $\\mathrm{Ca^{2+}}$ ⇒ $\\mathrm{SO_4^{2-}}$ (insoluble $\\mathrm{CaSO_4}$); (c) electrolysis giving $\\mathrm{H_2}$ and $\\mathrm{O_2}$ ⇒ neither ion is preferentially discharged. All three point to $\\mathrm{Na_2SO_4}$.", "ja": "(a) 黄色炎 ⇒ $\\mathrm{Na^+}$，(b) $\\mathrm{Ca^{2+}}$ で白色沈殿 ⇒ $\\mathrm{SO_4^{2-}}$（難溶の $\\mathrm{CaSO_4}$），(c) 電気分解で $\\mathrm{H_2}$・$\\mathrm{O_2}$ ⇒ どちらのイオンも放電されにくい。すべて $\\mathrm{Na_2SO_4}$ を示す。" }
+    },
+    {
+      "id": "2014-1-chem-12", "answerRow": 12, "topicId": "inorganic",
+      "subtopic": "Incorrect statement about silver nitrate reactions",
+      "patternTags": ["ion-analysis", "silver-chemistry", "pick-false-statement"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "硝酸銀水溶液 $\\mathrm{AgNO_3}$ aq の反応に関する記述として誤っているものを選びなさい。", "choices": ["塩化カリウム水溶液 KCl aq を加えると白色沈殿が生じる。", "銅板を入れると表面に銀 Ag が生じる。", "硫化水素 $\\mathrm{H_2S}$ を通じると黒色の沈殿が生じる。", "水酸化ナトリウム水溶液 NaOH aq を加えると白色の沈殿が生じる。", "アンモニア水を過剰に加えると，一度生じた沈殿が溶ける。"] },
+      "en": { "prompt": "Which statement about $\\mathrm{AgNO_3}$ aq reactions is INCORRECT?", "choices": ["Adding KCl gives a white precipitate.", "A copper plate develops silver on its surface.", "Passing $\\mathrm{H_2S}$ gives a black precipitate.", "Adding NaOH gives a white precipitate.", "Adding excess ammonia dissolves the precipitate."] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "「NaOH で白色沈殿」は誤り（④，実際は褐色の $\\mathrm{Ag_2O}$）", "en": "\"white precipitate with NaOH\" is wrong (④ — it is brown $\\mathrm{Ag_2O}$)" },
+      "explanation": { "en": "$\\mathrm{AgNO_3}$ + NaOH gives brown silver(I) oxide $\\mathrm{Ag_2O}$ (via unstable AgOH), not a white precipitate. The others are correct: AgCl is white, Cu displaces Ag, $\\mathrm{Ag_2S}$ is black, and excess $\\mathrm{NH_3}$ dissolves it as $[\\mathrm{Ag(NH_3)_2}]^+$.", "ja": "$\\mathrm{AgNO_3}$ に NaOH では褐色の酸化銀 $\\mathrm{Ag_2O}$（不安定な AgOH を経て）が生じ，白色沈殿ではない。他は正しい：AgCl は白色，Cu は Ag を析出，$\\mathrm{Ag_2S}$ は黒色，過剰 $\\mathrm{NH_3}$ で $[\\mathrm{Ag(NH_3)_2}]^+$ として溶ける。" }
+    },
+    {
+      "id": "2014-1-chem-13", "answerRow": 13, "topicId": "inorganic",
+      "subtopic": "Hydroxide precipitate that persists in excess ammonia",
+      "patternTags": ["ion-analysis", "amphoteric-hydroxide", "ammine-complexes", "compare-cases"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の水溶液①〜⑤のいくつかはアンモニア水 $\\mathrm{NH_3}$ aq を加えると沈殿が生じる。そのうち，過剰に $\\mathrm{NH_3}$ aq を加えても沈殿が溶けずに残っているものを一つ選びなさい。", "choices": ["ミョウバン水溶液 $\\mathrm{AlK(SO_4)_2}$ aq", "塩化カルシウム水溶液 $\\mathrm{CaCl_2}$ aq", "硫酸銅(II)水溶液 $\\mathrm{CuSO_4}$ aq", "塩化ナトリウム水溶液 NaCl aq", "塩化亜鉛水溶液 $\\mathrm{ZnCl_2}$ aq"] },
+      "en": { "prompt": "Several of these give a precipitate with ammonia. For which one does the precipitate persist (not dissolve) in EXCESS ammonia?", "choices": ["alum $\\mathrm{AlK(SO_4)_2}$ aq", "$\\mathrm{CaCl_2}$ aq", "$\\mathrm{CuSO_4}$ aq", "NaCl aq", "$\\mathrm{ZnCl_2}$ aq"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "ミョウバン（$\\mathrm{Al^{3+}}$ → $\\mathrm{Al(OH)_3}$ は溶けない）", "en": "alum ($\\mathrm{Al^{3+}}\\to\\mathrm{Al(OH)_3}$, which does not dissolve)" },
+      "explanation": { "en": "$\\mathrm{Al^{3+}}$ forms $\\mathrm{Al(OH)_3}$, which does NOT dissolve in excess ammonia. $\\mathrm{Cu^{2+}}$ and $\\mathrm{Zn^{2+}}$ redissolve as ammine complexes; $\\mathrm{Ca^{2+}}$ and $\\mathrm{Na^+}$ give no precipitate.", "ja": "$\\mathrm{Al^{3+}}$ は $\\mathrm{Al(OH)_3}$ となり過剰 $\\mathrm{NH_3}$ に溶けない。$\\mathrm{Cu^{2+}}$・$\\mathrm{Zn^{2+}}$ はアンミン錯体として再溶解，$\\mathrm{Ca^{2+}}$・$\\mathrm{Na^+}$ は沈殿しない。" }
+    },
+    {
+      "id": "2014-1-chem-14", "answerRow": 14, "topicId": "states-and-change",
+      "subtopic": "Chloride-ion concentration after AgCl precipitation",
+      "patternTags": ["stoichiometry", "limiting-reagent", "ion-concentration", "plug-in-numbers"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "$0.10\\,$mol/L の硝酸銀水溶液 $\\mathrm{AgNO_3}$ aq $10\\,$mL と $0.20\\,$mol/L の塩化亜鉛水溶液 $\\mathrm{ZnCl_2}$ aq $10\\,$mL を混合したところ，白色沈殿が生じた。この水溶液中の塩化物イオン $\\mathrm{Cl^-}$ の濃度〔mol/L〕として最も近い値を選びなさい。", "choices": ["0.10", "0.15", "0.20", "0.25", "0.30"] },
+      "en": { "prompt": "Mixing $10\\,$mL of $0.10\\,$mol/L $\\mathrm{AgNO_3}$ with $10\\,$mL of $0.20\\,$mol/L $\\mathrm{ZnCl_2}$ gives a white precipitate. What is the $\\mathrm{Cl^-}$ concentration (mol/L) in the mixture?", "choices": ["0.10", "0.15", "0.20", "0.25", "0.30"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "$0.15\\,$mol/L", "en": "0.15 mol/L" },
+      "explanation": { "en": "$\\mathrm{Ag^+}=0.10\\times0.010=1.0\\times10^{-3}\\,$mol; $\\mathrm{Cl^-}=0.20\\times0.010\\times2=4.0\\times10^{-3}\\,$mol. $\\mathrm{Ag^++Cl^-\\to AgCl}$ removes $1.0\\times10^{-3}$ mol $\\mathrm{Cl^-}$, leaving $3.0\\times10^{-3}\\,$mol in $0.020\\,$L → $0.15\\,$mol/L.", "ja": "$\\mathrm{Ag^+}=0.10\\times0.010=1.0\\times10^{-3}\\,$mol，$\\mathrm{Cl^-}=0.20\\times0.010\\times2=4.0\\times10^{-3}\\,$mol。$\\mathrm{Ag^++Cl^-\\to AgCl}$ で $\\mathrm{Cl^-}$ が $1.0\\times10^{-3}$ mol 減り，残り $3.0\\times10^{-3}\\,$mol を $0.020\\,$L で割り $0.15\\,$mol/L。" }
+    },
+    {
+      "id": "2014-1-chem-15", "answerRow": 15, "topicId": "states-and-change",
+      "subtopic": "Which gas-generation methods are redox reactions",
+      "patternTags": ["redox", "gas-prep-industry", "true-false-combo"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "各種気体の生成方法に関する記述(a)〜(f)のうち，酸化還元反応が起こるものが二つある。それらの組み合わせを選びなさい。 (a) $\\mathrm{NH_4Cl}$ と $\\mathrm{Ca(OH)_2}$ を混合して加熱。 (b) FeS に希硫酸を加える。 (c) $\\mathrm{MnO_2}$ に濃塩酸を加えて加熱。 (d) NaCl に濃硫酸を加える。 (e) 希硝酸に銅 Cu を加える。 (f) $\\mathrm{NaHCO_3}$ に酢酸を加える。", "choices": ["a, b", "a, c", "a, f", "b, d", "b, e", "c, d", "c, e", "e, f"] },
+      "en": { "prompt": "Two of these gas-generation methods are redox reactions. Which pair? (a) heat $\\mathrm{NH_4Cl}$ + $\\mathrm{Ca(OH)_2}$ (b) FeS + dilute $\\mathrm{H_2SO_4}$ (c) $\\mathrm{MnO_2}$ + conc. HCl, heated (d) NaCl + conc. $\\mathrm{H_2SO_4}$ (e) dilute $\\mathrm{HNO_3}$ + Cu (f) $\\mathrm{NaHCO_3}$ + acetic acid", "choices": ["a, b", "a, c", "a, f", "b, d", "b, e", "c, d", "c, e", "e, f"] },
+      "answerIndex": 6, "answerOption": 7, "answer": { "ja": "c（$\\mathrm{MnO_2}$+濃塩酸）と e（希硝酸+Cu）", "en": "c ($\\mathrm{MnO_2}$+conc. HCl) and e (dilute $\\mathrm{HNO_3}$+Cu)" },
+      "explanation": { "en": "Redox occurs in (c) $\\mathrm{MnO_2+4HCl\\to MnCl_2+Cl_2+2H_2O}$ (Mn $+4\\to+2$, Cl $-1\\to0$) and (e) $\\mathrm{8HNO_3+3Cu\\to3Cu(NO_3)_2+2NO+4H_2O}$ (Cu $0\\to+2$, N $+5\\to+2$). The others are acid–base or displacement with no oxidation-number change.", "ja": "酸化還元は (c) $\\mathrm{MnO_2+4HCl\\to MnCl_2+Cl_2+2H_2O}$（Mn $+4\\to+2$，Cl $-1\\to0$）と (e) $\\mathrm{8HNO_3+3Cu\\to3Cu(NO_3)_2+2NO+4H_2O}$（Cu $0\\to+2$，N $+5\\to+2$）。他は酸塩基・揮発で酸化数不変。" }
+    },
+    {
+      "id": "2014-1-chem-16", "answerRow": 16, "topicId": "organic",
+      "subtopic": "Name of a branched alkane from its structural formula",
+      "patternTags": ["aliphatic-hydrocarbons", "iupac-naming", "structural-formula"], "hasFigure": true,
+      "figure": { "ja": "構造式：中心炭素に $\\mathrm{C_2H_5}$（上），$\\mathrm{H_3C}$（左），$\\mathrm{C_2H_5}$（右），H（下）が結合。すなわち $\\mathrm{(C_2H_5)_2CH{-}CH_3}$。", "en": "Structural formula: a central carbon bonded to $\\mathrm{C_2H_5}$ (up), $\\mathrm{CH_3}$ (left), $\\mathrm{C_2H_5}$ (right), H (down), i.e. $\\mathrm{(C_2H_5)_2CH{-}CH_3}$." },
+      "ja": { "prompt": "示された構造式で表される炭化水素（中心炭素に $\\mathrm{C_2H_5}$，$\\mathrm{CH_3}$，$\\mathrm{C_2H_5}$，H が結合）の名称として最も適当なものを選びなさい。", "choices": ["1,1-ジエチルエタン", "ジエチルメチルメタン", "2-エチルブタン", "3-メチルペンタン", "1-エチル-1-メチルプロパン"] },
+      "en": { "prompt": "Name the hydrocarbon shown (a central carbon bearing $\\mathrm{C_2H_5}$, $\\mathrm{CH_3}$, $\\mathrm{C_2H_5}$, H).", "choices": ["1,1-diethylethane", "diethylmethylmethane", "2-ethylbutane", "3-methylpentane", "1-ethyl-1-methylpropane"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "3-メチルペンタン", "en": "3-methylpentane" },
+      "explanation": { "en": "The two ethyl groups plus the central carbon form a five-carbon (pentane) main chain $\\mathrm{CH_3CH_2{-}CH({-}CH_3){-}CH_2CH_3}$ with a methyl branch at C3 — i.e. 3-methylpentane (the proper IUPAC name; the other choices describe the same molecule incorrectly).", "ja": "2 つのエチル基と中心炭素で 5 炭素（ペンタン）の主鎖 $\\mathrm{CH_3CH_2{-}CH({-}CH_3){-}CH_2CH_3}$ となり，C3 にメチル枝 — すなわち 3-メチルペンタン（正しい IUPAC 名。他は同じ分子の誤った命名）。" }
+    },
+    {
+      "id": "2014-1-chem-17", "answerRow": 17, "topicId": "organic",
+      "subtopic": "Hydrogenation that creates an asymmetric carbon",
+      "patternTags": ["aliphatic-hydrocarbons", "hydrogenation", "asymmetric-carbon", "compare-cases"], "hasFigure": true,
+      "figure": { "ja": "アルケン：① $\\mathrm{CH_3CH{=}CHCH_3}$（2-ブテン）。② $\\mathrm{CH_3CH{=}CHCH_3}$（cis/trans）。③ $\\mathrm{CH_2{=}C(CH_3)C_2H_5}$。④ $\\mathrm{CH_3{-}CH{=}C(CH_3){-}C_2H_5}$。⑤ $\\mathrm{(CH_3)_2C{=}C(CH_3)C_2H_5}$。", "en": "Alkenes: ① $\\mathrm{CH_3CH{=}CHCH_3}$ (2-butene); ② $\\mathrm{CH_3CH{=}CHCH_3}$ (other isomer); ③ $\\mathrm{CH_2{=}C(CH_3)C_2H_5}$; ④ $\\mathrm{CH_3{-}CH{=}C(CH_3){-}C_2H_5}$; ⑤ $\\mathrm{(CH_3)_2C{=}C(CH_3)C_2H_5}$." },
+      "ja": { "prompt": "触媒存在下で水素 $\\mathrm{H_2}$ を付加させたとき，不斉炭素原子をもつ化合物を生じるものを①〜⑤から一つ選びなさい。", "choices": ["$\\mathrm{CH_3CH{=}CHCH_3}$（その 1）", "$\\mathrm{CH_3CH{=}CHCH_3}$（その 2）", "$\\mathrm{CH_2{=}C(CH_3)C_2H_5}$", "$\\mathrm{CH_3CH{=}C(CH_3)C_2H_5}$", "$\\mathrm{(CH_3)_2C{=}C(CH_3)C_2H_5}$"] },
+      "en": { "prompt": "Adding $\\mathrm{H_2}$ (with a catalyst) to which alkene gives a product that has an asymmetric carbon?", "choices": ["$\\mathrm{CH_3CH{=}CHCH_3}$ (i)", "$\\mathrm{CH_3CH{=}CHCH_3}$ (ii)", "$\\mathrm{CH_2{=}C(CH_3)C_2H_5}$", "$\\mathrm{CH_3CH{=}C(CH_3)C_2H_5}$", "$\\mathrm{(CH_3)_2C{=}C(CH_3)C_2H_5}$"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "⑤", "en": "⑤" },
+      "explanation": { "en": "Hydrogenating $\\mathrm{(CH_3)_2C{=}C(CH_3)C_2H_5}$ gives $\\mathrm{(CH_3)_2CH{-}C^*(H)(CH_3)(C_2H_5)}$; the starred carbon bears four different groups (H, $\\mathrm{CH_3}$, $\\mathrm{C_2H_5}$, isopropyl) — an asymmetric carbon. The other products each have a carbon with two identical groups.", "ja": "$\\mathrm{(CH_3)_2C{=}C(CH_3)C_2H_5}$ を水素化すると $\\mathrm{(CH_3)_2CH{-}C^*(H)(CH_3)(C_2H_5)}$ となり，星印の炭素は H・$\\mathrm{CH_3}$・$\\mathrm{C_2H_5}$・イソプロピルの 4 種類で不斉炭素。他は同一基を 2 つもつ炭素になる。" }
+    },
+    {
+      "id": "2014-1-chem-18", "answerRow": 18, "topicId": "organic",
+      "subtopic": "Moles of ethylene from a Br₂- vs Cl₂-adduct mass difference",
+      "patternTags": ["aliphatic-hydrocarbons", "halogen-addition", "mass-difference", "plug-in-numbers"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "ある量のエチレンに臭素 $\\mathrm{Br_2}$ が完全に付加したときの生成物は，同量のエチレンに塩素 $\\mathrm{Cl_2}$ が完全に付加したときの生成物より $45\\,$g 重かった。反応に使用したエチレンは何 mol か。", "choices": ["0.10", "0.30", "0.50", "0.60", "0.80", "1.0"] },
+      "en": { "prompt": "Adding $\\mathrm{Br_2}$ to a quantity of ethylene gives a product $45\\,$g heavier than adding $\\mathrm{Cl_2}$ to the same quantity. How many mol of ethylene reacted?", "choices": ["0.10", "0.30", "0.50", "0.60", "0.80", "1.0"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "$0.50\\,$mol", "en": "0.50 mol" },
+      "explanation": { "en": "Per mol ethylene the products are $\\mathrm{C_2H_4Br_2}$ vs $\\mathrm{C_2H_4Cl_2}$, differing by $2\\mathrm{Br}-2\\mathrm{Cl}=2(80-35)=90\\,$g. So mol ethylene $=45/90=0.50\\,$mol.", "ja": "1 mol あたり生成物は $\\mathrm{C_2H_4Br_2}$ と $\\mathrm{C_2H_4Cl_2}$ で，差は $2\\mathrm{Br}-2\\mathrm{Cl}=2(80-35)=90\\,$g。よってエチレン $=45/90=0.50\\,$mol。" }
+    },
+    {
+      "id": "2014-1-chem-19", "answerRow": 19, "topicId": "organic",
+      "subtopic": "Correctly written aromatic reaction product",
+      "patternTags": ["aromatic", "reaction-products", "pick-correct-statement"], "hasFigure": true,
+      "figure": { "ja": "A／操作 B／生成物 C：① フェノール／$\\mathrm{NaHCO_3}$ aq／ナトリウムフェノキシド。② ベンジルアルコール／$\\mathrm{KMnO_4}$ aq／安息香酸。③ ベンゼン／$\\mathrm{Cl_2}$+UV／クロロベンゼン。④ ベンゼン／アセトン/クメン。⑤ ベンジルアルコール／NaOH aq／$\\mathrm{C_6H_5CH_2ONa}$。", "en": "A / operation B / product C: ① phenol / $\\mathrm{NaHCO_3}$ aq / sodium phenoxide; ② benzyl alcohol / $\\mathrm{KMnO_4}$ aq / benzoic acid; ③ benzene / $\\mathrm{Cl_2}$+UV / chlorobenzene; ④ benzene / acetone / cumene; ⑤ benzyl alcohol / NaOH aq / $\\mathrm{C_6H_5CH_2ONa}$." },
+      "ja": { "prompt": "A 欄の有機化合物を B 欄の操作で反応させたとき主に生成する化合物が C 欄に正しく示されているものを選びなさい。 ① フェノール／$\\mathrm{NaHCO_3}$ aq／ナトリウムフェノキシド ② ベンジルアルコール／$\\mathrm{KMnO_4}$ aq／安息香酸 ③ ベンゼン／$\\mathrm{Cl_2}$+紫外線／クロロベンゼン ④ ベンゼン／アセトン／クメン ⑤ ベンジルアルコール／NaOH aq／$\\mathrm{C_6H_5CH_2ONa}$", "choices": ["①", "②", "③", "④", "⑤"] },
+      "en": { "prompt": "Which row gives the correct product C? ① phenol / $\\mathrm{NaHCO_3}$ / sodium phenoxide ② benzyl alcohol / $\\mathrm{KMnO_4}$ / benzoic acid ③ benzene / $\\mathrm{Cl_2}$+UV / chlorobenzene ④ benzene / acetone / cumene ⑤ benzyl alcohol / NaOH / $\\mathrm{C_6H_5CH_2ONa}$", "choices": ["①", "②", "③", "④", "⑤"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "②（ベンジルアルコール + $\\mathrm{KMnO_4}$ → 安息香酸）", "en": "② (benzyl alcohol + $\\mathrm{KMnO_4}$ → benzoic acid)" },
+      "explanation": { "en": "② is correct: $\\mathrm{KMnO_4}$ oxidizes benzyl alcohol to benzoic acid. ① phenol is too weak an acid to react with $\\mathrm{NaHCO_3}$; ③ benzene + $\\mathrm{Cl_2}$/UV gives addition ($\\mathrm{C_6H_6Cl_6}$), not chlorobenzene; ④ cumene comes from benzene + propylene, not acetone; ⑤ benzyl alcohol (a non-acidic 1° alcohol) does not react with NaOH.", "ja": "②が正しい：$\\mathrm{KMnO_4}$ はベンジルアルコールを安息香酸に酸化する。① フェノールは弱酸すぎて $\\mathrm{NaHCO_3}$ と反応しない，③ ベンゼン+$\\mathrm{Cl_2}$/紫外線は付加（$\\mathrm{C_6H_6Cl_6}$）でクロロベンゼンではない，④ クメンはベンゼン+プロピレンで作る，⑤ ベンジルアルコール（中性の 1 級アルコール）は NaOH と反応しない。" }
+    },
+    {
+      "id": "2014-1-chem-20", "answerRow": 20, "topicId": "organic",
+      "subtopic": "H₂ to saturate an unsaturated carboxylic acid from combustion data",
+      "patternTags": ["functional-groups", "combustion", "degree-of-unsaturation", "plug-in-numbers"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "カルボキシ基を一つもつ不飽和カルボン酸 $1.0\\,$mol を完全燃焼させると，$18\\,$mol の $\\mathrm{CO_2}$ と $16\\,$mol の $\\mathrm{H_2O}$ が生じた。この不飽和カルボン酸 $1.0\\,$mol を飽和カルボン酸にするために必要な水素 $\\mathrm{H_2}$ は何 mol か。", "choices": ["1.0", "2.0", "3.0", "4.0", "5.0"] },
+      "en": { "prompt": "Burning $1.0\\,$mol of an unsaturated carboxylic acid (one –COOH) gives $18\\,$mol $\\mathrm{CO_2}$ and $16\\,$mol $\\mathrm{H_2O}$. How many mol of $\\mathrm{H_2}$ are needed to make it saturated?", "choices": ["1.0", "2.0", "3.0", "4.0", "5.0"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "$2.0\\,$mol", "en": "2.0 mol" },
+      "explanation": { "en": "$18\\,$mol $\\mathrm{CO_2}$ → 18 C; $16\\,$mol $\\mathrm{H_2O}$ → 32 H; one –COOH → 2 O. So the acid is $\\mathrm{C_{18}H_{32}O_2}$, degrees of unsaturation $=(2\\times18+2-32)/2=3$. One is the carboxyl C=O (not hydrogenated), leaving 2 C=C bonds → $2.0\\,$mol $\\mathrm{H_2}$.", "ja": "$18\\,$mol $\\mathrm{CO_2}$ → C 18，$16\\,$mol $\\mathrm{H_2O}$ → H 32，–COOH → O 2。よって $\\mathrm{C_{18}H_{32}O_2}$，不飽和度 $=(2\\times18+2-32)/2=3$。1 つはカルボキシ基の C=O（水素化されない）で，残る C=C は 2 つ → $\\mathrm{H_2}$ $2.0\\,$mol。" }
+    }
+  ],
+  "patterns": {
+    "archetypes": [
+      "Electron-configuration false-statement screen (isoelectronic check, isotopes, valence/shell, neutron counts).",
+      "Pick the molecules with only single bonds / the planar molecules.",
+      "Balance a combustion equation for a coefficient.",
+      "Gas density ratio = molar-mass ratio.",
+      "Combined gas law for the new pressure.",
+      "Cooling-curve interpretation for a solution (supercooling + sloping freeze below 0 °C).",
+      "Catalyst/rate false-statement (more catalyst speeds the rate).",
+      "Diprotic-acid concentration from a neutralization volume.",
+      "Electrolysis time from a gas volume (mol e⁻ = It/F).",
+      "Identify a salt from flame colour + precipitation + electrolysis products.",
+      "Silver-nitrate reaction false-statement (NaOH gives brown Ag₂O, not white).",
+      "Hydroxide that persists in excess NH₃ (Al(OH)₃ vs ammine-forming Cu/Zn).",
+      "Residual Cl⁻ concentration after AgCl precipitation (limiting reagent).",
+      "Which gas-preparation reactions are redox (MnO₂+HCl, HNO₃+Cu).",
+      "IUPAC naming of a branched alkane from a structural formula.",
+      "Hydrogenation that creates an asymmetric carbon.",
+      "Moles of alkene from a Br₂- vs Cl₂-adduct mass difference (90 g/mol).",
+      "Correctly-written aromatic reaction product screen.",
+      "Combustion data → molecular formula → H₂ to saturate (subtract the carboxyl C=O)."
+    ],
+    "recurring": [
+      "Structure/bonding screens (electron config, single bonds, planarity) open the paper.",
+      "Gas laws (density, combined law, electrolysis) and colligative cooling curves recur.",
+      "Acid–base neutralization, electrolysis time, and redox identification are standard.",
+      "Qualitative inorganic (salt identification, silver chemistry, hydroxide solubility) is a guaranteed block.",
+      "Organic: IUPAC naming, hydrogenation stereochemistry, halogen-addition stoichiometry, aromatic products, and degree-of-unsaturation calculations recur."
+    ],
+    "examTacticNotes": [
+      "Isoelectronic check: Al³⁺ (10, Ne) ≠ Cl⁻ (18, Ar).",
+      "Gas density ∝ molar mass at fixed T, P.",
+      "Combined gas law: P₂ = P₁V₁T₂/(T₁V₂).",
+      "A solution's cooling curve recovers to a below-0 freezing point and then slopes downward (not flat) as it concentrates.",
+      "More catalyst increases the rate but never changes K or ΔH.",
+      "H₂SO₄ is diprotic — it needs twice its moles of NaOH (or half the acid for a given NaOH).",
+      "Electrolysis: time = (mol e⁻ × F)/I; get mol e⁻ from the gas amount.",
+      "Salt ID: yellow flame = Na⁺; white CaSO₄ ⇒ SO₄²⁻; H₂+O₂ on electrolysis ⇒ spectator ions ⇒ Na₂SO₄.",
+      "AgNO₃ + NaOH → brown Ag₂O (not white AgOH/AgCl).",
+      "Al(OH)₃ does not dissolve in excess NH₃ (only in strong base); Cu/Zn redissolve as ammines.",
+      "After mixing Ag⁺ and excess Cl⁻, subtract the precipitated mol and divide by the total volume.",
+      "Redox gas preps: MnO₂ + conc. HCl (→ Cl₂) and dilute HNO₃ + Cu (→ NO).",
+      "Name a branched alkane by finding the longest chain (two ethyls + the carbon = pentane → 3-methylpentane).",
+      "An asymmetric carbon needs four different groups; watch for two identical alkyls after hydrogenation.",
+      "Br₂ vs Cl₂ adduct mass difference = 2(Br − Cl) = 90 g per double bond added.",
+      "From combustion: C = mol CO₂, H = 2×mol H₂O, O from the functional group; then degrees of unsaturation, minus the carboxyl C=O, gives the C=C count to hydrogenate."
+    ],
+    "difficulty": "Standard EJU chemistry — a full-syllabus sweep. The more discriminating items are the solution cooling curve (Q7), the salt identification from three tests (Q11), the redox-among-gas-preps screen (Q15), and the combustion-to-degree-of-unsaturation calculation (Q20)."
+  }
+}
