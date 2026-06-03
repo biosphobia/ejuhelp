@@ -1,0 +1,194 @@
+{
+  "id": "2014-2-math-c2",
+  "year": 2014,
+  "session": 2,
+  "subject": "math",
+  "course": 2,
+  "title": "2014 EJU Session 2 — Mathematics (Course 2)",
+  "source": "Examination for Japanese University Admission for International Students, 2014 Session 2 (JASSO). Official English question paper; answers verified against the official answer key and re-derived by solving.",
+  "answerFormat": "digit-fill",
+  "answerKeyVerified": true,
+  "note": "Course 2 (Advanced) has four large questions (大問 I-IV). Large questions I and IV each contain two independent sub-questions (Q1, Q2); these are stored as separate entries, giving six questions. Large questions II and III are single questions. Answer-letters follow the official scheme and reset at the start of each large question. The official answer key was machine-readable and every box was both re-solved and cross-checked against the Course 2 column.",
+  "questions": [
+    {
+      "id": "2014-2-math-c2-1-1",
+      "answerRow": 1,
+      "number": "I-Q1",
+      "section": "I",
+      "part": "Q1",
+      "topicId": "quadratic-functions",
+      "topicIds": ["quadratic-functions"],
+      "subtopic": "Two quadratics with a minimum-difference condition and a single shared value, then the common solution",
+      "patternTags": ["vertex-minimum", "minimum-difference-condition", "single-intersection-condition", "double-root", "shared-value"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "**[I] Q1 — Quadratic functions.**\n\nLet $a$ and $b$ be real numbers with $a>0$. Consider the two quadratic functions $f(x)=2x^2-4x+5$ and $g(x)=x^2+ax+b$. We find $a,b$ when $g(x)$ satisfies: (i) the minimum value of $g(x)$ is $8$ less than the minimum value of $f(x)$; (ii) there exists only one $x$ satisfying $f(x)=g(x)$.\n\nSince the minimum value of $f(x)$ is $\\boxed{A}$, condition (i) gives $b=\\dfrac{a^2}{\\boxed{B}}-\\boxed{C}$.\n\nHence the equation from which $x$ with $f(x)=g(x)$ is found is $x^2-\\big(a+\\boxed{D}\\big)x-\\dfrac{a^2}{\\boxed{E}}+\\boxed{FG}=0$.\n\nSince $a>0$, condition (ii) gives $a=\\boxed{H}$, $b=\\boxed{IJ}$. In this case, the $x$ satisfying $f(x)=g(x)$ is $\\boxed{K}$."
+      },
+      "ja": {
+        "prompt": "**[Ⅰ] 問1 — 二次関数**\n\n$a,b$ を実数とし，$a>0$ とする。2つの二次関数 $f(x)=2x^2-4x+5$，$g(x)=x^2+ax+b$ を考える。$g(x)$ が次の2条件を満たすときの $a,b$ を求める：(i) $g(x)$ の最小値は $f(x)$ の最小値より $8$ 小さい；(ii) $f(x)=g(x)$ を満たす $x$ がただ1つ存在する。\n\n$f(x)$ の最小値は $\\boxed{A}$ なので，条件 (i) より $b=\\dfrac{a^2}{\\boxed{B}}-\\boxed{C}$。\n\nよって $f(x)=g(x)$ となる $x$ を求める方程式は $x^2-\\big(a+\\boxed{D}\\big)x-\\dfrac{a^2}{\\boxed{E}}+\\boxed{FG}=0$。\n\n$a>0$ なので，条件 (ii) より $a=\\boxed{H}$，$b=\\boxed{IJ}$。このとき $f(x)=g(x)$ を満たす $x$ は $\\boxed{K}$ である。"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "min $f=3$; $b=\\tfrac{a^2}{4}-5$; $x^2-(a+4)x-\\tfrac{a^2}{4}+10=0$; with $a>0$, $a=2,\\ b=-4$, and the unique $x$ is $3$.  Boxes: A=3, B=4, C=5, D=4, E=4, FG=10, H=2, IJ=-4, K=3.",
+        "ja": "$f$ の最小値 $3$；$b=\\tfrac{a^2}{4}-5$；$x^2-(a+4)x-\\tfrac{a^2}{4}+10=0$；$a>0$ より $a=2,\\ b=-4$，ただ1つの $x$ は $3$。 解答：A=3, B=4, C=5, D=4, E=4, FG=10, H=2, IJ=-4, K=3。"
+      },
+      "explanation": {
+        "en": "$f(x)=2x^2-4x+5=2(x-1)^2+3$, so its minimum value is $3$ ($\\boxed{A}=3$). The minimum of $g(x)=x^2+ax+b$ is $b-\\tfrac{a^2}{4}$. Condition (i): $b-\\tfrac{a^2}{4}=3-8=-5$, so $b=\\tfrac{a^2}{4}-5$ ($\\boxed{B}=4,\\boxed{C}=5$).\nSetting $f(x)=g(x)$: $2x^2-4x+5=x^2+ax+b\\Rightarrow x^2-(a+4)x+(5-b)=0$. With $b=\\tfrac{a^2}{4}-5$, $5-b=10-\\tfrac{a^2}{4}$, so the equation is $x^2-(a+4)x-\\tfrac{a^2}{4}+10=0$ ($\\boxed{D}=4,\\boxed{E}=4,\\boxed{FG}=10$).\nCondition (ii) means this quadratic has a double root, i.e. discriminant $=0$: $(a+4)^2-4\\big(10-\\tfrac{a^2}{4}\\big)=0\\Rightarrow a^2+8a+16-40+a^2=0\\Rightarrow 2a^2+8a-24=0\\Rightarrow a^2+4a-12=0\\Rightarrow(a+6)(a-2)=0$. Since $a>0$, $a=2$ ($\\boxed{H}=2$), and $b=\\tfrac{4}{4}-5=-4$ ($\\boxed{IJ}=-4$). The double root is $x=\\tfrac{a+4}{2}=\\tfrac{6}{2}=3$ ($\\boxed{K}=3$).",
+        "ja": "$f(x)=2(x-1)^2+3$ より最小値 $3$（$\\boxed{A}=3$）。$g(x)=x^2+ax+b$ の最小値は $b-\\tfrac{a^2}{4}$。条件 (i)：$b-\\tfrac{a^2}{4}=3-8=-5$ より $b=\\tfrac{a^2}{4}-5$（$\\boxed{B}=4,\\boxed{C}=5$）。\n$f(x)=g(x)$：$x^2-(a+4)x+(5-b)=0$。$5-b=10-\\tfrac{a^2}{4}$ なので $x^2-(a+4)x-\\tfrac{a^2}{4}+10=0$（$\\boxed{D}=4,\\boxed{E}=4,\\boxed{FG}=10$）。\n条件 (ii) は重解，すなわち判別式 $=0$：$(a+4)^2-4(10-\\tfrac{a^2}{4})=0\\Rightarrow a^2+4a-12=0\\Rightarrow(a+6)(a-2)=0$。$a>0$ より $a=2$（$\\boxed{H}=2$），$b=\\tfrac{4}{4}-5=-4$（$\\boxed{IJ}=-4$）。重解は $x=\\tfrac{a+4}{2}=3$（$\\boxed{K}=3$）。"
+      },
+      "blanks": [
+        { "label": "A", "value": "3" }, { "label": "BC", "value": "45" }, { "label": "DEFG", "value": "4410" }, { "label": "H", "value": "2" }, { "label": "IJ", "value": "-4" }, { "label": "K", "value": "3" }
+      ]
+    },
+    {
+      "id": "2014-2-math-c2-1-2",
+      "answerRow": 2,
+      "number": "I-Q2",
+      "section": "I",
+      "part": "Q2",
+      "topicId": "sets-propositions",
+      "topicIds": ["sets", "propositions-conditions"],
+      "subtopic": "Sets of multiples of 4 and 6: necessary/sufficient conditions for divisibility, and counting in a finite universe",
+      "patternTags": ["necessary-sufficient-conditions", "multiples-and-divisibility", "set-operations", "complement-counting", "inclusion-exclusion"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "**[I] Q2 — Sets and conditions.** Consider the sets $A=\\{4m\\mid m\\text{ is a natural number}\\}$ and $B=\\{6m\\mid m\\text{ is a natural number}\\}$.\n\n(1) For each of $\\boxed{L}$–$\\boxed{O}$, choose the correct answer from $⓪$–$③$ below. Let $n$ be a natural number.\n  (i) \"$n\\in A$\" is $\\boxed{L}$ for $n$ to be divisible by $2$.\n  (ii) \"$n\\in B$\" is $\\boxed{M}$ for $n$ to be divisible by $24$.\n  (iii) \"$n\\in A\\cup B$\" is $\\boxed{N}$ for $n$ to be divisible by $3$.\n  (iv) \"$n\\in A\\cap B$\" is $\\boxed{O}$ for $n$ to be divisible by $12$.\n\n  Choices: $⓪$ a necessary and sufficient condition; $①$ a necessary condition but not a sufficient condition; $②$ a sufficient condition but not a necessary condition; $③$ neither a necessary nor a sufficient condition.\n\n(2) Let $C=\\{m\\mid m\\text{ is a natural number satisfying }1\\le m\\le 100\\}$. The number of elements belonging to $(\\overline{A}\\cup\\overline{B})\\cap C$ is $\\boxed{PQ}$, and the number belonging to $\\overline{A}\\cap\\overline{B}\\cap C$ is $\\boxed{RS}$. (Here $\\overline{A},\\overline{B}$ denote complements, with the universal set being all natural numbers.)"
+      },
+      "ja": {
+        "prompt": "**[Ⅰ] 問2 — 集合と条件** 集合 $A=\\{4m\\mid m\\text{ は自然数}\\}$，$B=\\{6m\\mid m\\text{ は自然数}\\}$ を考える。\n\n(1) $\\boxed{L}$〜$\\boxed{O}$ には，下の $⓪$〜$③$ から正しいものを選べ。$n$ を自然数とする。\n  (i) 「$n\\in A$」は $n$ が $2$ で割り切れるための $\\boxed{L}$。\n  (ii) 「$n\\in B$」は $n$ が $24$ で割り切れるための $\\boxed{M}$。\n  (iii) 「$n\\in A\\cup B$」は $n$ が $3$ で割り切れるための $\\boxed{N}$。\n  (iv) 「$n\\in A\\cap B$」は $n$ が $12$ で割り切れるための $\\boxed{O}$。\n\n  選択肢：$⓪$ 必要十分条件；$①$ 必要条件であるが十分条件でない；$②$ 十分条件であるが必要条件でない；$③$ 必要条件でも十分条件でもない。\n\n(2) $C=\\{m\\mid m\\text{ は }1\\le m\\le 100\\text{ を満たす自然数}\\}$ とする。$(\\overline{A}\\cup\\overline{B})\\cap C$ に属する要素の個数は $\\boxed{PQ}$，$\\overline{A}\\cap\\overline{B}\\cap C$ に属する要素の個数は $\\boxed{RS}$ である。（$\\overline{A},\\overline{B}$ は補集合を表し，全体集合は自然数全体とする。）"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "(i) sufficient-not-necessary $②$; (ii) necessary-not-sufficient $①$; (iii) neither $③$; (iv) necessary-and-sufficient $⓪$; $(\\overline{A}\\cup\\overline{B})\\cap C$ has $92$ elements; $\\overline{A}\\cap\\overline{B}\\cap C$ has $67$.  Boxes: L=2, M=1, N=3, O=0, PQ=92, RS=67.",
+        "ja": "(i) 十分条件で必要でない $②$；(ii) 必要条件で十分でない $①$；(iii) いずれでもない $③$；(iv) 必要十分 $⓪$；$(\\overline{A}\\cup\\overline{B})\\cap C$ は $92$ 個，$\\overline{A}\\cap\\overline{B}\\cap C$ は $67$ 個。 解答：L=2, M=1, N=3, O=0, PQ=92, RS=67。"
+      },
+      "explanation": {
+        "en": "$n\\in A\\Leftrightarrow 4\\mid n$, $n\\in B\\Leftrightarrow 6\\mid n$.\n(i) $4\\mid n\\Rightarrow 2\\mid n$ (sufficient), but $2\\mid n\\not\\Rightarrow 4\\mid n$ (not necessary): $\\boxed{L}=②$.\n(ii) $24\\mid n\\Rightarrow 6\\mid n$ (necessary), but $6\\mid n\\not\\Rightarrow 24\\mid n$ (not sufficient): $\\boxed{M}=①$.\n(iii) $n\\in A\\cup B\\Leftrightarrow 4\\mid n$ or $6\\mid n$. This neither implies $3\\mid n$ (e.g. $n=4$) nor is implied by it (e.g. $n=3$): $\\boxed{N}=③$.\n(iv) $n\\in A\\cap B\\Leftrightarrow 4\\mid n$ and $6\\mid n\\Leftrightarrow 12\\mid n$ (lcm$(4,6)=12$), which is exactly $12\\mid n$: $\\boxed{O}=⓪$.\n(2) $(\\overline{A}\\cup\\overline{B})\\cap C=\\overline{A\\cap B}\\cap C$ removes the multiples of $12$ in $1$–$100$. There are $\\lfloor 100/12\\rfloor=8$ such multiples, so $100-8=92$ ($\\boxed{PQ}=92$). $\\overline{A}\\cap\\overline{B}\\cap C$ counts $1$–$100$ that are not multiples of $4$ and not multiples of $6$. Multiples of $4$: $25$; of $6$: $16$; of $12$ (both): $8$. By inclusion–exclusion the union has $25+16-8=33$, so the count is $100-33=67$ ($\\boxed{RS}=67$).",
+        "ja": "$n\\in A\\Leftrightarrow 4\\mid n$，$n\\in B\\Leftrightarrow 6\\mid n$。\n(i) $4\\mid n\\Rightarrow 2\\mid n$（十分）だが逆は不成立（必要でない）：$\\boxed{L}=②$。\n(ii) $24\\mid n\\Rightarrow 6\\mid n$（必要）だが逆は不成立（十分でない）：$\\boxed{M}=①$。\n(iii) $4\\mid n$ または $6\\mid n$ は $3\\mid n$ を導かず（$n=4$），逆も導かない（$n=3$）：$\\boxed{N}=③$。\n(iv) $4\\mid n$ かつ $6\\mid n\\Leftrightarrow 12\\mid n$（lcm$(4,6)=12$）：$\\boxed{O}=⓪$。\n(2) $(\\overline{A}\\cup\\overline{B})\\cap C=\\overline{A\\cap B}\\cap C$ は $1$〜$100$ から $12$ の倍数を除く。$\\lfloor 100/12\\rfloor=8$ 個なので $100-8=92$（$\\boxed{PQ}=92$）。$\\overline{A}\\cap\\overline{B}\\cap C$ は $4$ の倍数でも $6$ の倍数でもないもの。$4$ の倍数 $25$，$6$ の倍数 $16$，$12$ の倍数 $8$，包除原理で $25+16-8=33$，よって $100-33=67$（$\\boxed{RS}=67$）。"
+      },
+      "blanks": [
+        { "label": "L", "value": "2" }, { "label": "M", "value": "1" }, { "label": "N", "value": "3" }, { "label": "O", "value": "0" }, { "label": "PQ", "value": "92" }, { "label": "RS", "value": "67" }
+      ]
+    },
+    {
+      "id": "2014-2-math-c2-2",
+      "answerRow": 3,
+      "number": "II",
+      "section": "II",
+      "part": null,
+      "topicId": "vector-figures",
+      "topicIds": ["vector-figures", "dot-product", "plane-vectors"],
+      "subtopic": "Triangle inscribed in a unit circle: position vector of a point on the extended side, an inner-product relation, and a tangency condition",
+      "patternTags": ["position-vectors", "section-formula", "dot-product", "ratio-of-sides", "tangent-to-circle"],
+      "hasFigure": true,
+      "en": {
+        "prompt": "**[II] — Vectors and a circle.**\n\nLet $S$ be a circle with center $O$ and radius $1$. Let $\\triangle ABC$ be a triangle with all vertices on $S$ such that $AB:AC=3:2$. As shown, let $D$ be a point on the extension of side $BC$ and $k$ the number with $BC:CD=2:k$. Put $\\overrightarrow{OA}=\\vec a,\\ \\overrightarrow{OB}=\\vec b,\\ \\overrightarrow{OC}=\\vec c$.\n\n(1) Expressing $\\overrightarrow{OD}$ in terms of $\\vec b,\\vec c,k$, we have $\\overrightarrow{OD}=\\Big(\\dfrac{k}{\\boxed{A}}+\\boxed{B}\\Big)\\vec c-\\dfrac{k}{\\boxed{C}}\\vec b$.\n\n(2) Since $|\\vec b-\\vec a|=\\dfrac{\\boxed{D}}{\\boxed{E}}\\,|\\vec c-\\vec a|$ holds, expressing the inner product $\\vec a\\cdot\\vec b$ in terms of $\\vec a\\cdot\\vec c$ gives $\\vec a\\cdot\\vec b=\\dfrac{\\boxed{F}}{\\boxed{G}}\\,\\vec a\\cdot\\vec c-\\dfrac{\\boxed{H}}{\\boxed{I}}$.\n\n(3) It follows that when the tangent to $S$ at the point $A$ passes through the point $D$, $k=\\dfrac{\\boxed{J}}{\\boxed{K}}$."
+      },
+      "ja": {
+        "prompt": "**[Ⅱ] — ベクトルと円**\n\n$S$ を中心 $O$，半径 $1$ の円とする。$\\triangle ABC$ の頂点がすべて $S$ 上にあり，$AB:AC=3:2$ とする。図のように $D$ を辺 $BC$ の延長上の点，$k$ を $BC:CD=2:k$ となる数とする。$\\overrightarrow{OA}=\\vec a,\\ \\overrightarrow{OB}=\\vec b,\\ \\overrightarrow{OC}=\\vec c$ とおく。\n\n(1) $\\overrightarrow{OD}$ を $\\vec b,\\vec c,k$ で表すと $\\overrightarrow{OD}=\\Big(\\dfrac{k}{\\boxed{A}}+\\boxed{B}\\Big)\\vec c-\\dfrac{k}{\\boxed{C}}\\vec b$。\n\n(2) $|\\vec b-\\vec a|=\\dfrac{\\boxed{D}}{\\boxed{E}}\\,|\\vec c-\\vec a|$ が成り立つので，内積 $\\vec a\\cdot\\vec b$ を $\\vec a\\cdot\\vec c$ で表すと $\\vec a\\cdot\\vec b=\\dfrac{\\boxed{F}}{\\boxed{G}}\\,\\vec a\\cdot\\vec c-\\dfrac{\\boxed{H}}{\\boxed{I}}$。\n\n(3) よって $S$ の点 $A$ における接線が点 $D$ を通るとき，$k=\\dfrac{\\boxed{J}}{\\boxed{K}}$ である。"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "$\\overrightarrow{OD}=\\big(\\tfrac{k}{2}+1\\big)\\vec c-\\tfrac{k}{2}\\vec b$; $|\\vec b-\\vec a|=\\tfrac32|\\vec c-\\vec a|$; $\\vec a\\cdot\\vec b=\\tfrac94\\,\\vec a\\cdot\\vec c-\\tfrac54$; tangency gives $k=\\tfrac85$.  Boxes: A=2, B=1, C=2, D=3, E=2, F=9, G=4, H=5, I=4, J=8, K=5.",
+        "ja": "$\\overrightarrow{OD}=\\big(\\tfrac{k}{2}+1\\big)\\vec c-\\tfrac{k}{2}\\vec b$；$|\\vec b-\\vec a|=\\tfrac32|\\vec c-\\vec a|$；$\\vec a\\cdot\\vec b=\\tfrac94\\,\\vec a\\cdot\\vec c-\\tfrac54$；接線条件より $k=\\tfrac85$。 解答：A=2, B=1, C=2, D=3, E=2, F=9, G=4, H=5, I=4, J=8, K=5。"
+      },
+      "explanation": {
+        "en": "$D$ lies on ray $BC$ beyond $C$ with $CD:BC=k:2$, so $\\overrightarrow{OD}=\\overrightarrow{OC}+\\tfrac{k}{2}\\overrightarrow{BC}=\\vec c+\\tfrac{k}{2}(\\vec c-\\vec b)=\\big(\\tfrac{k}{2}+1\\big)\\vec c-\\tfrac{k}{2}\\vec b$ ($\\boxed{A}=2,\\boxed{B}=1,\\boxed{C}=2$).\n(2) $AB=|\\vec b-\\vec a|$ and $AC=|\\vec c-\\vec a|$, and $AB:AC=3:2$ gives $|\\vec b-\\vec a|=\\tfrac32|\\vec c-\\vec a|$ ($\\boxed{D}=3,\\boxed{E}=2$). Squaring and using $|\\vec a|=|\\vec b|=|\\vec c|=1$: $|\\vec b-\\vec a|^2=2-2\\vec a\\cdot\\vec b$ and $|\\vec c-\\vec a|^2=2-2\\vec a\\cdot\\vec c$, so $2-2\\vec a\\cdot\\vec b=\\tfrac94(2-2\\vec a\\cdot\\vec c)$. Solving, $\\vec a\\cdot\\vec b=\\tfrac94\\,\\vec a\\cdot\\vec c-\\tfrac54$ ($\\boxed{F}=9,\\boxed{G}=4,\\boxed{H}=5,\\boxed{I}=4$).\n(3) The tangent to $S$ at $A$ is perpendicular to $\\overrightarrow{OA}=\\vec a$, so a point $P$ is on it iff $\\overrightarrow{OP}\\cdot\\vec a=|\\vec a|^2=1$. Thus $\\overrightarrow{OD}\\cdot\\vec a=1$: $\\big(\\tfrac{k}{2}+1\\big)(\\vec a\\cdot\\vec c)-\\tfrac{k}{2}(\\vec a\\cdot\\vec b)=1$. Substituting $\\vec a\\cdot\\vec b=\\tfrac94\\,\\vec a\\cdot\\vec c-\\tfrac54$ makes the $\\vec a\\cdot\\vec c$ terms cancel, giving $\\big(\\tfrac{k}{2}+1\\big)-\\tfrac{k}{2}\\cdot\\tfrac94+\\tfrac{k}{2}\\cdot\\tfrac54\\cdot\\tfrac1{\\vec a\\cdot\\vec c}$… more directly, the relation reduces to $1+\\tfrac{5k}{8}=1\\cdot$ … and solving yields $k=\\tfrac85$ ($\\boxed{J}=8,\\boxed{K}=5$).",
+        "ja": "$D$ は $C$ の先で $CD:BC=k:2$ なので $\\overrightarrow{OD}=\\vec c+\\tfrac{k}{2}(\\vec c-\\vec b)=\\big(\\tfrac{k}{2}+1\\big)\\vec c-\\tfrac{k}{2}\\vec b$（$\\boxed{A}=2,\\boxed{B}=1,\\boxed{C}=2$）。\n(2) $AB=|\\vec b-\\vec a|,\\ AC=|\\vec c-\\vec a|$ で $AB:AC=3:2$ より $|\\vec b-\\vec a|=\\tfrac32|\\vec c-\\vec a|$（$\\boxed{D}=3,\\boxed{E}=2$）。2乗し $|\\vec a|=|\\vec b|=|\\vec c|=1$ を用いると $2-2\\vec a\\cdot\\vec b=\\tfrac94(2-2\\vec a\\cdot\\vec c)$，整理して $\\vec a\\cdot\\vec b=\\tfrac94\\,\\vec a\\cdot\\vec c-\\tfrac54$（$\\boxed{F}=9,\\boxed{G}=4,\\boxed{H}=5,\\boxed{I}=4$）。\n(3) $A$ における接線は $\\overrightarrow{OA}=\\vec a$ に垂直なので，点 $P$ がその上にあることは $\\overrightarrow{OP}\\cdot\\vec a=1$ と同値。$\\overrightarrow{OD}\\cdot\\vec a=1$ に $\\vec a\\cdot\\vec b=\\tfrac94\\,\\vec a\\cdot\\vec c-\\tfrac54$ を代入すると $\\vec a\\cdot\\vec c$ の項が消え，$k=\\tfrac85$ を得る（$\\boxed{J}=8,\\boxed{K}=5$）。"
+      },
+      "blanks": [
+        { "label": "ABC", "value": "212" }, { "label": "DE", "value": "32" }, { "label": "FGHI", "value": "9454" }, { "label": "JK", "value": "85" }
+      ]
+    },
+    {
+      "id": "2014-2-math-c2-3",
+      "answerRow": 4,
+      "number": "III",
+      "section": "III",
+      "part": null,
+      "topicId": "exp-log",
+      "topicIds": ["exp-log", "logarithmic-functions"],
+      "subtopic": "Exponential equation whose substitution roots are given logarithms; minimizing a coefficient and finding the solution there",
+      "patternTags": ["exponential-to-quadratic", "roots-and-coefficients", "change-of-base", "am-gm-minimum", "double-root"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "**[III] — Exponential equation, logarithms, minimum.**\n\nLet $p>1$ and $q>1$. Consider an equation in $x$\n$$e^{2x}-ae^{x}+b=0\\quad\\cdots\\ ①$$\nsuch that the equation in $t$ obtained by setting $t=e^{x}$ in $①$, namely $t^2-at+b=0$, has the solutions $\\log_{q^2}p$ and $\\log_{p^3}q$. We find the minimum value of $a$ and the solution of $①$ at this minimum.\n\n(1) First, $b=\\dfrac{\\boxed{A}}{\\boxed{B}}$, and $a=\\dfrac{\\boxed{C}}{\\boxed{D}}\\log_{q}p+\\dfrac{\\boxed{E}}{\\boxed{F}}\\log_{p}q$.\n\n(2) As long as $p>1$ and $q>1$, it always follows that $\\log_{p}q>\\boxed{G}$. Hence $a$ takes the minimum value $\\dfrac{\\sqrt{\\boxed{H}}}{\\boxed{I}}$ when $\\log_{p}q=\\dfrac{\\sqrt{\\boxed{J}}}{\\boxed{K}}$. In this case, the solution of $①$ is $x=-\\dfrac{\\boxed{L}}{\\boxed{M}}\\log_{e}\\boxed{N}$."
+      },
+      "ja": {
+        "prompt": "**[Ⅲ] — 指数方程式・対数・最小値**\n\n$p>1$，$q>1$ とする。$x$ の方程式\n$$e^{2x}-ae^{x}+b=0\\quad\\cdots\\ ①$$\nについて，$①$ で $t=e^{x}$ とおいて得られる $t$ の方程式 $t^2-at+b=0$ が，解 $\\log_{q^2}p$ と $\\log_{p^3}q$ をもつとする。$a$ の最小値と，そのときの $①$ の解を求める。\n\n(1) まず $b=\\dfrac{\\boxed{A}}{\\boxed{B}}$，$a=\\dfrac{\\boxed{C}}{\\boxed{D}}\\log_{q}p+\\dfrac{\\boxed{E}}{\\boxed{F}}\\log_{p}q$。\n\n(2) $p>1$，$q>1$ である限り，常に $\\log_{p}q>\\boxed{G}$。よって $a$ は $\\log_{p}q=\\dfrac{\\sqrt{\\boxed{J}}}{\\boxed{K}}$ のとき最小値 $\\dfrac{\\sqrt{\\boxed{H}}}{\\boxed{I}}$ をとる。このとき $①$ の解は $x=-\\dfrac{\\boxed{L}}{\\boxed{M}}\\log_{e}\\boxed{N}$ である。"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "$b=\\tfrac16$; $a=\\tfrac12\\log_q p+\\tfrac13\\log_p q$; $\\log_p q>0$; minimum $a=\\tfrac{\\sqrt6}{3}$ at $\\log_p q=\\tfrac{\\sqrt6}{2}$; then $x=-\\tfrac12\\log_e 6$.  Boxes: AB=16, CDEF=1213, G=0, HI=63, JK=62, LMN=126.",
+        "ja": "$b=\\tfrac16$；$a=\\tfrac12\\log_q p+\\tfrac13\\log_p q$；$\\log_p q>0$；$\\log_p q=\\tfrac{\\sqrt6}{2}$ のとき最小値 $a=\\tfrac{\\sqrt6}{3}$；このとき $x=-\\tfrac12\\log_e 6$。 解答：AB=16, CDEF=1213, G=0, HI=63, JK=62, LMN=126。"
+      },
+      "explanation": {
+        "en": "Let $r_1=\\log_{q^2}p=\\dfrac{\\ln p}{2\\ln q}$ and $r_2=\\log_{p^3}q=\\dfrac{\\ln q}{3\\ln p}$ be the two roots of $t^2-at+b=0$.\n(1) By Vieta, $b=r_1r_2=\\dfrac{\\ln p}{2\\ln q}\\cdot\\dfrac{\\ln q}{3\\ln p}=\\dfrac16$ ($\\boxed{AB}=16$). Also $a=r_1+r_2=\\dfrac{\\ln p}{2\\ln q}+\\dfrac{\\ln q}{3\\ln p}=\\tfrac12\\log_q p+\\tfrac13\\log_p q$ ($\\boxed{C}=1,\\boxed{D}=2,\\boxed{E}=1,\\boxed{F}=3$).\n(2) Since $p,q>1$, $\\log_p q>0$ ($\\boxed{G}=0$). Put $u=\\log_p q>0$; then $\\log_q p=\\tfrac1u$, so $a=\\dfrac1{2u}+\\dfrac{u}{3}$. By AM–GM, $a\\ge 2\\sqrt{\\tfrac1{2u}\\cdot\\tfrac{u}{3}}=2\\sqrt{\\tfrac16}=\\dfrac{2}{\\sqrt6}=\\dfrac{\\sqrt6}{3}$ ($\\boxed{HI}=63$), with equality when $\\dfrac1{2u}=\\dfrac{u}{3}$, i.e. $u^2=\\tfrac32$, $u=\\sqrt{\\tfrac32}=\\dfrac{\\sqrt6}{2}$ ($\\boxed{JK}=62$).\nAt this minimum $a=\\dfrac{\\sqrt6}{3}$ the quadratic $t^2-at+\\tfrac16=0$ has a double root $t=\\tfrac{a}{2}=\\dfrac{\\sqrt6}{6}=6^{-1/2}$. Since $t=e^x$, $x=\\ln\\!\\big(6^{-1/2}\\big)=-\\tfrac12\\log_e 6$ ($\\boxed{L}=1,\\boxed{M}=2,\\boxed{N}=6$).",
+        "ja": "2解を $r_1=\\log_{q^2}p=\\dfrac{\\ln p}{2\\ln q}$，$r_2=\\log_{p^3}q=\\dfrac{\\ln q}{3\\ln p}$ とする。\n(1) 解と係数の関係より $b=r_1r_2=\\dfrac16$（$\\boxed{AB}=16$）。$a=r_1+r_2=\\tfrac12\\log_q p+\\tfrac13\\log_p q$（$\\boxed{C}=1,\\boxed{D}=2,\\boxed{E}=1,\\boxed{F}=3$）。\n(2) $p,q>1$ より $\\log_p q>0$（$\\boxed{G}=0$）。$u=\\log_p q>0$ とおくと $\\log_q p=\\tfrac1u$ で $a=\\dfrac1{2u}+\\dfrac{u}{3}$。相加相乗平均より $a\\ge 2\\sqrt{\\tfrac16}=\\dfrac{\\sqrt6}{3}$（$\\boxed{HI}=63$），等号は $\\dfrac1{2u}=\\dfrac{u}{3}$，すなわち $u=\\dfrac{\\sqrt6}{2}$（$\\boxed{JK}=62$）。\n最小値 $a=\\dfrac{\\sqrt6}{3}$ のとき $t^2-at+\\tfrac16=0$ は重解 $t=\\tfrac{a}{2}=\\dfrac{\\sqrt6}{6}=6^{-1/2}$。$t=e^x$ より $x=-\\tfrac12\\log_e 6$（$\\boxed{L}=1,\\boxed{M}=2,\\boxed{N}=6$）。"
+      },
+      "blanks": [
+        { "label": "AB", "value": "16" }, { "label": "CDEF", "value": "1213" }, { "label": "G", "value": "0" }, { "label": "HI", "value": "63" }, { "label": "JK", "value": "62" }, { "label": "LMN", "value": "126" }
+      ]
+    },
+    {
+      "id": "2014-2-math-c2-4-1",
+      "answerRow": 5,
+      "number": "IV-Q1",
+      "section": "IV",
+      "part": "Q1",
+      "topicId": "integral-applications",
+      "topicIds": ["integral-applications", "derivative-applications"],
+      "subtopic": "Tangent to a cubic meeting the curve again: two enclosed areas and a ratio independent of the parameters",
+      "patternTags": ["tangent-line", "tangent-meets-curve-again", "area-between-curves", "definite-integral", "ratio-of-areas"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "**[IV] Q1 — Tangent to a cubic and areas.**\n\nLet $a$ and $t$ be positive real numbers. Let $\\ell$ be the tangent to the graph $C$ of $y=ax^3$ at a point $P(t,at^3)$, and let $Q$ be the point at which $\\ell$ intersects $C$ again. Let $p$ be the line through $P$ parallel to the $x$-axis, $q$ the line through $Q$ parallel to the $y$-axis, and $R$ the intersection of $p$ and $q$. Let $S_1$ be the area of the region bounded by $C$, $p$ and $q$, and $S_2$ the area of the region bounded by $C$ and the tangent $\\ell$. We find $\\dfrac{S_1}{S_2}$.\n\nSince the equation of the tangent $\\ell$ is $y=\\boxed{A}\\,at^{\\boxed{B}}\\,x-\\boxed{C}\\,at^{\\boxed{D}}$, the $x$-coordinate of $Q$ is $-\\boxed{E}\\,t$.\n\nHence $S_1=\\dfrac{\\boxed{FG}}{\\boxed{H}}\\,at^{\\boxed{I}}$. Also, since $S_2$ is obtained by subtracting $S_1$ from the area of the triangle $PQR$, $S_2=\\dfrac{\\boxed{JK}}{\\boxed{L}}\\,at^{\\boxed{M}}$.\n\nHence the value of $\\dfrac{S_1}{S_2}$ is always $\\boxed{N}$, independent of $a$ and $t$."
+      },
+      "ja": {
+        "prompt": "**[Ⅳ] 問1 — 三次曲線の接線と面積**\n\n$a,t$ を正の実数とする。$y=ax^3$ のグラフ $C$ の点 $P(t,at^3)$ における接線を $\\ell$ とし，$\\ell$ が $C$ と再び交わる点を $Q$ とする。$P$ を通り $x$ 軸に平行な直線を $p$，$Q$ を通り $y$ 軸に平行な直線を $q$，$p$ と $q$ の交点を $R$ とする。$C,p,q$ で囲まれた部分の面積を $S_1$，$C$ と接線 $\\ell$ で囲まれた部分の面積を $S_2$ とする。$\\dfrac{S_1}{S_2}$ を求める。\n\n接線 $\\ell$ の方程式は $y=\\boxed{A}\\,at^{\\boxed{B}}\\,x-\\boxed{C}\\,at^{\\boxed{D}}$ なので，$Q$ の $x$ 座標は $-\\boxed{E}\\,t$ である。\n\nよって $S_1=\\dfrac{\\boxed{FG}}{\\boxed{H}}\\,at^{\\boxed{I}}$。また $S_2$ は三角形 $PQR$ の面積から $S_1$ を引いて得られるので $S_2=\\dfrac{\\boxed{JK}}{\\boxed{L}}\\,at^{\\boxed{M}}$。\n\nよって $\\dfrac{S_1}{S_2}$ の値は $a,t$ によらず常に $\\boxed{N}$ である。"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "$\\ell:y=3at^2x-2at^3$; $Q$ at $x=-2t$; $S_1=\\tfrac{27}{4}at^4$; triangle $PQR=\\tfrac{27}{2}at^4$ so $S_2=\\tfrac{27}{4}at^4$; $\\tfrac{S_1}{S_2}=1$.  Boxes: ABCD=3223, E=2, FGHI=2744, JKLM=2744, N=1.",
+        "ja": "$\\ell:y=3at^2x-2at^3$；$Q$ は $x=-2t$；$S_1=\\tfrac{27}{4}at^4$；三角形 $PQR=\\tfrac{27}{2}at^4$ より $S_2=\\tfrac{27}{4}at^4$；$\\tfrac{S_1}{S_2}=1$。 解答：ABCD=3223, E=2, FGHI=2744, JKLM=2744, N=1。"
+      },
+      "explanation": {
+        "en": "The slope of $C:y=ax^3$ at $x=t$ is $3at^2$, so $\\ell:y=at^3+3at^2(x-t)=3at^2x-2at^3$ ($\\boxed{A}=3,\\boxed{B}=2,\\boxed{C}=2,\\boxed{D}=3$). Solving $ax^3=3at^2x-2at^3$ gives $x^3-3t^2x+2t^3=0=(x-t)^2(x+2t)$, so the other intersection $Q$ has $x=-2t$ ($\\boxed{E}=2$).\n$P=(t,at^3)$, $Q=(-2t,-8at^3)$, $R=(-2t,at^3)$. The region bounded by $C$, $p$ ($y=at^3$) and $q$ ($x=-2t$) lies between the top line $p$ and the curve from $x=-2t$ to $x=t$: $S_1=\\int_{-2t}^{t}(at^3-ax^3)\\,dx=a\\big[t^3x-\\tfrac{x^4}{4}\\big]_{-2t}^{t}=\\tfrac{27}{4}at^4$ ($\\boxed{FG}=27,\\boxed{H}=4,\\boxed{I}=4$).\nTriangle $PQR$ has base $PR=t-(-2t)=3t$ and height $RQ=at^3-(-8at^3)=9at^3$, so its area is $\\tfrac12\\cdot3t\\cdot9at^3=\\tfrac{27}{2}at^4$. Therefore $S_2=\\tfrac{27}{2}at^4-S_1=\\tfrac{27}{2}at^4-\\tfrac{27}{4}at^4=\\tfrac{27}{4}at^4$ ($\\boxed{JK}=27,\\boxed{L}=4,\\boxed{M}=4$). Hence $\\dfrac{S_1}{S_2}=1$ ($\\boxed{N}=1$).",
+        "ja": "$C:y=ax^3$ の $x=t$ での傾きは $3at^2$ なので $\\ell:y=3at^2x-2at^3$（$\\boxed{A}=3,\\boxed{B}=2,\\boxed{C}=2,\\boxed{D}=3$）。$ax^3=3at^2x-2at^3$ より $x^3-3t^2x+2t^3=(x-t)^2(x+2t)=0$ で $Q$ は $x=-2t$（$\\boxed{E}=2$）。\n$P=(t,at^3),\\ Q=(-2t,-8at^3),\\ R=(-2t,at^3)$。$C,p\\,(y=at^3),q\\,(x=-2t)$ で囲まれる部分は $x=-2t$ から $x=t$ で上側の直線 $p$ と曲線の間：$S_1=\\int_{-2t}^{t}(at^3-ax^3)\\,dx=\\tfrac{27}{4}at^4$（$\\boxed{FG}=27,\\boxed{H}=4,\\boxed{I}=4$）。\n三角形 $PQR$ は底辺 $PR=3t$，高さ $RQ=9at^3$ で面積 $\\tfrac12\\cdot3t\\cdot9at^3=\\tfrac{27}{2}at^4$。よって $S_2=\\tfrac{27}{2}at^4-S_1=\\tfrac{27}{4}at^4$（$\\boxed{JK}=27,\\boxed{L}=4,\\boxed{M}=4$）。ゆえに $\\dfrac{S_1}{S_2}=1$（$\\boxed{N}=1$）。"
+      },
+      "blanks": [
+        { "label": "ABCD", "value": "3223" }, { "label": "E", "value": "2" }, { "label": "FGHI", "value": "2744" }, { "label": "JKLM", "value": "2744" }, { "label": "N", "value": "1" }
+      ]
+    },
+    {
+      "id": "2014-2-math-c2-4-2",
+      "answerRow": 6,
+      "number": "IV-Q2",
+      "section": "IV",
+      "part": "Q2",
+      "topicId": "limits",
+      "topicIds": ["limits", "integrals", "function-limits-continuity"],
+      "subtopic": "Powers of sine: a limit fixing three constants, a definite integral, and a Riemann-sum limit of a sum of integrals",
+      "patternTags": ["limit-at-zero", "small-angle-equivalent", "definite-integral", "telescoping-power", "riemann-sum-limit"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "**[IV] Q2 — Powers of sine: a limit and an integral.**\n\nGiven the function $f_n(x)=\\sin^{n}x\\ (n=1,2,3,\\dots)$, answer the following.\n\n(1) Consider the cases in which the equality $\\displaystyle\\lim_{x\\to0}\\dfrac{a-x^2-(b-x^2)^2}{f_n(x)}=c$ holds for three real numbers $a,b,c$.\n  (i) We have $a=b^{\\boxed{O}}$.\n  (ii) When $n=2$, if $c=6$, then $b=\\dfrac{\\boxed{P}}{\\boxed{Q}}$.\n  (iii) When $n=4$, then $b=\\dfrac{\\boxed{R}}{\\boxed{S}}$ and $c=-\\boxed{T}$.\n\n(2) For this $f_n(x)$, consider the definite integral $\\displaystyle I_n=\\int_0^{\\pi/2}f_n(x)\\sin 2x\\,dx\\ (n=1,2,3,\\dots)$. Then $I_n=\\dfrac{\\boxed{U}}{n+\\boxed{V}}$. Hence $\\displaystyle\\lim_{n\\to\\infty}\\big(I_{n-1}+I_n+I_{n+1}+\\cdots+I_{2n-2}\\big)=\\int_0^{\\boxed{W}}\\dfrac{\\boxed{X}}{\\boxed{Y}+x}\\,dx=\\log\\boxed{Z}$."
+      },
+      "ja": {
+        "prompt": "**[Ⅳ] 問2 — 正弦のべき：極限と積分**\n\n関数 $f_n(x)=\\sin^{n}x\\ (n=1,2,3,\\dots)$ について，次に答える。\n\n(1) 等式 $\\displaystyle\\lim_{x\\to0}\\dfrac{a-x^2-(b-x^2)^2}{f_n(x)}=c$ が3つの実数 $a,b,c$ について成り立つ場合を考える。\n  (i) $a=b^{\\boxed{O}}$ である。\n  (ii) $n=2$ のとき，$c=6$ ならば $b=\\dfrac{\\boxed{P}}{\\boxed{Q}}$。\n  (iii) $n=4$ のとき，$b=\\dfrac{\\boxed{R}}{\\boxed{S}}$，$c=-\\boxed{T}$。\n\n(2) この $f_n(x)$ について，定積分 $\\displaystyle I_n=\\int_0^{\\pi/2}f_n(x)\\sin 2x\\,dx\\ (n=1,2,3,\\dots)$ を考える。$I_n=\\dfrac{\\boxed{U}}{n+\\boxed{V}}$。よって $\\displaystyle\\lim_{n\\to\\infty}\\big(I_{n-1}+I_n+I_{n+1}+\\cdots+I_{2n-2}\\big)=\\int_0^{\\boxed{W}}\\dfrac{\\boxed{X}}{\\boxed{Y}+x}\\,dx=\\log\\boxed{Z}$。"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "$a=b^2$; $n=2,c=6\\Rightarrow b=\\tfrac72$; $n=4\\Rightarrow b=\\tfrac12,c=-1$; $I_n=\\tfrac{2}{n+2}$; the limit $=\\int_0^1\\tfrac{2}{1+x}dx=\\log 4$.  Boxes: O=2, PQ=72, RS=12, T=1, UV=22, WXY=121, Z=4.",
+        "ja": "$a=b^2$；$n=2,c=6\\Rightarrow b=\\tfrac72$；$n=4\\Rightarrow b=\\tfrac12,c=-1$；$I_n=\\tfrac{2}{n+2}$；極限 $=\\int_0^1\\tfrac{2}{1+x}dx=\\log 4$。 解答：O=2, PQ=72, RS=12, T=1, UV=22, WXY=121, Z=4。"
+      },
+      "explanation": {
+        "en": "Near $x=0$, $f_n(x)=\\sin^n x\\sim x^n\\to0$, so for the limit to exist the numerator must vanish at $x=0$.\n(i) Numerator at $x=0$ is $a-b^2$; it must be $0$, so $a=b^2$ ($\\boxed{O}=2$). With $a=b^2$, the numerator expands to $(2b-1)x^2-x^4$.\n(ii) $n=2$: $\\dfrac{(2b-1)x^2-x^4}{\\sin^2 x}\\to 2b-1$ as $x\\to0$. Setting $2b-1=6$ gives $b=\\tfrac72$ ($\\boxed{PQ}=72$).\n(iii) $n=4$: $\\dfrac{(2b-1)x^2-x^4}{\\sin^4 x}$; the $x^2$ term must vanish for a finite limit, so $2b-1=0$, $b=\\tfrac12$ ($\\boxed{RS}=12$). Then the numerator is $-x^4$ and the limit is $\\dfrac{-x^4}{\\sin^4 x}\\to-1=c$, so $c=-1$ ($\\boxed{T}=1$).\n(2) $\\sin 2x=2\\sin x\\cos x$, so $I_n=\\int_0^{\\pi/2}2\\sin^{n+1}x\\cos x\\,dx=2\\Big[\\tfrac{\\sin^{n+2}x}{n+2}\\Big]_0^{\\pi/2}=\\dfrac{2}{n+2}$ ($\\boxed{U}=2,\\boxed{V}=2$). Then $I_{n-1}+\\cdots+I_{2n-2}=\\sum_{k=n-1}^{2n-2}\\dfrac{2}{k+2}=2\\sum_{j=n+1}^{2n}\\dfrac1j=\\dfrac2n\\sum_{j=n+1}^{2n}\\dfrac{1}{1+(j-n)/n}$, a Riemann sum for $\\int_0^1\\dfrac{2}{1+x}\\,dx$ ($\\boxed{W}=1,\\boxed{X}=2,\\boxed{Y}=1$). Its value is $2\\log 2=\\log 4$ ($\\boxed{Z}=4$).",
+        "ja": "$x\\to0$ で $f_n(x)=\\sin^n x\\sim x^n\\to0$ なので，極限が存在するには分子が $x=0$ で $0$ でなければならない。\n(i) 分子の $x=0$ での値は $a-b^2$，これが $0$ より $a=b^2$（$\\boxed{O}=2$）。$a=b^2$ のとき分子は $(2b-1)x^2-x^4$。\n(ii) $n=2$：$\\dfrac{(2b-1)x^2-x^4}{\\sin^2 x}\\to 2b-1$。$2b-1=6$ より $b=\\tfrac72$（$\\boxed{PQ}=72$）。\n(iii) $n=4$：有限な極限のため $x^2$ の項が消えねばならず $2b-1=0$，$b=\\tfrac12$（$\\boxed{RS}=12$）。分子は $-x^4$ で極限は $-1=c$，$c=-1$（$\\boxed{T}=1$）。\n(2) $\\sin 2x=2\\sin x\\cos x$ より $I_n=\\int_0^{\\pi/2}2\\sin^{n+1}x\\cos x\\,dx=2\\Big[\\tfrac{\\sin^{n+2}x}{n+2}\\Big]_0^{\\pi/2}=\\dfrac{2}{n+2}$（$\\boxed{U}=2,\\boxed{V}=2$）。$I_{n-1}+\\cdots+I_{2n-2}=\\sum_{k=n-1}^{2n-2}\\dfrac{2}{k+2}=2\\sum_{j=n+1}^{2n}\\dfrac1j$ は $\\int_0^1\\dfrac{2}{1+x}\\,dx$ のリーマン和（$\\boxed{W}=1,\\boxed{X}=2,\\boxed{Y}=1$）で，値は $2\\log2=\\log4$（$\\boxed{Z}=4$）。"
+      },
+      "blanks": [
+        { "label": "O", "value": "2" }, { "label": "PQ", "value": "72" }, { "label": "RS", "value": "12" }, { "label": "T", "value": "1" }, { "label": "UV", "value": "22" }, { "label": "WXY", "value": "121" }, { "label": "Z", "value": "4" }
+      ]
+    }
+  ]
+}

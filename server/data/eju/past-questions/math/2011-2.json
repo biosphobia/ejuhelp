@@ -1,0 +1,195 @@
+{
+  "id": "2011-2-math-c2",
+  "year": 2011,
+  "session": 2,
+  "subject": "math",
+  "course": 2,
+  "title": "2011 EJU Session 2 — Mathematics (Course 2)",
+  "source": "Examination for Japanese University Admission for International Students, 2011 Session 2 (JASSO). Official English & Japanese papers; answers verified against the official answer key (machine-readable Course 2 column) and independently re-derived by solving.",
+  "answerFormat": "digit-fill",
+  "answerKeyVerified": true,
+  "note": "The exam has four large questions (大問 I-IV). Large questions I and IV each contain two independent sub-questions (問1, 問2); these are stored as separate entries here, giving six questions. Answer-letters follow the official scheme and reset at the start of each large question (so I-Q2 continues the lettering of I after Q1, while II, III and IV-Q1 each restart at A). Every numeric answer was cross-checked: independent solving agrees with the official answer key on all boxes.",
+  "questions": [
+    {
+      "id": "2011-2-math-c2-1",
+      "answerRow": 1,
+      "number": "I-Q1",
+      "section": "I",
+      "part": "Q1",
+      "topicId": "numbers-expressions",
+      "topicIds": ["numbers-expressions"],
+      "subtopic": "Sum of cube roots: using x=a+b with x^3=a^3+b^3+3ab(a+b) to solve a cubic",
+      "patternTags": ["rationalize-surd", "cube-root-sum", "symmetric-function", "cubic-factorization", "completing-the-square"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "**[I] Q1 — Numbers and expressions.**\n\nFor the real numbers $a$ and $b$ satisfying\n$$a^3=\\dfrac{1}{\\sqrt5-2},\\qquad b^3=2-\\sqrt5,$$\nwe are to find the value of $a+b$.\n\nWhen we set $x=a+b$, we have $x^3=(a+b)^3=a^3+b^3+\\boxed{A}\\,ab(a+b)$. Since $ab=\\boxed{BC}$, we know that this $x$ satisfies\n$$x^3+\\boxed{D}\\,x-\\boxed{E}=0.$$\n\nThe left side of this equation can be factorized as follows:\n$$x^3+\\boxed{D}\\,x-\\boxed{E}=\\big(x^3-\\boxed{F}\\big)+\\boxed{D}\\big(x-\\boxed{F}\\big)=\\big(x-\\boxed{F}\\big)\\big(x^2+x+\\boxed{G}\\big).$$\n\nSince\n$$x^2+x+\\boxed{G}=\\left(x+\\dfrac{\\boxed{H}}{\\boxed{I}}\\right)^2+\\dfrac{\\boxed{JK}}{\\boxed{L}}>0,$$\nwe obtain $x=a+b=\\boxed{M}$."
+      },
+      "ja": {
+        "prompt": "**[Ⅰ] 問1 — 数と式**\n\n実数 $a$，$b$ が\n$$a^3=\\dfrac{1}{\\sqrt5-2},\\qquad b^3=2-\\sqrt5$$\nを満たすとき，$a+b$ の値を求める。\n\n$x=a+b$ とおくと，$x^3=(a+b)^3=a^3+b^3+\\boxed{A}\\,ab(a+b)$ である。$ab=\\boxed{BC}$ であるから，この $x$ は\n$$x^3+\\boxed{D}\\,x-\\boxed{E}=0$$\nを満たす。\n\nこの方程式の左辺は次のように因数分解できる：\n$$x^3+\\boxed{D}\\,x-\\boxed{E}=\\big(x^3-\\boxed{F}\\big)+\\boxed{D}\\big(x-\\boxed{F}\\big)=\\big(x-\\boxed{F}\\big)\\big(x^2+x+\\boxed{G}\\big)。$$\n\nさらに\n$$x^2+x+\\boxed{G}=\\left(x+\\dfrac{\\boxed{H}}{\\boxed{I}}\\right)^2+\\dfrac{\\boxed{JK}}{\\boxed{L}}>0$$\nであるから，$x=a+b=\\boxed{M}$ を得る。"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "$a^3=2+\\sqrt5,\\ b^3=2-\\sqrt5$, so $a^3+b^3=4$ and $ab=-1$; thus $x^3+3x-4=0=(x-1)(x^2+x+4)$ with $x^2+x+4=(x+\\tfrac12)^2+\\tfrac{15}{4}>0$, giving $a+b=1$.  Boxes: A=3, BC=-1, DE=34, F=1, G=4, HIJKL=12154, M=1.",
+        "ja": "$a^3=2+\\sqrt5,\\ b^3=2-\\sqrt5$ より $a^3+b^3=4$，$ab=-1$。よって $x^3+3x-4=0=(x-1)(x^2+x+4)$ で，$x^2+x+4=(x+\\tfrac12)^2+\\tfrac{15}{4}>0$ だから $a+b=1$。 解答：A=3, BC=-1, DE=34, F=1, G=4, HIJKL=12154, M=1。"
+      },
+      "explanation": {
+        "en": "Rationalizing, $a^3=\\dfrac{1}{\\sqrt5-2}=\\dfrac{\\sqrt5+2}{(\\sqrt5-2)(\\sqrt5+2)}=\\sqrt5+2$. Hence $a^3+b^3=(\\sqrt5+2)+(2-\\sqrt5)=4$ and $a^3b^3=(2+\\sqrt5)(2-\\sqrt5)=4-5=-1$, so the real value is $ab=-1$. From $x=a+b$, $x^3=a^3+b^3+3ab(a+b)=4-3x$, i.e. $x^3+3x-4=0$. Since $x^3-1=(x-1)(x^2+x+1)$ and $3(x-1)$ share the factor $(x-1)$: $x^3+3x-4=(x^3-1)+3(x-1)=(x-1)(x^2+x+4)$. The quadratic $x^2+x+4=(x+\\tfrac12)^2+\\tfrac{15}{4}>0$ has no real root, so $x-1=0$, giving $a+b=1$.",
+        "ja": "分母を有理化すると $a^3=\\dfrac{1}{\\sqrt5-2}=\\sqrt5+2$。よって $a^3+b^3=4$，$a^3b^3=(2+\\sqrt5)(2-\\sqrt5)=-1$ なので実数では $ab=-1$。$x=a+b$ より $x^3=a^3+b^3+3ab(a+b)=4-3x$，すなわち $x^3+3x-4=0$。$(x^3-1)+3(x-1)=(x-1)(x^2+x+4)$ と因数分解でき，$x^2+x+4=(x+\\tfrac12)^2+\\tfrac{15}{4}>0$ は実数解をもたないので $x-1=0$，つまり $a+b=1$。"
+      },
+      "blanks": [
+        { "label": "A", "value": "3" }, { "label": "BC", "value": "-1" }, { "label": "DE", "value": "34" }, { "label": "F", "value": "1" }, { "label": "G", "value": "4" }, { "label": "HIJKL", "value": "12154" }, { "label": "M", "value": "1" }
+      ]
+    },
+    {
+      "id": "2011-2-math-c2-2",
+      "answerRow": 2,
+      "number": "I-Q2",
+      "section": "I",
+      "part": "Q2",
+      "topicId": "quadratic-functions",
+      "topicIds": ["quadratic-functions"],
+      "subtopic": "Number of intersections of a parabola and a line via the discriminant; maximizing the minimum gap",
+      "patternTags": ["discriminant-condition", "intersection-count", "expression-from-list", "min-of-quadratic", "max-min-on-parameter"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "**[I] Q2 — Quadratic functions.** *(For $\\boxed{N},\\boxed{O},\\boxed{P}$ choose which of $⓪$–$②$ gives the correct condition.)*\n\nConsider the two functions $y=x^2+ax+a$ and $y=x+1$.\n\n(1) The number of points at which the graphs of the two functions meet depends on the relationship of $a$ with the numbers $\\boxed{Q}$ and $\\boxed{R}$ in the following way:\n\n  (i) The condition under which the graphs intersect at two different points is $\\boxed{N}$.\n\n  (ii) The condition under which the graphs are tangent at a point is $\\boxed{O}$.\n\n  (iii) The condition under which the graph of $y=x^2+ax+a$ is always above the graph of $y=x+1$ is $\\boxed{P}$.\n\n  Choices: $⓪\\ \\boxed{Q}<a<\\boxed{R}\\qquad ①\\ a=\\boxed{Q}\\ \\text{or}\\ a=\\boxed{R}\\qquad ②\\ a<\\boxed{Q}\\ \\text{or}\\ \\boxed{R}<a$\n\n(2) Let us consider the case where $a$ satisfies $\\boxed{P}$. Let $g(x)$ be the difference of the two functions, $g(x)=x^2+ax+a-(x+1)$, and let $m$ be the minimum value of $g(x)$. Then\n$$m=-\\dfrac{\\boxed{S}}{\\boxed{T}}\\big(a^2-\\boxed{U}\\,a+\\boxed{V}\\big).$$\nHence $m$ takes the maximum at $a=\\boxed{W}$ and its value there is $m=\\boxed{X}$."
+      },
+      "ja": {
+        "prompt": "**[Ⅰ] 問2 — 二次関数** *（$\\boxed{N},\\boxed{O},\\boxed{P}$ には $⓪$〜$②$ のうち正しい条件を選べ。）*\n\n2つの関数 $y=x^2+ax+a$ と $y=x+1$ を考える。\n\n(1) 2つの関数のグラフが交わる点の個数は，$a$ と数 $\\boxed{Q}$，$\\boxed{R}$ との関係によって次のように定まる。\n\n  (i) 2つのグラフが異なる2点で交わる条件は $\\boxed{N}$。\n\n  (ii) 2つのグラフが1点で接する条件は $\\boxed{O}$。\n\n  (iii) $y=x^2+ax+a$ のグラフが常に $y=x+1$ のグラフより上にある条件は $\\boxed{P}$。\n\n  選択肢：$⓪\\ \\boxed{Q}<a<\\boxed{R}\\qquad ①\\ a=\\boxed{Q}\\ \\text{または}\\ a=\\boxed{R}\\qquad ②\\ a<\\boxed{Q}\\ \\text{または}\\ \\boxed{R}<a$\n\n(2) $a$ が $\\boxed{P}$ を満たす場合を考える。$g(x)$ を2つの関数の差 $g(x)=x^2+ax+a-(x+1)$ とし，$m$ を $g(x)$ の最小値とすると，\n$$m=-\\dfrac{\\boxed{S}}{\\boxed{T}}\\big(a^2-\\boxed{U}\\,a+\\boxed{V}\\big)。$$\nよって $m$ は $a=\\boxed{W}$ で最大となり，そのときの値は $m=\\boxed{X}$ である。"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "Discriminant $(a-1)(a-5)$, so $Q=1,R=5$: two points $⇒②$, tangent $⇒①$, always above $⇒⓪$. $g$ has minimum $m=-\\tfrac14(a^2-6a+5)$, maximized at $a=3$ with $m=1$.  Boxes: N=2, O=1, P=0, QR=15, STUV=1465, W=3, X=1.",
+        "ja": "判別式 $(a-1)(a-5)$ より $Q=1,R=5$。2点で交わる $⇒②$，接する $⇒①$，常に上 $⇒⓪$。$g$ の最小値 $m=-\\tfrac14(a^2-6a+5)$ は $a=3$ で最大値 $1$。 解答：N=2, O=1, P=0, QR=15, STUV=1465, W=3, X=1。"
+      },
+      "explanation": {
+        "en": "Set $x^2+ax+a=x+1\\Rightarrow x^2+(a-1)x+(a-1)=0$. Discriminant $D=(a-1)^2-4(a-1)=(a-1)(a-5)$.\n(i) Two intersections need $D>0\\Rightarrow a<1$ or $5<a$ (choice ②, with $Q=1,R=5$).\n(ii) Tangent needs $D=0\\Rightarrow a=1$ or $a=5$ (choice ①).\n(iii) The parabola lies strictly above the line everywhere $\\Leftrightarrow D<0\\Rightarrow 1<a<5$ (choice ⓪).\n(2) $g(x)=x^2+(a-1)x+(a-1)$ has minimum $m=(a-1)-\\dfrac{(a-1)^2}{4}=-\\dfrac14\\big(a^2-6a+5\\big)$. This downward parabola in $a$ is maximized at $a=3$ (inside $1<a<5$), where $m=-\\tfrac14(9-18+5)=1$.",
+        "ja": "$x^2+ax+a=x+1$ より $x^2+(a-1)x+(a-1)=0$。判別式 $D=(a-1)^2-4(a-1)=(a-1)(a-5)$。(i) 異なる2点は $D>0\\Rightarrow a<1$ または $5<a$（選択肢②，$Q=1,R=5$）。(ii) 接するのは $D=0\\Rightarrow a=1,5$（選択肢①）。(iii) 常に上は $D<0\\Rightarrow 1<a<5$（選択肢⓪）。(2) $g$ の最小値 $m=(a-1)-\\dfrac{(a-1)^2}{4}=-\\dfrac14(a^2-6a+5)$ は $a$ について上に凸で，$a=3$（区間内）で最大値 $m=1$。"
+      },
+      "blanks": [
+        { "label": "N", "value": "2" }, { "label": "O", "value": "1" }, { "label": "P", "value": "0" }, { "label": "QR", "value": "15" }, { "label": "STUV", "value": "1465" }, { "label": "W", "value": "3" }, { "label": "X", "value": "1" }
+      ]
+    },
+    {
+      "id": "2011-2-math-c2-3",
+      "answerRow": 3,
+      "number": "II",
+      "section": "II",
+      "part": null,
+      "topicId": "vectors",
+      "topicIds": ["vectors", "figures-equations"],
+      "subtopic": "Internal-division points on two segments by a common ratio; minimizing the distance between them",
+      "patternTags": ["position-vectors", "internal-division", "coordinate-geometry", "distance-squared", "min-of-quadratic"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "**[II] Vectors.** Take four points $A(1,0),\\ B(0,1),\\ C(3,0),\\ D(0,2)$ on a plane with the coordinate system having the origin $O$. Take two points $P$ and $Q$ on segments $AB$ and $CD$ respectively, such that $AP:PB=CQ:QD=k:2$. We are to find the minimum possible length of the segment $PQ$.\n\n(1) First, let us find the value of $x+2y$, where $\\overrightarrow{PQ}=(x,y)$. Since\n$$\\overrightarrow{OP}=\\dfrac{\\boxed{A}\\,\\overrightarrow{OA}+k\\,\\overrightarrow{OB}}{k+\\boxed{B}},\\qquad \\overrightarrow{OQ}=\\dfrac{\\boxed{C}\\,\\overrightarrow{OC}+k\\,\\overrightarrow{OD}}{k+\\boxed{D}},$$\nwe have $(x,y)=\\dfrac{1}{k+\\boxed{E}}\\,(\\boxed{F},\\,k)$, which gives $x+2y=\\boxed{G}$.\n\n(2) When we represent $\\mathrm{PQ}^2$ in terms of $y$, we have $\\mathrm{PQ}^2=\\boxed{H}\\,y^2-\\boxed{I}\\,y+\\boxed{J}$. Hence $\\mathrm{PQ}$ takes the minimum at $y=\\dfrac{\\boxed{K}}{\\boxed{L}}$ and its value there is $\\mathrm{PQ}=\\dfrac{\\boxed{M}\\sqrt{\\boxed{N}}}{\\boxed{O}}$. In this case, the value of $k$ is $k=\\boxed{P}$."
+      },
+      "ja": {
+        "prompt": "**[Ⅱ] ベクトル** 原点 $O$ をもつ座標平面上に4点 $A(1,0),\\ B(0,1),\\ C(3,0),\\ D(0,2)$ をとる。線分 $AB$ 上に点 $P$，線分 $CD$ 上に点 $Q$ を，$AP:PB=CQ:QD=k:2$ となるようにとる。線分 $PQ$ の長さの最小値を求める。\n\n(1) まず $\\overrightarrow{PQ}=(x,y)$ として $x+2y$ の値を求める。\n$$\\overrightarrow{OP}=\\dfrac{\\boxed{A}\\,\\overrightarrow{OA}+k\\,\\overrightarrow{OB}}{k+\\boxed{B}},\\qquad \\overrightarrow{OQ}=\\dfrac{\\boxed{C}\\,\\overrightarrow{OC}+k\\,\\overrightarrow{OD}}{k+\\boxed{D}}$$\nであるから，$(x,y)=\\dfrac{1}{k+\\boxed{E}}\\,(\\boxed{F},\\,k)$ となり，$x+2y=\\boxed{G}$ である。\n\n(2) $\\mathrm{PQ}^2$ を $y$ で表すと $\\mathrm{PQ}^2=\\boxed{H}\\,y^2-\\boxed{I}\\,y+\\boxed{J}$。よって $\\mathrm{PQ}$ は $y=\\dfrac{\\boxed{K}}{\\boxed{L}}$ で最小となり，そのときの値は $\\mathrm{PQ}=\\dfrac{\\boxed{M}\\sqrt{\\boxed{N}}}{\\boxed{O}}$。このとき $k=\\boxed{P}$ である。"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "$\\overrightarrow{OP}=\\tfrac{2\\overrightarrow{OA}+k\\overrightarrow{OB}}{k+2}$, $\\overrightarrow{OQ}=\\tfrac{2\\overrightarrow{OC}+k\\overrightarrow{OD}}{k+2}$; $(x,y)=\\tfrac{1}{k+2}(4,k)$, $x+2y=2$; $\\mathrm{PQ}^2=5y^2-8y+4$ min at $y=\\tfrac45$ giving $\\mathrm{PQ}=\\tfrac{2\\sqrt5}{5}$, with $k=8$.  Boxes: AB=22, CD=22, EF=24, G=2, HIJ=584, KL=45, MNO=255, P=8.",
+        "ja": "$\\overrightarrow{OP}=\\tfrac{2\\overrightarrow{OA}+k\\overrightarrow{OB}}{k+2}$，$\\overrightarrow{OQ}=\\tfrac{2\\overrightarrow{OC}+k\\overrightarrow{OD}}{k+2}$；$(x,y)=\\tfrac{1}{k+2}(4,k)$，$x+2y=2$；$\\mathrm{PQ}^2=5y^2-8y+4$ は $y=\\tfrac45$ で最小，$\\mathrm{PQ}=\\tfrac{2\\sqrt5}{5}$，$k=8$。 解答：AB=22, CD=22, EF=24, G=2, HIJ=584, KL=45, MNO=255, P=8。"
+      },
+      "explanation": {
+        "en": "Since $AP:PB=k:2$, $P$ divides $AB$ internally so $\\overrightarrow{OP}=\\dfrac{2\\overrightarrow{OA}+k\\overrightarrow{OB}}{k+2}$; likewise $\\overrightarrow{OQ}=\\dfrac{2\\overrightarrow{OC}+k\\overrightarrow{OD}}{k+2}$. With the given coordinates, $\\overrightarrow{OP}=\\big(\\tfrac{2}{k+2},\\tfrac{k}{k+2}\\big)$ and $\\overrightarrow{OQ}=\\big(\\tfrac{6}{k+2},\\tfrac{2k}{k+2}\\big)$, so $\\overrightarrow{PQ}=\\big(\\tfrac{4}{k+2},\\tfrac{k}{k+2}\\big)=\\dfrac{1}{k+2}(4,k)$. Then $x+2y=\\dfrac{4+2k}{k+2}=2$.\n(2) Using $y=\\dfrac{k}{k+2}$ (so $0\\le y<1$) and $x=2-2y$, $\\mathrm{PQ}^2=x^2+y^2=(2-2y)^2+y^2=5y^2-8y+4$. This is minimized at $y=\\dfrac{8}{10}=\\dfrac45$, where $\\mathrm{PQ}^2=\\dfrac45$, so $\\mathrm{PQ}=\\sqrt{\\tfrac45}=\\dfrac{2\\sqrt5}{5}$. From $y=\\dfrac{k}{k+2}=\\dfrac45$ we get $5k=4k+8\\Rightarrow k=8$.",
+        "ja": "$AP:PB=k:2$ より $P$ は内分点で $\\overrightarrow{OP}=\\dfrac{2\\overrightarrow{OA}+k\\overrightarrow{OB}}{k+2}$，同様に $\\overrightarrow{OQ}=\\dfrac{2\\overrightarrow{OC}+k\\overrightarrow{OD}}{k+2}$。座標を代入すると $\\overrightarrow{OP}=\\big(\\tfrac{2}{k+2},\\tfrac{k}{k+2}\\big)$，$\\overrightarrow{OQ}=\\big(\\tfrac{6}{k+2},\\tfrac{2k}{k+2}\\big)$ で，$\\overrightarrow{PQ}=\\dfrac{1}{k+2}(4,k)$。よって $x+2y=\\dfrac{4+2k}{k+2}=2$。(2) $y=\\dfrac{k}{k+2}$，$x=2-2y$ を用いると $\\mathrm{PQ}^2=(2-2y)^2+y^2=5y^2-8y+4$。これは $y=\\dfrac45$ で最小となり $\\mathrm{PQ}^2=\\dfrac45$，$\\mathrm{PQ}=\\dfrac{2\\sqrt5}{5}$。$\\dfrac{k}{k+2}=\\dfrac45$ より $k=8$。"
+      },
+      "blanks": [
+        { "label": "AB", "value": "22" }, { "label": "CD", "value": "22" }, { "label": "EF", "value": "24" }, { "label": "G", "value": "2" }, { "label": "HIJ", "value": "584" }, { "label": "KL", "value": "45" }, { "label": "MNO", "value": "255" }, { "label": "P", "value": "8" }
+      ]
+    },
+    {
+      "id": "2011-2-math-c2-4",
+      "answerRow": 4,
+      "number": "III",
+      "section": "III",
+      "part": null,
+      "topicId": "figures-measurement",
+      "topicIds": ["figures-measurement", "trig-functions"],
+      "subtopic": "Two mutually tangent circles inscribed in a right triangle; half-angle/addition formulas and tangent lengths",
+      "patternTags": ["right-triangle", "inscribed-tangent-circles", "double-angle-formula", "addition-formula", "tangent-length", "rationalize-surd"],
+      "hasFigure": true,
+      "figureNote": "Right triangle ABC with the right angle at B (B lower-left, C lower-right, A top). AB=9, BC=12, AC=15. A larger circle O1 (radius 2r) is tangent to sides AB and AC; a smaller circle O2 (radius r) is tangent to sides CA and CB; the two circles are externally tangent to each other. D and E are the points where AC touches O1 and O2 respectively (D nearer A, E nearer C).",
+      "en": {
+        "prompt": "**[III] Figures and measurement.** *(See the figure.)* We have a triangle $ABC$ such that $AB=9,\\ BC=12,\\ \\angle ABC=90^\\circ$. There are also two circles $O_1$ and $O_2$ with radii of length $2r$ and $r$, respectively. The two circles $O_1$ and $O_2$ are tangential to each other. Further, $O_1$ is tangent to the two sides $AB$ and $AC$, and $O_2$ is tangent to the two sides $CA$ and $CB$. We are to find the value of $r$.\n\nFirst, let $D$ and $E$ denote the points at which the segment $AC$ is tangent to the circles $O_1$ and $O_2$ respectively, and set $\\alpha=\\angle O_1AC$. Then, since $\\tan 2\\alpha=\\dfrac{\\boxed{A}}{\\boxed{B}}$, we have $\\tan\\alpha=\\dfrac{\\boxed{C}}{\\boxed{D}}$ using the double-angle formula. Thus we obtain $AD=\\boxed{E}\\,r$.\n\nNext, set $\\beta=\\angle O_2CA$. Since $\\alpha+\\beta=\\boxed{FG}^\\circ$, we have $\\tan\\beta=\\dfrac{\\boxed{H}}{\\boxed{I}}$ using the addition theorem. Thus we obtain $CE=\\boxed{J}\\,r$.\n\nMoreover, it follows that $AC=\\boxed{KL}$ and $DE=\\boxed{M}\\sqrt{\\boxed{N}}\\,r$. Finally we obtain\n$$r=\\dfrac{\\boxed{OP}\\big(\\boxed{Q}-\\boxed{R}\\sqrt{\\boxed{S}}\\big)}{41}.$$"
+      },
+      "ja": {
+        "prompt": "**[Ⅲ] 図形と計量** *（図を参照。）* $AB=9,\\ BC=12,\\ \\angle ABC=90^\\circ$ である三角形 $ABC$ がある。また，半径がそれぞれ $2r$，$r$ の2つの円 $O_1$，$O_2$ がある。2つの円 $O_1$，$O_2$ は互いに接している。さらに $O_1$ は2辺 $AB$，$AC$ に接し，$O_2$ は2辺 $CA$，$CB$ に接している。$r$ の値を求める。\n\nまず，線分 $AC$ が円 $O_1$，$O_2$ に接する点をそれぞれ $D$，$E$ とし，$\\alpha=\\angle O_1AC$ とおく。このとき $\\tan 2\\alpha=\\dfrac{\\boxed{A}}{\\boxed{B}}$ であるから，2倍角の公式より $\\tan\\alpha=\\dfrac{\\boxed{C}}{\\boxed{D}}$ となる。よって $AD=\\boxed{E}\\,r$ を得る。\n\n次に $\\beta=\\angle O_2CA$ とおく。$\\alpha+\\beta=\\boxed{FG}^\\circ$ であるから，加法定理より $\\tan\\beta=\\dfrac{\\boxed{H}}{\\boxed{I}}$ となる。よって $CE=\\boxed{J}\\,r$ を得る。\n\nさらに $AC=\\boxed{KL}$，$DE=\\boxed{M}\\sqrt{\\boxed{N}}\\,r$ となる。最終的に\n$$r=\\dfrac{\\boxed{OP}\\big(\\boxed{Q}-\\boxed{R}\\sqrt{\\boxed{S}}\\big)}{41}$$\nを得る。"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "$\\tan 2\\alpha=\\tan A=\\tfrac43\\Rightarrow\\tan\\alpha=\\tfrac12$, so $AD=4r$; $\\alpha+\\beta=45^\\circ\\Rightarrow\\tan\\beta=\\tfrac13$, so $CE=3r$; $AC=15$, $DE=2\\sqrt2\\,r$, and $(7+2\\sqrt2)r=15$ gives $r=\\dfrac{15(7-2\\sqrt2)}{41}$.  Boxes: AB=43, CD=12, E=4, FG=45, HI=13, J=3, KL=15, MN=22, OPQRS=15722.",
+        "ja": "$\\tan 2\\alpha=\\tan A=\\tfrac43\\Rightarrow\\tan\\alpha=\\tfrac12$ より $AD=4r$；$\\alpha+\\beta=45^\\circ\\Rightarrow\\tan\\beta=\\tfrac13$ より $CE=3r$；$AC=15$，$DE=2\\sqrt2\\,r$，$(7+2\\sqrt2)r=15$ より $r=\\dfrac{15(7-2\\sqrt2)}{41}$。 解答：AB=43, CD=12, E=4, FG=45, HI=13, J=3, KL=15, MN=22, OPQRS=15722。"
+      },
+      "explanation": {
+        "en": "In right triangle $ABC$ ($\\angle B=90^\\circ$), $\\tan A=\\dfrac{BC}{AB}=\\dfrac{12}{9}=\\dfrac43$. Since $O_1$ lies on the bisector of $\\angle A$, $2\\alpha=A$, so $\\tan 2\\alpha=\\tfrac43$; the double-angle formula $\\tfrac{2\\tan\\alpha}{1-\\tan^2\\alpha}=\\tfrac43$ gives $2\\tan^2\\alpha+3\\tan\\alpha-2=0\\Rightarrow\\tan\\alpha=\\tfrac12$. The tangent length from $A$ to $O_1$ is $AD$, with $\\tan\\alpha=\\dfrac{O_1D}{AD}=\\dfrac{2r}{AD}\\Rightarrow AD=\\dfrac{2r}{1/2}=4r$.\nBecause $\\angle A+\\angle C=90^\\circ$ and $2\\alpha=A,\\ 2\\beta=C$, we get $\\alpha+\\beta=45^\\circ$. Then $\\tan(\\alpha+\\beta)=1=\\dfrac{\\tan\\alpha+\\tan\\beta}{1-\\tan\\alpha\\tan\\beta}$ with $\\tan\\alpha=\\tfrac12$ gives $\\tan\\beta=\\tfrac13$. The tangent length $CE=\\dfrac{r}{\\tan\\beta}=\\dfrac{r}{1/3}=3r$.\nWith $AC=\\sqrt{9^2+12^2}=15$, the gap $DE$ between the two tangency points equals $\\sqrt{(O_1O_2)^2-(2r-r)^2}=\\sqrt{(3r)^2-r^2}=2\\sqrt2\\,r$ (the circles are externally tangent, $O_1O_2=3r$). Then $AD+DE+EC=AC$: $4r+2\\sqrt2\\,r+3r=15\\Rightarrow(7+2\\sqrt2)r=15\\Rightarrow r=\\dfrac{15}{7+2\\sqrt2}=\\dfrac{15(7-2\\sqrt2)}{49-8}=\\dfrac{15(7-2\\sqrt2)}{41}$.",
+        "ja": "直角三角形 $ABC$（$\\angle B=90^\\circ$）で $\\tan A=\\dfrac{BC}{AB}=\\dfrac{12}{9}=\\dfrac43$。$O_1$ は $\\angle A$ の二等分線上にあるので $2\\alpha=A$，よって $\\tan 2\\alpha=\\tfrac43$。2倍角 $\\dfrac{2\\tan\\alpha}{1-\\tan^2\\alpha}=\\tfrac43$ より $2\\tan^2\\alpha+3\\tan\\alpha-2=0\\Rightarrow\\tan\\alpha=\\tfrac12$。接線長 $AD$ は $\\tan\\alpha=\\dfrac{2r}{AD}$ より $AD=4r$。$\\angle A+\\angle C=90^\\circ$ かつ $2\\alpha=A,2\\beta=C$ なので $\\alpha+\\beta=45^\\circ$。加法定理 $1=\\dfrac{\\tan\\alpha+\\tan\\beta}{1-\\tan\\alpha\\tan\\beta}$ より $\\tan\\beta=\\tfrac13$，接線長 $CE=\\dfrac{r}{1/3}=3r$。$AC=\\sqrt{9^2+12^2}=15$，接点間の距離 $DE=\\sqrt{(3r)^2-r^2}=2\\sqrt2\\,r$（外接で $O_1O_2=3r$）。$4r+2\\sqrt2\\,r+3r=15$ より $(7+2\\sqrt2)r=15$，$r=\\dfrac{15}{7+2\\sqrt2}=\\dfrac{15(7-2\\sqrt2)}{41}$。"
+      },
+      "blanks": [
+        { "label": "AB", "value": "43" }, { "label": "CD", "value": "12" }, { "label": "E", "value": "4" }, { "label": "FG", "value": "45" }, { "label": "HI", "value": "13" }, { "label": "J", "value": "3" }, { "label": "KL", "value": "15" }, { "label": "MN", "value": "22" }, { "label": "OPQRS", "value": "15722" }
+      ]
+    },
+    {
+      "id": "2011-2-math-c2-5",
+      "answerRow": 5,
+      "number": "IV-Q1",
+      "section": "IV",
+      "part": "Q1",
+      "topicId": "integration",
+      "topicIds": ["integration", "differentiation", "exp-log", "trig-functions"],
+      "subtopic": "Zeros of an exponential-trigonometric function, antiderivative by undetermined coefficients, and a definite integral",
+      "patternTags": ["exponential-trig", "solve-trig-equation", "undetermined-coefficients", "antiderivative", "definite-integral"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "**[IV] Q1 — Calculus.** Let $f(x)=4\\sqrt3\\,e^{-x}\\cos x+6e^{-x}$.\n\n(1) Let $a$ and $b$ $(a<b)$ be the values of $x$ satisfying $f(x)=0$ on $0\\le x<2\\pi$. Then $a=\\dfrac{\\boxed{A}}{\\boxed{B}}\\pi,\\quad b=\\dfrac{\\boxed{C}}{\\boxed{D}}\\pi$.\n\n(2) The values of the constants $p$ and $q$ satisfying\n$$\\dfrac{d}{dx}\\big(p\\,e^{-x}\\cos x+q\\,e^{-x}\\sin x\\big)=e^{-x}\\cos x$$\nare given by $p=\\dfrac{\\boxed{EF}}{\\boxed{G}},\\quad q=\\dfrac{\\boxed{H}}{\\boxed{I}}$.\n\n(3) Using the values of $a$ and $b$ obtained in (1), we set $A=e^{-a}$ and $B=e^{-b}$. When we calculate the value of $\\displaystyle\\int_a^b f(x)\\,dx$, we obtain\n$$\\int_a^b f(x)\\,dx=\\big(\\boxed{J}-\\sqrt{\\boxed{K}}\\big)A-\\big(\\boxed{L}+\\sqrt{\\boxed{M}}\\big)B.$$"
+      },
+      "ja": {
+        "prompt": "**[Ⅳ] 問1 — 微分積分** $f(x)=4\\sqrt3\\,e^{-x}\\cos x+6e^{-x}$ とする。\n\n(1) $0\\le x<2\\pi$ で $f(x)=0$ を満たす $x$ の値を $a,b\\ (a<b)$ とすると，$a=\\dfrac{\\boxed{A}}{\\boxed{B}}\\pi,\\quad b=\\dfrac{\\boxed{C}}{\\boxed{D}}\\pi$ である。\n\n(2) 等式\n$$\\dfrac{d}{dx}\\big(p\\,e^{-x}\\cos x+q\\,e^{-x}\\sin x\\big)=e^{-x}\\cos x$$\nを満たす定数 $p,q$ は $p=\\dfrac{\\boxed{EF}}{\\boxed{G}},\\quad q=\\dfrac{\\boxed{H}}{\\boxed{I}}$ で与えられる。\n\n(3) (1) で求めた $a,b$ を用いて $A=e^{-a}$，$B=e^{-b}$ とおく。$\\displaystyle\\int_a^b f(x)\\,dx$ を計算すると，\n$$\\int_a^b f(x)\\,dx=\\big(\\boxed{J}-\\sqrt{\\boxed{K}}\\big)A-\\big(\\boxed{L}+\\sqrt{\\boxed{M}}\\big)B$$\nとなる。"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "$f=0\\Rightarrow\\cos x=-\\tfrac{\\sqrt3}{2}$, so $a=\\tfrac56\\pi,\\ b=\\tfrac76\\pi$; $p=-\\tfrac12,\\ q=\\tfrac12$; $\\int_a^b f\\,dx=(3-\\sqrt3)A-(3+\\sqrt3)B$.  Boxes: AB=56, CD=76, EFG=-12, HI=12, JK=33, LM=33.",
+        "ja": "$f=0\\Rightarrow\\cos x=-\\tfrac{\\sqrt3}{2}$ より $a=\\tfrac56\\pi,\\ b=\\tfrac76\\pi$；$p=-\\tfrac12,\\ q=\\tfrac12$；$\\int_a^b f\\,dx=(3-\\sqrt3)A-(3+\\sqrt3)B$。 解答：AB=56, CD=76, EFG=-12, HI=12, JK=33, LM=33。"
+      },
+      "explanation": {
+        "en": "(1) Since $e^{-x}>0$, $f(x)=0\\Leftrightarrow 4\\sqrt3\\cos x+6=0\\Leftrightarrow\\cos x=-\\dfrac{6}{4\\sqrt3}=-\\dfrac{\\sqrt3}{2}$. On $0\\le x<2\\pi$ this gives $x=\\dfrac56\\pi$ and $\\dfrac76\\pi$, so $a=\\tfrac56\\pi,\\ b=\\tfrac76\\pi$.\n(2) $\\dfrac{d}{dx}\\big(pe^{-x}\\cos x+qe^{-x}\\sin x\\big)=e^{-x}\\big[(-p+q)\\cos x+(-p-q)\\sin x\\big]$. Matching $e^{-x}\\cos x$ requires $-p+q=1$ and $-p-q=0$, so $p=-\\tfrac12,\\ q=\\tfrac12$.\n(3) An antiderivative of $e^{-x}\\cos x$ is $-\\tfrac12 e^{-x}\\cos x+\\tfrac12 e^{-x}\\sin x$, so $\\int 4\\sqrt3 e^{-x}\\cos x\\,dx=2\\sqrt3 e^{-x}(\\sin x-\\cos x)$ and $\\int 6e^{-x}\\,dx=-6e^{-x}$. Hence $F(x)=2\\sqrt3 e^{-x}(\\sin x-\\cos x)-6e^{-x}$. At $x=a=\\tfrac56\\pi$: $\\sin=\\tfrac12,\\cos=-\\tfrac{\\sqrt3}{2}$; at $x=b=\\tfrac76\\pi$: $\\sin=-\\tfrac12,\\cos=-\\tfrac{\\sqrt3}{2}$. Then $F(b)-F(a)=(3-\\sqrt3)e^{-a}-(3+\\sqrt3)e^{-b}=(3-\\sqrt3)A-(3+\\sqrt3)B$.",
+        "ja": "(1) $e^{-x}>0$ なので $f(x)=0\\Leftrightarrow 4\\sqrt3\\cos x+6=0\\Leftrightarrow\\cos x=-\\dfrac{\\sqrt3}{2}$。$0\\le x<2\\pi$ で $x=\\tfrac56\\pi,\\tfrac76\\pi$ なので $a=\\tfrac56\\pi,b=\\tfrac76\\pi$。(2) 微分すると $e^{-x}\\big[(-p+q)\\cos x+(-p-q)\\sin x\\big]$。$e^{-x}\\cos x$ に一致するには $-p+q=1,\\ -p-q=0$，よって $p=-\\tfrac12,q=\\tfrac12$。(3) $e^{-x}\\cos x$ の原始関数は $-\\tfrac12 e^{-x}\\cos x+\\tfrac12 e^{-x}\\sin x$ なので $F(x)=2\\sqrt3 e^{-x}(\\sin x-\\cos x)-6e^{-x}$。$x=\\tfrac56\\pi$ で $\\sin=\\tfrac12,\\cos=-\\tfrac{\\sqrt3}{2}$，$x=\\tfrac76\\pi$ で $\\sin=-\\tfrac12,\\cos=-\\tfrac{\\sqrt3}{2}$。よって $F(b)-F(a)=(3-\\sqrt3)A-(3+\\sqrt3)B$。"
+      },
+      "blanks": [
+        { "label": "AB", "value": "56" }, { "label": "CD", "value": "76" }, { "label": "EFG", "value": "-12" }, { "label": "HI", "value": "12" }, { "label": "JK", "value": "33" }, { "label": "LM", "value": "33" }
+      ]
+    },
+    {
+      "id": "2011-2-math-c2-6",
+      "answerRow": 6,
+      "number": "IV-Q2",
+      "section": "IV",
+      "part": "Q2",
+      "topicId": "integration",
+      "topicIds": ["integration", "limits"],
+      "subtopic": "Definite integral by substitution, then the limit of S divided by a power of a",
+      "patternTags": ["substitution-integral", "expression-from-list", "definite-integral", "limit-at-infinity", "leading-term"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "**[IV] Q2 — Integration.** *(For $\\boxed{S}$ and $\\boxed{T}$, choose the appropriate expression from the choices $⓪$–$⑨$ below.)*\n\nConsider the definite integral $S=\\displaystyle\\int_0^a x\\sqrt{\\tfrac13 x+2}\\,dx$.\n\n(1) Set $t=\\sqrt{\\tfrac13 x+2}$. Then we have\n$$\\int x\\sqrt{\\tfrac13 x+2}\\,dx=\\boxed{NO}\\int\\big(t^{\\boxed{P}}-\\boxed{Q}\\,t^{\\boxed{R}}\\big)\\,dt=\\boxed{S}+C,$$\nwhere $C$ is the integral constant.\n\n(2) Using the result in (1), we have $S=\\boxed{T}$. Thus we obtain $\\displaystyle\\lim_{a\\to\\infty}\\dfrac{S}{a^{\\boxed{U}/\\boxed{V}}}=\\dfrac{\\boxed{W}\\sqrt{\\boxed{X}}}{\\boxed{YZ}}$.\n\nChoices: $⓪\\ \\tfrac65 t^5(3t^2-10)\\quad ①\\ \\tfrac65 t^3(3t^2-10)\\quad ②\\ \\tfrac{12}{5} t^5(3t^2-5)\\quad ③\\ \\tfrac{12}{5} t^3(3t^2-5)\\quad ④\\ \\tfrac65 t^3(3t^2-5)\\quad ⑤\\ \\tfrac65\\big\\{\\big(\\sqrt{\\tfrac13 a+2}\\big)^5(a-4)+8\\sqrt2\\big\\}\\quad ⑥\\ \\tfrac{12}{5}\\big\\{\\big(\\sqrt{\\tfrac13 a+2}\\big)^3(a-2)+4\\sqrt2\\big\\}\\quad ⑦\\ \\tfrac65\\big\\{\\big(\\sqrt{\\tfrac13 a+2}\\big)^5(a-2)+4\\sqrt2\\big\\}\\quad ⑧\\ \\tfrac65\\big\\{\\big(\\sqrt{\\tfrac13 a+2}\\big)^3(a-4)+8\\sqrt2\\big\\}\\quad ⑨\\ \\tfrac65\\big\\{\\big(\\sqrt{\\tfrac13 a+2}\\big)^3(a-2)+8\\sqrt2\\big\\}$"
+      },
+      "ja": {
+        "prompt": "**[Ⅳ] 問2 — 積分** *（$\\boxed{S}$，$\\boxed{T}$ には下の選択肢 $⓪$〜$⑨$ から適切な式を選べ。）*\n\n定積分 $S=\\displaystyle\\int_0^a x\\sqrt{\\tfrac13 x+2}\\,dx$ を考える。\n\n(1) $t=\\sqrt{\\tfrac13 x+2}$ とおくと，\n$$\\int x\\sqrt{\\tfrac13 x+2}\\,dx=\\boxed{NO}\\int\\big(t^{\\boxed{P}}-\\boxed{Q}\\,t^{\\boxed{R}}\\big)\\,dt=\\boxed{S}+C$$\nとなる（$C$ は積分定数）。\n\n(2) (1) の結果を用いると $S=\\boxed{T}$。よって $\\displaystyle\\lim_{a\\to\\infty}\\dfrac{S}{a^{\\boxed{U}/\\boxed{V}}}=\\dfrac{\\boxed{W}\\sqrt{\\boxed{X}}}{\\boxed{YZ}}$ となる。\n\n選択肢：$⓪\\ \\tfrac65 t^5(3t^2-10)\\quad ①\\ \\tfrac65 t^3(3t^2-10)\\quad ②\\ \\tfrac{12}{5} t^5(3t^2-5)\\quad ③\\ \\tfrac{12}{5} t^3(3t^2-5)\\quad ④\\ \\tfrac65 t^3(3t^2-5)\\quad ⑤\\ \\tfrac65\\big\\{\\big(\\sqrt{\\tfrac13 a+2}\\big)^5(a-4)+8\\sqrt2\\big\\}\\quad ⑥\\ \\tfrac{12}{5}\\big\\{\\big(\\sqrt{\\tfrac13 a+2}\\big)^3(a-2)+4\\sqrt2\\big\\}\\quad ⑦\\ \\tfrac65\\big\\{\\big(\\sqrt{\\tfrac13 a+2}\\big)^5(a-2)+4\\sqrt2\\big\\}\\quad ⑧\\ \\tfrac65\\big\\{\\big(\\sqrt{\\tfrac13 a+2}\\big)^3(a-4)+8\\sqrt2\\big\\}\\quad ⑨\\ \\tfrac65\\big\\{\\big(\\sqrt{\\tfrac13 a+2}\\big)^3(a-2)+8\\sqrt2\\big\\}$"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "With $t=\\sqrt{\\tfrac13 x+2}$, $x=3t^2-6,\\ dx=6t\\,dt$, integrand $=18(t^4-2t^2)$; antiderivative $=\\tfrac65 t^3(3t^2-10)$ (choice ①). $S=\\tfrac65\\{(\\sqrt{\\tfrac13 a+2})^3(a-4)+8\\sqrt2\\}$ (choice ⑧). $\\displaystyle\\lim_{a\\to\\infty}\\dfrac{S}{a^{5/2}}=\\dfrac{2\\sqrt3}{15}$.  Boxes: NOPQR=18422, S=1, T=8, UV=52, WXYZ=2315.",
+        "ja": "$t=\\sqrt{\\tfrac13 x+2}$ で $x=3t^2-6,\\ dx=6t\\,dt$，被積分関数 $=18(t^4-2t^2)$；原始関数 $=\\tfrac65 t^3(3t^2-10)$（選択肢①）。$S=\\tfrac65\\{(\\sqrt{\\tfrac13 a+2})^3(a-4)+8\\sqrt2\\}$（選択肢⑧）。$\\displaystyle\\lim_{a\\to\\infty}\\dfrac{S}{a^{5/2}}=\\dfrac{2\\sqrt3}{15}$。 解答：NOPQR=18422, S=1, T=8, UV=52, WXYZ=2315。"
+      },
+      "explanation": {
+        "en": "(1) Put $t=\\sqrt{\\tfrac13 x+2}$, so $t^2=\\tfrac13 x+2$, $x=3t^2-6$ and $dx=6t\\,dt$. Then $x\\sqrt{\\tfrac13 x+2}\\,dx=(3t^2-6)\\,t\\,(6t\\,dt)=18(t^4-2t^2)\\,dt$, so $\\boxed{NO}=18,\\boxed{P}=4,\\boxed{Q}=2,\\boxed{R}=2$. Integrating, $18\\int(t^4-2t^2)\\,dt=\\tfrac{18}{5}t^5-12t^3=\\tfrac65 t^3(3t^2-10)$, which is choice ①.\n(2) The limits become $x=0\\Rightarrow t=\\sqrt2$ and $x=a\\Rightarrow t=\\sqrt{\\tfrac13 a+2}$. Evaluating, $S=\\Big[\\tfrac65 t^3(3t^2-10)\\Big]_{\\sqrt2}^{\\sqrt{a/3+2}}=\\tfrac65\\Big\\{\\big(\\sqrt{\\tfrac13 a+2}\\big)^3(a-4)+8\\sqrt2\\Big\\}$ (using $3t^2-10=a-4$ at the upper limit and $-\\tfrac65(\\sqrt2)^3(6-10)=\\tfrac65\\cdot8\\sqrt2$ at the lower), which is choice ⑧. As $a\\to\\infty$, the leading term is $\\tfrac65\\cdot a^{3/2}\\cdot a=\\tfrac65 a^{5/2}$... more precisely $S\\sim\\tfrac{2\\sqrt3}{15}a^{5/2}$, so $\\displaystyle\\lim_{a\\to\\infty}\\dfrac{S}{a^{5/2}}=\\dfrac{2\\sqrt3}{15}$.",
+        "ja": "(1) $t=\\sqrt{\\tfrac13 x+2}$ とおくと $t^2=\\tfrac13 x+2$，$x=3t^2-6$，$dx=6t\\,dt$。よって $x\\sqrt{\\tfrac13 x+2}\\,dx=(3t^2-6)t(6t\\,dt)=18(t^4-2t^2)\\,dt$ なので $\\boxed{NO}=18,P=4,Q=2,R=2$。積分して $18\\int(t^4-2t^2)dt=\\tfrac{18}{5}t^5-12t^3=\\tfrac65 t^3(3t^2-10)$（選択肢①）。(2) 積分区間は $x=0\\Rightarrow t=\\sqrt2$，$x=a\\Rightarrow t=\\sqrt{\\tfrac13 a+2}$。計算すると $S=\\tfrac65\\{(\\sqrt{\\tfrac13 a+2})^3(a-4)+8\\sqrt2\\}$（選択肢⑧）。$a\\to\\infty$ で主要項は $\\tfrac{2\\sqrt3}{15}a^{5/2}$ なので $\\displaystyle\\lim_{a\\to\\infty}\\dfrac{S}{a^{5/2}}=\\dfrac{2\\sqrt3}{15}$。"
+      },
+      "blanks": [
+        { "label": "NOPQR", "value": "18422" }, { "label": "S", "value": "1" }, { "label": "T", "value": "8" }, { "label": "UV", "value": "52" }, { "label": "WXYZ", "value": "2315" }
+      ]
+    }
+  ]
+}

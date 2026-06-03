@@ -1,0 +1,194 @@
+{
+  "id": "2014-1-math-c2",
+  "year": 2014,
+  "session": 1,
+  "subject": "math",
+  "course": 2,
+  "title": "2014 EJU Session 1 — Mathematics (Course 2)",
+  "source": "Examination for Japanese University Admission for International Students, 2014 Session 1 (JASSO). Official English question paper (Course 2, booklet pages 15-27); answers verified against the official answer key and re-derived by solving.",
+  "answerFormat": "digit-fill",
+  "answerKeyVerified": true,
+  "note": "The exam has four large questions (大問 I-IV). In this older Course 2 paper, large question I has two sub-questions (Q1, Q2) and large question IV has two sub-questions (Q1, Q2); large questions II and III are single questions. These are stored as six entries: I-Q1, I-Q2, II, III, IV-Q1, IV-Q2. Answer-letters follow the official scheme and reset at the start of each large question (so I runs A-U across its two sub-questions, II runs A-R, III runs A-N, IV runs A-Z across its two sub-questions). The official answer key extracted as machine-readable text; its Course 1 / Course 2 columns were OCR-interleaved but every Course 2 box was matched to the Course 2 column AND independently re-solved (numerically verified) — all boxes reconcile.",
+  "questions": [
+    {
+      "id": "2014-1-math-c2-1-1",
+      "answerRow": 1,
+      "number": "I-Q1",
+      "section": "I",
+      "part": "Q1",
+      "topicId": "quadratic-functions",
+      "topicIds": ["quadratic-functions"],
+      "subtopic": "Quadratic with a parameter in the constant term: vertex and value conditions, solving for the coefficient, maximum value",
+      "patternTags": ["vertex-condition", "value-condition", "quadratic-in-parameter", "max-min"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "**[I] Q1 — Quadratic functions.**\n\nA quadratic function $y=ax^2+bx+\\dfrac{3}{a}$ satisfies the following two conditions:\n\n(i) $y$ is maximized at $x=3$;\n\n(ii) the value of $y$ at $x=1$ is $2$.\n\nWe are to find the values of $a$ and $b$.\n\nUsing conditions (i) and (ii), we obtain the relationships $b=\\boxed{AB}\\,a$ and $\\boxed{C}=a+b+\\dfrac{\\boxed{D}}{a}$. From these two equalities we get the equation $\\boxed{E}\\,a^2+\\boxed{F}\\,a-\\boxed{G}=0$, and hence $a=\\boxed{HI}$, $b=\\boxed{J}$.\n\nThus the maximum value of this function is $\\boxed{K}$."
+      },
+      "ja": {
+        "prompt": "**[Ⅰ] 問1 — 二次関数**\n\n二次関数 $y=ax^2+bx+\\dfrac{3}{a}$ が次の2つの条件を満たす。\n\n(i) $y$ は $x=3$ で最大になる；\n\n(ii) $x=1$ における $y$ の値は $2$ である。\n\n$a$ と $b$ の値を求める。\n\n条件 (i)，(ii) より，$a$ と $b$ の間に $b=\\boxed{AB}\\,a$ および $\\boxed{C}=a+b+\\dfrac{\\boxed{D}}{a}$ が成り立つ。この2式から $\\boxed{E}\\,a^2+\\boxed{F}\\,a-\\boxed{G}=0$ を得て，$a=\\boxed{HI}$，$b=\\boxed{J}$ となる。\n\nよって，この関数の最大値は $\\boxed{K}$ である。"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "$b=-6a$; $2=a+b+\\tfrac3a$; $5a^2+2a-3=0\\Rightarrow a=-1,\\ b=6$; maximum value $=6$.  Boxes: AB=-6, C=2, D=3, E=5, F=2, G=3, HI=-1, J=6, K=6.",
+        "ja": "$b=-6a$；$2=a+b+\\tfrac3a$；$5a^2+2a-3=0\\Rightarrow a=-1,\\ b=6$；最大値 $=6$。 解答：AB=-6, C=2, D=3, E=5, F=2, G=3, HI=-1, J=6, K=6。"
+      },
+      "explanation": {
+        "en": "The vertex is at $x=-\\dfrac{b}{2a}$. Condition (i) (a maximum, so $a<0$): $-\\dfrac{b}{2a}=3\\Rightarrow b=-6a$. Condition (ii): $y(1)=a+b+\\dfrac3a=2$. Substituting $b=-6a$ gives $a-6a+\\dfrac3a=2\\Rightarrow -5a+\\dfrac3a=2$. Multiplying by $a$ and rearranging: $5a^2+2a-3=0\\Rightarrow(5a-3)(a+1)=0$, so $a=-1$ or $a=\\tfrac35$. Since a maximum requires $a<0$, take $a=-1$, then $b=-6a=6$. The maximum value is $y(3)=a(9)+b(3)+\\dfrac3a=-9+18-3=6$.",
+        "ja": "頂点は $x=-\\dfrac{b}{2a}$。条件 (i)（最大なので $a<0$）より $-\\dfrac{b}{2a}=3\\Rightarrow b=-6a$。条件 (ii)：$y(1)=a+b+\\dfrac3a=2$。$b=-6a$ を代入して $-5a+\\dfrac3a=2$，両辺に $a$ を掛けて $5a^2+2a-3=0\\Rightarrow(5a-3)(a+1)=0$。最大には $a<0$ が必要なので $a=-1$，$b=6$。最大値は $y(3)=-9+18-3=6$。"
+      },
+      "blanks": [
+        { "label": "AB", "value": "-6" }, { "label": "C", "value": "2" }, { "label": "D", "value": "3" }, { "label": "EFG", "value": "523" }, { "label": "HI", "value": "-1" }, { "label": "J", "value": "6" }, { "label": "K", "value": "6" }
+      ]
+    },
+    {
+      "id": "2014-1-math-c2-1-2",
+      "answerRow": 2,
+      "number": "I-Q2",
+      "section": "I",
+      "part": "Q2",
+      "topicId": "expressions-proofs",
+      "topicIds": ["expressions-proofs"],
+      "subtopic": "Factorizing a symmetric expression in P, Q, re-expressing in x, and evaluating at an irrational value",
+      "patternTags": ["factorization", "polynomial-identity", "substitution", "surd-evaluation"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "**[I] Q2 — Polynomial expressions.**\n\nConsider $E=P^2-4Q^2-3P+6Q$ where $P$ and $Q$ are the integral expressions\n$$P=2x^2-x+2,\\qquad Q=x^2-2x+1.$$\n\n(1) By factorizing the right side of $E$, we obtain $E=\\bigl(P-\\boxed{L}\\,Q\\bigr)\\bigl(P+\\boxed{M}\\,Q-\\boxed{N}\\bigr)$.\n\n(2) When we express $E$ in terms of $x$, we have $E=\\boxed{O}\\,x\\bigl(x-\\boxed{P}\\bigr)\\bigl(\\boxed{Q}\\,x-\\boxed{R}\\bigr)$.\n\n(3) If $x=-\\dfrac{1-\\sqrt5}{3-\\sqrt5}$, then the value of $E$ is $\\boxed{S}+\\boxed{T}\\sqrt{\\boxed{U}}$."
+      },
+      "ja": {
+        "prompt": "**[Ⅰ] 問2 — 式の計算**\n\n$E=P^2-4Q^2-3P+6Q$ を考える。ここで $P$，$Q$ は整式\n$$P=2x^2-x+2,\\qquad Q=x^2-2x+1$$\nである。\n\n(1) $E$ の右辺を因数分解すると，$E=\\bigl(P-\\boxed{L}\\,Q\\bigr)\\bigl(P+\\boxed{M}\\,Q-\\boxed{N}\\bigr)$ となる。\n\n(2) $E$ を $x$ で表すと，$E=\\boxed{O}\\,x\\bigl(x-\\boxed{P}\\bigr)\\bigl(\\boxed{Q}\\,x-\\boxed{R}\\bigr)$ となる。\n\n(3) $x=-\\dfrac{1-\\sqrt5}{3-\\sqrt5}$ のとき，$E$ の値は $\\boxed{S}+\\boxed{T}\\sqrt{\\boxed{U}}$ である。"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "$E=(P-2Q)(P+2Q-3)$; $P-2Q=3x$, $P+2Q-3=4x^2-5x+1=(x-1)(4x-1)$ so $E=3x(x-1)(4x-1)$; $x=\\tfrac{1+\\sqrt5}{2}\\Rightarrow E=3+6\\sqrt5$.  Boxes: L=2, M=2, N=3, O=3, P=1, Q=4, R=1, S=3, T=6, U=5.",
+        "ja": "$E=(P-2Q)(P+2Q-3)$；$P-2Q=3x$，$P+2Q-3=4x^2-5x+1=(x-1)(4x-1)$ より $E=3x(x-1)(4x-1)$；$x=\\tfrac{1+\\sqrt5}{2}\\Rightarrow E=3+6\\sqrt5$。 解答：L=2, M=2, N=3, O=3, P=1, Q=4, R=1, S=3, T=6, U=5。"
+      },
+      "explanation": {
+        "en": "(1) Treat $E$ as a quadratic-type form: $E=P^2-4Q^2-3P+6Q=(P^2-4Q^2)-3(P-2Q)=(P-2Q)(P+2Q)-3(P-2Q)=(P-2Q)(P+2Q-3)$. So $L=2,M=2,N=3$.\n(2) $P-2Q=(2x^2-x+2)-2(x^2-2x+1)=3x$. $P+2Q-3=(2x^2-x+2)+2(x^2-2x+1)-3=4x^2-5x+1=(x-1)(4x-1)$. Hence $E=3x\\,(x-1)(4x-1)$, i.e. $O=3$, the factor $(x-1)$ gives $\\boxed{P}=1$, and $(4x-1)$ gives $\\boxed{Q}=4,\\boxed{R}=1$.\n(3) Rationalize: $x=-\\dfrac{1-\\sqrt5}{3-\\sqrt5}=-\\dfrac{(1-\\sqrt5)(3+\\sqrt5)}{(3-\\sqrt5)(3+\\sqrt5)}=-\\dfrac{-2-2\\sqrt5}{4}=\\dfrac{1+\\sqrt5}{2}$. This is the golden ratio, satisfying $x^2=x+1$. Then $E=3x(x-1)(4x-1)$; evaluating, $x-1=\\tfrac{-1+\\sqrt5}{2}$ and $4x-1=1+2\\sqrt5$, so $E=3\\cdot\\tfrac{1+\\sqrt5}{2}\\cdot\\tfrac{-1+\\sqrt5}{2}\\cdot(1+2\\sqrt5)=3\\cdot\\tfrac{(\\sqrt5)^2-1}{4}\\cdot(1+2\\sqrt5)=3\\cdot1\\cdot(1+2\\sqrt5)=3+6\\sqrt5$.",
+        "ja": "(1) $E=(P^2-4Q^2)-3(P-2Q)=(P-2Q)(P+2Q)-3(P-2Q)=(P-2Q)(P+2Q-3)$。よって $L=2,M=2,N=3$。\n(2) $P-2Q=3x$，$P+2Q-3=4x^2-5x+1=(x-1)(4x-1)$。ゆえに $E=3x(x-1)(4x-1)$，すなわち $O=3$，$\\boxed{P}=1$，$\\boxed{Q}=4,\\boxed{R}=1$。\n(3) 有理化すると $x=\\dfrac{1+\\sqrt5}{2}$（黄金比，$x^2=x+1$）。$x-1=\\tfrac{-1+\\sqrt5}{2}$，$4x-1=1+2\\sqrt5$ より $E=3\\cdot\\tfrac{(\\sqrt5)^2-1}{4}\\cdot(1+2\\sqrt5)=3(1+2\\sqrt5)=3+6\\sqrt5$。"
+      },
+      "blanks": [
+        { "label": "L", "value": "2" }, { "label": "M", "value": "2" }, { "label": "N", "value": "3" }, { "label": "O", "value": "3" }, { "label": "P", "value": "1" }, { "label": "Q", "value": "4" }, { "label": "R", "value": "1" }, { "label": "S", "value": "3" }, { "label": "T", "value": "6" }, { "label": "U", "value": "5" }
+      ]
+    },
+    {
+      "id": "2014-1-math-c2-2",
+      "answerRow": 3,
+      "number": "II",
+      "section": "II",
+      "part": null,
+      "topicId": "space-vectors",
+      "topicIds": ["space-vectors", "dot-product"],
+      "subtopic": "Regular tetrahedron: position vector of a point on a cevian-type segment, minimizing its length, angle to an edge",
+      "patternTags": ["regular-tetrahedron", "position-vectors", "dot-product", "minimize-length", "angle-between-vectors"],
+      "hasFigure": true,
+      "en": {
+        "prompt": "**[II] Vectors.** In a regular tetrahedron $OABC$, each side of which has length $1$, let $L$ denote the point which divides segment $OA$ internally in the ratio $3:1$, let $M$ denote the midpoint of side $BC$, and let $P$ denote the point which divides segment $LM$ internally in the ratio $t:(1-t)$, where $0<t<1$.\n\n(1) Setting $\\overrightarrow{OA}=\\vec a$, $\\overrightarrow{OB}=\\vec b$, $\\overrightarrow{OC}=\\vec c$ and expressing $\\overrightarrow{OP}$ in terms of $\\vec a,\\vec b,\\vec c$, we have\n$$\\overrightarrow{OP}=\\dfrac{\\boxed{A}}{\\boxed{B}}\\bigl(\\boxed{C}-t\\bigr)\\vec a+\\dfrac{\\boxed{D}}{\\boxed{E}}\\,t\\bigl(\\vec b+\\vec c\\bigr).$$\nSince $\\vec a\\cdot(\\vec b+\\vec c)=\\boxed{F}$ and $|\\vec b+\\vec c|^2=\\boxed{G}$, we have\n$$|\\overrightarrow{OP}|=\\dfrac{1}{\\boxed{H}}\\sqrt{\\boxed{I}\\,t^2-\\boxed{J}\\,t+\\boxed{K}}.$$\n\n(2) The value of $t$ at which $|\\overrightarrow{OP}|$ is minimized is $t=\\dfrac{\\boxed{L}}{\\boxed{M}}$, and the minimum value of $|\\overrightarrow{OP}|$ is $\\dfrac{\\sqrt{\\boxed{N}}}{\\boxed{O}}$.\n\n(3) When $|\\overrightarrow{OP}|$ is minimized as in (2), we have $\\cos\\angle AOP=\\dfrac{\\boxed{P}\\sqrt{\\boxed{Q}}}{\\boxed{R}}$."
+      },
+      "ja": {
+        "prompt": "**[Ⅱ] ベクトル** 1辺の長さが $1$ の正四面体 $OABC$ において，辺 $OA$ を $3:1$ に内分する点を $L$，辺 $BC$ の中点を $M$，線分 $LM$ を $t:(1-t)$（$0<t<1$）に内分する点を $P$ とする。\n\n(1) $\\overrightarrow{OA}=\\vec a$，$\\overrightarrow{OB}=\\vec b$，$\\overrightarrow{OC}=\\vec c$ とおき，$\\overrightarrow{OP}$ を $\\vec a,\\vec b,\\vec c$ で表すと\n$$\\overrightarrow{OP}=\\dfrac{\\boxed{A}}{\\boxed{B}}\\bigl(\\boxed{C}-t\\bigr)\\vec a+\\dfrac{\\boxed{D}}{\\boxed{E}}\\,t\\bigl(\\vec b+\\vec c\\bigr).$$\n$\\vec a\\cdot(\\vec b+\\vec c)=\\boxed{F}$，$|\\vec b+\\vec c|^2=\\boxed{G}$ であるから\n$$|\\overrightarrow{OP}|=\\dfrac{1}{\\boxed{H}}\\sqrt{\\boxed{I}\\,t^2-\\boxed{J}\\,t+\\boxed{K}}.$$\n\n(2) $|\\overrightarrow{OP}|$ を最小にする $t$ の値は $t=\\dfrac{\\boxed{L}}{\\boxed{M}}$ であり，$|\\overrightarrow{OP}|$ の最小値は $\\dfrac{\\sqrt{\\boxed{N}}}{\\boxed{O}}$ である。\n\n(3) (2) のように $|\\overrightarrow{OP}|$ が最小のとき，$\\cos\\angle AOP=\\dfrac{\\boxed{P}\\sqrt{\\boxed{Q}}}{\\boxed{R}}$ である。"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "$\\overrightarrow{OP}=\\tfrac34(1-t)\\vec a+\\tfrac12 t(\\vec b+\\vec c)$; $\\vec a\\cdot(\\vec b+\\vec c)=1$, $|\\vec b+\\vec c|^2=3$; $|\\overrightarrow{OP}|=\\tfrac14\\sqrt{9t^2-6t+9}$; min at $t=\\tfrac13$ with value $\\tfrac{\\sqrt2}{2}$; $\\cos\\angle AOP=\\tfrac{2\\sqrt2}{3}$.  Boxes: A=3, B=4, C=1, D=1, E=2, F=1, G=3, H=4, I=9, J=6, K=9, L=1, M=3, N=2, O=2, P=2, Q=2, R=3.",
+        "ja": "$\\overrightarrow{OP}=\\tfrac34(1-t)\\vec a+\\tfrac12 t(\\vec b+\\vec c)$；$\\vec a\\cdot(\\vec b+\\vec c)=1$，$|\\vec b+\\vec c|^2=3$；$|\\overrightarrow{OP}|=\\tfrac14\\sqrt{9t^2-6t+9}$；$t=\\tfrac13$ で最小値 $\\tfrac{\\sqrt2}{2}$；$\\cos\\angle AOP=\\tfrac{2\\sqrt2}{3}$。 解答：A=3, B=4, C=1, D=1, E=2, F=1, G=3, H=4, I=9, J=6, K=9, L=1, M=3, N=2, O=2, P=2, Q=2, R=3。"
+      },
+      "explanation": {
+        "en": "Unit edges meeting at $60^\\circ$ give $\\vec a\\cdot\\vec b=\\vec b\\cdot\\vec c=\\vec c\\cdot\\vec a=\\tfrac12$. $L$ divides $OA$ as $3:1$ so $\\overrightarrow{OL}=\\tfrac34\\vec a$; $M$ is the midpoint of $BC$ so $\\overrightarrow{OM}=\\tfrac12(\\vec b+\\vec c)$. $P$ divides $LM$ as $t:(1-t)$, so $\\overrightarrow{OP}=(1-t)\\overrightarrow{OL}+t\\,\\overrightarrow{OM}=\\tfrac34(1-t)\\vec a+\\tfrac12 t(\\vec b+\\vec c)$.\nThen $\\vec a\\cdot(\\vec b+\\vec c)=\\tfrac12+\\tfrac12=1$ and $|\\vec b+\\vec c|^2=1+1+2\\cdot\\tfrac12=3$. So $|\\overrightarrow{OP}|^2=\\tfrac{9}{16}(1-t)^2+2\\cdot\\tfrac34(1-t)\\cdot\\tfrac12 t\\cdot1+\\tfrac14 t^2\\cdot3=\\tfrac{1}{16}(9t^2-6t+9)$, giving $|\\overrightarrow{OP}|=\\tfrac14\\sqrt{9t^2-6t+9}$.\n(2) $9t^2-6t+9$ has its vertex at $t=\\tfrac{6}{18}=\\tfrac13$; the minimum of the radicand is $9\\cdot\\tfrac19-6\\cdot\\tfrac13+9=8$, so $|\\overrightarrow{OP}|_{\\min}=\\tfrac{\\sqrt8}{4}=\\tfrac{\\sqrt2}{2}$.\n(3) At $t=\\tfrac13$, $\\overrightarrow{OA}\\cdot\\overrightarrow{OP}=\\tfrac34(1-\\tfrac13)|\\vec a|^2+\\tfrac12\\cdot\\tfrac13\\,\\vec a\\cdot(\\vec b+\\vec c)=\\tfrac34\\cdot\\tfrac23+\\tfrac16=\\tfrac12+\\tfrac16=\\tfrac23$. With $|\\overrightarrow{OA}|=1$ and $|\\overrightarrow{OP}|=\\tfrac{\\sqrt2}{2}$, $\\cos\\angle AOP=\\dfrac{2/3}{\\sqrt2/2}=\\dfrac{4}{3\\sqrt2}=\\dfrac{2\\sqrt2}{3}$.",
+        "ja": "1辺が単位・なす角 $60^\\circ$ なので $\\vec a\\cdot\\vec b=\\vec b\\cdot\\vec c=\\vec c\\cdot\\vec a=\\tfrac12$。$\\overrightarrow{OL}=\\tfrac34\\vec a$，$\\overrightarrow{OM}=\\tfrac12(\\vec b+\\vec c)$。$\\overrightarrow{OP}=(1-t)\\overrightarrow{OL}+t\\overrightarrow{OM}=\\tfrac34(1-t)\\vec a+\\tfrac12 t(\\vec b+\\vec c)$。\n$\\vec a\\cdot(\\vec b+\\vec c)=1$，$|\\vec b+\\vec c|^2=3$。よって $|\\overrightarrow{OP}|^2=\\tfrac{1}{16}(9t^2-6t+9)$，$|\\overrightarrow{OP}|=\\tfrac14\\sqrt{9t^2-6t+9}$。\n(2) 頂点 $t=\\tfrac13$，根号内の最小値 $8$，$|\\overrightarrow{OP}|_{\\min}=\\tfrac{\\sqrt8}{4}=\\tfrac{\\sqrt2}{2}$。\n(3) $t=\\tfrac13$ で $\\overrightarrow{OA}\\cdot\\overrightarrow{OP}=\\tfrac23$，$\\cos\\angle AOP=\\dfrac{2/3}{\\sqrt2/2}=\\dfrac{2\\sqrt2}{3}$。"
+      },
+      "blanks": [
+        { "label": "A", "value": "3" }, { "label": "B", "value": "4" }, { "label": "C", "value": "1" }, { "label": "D", "value": "1" }, { "label": "E", "value": "2" }, { "label": "F", "value": "1" }, { "label": "G", "value": "3" }, { "label": "H", "value": "4" }, { "label": "I", "value": "9" }, { "label": "J", "value": "6" }, { "label": "K", "value": "9" }, { "label": "LM", "value": "13" }, { "label": "N", "value": "2" }, { "label": "O", "value": "2" }, { "label": "P", "value": "2" }, { "label": "Q", "value": "2" }, { "label": "R", "value": "3" }
+      ]
+    },
+    {
+      "id": "2014-1-math-c2-3",
+      "answerRow": 4,
+      "number": "III",
+      "section": "III",
+      "part": null,
+      "topicId": "trig-functions",
+      "topicIds": ["trig-functions", "addition-formulas"],
+      "subtopic": "Two simultaneous trigonometric equations with a parameter; condition for a common solution",
+      "patternTags": ["double-angle", "common-solution", "parameter-condition", "trig-equation"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "**[III] Trigonometric equations.** Consider the following two equations in $x$:\n$$\\sin 2x+a\\cos x=0\\quad\\cdots①\\qquad \\cos 2x+a\\sin x=-2\\quad\\cdots②$$\nover the interval $-\\dfrac{\\pi}{2}<x<\\dfrac{\\pi}{2}$, where $a>0$.\n\nLet $a=\\sqrt2$. Then the value of $x$ which satisfies ① is $x=\\dfrac{\\boxed{AB}}{\\boxed{C}}\\pi$. However, at this $x$ the value of the left side of ② is $\\boxed{DE}$, and so equation ② does not hold. Hence, when $a=\\sqrt2$, ① and ② have no common solution.\n\nNow, let us find a value of $a$ such that ① and ② have a common solution, and also the common solution $x$. First, from ① we have $\\sin x=\\dfrac{\\boxed{FG}}{\\boxed{H}}\\,a$ and $\\cos 2x=\\boxed{I}-\\dfrac{a^2}{\\boxed{J}}$. When we substitute these into ②, we obtain $a^2=\\boxed{K}$. Thus $a=\\sqrt{\\boxed{K}}$, and the common solution is $x=\\dfrac{\\boxed{LM}}{\\boxed{N}}\\pi$."
+      },
+      "ja": {
+        "prompt": "**[Ⅲ] 三角方程式** $x$ についての次の2つの方程式を考える。\n$$\\sin 2x+a\\cos x=0\\quad\\cdots①\\qquad \\cos 2x+a\\sin x=-2\\quad\\cdots②$$\nただし $-\\dfrac{\\pi}{2}<x<\\dfrac{\\pi}{2}$，$a>0$ とする。\n\n$a=\\sqrt2$ とする。このとき ① を満たす $x$ の値は $x=\\dfrac{\\boxed{AB}}{\\boxed{C}}\\pi$ である。しかし，この $x$ における ② の左辺の値は $\\boxed{DE}$ であり，② は成り立たない。よって $a=\\sqrt2$ のとき，① と ② に共通の解はない。\n\n次に，① と ② が共通の解をもつような $a$ の値，およびその共通解 $x$ を求める。まず ① から $\\sin x=\\dfrac{\\boxed{FG}}{\\boxed{H}}\\,a$，$\\cos 2x=\\boxed{I}-\\dfrac{a^2}{\\boxed{J}}$ となる。これらを ② に代入すると $a^2=\\boxed{K}$ を得る。よって $a=\\sqrt{\\boxed{K}}$ であり，共通解は $x=\\dfrac{\\boxed{LM}}{\\boxed{N}}\\pi$ である。"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "$a=\\sqrt2$: $x=-\\tfrac14\\pi$, and ② gives $-1\\neq-2$ (no common solution). Generally $\\sin x=-\\tfrac12 a$, $\\cos 2x=1-\\tfrac{a^2}{2}$; substituting into ② gives $a^2=3$, so $a=\\sqrt3$ and $x=-\\tfrac13\\pi$.  Boxes: AB=-1, C=4, DE=-1, FG=-1, H=2, I=1, J=2, K=3, LM=-1, N=3.",
+        "ja": "$a=\\sqrt2$：$x=-\\tfrac14\\pi$，② の左辺は $-1\\neq-2$（共通解なし）。一般に $\\sin x=-\\tfrac12 a$，$\\cos 2x=1-\\tfrac{a^2}{2}$，② に代入して $a^2=3$，よって $a=\\sqrt3$，$x=-\\tfrac13\\pi$。 解答：AB=-1, C=4, DE=-1, FG=-1, H=2, I=1, J=2, K=3, LM=-1, N=3。"
+      },
+      "explanation": {
+        "en": "From ①: $\\sin 2x+a\\cos x=2\\sin x\\cos x+a\\cos x=\\cos x\\,(2\\sin x+a)=0$. On $-\\tfrac\\pi2<x<\\tfrac\\pi2$, $\\cos x\\neq0$, so $\\sin x=-\\dfrac{a}{2}$ (i.e. $\\dfrac{\\boxed{FG}}{\\boxed{H}}a=-\\tfrac12 a$).\nFor $a=\\sqrt2$: $\\sin x=-\\tfrac{\\sqrt2}{2}\\Rightarrow x=-\\tfrac\\pi4$. The left side of ② is $\\cos(-\\tfrac\\pi2)+\\sqrt2\\sin(-\\tfrac\\pi4)=0+\\sqrt2\\cdot(-\\tfrac{\\sqrt2}{2})=-1$, which is not $-2$; no common solution.\nIn general, $\\cos 2x=1-2\\sin^2 x=1-2\\cdot\\tfrac{a^2}{4}=1-\\tfrac{a^2}{2}$. Substituting $\\sin x=-\\tfrac a2$ and this into ②: $\\Bigl(1-\\tfrac{a^2}{2}\\Bigr)+a\\Bigl(-\\tfrac a2\\Bigr)=-2\\Rightarrow1-a^2=-2\\Rightarrow a^2=3$. So $a=\\sqrt3$, and $\\sin x=-\\tfrac{\\sqrt3}{2}\\Rightarrow x=-\\tfrac\\pi3$. (Check: ① $=\\sin(-\\tfrac{2\\pi}{3})+\\sqrt3\\cos(-\\tfrac\\pi3)=-\\tfrac{\\sqrt3}{2}+\\sqrt3\\cdot\\tfrac12=0$; ② $=\\cos(-\\tfrac{2\\pi}{3})+\\sqrt3\\sin(-\\tfrac\\pi3)=-\\tfrac12-\\tfrac32=-2$.)",
+        "ja": "① より $\\cos x(2\\sin x+a)=0$。$-\\tfrac\\pi2<x<\\tfrac\\pi2$ では $\\cos x\\neq0$ なので $\\sin x=-\\dfrac a2$。\n$a=\\sqrt2$ のとき $\\sin x=-\\tfrac{\\sqrt2}{2}\\Rightarrow x=-\\tfrac\\pi4$。② の左辺 $=\\cos(-\\tfrac\\pi2)+\\sqrt2\\sin(-\\tfrac\\pi4)=-1\\neq-2$。共通解なし。\n一般に $\\cos 2x=1-2\\sin^2 x=1-\\tfrac{a^2}{2}$。② に代入して $1-a^2=-2\\Rightarrow a^2=3$，$a=\\sqrt3$，$\\sin x=-\\tfrac{\\sqrt3}{2}\\Rightarrow x=-\\tfrac\\pi3$。検算：① $=0$，② $=-\\tfrac12-\\tfrac32=-2$。"
+      },
+      "blanks": [
+        { "label": "AB", "value": "-1" }, { "label": "C", "value": "4" }, { "label": "DE", "value": "-1" }, { "label": "FG", "value": "-1" }, { "label": "H", "value": "2" }, { "label": "I", "value": "1" }, { "label": "J", "value": "2" }, { "label": "K", "value": "3" }, { "label": "LM", "value": "-1" }, { "label": "N", "value": "3" }
+      ]
+    },
+    {
+      "id": "2014-1-math-c2-4-1",
+      "answerRow": 5,
+      "number": "IV-Q1",
+      "section": "IV",
+      "part": "Q1",
+      "topicId": "differentiation",
+      "topicIds": ["differentiation", "exp-log"],
+      "subtopic": "Common tangent lines to an exponential curve and a parabola; condition on the parameter",
+      "patternTags": ["common-tangent", "tangent-to-curve", "discriminant", "derivative-extrema", "exponential"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "**[IV] Q1 — Common tangents.** Let $a>0$. Consider the two curves $C_1:\\ y=e^{6x}$ and $C_2:\\ y=ax^2$. We are to find the condition on $a$ such that there exist two straight lines, each of which is tangent to both $C_1$ and $C_2$.\n\nThe equation of the tangent to $C_1$ at a point $(t,e^{6t})$ is $y=\\boxed{A}\\,e^{6t}x-e^{6t}\\bigl(\\boxed{B}\\,t-\\boxed{C}\\bigr)$. This is tangent also to $C_2$ under the condition that the quadratic equation $ax^2=\\boxed{A}\\,e^{6t}x-e^{6t}\\bigl(\\boxed{B}\\,t-\\boxed{C}\\bigr)$ has just one solution. Hence the equation $\\boxed{D}\\,e^{12t}-ae^{6t}\\bigl(\\boxed{E}\\,t-\\boxed{F}\\bigr)=0$ must hold for $a$ and $t$. From this equation we obtain $a=\\dfrac{\\boxed{D}\\,e^{6t}}{\\boxed{E}\\,t-\\boxed{F}}$.\n\nLet $f(t)$ denote the right side. The derivative is $f'(t)=\\dfrac{108\\,e^{6t}\\bigl(\\boxed{G}\\,t-\\boxed{H}\\bigr)}{\\bigl(\\boxed{E}\\,t-\\boxed{F}\\bigr)^2}$. Hence the condition on $a$ that we are seeking is $a>\\boxed{I}\\,e^{\\boxed{J}}$. (Note that $\\displaystyle\\lim_{t\\to\\infty}\\frac{e^{t}}{t}=\\infty$.)"
+      },
+      "ja": {
+        "prompt": "**[Ⅳ] 問1 — 共通接線** $a>0$ とする。2曲線 $C_1:\\ y=e^{6x}$，$C_2:\\ y=ax^2$ を考える。$C_1$ と $C_2$ の両方に接する直線が2本存在するような $a$ の条件を求める。\n\n点 $(t,e^{6t})$ における $C_1$ の接線の方程式は $y=\\boxed{A}\\,e^{6t}x-e^{6t}\\bigl(\\boxed{B}\\,t-\\boxed{C}\\bigr)$ である。これが $C_2$ にも接する条件は，二次方程式 $ax^2=\\boxed{A}\\,e^{6t}x-e^{6t}\\bigl(\\boxed{B}\\,t-\\boxed{C}\\bigr)$ がただ1つの解をもつことである。よって $a$ と $t$ について $\\boxed{D}\\,e^{12t}-ae^{6t}\\bigl(\\boxed{E}\\,t-\\boxed{F}\\bigr)=0$ が成り立つ。この式から $a=\\dfrac{\\boxed{D}\\,e^{6t}}{\\boxed{E}\\,t-\\boxed{F}}$ を得る。\n\n右辺を $f(t)$ とおくと，導関数は $f'(t)=\\dfrac{108\\,e^{6t}\\bigl(\\boxed{G}\\,t-\\boxed{H}\\bigr)}{\\bigl(\\boxed{E}\\,t-\\boxed{F}\\bigr)^2}$ である。よって求める $a$ の条件は $a>\\boxed{I}\\,e^{\\boxed{J}}$ である。（ただし $\\displaystyle\\lim_{t\\to\\infty}\\frac{e^{t}}{t}=\\infty$ を用いてよい。）"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "Tangent: $y=6e^{6t}x-e^{6t}(6t-1)$; tangency to $C_2$ gives $9e^{12t}-ae^{6t}(6t-1)=0$, so $a=\\dfrac{9e^{6t}}{6t-1}=f(t)$; $f'(t)=\\dfrac{108e^{6t}(3t-1)}{(6t-1)^2}$; minimum at $t=\\tfrac13$ gives $f(\\tfrac13)=9e^2$, so $a>9e^2$.  Boxes: A=6, B=6, C=1, D=9, E=6, F=1, G=3, H=1, I=9, J=2.",
+        "ja": "接線：$y=6e^{6t}x-e^{6t}(6t-1)$；$C_2$ との接条件から $9e^{12t}-ae^{6t}(6t-1)=0$，$a=\\dfrac{9e^{6t}}{6t-1}=f(t)$；$f'(t)=\\dfrac{108e^{6t}(3t-1)}{(6t-1)^2}$；$t=\\tfrac13$ で最小値 $f(\\tfrac13)=9e^2$，よって $a>9e^2$。 解答：A=6, B=6, C=1, D=9, E=6, F=1, G=3, H=1, I=9, J=2。"
+      },
+      "explanation": {
+        "en": "For $C_1:y=e^{6x}$, $y'=6e^{6x}$, so the tangent at $(t,e^{6t})$ is $y=6e^{6t}(x-t)+e^{6t}=6e^{6t}x-e^{6t}(6t-1)$. Setting this equal to $C_2:y=ax^2$ gives $ax^2-6e^{6t}x+e^{6t}(6t-1)=0$. Tangency (one root) means discriminant $=0$: $(6e^{6t})^2-4a\\cdot e^{6t}(6t-1)=0\\Rightarrow 36e^{12t}-4ae^{6t}(6t-1)=0$. Dividing by $4$: $9e^{12t}-ae^{6t}(6t-1)=0$, so $a=\\dfrac{9e^{12t}}{e^{6t}(6t-1)}=\\dfrac{9e^{6t}}{6t-1}=f(t)$ (requiring $6t-1>0$, i.e. $t>\\tfrac16$, since $a>0$).\n$f'(t)=\\dfrac{9\\cdot6e^{6t}(6t-1)-9e^{6t}\\cdot6}{(6t-1)^2}=\\dfrac{54e^{6t}(6t-2)}{(6t-1)^2}=\\dfrac{108e^{6t}(3t-1)}{(6t-1)^2}$. Thus $f'(t)=0$ at $t=\\tfrac13$; $f$ decreases on $(\\tfrac16,\\tfrac13)$ and increases on $(\\tfrac13,\\infty)$, so $f$ has a minimum at $t=\\tfrac13$: $f(\\tfrac13)=\\dfrac{9e^{2}}{2-1}=9e^2$. As $f\\to\\infty$ at both ends of $(\\tfrac16,\\infty)$, the horizontal line $a$ meets the graph in two points (two common tangents) exactly when $a>9e^2$.",
+        "ja": "$C_1:y=e^{6x}$，$y'=6e^{6x}$ より接線は $y=6e^{6t}x-e^{6t}(6t-1)$。$C_2:y=ax^2$ と等置して $ax^2-6e^{6t}x+e^{6t}(6t-1)=0$。接する条件（重解）は判別式 $=0$：$36e^{12t}-4ae^{6t}(6t-1)=0$，4で割って $9e^{12t}-ae^{6t}(6t-1)=0$，$a=\\dfrac{9e^{6t}}{6t-1}=f(t)$（$a>0$ より $6t-1>0$）。\n$f'(t)=\\dfrac{108e^{6t}(3t-1)}{(6t-1)^2}$。$t=\\tfrac13$ で $f$ は最小，$f(\\tfrac13)=9e^2$。$(\\tfrac16,\\infty)$ の両端で $f\\to\\infty$ なので，水平線 $a$ が2点で交わる（接線2本）条件は $a>9e^2$。"
+      },
+      "blanks": [
+        { "label": "A", "value": "6" }, { "label": "B", "value": "6" }, { "label": "C", "value": "1" }, { "label": "D", "value": "9" }, { "label": "E", "value": "6" }, { "label": "F", "value": "1" }, { "label": "G", "value": "3" }, { "label": "H", "value": "1" }, { "label": "I", "value": "9" }, { "label": "J", "value": "2" }
+      ]
+    },
+    {
+      "id": "2014-1-math-c2-4-2",
+      "answerRow": 6,
+      "number": "IV-Q2",
+      "section": "IV",
+      "part": "Q2",
+      "topicId": "integration",
+      "topicIds": ["integration", "integral-applications"],
+      "subtopic": "Solids of revolution of a region bounded by a parabola; equality of the two volumes independent of t",
+      "patternTags": ["volume-of-revolution", "definite-integral", "disk-method", "parameter-independence", "expression-from-list"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "**[IV] Q2 — Volumes of revolution.** *(For each box, choose the appropriate answer from the list $⓪$–$⑨$ below.)*\n\nLet $a$ and $t$ be positive real numbers. Let $D$ denote the region of a plane bounded by the graph of the quadratic function in $x$\n$$y=\\dfrac{1}{t^2}\\bigl(x-at^2\\bigr)^2,$$\nthe $x$-axis, and the $y$-axis. Let $V_1$ denote the volume of the solid obtained by rotating $D$ once about the $x$-axis, and $V_2$ the volume of the solid obtained by rotating $D$ once about the $y$-axis. We show that for a certain value of $a$, $V_1=V_2$, independent of $t$.\n\nFirst, $V_1=\\pi\\displaystyle\\int_{\\boxed{K}}^{\\boxed{L}}\\dfrac{1}{t^{\\boxed{M}}}\\bigl(x-at^2\\bigr)^{\\boxed{N}}\\,dx=\\dfrac{\\pi}{\\boxed{O}}\\,a^{\\boxed{P}}\\,t^{\\boxed{Q}}$.\n\nNext, $V_2=\\pi\\displaystyle\\int_{\\boxed{K}}^{\\boxed{R}}\\bigl(\\boxed{S}-\\boxed{T}\\sqrt{y}\\bigr)^{\\boxed{U}}\\,dy=\\dfrac{\\pi}{\\boxed{V}}\\,a^{\\boxed{W}}\\,t^{\\boxed{X}}$.\n\nHence, when $a=\\dfrac{\\boxed{Y}}{\\boxed{Z}}$, then $V_1=V_2$, independent of the value of $t$.\n\nChoices: $⓪\\ 0\\quad ①\\ 1\\quad ②\\ 2\\quad ③\\ 3\\quad ④\\ 4\\quad ⑤\\ 5\\quad ⑥\\ 6\\quad ⑦\\ t\\quad ⑧\\ at^2\\quad ⑨\\ a^2t^2$"
+      },
+      "ja": {
+        "prompt": "**[Ⅳ] 問2 — 回転体の体積** *（各空欄には，下の選択肢 $⓪$〜$⑨$ から適するものを選べ。）*\n\n$a$，$t$ を正の実数とする。$x$ についての二次関数\n$$y=\\dfrac{1}{t^2}\\bigl(x-at^2\\bigr)^2$$\nのグラフ，$x$ 軸，$y$ 軸で囲まれた平面の領域を $D$ とする。$D$ を $x$ 軸のまわりに1回転してできる立体の体積を $V_1$，$y$ 軸のまわりに1回転してできる立体の体積を $V_2$ とする。ある $a$ の値に対して，$t$ によらず $V_1=V_2$ となることを示す。\n\nまず，$V_1=\\pi\\displaystyle\\int_{\\boxed{K}}^{\\boxed{L}}\\dfrac{1}{t^{\\boxed{M}}}\\bigl(x-at^2\\bigr)^{\\boxed{N}}\\,dx=\\dfrac{\\pi}{\\boxed{O}}\\,a^{\\boxed{P}}\\,t^{\\boxed{Q}}$。\n\n次に，$V_2=\\pi\\displaystyle\\int_{\\boxed{K}}^{\\boxed{R}}\\bigl(\\boxed{S}-\\boxed{T}\\sqrt{y}\\bigr)^{\\boxed{U}}\\,dy=\\dfrac{\\pi}{\\boxed{V}}\\,a^{\\boxed{W}}\\,t^{\\boxed{X}}$。\n\nよって，$a=\\dfrac{\\boxed{Y}}{\\boxed{Z}}$ のとき，$t$ によらず $V_1=V_2$ となる。\n\n選択肢：$⓪\\ 0\\quad ①\\ 1\\quad ②\\ 2\\quad ③\\ 3\\quad ④\\ 4\\quad ⑤\\ 5\\quad ⑥\\ 6\\quad ⑦\\ t\\quad ⑧\\ at^2\\quad ⑨\\ a^2t^2$"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "$V_1=\\pi\\int_0^{at^2}\\tfrac1{t^4}(x-at^2)^4dx=\\tfrac{\\pi}{5}a^5t^6$; $V_2=\\pi\\int_0^{a^2t^2}(at^2-t\\sqrt y)^2dy=\\tfrac{\\pi}{6}a^4t^6$; equal when $a=\\tfrac56$.  Boxes (as digits/choices): K=0, L=⑧(at²), M=4, N=4, O=5, P=5, Q=6, R=⑨(a²t²), S=⑧(at²), T=⑦(t), U=2, V=6, W=4, X=6, Y=5, Z=6.",
+        "ja": "$V_1=\\pi\\int_0^{at^2}\\tfrac1{t^4}(x-at^2)^4dx=\\tfrac{\\pi}{5}a^5t^6$；$V_2=\\pi\\int_0^{a^2t^2}(at^2-t\\sqrt y)^2dy=\\tfrac{\\pi}{6}a^4t^6$；$a=\\tfrac56$ のとき等しい。 解答（数字・選択肢）：K=0, L=⑧(at²), M=4, N=4, O=5, P=5, Q=6, R=⑨(a²t²), S=⑧(at²), T=⑦(t), U=2, V=6, W=4, X=6, Y=5, Z=6。"
+      },
+      "explanation": {
+        "en": "The parabola $y=\\tfrac1{t^2}(x-at^2)^2$ has its vertex (where $y=0$) at $x=at^2$ and opens upward; at $x=0$ it has height $y=\\tfrac1{t^2}(at^2)^2=a^2t^2$. So $D$ is the region $0\\le x\\le at^2$ between the curve and the axes.\n$V_1$ (about the $x$-axis, disk method): $V_1=\\pi\\displaystyle\\int_0^{at^2}\\!\\Bigl(\\tfrac1{t^2}(x-at^2)^2\\Bigr)^2dx=\\pi\\int_0^{at^2}\\tfrac1{t^4}(x-at^2)^4dx$. With $u=x-at^2$ (from $u=-at^2$ to $0$): $=\\tfrac{\\pi}{t^4}\\cdot\\tfrac{(at^2)^5}{5}=\\tfrac{\\pi}{5}a^5t^6$. (So $K=0$, $L=at^2$, $M=4$, $N=4$, $O=5$, $P=5$, $Q=6$.)\n$V_2$ (about the $y$-axis): solving for the left branch, $x=at^2-t\\sqrt y$ for $0\\le y\\le a^2t^2$, and the region runs from the $y$-axis ($x=0$) out to this curve, so $V_2=\\pi\\displaystyle\\int_0^{a^2t^2}\\!(at^2-t\\sqrt y)^2dy$. Expanding and integrating gives $\\tfrac{\\pi}{6}a^4t^6$. (So $R=a^2t^2$, $S=at^2$, $T=t$, $U=2$, $V=6$, $W=4$, $X=6$.)\nSetting $V_1=V_2$: $\\tfrac{\\pi}{5}a^5t^6=\\tfrac{\\pi}{6}a^4t^6\\Rightarrow\\tfrac{a}{5}=\\tfrac16\\Rightarrow a=\\tfrac56$, independent of $t$.",
+        "ja": "放物線 $y=\\tfrac1{t^2}(x-at^2)^2$ は頂点（$y=0$）$x=at^2$ で下に凸でなく上に開き，$x=0$ で高さ $a^2t^2$。よって $D$ は $0\\le x\\le at^2$ の領域。\n$V_1$（$x$ 軸まわり，円板法）：$V_1=\\pi\\int_0^{at^2}\\tfrac1{t^4}(x-at^2)^4dx=\\tfrac{\\pi}{t^4}\\cdot\\tfrac{(at^2)^5}{5}=\\tfrac{\\pi}{5}a^5t^6$。（$K=0,L=at^2,M=4,N=4,O=5,P=5,Q=6$。）\n$V_2$（$y$ 軸まわり）：左枝は $x=at^2-t\\sqrt y$（$0\\le y\\le a^2t^2$）。$V_2=\\pi\\int_0^{a^2t^2}(at^2-t\\sqrt y)^2dy=\\tfrac{\\pi}{6}a^4t^6$。（$R=a^2t^2,S=at^2,T=t,U=2,V=6,W=4,X=6$。）\n$V_1=V_2$ より $\\tfrac{\\pi}{5}a^5t^6=\\tfrac{\\pi}{6}a^4t^6\\Rightarrow a=\\tfrac56$（$t$ によらず）。"
+      },
+      "blanks": [
+        { "label": "K", "value": "0" }, { "label": "L", "value": "8" }, { "label": "M", "value": "4" }, { "label": "N", "value": "4" }, { "label": "O", "value": "5" }, { "label": "P", "value": "5" }, { "label": "Q", "value": "6" }, { "label": "R", "value": "9" }, { "label": "S", "value": "8" }, { "label": "T", "value": "7" }, { "label": "U", "value": "2" }, { "label": "V", "value": "6" }, { "label": "W", "value": "4" }, { "label": "X", "value": "6" }, { "label": "Y", "value": "5" }, { "label": "Z", "value": "6" }
+      ]
+    }
+  ]
+}

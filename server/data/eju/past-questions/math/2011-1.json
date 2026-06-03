@@ -1,0 +1,195 @@
+{
+  "id": "2011-1-math-c2",
+  "year": 2011,
+  "session": 1,
+  "subject": "math",
+  "course": 2,
+  "title": "2011 EJU Session 1 — Mathematics (Course 2)",
+  "source": "Examination for Japanese University Admission for International Students, 2011 Session 1 (JASSO). Official English question paper (image-only scan, transcribed from the page images); answers verified against the official answer key and re-derived by solving.",
+  "answerFormat": "digit-fill",
+  "answerKeyVerified": true,
+  "note": "The exam has four large questions (大問 I-IV). In Course 2, large questions I and IV each contain two independent sub-questions (問1, 問2); these are stored as separate entries, giving six questions. Large questions II and III are single questions. Parts I-Q1 and I-Q2 are shared with Course 1. Answer-letters follow the official scheme and reset at the start of each large question. Every box was cross-checked against the official answer key and independently re-derived by solving; all 4 sections reconciled box-for-box.",
+  "questions": [
+    {
+      "id": "2011-1-math-c2-1-1",
+      "answerRow": 1,
+      "number": "I-Q1",
+      "section": "I",
+      "part": "Q1",
+      "topicId": "quadratic-functions",
+      "topicIds": ["quadratic-functions"],
+      "subtopic": "Maximize/minimize a product xy under a linear constraint and inequality bounds, via a quadratic in x",
+      "patternTags": ["linear-constraint", "product-as-quadratic", "vertex-form", "max-min-on-interval"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "**[I] Q1 — Quadratic functions.**\n\nSuppose that $x$ and $y$ satisfy\n$$3x+y=18,\\quad x\\ge 1,\\quad y\\ge 6.$$\nWe are to find the maximum value and the minimum value of $xy$.\n\nWhen we express $xy$ in terms of $x$, we have $xy=\\boxed{AB}\\,(x-\\boxed{C})^2+\\boxed{DE}$.\n\nAlso, the range of values which $x$ can take is $\\boxed{F}\\le x\\le\\boxed{G}$.\n\nHence the value of $xy$ is maximized at $x=\\boxed{H}$ and its value there is $\\boxed{IJ}$, and the value of $xy$ is minimized at $x=\\boxed{K}$ and its value there is $\\boxed{LM}$."
+      },
+      "ja": {
+        "prompt": "**[Ⅰ] 問1 — 二次関数**\n\n$x$，$y$ が次を満たすとする。\n$$3x+y=18,\\quad x\\ge 1,\\quad y\\ge 6.$$\n$xy$ の最大値と最小値を求める。\n\n$xy$ を $x$ で表すと $xy=\\boxed{AB}\\,(x-\\boxed{C})^2+\\boxed{DE}$ となる。\n\nまた，$x$ のとり得る範囲は $\\boxed{F}\\le x\\le\\boxed{G}$ である。\n\nよって $xy$ は $x=\\boxed{H}$ で最大値 $\\boxed{IJ}$ をとり，$x=\\boxed{K}$ で最小値 $\\boxed{LM}$ をとる。"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "$xy=-3(x-3)^2+27$; $1\\le x\\le 4$; max $27$ at $x=3$; min $15$ at $x=1$.  Boxes: AB=-3, C=3, DE=27, F=1, G=4, H=3, IJ=27, K=1, LM=15.",
+        "ja": "$xy=-3(x-3)^2+27$；$1\\le x\\le 4$；$x=3$ で最大値 $27$，$x=1$ で最小値 $15$。 解答：AB=-3, C=3, DE=27, F=1, G=4, H=3, IJ=27, K=1, LM=15。"
+      },
+      "explanation": {
+        "en": "From $3x+y=18$ we get $y=18-3x$, so $xy=x(18-3x)=-3x^2+18x=-3(x-3)^2+27$.\nThe constraints $x\\ge1$ and $y=18-3x\\ge6$ (i.e. $x\\le4$) give $1\\le x\\le4$.\nThe parabola opens downward with vertex at $x=3$ (inside the interval), so $xy$ is maximized there: value $27$.\nThe minimum on $[1,4]$ occurs at the endpoint farther from the vertex: $x=1$ gives $-3(1-3)^2+27=15$, while $x=4$ gives $24$; hence the minimum is $15$ at $x=1$.",
+        "ja": "$3x+y=18$ より $y=18-3x$ なので $xy=x(18-3x)=-3x^2+18x=-3(x-3)^2+27$。\n条件 $x\\ge1$ と $y=18-3x\\ge6$（すなわち $x\\le4$）より $1\\le x\\le4$。\n上に凸で頂点は $x=3$（区間内）なので，そこで最大値 $27$。\n最小値は頂点から遠い端点でとり，$x=1$ で $-3(1-3)^2+27=15$，$x=4$ で $24$。よって最小値は $x=1$ で $15$。"
+      },
+      "blanks": [
+        { "label": "AB", "value": "-3" }, { "label": "C", "value": "3" }, { "label": "DE", "value": "27" },
+        { "label": "F", "value": "1" }, { "label": "G", "value": "4" }, { "label": "H", "value": "3" }, { "label": "IJ", "value": "27" }, { "label": "K", "value": "1" }, { "label": "LM", "value": "15" }
+      ]
+    },
+    {
+      "id": "2011-1-math-c2-1-2",
+      "answerRow": 2,
+      "number": "I-Q2",
+      "section": "I",
+      "part": "Q2",
+      "topicId": "numbers-expressions",
+      "topicIds": ["numbers-expressions"],
+      "subtopic": "Nested surds: integer and fractional parts of a+b, and the value of 1/c - c",
+      "patternTags": ["surds", "fractional-part", "rationalize-denominator", "integer-part"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "**[I] Q2 — Real numbers and surds.**\n\nSuppose that positive real numbers $a$ and $b$ satisfy\n$$a^2=3+\\sqrt5,\\quad b^2=3-\\sqrt5.$$\nLet $c$ be the fractional portion of $a+b$. We are to find the value of $\\dfrac{1}{c}-c$.\n\n(1) We see that $(ab)^2=\\boxed{N}$ and $(a+b)^2=\\boxed{OP}$.\n\n(2) Since $\\boxed{Q}<a+b<\\boxed{Q}+1$, the value of $c$ is $\\sqrt{\\boxed{RS}}-\\boxed{T}$. Thus we obtain $\\dfrac{1}{c}-c=\\boxed{U}$."
+      },
+      "ja": {
+        "prompt": "**[Ⅰ] 問2 — 実数と平方根**\n\n正の実数 $a$，$b$ が次を満たすとする。\n$$a^2=3+\\sqrt5,\\quad b^2=3-\\sqrt5.$$\n$c$ を $a+b$ の小数部分とする。$\\dfrac{1}{c}-c$ の値を求める。\n\n(1) $(ab)^2=\\boxed{N}$，$(a+b)^2=\\boxed{OP}$ である。\n\n(2) $\\boxed{Q}<a+b<\\boxed{Q}+1$ なので，$c$ の値は $\\sqrt{\\boxed{RS}}-\\boxed{T}$ である。よって $\\dfrac{1}{c}-c=\\boxed{U}$ となる。"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "$(ab)^2=4$, $(a+b)^2=10$; $3<a+b<4$ so $c=\\sqrt{10}-3$; $\\dfrac1c-c=6$.  Boxes: N=4, OP=10, Q=3, RS=10, T=3, U=6.",
+        "ja": "$(ab)^2=4$，$(a+b)^2=10$；$3<a+b<4$ なので $c=\\sqrt{10}-3$；$\\dfrac1c-c=6$。 解答：N=4, OP=10, Q=3, RS=10, T=3, U=6。"
+      },
+      "explanation": {
+        "en": "$(ab)^2=a^2b^2=(3+\\sqrt5)(3-\\sqrt5)=9-5=4$, so (as $a,b>0$) $ab=2$.\n$(a+b)^2=a^2+b^2+2ab=(3+\\sqrt5)+(3-\\sqrt5)+2\\cdot2=10$, so $a+b=\\sqrt{10}$.\nSince $3=\\sqrt9<\\sqrt{10}<\\sqrt{16}=4$, the integer part is $3$ and the fractional part is $c=\\sqrt{10}-3$.\nThen $\\dfrac1c=\\dfrac{1}{\\sqrt{10}-3}=\\dfrac{\\sqrt{10}+3}{(\\sqrt{10})^2-3^2}=\\sqrt{10}+3$, so $\\dfrac1c-c=(\\sqrt{10}+3)-(\\sqrt{10}-3)=6$.",
+        "ja": "$(ab)^2=a^2b^2=(3+\\sqrt5)(3-\\sqrt5)=9-5=4$ なので（$a,b>0$ より）$ab=2$。\n$(a+b)^2=a^2+b^2+2ab=(3+\\sqrt5)+(3-\\sqrt5)+4=10$ なので $a+b=\\sqrt{10}$。\n$3=\\sqrt9<\\sqrt{10}<\\sqrt{16}=4$ より整数部分は $3$，小数部分は $c=\\sqrt{10}-3$。\nよって $\\dfrac1c=\\dfrac{1}{\\sqrt{10}-3}=\\dfrac{\\sqrt{10}+3}{10-9}=\\sqrt{10}+3$ となり，$\\dfrac1c-c=(\\sqrt{10}+3)-(\\sqrt{10}-3)=6$。"
+      },
+      "blanks": [
+        { "label": "N", "value": "4" }, { "label": "OP", "value": "10" }, { "label": "Q", "value": "3" }, { "label": "RS", "value": "10" }, { "label": "T", "value": "3" }, { "label": "U", "value": "6" }
+      ]
+    },
+    {
+      "id": "2011-1-math-c2-2",
+      "answerRow": 3,
+      "number": "II",
+      "section": "II",
+      "part": null,
+      "topicId": "sequences",
+      "topicIds": ["sequences", "exp-log"],
+      "subtopic": "Nonlinear recurrence linearized by logarithms; geometric progression and common-logarithm bound",
+      "patternTags": ["recurrence-relation", "logarithm-substitution", "geometric-progression", "common-logarithm", "counting-terms"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "Given a sequence $\\{a_n\\}$ that satisfies the following conditions\n$$a_1=1,\\qquad a_{n+1}=2a_n^2\\quad(n=1,2,3,\\dots)\\qquad \\cdots\\cdots①$$\nwe are to find the number of natural numbers $n$ satisfying $a_n<10^{60}$. (For the value of $\\log_{10}2$, use the approximation $0.301$.)\n\nIn this sequence we note that $a_n>0$ for all natural numbers $n$. Thus when we consider common logarithms of both sides of ①, we have\n$$\\log_{10}a_{n+1}=\\log_{10}\\boxed{A}+\\boxed{B}\\,\\log_{10}a_n.$$\nWhen we set $b_n=\\log_{10}a_n+\\log_{10}\\boxed{A}$, the sequence $\\{b_n\\}$ is a geometric progression such that the common ratio is $\\boxed{C}$. Then\n$$\\log_{10}a_n=(\\boxed{D}^{\\,n-1}-\\boxed{E})\\log_{10}\\boxed{F}.$$\nFurthermore, since $a_n<10^{60}$,\n$$\\boxed{D}^{\\,n-1}<\\dfrac{\\boxed{GH}}{\\log_{10}\\boxed{F}}+\\boxed{E}.\\qquad\\cdots\\cdots②$$\nSince $\\boxed{IJK}$ is the least natural number which is larger than the value of the right side of ②, the number of natural numbers $n$ satisfying $a_n<10^{60}$ is $\\boxed{L}$."
+      },
+      "ja": {
+        "prompt": "次の条件を満たす数列 $\\{a_n\\}$ について考える。\n$$a_1=1,\\qquad a_{n+1}=2a_n^2\\quad(n=1,2,3,\\dots)\\qquad \\cdots\\cdots①$$\n$a_n<10^{60}$ を満たす自然数 $n$ の個数を求める。（$\\log_{10}2$ の値は近似値 $0.301$ を用いよ。）\n\nこの数列では，すべての自然数 $n$ について $a_n>0$ である。よって ① の両辺の常用対数を考えると\n$$\\log_{10}a_{n+1}=\\log_{10}\\boxed{A}+\\boxed{B}\\,\\log_{10}a_n$$\nとなる。$b_n=\\log_{10}a_n+\\log_{10}\\boxed{A}$ とおくと，数列 $\\{b_n\\}$ は公比 $\\boxed{C}$ の等比数列である。よって\n$$\\log_{10}a_n=(\\boxed{D}^{\\,n-1}-\\boxed{E})\\log_{10}\\boxed{F}$$\nとなる。さらに $a_n<10^{60}$ より\n$$\\boxed{D}^{\\,n-1}<\\dfrac{\\boxed{GH}}{\\log_{10}\\boxed{F}}+\\boxed{E}\\qquad\\cdots\\cdots②$$\nとなる。② の右辺の値より大きい最小の自然数が $\\boxed{IJK}$ であるから，$a_n<10^{60}$ を満たす自然数 $n$ の個数は $\\boxed{L}$ である。"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "$\\log_{10}a_{n+1}=\\log_{10}2+2\\log_{10}a_n$; common ratio $2$; $\\log_{10}a_n=(2^{n-1}-1)\\log_{10}2$; $2^{n-1}<\\tfrac{60}{\\log_{10}2}+1\\approx200.3$; least natural number larger than the RHS is $201$; number of $n$ is $8$.  Boxes: A=2, B=2, C=2, D=2, E=1, F=2, GH=60, IJK=201, L=8.",
+        "ja": "$\\log_{10}a_{n+1}=\\log_{10}2+2\\log_{10}a_n$；公比 $2$；$\\log_{10}a_n=(2^{n-1}-1)\\log_{10}2$；$2^{n-1}<\\tfrac{60}{\\log_{10}2}+1\\approx200.3$；右辺より大きい最小の自然数は $201$；$n$ の個数は $8$。 解答：A=2, B=2, C=2, D=2, E=1, F=2, GH=60, IJK=201, L=8。"
+      },
+      "explanation": {
+        "en": "Taking $\\log_{10}$ of $a_{n+1}=2a_n^2$ gives $\\log_{10}a_{n+1}=\\log_{10}2+2\\log_{10}a_n$, so $\\boxed{A}=2,\\ \\boxed{B}=2$.\nWith $b_n=\\log_{10}a_n+\\log_{10}2$: $b_{n+1}=\\log_{10}a_{n+1}+\\log_{10}2=(\\log_{10}2+2\\log_{10}a_n)+\\log_{10}2=2(\\log_{10}a_n+\\log_{10}2)=2b_n$, a geometric progression with common ratio $2$.\nSince $a_1=1$, $b_1=\\log_{10}1+\\log_{10}2=\\log_{10}2$, so $b_n=2^{n-1}\\log_{10}2$. Then $\\log_{10}a_n=b_n-\\log_{10}2=(2^{n-1}-1)\\log_{10}2$.\n$a_n<10^{60}\\Leftrightarrow\\log_{10}a_n<60\\Leftrightarrow(2^{n-1}-1)\\log_{10}2<60\\Leftrightarrow 2^{n-1}<\\dfrac{60}{\\log_{10}2}+1$.\nUsing $\\log_{10}2\\approx0.301$, the right side is $\\dfrac{60}{0.301}+1\\approx199.3+1=200.3$; the least natural number larger than this is $201$.\nThus $2^{n-1}<201$. Since $2^7=128<201<256=2^8$, we need $n-1\\le7$, i.e. $n\\le8$. The natural numbers $n=1,2,\\dots,8$ qualify, so there are $8$ of them.",
+        "ja": "$a_{n+1}=2a_n^2$ の両辺の $\\log_{10}$ をとると $\\log_{10}a_{n+1}=\\log_{10}2+2\\log_{10}a_n$。よって $\\boxed{A}=2,\\ \\boxed{B}=2$。\n$b_n=\\log_{10}a_n+\\log_{10}2$ とおくと $b_{n+1}=\\log_{10}a_{n+1}+\\log_{10}2=2(\\log_{10}a_n+\\log_{10}2)=2b_n$ となり，公比 $2$ の等比数列。\n$a_1=1$ より $b_1=\\log_{10}2$ なので $b_n=2^{n-1}\\log_{10}2$。よって $\\log_{10}a_n=b_n-\\log_{10}2=(2^{n-1}-1)\\log_{10}2$。\n$a_n<10^{60}\\Leftrightarrow(2^{n-1}-1)\\log_{10}2<60\\Leftrightarrow 2^{n-1}<\\dfrac{60}{\\log_{10}2}+1$。\n$\\log_{10}2\\approx0.301$ より右辺は $\\dfrac{60}{0.301}+1\\approx200.3$。これより大きい最小の自然数は $201$。\nよって $2^{n-1}<201$。$2^7=128<201<256=2^8$ なので $n-1\\le7$，すなわち $n\\le8$。$n=1,\\dots,8$ の $8$ 個。"
+      },
+      "blanks": [
+        { "label": "A", "value": "2" }, { "label": "B", "value": "2" }, { "label": "C", "value": "2" }, { "label": "D", "value": "2" }, { "label": "E", "value": "1" }, { "label": "F", "value": "2" }, { "label": "GH", "value": "60" }, { "label": "IJK", "value": "201" }, { "label": "L", "value": "8" }
+      ]
+    },
+    {
+      "id": "2011-1-math-c2-3",
+      "answerRow": 4,
+      "number": "III",
+      "section": "III",
+      "part": null,
+      "topicId": "figures-equations",
+      "topicIds": ["figures-equations", "exp-log"],
+      "subtopic": "Convert a log system to a circle and line in the XY-plane; existence via distance from center to line",
+      "patternTags": ["logarithm-substitution", "circle-equation", "line-equation", "distance-point-to-line", "existence-condition", "parameter-range"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "Consider the following two equations\n$$\\left(\\log_4 2\\sqrt{x}\\right)^2+\\left(\\log_4 2\\sqrt{y}\\right)^2=\\log_2\\!\\left(\\sqrt[4]{2}\\cdot x\\sqrt{y}\\right)\\qquad\\cdots\\cdots①$$\n$$\\sqrt[3]{x}\\cdot\\sqrt[4]{y}=2^{k}.\\qquad\\cdots\\cdots②$$\nWe are to find the range of values which the constant $k$ can take so that there exist positive real numbers $x,y$ which satisfy ① and ② simultaneously.\n\nSet $X=\\log_2 x$ and $Y=\\log_2 y$. Let us express ① and ② in terms of $X$ and $Y$. First we consider ①. Since\n$$\\log_4 2\\sqrt{x}=\\dfrac{\\log_2 x+\\boxed{A}}{\\boxed{B}}$$\nand\n$$\\log_2\\!\\left(\\sqrt[4]{2}\\cdot x\\sqrt{y}\\right)=\\dfrac{\\boxed{C}}{\\boxed{D}}+\\log_2 x+\\dfrac{\\log_2 y}{\\boxed{E}},$$\n① reduces to\n$$\\left(X-\\boxed{F}\\right)^2+\\left(Y-\\boxed{G}\\right)^2=\\boxed{HI}.\\qquad\\cdots\\cdots③$$\nIn the same way, ② reduces to\n$$4X+\\boxed{J}\\,Y=\\boxed{KL}\\,k.\\qquad\\cdots\\cdots④$$\nSince the distance $d$ from the center of the circle ③ to the straight line ④ on the $XY$-plane is given by\n$$d=\\dfrac{\\left|\\,\\boxed{MN}-\\boxed{OP}\\,k\\,\\right|}{\\boxed{Q}},$$\nthe range of values which $k$ can take is\n$$\\boxed{R}\\le k\\le\\boxed{S}.$$"
+      },
+      "ja": {
+        "prompt": "次の2つの方程式を考える。\n$$\\left(\\log_4 2\\sqrt{x}\\right)^2+\\left(\\log_4 2\\sqrt{y}\\right)^2=\\log_2\\!\\left(\\sqrt[4]{2}\\cdot x\\sqrt{y}\\right)\\qquad\\cdots\\cdots①$$\n$$\\sqrt[3]{x}\\cdot\\sqrt[4]{y}=2^{k}.\\qquad\\cdots\\cdots②$$\n① と ② を同時に満たす正の実数 $x,y$ が存在するような定数 $k$ の値の範囲を求める。\n\n$X=\\log_2 x$，$Y=\\log_2 y$ とおき，① と ② を $X$，$Y$ で表す。まず ① を考える。\n$$\\log_4 2\\sqrt{x}=\\dfrac{\\log_2 x+\\boxed{A}}{\\boxed{B}}$$\nおよび\n$$\\log_2\\!\\left(\\sqrt[4]{2}\\cdot x\\sqrt{y}\\right)=\\dfrac{\\boxed{C}}{\\boxed{D}}+\\log_2 x+\\dfrac{\\log_2 y}{\\boxed{E}}$$\nなので，① は\n$$\\left(X-\\boxed{F}\\right)^2+\\left(Y-\\boxed{G}\\right)^2=\\boxed{HI}\\qquad\\cdots\\cdots③$$\nに簡約される。同様に，② は\n$$4X+\\boxed{J}\\,Y=\\boxed{KL}\\,k\\qquad\\cdots\\cdots④$$\nに簡約される。$XY$ 平面上で円 ③ の中心から直線 ④ までの距離 $d$ は\n$$d=\\dfrac{\\left|\\,\\boxed{MN}-\\boxed{OP}\\,k\\,\\right|}{\\boxed{Q}}$$\nで与えられるので，$k$ のとり得る値の範囲は\n$$\\boxed{R}\\le k\\le\\boxed{S}$$\nである。"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "$\\log_4 2\\sqrt x=\\tfrac{\\log_2 x+2}{4}$; RHS$=\\tfrac14+\\log_2 x+\\tfrac{\\log_2 y}{2}$; ③: $(X-6)^2+(Y-2)^2=36$; ④: $4X+3Y=12k$; $d=\\tfrac{|30-12k|}{5}\\le6\\Rightarrow 0\\le k\\le5$.  Boxes: A=2, B=4, C=1, D=4, E=2, F=6, G=2, HI=36, J=3, KL=12, MN=30, OP=12, Q=5, R=0, S=5.",
+        "ja": "$\\log_4 2\\sqrt x=\\tfrac{\\log_2 x+2}{4}$；右辺$=\\tfrac14+\\log_2 x+\\tfrac{\\log_2 y}{2}$；③：$(X-6)^2+(Y-2)^2=36$；④：$4X+3Y=12k$；$d=\\tfrac{|30-12k|}{5}\\le6\\Rightarrow 0\\le k\\le5$。 解答：A=2, B=4, C=1, D=4, E=2, F=6, G=2, HI=36, J=3, KL=12, MN=30, OP=12, Q=5, R=0, S=5。"
+      },
+      "explanation": {
+        "en": "$\\log_4 2\\sqrt x=\\dfrac{\\log_2(2\\sqrt x)}{\\log_2 4}=\\dfrac{1+\\tfrac12\\log_2 x}{2}=\\dfrac{\\log_2 x+2}{4}$, so $\\boxed{A}=2,\\ \\boxed{B}=4$. Likewise $\\log_4 2\\sqrt y=\\dfrac{Y+2}{4}$.\n$\\log_2(\\sqrt[4]2\\cdot x\\sqrt y)=\\tfrac14+\\log_2 x+\\tfrac12\\log_2 y$, so $\\boxed{C}=1,\\ \\boxed{D}=4,\\ \\boxed{E}=2$.\nWith $X=\\log_2 x,\\ Y=\\log_2 y$, ① becomes $\\left(\\tfrac{X+2}{4}\\right)^2+\\left(\\tfrac{Y+2}{4}\\right)^2=\\tfrac14+X+\\tfrac12 Y$. Multiplying by $16$: $(X+2)^2+(Y+2)^2=4+16X+8Y$, i.e. $X^2-12X+Y^2-4Y+4=0$, i.e. $(X-6)^2+(Y-2)^2=36$ — a circle with center $(6,2)$, radius $6$.\n② $\\sqrt[3]x\\cdot\\sqrt[4]y=2^k$ gives $\\tfrac13 X+\\tfrac14 Y=k$; multiplying by $12$: $4X+3Y=12k$, so $\\boxed{J}=3,\\ \\boxed{KL}=12$.\nThe distance from $(6,2)$ to $4X+3Y-12k=0$ is $d=\\dfrac{|4\\cdot6+3\\cdot2-12k|}{\\sqrt{4^2+3^2}}=\\dfrac{|30-12k|}{5}$, so $\\boxed{MN}=30,\\ \\boxed{OP}=12,\\ \\boxed{Q}=5$.\nA common solution exists iff the line meets the circle: $d\\le6\\Rightarrow|30-12k|\\le30\\Rightarrow 0\\le12k\\le60\\Rightarrow 0\\le k\\le5$.",
+        "ja": "$\\log_4 2\\sqrt x=\\dfrac{\\log_2(2\\sqrt x)}{\\log_2 4}=\\dfrac{1+\\tfrac12\\log_2 x}{2}=\\dfrac{\\log_2 x+2}{4}$ より $\\boxed{A}=2,\\ \\boxed{B}=4$。同様に $\\log_4 2\\sqrt y=\\dfrac{Y+2}{4}$。\n$\\log_2(\\sqrt[4]2\\cdot x\\sqrt y)=\\tfrac14+\\log_2 x+\\tfrac12\\log_2 y$ より $\\boxed{C}=1,\\ \\boxed{D}=4,\\ \\boxed{E}=2$。\n$X=\\log_2 x,\\ Y=\\log_2 y$ とすると ① は $\\left(\\tfrac{X+2}{4}\\right)^2+\\left(\\tfrac{Y+2}{4}\\right)^2=\\tfrac14+X+\\tfrac12 Y$。$16$ 倍して整理すると $(X-6)^2+(Y-2)^2=36$（中心 $(6,2)$，半径 $6$ の円）。\n② より $\\tfrac13 X+\\tfrac14 Y=k$，$12$ 倍して $4X+3Y=12k$ なので $\\boxed{J}=3,\\ \\boxed{KL}=12$。\n中心 $(6,2)$ から直線 $4X+3Y-12k=0$ までの距離は $d=\\dfrac{|24+6-12k|}{\\sqrt{16+9}}=\\dfrac{|30-12k|}{5}$ なので $\\boxed{MN}=30,\\ \\boxed{OP}=12,\\ \\boxed{Q}=5$。\n共通解が存在する条件は直線が円と交わること：$d\\le6\\Rightarrow|30-12k|\\le30\\Rightarrow 0\\le k\\le5$。"
+      },
+      "blanks": [
+        { "label": "A", "value": "2" }, { "label": "B", "value": "4" }, { "label": "C", "value": "1" }, { "label": "D", "value": "4" }, { "label": "E", "value": "2" }, { "label": "F", "value": "6" }, { "label": "G", "value": "2" }, { "label": "HI", "value": "36" }, { "label": "J", "value": "3" }, { "label": "KL", "value": "12" }, { "label": "MN", "value": "30" }, { "label": "OP", "value": "12" }, { "label": "Q", "value": "5" }, { "label": "R", "value": "0" }, { "label": "S", "value": "5" }
+      ]
+    },
+    {
+      "id": "2011-1-math-c2-4-1",
+      "answerRow": 5,
+      "number": "IV-Q1",
+      "section": "IV",
+      "part": "Q1",
+      "topicId": "integration",
+      "topicIds": ["integration", "differentiation"],
+      "subtopic": "Differentiating an integral with a variable upper limit and a parameter inside the integrand",
+      "patternTags": ["fundamental-theorem-of-calculus", "variable-limit", "chain-rule", "parameter-in-integrand", "expression-from-list"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "**[IV] Q1 — Differential and integral calculus.** *(For $\\boxed{A}$ choose the correct expression from the list $⓪$–$⑦$ below; for the other boxes enter a number.)*\n\nWe are to differentiate $f(x)=\\displaystyle\\int_0^{2x}\\left(t^2-x^2\\right)\\sin 3t\\,dt$ with respect to $x$.\n\n(1) We know that if $g(t)$ is a continuous function and $G(t)$ is one of its primitive functions, then $\\displaystyle\\int_0^{2x}g(t)\\,dt=G(2x)-G(0)$. By differentiating both sides with respect to $x$, we have $\\dfrac{d}{dx}\\displaystyle\\int_0^{2x}g(t)\\,dt=\\boxed{A}$.\n\nChoices: $⓪\\ g(x)\\quad ①\\ \\tfrac12 g(x)\\quad ②\\ 2g(x)\\quad ③\\ g(2x)\\quad ④\\ \\tfrac12 g(2x)\\quad ⑤\\ 2g(2x)\\quad ⑥\\ g(x)-g(0)\\quad ⑦\\ g(2x)-g(0)$\n\n(2) We know that $f(x)=\\displaystyle\\int_0^{2x}t^2\\sin 3t\\,dt-\\displaystyle\\int_0^{2x}x^2\\sin 3t\\,dt$. Since\n$$\\dfrac{d}{dx}\\displaystyle\\int_0^{2x}t^2\\sin 3t\\,dt=\\boxed{B}\\,x^2\\sin\\boxed{C}\\,x$$\nand\n$$\\dfrac{d}{dx}\\displaystyle\\int_0^{2x}x^2\\sin 3t\\,dt=\\dfrac{\\boxed{D}}{\\boxed{E}}\\,x\\left(-\\cos\\boxed{F}\\,x+\\boxed{G}+\\boxed{H}\\,x\\sin\\boxed{I}\\,x\\right),$$\nwe obtain\n$$f'(x)=\\dfrac{\\boxed{D}}{\\boxed{E}}\\,x\\left(\\cos\\boxed{J}\\,x-\\boxed{K}+\\boxed{L}\\,x\\sin\\boxed{M}\\,x\\right)."
+      },
+      "ja": {
+        "prompt": "**[Ⅳ] 問1 — 微分・積分** *（$\\boxed{A}$ は下の選択肢 $⓪$〜$⑦$ から選び，他の空欄には数を入れよ。）*\n\n$f(x)=\\displaystyle\\int_0^{2x}\\left(t^2-x^2\\right)\\sin 3t\\,dt$ を $x$ で微分する。\n\n(1) $g(t)$ を連続関数，$G(t)$ をその原始関数の1つとすると $\\displaystyle\\int_0^{2x}g(t)\\,dt=G(2x)-G(0)$ が成り立つ。両辺を $x$ で微分すると $\\dfrac{d}{dx}\\displaystyle\\int_0^{2x}g(t)\\,dt=\\boxed{A}$ となる。\n\n選択肢：$⓪\\ g(x)\\quad ①\\ \\tfrac12 g(x)\\quad ②\\ 2g(x)\\quad ③\\ g(2x)\\quad ④\\ \\tfrac12 g(2x)\\quad ⑤\\ 2g(2x)\\quad ⑥\\ g(x)-g(0)\\quad ⑦\\ g(2x)-g(0)$\n\n(2) $f(x)=\\displaystyle\\int_0^{2x}t^2\\sin 3t\\,dt-\\displaystyle\\int_0^{2x}x^2\\sin 3t\\,dt$ である。\n$$\\dfrac{d}{dx}\\displaystyle\\int_0^{2x}t^2\\sin 3t\\,dt=\\boxed{B}\\,x^2\\sin\\boxed{C}\\,x$$\nおよび\n$$\\dfrac{d}{dx}\\displaystyle\\int_0^{2x}x^2\\sin 3t\\,dt=\\dfrac{\\boxed{D}}{\\boxed{E}}\\,x\\left(-\\cos\\boxed{F}\\,x+\\boxed{G}+\\boxed{H}\\,x\\sin\\boxed{I}\\,x\\right)$$\nなので，\n$$f'(x)=\\dfrac{\\boxed{D}}{\\boxed{E}}\\,x\\left(\\cos\\boxed{J}\\,x-\\boxed{K}+\\boxed{L}\\,x\\sin\\boxed{M}\\,x\\right)$$\nを得る。"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "(1) $\\tfrac{d}{dx}\\int_0^{2x}g\\,dt=2g(2x)$ (choice ⑤). (2) $\\tfrac{d}{dx}\\int_0^{2x}t^2\\sin3t\\,dt=8x^2\\sin6x$; $\\tfrac{d}{dx}\\int_0^{2x}x^2\\sin3t\\,dt=\\tfrac23 x(-\\cos6x+1+3x\\sin6x)$; $f'(x)=\\tfrac23 x(\\cos6x-1+9x\\sin6x)$.  Boxes: A=5, B=8, C=6, D=2, E=3, F=6, G=1, H=3, I=6, J=6, K=1, L=9, M=6.",
+        "ja": "(1) $\\tfrac{d}{dx}\\int_0^{2x}g\\,dt=2g(2x)$（選択肢⑤）。(2) $\\tfrac{d}{dx}\\int_0^{2x}t^2\\sin3t\\,dt=8x^2\\sin6x$；$\\tfrac{d}{dx}\\int_0^{2x}x^2\\sin3t\\,dt=\\tfrac23 x(-\\cos6x+1+3x\\sin6x)$；$f'(x)=\\tfrac23 x(\\cos6x-1+9x\\sin6x)$。 解答：A=5, B=8, C=6, D=2, E=3, F=6, G=1, H=3, I=6, J=6, K=1, L=9, M=6。"
+      },
+      "explanation": {
+        "en": "(1) By the chain rule, $\\dfrac{d}{dx}[G(2x)-G(0)]=G'(2x)\\cdot2=2g(2x)$ (choice ⑤).\n(2) For the first integral the integrand $t^2\\sin3t$ has no $x$; by (1) with $g(t)=t^2\\sin3t$, $\\dfrac{d}{dx}\\int_0^{2x}t^2\\sin3t\\,dt=2(2x)^2\\sin(3\\cdot2x)=8x^2\\sin6x$, so $\\boxed{B}=8,\\ \\boxed{C}=6$.\nFor the second, $x^2$ is constant in $t$: $\\int_0^{2x}x^2\\sin3t\\,dt=x^2\\Big[-\\tfrac13\\cos3t\\Big]_0^{2x}=\\tfrac{x^2}{3}(1-\\cos6x)$. Differentiating: $\\dfrac{d}{dx}\\Big[\\tfrac{x^2}{3}(1-\\cos6x)\\Big]=\\tfrac{2x}{3}(1-\\cos6x)+\\tfrac{x^2}{3}\\cdot6\\sin6x=\\tfrac23 x\\big(1-\\cos6x+3x\\sin6x\\big)=\\tfrac23 x\\big(-\\cos6x+1+3x\\sin6x\\big)$, so $\\boxed{D}=2,\\ \\boxed{E}=3,\\ \\boxed{F}=6,\\ \\boxed{G}=1,\\ \\boxed{H}=3,\\ \\boxed{I}=6$.\nSubtracting: $f'(x)=8x^2\\sin6x-\\tfrac23 x(1-\\cos6x+3x\\sin6x)=6x^2\\sin6x-\\tfrac23 x(1-\\cos6x)=\\tfrac23 x\\big(9x\\sin6x-1+\\cos6x\\big)=\\tfrac23 x\\big(\\cos6x-1+9x\\sin6x\\big)$, so $\\boxed{J}=6,\\ \\boxed{K}=1,\\ \\boxed{L}=9,\\ \\boxed{M}=6$.",
+        "ja": "(1) 合成関数の微分より $\\dfrac{d}{dx}[G(2x)-G(0)]=G'(2x)\\cdot2=2g(2x)$（選択肢⑤）。\n(2) 第1の積分は被積分関数 $t^2\\sin3t$ に $x$ を含まないので，(1) で $g(t)=t^2\\sin3t$ として $\\dfrac{d}{dx}\\int_0^{2x}t^2\\sin3t\\,dt=2(2x)^2\\sin6x=8x^2\\sin6x$。よって $\\boxed{B}=8,\\ \\boxed{C}=6$。\n第2の積分は $x^2$ が $t$ について定数：$\\int_0^{2x}x^2\\sin3t\\,dt=x^2\\Big[-\\tfrac13\\cos3t\\Big]_0^{2x}=\\tfrac{x^2}{3}(1-\\cos6x)$。微分すると $\\tfrac{2x}{3}(1-\\cos6x)+2x^2\\sin6x=\\tfrac23 x(-\\cos6x+1+3x\\sin6x)$。よって $\\boxed{D}=2,\\ \\boxed{E}=3,\\ \\boxed{F}=6,\\ \\boxed{G}=1,\\ \\boxed{H}=3,\\ \\boxed{I}=6$。\n差をとると $f'(x)=8x^2\\sin6x-\\tfrac23 x(1-\\cos6x+3x\\sin6x)=\\tfrac23 x(\\cos6x-1+9x\\sin6x)$。よって $\\boxed{J}=6,\\ \\boxed{K}=1,\\ \\boxed{L}=9,\\ \\boxed{M}=6$。"
+      },
+      "blanks": [
+        { "label": "A", "value": "5" }, { "label": "B", "value": "8" }, { "label": "C", "value": "6" }, { "label": "D", "value": "2" }, { "label": "E", "value": "3" }, { "label": "F", "value": "6" }, { "label": "G", "value": "1" }, { "label": "H", "value": "3" }, { "label": "I", "value": "6" }, { "label": "J", "value": "6" }, { "label": "K", "value": "1" }, { "label": "L", "value": "9" }, { "label": "M", "value": "6" }
+      ]
+    },
+    {
+      "id": "2011-1-math-c2-4-2",
+      "answerRow": 6,
+      "number": "IV-Q2",
+      "section": "IV",
+      "part": "Q2",
+      "topicId": "integration",
+      "topicIds": ["integration", "differentiation"],
+      "subtopic": "Tangent to a curve and the area between it and another curve, with a log term",
+      "patternTags": ["tangent-line", "intersection-of-curves", "area-between-curves", "definite-integral", "logarithm-in-integral", "expression-from-list"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "**[IV] Q2.** *(For $\\boxed{V}$ choose the correct expression from the list $⓪$–$⑤$ below; for the other boxes enter a number.)*\n\nLet $a$ be a positive real number. Let P denote the point of intersection of the two curves\n$$C_1:\\ y=\\dfrac{3}{x},\\qquad C_2:\\ y=\\dfrac{a}{x^2},$$\nand let $\\ell$ denote the tangent to $C_2$ at P. Then we are to find the area $S$ of the region bounded by $C_1$ and $\\ell$.\n\nSince the coordinates of P are $\\left(\\dfrac{a}{\\boxed{N}},\\dfrac{\\boxed{O}}{a}\\right)$, the equation of $\\ell$ is $y=-\\dfrac{\\boxed{PQ}}{a^2}\\,x+\\dfrac{\\boxed{RS}}{a}$.\n\nWhen we set $p=\\dfrac{a}{\\boxed{T}},\\ q=\\dfrac{a}{\\boxed{U}}\\ (p<q)$, $S$ is obtained by calculating $S=\\Big[\\,\\boxed{V}\\,\\Big]_p^q$.\n\nChoices for $\\boxed{V}$: $⓪\\ \\dfrac{18}{a^2}x^2-\\dfrac{27}{a}x+3\\log|x|\\quad ①\\ \\dfrac{9}{a^2}x^2-\\dfrac{9}{a}x+3\\log|x|\\quad ②\\ -\\dfrac{27}{a^2}x^2+\\dfrac{18}{a}x-3\\log|x|\\quad ③\\ -\\dfrac{27}{a^2}x^2+\\dfrac{27}{a}x-3\\log|x|\\quad ④\\ \\dfrac{27}{a^2}x^2-\\dfrac{27}{a}x+3\\log|x|\\quad ⑤\\ -\\dfrac{18}{a^2}x^2+\\dfrac{27}{a}x-3\\log|x|$\n\nHence we obtain $S=\\dfrac{\\boxed{W}}{\\boxed{X}}-3\\log\\boxed{Y}$."
+      },
+      "ja": {
+        "prompt": "**[Ⅳ] 問2** *（$\\boxed{V}$ は下の選択肢 $⓪$〜$⑤$ から選び，他の空欄には数を入れよ。）*\n\n$a$ を正の実数とする。2曲線\n$$C_1:\\ y=\\dfrac{3}{x},\\qquad C_2:\\ y=\\dfrac{a}{x^2}$$\nの交点を P とし，$C_2$ の P における接線を $\\ell$ とする。$C_1$ と $\\ell$ で囲まれた部分の面積 $S$ を求める。\n\nP の座標は $\\left(\\dfrac{a}{\\boxed{N}},\\dfrac{\\boxed{O}}{a}\\right)$ なので，$\\ell$ の方程式は $y=-\\dfrac{\\boxed{PQ}}{a^2}\\,x+\\dfrac{\\boxed{RS}}{a}$ である。\n\n$p=\\dfrac{a}{\\boxed{T}},\\ q=\\dfrac{a}{\\boxed{U}}\\ (p<q)$ とおくと，$S$ は $S=\\Big[\\,\\boxed{V}\\,\\Big]_p^q$ を計算して得られる。\n\n$\\boxed{V}$ の選択肢：$⓪\\ \\dfrac{18}{a^2}x^2-\\dfrac{27}{a}x+3\\log|x|\\quad ①\\ \\dfrac{9}{a^2}x^2-\\dfrac{9}{a}x+3\\log|x|\\quad ②\\ -\\dfrac{27}{a^2}x^2+\\dfrac{18}{a}x-3\\log|x|\\quad ③\\ -\\dfrac{27}{a^2}x^2+\\dfrac{27}{a}x-3\\log|x|\\quad ④\\ \\dfrac{27}{a^2}x^2-\\dfrac{27}{a}x+3\\log|x|\\quad ⑤\\ -\\dfrac{18}{a^2}x^2+\\dfrac{27}{a}x-3\\log|x|$\n\nよって $S=\\dfrac{\\boxed{W}}{\\boxed{X}}-3\\log\\boxed{Y}$ を得る。"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "P$=(a/3,9/a)$; $\\ell:\\ y=-\\tfrac{54}{a^2}x+\\tfrac{27}{a}$; $p=a/6,\\ q=a/3$; antiderivative is choice ③; $S=\\tfrac94-3\\log 2$.  Boxes: N=3, O=9, PQ=54, RS=27, T=6, U=3, V=3, W=9, X=4, Y=2.",
+        "ja": "P$=(a/3,9/a)$；$\\ell:\\ y=-\\tfrac{54}{a^2}x+\\tfrac{27}{a}$；$p=a/6,\\ q=a/3$；原始関数は選択肢③；$S=\\tfrac94-3\\log 2$。 解答：N=3, O=9, PQ=54, RS=27, T=6, U=3, V=3, W=9, X=4, Y=2。"
+      },
+      "explanation": {
+        "en": "Intersection P: $\\tfrac3x=\\tfrac{a}{x^2}\\Rightarrow 3x=a\\Rightarrow x=\\tfrac a3$, $y=\\tfrac{3}{a/3}=\\tfrac9a$, so P$=\\left(\\tfrac a3,\\tfrac9a\\right)$ and $\\boxed{N}=3,\\ \\boxed{O}=9$.\nFor $C_2:\\ y=ax^{-2}$, $y'=-2ax^{-3}$; at $x=\\tfrac a3$, $y'=-2a/(a/3)^3=-54/a^2$. The tangent is $y-\\tfrac9a=-\\tfrac{54}{a^2}\\left(x-\\tfrac a3\\right)$, i.e. $y=-\\tfrac{54}{a^2}x+\\tfrac{18}{a}+\\tfrac9a=-\\tfrac{54}{a^2}x+\\tfrac{27}{a}$, so $\\boxed{PQ}=54,\\ \\boxed{RS}=27$.\nIntersections of $\\ell$ and $C_1$: $\\tfrac3x=-\\tfrac{54}{a^2}x+\\tfrac{27}{a}\\Rightarrow 18x^2-9ax+a^2=0\\Rightarrow x=\\tfrac{9a\\pm3a}{36}$, giving $x=\\tfrac a6$ and $x=\\tfrac a3$. So $p=\\tfrac a6,\\ q=\\tfrac a3$ and $\\boxed{T}=6,\\ \\boxed{U}=3$.\nOn $[p,q]$ the line $\\ell$ lies above $C_1$, so $S=\\int_p^q\\!\\left(\\ell-\\tfrac3x\\right)dx$ with antiderivative $-\\tfrac{27}{a^2}x^2+\\tfrac{27}{a}x-3\\log|x|$ (choice ③), so $\\boxed{V}=③$.\nEvaluating: at $x=\\tfrac a3$ the bracket is $-3+9-3\\log\\tfrac a3=6-3\\log\\tfrac a3$; at $x=\\tfrac a6$ it is $-\\tfrac34+\\tfrac92-3\\log\\tfrac a6=\\tfrac{15}{4}-3\\log\\tfrac a6$. Subtracting, $S=\\tfrac94-3\\log\\tfrac a3+3\\log\\tfrac a6=\\tfrac94+3\\log\\tfrac{a/6}{a/3}=\\tfrac94+3\\log\\tfrac12=\\tfrac94-3\\log2$, so $\\boxed{W}=9,\\ \\boxed{X}=4,\\ \\boxed{Y}=2$.",
+        "ja": "交点 P：$\\tfrac3x=\\tfrac{a}{x^2}\\Rightarrow 3x=a\\Rightarrow x=\\tfrac a3$，$y=\\tfrac{3}{a/3}=\\tfrac9a$。よって P$=\\left(\\tfrac a3,\\tfrac9a\\right)$，$\\boxed{N}=3,\\ \\boxed{O}=9$。\n$C_2:\\ y=ax^{-2}$ より $y'=-2ax^{-3}$，$x=\\tfrac a3$ で $y'=-2a/(a/3)^3=-54/a^2$。接線は $y-\\tfrac9a=-\\tfrac{54}{a^2}\\left(x-\\tfrac a3\\right)$，すなわち $y=-\\tfrac{54}{a^2}x+\\tfrac{27}{a}$。よって $\\boxed{PQ}=54,\\ \\boxed{RS}=27$。\n$\\ell$ と $C_1$ の交点：$\\tfrac3x=-\\tfrac{54}{a^2}x+\\tfrac{27}{a}\\Rightarrow 18x^2-9ax+a^2=0\\Rightarrow x=\\tfrac{9a\\pm3a}{36}$。よって $x=\\tfrac a6,\\ \\tfrac a3$ となり $p=\\tfrac a6,\\ q=\\tfrac a3$，$\\boxed{T}=6,\\ \\boxed{U}=3$。\n区間 $[p,q]$ では $\\ell$ が $C_1$ より上にあるので $S=\\int_p^q\\!\\left(\\ell-\\tfrac3x\\right)dx$，原始関数は $-\\tfrac{27}{a^2}x^2+\\tfrac{27}{a}x-3\\log|x|$（選択肢③）。よって $\\boxed{V}=③$。\n計算すると，$x=\\tfrac a3$ で $6-3\\log\\tfrac a3$，$x=\\tfrac a6$ で $\\tfrac{15}{4}-3\\log\\tfrac a6$。差をとって $S=\\tfrac94+3\\log\\tfrac12=\\tfrac94-3\\log2$。よって $\\boxed{W}=9,\\ \\boxed{X}=4,\\ \\boxed{Y}=2$。"
+      },
+      "blanks": [
+        { "label": "N", "value": "3" }, { "label": "O", "value": "9" }, { "label": "PQ", "value": "54" }, { "label": "RS", "value": "27" }, { "label": "T", "value": "6" }, { "label": "U", "value": "3" }, { "label": "V", "value": "3" }, { "label": "W", "value": "9" }, { "label": "X", "value": "4" }, { "label": "Y", "value": "2" }
+      ]
+    }
+  ]
+}

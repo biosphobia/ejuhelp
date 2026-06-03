@@ -1,0 +1,194 @@
+{
+  "id": "2017-1-math-c2",
+  "year": 2017,
+  "session": 1,
+  "subject": "math",
+  "course": 2,
+  "title": "2017 EJU Session 1 — Mathematics (Course 2)",
+  "source": "Examination for Japanese University Admission for International Students, 2017 Session 1 (JASSO). Official English question paper; answers re-derived by solving. The official answer-key PDF for the Mathematics table did NOT extract as machine-readable text (the digit grid OCR'd as jumbled column headers only), so every box here is verified by rigorous solving and numerical check, not against a readable key.",
+  "answerFormat": "digit-fill",
+  "answerKeyVerified": false,
+  "note": "The Course 2 exam has four large questions (大問 I-IV). Large questions I and II each contain two independent sub-questions (問1, 問2); these are stored as separate entries, giving six questions. I-Q1 (quadratics) and I-Q2 (probability) are shared verbatim with Course 1. Answer-letters follow the official scheme and reset at the start of each large question. The official answer key for Mathematics was image-only / non-extractable in the supplied source, so answerKeyVerified is false and every value was determined by solving + numerical verification. For II-Q1 the OCR of the printed fraction for OD was garbled; the intermediate OD boxes are reconstructed to a mathematically consistent layout, while the scored results x=3/2, OG=(5/6)OA+(1/6)OB and |OG|=√39/6 are rigorously verified.",
+  "questions": [
+    {
+      "id": "2017-1-math-c2-1-1",
+      "answerRow": 1,
+      "number": "I-Q1",
+      "section": "I",
+      "part": "Q1",
+      "topicId": "quadratic-functions",
+      "topicIds": ["quadratic-functions"],
+      "subtopic": "Parallel translation of a parabola through two points; reflection across a horizontal line; tangency of two parabolas",
+      "patternTags": ["parallel-translation", "two-point-condition", "reflection-across-line", "tangency-discriminant", "intersection-of-parabolas"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "**[I] Q1 — Quadratic functions.**\n\nConsider the quadratic function $y=3x^2-6$.\n\n(1) A parallel translation of the graph of $y=3x^2-6$ passes through the two points $(1,5)$ and $(4,14)$. Its quadratic function is\n$$y=\\boxed{A}\\,x^2-\\boxed{BC}\\,x+\\boxed{DE}.\\qquad\\cdots\\,①$$\nThis graph is the parallel translation of $y=3x^2-6$ by $\\boxed{F}$ in the $x$-direction and by $\\boxed{G}$ in the $y$-direction.\n\n(2) The quadratic function whose graph is symmetric to the graph of $y=3x^2-6$ with respect to the line $y=c$ is\n$$y=-\\boxed{H}\\,x^2+\\boxed{I}\\,c+\\boxed{J}.\\qquad\\cdots\\,②$$\nWhen the graphs of $①$ and $②$ have exactly one common point, $c=\\boxed{K}$, and the common point is $(\\boxed{L},\\boxed{M})$."
+      },
+      "ja": {
+        "prompt": "**[Ⅰ] 問1 — 二次関数**\n\n二次関数 $y=3x^2-6$ を考える。\n\n(1) $y=3x^2-6$ のグラフを平行移動して得られるグラフが2点 $(1,5)$，$(4,14)$ を通るとき，その二次関数は\n$$y=\\boxed{A}\\,x^2-\\boxed{BC}\\,x+\\boxed{DE}.\\qquad\\cdots\\,①$$\nこのグラフは $y=3x^2-6$ のグラフを $x$ 軸方向に $\\boxed{F}$，$y$ 軸方向に $\\boxed{G}$ だけ平行移動したものである。\n\n(2) $y=3x^2-6$ のグラフと直線 $y=c$ に関して対称なグラフをもつ二次関数は\n$$y=-\\boxed{H}\\,x^2+\\boxed{I}\\,c+\\boxed{J}.\\qquad\\cdots\\,②$$\n$①$ と $②$ のグラフがただ1つの共有点をもつとき，$c=\\boxed{K}$ であり，共有点の座標は $(\\boxed{L},\\boxed{M})$ である。"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "$y=3x^2-12x+14$; translation $(+2,+8)$; symmetric curve $y=-3x^2+2c+6$; one common point at $c=1$, point $(1,5)$.  Boxes: A=3, BC=12, DE=14, F=2, G=8, H=3, I=2, J=6, K=1, L=1, M=5.",
+        "ja": "$y=3x^2-12x+14$；平行移動 $(+2,+8)$；対称な曲線 $y=-3x^2+2c+6$；$c=1$ で共有点1つ，点 $(1,5)$。 解答：A=3, BC=12, DE=14, F=2, G=8, H=3, I=2, J=6, K=1, L=1, M=5。"
+      },
+      "explanation": {
+        "en": "(1) A parallel translation keeps the leading coefficient $3$, so $y=3x^2+\\beta x+\\gamma$. Through $(1,5)$: $3+\\beta+\\gamma=5\\Rightarrow\\beta+\\gamma=2$. Through $(4,14)$: $48+4\\beta+\\gamma=14\\Rightarrow4\\beta+\\gamma=-34$. Subtracting, $3\\beta=-36\\Rightarrow\\beta=-12,\\ \\gamma=14$, so $y=3x^2-12x+14=3(x-2)^2+2$. The original $y=3x^2-6$ has vertex $(0,-6)$ and the new vertex is $(2,2)$, giving translation $+2$ in $x$ and $2-(-6)=8$ in $y$.\n(2) Reflecting a graph across the horizontal line $y=c$ sends $(x,y)\\mapsto(x,2c-y)$. From $2c-y=3x^2-6$ we get $y=-3x^2+2c+6$.\nSetting $①=②$: $3x^2-12x+14=-3x^2+2c+6\\Rightarrow6x^2-12x+8-2c=0\\Rightarrow3x^2-6x+(4-c)=0$. One common point means discriminant $=0$: $36-12(4-c)=0\\Rightarrow c=1$. Then $3x^2-6x+3=0\\Rightarrow x=1$, and $y=3-12+14=5$, so the point is $(1,5)$.",
+        "ja": "(1) 平行移動では二次の係数 $3$ は不変なので $y=3x^2+\\beta x+\\gamma$。$(1,5)$ より $\\beta+\\gamma=2$，$(4,14)$ より $4\\beta+\\gamma=-34$。差をとり $\\beta=-12,\\ \\gamma=14$，よって $y=3x^2-12x+14=3(x-2)^2+2$。元の頂点 $(0,-6)$，新頂点 $(2,2)$ より $x$ 方向 $+2$，$y$ 方向 $8$。\n(2) 直線 $y=c$ に関する対称移動は $(x,y)\\mapsto(x,2c-y)$。$2c-y=3x^2-6$ より $y=-3x^2+2c+6$。\n$①=②$：$3x^2-12x+14=-3x^2+2c+6\\Rightarrow3x^2-6x+(4-c)=0$。共有点が1つ ⟺ 判別式 $=0$：$36-12(4-c)=0\\Rightarrow c=1$。このとき $x=1,\\ y=5$ で共有点 $(1,5)$。"
+      },
+      "blanks": [
+        { "label": "A", "value": "3" }, { "label": "BC", "value": "12" }, { "label": "DE", "value": "14" }, { "label": "F", "value": "2" }, { "label": "G", "value": "8" }, { "label": "H", "value": "3" }, { "label": "I", "value": "2" }, { "label": "J", "value": "6" }, { "label": "K", "value": "1" }, { "label": "L", "value": "1" }, { "label": "M", "value": "5" }
+      ]
+    },
+    {
+      "id": "2017-1-math-c2-1-2",
+      "answerRow": 2,
+      "number": "I-Q2",
+      "section": "I",
+      "part": "Q2",
+      "topicId": "counting-probability",
+      "topicIds": ["counting-probability"],
+      "subtopic": "Colored cards: ordered placements, same/different-color counts, draw-without-replacement probabilities",
+      "patternTags": ["ordered-counting", "combinations", "same-color-probability", "conditional-without-replacement", "case-split"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "**[I] Q2 — Counting and probability.**\n\nWe have four white cards, three red cards and three black cards. A different number is written on each of the ten cards.\n\n(1) Choose two of the ten cards and put one in box A and one in box B. There are $\\boxed{NO}$ ways of doing this.\n\n(2) There are $\\boxed{PQ}$ ways of choosing two cards of the same color, and $\\boxed{RS}$ ways of choosing two cards of different colors.\n\nNext, put the ten cards in a box, take out one card, and without returning it take out a second card.\n\n(3) The probability that the two cards taken out have the same color is $\\dfrac{\\boxed{T}}{\\boxed{UV}}$.\n\n(4) The probability that the colour of the first card is white or red, and the colour of the second card is red or black, is $\\dfrac{\\boxed{WX}}{\\boxed{YZ}}$."
+      },
+      "ja": {
+        "prompt": "**[Ⅰ] 問2 — 場合の数と確率**\n\n白いカードが4枚，赤いカードが3枚，黒いカードが3枚ある。10枚のカードにはそれぞれ異なる数が1つずつ書かれている。\n\n(1) 10枚から2枚を選び，1枚を箱A，もう1枚を箱Bに入れる。その入れ方は $\\boxed{NO}$ 通りある。\n\n(2) 同じ色のカードを2枚選ぶ方法は $\\boxed{PQ}$ 通り，異なる色のカードを2枚選ぶ方法は $\\boxed{RS}$ 通りある。\n\n次に，10枚を箱に入れ，1枚取り出し，それを戻さずにもう1枚取り出す。\n\n(3) 取り出した2枚が同じ色である確率は $\\dfrac{\\boxed{T}}{\\boxed{UV}}$ である。\n\n(4) 1枚目の色が白または赤で，2枚目の色が赤または黒である確率は $\\dfrac{\\boxed{WX}}{\\boxed{YZ}}$ である。"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "placements $=90$; same-color $=12$, different-color $=33$; P(same color) $=\\tfrac{4}{15}$; P(1st W/R, 2nd R/B) $=\\tfrac{13}{30}$.  Boxes: NO=90, PQ=12, RS=33, T=4, UV=15, WX=13, YZ=30.",
+        "ja": "入れ方 $90$ 通り；同色 $12$ 通り，異色 $33$ 通り；同色確率 $\\tfrac{4}{15}$；1枚目白赤・2枚目赤黒 $\\tfrac{13}{30}$。 解答：NO=90, PQ=12, RS=33, T=4, UV=15, WX=13, YZ=30。"
+      },
+      "explanation": {
+        "en": "(1) Boxes A,B are distinguished, so it is an ordered choice of 2 from 10: $10\\times9=90$.\n(2) Same colour: $\\binom42+\\binom32+\\binom32=6+3+3=12$. Total pairs $\\binom{10}2=45$, so different colour $=45-12=33$.\n(3) Drawing two without replacement, P(same colour) $=\\dfrac{12}{45}=\\dfrac{4}{15}$ (the 12 same-colour pairs out of 45 equally likely pairs).\n(4) Count ordered favourable outcomes over $10\\times9=90$. First white (4 ways): the second must be red or black ($3+3=6$): $4\\times6=24$. First red (3 ways): after removing one red, red/black remaining $=2+3=5$: $3\\times5=15$. Favourable $=24+15=39$, so probability $=\\dfrac{39}{90}=\\dfrac{13}{30}$.",
+        "ja": "(1) 箱A・Bは区別されるので10枚から2枚の順列：$10\\times9=90$。\n(2) 同色：$\\binom42+\\binom32+\\binom32=6+3+3=12$。全2枚 $\\binom{10}2=45$ より異色 $=45-12=33$。\n(3) 戻さず2枚取るとき同色確率 $=\\dfrac{12}{45}=\\dfrac{4}{15}$。\n(4) 順序つきで分母 $10\\times9=90$。1枚目白（4通り）→ 2枚目は赤か黒（$3+3=6$）で $4\\times6=24$。1枚目赤（3通り）→ 赤を1枚除いて赤か黒は $2+3=5$ で $3\\times5=15$。有利 $=24+15=39$，確率 $=\\dfrac{39}{90}=\\dfrac{13}{30}$。"
+      },
+      "blanks": [
+        { "label": "NO", "value": "90" }, { "label": "PQ", "value": "12" }, { "label": "RS", "value": "33" }, { "label": "T", "value": "4" }, { "label": "UV", "value": "15" }, { "label": "WX", "value": "13" }, { "label": "YZ", "value": "30" }
+      ]
+    },
+    {
+      "id": "2017-1-math-c2-2-1",
+      "answerRow": 3,
+      "number": "II-Q1",
+      "section": "II",
+      "part": "Q1",
+      "topicId": "vectors",
+      "topicIds": ["vectors", "vector-figures", "dot-product"],
+      "subtopic": "Centroid on a segment condition; position vector of an intersection; length via dot product",
+      "patternTags": ["position-vectors", "intersection-of-segments", "centroid", "point-on-segment-condition", "length-from-dot-product"],
+      "hasFigure": true,
+      "en": {
+        "prompt": "**[II] Q1 — Vectors.**\n\nTriangles $OAB$ and $OAC$ share the side $OA$. They satisfy: (i) $\\overrightarrow{OC}=x\\,\\overrightarrow{OA}+\\dfrac12\\overrightarrow{OB}$; (ii) the centroid $G$ of triangle $OAC$ lies on the segment $AB$. We find $x$ and express $\\overrightarrow{OG}$ in terms of $\\overrightarrow{OA},\\overrightarrow{OB}$.\n\nLet $D$ be the intersection of segment $OC$ and segment $AB$. Then\n$$\\overrightarrow{OD}=\\dfrac{\\boxed{A}x}{\\boxed{B}x+\\boxed{C}}\\,\\overrightarrow{OA}+\\dfrac{1}{\\boxed{B}x+\\boxed{C}}\\,\\overrightarrow{OB}.$$\nUsing condition (ii) (the centroid $G$ lies on $AB$), we obtain $x=\\dfrac{\\boxed{D}}{\\boxed{E}}$.\n\nHence\n$$\\overrightarrow{OG}=\\dfrac{\\boxed{F}}{\\boxed{G}}\\,\\overrightarrow{OA}+\\dfrac{\\boxed{H}}{\\boxed{I}}\\,\\overrightarrow{OB}.$$\nIn particular, when $OA=1$, $OB=2$ and $\\angle AOB=60^\\circ$, we have $OG=\\dfrac{\\sqrt{\\boxed{JK}}}{\\boxed{L}}$."
+      },
+      "ja": {
+        "prompt": "**[Ⅱ] 問1 — ベクトル**\n\n三角形 $OAB$ と三角形 $OAC$ は辺 $OA$ を共有し，次を満たす。(i) $\\overrightarrow{OC}=x\\,\\overrightarrow{OA}+\\dfrac12\\overrightarrow{OB}$；(ii) 三角形 $OAC$ の重心 $G$ は線分 $AB$ 上にある。$x$ の値を求め，$\\overrightarrow{OG}$ を $\\overrightarrow{OA},\\overrightarrow{OB}$ で表す。\n\n線分 $OC$ と線分 $AB$ の交点を $D$ とすると\n$$\\overrightarrow{OD}=\\dfrac{\\boxed{A}x}{\\boxed{B}x+\\boxed{C}}\\,\\overrightarrow{OA}+\\dfrac{1}{\\boxed{B}x+\\boxed{C}}\\,\\overrightarrow{OB}.$$\n条件 (ii)（重心 $G$ が $AB$ 上）より $x=\\dfrac{\\boxed{D}}{\\boxed{E}}$ を得る。\n\nよって\n$$\\overrightarrow{OG}=\\dfrac{\\boxed{F}}{\\boxed{G}}\\,\\overrightarrow{OA}+\\dfrac{\\boxed{H}}{\\boxed{I}}\\,\\overrightarrow{OB}.$$\nとくに $OA=1$，$OB=2$，$\\angle AOB=60^\\circ$ のとき $OG=\\dfrac{\\sqrt{\\boxed{JK}}}{\\boxed{L}}$ である。"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "$\\overrightarrow{OD}=\\dfrac{2x}{2x+1}\\overrightarrow{OA}+\\dfrac{1}{2x+1}\\overrightarrow{OB}$; $x=\\tfrac32$; $\\overrightarrow{OG}=\\tfrac56\\overrightarrow{OA}+\\tfrac16\\overrightarrow{OB}$; $OG=\\dfrac{\\sqrt{39}}6$.  Boxes: A=2, B=2, C=1, D=3, E=2, F=5, G=6, H=1, I=6, JK=39, L=6.",
+        "ja": "$\\overrightarrow{OD}=\\dfrac{2x}{2x+1}\\overrightarrow{OA}+\\dfrac{1}{2x+1}\\overrightarrow{OB}$；$x=\\tfrac32$；$\\overrightarrow{OG}=\\tfrac56\\overrightarrow{OA}+\\tfrac16\\overrightarrow{OB}$；$OG=\\dfrac{\\sqrt{39}}6$。 解答：A=2, B=2, C=1, D=3, E=2, F=5, G=6, H=1, I=6, JK=39, L=6。"
+      },
+      "explanation": {
+        "en": "Write $\\vec a=\\overrightarrow{OA},\\ \\vec b=\\overrightarrow{OB}$, so $\\overrightarrow{OC}=x\\vec a+\\tfrac12\\vec b$.\nFor $D=OC\\cap AB$: points of $OC$ are $t\\,\\overrightarrow{OC}=tx\\vec a+\\tfrac t2\\vec b$; points of $AB$ have coefficients summing to $1$. So $tx+\\tfrac t2=1\\Rightarrow t=\\dfrac{2}{2x+1}$, giving $\\overrightarrow{OD}=\\dfrac{2x}{2x+1}\\vec a+\\dfrac{1}{2x+1}\\vec b$.\nThe centroid of $OAC$ is $\\overrightarrow{OG}=\\tfrac13(\\vec0+\\vec a+\\overrightarrow{OC})=\\dfrac{1+x}{3}\\vec a+\\dfrac16\\vec b$. Since $G$ lies on $AB$, the coefficients sum to $1$: $\\dfrac{1+x}{3}+\\dfrac16=1\\Rightarrow2(1+x)+1=6\\Rightarrow x=\\dfrac32$.\nThen $\\overrightarrow{OG}=\\dfrac{1+\\frac32}{3}\\vec a+\\dfrac16\\vec b=\\dfrac56\\vec a+\\dfrac16\\vec b$ (coefficients $\\tfrac56+\\tfrac16=1$, confirming $G\\in AB$).\nWith $|\\vec a|=1,\\ |\\vec b|=2,\\ \\vec a\\cdot\\vec b=1\\cdot2\\cos60^\\circ=1$: $|OG|^2=\\tfrac{25}{36}(1)+2\\cdot\\tfrac56\\cdot\\tfrac16(1)+\\tfrac1{36}(4)=\\dfrac{25+10+4}{36}=\\dfrac{39}{36}=\\dfrac{13}{12}$, so $OG=\\sqrt{\\tfrac{13}{12}}=\\dfrac{\\sqrt{39}}6$.",
+        "ja": "$\\vec a=\\overrightarrow{OA},\\ \\vec b=\\overrightarrow{OB}$ とおくと $\\overrightarrow{OC}=x\\vec a+\\tfrac12\\vec b$。\n$D=OC\\cap AB$：$OC$ 上の点は $t\\,\\overrightarrow{OC}=tx\\vec a+\\tfrac t2\\vec b$，$AB$ 上では係数の和が $1$ なので $tx+\\tfrac t2=1\\Rightarrow t=\\dfrac{2}{2x+1}$。よって $\\overrightarrow{OD}=\\dfrac{2x}{2x+1}\\vec a+\\dfrac{1}{2x+1}\\vec b$。\n$OAC$ の重心は $\\overrightarrow{OG}=\\tfrac13(\\vec a+\\overrightarrow{OC})=\\dfrac{1+x}{3}\\vec a+\\dfrac16\\vec b$。$G$ が $AB$ 上 ⟺ 係数の和 $=1$：$\\dfrac{1+x}{3}+\\dfrac16=1\\Rightarrow x=\\dfrac32$。\nゆえに $\\overrightarrow{OG}=\\dfrac56\\vec a+\\dfrac16\\vec b$（$\\tfrac56+\\tfrac16=1$ で $G\\in AB$）。\n$|\\vec a|=1,\\ |\\vec b|=2,\\ \\vec a\\cdot\\vec b=1$ より $|OG|^2=\\dfrac{25+10+4}{36}=\\dfrac{13}{12}$，$OG=\\dfrac{\\sqrt{39}}6$。"
+      },
+      "blanks": [
+        { "label": "A", "value": "2" }, { "label": "B", "value": "2" }, { "label": "C", "value": "1" }, { "label": "D", "value": "3" }, { "label": "E", "value": "2" }, { "label": "F", "value": "5" }, { "label": "G", "value": "6" }, { "label": "H", "value": "1" }, { "label": "I", "value": "6" }, { "label": "JK", "value": "39" }, { "label": "L", "value": "6" }
+      ]
+    },
+    {
+      "id": "2017-1-math-c2-2-2",
+      "answerRow": 4,
+      "number": "II-Q2",
+      "section": "II",
+      "part": "Q2",
+      "topicId": "complex-plane",
+      "topicIds": ["complex-plane", "complex-plane-polar", "complex-figures"],
+      "subtopic": "Points 1+z and 1-z/2 on the complex plane: triangle area, maximization, isosceles condition, arguments",
+      "patternTags": ["polar-form", "triangle-area-imaginary-part", "maximize-area", "isosceles-condition", "modulus-and-argument"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "**[II] Q2 — Complex plane.** *(For $\\boxed{N}$ choose the correct expression from the list $⓪$–$⑧$ below.)*\n\nLet $z$ be a complex number with $|z|=2$. In the complex plane with origin $O$, let $A$ and $B$ represent $1+z$ and $1-\\dfrac12 z$ respectively. Write $z=\\boxed{M}(\\cos\\theta+i\\sin\\theta)$ with $-\\pi\\le\\theta<\\pi$.\n\n(1) If $z$ is not real, the area $S$ of triangle $OAB$ is $S=\\boxed{N}$. Hence $S$ is maximized when $\\theta=\\pm\\dfrac{\\boxed{O}}{\\boxed{P}}\\pi$.\n\n(2) When triangle $OAB$ is isosceles with $OA=OB$, we have $|1+z|=\\left|1-\\dfrac12 z\\right|=\\sqrt{\\boxed{Q}}$ and\n$$\\arg(1+z)=\\pm\\dfrac{\\boxed{R}}{\\boxed{S}}\\pi,\\qquad \\arg\\!\\left(1-\\dfrac12 z\\right)=\\mp\\dfrac{\\boxed{T}}{\\boxed{U}}\\pi,$$\nwhere the right-hand sides take opposite signs, and $-\\pi\\le\\arg(1+z)<\\pi$, $-\\pi\\le\\arg\\!\\left(1-\\dfrac12 z\\right)<\\pi$.\n\nChoices for $\\boxed{N}$: $⓪\\ \\tfrac12\\sin\\!\\big(\\theta+\\tfrac13\\pi\\big)\\quad ①\\ \\tfrac12|\\sin\\theta|\\quad ②\\ \\tfrac12\\sin\\!\\big(\\theta-\\tfrac13\\pi\\big)\\quad ③\\ \\sin\\!\\big(\\theta+\\tfrac13\\pi\\big)\\quad ④\\ |\\sin\\theta|\\quad ⑤\\ \\sin\\!\\big(\\theta-\\tfrac13\\pi\\big)\\quad ⑥\\ \\tfrac32\\sin\\!\\big(\\theta+\\tfrac13\\pi\\big)\\quad ⑦\\ \\tfrac32|\\sin\\theta|\\quad ⑧\\ \\tfrac32\\sin\\!\\big(\\theta-\\tfrac13\\pi\\big)$"
+      },
+      "ja": {
+        "prompt": "**[Ⅱ] 問2 — 複素数平面** *（$\\boxed{N}$ は下の選択肢 $⓪$〜$⑧$ から選べ。）*\n\n$|z|=2$ を満たす複素数 $z$ をとる。原点 $O$ をもつ複素数平面上で，$A$ は $1+z$，$B$ は $1-\\dfrac12 z$ を表すとする。$z=\\boxed{M}(\\cos\\theta+i\\sin\\theta)$（$-\\pi\\le\\theta<\\pi$）と表せる。\n\n(1) $z$ が実数でないとき，三角形 $OAB$ の面積 $S$ は $S=\\boxed{N}$。よって $\\theta=\\pm\\dfrac{\\boxed{O}}{\\boxed{P}}\\pi$ のとき $S$ は最大となる。\n\n(2) 三角形 $OAB$ が $OA=OB$ の二等辺三角形のとき，$|1+z|=\\left|1-\\dfrac12 z\\right|=\\sqrt{\\boxed{Q}}$ であり，\n$$\\arg(1+z)=\\pm\\dfrac{\\boxed{R}}{\\boxed{S}}\\pi,\\qquad \\arg\\!\\left(1-\\dfrac12 z\\right)=\\mp\\dfrac{\\boxed{T}}{\\boxed{U}}\\pi.$$\nここで右辺は互いに反対の符号をとり，$-\\pi\\le\\arg(1+z)<\\pi$，$-\\pi\\le\\arg\\!\\left(1-\\dfrac12 z\\right)<\\pi$ とする。\n\n$\\boxed{N}$ の選択肢：$⓪\\ \\tfrac12\\sin\\!\\big(\\theta+\\tfrac13\\pi\\big)\\quad ①\\ \\tfrac12|\\sin\\theta|\\quad ②\\ \\tfrac12\\sin\\!\\big(\\theta-\\tfrac13\\pi\\big)\\quad ③\\ \\sin\\!\\big(\\theta+\\tfrac13\\pi\\big)\\quad ④\\ |\\sin\\theta|\\quad ⑤\\ \\sin\\!\\big(\\theta-\\tfrac13\\pi\\big)\\quad ⑥\\ \\tfrac32\\sin\\!\\big(\\theta+\\tfrac13\\pi\\big)\\quad ⑦\\ \\tfrac32|\\sin\\theta|\\quad ⑧\\ \\tfrac32\\sin\\!\\big(\\theta-\\tfrac13\\pi\\big)$"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "$z=2(\\cos\\theta+i\\sin\\theta)$; $S=\\tfrac32|\\sin\\theta|$ (choice ⑦), maximized at $\\theta=\\pm\\tfrac12\\pi$; isosceles when $\\cos\\theta=-\\tfrac12$, giving $|1+z|=|1-\\tfrac12 z|=\\sqrt3$, $\\arg(1+z)=\\pm\\tfrac12\\pi$, $\\arg(1-\\tfrac12 z)=\\mp\\tfrac16\\pi$.  Boxes: M=2, N=7, O=1, P=2, Q=3, R=1, S=2, T=1, U=6.",
+        "ja": "$z=2(\\cos\\theta+i\\sin\\theta)$；$S=\\tfrac32|\\sin\\theta|$（選択肢⑦），$\\theta=\\pm\\tfrac12\\pi$ で最大；二等辺は $\\cos\\theta=-\\tfrac12$ のとき，$|1+z|=|1-\\tfrac12 z|=\\sqrt3$，$\\arg(1+z)=\\pm\\tfrac12\\pi$，$\\arg(1-\\tfrac12 z)=\\mp\\tfrac16\\pi$。 解答：M=2, N=7, O=1, P=2, Q=3, R=1, S=2, T=1, U=6。"
+      },
+      "explanation": {
+        "en": "$|z|=2$ gives $z=2(\\cos\\theta+i\\sin\\theta)$, so $\\boxed{M}=2$ and $\\tfrac12 z=e^{i\\theta}$.\n(1) With $\\overrightarrow{OA}=1+z,\\ \\overrightarrow{OB}=1-\\tfrac12 z$, the area is $S=\\tfrac12\\big|\\operatorname{Im}\\big(\\overline{(1+z)}(1-\\tfrac12 z)\\big)\\big|$. Now $\\overline{(1+z)}(1-\\tfrac12 z)=(1+2e^{-i\\theta})(1-e^{i\\theta})=-1-e^{i\\theta}+2e^{-i\\theta}$, whose imaginary part is $-\\sin\\theta-2\\sin\\theta=-3\\sin\\theta$. Hence $S=\\tfrac12|{-3\\sin\\theta}|=\\tfrac32|\\sin\\theta|$ (choice ⑦), maximal when $|\\sin\\theta|=1$, i.e. $\\theta=\\pm\\tfrac\\pi2$.\n(2) $OA=OB$: $|1+z|^2=|1-\\tfrac12 z|^2$. With $z=2e^{i\\theta}$, $|1+z|^2=5+4\\cos\\theta$ and $|1-\\tfrac12 z|^2=2-2\\cos\\theta$. Equating: $5+4\\cos\\theta=2-2\\cos\\theta\\Rightarrow\\cos\\theta=-\\tfrac12$, so the common value is $2-2(-\\tfrac12)=3$, i.e. $\\sqrt3$. Taking $\\theta=\\tfrac{2\\pi}3$ gives $z=-1+i\\sqrt3$, so $1+z=i\\sqrt3$ with $\\arg=\\tfrac\\pi2$, and $1-\\tfrac12 z=\\tfrac32-i\\tfrac{\\sqrt3}2$ with $\\arg=-\\tfrac\\pi6$ (opposite signs). The case $\\theta=-\\tfrac{2\\pi}3$ flips both signs.",
+        "ja": "$|z|=2$ より $z=2(\\cos\\theta+i\\sin\\theta)$，$\\boxed{M}=2$，$\\tfrac12 z=e^{i\\theta}$。\n(1) $\\overrightarrow{OA}=1+z,\\ \\overrightarrow{OB}=1-\\tfrac12 z$ で $S=\\tfrac12\\big|\\operatorname{Im}\\big(\\overline{(1+z)}(1-\\tfrac12 z)\\big)\\big|$。$\\overline{(1+z)}(1-\\tfrac12 z)=-1-e^{i\\theta}+2e^{-i\\theta}$ の虚部は $-3\\sin\\theta$。よって $S=\\tfrac32|\\sin\\theta|$（選択肢⑦），$\\theta=\\pm\\tfrac\\pi2$ で最大。\n(2) $OA=OB$：$|1+z|^2=|1-\\tfrac12 z|^2$，すなわち $5+4\\cos\\theta=2-2\\cos\\theta\\Rightarrow\\cos\\theta=-\\tfrac12$，共通値は $\\sqrt3$。$\\theta=\\tfrac{2\\pi}3$ なら $z=-1+i\\sqrt3$ で $1+z=i\\sqrt3$（$\\arg=\\tfrac\\pi2$），$1-\\tfrac12 z=\\tfrac32-i\\tfrac{\\sqrt3}2$（$\\arg=-\\tfrac\\pi6$）。$\\theta=-\\tfrac{2\\pi}3$ なら両符号が反転。"
+      },
+      "blanks": [
+        { "label": "M", "value": "2" }, { "label": "N", "value": "7" }, { "label": "O", "value": "1" }, { "label": "P", "value": "2" }, { "label": "Q", "value": "3" }, { "label": "R", "value": "1" }, { "label": "S", "value": "2" }, { "label": "T", "value": "1" }, { "label": "U", "value": "6" }
+      ]
+    },
+    {
+      "id": "2017-1-math-c2-3",
+      "answerRow": 5,
+      "number": "III",
+      "section": "III",
+      "part": null,
+      "topicId": "exp-log",
+      "topicIds": ["exp-log", "common-logarithms", "derivatives"],
+      "subtopic": "Minimizing 2^{x^2}/5^{3x} by logarithmic differentiation; common-log inequality for y>1000",
+      "patternTags": ["logarithmic-differentiation", "common-logarithm", "minimum-value", "exponential-inequality", "smallest-integer"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "Consider the function $y=\\dfrac{2^{x^2}}{5^{3x}}$, where $x\\ge0$.\n\n(1) We find the $x$ at which $y$ is minimized. Differentiating,\n$$\\frac{dy}{dx}=\\frac{2^{x^2}}{5^{3x}}\\big(2x\\log_e\\boxed{A}-\\boxed{B}\\log_e\\boxed{C}\\big).$$\nHence, expressing the minimizing $x$ with the common logarithm,\n$$x=\\frac{\\boxed{D}\\big(1-\\log_{10}\\boxed{E}\\big)}{\\boxed{F}\\log_{10}\\boxed{G}}.$$\n\n(2) We find the smallest positive integer $x$ satisfying $\\dfrac{2^{x^2}}{5^{3x}}>1000$. From $y>1000$,\n$$x^{\\boxed{H}}\\log_{10}\\boxed{I}-\\boxed{J}x\\log_{10}\\boxed{K}-\\boxed{L}>0.\\qquad\\cdots\\,①$$\nSolving $①$ using $0.3$ as an approximation for $\\log_{10}2=0.301\\cdots$, we get\n$$x>\\frac{\\boxed{M}+\\sqrt{\\boxed{NO}}}{\\boxed{P}}.$$\nHence the smallest positive integer $x$ with $y>1000$ is $\\boxed{Q}$."
+      },
+      "ja": {
+        "prompt": "関数 $y=\\dfrac{2^{x^2}}{5^{3x}}$（$x\\ge0$）を考える。\n\n(1) $y$ が最小となる $x$ を求める。微分すると\n$$\\frac{dy}{dx}=\\frac{2^{x^2}}{5^{3x}}\\big(2x\\log_e\\boxed{A}-\\boxed{B}\\log_e\\boxed{C}\\big).$$\nよって最小を与える $x$ を常用対数で表すと\n$$x=\\frac{\\boxed{D}\\big(1-\\log_{10}\\boxed{E}\\big)}{\\boxed{F}\\log_{10}\\boxed{G}}.$$\n\n(2) $\\dfrac{2^{x^2}}{5^{3x}}>1000$ を満たす最小の正の整数 $x$ を求める。$y>1000$ より\n$$x^{\\boxed{H}}\\log_{10}\\boxed{I}-\\boxed{J}x\\log_{10}\\boxed{K}-\\boxed{L}>0.\\qquad\\cdots\\,①$$\n$\\log_{10}2=0.301\\cdots$ の近似値として $0.3$ を用いて $①$ を解くと\n$$x>\\frac{\\boxed{M}+\\sqrt{\\boxed{NO}}}{\\boxed{P}}.$$\nよって $y>1000$ を満たす最小の正の整数 $x$ は $\\boxed{Q}$ である。"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "$y'=\\dfrac{2^{x^2}}{5^{3x}}(2x\\log_e2-3\\log_e5)$; min at $x=\\dfrac{3(1-\\log_{10}2)}{2\\log_{10}2}$; inequality $x^2\\log_{10}2-3x\\log_{10}5-3>0$; with $\\log_{10}2=0.3$: $x>\\dfrac{7+\\sqrt{89}}2\\approx8.22$, smallest integer $9$.  Boxes: A=2, B=3, C=5, D=3, E=2, F=2, G=2, H=2, I=2, J=3, K=5, L=3, M=7, NO=89, P=2, Q=9.",
+        "ja": "$y'=\\dfrac{2^{x^2}}{5^{3x}}(2x\\log_e2-3\\log_e5)$；最小は $x=\\dfrac{3(1-\\log_{10}2)}{2\\log_{10}2}$；不等式 $x^2\\log_{10}2-3x\\log_{10}5-3>0$；$\\log_{10}2=0.3$ で $x>\\dfrac{7+\\sqrt{89}}2\\approx8.22$，最小整数 $9$。 解答：A=2, B=3, C=5, D=3, E=2, F=2, G=2, H=2, I=2, J=3, K=5, L=3, M=7, NO=89, P=2, Q=9。"
+      },
+      "explanation": {
+        "en": "Take natural logs: $\\ln y=x^2\\ln2-3x\\ln5$, so $\\dfrac{y'}{y}=2x\\ln2-3\\ln5$ and $y'=\\dfrac{2^{x^2}}{5^{3x}}(2x\\log_e2-3\\log_e5)$ (so $\\boxed{A}=2,\\boxed{B}=3,\\boxed{C}=5$). Since the factor $\\dfrac{2^{x^2}}{5^{3x}}>0$ and $2x\\ln2-3\\ln5$ is increasing, $y$ is minimized where $2x\\ln2=3\\ln5$, i.e. $x=\\dfrac{3\\ln5}{2\\ln2}=\\dfrac{3\\log_{10}5}{2\\log_{10}2}=\\dfrac{3(1-\\log_{10}2)}{2\\log_{10}2}$ (using $\\log_{10}5=1-\\log_{10}2$).\n(2) $y>1000=10^3\\Rightarrow x^2\\log_{10}2-3x\\log_{10}5-3>0$. With $\\log_{10}2=0.3,\\ \\log_{10}5=0.7$: $0.3x^2-2.1x-3>0$, i.e. $x^2-7x-10>0$. Its positive root is $\\dfrac{7+\\sqrt{49+40}}2=\\dfrac{7+\\sqrt{89}}2\\approx8.22$, so $x>\\dfrac{7+\\sqrt{89}}2$. The smallest integer satisfying this is $x=9$ (check: at $x=9$, $0.3\\cdot81-2.1\\cdot9-3=2.4>0$; at $x=8$, $-0.6<0$).",
+        "ja": "自然対数をとると $\\ln y=x^2\\ln2-3x\\ln5$，$\\dfrac{y'}{y}=2x\\ln2-3\\ln5$ より $y'=\\dfrac{2^{x^2}}{5^{3x}}(2x\\log_e2-3\\log_e5)$（$\\boxed{A}=2,\\boxed{B}=3,\\boxed{C}=5$）。係数 $\\dfrac{2^{x^2}}{5^{3x}}>0$ かつ $2x\\ln2-3\\ln5$ は増加なので，最小は $2x\\ln2=3\\ln5$，すなわち $x=\\dfrac{3\\log_{10}5}{2\\log_{10}2}=\\dfrac{3(1-\\log_{10}2)}{2\\log_{10}2}$。\n(2) $y>10^3\\Rightarrow x^2\\log_{10}2-3x\\log_{10}5-3>0$。$\\log_{10}2=0.3,\\ \\log_{10}5=0.7$ で $0.3x^2-2.1x-3>0$，すなわち $x^2-7x-10>0$。正の解は $\\dfrac{7+\\sqrt{89}}2\\approx8.22$ なので $x>\\dfrac{7+\\sqrt{89}}2$。これを満たす最小の整数は $x=9$（$x=9$ で $2.4>0$，$x=8$ で $-0.6<0$）。"
+      },
+      "blanks": [
+        { "label": "A", "value": "2" }, { "label": "B", "value": "3" }, { "label": "C", "value": "5" }, { "label": "D", "value": "3" }, { "label": "E", "value": "2" }, { "label": "F", "value": "2" }, { "label": "G", "value": "2" }, { "label": "H", "value": "2" }, { "label": "I", "value": "2" }, { "label": "J", "value": "3" }, { "label": "K", "value": "5" }, { "label": "L", "value": "3" }, { "label": "M", "value": "7" }, { "label": "NO", "value": "89" }, { "label": "P", "value": "2" }, { "label": "Q", "value": "9" }
+      ]
+    },
+    {
+      "id": "2017-1-math-c2-4",
+      "answerRow": 6,
+      "number": "IV",
+      "section": "IV",
+      "part": null,
+      "topicId": "integration",
+      "topicIds": ["integration", "integral-applications", "derivatives"],
+      "subtopic": "Tangent from the origin to y=x sin^2 x; antiderivative by parts; area between curve and tangent",
+      "patternTags": ["tangent-through-origin", "integration-by-parts", "double-angle-identity", "area-between-curve-and-line"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "**[IV] Integration.** *(For $\\boxed{A},\\boxed{B},\\boxed{C},\\boxed{D}$ in (1) and $\\boxed{E},\\boxed{F},\\boxed{G}$ in (2), choose the correct answer from the lists below.)*\n\nConsider $f(x)=x\\sin^2 x$ on $0\\le x\\le\\pi$. Let $\\ell$ be the tangent to $y=f(x)$ that passes through the origin, with $\\ell$ not the $x$-axis. We find the area $S$ of the region bounded by $y=f(x)$ and $\\ell$.\n\n(1) Let the point of tangency be $(t,f(t))$. Since $\\ell$ passes through the origin, $\\boxed{A}$. Since $f'(t)=\\boxed{B}+2t\\,\\boxed{C}$, the $x$-coordinate of tangency is $t=\\boxed{D}$.\n\n  Choices: $⓪\\ f(t)=tf'(t)\\quad ①\\ f'(t)=tf(t)\\quad ②\\ \\sin t\\quad ③\\ \\sin^2 t\\quad ④\\ \\cos^2 t\\quad ⑤\\ \\sin t\\cos t\\quad ⑥\\ \\tfrac{\\pi}{2}\\quad ⑦\\ \\tfrac{\\pi}{3}\\quad ⑧\\ \\tfrac{\\pi}{4}\\quad ⑨\\ \\tfrac{\\pi}{6}$\n\n(2) The antiderivative is $\\displaystyle\\int f(x)\\,dx=\\boxed{E}\\big(2x^2-2x\\,\\boxed{F}-\\boxed{G}\\big)+C$.\n\n  Choices: $⓪\\ \\tfrac18\\quad ①\\ \\tfrac14\\quad ②\\ \\tfrac12\\quad ③\\ 2\\quad ④\\ 4\\quad ⑤\\ 8\\quad ⑥\\ \\sin x\\quad ⑦\\ \\cos x\\quad ⑧\\ \\sin 2x\\quad ⑨\\ \\cos 2x$\n\n(3) Hence the area is $S=\\dfrac{\\boxed{H}}{\\boxed{IJ}}\\pi^{\\boxed{K}}-\\dfrac{\\boxed{L}}{\\boxed{M}}$."
+      },
+      "ja": {
+        "prompt": "**[Ⅳ] 積分** *（(1) の $\\boxed{A},\\boxed{B},\\boxed{C},\\boxed{D}$ と (2) の $\\boxed{E},\\boxed{F},\\boxed{G}$ は下の選択肢から選べ。）*\n\n$0\\le x\\le\\pi$ における $f(x)=x\\sin^2 x$ を考える。$y=f(x)$ の接線で原点を通り，$x$ 軸でないものを $\\ell$ とする。$y=f(x)$ と $\\ell$ で囲まれた部分の面積 $S$ を求める。\n\n(1) 接点を $(t,f(t))$ とする。$\\ell$ が原点を通るので $\\boxed{A}$。また $f'(t)=\\boxed{B}+2t\\,\\boxed{C}$ なので，接点の $x$ 座標は $t=\\boxed{D}$。\n\n  選択肢：$⓪\\ f(t)=tf'(t)\\quad ①\\ f'(t)=tf(t)\\quad ②\\ \\sin t\\quad ③\\ \\sin^2 t\\quad ④\\ \\cos^2 t\\quad ⑤\\ \\sin t\\cos t\\quad ⑥\\ \\tfrac{\\pi}{2}\\quad ⑦\\ \\tfrac{\\pi}{3}\\quad ⑧\\ \\tfrac{\\pi}{4}\\quad ⑨\\ \\tfrac{\\pi}{6}$\n\n(2) 不定積分は $\\displaystyle\\int f(x)\\,dx=\\boxed{E}\\big(2x^2-2x\\,\\boxed{F}-\\boxed{G}\\big)+C$。\n\n  選択肢：$⓪\\ \\tfrac18\\quad ①\\ \\tfrac14\\quad ②\\ \\tfrac12\\quad ③\\ 2\\quad ④\\ 4\\quad ⑤\\ 8\\quad ⑥\\ \\sin x\\quad ⑦\\ \\cos x\\quad ⑧\\ \\sin 2x\\quad ⑨\\ \\cos 2x$\n\n(3) よって面積は $S=\\dfrac{\\boxed{H}}{\\boxed{IJ}}\\pi^{\\boxed{K}}-\\dfrac{\\boxed{L}}{\\boxed{M}}$。"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "Origin-tangent condition $f(t)=tf'(t)$ (⓪); $f'(t)=\\sin^2 t+2t\\sin t\\cos t$ (B=③,C=⑤); $t=\\tfrac\\pi2$ (⑥), tangent $y=x$; $\\int f\\,dx=\\tfrac18(2x^2-2x\\sin2x-\\cos2x)+C$ (E=⓪,F=⑧,G=⑨); $S=\\tfrac1{16}\\pi^2-\\tfrac14$.  Boxes: A=0, B=3, C=5, D=6, E=0, F=8, G=9, H=1, IJ=16, K=2, L=1, M=4.",
+        "ja": "原点接線の条件 $f(t)=tf'(t)$（⓪）；$f'(t)=\\sin^2 t+2t\\sin t\\cos t$（B=③,C=⑤）；$t=\\tfrac\\pi2$（⑥），接線 $y=x$；$\\int f\\,dx=\\tfrac18(2x^2-2x\\sin2x-\\cos2x)+C$（E=⓪,F=⑧,G=⑨）；$S=\\tfrac1{16}\\pi^2-\\tfrac14$。 解答：A=0, B=3, C=5, D=6, E=0, F=8, G=9, H=1, IJ=16, K=2, L=1, M=4。"
+      },
+      "explanation": {
+        "en": "(1) The tangent at $(t,f(t))$ is $y=f(t)+f'(t)(x-t)$. Passing through the origin: $0=f(t)-tf'(t)$, i.e. $f(t)=tf'(t)$ (choice ⓪). With $f(x)=x\\sin^2 x$, $f'(x)=\\sin^2 x+x\\cdot2\\sin x\\cos x=\\sin^2 x+2t\\sin t\\cos t$ at $x=t$ (so $\\boxed{B}=\\sin^2 t$ ③, $\\boxed{C}=\\sin t\\cos t$ ⑤). Then $f(t)=tf'(t)$ gives $t\\sin^2 t=t\\sin^2 t+2t^2\\sin t\\cos t\\Rightarrow2t^2\\sin t\\cos t=0$; on $0<t\\le\\pi$ with $\\ell\\ne x$-axis this forces $\\cos t=0$, so $t=\\tfrac\\pi2$ (⑥). There $f(\\tfrac\\pi2)=\\tfrac\\pi2,\\ f'(\\tfrac\\pi2)=1$, so $\\ell:\\ y=x$.\n(2) $f(x)=x\\sin^2 x=\\tfrac x2-\\tfrac{x\\cos2x}2$. Integrating ($\\int x\\cos2x\\,dx=\\tfrac{x\\sin2x}2+\\tfrac{\\cos2x}4$ by parts): $\\int f\\,dx=\\tfrac{x^2}4-\\tfrac{x\\sin2x}4-\\tfrac{\\cos2x}8+C=\\tfrac18(2x^2-2x\\sin2x-\\cos2x)+C$ (E=⓪ $\\tfrac18$, F=⑧ $\\sin2x$, G=⑨ $\\cos2x$).\n(3) Since $x-f(x)=x(1-\\sin^2 x)=x\\cos^2 x\\ge0$, the line $y=x$ is above the curve; they meet at $x=0$ and touch at $x=\\tfrac\\pi2$. So $S=\\int_0^{\\pi/2}(x-x\\sin^2 x)\\,dx=\\int_0^{\\pi/2}x\\cos^2 x\\,dx=\\Big[\\tfrac{x^2}4+\\tfrac{x\\sin2x}4+\\tfrac{\\cos2x}8\\Big]_0^{\\pi/2}=\\big(\\tfrac{\\pi^2}{16}-\\tfrac18\\big)-\\tfrac18=\\tfrac{\\pi^2}{16}-\\tfrac14$.",
+        "ja": "(1) 接点 $(t,f(t))$ での接線は $y=f(t)+f'(t)(x-t)$。原点を通るので $0=f(t)-tf'(t)$，すなわち $f(t)=tf'(t)$（⓪）。$f(x)=x\\sin^2 x$ より $f'(x)=\\sin^2 x+2x\\sin x\\cos x$，$x=t$ で $f'(t)=\\sin^2 t+2t\\sin t\\cos t$（$\\boxed{B}=\\sin^2 t$ ③，$\\boxed{C}=\\sin t\\cos t$ ⑤）。$f(t)=tf'(t)$ より $2t^2\\sin t\\cos t=0$，$0<t\\le\\pi$ かつ $\\ell$ が $x$ 軸でないことから $\\cos t=0$，$t=\\tfrac\\pi2$（⑥）。このとき $f(\\tfrac\\pi2)=\\tfrac\\pi2,\\ f'(\\tfrac\\pi2)=1$ で $\\ell:\\ y=x$。\n(2) $f(x)=\\tfrac x2-\\tfrac{x\\cos2x}2$。部分積分 $\\int x\\cos2x\\,dx=\\tfrac{x\\sin2x}2+\\tfrac{\\cos2x}4$ より $\\int f\\,dx=\\tfrac18(2x^2-2x\\sin2x-\\cos2x)+C$（E=⓪，F=⑧，G=⑨）。\n(3) $x-f(x)=x\\cos^2 x\\ge0$ なので直線 $y=x$ が上で，$x=0$ で交わり $x=\\tfrac\\pi2$ で接する。よって $S=\\int_0^{\\pi/2}x\\cos^2 x\\,dx=\\Big[\\tfrac{x^2}4+\\tfrac{x\\sin2x}4+\\tfrac{\\cos2x}8\\Big]_0^{\\pi/2}=\\tfrac{\\pi^2}{16}-\\tfrac14$。"
+      },
+      "blanks": [
+        { "label": "A", "value": "0" }, { "label": "B", "value": "3" }, { "label": "C", "value": "5" }, { "label": "D", "value": "6" }, { "label": "E", "value": "0" }, { "label": "F", "value": "8" }, { "label": "G", "value": "9" }, { "label": "H", "value": "1" }, { "label": "IJ", "value": "16" }, { "label": "K", "value": "2" }, { "label": "L", "value": "1" }, { "label": "M", "value": "4" }
+      ]
+    }
+  ]
+}
