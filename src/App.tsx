@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 import Whiteboard from './whiteboard/Whiteboard';
 import Toolbar from './ui/Toolbar';
 import PageBar from './ui/PageBar';
-import NotebookBar from './ui/NotebookBar';
 import Launcher from './ui/Launcher';
 import PanelHost from './ui/PanelHost';
 import BoardQuestions from './ui/BoardQuestions';
@@ -27,7 +26,6 @@ export default function App() {
       <div className="pointer-events-none absolute inset-0 z-10">
         <Toolbar />
         <PageBar />
-        <NotebookBar />
         <BoardQuestions />
         <BoardTimer />
         <Launcher />

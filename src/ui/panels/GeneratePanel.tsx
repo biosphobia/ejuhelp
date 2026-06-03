@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import Panel, { SubjectChips } from '../Panel';
 import QuestionCard from '../QuestionCard';
 import { Label, PrimaryButton, ErrorNote, errorMessage } from '../atoms';
-import { fetchTopics, generateQuestions, type Difficulty } from '../../lib/api';
+import { fetchTopics, type Difficulty } from '../../lib/api';
 import { useUI } from '../../lib/ui';
 import { usePractice } from '../../lib/practice';
 import { usePinned } from '../../lib/pinned';
@@ -20,9 +20,12 @@ export default function GeneratePanel() {
   const setWantFocus = usePractice((s) => s.setWantFocus);
   const attempts = useProgress((s) => s.attempts);
 
-  // Saved pool — retained across sets, capped, and synced to the account.
+  // Saved pool — retained across sets, capped, and synced to the account. Generation
+  // state also lives in the store so closing the panel mid-generation can't abort it.
   const questions = useGenerated((s) => s.questions);
-  const addResult = useGenerated((s) => s.addResult);
+  const generate = useGenerated((s) => s.generate);
+  const generating = useGenerated((s) => s.generating);
+  const genError = useGenerated((s) => s.genError);
   const removeQuestion = useGenerated((s) => s.removeQuestion);
   const clearQuestions = useGenerated((s) => s.clearQuestions);
   const selectedMap = useGenerated((s) => s.selected);
@@ -34,8 +37,6 @@ export default function GeneratePanel() {
   const [difficulty, setDifficulty] = useState<Difficulty>('medium');
   const [count, setCount] = useState(3);
   const [focus, setFocus] = useState(false);
-  const [busy, setBusy] = useState(false);
-  const [err, setErr] = useState<string | null>(null);
 
   const subjectAttempts = useMemo(() => attempts.filter((a) => a.subject === subject), [attempts, subject]);
   const hasWeakData = subjectAttempts.length > 0;
@@ -106,32 +107,23 @@ export default function GeneratePanel() {
     if (labels.length) overviewTopics(t(subject), labels);
   };
 
-  const run = async () => {
-    setBusy(true);
-    setErr(null);
-    try {
-      const focusPayload = focus && hasWeakData ? focusFromSummary(summarize(subjectAttempts)) : undefined;
-      const res = await generateQuestions({
-        subject,
-        lang,
-        topics: focusPayload ? undefined : selectedIds.length ? selectedIds : undefined,
-        difficulty,
-        count,
-        focus: focusPayload,
-      });
-      addResult(subject, res.questions);
-    } catch (e) {
-      setErr(errorMessage(e, t));
-    } finally {
-      setBusy(false);
-    }
+  const run = () => {
+    const focusPayload = focus && hasWeakData ? focusFromSummary(summarize(subjectAttempts)) : undefined;
+    void generate({
+      subject,
+      lang,
+      topics: focusPayload ? undefined : selectedIds.length ? selectedIds : undefined,
+      difficulty,
+      count,
+      focus: focusPayload,
+    });
   };
 
   return (
     <Panel
       title={t('generateTitle')}
       footer={
-        <PrimaryButton onClick={() => void run()} busy={busy}>
+        <PrimaryButton onClick={run} busy={generating}>
           {questions.length ? t('newSet') : t('generateBtn')}
         </PrimaryButton>
       }
@@ -269,7 +261,7 @@ export default function GeneratePanel() {
         </span>
       </label>
 
-      {err ? <ErrorNote>{err}</ErrorNote> : null}
+      {genError ? <ErrorNote>{errorMessage(genError, t)}</ErrorNote> : null}
 
       {questions.length ? (
         <div className="mt-4 flex items-center justify-between gap-2">

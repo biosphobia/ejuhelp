@@ -1,6 +1,6 @@
 import { create } from 'zustand';
-import type { GenQuestion } from './api';
-import type { Subject } from './ui';
+import { generateQuestions, type Difficulty, type GenQuestion } from './api';
+import type { Subject, Lang } from './ui';
 
 /** A generated question kept in the saved pool, tagged with its subject. */
 export interface SavedQuestion extends GenQuestion {
@@ -16,7 +16,20 @@ interface GeneratedState {
   questions: SavedQuestion[];
   /** Selected sub-topic / topic ids, per subject. */
   selected: Partial<Record<Subject, string[]>>;
+  /** True while a generation request is in flight (lives in the store so closing
+   *  the panel can't abort it and reopening still shows progress). */
+  generating: boolean;
+  genError: unknown | null;
   rev: number;
+  /** Run a generation request; results are saved even if the panel is closed mid-flight. */
+  generate: (params: {
+    subject: Subject;
+    lang: Lang;
+    topics?: string[];
+    difficulty: Difficulty;
+    count: number;
+    focus?: { topics?: string[]; tags?: string[] };
+  }) => Promise<void>;
   /** Append a freshly generated set, keep the newest MAX_SAVED, cull the rest. */
   addResult: (subject: Subject, qs: GenQuestion[]) => void;
   removeQuestion: (id: string) => void;
@@ -25,10 +38,24 @@ interface GeneratedState {
   load: (data: { questions?: SavedQuestion[]; selected?: Partial<Record<Subject, string[]>> }) => void;
 }
 
-export const useGenerated = create<GeneratedState>((set) => ({
+export const useGenerated = create<GeneratedState>((set, get) => ({
   questions: [],
   selected: {},
+  generating: false,
+  genError: null,
   rev: 0,
+  generate: async (params) => {
+    if (get().generating) return;
+    set({ generating: true, genError: null });
+    try {
+      const res = await generateQuestions(params);
+      get().addResult(params.subject, res.questions);
+    } catch (e) {
+      set({ genError: e });
+    } finally {
+      set({ generating: false });
+    }
+  },
   addResult: (subject, qs) =>
     set((s) => {
       const now = Date.now();

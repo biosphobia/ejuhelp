@@ -1,6 +1,7 @@
 import { useBoard } from '../lib/board';
 import { useT } from '../i18n';
 import { resetView } from '../whiteboard/view';
+import NotebookButton from './NotebookButton';
 import {
   ChevronLeft,
   ChevronRight,
@@ -26,7 +27,11 @@ export default function PageBar() {
   };
 
   return (
-    <div className="pointer-events-auto absolute bottom-4 left-1/2 flex -translate-x-1/2 items-center gap-1 rounded-2xl bg-white/90 p-1.5 shadow-lg ring-1 ring-black/5 backdrop-blur">
+    <div className="pointer-events-auto absolute bottom-4 left-1/2 flex max-w-[96vw] -translate-x-1/2 items-center gap-1 rounded-2xl bg-white/90 p-1.5 shadow-lg ring-1 ring-black/5 backdrop-blur">
+      <NotebookButton />
+
+      <span className="mx-1 h-7 w-px bg-slate-200" />
+
       <button
         type="button"
         title={t('resetView')}
@@ -50,7 +55,7 @@ export default function PageBar() {
         <ChevronLeft />
       </button>
 
-      <div className="min-w-[88px] select-none px-2 text-center text-sm font-medium text-slate-700">
+      <div className="min-w-[64px] select-none px-1.5 text-center text-sm font-medium text-slate-700">
         {t('pageOf', { n: index + 1, total })}
       </div>
 
