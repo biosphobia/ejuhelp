@@ -1,0 +1,276 @@
+{
+  "id": "2011-2-chemistry",
+  "year": 2011,
+  "session": 2,
+  "subject": "chemistry",
+  "title": "EJU 2011 · Session 2 · Chemistry",
+  "source": "平成23年度（2011年度）日本留学試験（第2回）理科〈化学〉 © Japan Student Services Organization (JASSO)",
+  "attribution": "EJU past questions © JASSO. Question text paraphrased from the official past paper; figures described in text; correct answers taken from the official JASSO answer key and independently re-solved for verification.",
+  "languages": ["ja", "en"],
+  "answerKeyVerified": true,
+  "structure": {
+    "format": "flat",
+    "totalQuestions": 20,
+    "note": "Chemistry is a flat list of 20 single-best-answer items (問1–問20, answer rows 1–20) — no Roman-numeral blocks. Order ≈ structure & bonding → states/energetics/electrochemistry/equilibria → inorganic → organic.",
+    "givens": {
+      "ja": "標準状態 $0\\,$°C・$1.0\\times10^5\\,$Pa，気体 $1\\,$mol の体積 $22.4\\,$L，アボガドロ定数 $N_A=6.02\\times10^{23}\\,$/mol，ファラデー定数 $F=9.65\\times10^4\\,$C/mol。原子量：H 1.0, C 12, N 14, O 16, S 32, Cl 35.5, Zn 65。族・周期は周期表の通り。",
+      "en": "STP $0\\,$°C, $1.0\\times10^5\\,$Pa; molar volume $22.4\\,$L; $N_A=6.02\\times10^{23}\\,$/mol; $F=9.65\\times10^4\\,$C/mol. Atomic weights: H 1.0, C 12, N 14, O 16, S 32, Cl 35.5, Zn 65. Groups/periods per the periodic table."
+    }
+  },
+  "questions": [
+    {
+      "id": "2011-2-chem-1", "answerRow": 1, "topicId": "matter-structure",
+      "subtopic": "Two correct statements about atoms and electrons",
+      "patternTags": ["atomic-structure", "nucleus", "atomic-number", "isotopes", "true-false-combo"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "原子や電子に関する記述(a)〜(d)のうち，正しいものの組み合わせを選びなさい。 (a) 原子核は電子・中性子・陽子で構成されている。 (b) 原子核に含まれる陽子の数をその原子の原子番号という。 (c) 電子は負の電荷をもち，その質量は中性子に比べてきわめて小さい。 (d) 原子番号が同じで質量数の異なる原子を互いに同素体という。", "choices": ["a, b", "a, c", "a, d", "b, c", "b, d", "c, d"] },
+      "en": { "prompt": "Which pair of statements about atoms and electrons is correct? (a) The nucleus is made of electrons, neutrons, and protons. (b) The number of protons in the nucleus is the atom's atomic number. (c) Electrons carry a negative charge and have a mass extremely small compared with a neutron. (d) Atoms with the same atomic number but different mass number are allotropes of each other.", "choices": ["a, b", "a, c", "a, d", "b, c", "b, d", "c, d"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "b と c", "en": "b and c" },
+      "explanation": { "en": "(b) True — the proton count is the atomic number. (c) True — electrons are negative and far lighter than a neutron. (a) False — the nucleus contains only protons and neutrons (no electrons). (d) False — same Z, different mass number means ISOTOPES, not allotropes.", "ja": "(b) 正 — 陽子数が原子番号。(c) 正 — 電子は負電荷で中性子よりはるかに軽い。(a) 誤 — 原子核は陽子と中性子だけ（電子は含まない）。(d) 誤 — 同じ Z で質量数が異なるのは同位体で，同素体ではない。" }
+    },
+    {
+      "id": "2011-2-chem-2", "answerRow": 2, "topicId": "matter-structure",
+      "subtopic": "Two polar molecules",
+      "patternTags": ["molecular-shape", "polarity", "compare-cases"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の分子(a)〜(e)の中に，極性分子が二つある。その組み合わせを選びなさい。 (a) アセチレン (b) 塩化水素 HCl (c) 二酸化炭素 (d) メタノール (e) メタン", "choices": ["a, c", "a, e", "b, d", "b, e", "c, d", "d, e"] },
+      "en": { "prompt": "Two of these molecules are polar. Which pair? (a) acetylene (b) hydrogen chloride HCl (c) carbon dioxide (d) methanol (e) methane", "choices": ["a, c", "a, e", "b, d", "b, e", "c, d", "d, e"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "b と d", "en": "b and d" },
+      "explanation": { "en": "HCl (a polar diatomic) and methanol $\\mathrm{CH_3OH}$ (an asymmetric –OH molecule) are polar. Acetylene, $\\mathrm{CO_2}$ (linear) and methane (tetrahedral) are non-polar.", "ja": "HCl（極性二原子分子）とメタノール $\\mathrm{CH_3OH}$（非対称な –OH 分子）は極性。アセチレン，$\\mathrm{CO_2}$（直線），メタン（正四面体）は無極性。" }
+    },
+    {
+      "id": "2011-2-chem-3", "answerRow": 3, "topicId": "matter-structure",
+      "subtopic": "Order similar-MW compounds by boiling point",
+      "patternTags": ["intermolecular-forces", "boiling-point", "hydrogen-bonding", "ordering"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "分子量がほぼ等しい化合物(a)〜(c)を，沸点の低いものから順に並べたものを選びなさい。 (a) エタン (b) ホルムアルデヒド (c) メタノール", "choices": ["a < b < c", "a < c < b", "b < a < c", "b < c < a", "c < a < b", "c < b < a"] },
+      "en": { "prompt": "Order these compounds (similar molecular weight) from lowest to highest boiling point. (a) ethane (b) formaldehyde (c) methanol", "choices": ["a < b < c", "a < c < b", "b < a < c", "b < c < a", "c < a < b", "c < b < a"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "① a < b < c", "en": "① a < b < c" },
+      "explanation": { "en": "All have molar mass ≈ 30. Ethane is non-polar (lowest bp), formaldehyde is polar (dipole–dipole, higher), and methanol forms hydrogen bonds (highest bp). So a < b < c.", "ja": "いずれもモル質量 ≈ 30。エタンは無極性で最低，ホルムアルデヒドは極性（双極子）で中間，メタノールは水素結合で最高。よって a < b < c。" }
+    },
+    {
+      "id": "2011-2-chem-4", "answerRow": 4, "topicId": "matter-structure",
+      "subtopic": "Two molecular crystals",
+      "patternTags": ["crystal-structure", "crystal-types", "true-false-combo"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の物質(a)〜(e)の中に，固体のとき分子結晶であるものが二つある。その組み合わせを選びなさい。 (a) 塩化カリウム KCl (b) ケイ素 Si (c) 酸化マグネシウム MgO (d) 二酸化炭素 $\\mathrm{CO_2}$ (e) ヨウ素 $\\mathrm{I_2}$", "choices": ["a, c", "a, d", "b, c", "b, e", "c, d", "d, e"] },
+      "en": { "prompt": "Two of these are molecular crystals when solid. Which pair? (a) KCl (b) silicon Si (c) MgO (d) carbon dioxide $\\mathrm{CO_2}$ (e) iodine $\\mathrm{I_2}$", "choices": ["a, c", "a, d", "b, c", "b, e", "c, d", "d, e"] },
+      "answerIndex": 5, "answerOption": 6, "answer": { "ja": "d と e", "en": "d and e" },
+      "explanation": { "en": "Dry ice ($\\mathrm{CO_2}$) and iodine ($\\mathrm{I_2}$) are molecular crystals. KCl and MgO are ionic crystals; silicon is a covalent (network) crystal.", "ja": "ドライアイス（$\\mathrm{CO_2}$）とヨウ素（$\\mathrm{I_2}$）は分子結晶。KCl と MgO はイオン結晶，ケイ素は共有結合の結晶。" }
+    },
+    {
+      "id": "2011-2-chem-5", "answerRow": 5, "topicId": "states-and-change",
+      "subtopic": "Substance with the most atoms in 10 g",
+      "patternTags": ["mole-concept", "molar-mass", "atom-count", "compare-cases"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の物質①〜④の中から，$10\\,$g 中に含まれる原子の総数が最も多いものを選びなさい。 ① $\\mathrm{CO_2}$ ② $\\mathrm{H_2S}$ ③ $\\mathrm{N_2}$ ④ $\\mathrm{NH_3}$", "choices": ["$\\mathrm{CO_2}$", "$\\mathrm{H_2S}$", "$\\mathrm{N_2}$", "$\\mathrm{NH_3}$"] },
+      "en": { "prompt": "Which substance has the most atoms in $10\\,$g? ① $\\mathrm{CO_2}$ ② $\\mathrm{H_2S}$ ③ $\\mathrm{N_2}$ ④ $\\mathrm{NH_3}$", "choices": ["$\\mathrm{CO_2}$", "$\\mathrm{H_2S}$", "$\\mathrm{N_2}$", "$\\mathrm{NH_3}$"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "④ $\\mathrm{NH_3}$", "en": "④ $\\mathrm{NH_3}$" },
+      "explanation": { "en": "Atoms $=(10/M)\\times(\\text{atoms per molecule})\\times N_A$. $\\mathrm{CO_2}$: $\\tfrac{10}{44}\\times3=0.68$; $\\mathrm{H_2S}$: $\\tfrac{10}{34}\\times3=0.88$; $\\mathrm{N_2}$: $\\tfrac{10}{28}\\times2=0.71$; $\\mathrm{NH_3}$: $\\tfrac{10}{17}\\times4=2.4$ (×$N_A$). $\\mathrm{NH_3}$ has the most.", "ja": "原子数 $=(10/M)\\times$（1 分子の原子数）$\\times N_A$。$\\mathrm{CO_2}$：$\\tfrac{10}{44}\\times3=0.68$，$\\mathrm{H_2S}$：$\\tfrac{10}{34}\\times3=0.88$，$\\mathrm{N_2}$：$\\tfrac{10}{28}\\times2=0.71$，$\\mathrm{NH_3}$：$\\tfrac{10}{17}\\times4=2.4$（×$N_A$）。$\\mathrm{NH_3}$ が最多。" }
+    },
+    {
+      "id": "2011-2-chem-6", "answerRow": 6, "topicId": "states-and-change",
+      "subtopic": "Mole ratio of H2 and N2 from a mixture mass",
+      "patternTags": ["mole-concept", "gas-volume", "mixture", "plug-in-numbers"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "標準状態において，水素 $\\mathrm{H_2}$ と窒素 $\\mathrm{N_2}$ の混合気体 $224\\,$mL の質量を測定したところ $107\\,$mg であった。この気体中の水素と窒素のモル比 $(\\mathrm{H_2}:\\mathrm{N_2})$ を選びなさい。", "choices": ["1 : 3", "1 : 2", "1 : 1", "2 : 1", "3 : 1"] },
+      "en": { "prompt": "At STP, $224\\,$mL of a mixture of hydrogen $\\mathrm{H_2}$ and nitrogen $\\mathrm{N_2}$ weighs $107\\,$mg. What is the mole ratio $(\\mathrm{H_2}:\\mathrm{N_2})$?", "choices": ["1 : 3", "1 : 2", "1 : 1", "2 : 1", "3 : 1"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "2 : 1", "en": "2 : 1" },
+      "explanation": { "en": "Total moles $=0.224/22.4=0.010$. With $x$ mol $\\mathrm{H_2}$ and $y$ mol $\\mathrm{N_2}$: $x+y=0.010$ and $2x+28y=0.107\\,$g. Solving gives $x\\approx0.0067$, $y\\approx0.0033$, so $\\mathrm{H_2}:\\mathrm{N_2}=2:1$.", "ja": "総 mol $=0.224/22.4=0.010$。$\\mathrm{H_2}\\ x$ mol，$\\mathrm{N_2}\\ y$ mol とすると $x+y=0.010$，$2x+28y=0.107\\,$g。解いて $x\\approx0.0067$，$y\\approx0.0033$ で $\\mathrm{H_2}:\\mathrm{N_2}=2:1$。" }
+    },
+    {
+      "id": "2011-2-chem-7", "answerRow": 7, "topicId": "states-and-change",
+      "subtopic": "Acid+base pair giving the smallest pH",
+      "patternTags": ["acids-bases", "neutralization", "ph", "compare-cases"], "hasFigure": true,
+      "figure": { "ja": "表は 酸 A / 塩基 B の組み合わせ①〜④。各 0.10 mol/L を 10 mL ずつ混合。① HCl / NaOH ② $\\mathrm{CH_3COOH}$ / NaOH ③ $\\mathrm{H_2SO_4}$ / NaOH ④ HCl / $\\mathrm{Na_2CO_3}$。", "en": "Table of acid A / base B pairs ①–④, each $0.10$ mol/L, $10$ mL mixed. ① HCl / NaOH ② $\\mathrm{CH_3COOH}$ / NaOH ③ $\\mathrm{H_2SO_4}$ / NaOH ④ HCl / $\\mathrm{Na_2CO_3}$." },
+      "ja": { "prompt": "$0.10\\,$mol/L の酸 A $10\\,$mL に $0.10\\,$mol/L の塩基 B $10\\,$mL を加えたとき，得られる水溶液の pH が最も小さくなる酸 A と塩基 B の組み合わせを選びなさい。", "choices": ["A:HCl / B:NaOH", "A:$\\mathrm{CH_3COOH}$ / B:NaOH", "A:$\\mathrm{H_2SO_4}$ / B:NaOH", "A:HCl / B:$\\mathrm{Na_2CO_3}$"] },
+      "en": { "prompt": "Mixing $10\\,$mL of $0.10\\,$mol/L acid A with $10\\,$mL of $0.10\\,$mol/L base B, which pair gives the smallest pH?", "choices": ["A:HCl / B:NaOH", "A:$\\mathrm{CH_3COOH}$ / B:NaOH", "A:$\\mathrm{H_2SO_4}$ / B:NaOH", "A:HCl / B:$\\mathrm{Na_2CO_3}$"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "③ $\\mathrm{H_2SO_4}$ + NaOH", "en": "③ $\\mathrm{H_2SO_4}$ + NaOH" },
+      "explanation": { "en": "Equal moles each ($1.0\\times10^{-3}$). $\\mathrm{H_2SO_4}$ is diprotic, supplying $2.0\\times10^{-3}\\,$mol H⁺; NaOH neutralizes only $1.0\\times10^{-3}$, leaving $1.0\\times10^{-3}\\,$mol H⁺ in $20\\,$mL ([H⁺]=0.05, pH≈1.3) — strongly acidic. ① is neutral, ② and ④ are basic.", "ja": "各 $1.0\\times10^{-3}$ mol。$\\mathrm{H_2SO_4}$ は 2 価で H⁺ を $2.0\\times10^{-3}$ mol 供給，NaOH は $1.0\\times10^{-3}$ しか中和できず H⁺ が $1.0\\times10^{-3}$ mol 余る（$20\\,$mL で [H⁺]=0.05，pH≈1.3）— 強酸性。① は中性，②④ は塩基性。" }
+    },
+    {
+      "id": "2011-2-chem-8", "answerRow": 8, "topicId": "states-and-change",
+      "subtopic": "Electrolysis of NaCl solution",
+      "patternTags": ["electrochemistry", "electrolysis", "electrode-products", "pick-statement"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "塩化ナトリウム水溶液 NaCl aq を電気分解したときの，溶液中のイオンの濃度や電極から発生する気体に関する記述として正しいものを選びなさい。 ① $\\mathrm{Na^+}$ の濃度が減少する。 ② $\\mathrm{Cl^-}$ の濃度が減少する。 ③ 陽極から $\\mathrm{O_2}$ が発生する。 ④ 陽極から $\\mathrm{H_2}$ が発生する。 ⑤ 陰極から $\\mathrm{Cl_2}$ が発生する。", "choices": ["①", "②", "③", "④", "⑤"] },
+      "en": { "prompt": "When NaCl solution is electrolysed, which statement about ion concentrations and electrode gases is correct? ① $\\mathrm{Na^+}$ concentration decreases. ② $\\mathrm{Cl^-}$ concentration decreases. ③ $\\mathrm{O_2}$ forms at the anode. ④ $\\mathrm{H_2}$ forms at the anode. ⑤ $\\mathrm{Cl_2}$ forms at the cathode.", "choices": ["①", "②", "③", "④", "⑤"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "②（$\\mathrm{Cl^-}$ が減少する）", "en": "② ($\\mathrm{Cl^-}$ decreases)" },
+      "explanation": { "en": "Anode: $\\mathrm{2Cl^-\\to Cl_2+2e^-}$, so $\\mathrm{Cl^-}$ is consumed — ② correct. Cathode gives $\\mathrm{H_2}$. ① $\\mathrm{Na^+}$ (spectator) stays; ③④ anode gives $\\mathrm{Cl_2}$, not $\\mathrm{O_2}$ or $\\mathrm{H_2}$; ⑤ $\\mathrm{Cl_2}$ is at the anode, not the cathode.", "ja": "陽極 $\\mathrm{2Cl^-\\to Cl_2+2e^-}$ で $\\mathrm{Cl^-}$ が消費される — ②が正。陰極は $\\mathrm{H_2}$。① $\\mathrm{Na^+}$（傍観イオン）は変わらず，③④ 陽極は $\\mathrm{Cl_2}$ で $\\mathrm{O_2}$/$\\mathrm{H_2}$ ではない，⑤ $\\mathrm{Cl_2}$ は陽極で陰極ではない。" }
+    },
+    {
+      "id": "2011-2-chem-9", "answerRow": 9, "topicId": "states-and-change",
+      "subtopic": "Effect of raising temperature on ammonia synthesis",
+      "patternTags": ["equilibrium", "le-chatelier", "reaction-rate", "exothermic", "graph-reading"], "hasFigure": true,
+      "figure": { "ja": "$\\mathrm{N_2+3H_2\\rightleftharpoons 2NH_3}$（可逆・発熱）。破線はある温度・圧力での $\\mathrm{NH_3}$ 生成量 vs 時間（速く立ち上がり高い平衡値）。同じ圧力で温度を上げた場合の実線を選ぶ。正解①：実線は破線より速く立ち上がる（初期は破線より上）が，平衡値は破線より低い（曲線が交差する）。", "en": "$\\mathrm{N_2+3H_2\\rightleftharpoons 2NH_3}$ (reversible, exothermic). The dashed curve is $\\mathrm{NH_3}$ produced vs time at one temperature/pressure (rises and plateaus high). Choose the solid curve at the same pressure but higher temperature. The correct graph (①): the solid rises FASTER than the dashed (above it early) but plateaus LOWER, so the curves cross." },
+      "ja": { "prompt": "$\\mathrm{N_2+3H_2\\rightleftharpoons 2NH_3}$（発熱）について，破線はある温度・圧力での生成量−時間関係を示す。同じ圧力で温度を上げたときの実線として最も適当なものを選びなさい。", "choices": ["①（速く立ち上がり平衡値は破線より低い／曲線が交差）", "②（速いが平衡値は破線と同等以上）", "③（平衡値が破線より高い）", "④（立ち上がりが遅く平衡値も低い）", "⑤（直線的にゆっくり増加）", "⑥（曲線が下に凸で増え続ける）"] },
+      "en": { "prompt": "For $\\mathrm{N_2+3H_2\\rightleftharpoons 2NH_3}$ (exothermic), the dashed curve is the amount-vs-time at one temperature/pressure. Which solid curve fits the same pressure but a higher temperature?", "choices": ["① rises faster, plateaus below the dashed (curves cross)", "② fast but plateaus at/above the dashed", "③ plateaus above the dashed", "④ rises slowly and plateaus low", "⑤ increases slowly and roughly linearly", "⑥ concave-up, keeps increasing"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "①（速く立ち上がり，平衡値は破線より低い）", "en": "① (rises faster, plateaus below the dashed)" },
+      "explanation": { "en": "A higher temperature speeds the reaction (it reaches equilibrium sooner — the solid rises faster and is above the dashed at early times), but since the forward reaction is exothermic, the equilibrium yield is LOWER (the solid plateaus below the dashed). The two curves therefore cross — graph ①.", "ja": "温度を上げると反応が速くなり平衡に早く達する（実線は速く立ち上がり初期は破線より上）が，正反応は発熱なので平衡の生成量は小さくなる（実線の平衡値は破線より下）。よって両曲線は交差する — ①。" }
+    },
+    {
+      "id": "2011-2-chem-10", "answerRow": 10, "topicId": "states-and-change",
+      "subtopic": "Methane fraction from combustion heat",
+      "patternTags": ["thermochemistry", "heat-of-combustion", "mixture", "simultaneous-equations", "plug-in-numbers"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "メタン $\\mathrm{CH_4}$ とエタン $\\mathrm{C_2H_6}$ の燃焼熱はそれぞれ $890\\,$kJ/mol，$1560\\,$kJ/mol である。標準状態でメタンとエタンの混合気体 $2.24\\,$L を完全燃焼させたところ $142\\,$kJ の発熱があった。燃焼前のメタンの物質量は何 mol か，最も近い値を選びなさい。", "choices": ["0.011", "0.016", "0.021", "0.026", "0.031", "0.036"] },
+      "en": { "prompt": "The heats of combustion of methane $\\mathrm{CH_4}$ and ethane $\\mathrm{C_2H_6}$ are $890$ and $1560\\,$kJ/mol. Combusting $2.24\\,$L (STP) of a methane/ethane mixture released $142\\,$kJ. How many moles of methane were present? Choose the closest.", "choices": ["0.011", "0.016", "0.021", "0.026", "0.031", "0.036"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "約 $0.021\\,$mol", "en": "≈ 0.021 mol" },
+      "explanation": { "en": "Total moles $=2.24/22.4=0.10$. With $x$ mol $\\mathrm{CH_4}$, $y$ mol $\\mathrm{C_2H_6}$: $x+y=0.10$ and $890x+1560y=142$. Substituting: $670y=53$, $y=0.079$, so $x=0.021\\,$mol.", "ja": "総 mol $=2.24/22.4=0.10$。$\\mathrm{CH_4}\\ x$，$\\mathrm{C_2H_6}\\ y$ で $x+y=0.10$，$890x+1560y=142$。代入して $670y=53$，$y=0.079$，$x=0.021\\,$mol。" }
+    },
+    {
+      "id": "2011-2-chem-11", "answerRow": 11, "topicId": "states-and-change",
+      "subtopic": "Reaction where the species is an oxidizing agent",
+      "patternTags": ["redox", "oxidizing-agent", "oxidation-number", "pick-statement"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "下線をつけた物質が酸化剤としてはたらいている化学反応式を選びなさい。 ① $\\underline{\\mathrm{CuSO_4}}+2\\mathrm{NaOH}\\to\\mathrm{Cu(OH)_2}+\\mathrm{Na_2SO_4}$ ② $2\\mathrm{Al}+6\\underline{\\mathrm{HCl}}\\to2\\mathrm{AlCl_3}+3\\mathrm{H_2}$ ③ $2\\underline{\\mathrm{H_2S}}+\\mathrm{SO_2}\\to3\\mathrm{S}+2\\mathrm{H_2O}$ ④ $\\underline{\\mathrm{H_2SO_4}}+2\\mathrm{NaOH}\\to\\mathrm{Na_2SO_4}+2\\mathrm{H_2O}$ ⑤ $2\\underline{\\mathrm{Na}}+2\\mathrm{H_2O}\\to2\\mathrm{NaOH}+\\mathrm{H_2}$", "choices": ["①", "②", "③", "④", "⑤"] },
+      "en": { "prompt": "In which reaction does the underlined substance act as an OXIDIZING agent? ① $\\underline{\\mathrm{CuSO_4}}+2\\mathrm{NaOH}\\to\\mathrm{Cu(OH)_2}+\\mathrm{Na_2SO_4}$ ② $2\\mathrm{Al}+6\\underline{\\mathrm{HCl}}\\to2\\mathrm{AlCl_3}+3\\mathrm{H_2}$ ③ $2\\underline{\\mathrm{H_2S}}+\\mathrm{SO_2}\\to3\\mathrm{S}+2\\mathrm{H_2O}$ ④ $\\underline{\\mathrm{H_2SO_4}}+2\\mathrm{NaOH}\\to\\mathrm{Na_2SO_4}+2\\mathrm{H_2O}$ ⑤ $2\\underline{\\mathrm{Na}}+2\\mathrm{H_2O}\\to2\\mathrm{NaOH}+\\mathrm{H_2}$", "choices": ["①", "②", "③", "④", "⑤"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "②（HCl の H⁺ が還元され酸化剤）", "en": "② (the H⁺ of HCl is reduced — oxidizing agent)" },
+      "explanation": { "en": "An oxidizing agent is itself reduced. In ②, H⁺ of HCl goes $+1\\to0$ ($\\mathrm{H_2}$) while Al is oxidised, so HCl is the oxidizing agent. ③ $\\mathrm{H_2S}$ and ⑤ Na are reducing agents (oxidised); ① and ④ are not redox.", "ja": "酸化剤は自身が還元される。② では HCl の H⁺ が $+1\\to0$（$\\mathrm{H_2}$）で Al が酸化されるので HCl が酸化剤。③ $\\mathrm{H_2S}$ と ⑤ Na は還元剤（酸化される），①④ は酸化還元でない。" }
+    },
+    {
+      "id": "2011-2-chem-12", "answerRow": 12, "topicId": "inorganic",
+      "subtopic": "Identify Cu, Fe, Zn from acid/base reactivity",
+      "patternTags": ["inorganic", "amphoteric-metal", "passivation", "metal-identification"], "hasFigure": true,
+      "figure": { "ja": "表は a/b/c の金属（Cu, Fe, Zn）の組み合わせ①〜⑥。(a) NaOH aq に $\\mathrm{H_2}$ を出して溶ける。(b) 濃硝酸に溶けないが希硫酸には $\\mathrm{H_2}$ を出して溶ける。(c) 希硫酸に溶けないが熱濃硫酸には $\\mathrm{SO_2}$ を出して溶ける。", "en": "Table of metal (Cu, Fe, Zn) assignments to a/b/c, options ①–⑥. (a) dissolves in NaOH aq releasing $\\mathrm{H_2}$; (b) doesn't dissolve in conc. $\\mathrm{HNO_3}$ but dissolves in dilute $\\mathrm{H_2SO_4}$ releasing $\\mathrm{H_2}$; (c) doesn't dissolve in dilute $\\mathrm{H_2SO_4}$ but dissolves in hot conc. $\\mathrm{H_2SO_4}$ releasing $\\mathrm{SO_2}$." },
+      "ja": { "prompt": "記述(a)〜(c)にあてはまる金属 Cu, Fe, Zn の組み合わせを選びなさい。 (a) NaOH aq に $\\mathrm{H_2}$ を発生しながら溶ける。 (b) 濃硝酸には溶けないが，希硫酸には $\\mathrm{H_2}$ を発生しながら溶ける。 (c) 希硫酸に溶けないが，熱濃硫酸には $\\mathrm{SO_2}$ を発生しながら溶ける。", "choices": ["a:Cu b:Fe c:Zn", "a:Cu b:Zn c:Fe", "a:Fe b:Cu c:Zn", "a:Fe b:Zn c:Cu", "a:Zn b:Cu c:Fe", "a:Zn b:Fe c:Cu"] },
+      "en": { "prompt": "Match metals Cu, Fe, Zn to (a)–(c). (a) dissolves in NaOH releasing $\\mathrm{H_2}$. (b) doesn't dissolve in conc. $\\mathrm{HNO_3}$ but dissolves in dilute $\\mathrm{H_2SO_4}$ releasing $\\mathrm{H_2}$. (c) doesn't dissolve in dilute $\\mathrm{H_2SO_4}$ but dissolves in hot conc. $\\mathrm{H_2SO_4}$ releasing $\\mathrm{SO_2}$.", "choices": ["a:Cu b:Fe c:Zn", "a:Cu b:Zn c:Fe", "a:Fe b:Cu c:Zn", "a:Fe b:Zn c:Cu", "a:Zn b:Cu c:Fe", "a:Zn b:Fe c:Cu"] },
+      "answerIndex": 5, "answerOption": 6, "answer": { "ja": "⑥ a:Zn b:Fe c:Cu", "en": "⑥ a:Zn b:Fe c:Cu" },
+      "explanation": { "en": "(a) Zn is amphoteric, so it dissolves in NaOH giving $\\mathrm{H_2}$. (b) Fe is passivated by conc. $\\mathrm{HNO_3}$ but dissolves in dilute $\\mathrm{H_2SO_4}$. (c) Cu does not react with dilute acid but dissolves in hot conc. $\\mathrm{H_2SO_4}$ giving $\\mathrm{SO_2}$.", "ja": "(a) Zn は両性で NaOH に溶け $\\mathrm{H_2}$。(b) Fe は濃硝酸で不動態だが希硫酸に溶ける。(c) Cu は希酸と反応せず熱濃硫酸に溶け $\\mathrm{SO_2}$。" }
+    },
+    {
+      "id": "2011-2-chem-13", "answerRow": 13, "topicId": "inorganic",
+      "subtopic": "Statement containing an error about halogens",
+      "patternTags": ["inorganic", "halogens", "acid-strength", "pick-false-statement"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "ハロゲンとその化合物に関する記述①〜⑤のうち，誤りを含むものを選びなさい。 ① ハロゲン原子はいずれも 1 価の陰イオンになりやすい。 ② 塩素 $\\mathrm{Cl_2}$ の水溶液は酸性を示す。 ③ 塩素の中に水で湿らせたヨウ化カリウムデンプン紙を入れると青紫色に変わる。 ④ 臭化カリウム水溶液に塩素水を加えると臭素 $\\mathrm{Br_2}$ を生じる。 ⑤ ヨウ化水素 HI の水溶液は弱酸である。", "choices": ["①", "②", "③", "④", "⑤"] },
+      "en": { "prompt": "Which statement about the halogens contains an error? ① Halogen atoms all readily become monovalent anions. ② Chlorine $\\mathrm{Cl_2}$ solution is acidic. ③ Moistened potassium-iodide-starch paper turns blue-purple in chlorine. ④ Adding chlorine water to KBr solution gives bromine $\\mathrm{Br_2}$. ⑤ Hydrogen iodide HI solution is a weak acid.", "choices": ["①", "②", "③", "④", "⑤"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "⑤（HI は強酸）", "en": "⑤ (HI is a strong acid)" },
+      "explanation": { "en": "HI is a STRONG acid (HCl, HBr, HI are all strong; only HF is weak), so ⑤ is the error. The others are correct: halogens form X⁻, $\\mathrm{Cl_2}$ water is acidic, $\\mathrm{Cl_2}$ oxidises I⁻ (blue starch) and Br⁻ ($\\mathrm{Br_2}$).", "ja": "HI は強酸（HCl・HBr・HI は強酸で，弱酸は HF のみ）なので⑤が誤り。他は正：ハロゲンは X⁻ になり，$\\mathrm{Cl_2}$ 水は酸性，$\\mathrm{Cl_2}$ は I⁻ を酸化（青色デンプン）し Br⁻ も酸化（$\\mathrm{Br_2}$）。" }
+    },
+    {
+      "id": "2011-2-chem-14", "answerRow": 14, "topicId": "inorganic",
+      "subtopic": "Sequential separation of Ca2+, Fe3+, Zn2+",
+      "patternTags": ["inorganic", "qualitative-analysis", "precipitation", "complex-ion", "compare-cases"], "hasFigure": true,
+      "figure": { "ja": "$\\mathrm{Ca^{2+},Fe^{3+},Zn^{2+}}$ の水溶液：過剰 $\\mathrm{NH_3}$ aq で 赤褐色沈殿(a)＋ろ液 → ろ液に $\\mathrm{H_2S}$ で 白色沈殿(b)＋ろ液 → ろ液に $\\mathrm{(NH_4)_2CO_3}$ aq で 白色沈殿(c)。表は a/b/c のイオンの組み合わせ①〜⑥。", "en": "A solution of $\\mathrm{Ca^{2+},Fe^{3+},Zn^{2+}}$: excess $\\mathrm{NH_3}$ aq → reddish-brown precipitate (a) + filtrate → $\\mathrm{H_2S}$ → white precipitate (b) + filtrate → $\\mathrm{(NH_4)_2CO_3}$ aq → white precipitate (c). The table gives the ions in a/b/c, options ①–⑥." },
+      "ja": { "prompt": "$\\mathrm{Ca^{2+},Fe^{3+},Zn^{2+}}$ を含む水溶液を，過剰の $\\mathrm{NH_3}$ aq → $\\mathrm{H_2S}$ → $\\mathrm{(NH_4)_2CO_3}$ aq の順に操作して分離した。沈殿 a（赤褐色）・b（白色）・c（白色）に含まれる金属イオンの組み合わせを選びなさい。", "choices": ["a:$\\mathrm{Ca^{2+}}$ b:$\\mathrm{Fe^{3+}}$ c:$\\mathrm{Zn^{2+}}$", "a:$\\mathrm{Ca^{2+}}$ b:$\\mathrm{Zn^{2+}}$ c:$\\mathrm{Fe^{3+}}$", "a:$\\mathrm{Fe^{3+}}$ b:$\\mathrm{Ca^{2+}}$ c:$\\mathrm{Zn^{2+}}$", "a:$\\mathrm{Fe^{3+}}$ b:$\\mathrm{Zn^{2+}}$ c:$\\mathrm{Ca^{2+}}$", "a:$\\mathrm{Zn^{2+}}$ b:$\\mathrm{Ca^{2+}}$ c:$\\mathrm{Fe^{3+}}$", "a:$\\mathrm{Zn^{2+}}$ b:$\\mathrm{Fe^{3+}}$ c:$\\mathrm{Ca^{2+}}$"] },
+      "en": { "prompt": "A solution of $\\mathrm{Ca^{2+},Fe^{3+},Zn^{2+}}$ is treated in order with excess $\\mathrm{NH_3}$ aq → $\\mathrm{H_2S}$ → $\\mathrm{(NH_4)_2CO_3}$ aq. Which ions are in precipitates a (reddish-brown), b (white), c (white)?", "choices": ["a:$\\mathrm{Ca^{2+}}$ b:$\\mathrm{Fe^{3+}}$ c:$\\mathrm{Zn^{2+}}$", "a:$\\mathrm{Ca^{2+}}$ b:$\\mathrm{Zn^{2+}}$ c:$\\mathrm{Fe^{3+}}$", "a:$\\mathrm{Fe^{3+}}$ b:$\\mathrm{Ca^{2+}}$ c:$\\mathrm{Zn^{2+}}$", "a:$\\mathrm{Fe^{3+}}$ b:$\\mathrm{Zn^{2+}}$ c:$\\mathrm{Ca^{2+}}$", "a:$\\mathrm{Zn^{2+}}$ b:$\\mathrm{Ca^{2+}}$ c:$\\mathrm{Fe^{3+}}$", "a:$\\mathrm{Zn^{2+}}$ b:$\\mathrm{Fe^{3+}}$ c:$\\mathrm{Ca^{2+}}$"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "④ a:$\\mathrm{Fe^{3+}}$ b:$\\mathrm{Zn^{2+}}$ c:$\\mathrm{Ca^{2+}}$", "en": "④ a:$\\mathrm{Fe^{3+}}$ b:$\\mathrm{Zn^{2+}}$ c:$\\mathrm{Ca^{2+}}$" },
+      "explanation": { "en": "Excess $\\mathrm{NH_3}$ precipitates reddish-brown $\\mathrm{Fe(OH)_3}$ (a = Fe³⁺) while Zn²⁺ stays as $\\mathrm{[Zn(NH_3)_4]^{2+}}$ and Ca²⁺ stays. $\\mathrm{H_2S}$ in the ammoniacal filtrate precipitates white ZnS (b = Zn²⁺). Then $\\mathrm{(NH_4)_2CO_3}$ precipitates white $\\mathrm{CaCO_3}$ (c = Ca²⁺).", "ja": "過剰 $\\mathrm{NH_3}$ で赤褐色の $\\mathrm{Fe(OH)_3}$ が沈殿（a=Fe³⁺），Zn²⁺ は $\\mathrm{[Zn(NH_3)_4]^{2+}}$，Ca²⁺ は残る。アンモニア性のろ液に $\\mathrm{H_2S}$ で白色 ZnS（b=Zn²⁺）。次に $\\mathrm{(NH_4)_2CO_3}$ で白色 $\\mathrm{CaCO_3}$（c=Ca²⁺）。" }
+    },
+    {
+      "id": "2011-2-chem-15", "answerRow": 15, "topicId": "states-and-change",
+      "subtopic": "Hydrogen mass from zinc and sulfuric acid",
+      "patternTags": ["stoichiometry", "gas-mass", "plug-in-numbers"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "$1.3\\,$g の亜鉛 Zn を希硫酸 $\\mathrm{H_2SO_4}$ に完全に溶かすと，何 mg の水素 $\\mathrm{H_2}$ が発生するか，最も近い値を選びなさい。", "choices": ["10", "20", "40", "60", "80"] },
+      "en": { "prompt": "Dissolving $1.3\\,$g of zinc Zn completely in dilute sulfuric acid produces how many mg of hydrogen $\\mathrm{H_2}$?", "choices": ["10", "20", "40", "60", "80"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "$40\\,$mg", "en": "40 mg" },
+      "explanation": { "en": "$\\mathrm{Zn+H_2SO_4\\to ZnSO_4+H_2}$. mol Zn $=1.3/65=0.020$ → mol $\\mathrm{H_2}=0.020$ → mass $=0.020\\times2=0.040\\,$g $=40\\,$mg.", "ja": "$\\mathrm{Zn+H_2SO_4\\to ZnSO_4+H_2}$。Zn $=1.3/65=0.020\\,$mol → $\\mathrm{H_2}=0.020\\,$mol → 質量 $=0.020\\times2=0.040\\,$g$=40\\,$mg。" }
+    },
+    {
+      "id": "2011-2-chem-16", "answerRow": 16, "topicId": "organic",
+      "subtopic": "Correct statement about hydrocarbons",
+      "patternTags": ["organic", "hydrocarbons", "alkanes", "addition-reaction", "pick-statement"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "炭化水素に関する記述①〜④のうち，最も適当なものを選びなさい。 ① すべての飽和炭化水素の分子式は $\\mathrm{C_nH_{2n+2}}$ で表される。 ② すべてのアルカンは室温で気体または液体である。 ③ アセチレン（エチン）は臭素 $\\mathrm{Br_2}$ と付加反応する。 ④ キシレンには異性体が存在しない。", "choices": ["①", "②", "③", "④"] },
+      "en": { "prompt": "Which statement about hydrocarbons is correct? ① All saturated hydrocarbons have the formula $\\mathrm{C_nH_{2n+2}}$. ② All alkanes are gases or liquids at room temperature. ③ Acetylene (ethyne) undergoes addition with bromine $\\mathrm{Br_2}$. ④ Xylene has no isomers.", "choices": ["①", "②", "③", "④"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "③（アセチレンは $\\mathrm{Br_2}$ と付加）", "en": "③ (acetylene adds $\\mathrm{Br_2}$)" },
+      "explanation": { "en": "Acetylene has a triple bond and undergoes addition with $\\mathrm{Br_2}$ — ③ correct. ① false (cycloalkanes are $\\mathrm{C_nH_{2n}}$); ② false (long-chain alkanes are solids); ④ false (xylene has o-, m-, p- isomers).", "ja": "アセチレンは三重結合をもち $\\mathrm{Br_2}$ と付加する — ③が正。① 誤（シクロアルカンは $\\mathrm{C_nH_{2n}}$）；② 誤（長鎖アルカンは固体）；④ 誤（キシレンに o-,m-,p- 異性体）。" }
+    },
+    {
+      "id": "2011-2-chem-17", "answerRow": 17, "topicId": "organic",
+      "subtopic": "Find n and count alcohols reacting with sodium",
+      "patternTags": ["organic", "alcohols", "isomers", "stoichiometry", "counting", "plug-in-numbers"], "hasFigure": true,
+      "figure": { "ja": "表は (n, 反応する化合物の数) の組み合わせ①〜⑥。分子式 $\\mathrm{C_nH_{2n+2}O}$ の化合物 $7.4\\,$g に過剰の Na を反応させると標準状態で $\\mathrm{H_2}\\ 1.12\\,$L が発生。", "en": "Table of (n, number of compounds) combinations ①–⑥. $7.4\\,$g of a $\\mathrm{C_nH_{2n+2}O}$ compound reacts with excess Na, releasing $1.12\\,$L of $\\mathrm{H_2}$ at STP." },
+      "ja": { "prompt": "分子式 $\\mathrm{C_nH_{2n+2}O}$（$n$ は整数）の化合物 $7.4\\,$g にじゅうぶんな量の Na を反応させると，標準状態で $1.12\\,$L の $\\mathrm{H_2}$ が発生した。$n$ の値と，この化合物の構造異性体の中で上記の反応を示すものの数の正しい組み合わせを選びなさい。", "choices": ["n=3 / 数 3", "n=3 / 数 4", "n=3 / 数 5", "n=4 / 数 3", "n=4 / 数 4", "n=4 / 数 5"] },
+      "en": { "prompt": "$7.4\\,$g of a compound $\\mathrm{C_nH_{2n+2}O}$ ($n$ integer) reacts with excess Na, releasing $1.12\\,$L of $\\mathrm{H_2}$ at STP. Choose $n$ and the number of structural isomers that show this reaction.", "choices": ["n=3 / 3", "n=3 / 4", "n=3 / 5", "n=4 / 3", "n=4 / 4", "n=4 / 5"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "⑤ n=4 / 数 4", "en": "⑤ n=4 / 4" },
+      "explanation": { "en": "$\\mathrm{H_2}=1.12/22.4=0.050\\,$mol; an alcohol gives ½ H₂ per –OH, so mol alcohol $=0.10$ and $M=7.4/0.10=74$. $\\mathrm{C_nH_{2n+2}O}$ has $M=14n+18=74\\Rightarrow n=4$ ($\\mathrm{C_4H_{10}O}$). Reaction with Na means it's an alcohol; the $\\mathrm{C_4H_9OH}$ alcohols are 4 structural isomers (1-butanol, 2-butanol, 2-methyl-1-propanol, 2-methyl-2-propanol).", "ja": "$\\mathrm{H_2}=1.12/22.4=0.050\\,$mol。アルコールは –OH 1 個で H₂ を ½ 出すので アルコール $=0.10\\,$mol，$M=7.4/0.10=74$。$\\mathrm{C_nH_{2n+2}O}$ は $M=14n+18=74\\Rightarrow n=4$（$\\mathrm{C_4H_{10}O}$）。Na と反応＝アルコール，$\\mathrm{C_4H_9OH}$ の構造異性体は 4 種（1-ブタノール，2-ブタノール，2-メチル-1-プロパノール，2-メチル-2-プロパノール）。" }
+    },
+    {
+      "id": "2011-2-chem-18", "answerRow": 18, "topicId": "organic",
+      "subtopic": "Property of neither ethanol nor acetone",
+      "patternTags": ["organic", "alcohols", "ketones", "qualitative-tests", "pick-statement"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の記述①〜⑤のうち，エタノールとアセトンのどちらにもあてはまらないものを選びなさい。 ① 室温で液体である。 ② 水によく溶ける。 ③ 二クロム酸カリウム $\\mathrm{K_2Cr_2O_7}$ によって酸化される。 ④ ヨードホルム反応を示す。 ⑤ 塩化鉄(III)水溶液 $\\mathrm{FeCl_3}$ aq を加えると紫色に呈色する。", "choices": ["①", "②", "③", "④", "⑤"] },
+      "en": { "prompt": "Which property applies to NEITHER ethanol NOR acetone? ① liquid at room temperature ② dissolves well in water ③ oxidised by $\\mathrm{K_2Cr_2O_7}$ ④ gives the iodoform reaction ⑤ turns purple with $\\mathrm{FeCl_3}$ solution.", "choices": ["①", "②", "③", "④", "⑤"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "⑤（$\\mathrm{FeCl_3}$ 呈色はどちらも示さない）", "en": "⑤ (neither gives the $\\mathrm{FeCl_3}$ colour)" },
+      "explanation": { "en": "The $\\mathrm{FeCl_3}$ purple colour is a test for phenols; neither ethanol nor acetone gives it — ⑤. The others: both are water-miscible liquids and both give iodoform; only ethanol is oxidised (③), so ③ applies to one of them, not neither.", "ja": "$\\mathrm{FeCl_3}$ の紫色はフェノールの呈色で，エタノールもアセトンも示さない — ⑤。他：両者とも水に溶ける液体でヨードホルム陽性。③ は酸化されるのはエタノールのみで「どちらにも」ではない。" }
+    },
+    {
+      "id": "2011-2-chem-19", "answerRow": 19, "topicId": "organic",
+      "subtopic": "Correct statement about aniline",
+      "patternTags": ["organic", "aniline", "acetylation", "pick-statement"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "アニリンに関する記述①〜④のうち，最も適当なものを選びなさい。 ① 室温で固体である。 ② 無水酢酸を作用させるとアセトアニリドが生成する。 ③ 水酸化ナトリウム水溶液 NaOH aq によく溶ける。 ④ 希塩酸に溶かし，亜硝酸ナトリウム水溶液 $\\mathrm{NaNO_2}$ aq を冷やしながら加えると，ニトロベンゼンが生成する。", "choices": ["①", "②", "③", "④"] },
+      "en": { "prompt": "Which statement about aniline is correct? ① It is a solid at room temperature. ② Treating it with acetic anhydride gives acetanilide. ③ It dissolves well in NaOH solution. ④ Dissolving it in dilute HCl and adding $\\mathrm{NaNO_2}$ while cooling gives nitrobenzene.", "choices": ["①", "②", "③", "④"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "②（無水酢酸でアセトアニリド）", "en": "② (acetic anhydride gives acetanilide)" },
+      "explanation": { "en": "Acetylating aniline's –NH₂ with acetic anhydride gives acetanilide — ② correct. ① aniline is a liquid; ③ as a base it dissolves in acid, not NaOH; ④ the cold diazotization gives a benzenediazonium salt, not nitrobenzene.", "ja": "アニリンの –NH₂ を無水酢酸でアセチル化するとアセトアニリド — ②が正。① アニリンは液体；③ 塩基なので酸に溶け NaOH には溶けない；④ 冷却ジアゾ化でベンゼンジアゾニウム塩が生じ，ニトロベンゼンではない。" }
+    },
+    {
+      "id": "2011-2-chem-20", "answerRow": 20, "topicId": "organic",
+      "subtopic": "Molecular formula from combustion products",
+      "patternTags": ["organic", "combustion-analysis", "molecular-formula", "plug-in-numbers"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "ある炭化水素 $0.5\\,$mol を完全燃焼させたところ，二酸化炭素 $1.5\\,$mol と水 $1.0\\,$mol が生成した。この炭化水素の分子式として最も適当なものを選びなさい。", "choices": ["$\\mathrm{C_2H_2}$", "$\\mathrm{C_2H_4}$", "$\\mathrm{C_2H_6}$", "$\\mathrm{C_3H_4}$", "$\\mathrm{C_3H_6}$", "$\\mathrm{C_3H_8}$"] },
+      "en": { "prompt": "Combusting $0.5\\,$mol of a hydrocarbon gives $1.5\\,$mol $\\mathrm{CO_2}$ and $1.0\\,$mol $\\mathrm{H_2O}$. What is its molecular formula?", "choices": ["$\\mathrm{C_2H_2}$", "$\\mathrm{C_2H_4}$", "$\\mathrm{C_2H_6}$", "$\\mathrm{C_3H_4}$", "$\\mathrm{C_3H_6}$", "$\\mathrm{C_3H_8}$"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "④ $\\mathrm{C_3H_4}$", "en": "④ $\\mathrm{C_3H_4}$" },
+      "explanation": { "en": "Per mole of hydrocarbon: C $=1.5/0.5=3$, H $=2\\times1.0/0.5=4$. So the formula is $\\mathrm{C_3H_4}$.", "ja": "炭化水素 1 mol あたり C $=1.5/0.5=3$，H $=2\\times1.0/0.5=4$。よって $\\mathrm{C_3H_4}$。" }
+    }
+  ],
+  "patterns": {
+    "archetypes": [
+      "Two correct atom/electron statements (proton count = Z; isotopes vs allotropes).",
+      "Two polar molecules among five (HCl, methanol).",
+      "Order similar-MW compounds by boiling point (non-polar < polar < H-bonding).",
+      "Two molecular crystals (CO₂, I₂).",
+      "Substance with the most atoms in a fixed mass (smallest M × atoms/molecule).",
+      "Mole ratio of two gases from a mixture mass.",
+      "Acid+base pair giving the smallest pH (diprotic acid leaves excess H⁺).",
+      "Electrolysis of NaCl (Cl⁻ decreases; Cl₂ at anode).",
+      "Effect of higher temperature on an exothermic equilibrium (faster but lower yield, curves cross).",
+      "Methane fraction from combustion-heat simultaneous equations.",
+      "Reaction where the marked species is an oxidizing agent (HCl's H⁺ reduced).",
+      "Identify Cu/Fe/Zn from acid/base reactivity (amphoteric, passive, hot conc. acid).",
+      "Halogen statement with an error (HI is a strong acid).",
+      "Sequential cation separation (NH₃ → H₂S → (NH₄)₂CO₃).",
+      "Hydrogen mass from Zn + sulfuric acid.",
+      "Correct hydrocarbon statement (acetylene adds Br₂).",
+      "Find n for CₙH₂ₙ₊₂O and count alcohols reacting with Na.",
+      "Property of neither ethanol nor acetone (FeCl₃ colour).",
+      "Correct aniline statement (acetic anhydride → acetanilide).",
+      "Molecular formula from combustion CO₂/H₂O."
+    ],
+    "recurring": [
+      "Atomic-structure / bonding / crystal screens open the paper.",
+      "Quantitative core: atom counts, mixture mole ratios, neutralization, combustion-heat and combustion-formula problems.",
+      "Electrochemistry and an exothermic-equilibrium graph sit mid-paper.",
+      "Qualitative inorganic: metal acid/base reactivity, halogens, multi-step cation separation.",
+      "Organic: hydrocarbon properties, alcohol counting, ethanol/acetone tests, aniline, combustion analysis."
+    ],
+    "examTacticNotes": [
+      "Nucleus = protons + neutrons; same Z different A ⇒ isotopes (not allotropes).",
+      "Polar: HCl and methanol; CO₂/acetylene/methane are non-polar.",
+      "Boiling point: non-polar < polar < hydrogen-bonding for similar M.",
+      "Molecular crystals: CO₂ (dry ice) and I₂.",
+      "Most atoms per gram ⇔ smallest M relative to atoms/molecule; NH₃ wins.",
+      "Solve x+y = n_total and mass equation for the gas mole ratio (2:1).",
+      "Diprotic H₂SO₄ vs 1 equiv NaOH leaves excess H⁺ ⇒ lowest pH.",
+      "NaCl electrolysis: Cl⁻ consumed at anode (Cl₂); cathode gives H₂.",
+      "Exothermic equilibrium + higher T: faster rate but lower yield ⇒ curves cross.",
+      "Combustion-heat: solve 890x+1560y = Q with x+y = total.",
+      "Oxidizing agent is reduced; HCl's H⁺ (+1→0) makes HCl the oxidant with Al.",
+      "Zn dissolves in NaOH; Fe passive in conc. HNO₃; Cu needs hot conc. H₂SO₄ (→SO₂).",
+      "HI is a strong acid (only HF is weak).",
+      "Cation separation: NH₃ → Fe(OH)₃; H₂S → ZnS; (NH₄)₂CO₃ → CaCO₃.",
+      "Zn + H₂SO₄: mol H₂ = mol Zn = 1.3/65 = 0.02 → 40 mg.",
+      "Acetylene (triple bond) adds Br₂; cycloalkanes are CₙH₂ₙ.",
+      "CₙH₂ₙ₊₂O alcohol: ½ H₂ per OH; M = 74 ⇒ n=4; 4 butanol isomers.",
+      "FeCl₃ purple is a phenol test — neither ethanol nor acetone responds.",
+      "Aniline + acetic anhydride → acetanilide; cold diazotization → diazonium salt.",
+      "Combustion: C from CO₂/mol, H = 2·H₂O/mol; gives C₃H₄."
+    ],
+    "difficulty": "Standard EJU chemistry — a full-syllabus sweep with a strong quantitative core. The more discriminating items are the exothermic-equilibrium temperature graph (Q9), the combustion-heat simultaneous equations (Q10), the Cu/Fe/Zn reactivity identification (Q12), and the CₙH₂ₙ₊₂O alcohol count (Q17)."
+  }
+}

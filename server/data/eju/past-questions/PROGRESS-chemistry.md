@@ -35,11 +35,11 @@ Workflow per paper:
 | 2013 | 1 | 1MLDJv1HeE3MqrLSIBgJMJnvy6iCfVxq7 | 1W5AO-n27yHZEVoo-DSkTdKUf21pDMhat | ✅ done (20) |
 | 2012 | 2 | 1fLqPOetKW9J3etZDroOKGYXAPDbm8Spe | 1tia15lyR1U-mQcomg-LDGULBkCzywSZW | ✅ done (20) |
 | 2012 | 1 | 1UuVPu95A464Syg8LtUZz4drwUmlL3fbt | 1OfoYCM4Tj1-sh8gi5Ujk9uwtfr1NoCzl | ✅ done (20) |
+| 2011 | 2 | 1Dr8SNNqPhd-AsNyt6xtPqU_6wHiktnGt | 1WKcFAFnzaOB2r9aETY0paSLkYQEzo1VQ | ✅ done (20) |
 | 2011 | 1 | 1hBjO0w8xkf8B-BTIleHmHF9qohfN5GkL | 18aDbg9WLwaq87V2gtt7GCFlx0yeLU0J5 | ✅ done (20) |
 | 2010 | 1 | 10PH9k2akTYBt0hiJc6VNU_jDjUDLDiwH | 1Q60uuxBPo43pxuzsHbOwRPn9le06Y_Qa | ✅ done (20) |
 
 ## Gaps (cannot fully verify — held)
-- **2011 Session 2**: question present (1Dr8SNNqPhd-AsNyt6xtPqU_6wHiktnGt) but **answer key missing**.
 - **2017 Session 1**: answer present (1xD9F_hYjydiY-BQ5yOeu6RF8-AZ62whe) but **question paper missing**.
 - No files for 2019-2, 2020-1, 2021-2, or 2022+.
 
