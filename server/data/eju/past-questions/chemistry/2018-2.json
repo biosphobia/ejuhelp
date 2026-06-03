@@ -1,0 +1,276 @@
+{
+  "id": "2018-2-chemistry",
+  "year": 2018,
+  "session": 2,
+  "subject": "chemistry",
+  "title": "EJU 2018 · Session 2 · Chemistry",
+  "source": "平成30年度（2018年度）日本留学試験（第2回）理科〈化学〉 © Japan Student Services Organization (JASSO)",
+  "attribution": "EJU past questions © JASSO. Question text paraphrased from the official past paper; figures described in text; correct answers taken from the official JASSO answer key and independently re-solved for verification.",
+  "languages": ["ja", "en"],
+  "answerKeyVerified": true,
+  "structure": {
+    "format": "flat",
+    "totalQuestions": 20,
+    "note": "Chemistry is a flat list of 20 single-best-answer items (問1–問20, answer rows 1–20) — no Roman-numeral blocks. Order ≈ structure & bonding → states/energetics/electrochemistry/equilibria → inorganic → organic.",
+    "givens": {
+      "ja": "標準状態 $0\\,$°C・$1.01\\times10^5\\,$Pa，気体 $1\\,$mol の体積 $22.4\\,$L，アボガドロ定数 $N_A=6.02\\times10^{23}\\,$/mol，ファラデー定数 $F=9.65\\times10^4\\,$C/mol。原子量：H 1.0, C 12, N 14, O 16, Na 23, S 32, Cl 35.5, Cu 64。族・周期は周期表の通り。",
+      "en": "STP $0\\,$°C, $1.01\\times10^5\\,$Pa; molar volume $22.4\\,$L; $N_A=6.02\\times10^{23}\\,$/mol; $F=9.65\\times10^4\\,$C/mol. Atomic weights: H 1.0, C 12, N 14, O 16, Na 23, S 32, Cl 35.5, Cu 64. Groups/periods per the periodic table."
+    }
+  },
+  "questions": [
+    {
+      "id": "2018-2-chem-1", "answerRow": 1, "topicId": "matter-structure",
+      "subtopic": "Atoms in the same group from electron configurations",
+      "patternTags": ["atomic-structure", "electron-configuration", "periodic-group", "compare-cases"], "hasFigure": true,
+      "figure": { "ja": "表：原子 a〜d の電子配置（K殻/L殻/M殻）：a (2,0,0)＝He；b (2,2,0)＝Be；c (2,8,6)＝S；d (2,8,8)＝Ar。", "en": "Table of electron configurations (K/L/M shells) for atoms a–d: a (2,0,0) = He; b (2,2,0) = Be; c (2,8,6) = S; d (2,8,8) = Ar." },
+      "ja": { "prompt": "表に示す電子配置をもつ原子 a〜d のうち，周期表の同族元素として正しい組み合わせを選びなさい。 a:(K2,L0,M0) b:(K2,L2,M0) c:(K2,L8,M6) d:(K2,L8,M8)", "choices": ["a, b", "a, c", "a, d", "b, c", "b, d", "c, d"] },
+      "en": { "prompt": "Among atoms a–d with the given electron configurations, which pair belongs to the same group? a:(K2,L0,M0) b:(K2,L2,M0) c:(K2,L8,M6) d:(K2,L8,M8)", "choices": ["a, b", "a, c", "a, d", "b, c", "b, d", "c, d"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "a と d（ともに 18 族）", "en": "a and d (both group 18)" },
+      "explanation": { "en": "a is He (2 electrons) and d is Ar (2,8,8) — both noble gases in group 18. b is Be (group 2) and c is S (group 16).", "ja": "a は He（2 電子），d は Ar（2,8,8）でともに 18 族の希ガス。b は Be（2 族），c は S（16 族）。" }
+    },
+    {
+      "id": "2018-2-chem-2", "answerRow": 2, "topicId": "matter-structure",
+      "subtopic": "Matching period-2 elements to properties",
+      "patternTags": ["periodic-table", "ionization-energy", "anion", "triple-bond", "compare-cases"], "hasFigure": true,
+      "figure": { "ja": "表は a/b/c の元素の組み合わせ①〜⑥。", "en": "Table of element combinations ①–⑥ for a/b/c." },
+      "ja": { "prompt": "第 2 周期の元素（Li, Be, B, C, N, O, F, Ne）のうち，次の(a)〜(c)にあてはまるものの組み合わせを選びなさい。 (a) イオン化エネルギー（第一イオン化エネルギー）が最も大きいもの (b) 2 価の陰イオンが希ガス型の電子配置となるもの (c) 同じ原子どうしで三重結合をもつ二原子分子をつくるもの", "choices": ["a:Li b:Be c:C", "a:Li b:Be c:N", "a:Li b:O c:C", "a:Ne b:Be c:N", "a:Ne b:O c:C", "a:Ne b:O c:N"] },
+      "en": { "prompt": "Among period-2 elements (Li, Be, B, C, N, O, F, Ne), match (a)–(c). (a) Largest (first) ionization energy. (b) Forms a 2− anion with a noble-gas configuration. (c) Forms a homonuclear diatomic molecule with a triple bond.", "choices": ["a:Li b:Be c:C", "a:Li b:Be c:N", "a:Li b:O c:C", "a:Ne b:Be c:N", "a:Ne b:O c:C", "a:Ne b:O c:N"] },
+      "answerIndex": 5, "answerOption": 6, "answer": { "ja": "⑥ a:Ne b:O c:N", "en": "⑥ a:Ne b:O c:N" },
+      "explanation": { "en": "(a) Ne has the largest ionization energy in period 2. (b) Oxygen gains two electrons to give $\\mathrm{O^{2-}}$ (Ne configuration). (c) Nitrogen forms $\\mathrm{N_2}$ with a triple bond.", "ja": "(a) 第 2 周期で Ne がイオン化エネルギー最大。(b) 酸素は電子 2 個を得て $\\mathrm{O^{2-}}$（Ne 型）。(c) 窒素は三重結合の $\\mathrm{N_2}$ をつくる。" }
+    },
+    {
+      "id": "2018-2-chem-3", "answerRow": 3, "topicId": "states-and-change",
+      "subtopic": "Compositional formula of a metal oxide",
+      "patternTags": ["stoichiometry", "empirical-formula", "mole-mass", "plug-in-numbers"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "原子量が 51 である金属 M の酸化物 $1.82\\,$g 中の M の質量は $1.02\\,$g であった。この酸化物の組成式として正しいものを選びなさい。", "choices": ["MO", "$\\mathrm{MO_2}$", "$\\mathrm{M_2O}$", "$\\mathrm{M_2O_3}$", "$\\mathrm{M_2O_5}$", "$\\mathrm{M_3O_2}$"] },
+      "en": { "prompt": "In $1.82\\,$g of an oxide of metal M (atomic weight 51), the mass of M is $1.02\\,$g. What is the compositional formula of the oxide?", "choices": ["MO", "$\\mathrm{MO_2}$", "$\\mathrm{M_2O}$", "$\\mathrm{M_2O_3}$", "$\\mathrm{M_2O_5}$", "$\\mathrm{M_3O_2}$"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "⑤ $\\mathrm{M_2O_5}$", "en": "⑤ $\\mathrm{M_2O_5}$" },
+      "explanation": { "en": "M $=1.02/51=0.020\\,$mol; O $=(1.82-1.02)/16=0.80/16=0.050\\,$mol. M:O $=0.020:0.050=2:5$, so $\\mathrm{M_2O_5}$.", "ja": "M $=1.02/51=0.020\\,$mol，O $=(1.82-1.02)/16=0.80/16=0.050\\,$mol。M:O$=0.020:0.050=2:5$ なので $\\mathrm{M_2O_5}$。" }
+    },
+    {
+      "id": "2018-2-chem-4", "answerRow": 4, "topicId": "states-and-change",
+      "subtopic": "Number of atoms in a volume of CO2",
+      "patternTags": ["mole-concept", "avogadro", "gas-volume", "plug-in-numbers"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "$0\\,$°C，$1.01\\times10^5\\,$Pa において体積 $5.6\\,$L の二酸化炭素 $\\mathrm{CO_2}$ に含まれるすべての原子の数に最も近い値を選びなさい。ただし $\\mathrm{CO_2}$ は理想気体とする。", "choices": ["$1.5\\times10^{23}$", "$3.0\\times10^{23}$", "$4.5\\times10^{23}$", "$2.4\\times10^{24}$", "$4.8\\times10^{24}$", "$7.2\\times10^{24}$"] },
+      "en": { "prompt": "At $0\\,$°C and $1.01\\times10^5\\,$Pa, how many atoms in total are in $5.6\\,$L of carbon dioxide $\\mathrm{CO_2}$ (ideal gas)?", "choices": ["$1.5\\times10^{23}$", "$3.0\\times10^{23}$", "$4.5\\times10^{23}$", "$2.4\\times10^{24}$", "$4.8\\times10^{24}$", "$7.2\\times10^{24}$"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "③ $4.5\\times10^{23}$", "en": "③ $4.5\\times10^{23}$" },
+      "explanation": { "en": "$\\mathrm{CO_2}=5.6/22.4=0.25\\,$mol; each molecule has 3 atoms, so atoms $=0.25\\times3\\times6.02\\times10^{23}=0.75\\times6.02\\times10^{23}\\approx4.5\\times10^{23}$.", "ja": "$\\mathrm{CO_2}=5.6/22.4=0.25\\,$mol，1 分子に原子 3 個なので $0.25\\times3\\times6.02\\times10^{23}=0.75\\times6.02\\times10^{23}\\approx4.5\\times10^{23}$。" }
+    },
+    {
+      "id": "2018-2-chem-5", "answerRow": 5, "topicId": "states-and-change",
+      "subtopic": "Lowest sulfur, highest nitrogen oxidation number",
+      "patternTags": ["redox", "oxidation-number", "sulfur", "nitrogen", "compare-cases"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の化合物の組み合わせ①〜⑥のうち，硫黄原子 S の酸化数が最低のものと窒素原子 N の酸化数が最高のものの正しい組み合わせを選びなさい。 ① $\\mathrm{SO_4^{2-}},\\ \\mathrm{NH_3}$ ② $\\mathrm{SO_2},\\ \\mathrm{HNO_3}$ ③ $\\mathrm{S_8},\\ \\mathrm{N_2}$ ④ $\\mathrm{H_2S},\\ \\mathrm{NO_3^-}$ ⑤ $\\mathrm{S_2O_3^{2-}},\\ \\mathrm{NO_2^-}$ ⑥ $\\mathrm{Na_2S},\\ \\mathrm{NO_2}$", "choices": ["$\\mathrm{SO_4^{2-}},\\ \\mathrm{NH_3}$", "$\\mathrm{SO_2},\\ \\mathrm{HNO_3}$", "$\\mathrm{S_8},\\ \\mathrm{N_2}$", "$\\mathrm{H_2S},\\ \\mathrm{NO_3^-}$", "$\\mathrm{S_2O_3^{2-}},\\ \\mathrm{NO_2^-}$", "$\\mathrm{Na_2S},\\ \\mathrm{NO_2}$"] },
+      "en": { "prompt": "Which pair has the sulfur atom at its LOWEST oxidation number AND the nitrogen atom at its HIGHEST oxidation number? ① $\\mathrm{SO_4^{2-}},\\ \\mathrm{NH_3}$ ② $\\mathrm{SO_2},\\ \\mathrm{HNO_3}$ ③ $\\mathrm{S_8},\\ \\mathrm{N_2}$ ④ $\\mathrm{H_2S},\\ \\mathrm{NO_3^-}$ ⑤ $\\mathrm{S_2O_3^{2-}},\\ \\mathrm{NO_2^-}$ ⑥ $\\mathrm{Na_2S},\\ \\mathrm{NO_2}$", "choices": ["$\\mathrm{SO_4^{2-}},\\ \\mathrm{NH_3}$", "$\\mathrm{SO_2},\\ \\mathrm{HNO_3}$", "$\\mathrm{S_8},\\ \\mathrm{N_2}$", "$\\mathrm{H_2S},\\ \\mathrm{NO_3^-}$", "$\\mathrm{S_2O_3^{2-}},\\ \\mathrm{NO_2^-}$", "$\\mathrm{Na_2S},\\ \\mathrm{NO_2}$"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "④ $\\mathrm{H_2S}$（S=−2）と $\\mathrm{NO_3^-}$（N=+5）", "en": "④ $\\mathrm{H_2S}$ (S=−2) and $\\mathrm{NO_3^-}$ (N=+5)" },
+      "explanation": { "en": "Lowest S is $-2$ (in $\\mathrm{H_2S}$); highest N is $+5$ (in $\\mathrm{NO_3^-}$). ⑥ also has S $=-2$ but its N ($\\mathrm{NO_2}$) is only $+4$.", "ja": "S の最低は $-2$（$\\mathrm{H_2S}$），N の最高は $+5$（$\\mathrm{NO_3^-}$）。⑥ も S$=-2$ だが N（$\\mathrm{NO_2}$）は $+4$ にとどまる。" }
+    },
+    {
+      "id": "2018-2-chem-6", "answerRow": 6, "topicId": "states-and-change",
+      "subtopic": "Brønsted-Lowry bases among reactions",
+      "patternTags": ["acids-bases", "bronsted-lowry", "proton-acceptor", "true-false-combo"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の反応式(a)〜(e)のうち，下線部の物質がブレンステッド・ローリーの定義による塩基としてはたらいているものが二つある。その組み合わせを選びなさい。 (a) $\\underline{\\mathrm{Mg}}+2\\mathrm{HCl}\\to\\mathrm{MgCl_2}+\\mathrm{H_2}$ (b) $\\mathrm{HCl}+\\underline{\\mathrm{H_2O}}\\to\\mathrm{H_3O^+}+\\mathrm{Cl^-}$ (c) $\\underline{\\mathrm{NH_4^+}}+\\mathrm{H_2O}\\to\\mathrm{NH_3}+\\mathrm{H_3O^+}$ (d) $\\underline{\\mathrm{HCO_3^-}}+\\mathrm{OH^-}\\to\\mathrm{H_2O}+\\mathrm{CO_3^{2-}}$ (e) $\\underline{\\mathrm{CH_3COO^-}}+\\mathrm{H_2O}\\to\\mathrm{CH_3COOH}+\\mathrm{OH^-}$", "choices": ["a, b", "a, d", "b, c", "b, e", "c, d", "d, e"] },
+      "en": { "prompt": "In two of these reactions the underlined species acts as a Brønsted-Lowry BASE. Which pair? (a) $\\underline{\\mathrm{Mg}}+2\\mathrm{HCl}\\to\\mathrm{MgCl_2}+\\mathrm{H_2}$ (b) $\\mathrm{HCl}+\\underline{\\mathrm{H_2O}}\\to\\mathrm{H_3O^+}+\\mathrm{Cl^-}$ (c) $\\underline{\\mathrm{NH_4^+}}+\\mathrm{H_2O}\\to\\mathrm{NH_3}+\\mathrm{H_3O^+}$ (d) $\\underline{\\mathrm{HCO_3^-}}+\\mathrm{OH^-}\\to\\mathrm{H_2O}+\\mathrm{CO_3^{2-}}$ (e) $\\underline{\\mathrm{CH_3COO^-}}+\\mathrm{H_2O}\\to\\mathrm{CH_3COOH}+\\mathrm{OH^-}$", "choices": ["a, b", "a, d", "b, c", "b, e", "c, d", "d, e"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "b と e", "en": "b and e" },
+      "explanation": { "en": "A Brønsted base accepts a proton. (b) Water accepts H⁺ → $\\mathrm{H_3O^+}$; (e) acetate accepts H⁺ → $\\mathrm{CH_3COOH}$. (c) $\\mathrm{NH_4^+}$ and (d) $\\mathrm{HCO_3^-}$ DONATE protons (acids); (a) is redox, not a proton transfer.", "ja": "ブレンステッド塩基は H⁺ を受け取る。(b) 水が H⁺ を受け取り $\\mathrm{H_3O^+}$，(e) 酢酸イオンが H⁺ を受け取り $\\mathrm{CH_3COOH}$。(c) $\\mathrm{NH_4^+}$ と (d) $\\mathrm{HCO_3^-}$ は H⁺ を放出する酸，(a) は酸化還元で H⁺ 移動ではない。" }
+    },
+    {
+      "id": "2018-2-chem-7", "answerRow": 7, "topicId": "states-and-change",
+      "subtopic": "Order of freezing among three solutions",
+      "patternTags": ["colligative-properties", "freezing-point-depression", "vant-hoff-factor", "compare-cases"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "水溶液 A・B・C を一つの冷却槽に入れゆっくり冷却するとき，凝固が始まる順として正しいものを選びなさい。ただし電解質は完全に解離し，過冷却は生じないものとする。 A：尿素 $\\mathrm{CO(NH_2)_2}\\ 10\\,$g を水 $100\\,$g に溶かしたもの B：NaCl $10\\,$g を水 $100\\,$g に溶かしたもの C：$\\mathrm{CaCl_2}\\ 10\\,$g を水 $100\\,$g に溶かしたもの", "choices": ["A → B → C", "A → C → B", "B → A → C", "B → C → A", "C → A → B", "C → B → A"] },
+      "en": { "prompt": "Three solutions A, B, C are cooled slowly together. In what order does freezing begin? (electrolytes fully dissociate; no supercooling). A: $10\\,$g urea $\\mathrm{CO(NH_2)_2}$ in $100\\,$g water. B: $10\\,$g NaCl in $100\\,$g water. C: $10\\,$g $\\mathrm{CaCl_2}$ in $100\\,$g water.", "choices": ["A → B → C", "A → C → B", "B → A → C", "B → C → A", "C → A → B", "C → B → A"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "② A → C → B", "en": "② A → C → B" },
+      "explanation": { "en": "Freezing begins first for the highest freezing point (smallest $\\Delta T_f \\propto$ molality × ions). Effective particles: A urea $=10/60=0.17$ (×1); C $\\mathrm{CaCl_2}=10/111\\times3=0.27$; B NaCl $=10/58.5\\times2=0.34$. Smallest first: A < C < B, so freezing order A → C → B.", "ja": "凝固は凝固点が高い（$\\Delta T_f\\propto$ 質量モル濃度×イオン数 が小さい）ものから始まる。実効粒子数：A 尿素 $=10/60=0.17$（×1），C $\\mathrm{CaCl_2}=10/111\\times3=0.27$，B NaCl $=10/58.5\\times2=0.34$。小さい順 A<C<B なので A → C → B。" }
+    },
+    {
+      "id": "2018-2-chem-8", "answerRow": 8, "topicId": "states-and-change",
+      "subtopic": "Le Chatelier reasoning for coefficients and reaction heat",
+      "patternTags": ["equilibrium", "le-chatelier", "inert-gas", "temperature", "formula-selection"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "気体 A と気体 B から気体 C が生成する可逆反応 $a\\mathrm{A}+b\\mathrm{B}=c\\mathrm{C}+Q\\,$kJ が，ある温度で平衡にある。実験：(i) 温度・体積一定でアルゴンを加えても平衡は移動しなかった。(ii) 温度・全圧一定でアルゴンを加えると平衡は左に移動した。(iii) 圧力一定で温度を高くすると平衡は左に移動した。$a,b,c$ の関係と $Q$ の正負について正しいものを選びなさい。", "choices": ["$a+b=c,\\ Q>0$", "$a+b>c,\\ Q>0$", "$a+b<c,\\ Q>0$", "$a+b=c,\\ Q<0$", "$a+b>c,\\ Q<0$", "$a+b<c,\\ Q<0$"] },
+      "en": { "prompt": "For the reversible reaction $a\\mathrm{A}+b\\mathrm{B}=c\\mathrm{C}+Q\\,$kJ at equilibrium: (i) adding Ar at constant T and V does not shift it; (ii) adding Ar at constant T and total pressure shifts it left; (iii) raising the temperature at constant pressure shifts it left. Which relation for $a,b,c$ and sign of $Q$ is correct?", "choices": ["$a+b=c,\\ Q>0$", "$a+b>c,\\ Q>0$", "$a+b<c,\\ Q>0$", "$a+b=c,\\ Q<0$", "$a+b>c,\\ Q<0$", "$a+b<c,\\ Q<0$"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "② $a+b>c,\\ Q>0$", "en": "② $a+b>c,\\ Q>0$" },
+      "explanation": { "en": "(ii) Adding inert gas at constant pressure expands the volume and shifts toward more gas moles; a leftward shift means $a+b>c$. (iii) Heating shifts toward the endothermic direction; a leftward shift means the forward reaction is exothermic, so $Q>0$.", "ja": "(ii) 全圧一定で不活性気体を加えると体積が増え気体分子数の多い側へ移動。左へ移動するので $a+b>c$。(iii) 加熱は吸熱方向へ移動。左へ移動するので正反応は発熱で $Q>0$。" }
+    },
+    {
+      "id": "2018-2-chem-9", "answerRow": 9, "topicId": "states-and-change",
+      "subtopic": "Series electrolysis: gas volume and deposited metal",
+      "patternTags": ["electrochemistry", "electrolysis", "series-cells", "faraday", "plug-in-numbers"], "hasFigure": true,
+      "figure": { "ja": "二つの電解槽を直列接続。電解槽 I（NaCl aq，陽イオン交換膜）に電極 I=C・II=Fe，電解槽 II（$\\mathrm{CuSO_4}$ aq）に電極 III・IV=Pt。電源は左が＋（電極 I 側），右が−（電極 IV 側）。よって電極 I は陽極（$\\mathrm{Cl_2}$ 発生），電極 IV は陰極（Cu 析出）。$2.00\\,$A で $32$ 分 $10$ 秒（$=1930\\,$s）。", "en": "Two cells in series. Cell I (NaCl aq, cation-exchange membrane) with electrodes I=C and II=Fe; cell II ($\\mathrm{CuSO_4}$ aq) with Pt electrodes III and IV. The supply's + is on the left (electrode I) and − on the right (electrode IV). So electrode I is an anode ($\\mathrm{Cl_2}$) and electrode IV a cathode (Cu deposits). $2.00\\,$A for $32$ min $10$ s ($=1930\\,$s)." },
+      "ja": { "prompt": "図の装置を $2.00\\,$A で $32$ 分 $10$ 秒間電気分解した。電極 I で発生する気体の標準状態での体積 [L] と電極 IV で析出する金属の質量 [g] の組み合わせとして最も近いものを選びなさい。", "choices": ["気体 0.224 / 金属 0.640", "気体 0.224 / 金属 1.28", "気体 0.448 / 金属 0.640", "気体 0.448 / 金属 1.28", "気体 0.896 / 金属 0.640", "気体 0.896 / 金属 1.28"] },
+      "en": { "prompt": "Electrolysing the apparatus at $2.00\\,$A for $32$ min $10$ s, what are the STP volume (L) of gas at electrode I and the mass (g) of metal deposited at electrode IV?", "choices": ["gas 0.224 / metal 0.640", "gas 0.224 / metal 1.28", "gas 0.448 / metal 0.640", "gas 0.448 / metal 1.28", "gas 0.896 / metal 0.640", "gas 0.896 / metal 1.28"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "④ 気体 0.448 L / 金属 1.28 g", "en": "④ gas 0.448 L / metal 1.28 g" },
+      "explanation": { "en": "Charge $=2.00\\times1930=3860\\,$C → $3860/96500=0.040\\,$mol e⁻. Electrode I (anode) gives $\\mathrm{Cl_2}=0.040/2=0.020\\,$mol $=0.448\\,$L. Electrode IV (cathode): $\\mathrm{Cu^{2+}+2e^-\\to Cu}$, Cu $=0.020\\,$mol $\\times64=1.28\\,$g.", "ja": "電気量 $=2.00\\times1930=3860\\,$C → $3860/96500=0.040\\,$mol e⁻。電極 I（陽極）は $\\mathrm{Cl_2}=0.040/2=0.020\\,$mol$=0.448\\,$L。電極 IV（陰極）は $\\mathrm{Cu^{2+}+2e^-\\to Cu}$ で Cu$=0.020\\,$mol$\\times64=1.28\\,$g。" }
+    },
+    {
+      "id": "2018-2-chem-10", "answerRow": 10, "topicId": "matter-structure",
+      "subtopic": "Density of the NaCl crystal from its unit cell",
+      "patternTags": ["crystal-structure", "unit-cell", "density", "plug-in-numbers"], "hasFigure": true,
+      "figure": { "ja": "NaCl の単位格子（一辺 $0.564\\,$nm の立方体，$\\mathrm{Na^+}$ と $\\mathrm{Cl^-}$ が交互配列）。単位格子あたり NaCl は 4 単位。$0.564^3=0.179$ とする。", "en": "NaCl unit cell (cube of edge $0.564\\,$nm with alternating $\\mathrm{Na^+}$ and $\\mathrm{Cl^-}$). The cell contains 4 NaCl units. Use $0.564^3=0.179$." },
+      "ja": { "prompt": "NaCl の単位格子は一辺 $0.564\\,$nm の立方体である。NaCl の密度に最も近い値を選びなさい。ただし $0.564^3=0.179$ とする。", "choices": ["1.1", "1.6", "1.9", "2.2", "3.1"] },
+      "en": { "prompt": "The NaCl unit cell is a cube of edge $0.564\\,$nm. What is the density of NaCl (g/cm³)? Use $0.564^3=0.179$.", "choices": ["1.1", "1.6", "1.9", "2.2", "3.1"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "約 $2.2\\,\\mathrm{g/cm^3}$", "en": "≈ 2.2 g/cm³" },
+      "explanation": { "en": "The cell has 4 NaCl ($M=58.5$): mass $=4\\times58.5/(6.02\\times10^{23})=3.89\\times10^{-22}\\,$g. Volume $=(0.564\\times10^{-7}\\,\\mathrm{cm})^3=0.179\\times10^{-21}=1.79\\times10^{-22}\\,$cm³. Density $=3.89/1.79\\approx2.2\\,\\mathrm{g/cm^3}$.", "ja": "単位格子に NaCl 4 個（$M=58.5$）：質量 $=4\\times58.5/(6.02\\times10^{23})=3.89\\times10^{-22}\\,$g。体積 $=(0.564\\times10^{-7}\\,\\mathrm{cm})^3=0.179\\times10^{-21}=1.79\\times10^{-22}\\,$cm³。密度 $=3.89/1.79\\approx2.2\\,\\mathrm{g/cm^3}$。" }
+    },
+    {
+      "id": "2018-2-chem-11", "answerRow": 11, "topicId": "states-and-change",
+      "subtopic": "Reactions where the species is a reducing agent",
+      "patternTags": ["redox", "oxidizing-reducing-agent", "oxidation-number", "true-false-combo"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "反応 $\\mathrm{2KMnO_4+5H_2O_2+3H_2SO_4\\to 2MnSO_4+5O_2+8H_2O+K_2SO_4}$ で $\\mathrm{H_2O_2}$ は還元剤としてはたらく。次の(a)〜(e)のうち，下線部の物質がこの $\\mathrm{H_2O_2}$ と同じはたらき（還元剤）をしているものが二つある。その組み合わせを選びなさい。 (a) $\\underline{\\mathrm{MnO_2}}+4\\mathrm{HCl}\\to\\mathrm{MnCl_2}+2\\mathrm{H_2O}+\\mathrm{Cl_2}$ (b) $\\underline{\\mathrm{H_2O_2}}+2\\mathrm{KI}+2\\mathrm{HCl}\\to2\\mathrm{KCl}+2\\mathrm{H_2O}+\\mathrm{I_2}$ (c) $\\underline{\\mathrm{Zn}}+\\mathrm{H_2SO_4}\\to\\mathrm{ZnSO_4}+\\mathrm{H_2}$ (d) $\\underline{\\mathrm{SO_2}}+\\mathrm{I_2}+2\\mathrm{H_2O}\\to2\\mathrm{HI}+\\mathrm{H_2SO_4}$ (e) $\\underline{\\mathrm{SO_2}}+2\\mathrm{H_2S}\\to3\\mathrm{S}+2\\mathrm{H_2O}$", "choices": ["a, b", "a, d", "b, c", "b, d", "b, e", "c, d", "c, e"] },
+      "en": { "prompt": "In $\\mathrm{2KMnO_4+5H_2O_2+3H_2SO_4\\to 2MnSO_4+5O_2+8H_2O+K_2SO_4}$, $\\mathrm{H_2O_2}$ acts as a reducing agent. In two of (a)–(e) the underlined species plays the SAME role (reducing agent). Which pair? (a) $\\underline{\\mathrm{MnO_2}}+4\\mathrm{HCl}\\to\\mathrm{MnCl_2}+2\\mathrm{H_2O}+\\mathrm{Cl_2}$ (b) $\\underline{\\mathrm{H_2O_2}}+2\\mathrm{KI}+2\\mathrm{HCl}\\to2\\mathrm{KCl}+2\\mathrm{H_2O}+\\mathrm{I_2}$ (c) $\\underline{\\mathrm{Zn}}+\\mathrm{H_2SO_4}\\to\\mathrm{ZnSO_4}+\\mathrm{H_2}$ (d) $\\underline{\\mathrm{SO_2}}+\\mathrm{I_2}+2\\mathrm{H_2O}\\to2\\mathrm{HI}+\\mathrm{H_2SO_4}$ (e) $\\underline{\\mathrm{SO_2}}+2\\mathrm{H_2S}\\to3\\mathrm{S}+2\\mathrm{H_2O}$", "choices": ["a, b", "a, d", "b, c", "b, d", "b, e", "c, d", "c, e"] },
+      "answerIndex": 5, "answerOption": 6, "answer": { "ja": "c と d", "en": "c and d" },
+      "explanation": { "en": "A reducing agent is oxidised (its oxidation number rises). (c) Zn $0\\to+2$; (d) S in $\\mathrm{SO_2}\\ +4\\to+6$ — both reducing agents. (a) $\\mathrm{MnO_2}$ Mn $+4\\to+2$ and (b) $\\mathrm{H_2O_2}$ O $-1\\to-2$ are oxidising agents; (e) $\\mathrm{SO_2}$ S $+4\\to0$ is reduced (oxidising agent).", "ja": "還元剤は酸化される（酸化数が増加）。(c) Zn $0\\to+2$，(d) $\\mathrm{SO_2}$ の S $+4\\to+6$ — ともに還元剤。(a) $\\mathrm{MnO_2}$ の Mn $+4\\to+2$ と (b) $\\mathrm{H_2O_2}$ の O $-1\\to-2$ は酸化剤，(e) $\\mathrm{SO_2}$ の S $+4\\to0$ は還元され酸化剤。" }
+    },
+    {
+      "id": "2018-2-chem-12", "answerRow": 12, "topicId": "inorganic",
+      "subtopic": "Purifying and collecting chlorine gas",
+      "patternTags": ["inorganic", "gas-preparation", "gas-purification", "gas-collection", "figure-reading"], "hasFigure": true,
+      "figure": { "ja": "$\\mathrm{MnO_2}$ と塩酸から $\\mathrm{Cl_2}$ を発生させ，装置 A・B の液体を通して装置 C で集める。集気法 (i) 下方置換（管を立てた試験管の底まで入れる），(ii) 上方置換（管を逆さ試験管へ），(iii) 水上置換（水槽）。表は A の液体・B の液体・装置 C の組み合わせ①〜⑥。", "en": "$\\mathrm{Cl_2}$ is generated from $\\mathrm{MnO_2}$ and HCl, passed through the liquids in devices A and B, and collected by device C. Collection methods: (i) downward delivery (tube to the bottom of an upright tube), (ii) upward delivery (tube into an inverted tube), (iii) over water. The table gives combinations ①–⑥ of liquid A / liquid B / device C." },
+      "ja": { "prompt": "$\\mathrm{Cl_2}$ を発生させ装置 A・B の液体を通して装置 C で集める。装置 A の液体・装置 B の液体・装置 C の正しい組み合わせを選びなさい。", "choices": ["A:水 / B:濃硫酸 / C:(i) 下方置換", "A:水 / B:濃硫酸 / C:(ii) 上方置換", "A:水 / B:濃硫酸 / C:(iii) 水上置換", "A:濃硫酸 / B:水 / C:(i) 下方置換", "A:濃硫酸 / B:水 / C:(ii) 上方置換", "A:濃硫酸 / B:水 / C:(iii) 水上置換"] },
+      "en": { "prompt": "Generating $\\mathrm{Cl_2}$ and passing it through liquids A and B before collecting at C, which combination of liquid A / liquid B / device C is correct?", "choices": ["A:water / B:conc. $\\mathrm{H_2SO_4}$ / C:(i) downward delivery", "A:water / B:conc. $\\mathrm{H_2SO_4}$ / C:(ii) upward delivery", "A:water / B:conc. $\\mathrm{H_2SO_4}$ / C:(iii) over water", "A:conc. $\\mathrm{H_2SO_4}$ / B:water / C:(i) downward delivery", "A:conc. $\\mathrm{H_2SO_4}$ / B:water / C:(ii) upward delivery", "A:conc. $\\mathrm{H_2SO_4}$ / B:water / C:(iii) over water"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "① A:水 / B:濃硫酸 / C:下方置換", "en": "① A:water / B:conc. $\\mathrm{H_2SO_4}$ / C:downward delivery" },
+      "explanation": { "en": "The $\\mathrm{Cl_2}$ stream carries HCl gas and water vapour. First pass through WATER (A) to remove HCl, then through concentrated $\\mathrm{H_2SO_4}$ (B) to dry it. $\\mathrm{Cl_2}$ is denser than air and water-soluble, so collect by downward delivery (i).", "ja": "発生した $\\mathrm{Cl_2}$ には HCl と水蒸気が混じる。まず水（A）で HCl を除き，次に濃硫酸（B）で乾燥する。$\\mathrm{Cl_2}$ は空気より重く水に溶けるので下方置換(i)で集める。" }
+    },
+    {
+      "id": "2018-2-chem-13", "answerRow": 13, "topicId": "matter-structure",
+      "subtopic": "Identify substances from bonding and properties",
+      "patternTags": ["matter-structure", "bonding", "sublimation", "compare-cases"], "hasFigure": true,
+      "figure": { "ja": "表は a/b の物質の組み合わせ①〜⑥（ヨウ素・アンモニア・二酸化炭素・ダイヤモンド・黒鉛など）。", "en": "Table of substance combinations ①–⑥ for a/b (iodine, ammonia, carbon dioxide, diamond, graphite, etc.)." },
+      "ja": { "prompt": "次の記述(a),(b)それぞれにあてはまる物質の組み合わせを選びなさい。 (a) 1 種類の原子どうしの共有結合でできており，黒紫色の結晶で昇華性があり，電気を導かない。 (b) 2 種類の原子どうしの二重結合でできており，常温・常圧で気体で，その固体は昇華性がある。", "choices": ["a:ヨウ素 / b:アンモニア", "a:ヨウ素 / b:二酸化炭素", "a:ダイヤモンド / b:水", "a:ダイヤモンド / b:アンモニア", "a:黒鉛 / b:二酸化炭素", "a:黒鉛 / b:水"] },
+      "en": { "prompt": "Choose the substances matching (a) and (b). (a) Made of one kind of atom by covalent bonds; a black-purple crystal, sublimable, non-conducting. (b) Made of two kinds of atoms by double bonds; a gas at NTP whose solid is sublimable.", "choices": ["a:iodine / b:ammonia", "a:iodine / b:carbon dioxide", "a:diamond / b:water", "a:diamond / b:ammonia", "a:graphite / b:carbon dioxide", "a:graphite / b:water"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "② a:ヨウ素 / b:二酸化炭素", "en": "② a:iodine / b:carbon dioxide" },
+      "explanation": { "en": "(a) Iodine ($\\mathrm{I_2}$) is one element, a black-purple molecular crystal that sublimes and does not conduct. (b) $\\mathrm{CO_2}$ has C=O double bonds, two elements, is a gas, and its solid (dry ice) sublimes. Diamond/graphite don't sublime to black-purple; ammonia/water lack double bonds.", "ja": "(a) ヨウ素（$\\mathrm{I_2}$）は単一元素で黒紫色の分子結晶，昇華し電気を導かない。(b) $\\mathrm{CO_2}$ は C=O 二重結合の二元素，気体で固体（ドライアイス）が昇華する。ダイヤモンド・黒鉛は黒紫色昇華性でなく，アンモニア・水は二重結合をもたない。" }
+    },
+    {
+      "id": "2018-2-chem-14", "answerRow": 14, "topicId": "inorganic",
+      "subtopic": "Reaction that does not proceed by ionization tendency",
+      "patternTags": ["inorganic", "ionization-tendency", "displacement", "pick-statement"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の反応式①〜⑤のうち，イオン化傾向から判断して進行しない反応を選びなさい。 ① $\\mathrm{Fe}+\\mathrm{Hg^{2+}}\\to\\mathrm{Fe^{2+}}+\\mathrm{Hg}$ ② $\\mathrm{Fe}+\\mathrm{Cu^{2+}}\\to\\mathrm{Fe^{2+}}+\\mathrm{Cu}$ ③ $\\mathrm{2Ag}+\\mathrm{Zn^{2+}}\\to\\mathrm{2Ag^+}+\\mathrm{Zn}$ ④ $\\mathrm{Zn}+\\mathrm{Pb^{2+}}\\to\\mathrm{Zn^{2+}}+\\mathrm{Pb}$ ⑤ $\\mathrm{Mg}+\\mathrm{Cu^{2+}}\\to\\mathrm{Mg^{2+}}+\\mathrm{Cu}$", "choices": ["①", "②", "③", "④", "⑤"] },
+      "en": { "prompt": "Which reaction does NOT proceed, judging by ionization tendency? ① $\\mathrm{Fe}+\\mathrm{Hg^{2+}}\\to\\mathrm{Fe^{2+}}+\\mathrm{Hg}$ ② $\\mathrm{Fe}+\\mathrm{Cu^{2+}}\\to\\mathrm{Fe^{2+}}+\\mathrm{Cu}$ ③ $\\mathrm{2Ag}+\\mathrm{Zn^{2+}}\\to\\mathrm{2Ag^+}+\\mathrm{Zn}$ ④ $\\mathrm{Zn}+\\mathrm{Pb^{2+}}\\to\\mathrm{Zn^{2+}}+\\mathrm{Pb}$ ⑤ $\\mathrm{Mg}+\\mathrm{Cu^{2+}}\\to\\mathrm{Mg^{2+}}+\\mathrm{Cu}$", "choices": ["①", "②", "③", "④", "⑤"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "③（Ag は Zn を析出させられない）", "en": "③ (Ag cannot displace Zn)" },
+      "explanation": { "en": "A metal displaces ions of a less reactive metal. In ③ silver (less reactive than zinc) cannot reduce $\\mathrm{Zn^{2+}}$, so it does not proceed. The others have the more reactive metal displacing the less reactive ion.", "ja": "金属はイオン化傾向の小さい金属のイオンを析出させる。③ では銀（亜鉛よりイオン化傾向が小さい）が $\\mathrm{Zn^{2+}}$ を還元できず進行しない。他はイオン化傾向の大きい金属が小さいイオンを析出させる。" }
+    },
+    {
+      "id": "2018-2-chem-15", "answerRow": 15, "topicId": "inorganic",
+      "subtopic": "Sequential separation of Al3+, Fe3+, Zn2+",
+      "patternTags": ["inorganic", "qualitative-analysis", "amphoteric", "complex-ion", "compare-cases"], "hasFigure": true,
+      "figure": { "ja": "表は ろ液 X・ろ液 Y に含まれる金属イオンの組み合わせ①〜⑥。操作 A：$\\mathrm{Al^{3+},Fe^{3+},Zn^{2+}}$ の水溶液に過剰の $\\mathrm{NH_3}$ aq を加え，沈殿をろ過して除き，ろ液 X を得る。操作 B：操作 A の沈殿に過剰の NaOH aq を加え，残った沈殿をろ過して除き，ろ液 Y を得る。", "en": "Table of metal ions in filtrate X / filtrate Y, options ①–⑥. Operation A: to a solution of $\\mathrm{Al^{3+},Fe^{3+},Zn^{2+}}$ add excess $\\mathrm{NH_3}$ aq, filter off the precipitate, keep filtrate X. Operation B: to A's precipitate add excess NaOH aq, filter off the remaining precipitate, keep filtrate Y." },
+      "ja": { "prompt": "$\\mathrm{Al^{3+},Fe^{3+},Zn^{2+}}$ を含む水溶液に操作 A・B を行った。ろ液 X・Y に含まれる金属イオンの正しい組み合わせを選びなさい。", "choices": ["X:$\\mathrm{Al^{3+}}$ / Y:$\\mathrm{Fe^{3+}}$", "X:$\\mathrm{Al^{3+}}$ / Y:$\\mathrm{Zn^{2+}}$", "X:$\\mathrm{Fe^{3+}}$ / Y:$\\mathrm{Al^{3+}}$", "X:$\\mathrm{Fe^{3+}}$ / Y:$\\mathrm{Zn^{2+}}$", "X:$\\mathrm{Zn^{2+}}$ / Y:$\\mathrm{Al^{3+}}$", "X:$\\mathrm{Zn^{2+}}$ / Y:$\\mathrm{Fe^{3+}}$"] },
+      "en": { "prompt": "After operations A and B on a solution of $\\mathrm{Al^{3+},Fe^{3+},Zn^{2+}}$, which metal ions are in filtrates X and Y?", "choices": ["X:$\\mathrm{Al^{3+}}$ / Y:$\\mathrm{Fe^{3+}}$", "X:$\\mathrm{Al^{3+}}$ / Y:$\\mathrm{Zn^{2+}}$", "X:$\\mathrm{Fe^{3+}}$ / Y:$\\mathrm{Al^{3+}}$", "X:$\\mathrm{Fe^{3+}}$ / Y:$\\mathrm{Zn^{2+}}$", "X:$\\mathrm{Zn^{2+}}$ / Y:$\\mathrm{Al^{3+}}$", "X:$\\mathrm{Zn^{2+}}$ / Y:$\\mathrm{Fe^{3+}}$"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "⑤ X:$\\mathrm{Zn^{2+}}$ / Y:$\\mathrm{Al^{3+}}$", "en": "⑤ X:$\\mathrm{Zn^{2+}}$ / Y:$\\mathrm{Al^{3+}}$" },
+      "explanation": { "en": "Excess $\\mathrm{NH_3}$ precipitates $\\mathrm{Al(OH)_3}$ and $\\mathrm{Fe(OH)_3}$ but dissolves $\\mathrm{Zn^{2+}}$ as $\\mathrm{[Zn(NH_3)_4]^{2+}}$, so X contains $\\mathrm{Zn^{2+}}$. Excess NaOH on the precipitate dissolves amphoteric $\\mathrm{Al(OH)_3}$ as $\\mathrm{[Al(OH)_4]^-}$ but leaves $\\mathrm{Fe(OH)_3}$, so Y contains $\\mathrm{Al^{3+}}$.", "ja": "過剰の $\\mathrm{NH_3}$ は $\\mathrm{Al(OH)_3}$・$\\mathrm{Fe(OH)_3}$ を沈殿させるが $\\mathrm{Zn^{2+}}$ は $\\mathrm{[Zn(NH_3)_4]^{2+}}$ として溶けるので X は $\\mathrm{Zn^{2+}}$。沈殿に過剰の NaOH を加えると両性の $\\mathrm{Al(OH)_3}$ が $\\mathrm{[Al(OH)_4]^-}$ として溶け $\\mathrm{Fe(OH)_3}$ は残るので Y は $\\mathrm{Al^{3+}}$。" }
+    },
+    {
+      "id": "2018-2-chem-16", "answerRow": 16, "topicId": "organic",
+      "subtopic": "Acetylene reaction products A, B, C",
+      "patternTags": ["organic", "acetylene", "addition", "trimerization", "compare-cases"], "hasFigure": true,
+      "figure": { "ja": "アセチレン $\\mathrm{HC{\\equiv}CH}$ の反応：(HCl 付加)→化合物 A；(試薬 B 付加)→アセトアルデヒド $\\mathrm{CH_3CHO}$；(三量化)→化合物 C。表は A（塩化ビニル等）・B（$\\mathrm{H_2O}$ など）・C（ベンゼン/シクロヘキサン）の組み合わせ①〜⑥。", "en": "Reactions of acetylene $\\mathrm{HC{\\equiv}CH}$: (add HCl)→compound A; (add reagent B)→acetaldehyde $\\mathrm{CH_3CHO}$; (trimerization)→compound C. Table of combinations ①–⑥ for A (e.g. vinyl chloride), B (e.g. $\\mathrm{H_2O}$), C (benzene/cyclohexane)." },
+      "ja": { "prompt": "アセチレンから得られる化合物の反応経路における A・B・C にあてはまる物質の組み合わせを選びなさい。 A：HCl 付加で得る化合物 B：付加してアセトアルデヒドを与える試薬 C：三量化で得る化合物", "choices": ["A:$\\mathrm{CH_2{=}CHCl}$ / B:$\\mathrm{H_2O}$ / C:ベンゼン", "A:$\\mathrm{CH_2{=}CHCl}$ / B:$\\mathrm{H_2O}$ / C:シクロヘキサン", "A:$\\mathrm{CH_2{=}CHCl}$ / B:$\\mathrm{O_2}$ / C:ベンゼン", "A:$\\mathrm{CHCl{=}CHCl}$ / B:$\\mathrm{O_2}$ / C:シクロヘキサン", "A:$\\mathrm{CHCl{=}CHCl}$ / B:$\\mathrm{CH_3OH}$ / C:ベンゼン", "A:$\\mathrm{CHCl{=}CHCl}$ / B:$\\mathrm{CH_3OH}$ / C:シクロヘキサン"] },
+      "en": { "prompt": "In the reaction scheme from acetylene, choose A, B, C. A: the compound from adding HCl. B: the reagent whose addition gives acetaldehyde. C: the compound from trimerization.", "choices": ["A:$\\mathrm{CH_2{=}CHCl}$ / B:$\\mathrm{H_2O}$ / C:benzene", "A:$\\mathrm{CH_2{=}CHCl}$ / B:$\\mathrm{H_2O}$ / C:cyclohexane", "A:$\\mathrm{CH_2{=}CHCl}$ / B:$\\mathrm{O_2}$ / C:benzene", "A:$\\mathrm{CHCl{=}CHCl}$ / B:$\\mathrm{O_2}$ / C:cyclohexane", "A:$\\mathrm{CHCl{=}CHCl}$ / B:$\\mathrm{CH_3OH}$ / C:benzene", "A:$\\mathrm{CHCl{=}CHCl}$ / B:$\\mathrm{CH_3OH}$ / C:cyclohexane"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "① A:塩化ビニル / B:$\\mathrm{H_2O}$ / C:ベンゼン", "en": "① A:vinyl chloride / B:$\\mathrm{H_2O}$ / C:benzene" },
+      "explanation": { "en": "Acetylene + HCl → vinyl chloride $\\mathrm{CH_2{=}CHCl}$ (A). Acetylene + $\\mathrm{H_2O}$ → acetaldehyde, so B is $\\mathrm{H_2O}$. Trimerization of acetylene → benzene (C).", "ja": "アセチレン＋HCl → 塩化ビニル $\\mathrm{CH_2{=}CHCl}$（A）。アセチレン＋$\\mathrm{H_2O}$ → アセトアルデヒドなので B は $\\mathrm{H_2O}$。アセチレンの三量化 → ベンゼン（C）。" }
+    },
+    {
+      "id": "2018-2-chem-17", "answerRow": 17, "topicId": "organic",
+      "subtopic": "Reaction occurring with only one of four compounds",
+      "patternTags": ["organic", "qualitative-tests", "carboxylic-acid", "compare-cases"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "エタノール $\\mathrm{CH_3CH_2OH}$，アセトアルデヒド $\\mathrm{CH_3CHO}$，アセトン $\\mathrm{CH_3COCH_3}$，ギ酸 HCOOH の 4 種類の化合物がある。次の反応①〜④のうち，ただ 1 種類の化合物でおこるものを選びなさい。 ① $\\mathrm{NaHCO_3}$ を加えると気体が発生する。 ② 金属 Na を加えると気体が発生する。 ③ アンモニア性硝酸銀水溶液を加えて加熱すると Ag が析出する。 ④ $\\mathrm{I_2}$ と NaOH aq を加えて加熱すると黄色の沈殿を生じる。", "choices": ["①", "②", "③", "④"] },
+      "en": { "prompt": "Four compounds: ethanol $\\mathrm{CH_3CH_2OH}$, acetaldehyde $\\mathrm{CH_3CHO}$, acetone $\\mathrm{CH_3COCH_3}$, formic acid HCOOH. Which reaction occurs with only ONE of them? ① Adding $\\mathrm{NaHCO_3}$ releases gas. ② Adding sodium releases gas. ③ Warming with ammoniacal silver nitrate deposits Ag. ④ Adding $\\mathrm{I_2}$ and NaOH aq and warming gives a yellow precipitate.", "choices": ["①", "②", "③", "④"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "①（ギ酸のみ $\\mathrm{NaHCO_3}$ と反応）", "en": "① (only formic acid reacts with $\\mathrm{NaHCO_3}$)" },
+      "explanation": { "en": "Only the carboxylic acid (formic acid) reacts with $\\mathrm{NaHCO_3}$ to release $\\mathrm{CO_2}$ — exactly one compound. ② Na reacts with both ethanol and formic acid (2); ③ silver mirror with acetaldehyde and formic acid (2); ④ iodoform with ethanol, acetaldehyde, and acetone (3).", "ja": "$\\mathrm{NaHCO_3}$ と反応するのはカルボン酸であるギ酸のみで $\\mathrm{CO_2}$ を発生 — ちょうど 1 種類。② Na はエタノールとギ酸（2 種）；③ 銀鏡反応はアセトアルデヒドとギ酸（2 種）；④ ヨードホルム反応はエタノール・アセトアルデヒド・アセトン（3 種）。" }
+    },
+    {
+      "id": "2018-2-chem-18", "answerRow": 18, "topicId": "organic",
+      "subtopic": "Counting C7H8O aromatic isomers",
+      "patternTags": ["organic", "isomers", "aromatic", "phenol", "counting"], "hasFigure": true,
+      "figure": { "ja": "表は (a)/(b)/(c) の数の組み合わせ①〜⑥。$\\mathrm{C_7H_8O}$（ベンゼン環を含む）の異性体：クレゾール o/m/p（3，フェノール性）＋ベンジルアルコール（1，アルコール性）＋アニソール（1，エーテル）。", "en": "Table of (a)/(b)/(c) counts ①–⑥. $\\mathrm{C_7H_8O}$ (with a benzene ring) isomers: cresols o/m/p (3, phenolic) + benzyl alcohol (1, alcoholic) + anisole (1, ether)." },
+      "ja": { "prompt": "ベンゼン環を含み分子式 $\\mathrm{C_7H_8O}$ で表される化合物の異性体について，(a)〜(c)にあてはまる数の組み合わせを選びなさい。 (a) すべての異性体の数 (b) ヒドロキシ基をもつ異性体の数 (c) $\\mathrm{FeCl_3}$ aq と反応して呈色する異性体の数", "choices": ["a:3 b:2 c:1", "a:3 b:2 c:2", "a:4 b:3 c:1", "a:4 b:3 c:2", "a:5 b:4 c:2", "a:5 b:4 c:3"] },
+      "en": { "prompt": "For the isomers of $\\mathrm{C_7H_8O}$ containing a benzene ring, choose the counts for (a)–(c). (a) Total number of isomers. (b) Number with a hydroxy group. (c) Number that give a colour with $\\mathrm{FeCl_3}$ aq.", "choices": ["a:3 b:2 c:1", "a:3 b:2 c:2", "a:4 b:3 c:1", "a:4 b:3 c:2", "a:5 b:4 c:2", "a:5 b:4 c:3"] },
+      "answerIndex": 5, "answerOption": 6, "answer": { "ja": "⑥ a:5 b:4 c:3", "en": "⑥ a:5 b:4 c:3" },
+      "explanation": { "en": "The isomers are o-, m-, p-cresol (3), benzyl alcohol (1), and anisole (1): total 5 (a). Four bear an –OH (the three cresols + benzyl alcohol) (b). Only the three phenolic cresols colour with $\\mathrm{FeCl_3}$ (c) — benzyl alcohol (alcohol) and anisole (ether) do not.", "ja": "異性体は o-,m-,p-クレゾール（3），ベンジルアルコール（1），アニソール（1）で合計 5（a）。–OH をもつのは 4 種（クレゾール 3＋ベンジルアルコール）（b）。$\\mathrm{FeCl_3}$ で呈色するのはフェノール性のクレゾール 3 種のみ（c）— ベンジルアルコール（アルコール）とアニソール（エーテル）は呈色しない。" }
+    },
+    {
+      "id": "2018-2-chem-19", "answerRow": 19, "topicId": "organic",
+      "subtopic": "Structure common to ethyl acetate and PET",
+      "patternTags": ["organic", "ester", "polymers", "functional-groups", "pick-statement"], "hasFigure": true,
+      "figure": { "ja": "構造の選択肢：① $\\mathrm{-CH_2-O-CH_2-}$（エーテル）② $\\mathrm{-O-CH_2-O-}$ ③ $\\mathrm{-CH_2-CO-CH_2-}$（ケトン）④ $\\mathrm{-CO-O-}$（エステル）⑤ $\\mathrm{-NH-CO-}$（アミド）。", "en": "Structure options: ① $\\mathrm{-CH_2-O-CH_2-}$ (ether) ② $\\mathrm{-O-CH_2-O-}$ ③ $\\mathrm{-CH_2-CO-CH_2-}$ (ketone) ④ $\\mathrm{-CO-O-}$ (ester) ⑤ $\\mathrm{-NH-CO-}$ (amide)." },
+      "ja": { "prompt": "酢酸エチルとポリエチレンテレフタラート（PET）のどちらにも含まれる構造として正しいものを選びなさい。", "choices": ["$\\mathrm{-CH_2-O-CH_2-}$", "$\\mathrm{-O-CH_2-O-}$", "$\\mathrm{-CH_2-CO-CH_2-}$", "$\\mathrm{-CO-O-}$", "$\\mathrm{-NH-CO-}$"] },
+      "en": { "prompt": "Which structure is contained in BOTH ethyl acetate and poly(ethylene terephthalate) (PET)?", "choices": ["$\\mathrm{-CH_2-O-CH_2-}$", "$\\mathrm{-O-CH_2-O-}$", "$\\mathrm{-CH_2-CO-CH_2-}$", "$\\mathrm{-CO-O-}$", "$\\mathrm{-NH-CO-}$"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "④ エステル結合 $\\mathrm{-CO-O-}$", "en": "④ ester linkage $\\mathrm{-CO-O-}$" },
+      "explanation": { "en": "Ethyl acetate is an ester and PET is a polyester; both contain the ester linkage $\\mathrm{-C(=O)-O-}$. ① is an ether, ③ a ketone, ⑤ an amide.", "ja": "酢酸エチルはエステル，PET はポリエステルで，どちらもエステル結合 $\\mathrm{-C(=O)-O-}$ をもつ。① はエーテル，③ はケトン，⑤ はアミド。" }
+    },
+    {
+      "id": "2018-2-chem-20", "answerRow": 20, "topicId": "organic",
+      "subtopic": "Properties common to starch and cellulose",
+      "patternTags": ["organic", "polysaccharides", "hydrolysis", "true-false-combo"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "記述(a)〜(d)のうち，デンプンとセルロースの両方にあてはまるものの組み合わせを選びなさい。 (a) 分子式は $(\\mathrm{C_6H_{10}O_5})_n$ で表される。 (b) らせん構造をもつ。 (c) 酸を加えて熱すると加水分解されてグルコースを生じる。 (d) 還元性があり銀鏡反応がおこる。", "choices": ["a, b", "a, c", "a, d", "b, c", "b, d", "c, d"] },
+      "en": { "prompt": "Which statements apply to BOTH starch and cellulose? (a) Their molecular formula is $(\\mathrm{C_6H_{10}O_5})_n$. (b) They have a helical structure. (c) Heating with acid hydrolyses them to glucose. (d) They are reducing and give the silver-mirror reaction.", "choices": ["a, b", "a, c", "a, d", "b, c", "b, d", "c, d"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "a と c", "en": "a and c" },
+      "explanation": { "en": "Both have formula $(\\mathrm{C_6H_{10}O_5})_n$ (a) and both hydrolyse with acid to glucose (c). (b) Only starch (amylose) is helical; cellulose is linear. (d) Neither shows reducing/silver-mirror behaviour (they are high polymers with negligible free aldehyde ends).", "ja": "両者とも分子式 $(\\mathrm{C_6H_{10}O_5})_n$（a），酸で加水分解してグルコースを生じる（c）。(b) らせん構造はデンプン（アミロース）のみでセルロースは直鎖。(d) どちらも還元性・銀鏡反応を示さない（高分子で遊離アルデヒド末端がほぼない）。" }
+    }
+  ],
+  "patterns": {
+    "archetypes": [
+      "Same-group atoms from electron configurations (He & Ar in group 18).",
+      "Match period-2 elements to properties (max IE, 2− anion, triple bond).",
+      "Compositional formula of a metal oxide from mass split.",
+      "Atom count in a gas volume (mol × atoms-per-molecule × Nₐ).",
+      "Lowest-S / highest-N oxidation-number pair.",
+      "Brønsted-Lowry bases among reactions (proton acceptors).",
+      "Order of freezing from molality × van't Hoff factor.",
+      "Le Chatelier reasoning for coefficients and sign of Q (inert gas + temperature).",
+      "Series electrolysis: gas volume at one electrode + metal at another.",
+      "Density of an ionic crystal from its unit cell (4 formula units in NaCl).",
+      "Reactions where the marked species is a reducing agent.",
+      "Purify and collect chlorine (water → conc. H₂SO₄ → downward delivery).",
+      "Identify substances from bonding and sublimation (iodine, CO₂).",
+      "Reaction that does not proceed by ionization tendency.",
+      "Sequential separation of Al³⁺/Fe³⁺/Zn²⁺ (NH₃ then NaOH).",
+      "Acetylene reaction products (vinyl chloride, acetaldehyde, benzene).",
+      "Reaction occurring with only one of four oxygenated compounds.",
+      "Counting C₇H₈O aromatic isomers (total / –OH / FeCl₃-positive).",
+      "Structure common to ethyl acetate and PET (ester linkage).",
+      "Properties common to starch and cellulose (formula + hydrolysis)."
+    ],
+    "recurring": [
+      "Atomic structure / configuration / periodic-property screens open the paper.",
+      "Quantitative core: oxide formula, atom count, freezing-point order, equilibrium reasoning, electrolysis, crystal density.",
+      "Redox: oxidation-number extremes, reducing/oxidizing agent identification.",
+      "Qualitative inorganic: gas purification/collection, ionization-tendency displacement, multi-step cation separation.",
+      "Organic: acetylene chemistry, qualitative tests, aromatic isomer counting, ester/amide structures, polysaccharides."
+    ],
+    "examTacticNotes": [
+      "Noble gases (group 18): He(2) and Ar(2,8,8) share a group.",
+      "Period 2: Ne has max IE; O²⁻ reaches Ne config; N₂ has a triple bond.",
+      "Oxide formula: mol M and mol O from masses, take the simplest ratio.",
+      "Atoms = mol × (atoms/molecule) × Nₐ; CO₂ has 3 atoms each.",
+      "Lowest S = −2 (H₂S/Na₂S); highest N = +5 (HNO₃/NO₃⁻).",
+      "Brønsted base accepts H⁺ (H₂O→H₃O⁺, CH₃COO⁻→CH₃COOH).",
+      "Freezing order: smaller (molality × ions) freezes first; urea < CaCl₂ < NaCl here.",
+      "Inert gas at constant P shifts toward more gas moles; heating shifts endothermic.",
+      "Series cells: same charge; Cl₂ = mol e⁻/2 (×22.4 L), Cu = mol e⁻/2 (×64 g).",
+      "NaCl cell has 4 formula units; density = 4M/(Nₐ·a³).",
+      "Reducing agent is oxidised: Zn 0→+2, SO₂ S +4→+6.",
+      "Purify Cl₂: water removes HCl, conc. H₂SO₄ dries; collect by downward delivery (dense, water-soluble).",
+      "Iodine: black-purple, sublimable, non-conducting molecular crystal; CO₂: double bonds, sublimable solid.",
+      "Displacement fails when the metal is less reactive than the ion (Ag vs Zn²⁺).",
+      "Excess NH₃ keeps Zn²⁺ in solution (ammine); excess NaOH dissolves Al(OH)₃; Fe(OH)₃ stays.",
+      "Acetylene: +HCl→vinyl chloride, +H₂O→acetaldehyde, trimerize→benzene.",
+      "Only a carboxylic acid (formic acid) reacts with NaHCO₃ among alcohol/aldehyde/ketone/acid.",
+      "C₇H₈O aromatics: 5 isomers (3 cresols + benzyl alcohol + anisole); 4 with –OH; 3 FeCl₃-positive.",
+      "Ester linkage –C(=O)–O– is shared by ethyl acetate and PET.",
+      "Starch and cellulose: (C₆H₁₀O₅)ₙ and acid hydrolysis to glucose; only starch is helical; neither is reducing."
+    ],
+    "difficulty": "Standard EJU chemistry — a full-syllabus sweep with strong quantitative and qualitative-inorganic blocks. The more discriminating items are the freezing-point ordering (Q7), the Le Chatelier coefficient/heat deduction (Q8), the series-electrolysis calculation (Q9), and the crystal-density problem (Q10)."
+  }
+}

@@ -1,5 +1,5 @@
 import { useEffect, useState, type PointerEvent as ReactPointerEvent } from 'react';
-import Markdown from './Markdown';
+import Markdown, { Inline } from './Markdown';
 import { usePinned } from '../lib/pinned';
 import { usePractice } from '../lib/practice';
 import { useAnswers } from '../lib/answers';
@@ -35,7 +35,7 @@ export default function BoardQuestions() {
   useEffect(() => {
     if (!q) return;
     const ch = q.choices?.length ? '\n' + q.choices.map((c, k) => `${LETTERS[k]}. ${c}`).join('\n') : '';
-    setActiveQuestion(`${q.prompt}${ch}`);
+    setActiveQuestion(`${q.prompt}${ch}`, q);
     setShowAnswer(false);
   }, [q?.id]); // eslint-disable-line react-hooks/exhaustive-deps
 
@@ -153,7 +153,9 @@ export default function BoardQuestions() {
                   className={`flex w-full items-start gap-2 rounded-xl border px-2.5 py-1.5 text-left text-sm transition ${cls}`}
                 >
                   <span className="font-semibold text-slate-500">{LETTERS[k]}</span>
-                  <span className="flex-1">{c}</span>
+                  <span className="flex-1">
+                    <Inline text={c} />
+                  </span>
                 </button>
               );
             })}
@@ -170,14 +172,16 @@ export default function BoardQuestions() {
         ) : q.choices?.length ? (
           <ol className="mt-2 ml-5 list-[upper-alpha] space-y-1 text-sm text-slate-700">
             {q.choices.map((c, k) => (
-              <li key={k}>{c}</li>
+              <li key={k}>
+                <Inline text={c} />
+              </li>
             ))}
           </ol>
         ) : null}
         {showAnswer ? (
           <div className="mt-3 rounded-xl bg-emerald-50 p-2.5 text-sm ring-1 ring-emerald-100">
             <div className="font-semibold text-emerald-800">
-              {t('correctAnswerLabel')}: {q.answer}
+              {t('correctAnswerLabel')}: <Inline text={q.answer} />
             </div>
             <div className="mt-1">
               <Markdown text={q.explanation} />

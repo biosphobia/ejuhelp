@@ -1,0 +1,230 @@
+{
+  "id": "2018-2-physics",
+  "year": 2018,
+  "session": 2,
+  "subject": "physics",
+  "title": "EJU 2018 · Session 2 · Physics",
+  "source": "平成30年度（2018年度）日本留学試験（第2回）理科〈物理〉 © Japan Student Services Organization (JASSO)",
+  "attribution": "EJU past questions © JASSO. Question text transcribed from the official past paper; figures described in text; correct answers taken from the official JASSO answer key and independently re-solved for verification.",
+  "languages": ["ja", "en"],
+  "answerKeyVerified": true,
+  "structure": {
+    "blocks": [
+      { "id": "I", "topicId": "mech", "name": { "ja": "力学", "en": "Mechanics" }, "questionCount": 6 },
+      { "id": "II", "topicId": "thermo", "name": { "ja": "熱力学", "en": "Thermodynamics" }, "questionCount": 3 },
+      { "id": "III", "topicId": "waves", "name": { "ja": "波動", "en": "Waves" }, "questionCount": 3 },
+      { "id": "IV", "topicId": "em", "name": { "ja": "電気と磁気", "en": "Electricity & Magnetism" }, "questionCount": 6 },
+      { "id": "V", "topicId": "atoms", "name": { "ja": "原子", "en": "Atoms" }, "questionCount": 1 }
+    ],
+    "totalQuestions": 19,
+    "givens": { "ja": "重力加速度の大きさを g とし，空気の抵抗は無視できるものとする。", "en": "Take the magnitude of gravitational acceleration as g; air resistance is negligible." }
+  },
+  "questions": [
+    {
+      "id": "2018-2-phy-1", "answerRow": 1, "block": "I", "topicId": "mech",
+      "subtopic": "Equilibrium of a rigid body (rod with three strings, torque)",
+      "patternTags": ["express-formula", "torque", "equilibrium", "3-4-5-geometry"], "hasFigure": true,
+      "figure": { "ja": "長さ 4ℓ の一様な棒。端 A に長さ 3ℓ の糸 a（鉛直），端 B に長さ 5ℓ の糸 b を付け，天井の 2 点 A'（A の真上）と B' からつるす。A'B' 間 8ℓ。A に水平な糸 c を付け力 F で引くと棒は水平・糸 a は鉛直で静止。3ℓ-4ℓ-5ℓ の直角三角形。重力 W は棒の中央。", "en": "A uniform rod of length 4ℓ. String a (length 3ℓ, vertical) at end A and string b (length 5ℓ) at end B hang from ceiling points A' (directly above A) and B', with A'B' = 8ℓ. A horizontal string c pulls A with force F; the rod is horizontal, string a vertical. The 3ℓ-4ℓ-5ℓ right triangle. Weight W acts at the rod's center." },
+      "ja": { "prompt": "長さ $4\\ell$ の一様な棒の一端 A に長さ $3\\ell$ の糸 a を，他端 B に長さ $5\\ell$ の糸 b をつけ，天井の 2 点 A'，B'（A'B' 間 $8\\ell$）からつるす。A に別の糸 c をつけ水平に引くと，棒が水平で糸 a が鉛直になって静止した。糸 c が A を引く力を $F$，棒の重力を $W$ とする。$F$ はどのように表されるか。", "choices": ["$\\dfrac{3}{10}W$", "$\\dfrac{3}{8}W$", "$\\dfrac{2}{5}W$", "$\\dfrac{5}{8}W$", "$\\dfrac{2}{3}W$", "$\\dfrac{5}{6}W$"] },
+      "en": { "prompt": "A uniform rod of length $4\\ell$ hangs from ceiling points A' and B' (with A'B' = $8\\ell$) by string a ($3\\ell$) at end A and string b ($5\\ell$) at end B. A horizontal string c pulls A so that the rod is horizontal and string a vertical. With $F$ the pull of string c on A and $W$ the rod's weight, express $F$.", "choices": ["$\\dfrac{3}{10}W$", "$\\dfrac{3}{8}W$", "$\\dfrac{2}{5}W$", "$\\dfrac{5}{8}W$", "$\\dfrac{2}{3}W$", "$\\dfrac{5}{6}W$"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "$\\dfrac{2}{3}W$", "en": "$\\dfrac{2}{3}W$" },
+      "explanation": { "en": "String b runs along the 3-4-5 triangle, so its direction is (4,3)/5. Torque about A: $W\\cdot2\\ell = T_b\\cdot\\tfrac35\\cdot4\\ell \\Rightarrow T_b=\\tfrac56W$. Horizontal balance: $F=T_b\\cdot\\tfrac45=\\tfrac56W\\cdot\\tfrac45=\\tfrac23W$.", "ja": "糸 b は 3-4-5 で方向 (4,3)/5。A まわりのモーメント $W\\cdot2\\ell=T_b\\cdot\\tfrac35\\cdot4\\ell$ より $T_b=\\tfrac56W$。水平方向 $F=T_b\\cdot\\tfrac45=\\tfrac23W$。" }
+    },
+    {
+      "id": "2018-2-phy-2", "answerRow": 2, "block": "I", "topicId": "mech",
+      "subtopic": "v–t graph (displacement = area)",
+      "patternTags": ["read-from-graph", "kinematics", "area-under-curve"], "hasFigure": true,
+      "figure": { "ja": "電車の v–t グラフ。0→3 s で 0 から 6 m/s へ直線増加，3→5 s で 6 m/s 一定，5→6 s で 6 から 4 m/s へ直線減少。", "en": "A train's v–t graph: rises linearly 0→6 m/s over 0–3 s, constant 6 m/s over 3–5 s, falls linearly 6→4 m/s over 5–6 s." },
+      "ja": { "prompt": "静止していた電車が $t=0\\,$s に動き始めた。図の $v$–$t$ グラフ（0〜3 s で 0→6 m/s，3〜5 s で 6 m/s 一定，5〜6 s で 6→4 m/s）について，$t=0$ から $t=6\\,$s の間に電車は何 m 移動したか。", "choices": ["20", "22", "24", "26", "28", "30"] },
+      "en": { "prompt": "A train starts from rest at $t=0\\,$s. From its $v$–$t$ graph (0→6 m/s over 0–3 s, constant 6 m/s over 3–5 s, 6→4 m/s over 5–6 s), how far (in m) does it travel from $t=0$ to $t=6\\,$s?", "choices": ["20", "22", "24", "26", "28", "30"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "26 m", "en": "26 m" },
+      "explanation": { "en": "Area = triangle $(\\tfrac12\\cdot3\\cdot6=9)$ + rectangle $(2\\cdot6=12)$ + trapezoid $(\\tfrac{6+4}{2}\\cdot1=5)$ = 26 m.", "ja": "面積＝三角形 9＋長方形 12＋台形 5＝26 m。" }
+    },
+    {
+      "id": "2018-2-phy-3", "answerRow": 3, "block": "I", "topicId": "mech",
+      "subtopic": "Energy conservation on a ramp + projectile",
+      "patternTags": ["plug-in-numbers", "energy-conservation", "projectile-motion", "ratio"], "hasFigure": true,
+      "figure": { "ja": "なめらかな曲面 AB。上端 A は地面から高さ H，下端 B は高さ h。A から静かにすべり降り B から水平に飛び出し，地面の C に落下。BC の水平距離 2h。", "en": "Smooth curved surface AB: top A at height H above the ground, bottom B at height h. The object slides from rest at A, leaves B horizontally, and lands at C; horizontal distance BC = 2h." },
+      "ja": { "prompt": "なめらかな曲面で上端 A は高さ $H$，下端 B は高さ $h$。A に置いた質量 $m$ の小物体を静かにはなすと，B から水平に飛び出し地面の点 C に落下した。B と C の水平距離は $2h$ であった。$\\dfrac{H}{h}$ はいくらか。", "choices": ["$\\dfrac{5}{4}$", "$\\dfrac{3}{2}$", "$\\dfrac{7}{4}$", "$2$", "$\\dfrac{9}{4}$", "$\\dfrac{5}{2}$"] },
+      "en": { "prompt": "On a smooth curved surface, top A is at height $H$ and bottom B at height $h$. A mass released from rest at A leaves B horizontally and lands at C on the ground, with horizontal distance BC = $2h$. Find $\\dfrac{H}{h}$.", "choices": ["$\\dfrac{5}{4}$", "$\\dfrac{3}{2}$", "$\\dfrac{7}{4}$", "$2$", "$\\dfrac{9}{4}$", "$\\dfrac{5}{2}$"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "$2$", "en": "$2$" },
+      "explanation": { "en": "Speed at B: $v=\\sqrt{2g(H-h)}$. Fall time from height $h$: $t=\\sqrt{2h/g}$. Range $vt=2h$: $\\sqrt{4h(H-h)}=2h\\Rightarrow H-h=h\\Rightarrow H/h=2$.", "ja": "B で $v=\\sqrt{2g(H-h)}$，落下 $t=\\sqrt{2h/g}$。$vt=2h$ より $H-h=h$，$H/h=2$。" }
+    },
+    {
+      "id": "2018-2-phy-4", "answerRow": 4, "block": "I", "topicId": "mech",
+      "subtopic": "Impulse–momentum vector diagram (Newton's third law)",
+      "patternTags": ["choose-from-figure", "impulse-momentum", "vector-diagram", "newtons-third-law"], "hasFigure": true,
+      "figure": { "ja": "質量 m の A が速度 v⃗1 で B に衝突し，A の速度が v⃗2 になった。B が受けた力積を F⃗Δt とする。選択肢①〜④は m v⃗1, m v⃗2, F⃗Δt の関係を表すベクトル三角形。", "en": "Mass m object A (velocity v⃗1) strikes B and its velocity becomes v⃗2; the impulse given to B is F⃗Δt. Options ①–④ are vector triangles relating m v⃗1, m v⃗2, F⃗Δt." },
+      "ja": { "prompt": "質量 $m$ の小物体 A が速度 $\\vec v_1$ で物体 B に衝突し，A の速度が $\\vec v_2$ に変化した。この衝突で B に与えられた力積を $\\vec F\\,\\Delta t$ とする。$m\\vec v_1$，$m\\vec v_2$ と $\\vec F\\,\\Delta t$ の関係を表す図として正しいものを①〜④から選びなさい。", "choices": ["①", "②（$m\\vec v_1=m\\vec v_2+\\vec F\\Delta t$ を表す三角形）", "③", "④"] },
+      "en": { "prompt": "Mass-$m$ object A with velocity $\\vec v_1$ strikes B, changing its velocity to $\\vec v_2$. The impulse given to B is $\\vec F\\,\\Delta t$. Which diagram correctly relates $m\\vec v_1$, $m\\vec v_2$ and $\\vec F\\,\\Delta t$?", "choices": ["①", "② triangle showing $m\\vec v_1=m\\vec v_2+\\vec F\\Delta t$", "③", "④"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "②", "en": "②" },
+      "explanation": { "en": "Impulse on A is $m\\vec v_2-m\\vec v_1$; by Newton's third law the impulse on B is $\\vec F\\Delta t=m\\vec v_1-m\\vec v_2$, i.e. $m\\vec v_1=m\\vec v_2+\\vec F\\Delta t$ — the head-to-tail triangle of option ②.", "ja": "A の力積は $m\\vec v_2-m\\vec v_1$。作用反作用で B への力積 $\\vec F\\Delta t=m\\vec v_1-m\\vec v_2$，すなわち $m\\vec v_1=m\\vec v_2+\\vec F\\Delta t$ → ②。" }
+    },
+    {
+      "id": "2018-2-phy-5", "answerRow": 5, "block": "I", "topicId": "mech",
+      "subtopic": "Conical pendulum (angular velocity from string tension)",
+      "patternTags": ["express-formula", "uniform-circular-motion", "force-resolution"], "hasFigure": true,
+      "figure": { "ja": "長さ ℓ の軽い糸の一端を固定，他端の質量 m の小球を水平面内で等速円運動（円錐振り子）。糸の張力は 2mg。角速度 ω。", "en": "A light string of length ℓ fixed at the top; the mass m at the bottom moves in a horizontal circle (conical pendulum). The string tension is 2mg; angular velocity ω." },
+      "ja": { "prompt": "長さ $\\ell$ の軽い糸の一端を固定し他端に質量 $m$ の小球を付け，水平面内で等速円運動（円錐振り子）させたところ，糸が小球を引く力は $2mg$ であった。角速度を $\\omega$ とする。$\\omega$ はどのように表されるか。", "choices": ["$\\sqrt{\\dfrac{g}{\\ell}}$", "$\\sqrt{\\dfrac{2g}{\\ell}}$", "$\\sqrt{\\dfrac{3g}{\\ell}}$", "$2\\sqrt{\\dfrac{g}{\\ell}}$", "$\\sqrt{\\dfrac{5g}{\\ell}}$", "$\\sqrt{\\dfrac{6g}{\\ell}}$"] },
+      "en": { "prompt": "A mass $m$ on a light string of length $\\ell$ moves as a conical pendulum in a horizontal circle, with string tension $2mg$. Express the angular velocity $\\omega$.", "choices": ["$\\sqrt{\\dfrac{g}{\\ell}}$", "$\\sqrt{\\dfrac{2g}{\\ell}}$", "$\\sqrt{\\dfrac{3g}{\\ell}}$", "$2\\sqrt{\\dfrac{g}{\\ell}}$", "$\\sqrt{\\dfrac{5g}{\\ell}}$", "$\\sqrt{\\dfrac{6g}{\\ell}}$"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "$\\sqrt{\\dfrac{2g}{\\ell}}$", "en": "$\\sqrt{\\dfrac{2g}{\\ell}}$" },
+      "explanation": { "en": "Horizontal component of tension is the centripetal force: $T\\sin\\theta=m\\omega^2(\\ell\\sin\\theta)\\Rightarrow T=m\\omega^2\\ell$. With $T=2mg$, $\\omega=\\sqrt{2g/\\ell}$.", "ja": "張力の水平成分が向心力：$T\\sin\\theta=m\\omega^2\\ell\\sin\\theta$ より $T=m\\omega^2\\ell$。$T=2mg$ なので $\\omega=\\sqrt{2g/\\ell}$。" }
+    },
+    {
+      "id": "2018-2-phy-6", "answerRow": 6, "block": "I", "topicId": "mech",
+      "subtopic": "Simple harmonic motion (acceleration at a position)",
+      "patternTags": ["plug-in-numbers", "simple-harmonic-motion"], "hasFigure": false,
+      "ja": { "prompt": "$x$ 軸上で原点を中心に単振動する小物体の振幅は $0.50\\,$m，角振動数は $1.0\\,$rad/s である。$x=0.10\\,$m を通過する瞬間の加速度は何 $\\text{m/s}^2$ か（$x$ 軸正の向きを加速度の正とする）。", "choices": ["$-0.50$", "$-0.25$", "$-0.10$", "$0.10$", "$0.25$", "$0.50$"] },
+      "en": { "prompt": "A body in SHM about the origin on the $x$-axis has amplitude $0.50\\,$m and angular frequency $1.0\\,$rad/s. What is its acceleration (in $\\text{m/s}^2$) as it passes $x=0.10\\,$m (positive $x$ = positive acceleration)?", "choices": ["$-0.50$", "$-0.25$", "$-0.10$", "$0.10$", "$0.25$", "$0.50$"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "$-0.10\\ \\text{m/s}^2$", "en": "$-0.10\\ \\text{m/s}^2$" },
+      "explanation": { "en": "$a=-\\omega^2x=-(1.0)^2(0.10)=-0.10\\ \\text{m/s}^2$ (toward the center).", "ja": "$a=-\\omega^2x=-(1.0)^2(0.10)=-0.10\\ \\text{m/s}^2$（中心向き）。" }
+    },
+    {
+      "id": "2018-2-phy-7", "answerRow": 7, "block": "II", "topicId": "thermo",
+      "subtopic": "Calorimetry (find container heat capacity, then a second trial)",
+      "patternTags": ["plug-in-numbers", "calorimetry", "heat-capacity"], "hasFigure": false,
+      "ja": { "prompt": "$20\\,^\\circ$C の金属容器に $60\\,^\\circ$C の水 $5.0\\times10^2\\,$g を入れると，じゅうぶん時間後にともに $50\\,^\\circ$C になった。次に同じ容器（$20\\,^\\circ$C）に $60\\,^\\circ$C の水 $1.0\\times10^2\\,$g を入れると，ともに $t\\,[^\\circ$C$]$ になった。熱は容器と水の間だけで移動する。$t$ は何 $^\\circ$C か。", "choices": ["25", "30", "35", "40", "45"] },
+      "en": { "prompt": "A metal container at $20\\,^\\circ$C receives $5.0\\times10^2\\,$g of water at $60\\,^\\circ$C; both reach $50\\,^\\circ$C. Then the same container (at $20\\,^\\circ$C) receives $1.0\\times10^2\\,$g of water at $60\\,^\\circ$C; both reach $t\\,[^\\circ$C$]$. Heat flows only between container and water. Find $t$.", "choices": ["25", "30", "35", "40", "45"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "$35\\,^\\circ$C", "en": "$35\\,^\\circ$C" },
+      "explanation": { "en": "Trial 1: $500\\cdot4.2\\cdot10=C\\cdot30\\Rightarrow C=700$ J/K. Trial 2: $100\\cdot4.2\\cdot(60-t)=700\\cdot(t-20)\\Rightarrow t=35\\,^\\circ$C.", "ja": "1回目 $500\\cdot4.2\\cdot10=C\\cdot30$ より $C=700$ J/K。2回目 $100\\cdot4.2\\cdot(60-t)=700(t-20)$ より $t=35$。" }
+    },
+    {
+      "id": "2018-2-phy-8", "answerRow": 8, "block": "II", "topicId": "thermo",
+      "subtopic": "Ideal gas; movable insulated piston (temperature ratio)",
+      "patternTags": ["express-formula", "ideal-gas", "isobaric", "ratio"], "hasFigure": true,
+      "figure": { "ja": "断熱シリンダーを断熱・なめらかなピストンで領域 A・B に分ける。A 内にヒーター。初め A,B は同じ T,p,V で等量の理想気体。A を加熱し，A の体積が 6/5 倍で静止（全体積一定）。", "en": "An insulated cylinder is split by an insulated frictionless piston into regions A and B. A has a heater. Initially A and B hold equal gas at the same T, p, V. Heating A expands it to 6/5 of its volume (total volume fixed)." },
+      "ja": { "prompt": "断熱シリンダーをなめらかな断熱ピストンで領域 A，B に分け，A 内のヒーターで等量・同状態の理想気体のうち A を加熱したところ，A の体積が $\\dfrac65$ 倍になって静止した。A の絶対温度を $T_A$，B を $T_B$ とする。$\\dfrac{T_A}{T_B}$ はいくらか。", "choices": ["$\\dfrac{2}{3}$", "$\\dfrac{4}{5}$", "$\\dfrac{5}{6}$", "$\\dfrac{6}{5}$", "$\\dfrac{5}{4}$", "$\\dfrac{3}{2}$"] },
+      "en": { "prompt": "An insulated cylinder is divided by a frictionless insulated piston into A and B (equal gas, same initial state). Heating A expands it to $\\dfrac65$ of its volume at rest. With absolute temperatures $T_A$ and $T_B$, find $\\dfrac{T_A}{T_B}$.", "choices": ["$\\dfrac{2}{3}$", "$\\dfrac{4}{5}$", "$\\dfrac{5}{6}$", "$\\dfrac{6}{5}$", "$\\dfrac{5}{4}$", "$\\dfrac{3}{2}$"] },
+      "answerIndex": 5, "answerOption": 6, "answer": { "ja": "$\\dfrac{3}{2}$", "en": "$\\dfrac{3}{2}$" },
+      "explanation": { "en": "The movable piston keeps pressures equal. Total volume fixed: $V_A=\\tfrac65V$, so $V_B=2V-\\tfrac65V=\\tfrac45V$. With equal $n$ and $p$, $\\dfrac{T_A}{T_B}=\\dfrac{V_A}{V_B}=\\dfrac{6/5}{4/5}=\\dfrac32$.", "ja": "可動ピストンで圧力は等しい。全体積一定より $V_B=2V-\\tfrac65V=\\tfrac45V$。同じ $n,p$ で $\\dfrac{T_A}{T_B}=\\dfrac{V_A}{V_B}=\\dfrac32$。" }
+    },
+    {
+      "id": "2018-2-phy-9", "answerRow": 9, "block": "II", "topicId": "thermo",
+      "subtopic": "First law over a two-step p–V path (heat absorbed)",
+      "patternTags": ["plug-in-numbers", "first-law", "pv-diagram", "monatomic-gas"], "hasFigure": true,
+      "figure": { "ja": "単原子分子理想気体。p–V 図：A=(V0,p0)→B=(2V0,p0) 定圧膨張→C=(3V0,p0/2)。", "en": "Monatomic ideal gas. p–V diagram: A=(V0,p0)→B=(2V0,p0) isobaric expansion → C=(3V0, p0/2)." },
+      "ja": { "prompt": "単原子分子理想気体を $p$–$V$ 図のように 状態 A$(V_0,p_0)$ → 状態 B$(2V_0,p_0)$ → 状態 C$(3V_0,\\tfrac12p_0)$ と変化させた。A→B→C の過程で気体が吸収した熱量はどのように表されるか。", "choices": ["$\\dfrac12 p_0V_0$", "$p_0V_0$", "$\\dfrac32 p_0V_0$", "$2p_0V_0$", "$\\dfrac52 p_0V_0$"] },
+      "en": { "prompt": "A monatomic ideal gas changes A$(V_0,p_0)$ → B$(2V_0,p_0)$ → C$(3V_0,\\tfrac12p_0)$ on the $p$–$V$ diagram. What heat does the gas absorb over A→B→C?", "choices": ["$\\dfrac12 p_0V_0$", "$p_0V_0$", "$\\dfrac32 p_0V_0$", "$2p_0V_0$", "$\\dfrac52 p_0V_0$"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "$\\dfrac52 p_0V_0$", "en": "$\\dfrac52 p_0V_0$" },
+      "explanation": { "en": "$\\Delta U=\\tfrac32(p_CV_C-p_AV_A)=\\tfrac32(\\tfrac32p_0V_0-p_0V_0)=\\tfrac34p_0V_0$. Work by gas = $p_0V_0$ (A→B) + $\\tfrac{p_0+p_0/2}{2}V_0=\\tfrac34p_0V_0$ (B→C) = $\\tfrac74p_0V_0$. $Q=\\Delta U+W=\\tfrac52p_0V_0$.", "ja": "$\\Delta U=\\tfrac32(p_CV_C-p_AV_A)=\\tfrac34p_0V_0$。仕事＝$p_0V_0+\\tfrac34p_0V_0=\\tfrac74p_0V_0$。$Q=\\Delta U+W=\\tfrac52p_0V_0$。" }
+    },
+    {
+      "id": "2018-2-phy-10", "answerRow": 10, "block": "III", "topicId": "waves",
+      "subtopic": "Longitudinal wave (direction/magnitude of medium velocity)",
+      "patternTags": ["read-from-graph", "longitudinal-wave", "transverse-velocity"], "hasFigure": true,
+      "figure": { "ja": "x 軸正方向に進む縦波の，ある時刻の変位 y（+x 変位を正）対位置 x の正弦グラフ。a〜h は1波長強の範囲に等間隔に並ぶ点（a 山付近，b 下降ゼロ交差，c 谷，d 上昇ゼロ，e 山，f 下降ゼロ，g 谷，h 上昇ゼロ）。", "en": "For a longitudinal wave moving in +x, a snapshot of displacement y (positive = +x displacement) vs position x (sinusoidal). Points a–h are spaced across about a wavelength (a near crest, b descending zero, c trough, d ascending zero, e crest, f descending zero, g trough, h ascending zero)." },
+      "ja": { "prompt": "$x$ 軸の正の向きに伝わる縦波の，ある時刻の媒質の変位 $y$（$x$ 軸正の向きの変位を正）と位置 $x$ のグラフがある。媒質の速度の向きが $x$ 軸の正の向きで，その大きさが最大となるのは図中の点 a〜h のどれか。", "choices": ["a と e", "b と f", "c と g", "d と h"] },
+      "en": { "prompt": "For a longitudinal wave moving in $+x$, given a snapshot of displacement $y$ (positive = $+x$) vs position $x$, at which points (a–h) is the medium's velocity in the $+x$ direction and largest in magnitude?", "choices": ["a and e", "b and f", "c and g", "d and h"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "b と f", "en": "b and f" },
+      "explanation": { "en": "For a wave $y=f(x-ct)$, medium velocity $\\partial y/\\partial t=-c\\,\\partial y/\\partial x$. It is most positive where the slope is steepest negative — the descending zero-crossings b and f.", "ja": "$y=f(x-ct)$ で速度 $\\partial y/\\partial t=-c\\,\\partial y/\\partial x$。最も正になるのは傾きが最も負の下降ゼロ交差 b と f。" }
+    },
+    {
+      "id": "2018-2-phy-11", "answerRow": 11, "block": "III", "topicId": "waves",
+      "subtopic": "Doppler effect (ratio for observer ahead vs behind)",
+      "patternTags": ["express-formula", "doppler-effect", "ratio"], "hasFigure": true,
+      "figure": { "ja": "音源（振動数 f0）が速さ vS で直線上を進み，観測者が速さ vO で同方向に進む。図1：観測者が音源の前方（f1）。図2：観測者が音源の後方（f2）。音速 V。", "en": "A source (frequency f0) moves at speed vS along a line; an observer moves at vO in the same direction. Fig 1: observer ahead of the source (f1). Fig 2: observer behind the source (f2). Sound speed V." },
+      "ja": { "prompt": "音源（振動数 $f_0$）が速さ $v_S$ で進み，観測者が速さ $v_O$ で同方向に進む。図1（観測者が前方）で観測振動数 $f_1$，図2（観測者が後方）で $f_2$ となった。音速 $V$。$\\dfrac{f_2}{f_1}$ はどのように表されるか。", "choices": ["$\\dfrac{(V-v_S)(V+v_O)}{(V+v_S)(V-v_O)}$", "$\\dfrac{(V+v_S)(V-v_O)}{(V-v_S)(V+v_O)}$", "$\\dfrac{(V-v_S)(V-v_O)}{(V+v_S)(V+v_O)}$", "$\\dfrac{(V+v_S)(V+v_O)}{(V-v_S)(V-v_O)}$"] },
+      "en": { "prompt": "A source (frequency $f_0$) moves at $v_S$ and an observer at $v_O$ in the same direction. The observed frequency is $f_1$ when ahead of the source (Fig 1) and $f_2$ when behind (Fig 2). With sound speed $V$, express $\\dfrac{f_2}{f_1}$.", "choices": ["$\\dfrac{(V-v_S)(V+v_O)}{(V+v_S)(V-v_O)}$", "$\\dfrac{(V+v_S)(V-v_O)}{(V-v_S)(V+v_O)}$", "$\\dfrac{(V-v_S)(V-v_O)}{(V+v_S)(V+v_O)}$", "$\\dfrac{(V+v_S)(V+v_O)}{(V-v_S)(V-v_O)}$"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "$\\dfrac{(V-v_S)(V+v_O)}{(V+v_S)(V-v_O)}$", "en": "$\\dfrac{(V-v_S)(V+v_O)}{(V+v_S)(V-v_O)}$" },
+      "explanation": { "en": "Ahead: $f_1=f_0\\dfrac{V-v_O}{V-v_S}$ (source approaching, observer receding). Behind: $f_2=f_0\\dfrac{V+v_O}{V+v_S}$. So $\\dfrac{f_2}{f_1}=\\dfrac{(V+v_O)(V-v_S)}{(V+v_S)(V-v_O)}$.", "ja": "前方 $f_1=f_0\\dfrac{V-v_O}{V-v_S}$，後方 $f_2=f_0\\dfrac{V+v_O}{V+v_S}$。よって $\\dfrac{f_2}{f_1}=\\dfrac{(V-v_S)(V+v_O)}{(V+v_S)(V-v_O)}$。" }
+    },
+    {
+      "id": "2018-2-phy-12", "answerRow": 12, "block": "III", "topicId": "waves",
+      "subtopic": "Lloyd's-mirror interference (nearest bright fringe)",
+      "patternTags": ["express-formula", "interference", "phase-change-on-reflection", "geometry"], "hasFigure": true,
+      "figure": { "ja": "水平な平面鏡の両端 A,B にスリット板（A 側，S は A の上 d）とスクリーン（B 側）を垂直に立てる。AB=ℓ。S からの直接光と鏡で反射した光（位相 π 変化）が干渉。反射光は A の下 d にある仮想スリット S' からの光とみなせる（S–S' 間 2d）。スクリーン上で B に最も近い明線と B の距離 x。", "en": "On a horizontal mirror, a slit-plate (slit S a height d above A) stands at end A and a screen at end B, both vertical; AB=ℓ. Direct light from S interferes with light reflected by the mirror (π phase change), equivalent to light from a virtual slit S' a distance d below A (S–S' separation 2d). x is the distance from B to the nearest bright fringe." },
+      "ja": { "prompt": "水平な平面鏡の両端 A，B にスリット板とスクリーンを垂直に立てる。AB$=\\ell$，SA$=d$。S からの直接光と鏡で反射（位相 $\\pi$ 変化）した光が干渉する。反射光は A の下 $d$ の仮想スリット S' からの光とみなせる。スクリーン上で最も B に近い明線と B の距離を $x$ とする（$d,x\\ll\\ell$）。$x$ はどのように表されるか。", "choices": ["$\\dfrac{\\lambda\\ell}{4d}$", "$\\dfrac{\\lambda\\ell}{2d}$", "$\\dfrac{\\lambda\\ell}{d}$", "$\\dfrac{2\\lambda\\ell}{d}$", "$\\dfrac{4\\lambda\\ell}{d}$"] },
+      "en": { "prompt": "On a horizontal mirror with a slit-plate at A and a screen at B (AB$=\\ell$, SA$=d$), direct light from S interferes with mirror-reflected light (phase change $\\pi$), equivalent to a virtual slit S' a distance $d$ below A. With $d,x\\ll\\ell$, let $x$ be the distance from B to the nearest bright fringe. Express $x$.", "choices": ["$\\dfrac{\\lambda\\ell}{4d}$", "$\\dfrac{\\lambda\\ell}{2d}$", "$\\dfrac{\\lambda\\ell}{d}$", "$\\dfrac{2\\lambda\\ell}{d}$", "$\\dfrac{4\\lambda\\ell}{d}$"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "$\\dfrac{\\lambda\\ell}{4d}$", "en": "$\\dfrac{\\lambda\\ell}{4d}$" },
+      "explanation": { "en": "Two sources S, S' separated by $2d$, screen at distance $\\ell$. The $\\pi$ reflection makes the axis point (at B) dark; the first bright fringe is where path difference $=\\lambda/2$: $\\dfrac{2d\\,x}{\\ell}=\\dfrac{\\lambda}{2}\\Rightarrow x=\\dfrac{\\lambda\\ell}{4d}$.", "ja": "間隔 $2d$ の2光源，距離 $\\ell$。位相 $\\pi$ 変化で B（軸上）は暗線，最初の明線は経路差 $\\lambda/2$：$\\dfrac{2dx}{\\ell}=\\dfrac{\\lambda}{2}$ より $x=\\dfrac{\\lambda\\ell}{4d}$。" }
+    },
+    {
+      "id": "2018-2-phy-13", "answerRow": 13, "block": "IV", "topicId": "em",
+      "subtopic": "Two point charges (field direction and potential sign)",
+      "patternTags": ["identify", "electric-field", "electric-potential", "superposition"], "hasFigure": true,
+      "figure": { "ja": "x 軸：原点に Q1，x=2d に Q2。x=d の点 A で電場は +x 向き，電位は 0（無限遠基準）。x=3d の点 B について問う。", "en": "On the x-axis: Q1 at the origin, Q2 at x=2d. At point A (x=d) the field points +x and the potential is 0 (reference at infinity). The question is about point B at x=3d." },
+      "ja": { "prompt": "$x$ 軸の原点に電気量 $Q_1$，$x=2d$ に $Q_2$ を固定する。$x=d$ の点 A での電場は $x$ 軸正の向き，電位は $0\\,$V であった（無限遠基準）。$x=3d$ の点 B での電場の向きと，電位の正負の正しい組み合わせはどれか。", "choices": ["正の向き，正", "正の向き，負", "負の向き，正", "負の向き，負"] },
+      "en": { "prompt": "$Q_1$ is at the origin and $Q_2$ at $x=2d$. At point A ($x=d$) the field points in $+x$ and the potential is $0\\,$V (reference at infinity). At point B ($x=3d$), what are the field direction and the sign of the potential?", "choices": ["$+x$, positive", "$+x$, negative", "$-x$, positive", "$-x$, negative"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "負の向き，負", "en": "$-x$, negative" },
+      "explanation": { "en": "Potential 0 at A ⇒ $Q_2=-Q_1$; field $+x$ at A ⇒ $Q_1>0,\\,Q_2<0$. At B: $Q_2$ (closer, negative) dominates and pulls the field toward $-x$; potential $=\\dfrac{kQ_1}{3d}-\\dfrac{kQ_1}{d}<0$. So $-x$ and negative.", "ja": "A で電位 0 → $Q_2=-Q_1$，電場 +x → $Q_1>0,Q_2<0$。B では近い $Q_2$（負）が勝ち電場は $-x$，電位 $=\\dfrac{kQ_1}{3d}-\\dfrac{kQ_1}{d}<0$。" }
+    },
+    {
+      "id": "2018-2-phy-14", "answerRow": 14, "block": "IV", "topicId": "em",
+      "subtopic": "Capacitor network with switches (charge after reconnection)",
+      "patternTags": ["plug-in-numbers", "capacitors", "charge-conservation", "switches"], "hasFigure": true,
+      "figure": { "ja": "C1=2.0μF と C2=3.0μF，5.0V の電池2つ，3抵抗，3スイッチ S1,S2,S3。まず S3 開・S1,S2 閉で C1,C2 を各電池で充電。次に S1,S2 開・S3 閉。十分後の C1 の S3 側（上側）極板の電荷を Q とする。", "en": "C1=2.0μF and C2=3.0μF, two 5.0 V batteries, three resistors, three switches S1,S2,S3. First S3 open and S1,S2 closed charge C1 and C2 from their batteries. Then S1,S2 open and S3 closed. Q is the charge on C1's S3-side (upper) plate afterward." },
+      "ja": { "prompt": "$C_1=2.0\\,\\mu$F と $C_2=3.0\\,\\mu$F，起電力 $5.0\\,$V の電池2つ，3つの抵抗，スイッチ $S_1,S_2,S_3$ を接続する。まず $S_3$ を開け $S_1,S_2$ を閉じて $C_1,C_2$ を充電。次に $S_1,S_2$ を開け $S_3$ を閉じる。十分後，$C_1$ の $S_3$ 側（上側）の極板の電荷 $Q$ は何 $\\mu$C か。", "choices": ["$-5.0$", "$-2.0$", "$-1.0$", "$1.0$", "$2.0$", "$5.0$"] },
+      "en": { "prompt": "With $C_1=2.0\\,\\mu$F, $C_2=3.0\\,\\mu$F, two $5.0\\,$V batteries, three resistors and switches $S_1,S_2,S_3$: first $S_3$ open and $S_1,S_2$ closed charge $C_1,C_2$; then $S_1,S_2$ open and $S_3$ closed. After a long time, what is the charge $Q$ (in $\\mu$C) on $C_1$'s $S_3$-side (upper) plate?", "choices": ["$-5.0$", "$-2.0$", "$-1.0$", "$1.0$", "$2.0$", "$5.0$"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "$2.0\\ \\mu$C", "en": "$2.0\\ \\mu$C" },
+      "explanation": { "en": "Initially $C_1$ holds $2.0\\times5.0=10\\,\\mu$C and $C_2$ holds $3.0\\times5.0=15\\,\\mu$C. After $S_3$ closes, the two capacitors share charge through the loop; charge conservation on the joined plates ($10-15=-5\\,\\mu$C net) over total $5.0\\,\\mu$F gives a common $1.0$ V, so $C_1$ holds $2.0\\,\\mu\\text{F}\\times1.0\\,\\text{V}=2.0\\,\\mu$C.", "ja": "初め $C_1$ は $10\\,\\mu$C，$C_2$ は $15\\,\\mu$C。$S_3$ を閉じると電荷が再分配され，接続極板の電荷保存（差 $5\\,\\mu$C）を合成容量 $5.0\\,\\mu$F で割り共通 $1.0$ V。$C_1=2.0\\,\\mu\\text{F}\\times1.0\\,\\text{V}=2.0\\,\\mu$C。" }
+    },
+    {
+      "id": "2018-2-phy-15", "answerRow": 15, "block": "IV", "topicId": "em",
+      "subtopic": "Two-battery circuit (current in a branch, Kirchhoff)",
+      "patternTags": ["plug-in-numbers", "kirchhoff", "dc-circuits", "direction"], "hasFigure": true,
+      "figure": { "ja": "ノード A,B 間に3枝が並列：上枝 E1(6.0V)+R1(3.0kΩ)，中枝 E2(3.0V)+R2(3.0kΩ)，下枝 R3(6.0kΩ)。R2 の電流の大きさと向き（A→B か B→A）を問う。", "en": "Between nodes A and B, three parallel branches: top E1(6.0V)+R1(3.0kΩ), middle E2(3.0V)+R2(3.0kΩ), bottom R3(6.0kΩ). Asked: magnitude and direction (A→B or B→A) of the current in R2." },
+      "ja": { "prompt": "抵抗 $R_1=3.0$ kΩ，$R_2=3.0$ kΩ，$R_3=6.0$ kΩ と電池 $E_1=6.0$ V，$E_2=3.0$ V を図のように接続した（A,B 間に上枝 $E_1R_1$，中枝 $E_2R_2$，下枝 $R_3$ が並列）。$R_2$ を流れる電流の大きさと向き（A→B か B→A）の正しい組み合わせはどれか。", "choices": ["0.20 mA，A→B", "0.20 mA，B→A", "0.40 mA，A→B", "0.40 mA，B→A", "0.60 mA，A→B", "0.60 mA，B→A"] },
+      "en": { "prompt": "Resistors $R_1=3.0$ kΩ, $R_2=3.0$ kΩ, $R_3=6.0$ kΩ and batteries $E_1=6.0$ V, $E_2=3.0$ V are connected as shown (between A and B: top branch $E_1R_1$, middle $E_2R_2$, bottom $R_3$, in parallel). Give the magnitude and direction (A→B or B→A) of the current in $R_2$.", "choices": ["0.20 mA, A→B", "0.20 mA, B→A", "0.40 mA, A→B", "0.40 mA, B→A", "0.60 mA, A→B", "0.60 mA, B→A"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "0.20 mA，B→A", "en": "0.20 mA, B→A" },
+      "explanation": { "en": "Take $V_B=0$ and node A at $V$. Kirchhoff's current law at A with the three branches gives $V=3.6$ V, so the current in the middle branch is $|3.0-3.6|/3.0\\,\\text{kΩ}=0.20$ mA, directed B→A.", "ja": "$V_B=0$，A の電位 $V$ として A での電流則を解くと $V=3.6$ V。中枝の電流は $|3.0-3.6|/3.0\\text{kΩ}=0.20$ mA，向きは B→A。" }
+    },
+    {
+      "id": "2018-2-phy-16", "answerRow": 16, "block": "IV", "topicId": "em",
+      "subtopic": "Force between three parallel currents (equilateral triangle)",
+      "patternTags": ["express-formula", "force-between-currents", "vector-sum", "direction"], "hasFigure": true,
+      "figure": { "ja": "正三角形 ABC の各頂点を紙面に垂直な導線が通り，全て裏→表に等しい電流 I。A の導線（長さ ℓ 部分）が B から受ける力 F⃗B，C から受ける力 F⃗C，合力 F⃗。A 周りの矢印 (a)上,(b)左,(c)下,(d)右。", "en": "Wires through the vertices of equilateral triangle ABC, all carrying equal current I out of the page. The wire at A (length ℓ) feels F⃗B from B and F⃗C from C, resultant F⃗. Arrows around A: (a) up, (b) left, (c) down, (d) right." },
+      "ja": { "prompt": "正三角形 ABC の各頂点を通る紙面に垂直な3本の導線に，裏から表へ等しい大きさ $I$ の電流が流れる。A の導線（長さ $\\ell$）が B から受ける力を $\\vec F_B$，C から受ける力を $\\vec F_C$，合力を $\\vec F$ とする。$\\vec F$ の向き（(a)〜(d)）と $\\dfrac{F}{F_B}$ の正しい組み合わせはどれか。", "choices": ["(a)，1", "(a)，$\\sqrt3$", "(b)，1", "(b)，$\\sqrt3$", "(c)，1", "(c)，$\\sqrt3$", "(d)，1", "(d)，$\\sqrt3$"] },
+      "en": { "prompt": "Wires through the vertices of equilateral triangle ABC carry equal current $I$ out of the page. The wire at A (length $\\ell$) feels $\\vec F_B$ from B and $\\vec F_C$ from C, resultant $\\vec F$. Give the direction of $\\vec F$ (arrows (a)–(d)) and $\\dfrac{F}{F_B}$.", "choices": ["(a), 1", "(a), $\\sqrt3$", "(b), 1", "(b), $\\sqrt3$", "(c), 1", "(c), $\\sqrt3$", "(d), 1", "(d), $\\sqrt3$"] },
+      "answerIndex": 5, "answerOption": 6, "answer": { "ja": "(c)，$\\sqrt3$", "en": "(c), $\\sqrt3$" },
+      "explanation": { "en": "Parallel currents in the same direction attract, so A is pulled toward B and toward C with equal $F_B=F_C$ at $60^\\circ$ apart. Resultant points along the bisector (downward, toward BC = direction (c)) with $F=2F_B\\cos30^\\circ=\\sqrt3\\,F_B$.", "ja": "同方向電流は引き合うので A は B・C へ等しい力で引かれる（なす角 $60^\\circ$）。合力は二等分線方向（下向き＝(c)）で $F=2F_B\\cos30^\\circ=\\sqrt3 F_B$。" }
+    },
+    {
+      "id": "2018-2-phy-17", "answerRow": 17, "block": "IV", "topicId": "em",
+      "subtopic": "Charged particle in a magnetic field (exit position and time)",
+      "patternTags": ["express-formula", "lorentz-force", "circular-motion"], "hasFigure": true,
+      "figure": { "ja": "xy 平面に紙面裏→表の一様磁場 B。質量 m，電荷 −q（q>0）の粒子 A を原点 O から +y 向きに初速 v0 で打ち出す。次に x 軸に達する位置の x 座標 x1，時刻 t1。", "en": "Uniform field B out of the page in the xy-plane. A particle (mass m, charge −q, q>0) is launched from O in +y at speed v0. x1 and t1 are the x-coordinate and time when it next reaches the x-axis." },
+      "ja": { "prompt": "$xy$ 平面に紙面の裏から表へ磁束密度 $B$ の一様磁場がある。質量 $m$，負電荷 $-q$（$q>0$）の粒子を原点から $y$ 軸正の向きに初速 $v_0$ で打ち出した。次に $x$ 軸に達する位置の $x$ 座標を $x_1$，時刻を $t_1$ とする。正しい組み合わせはどれか。", "choices": ["$x_1=-\\dfrac{2v_0m}{qB},\\ t_1=\\dfrac{\\pi m}{qB}$", "$x_1=-\\dfrac{2v_0m}{qB},\\ t_1=\\dfrac{2\\pi m}{qB}$", "$x_1=-\\dfrac{v_0m}{qB},\\ t_1=\\dfrac{\\pi m}{qB}$", "$x_1=-\\dfrac{v_0m}{qB},\\ t_1=\\dfrac{2\\pi m}{qB}$", "$x_1=\\dfrac{v_0m}{qB},\\ t_1=\\dfrac{\\pi m}{qB}$", "$x_1=\\dfrac{v_0m}{qB},\\ t_1=\\dfrac{2\\pi m}{qB}$", "$x_1=\\dfrac{2v_0m}{qB},\\ t_1=\\dfrac{\\pi m}{qB}$", "$x_1=\\dfrac{2v_0m}{qB},\\ t_1=\\dfrac{2\\pi m}{qB}$"] },
+      "en": { "prompt": "In the $xy$-plane a uniform field $B$ points out of the page. A particle (mass $m$, charge $-q$, $q>0$) is launched from the origin in $+y$ at speed $v_0$. Let $x_1$, $t_1$ be the x-coordinate and time when it next reaches the x-axis. Which combination is correct?", "choices": ["$x_1=-\\dfrac{2v_0m}{qB},\\ t_1=\\dfrac{\\pi m}{qB}$", "$x_1=-\\dfrac{2v_0m}{qB},\\ t_1=\\dfrac{2\\pi m}{qB}$", "$x_1=-\\dfrac{v_0m}{qB},\\ t_1=\\dfrac{\\pi m}{qB}$", "$x_1=-\\dfrac{v_0m}{qB},\\ t_1=\\dfrac{2\\pi m}{qB}$", "$x_1=\\dfrac{v_0m}{qB},\\ t_1=\\dfrac{\\pi m}{qB}$", "$x_1=\\dfrac{v_0m}{qB},\\ t_1=\\dfrac{2\\pi m}{qB}$", "$x_1=\\dfrac{2v_0m}{qB},\\ t_1=\\dfrac{\\pi m}{qB}$", "$x_1=\\dfrac{2v_0m}{qB},\\ t_1=\\dfrac{2\\pi m}{qB}$"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "$x_1=-\\dfrac{2v_0m}{qB},\\ t_1=\\dfrac{\\pi m}{qB}$", "en": "$x_1=-\\dfrac{2v_0m}{qB},\\ t_1=\\dfrac{\\pi m}{qB}$" },
+      "explanation": { "en": "Force $=(-q)\\vec v\\times\\vec B$ is in $-x$ at launch, so the center is at $(-r,0)$ with $r=mv_0/(qB)$. After a half circle it returns to the x-axis at $x_1=-2r=-2mv_0/(qB)$ in time $t_1=\\tfrac12T=\\pi m/(qB)$.", "ja": "力 $(-q)\\vec v\\times\\vec B$ は初め $-x$ 向き → 中心 $(-r,0)$，$r=mv_0/(qB)$。半周で $x_1=-2r=-2mv_0/(qB)$，$t_1=\\tfrac12T=\\pi m/(qB)$。" }
+    },
+    {
+      "id": "2018-2-phy-18", "answerRow": 18, "block": "IV", "topicId": "em",
+      "subtopic": "Rod on rails (motional EMF; direction & acceleration trend)",
+      "patternTags": ["identify", "electromagnetic-induction", "force-on-current", "back-emf"], "hasFigure": true,
+      "figure": { "ja": "水平な2本の平行レール上に金属棒 R。鉛直上向きの磁場 B。一端に電池 E とスイッチ S。S を閉じると棒が動き出す。I：動く向き（電池に近づく／遠ざかる），II：加速度の大きさ（増加／一定／減少）。", "en": "A metal rod R on two horizontal parallel rails, with vertical field B and a battery E + switch S at one end. Closing S sets the rod moving. Blank I: direction (toward/away from battery); blank II: acceleration trend (increase/constant/decrease)." },
+      "ja": { "prompt": "水平な2本の平行レール上の金属棒 R，鉛直上向きの磁場 $B$，一端に電池 E とスイッチ S。S を閉じると棒は $\\boxed{\\text{I}}$ 向きに動き始め，その後速さが増加し，加速度の大きさは $\\boxed{\\text{II}}$。$\\text{I}$，$\\text{II}$ の正しい組み合わせはどれか（棒・レールの電流がつくる磁場は無視）。", "choices": ["電池に近づく，減少した", "電池に近づく，変化しなかった", "電池に近づく，増加した", "電池から遠ざかる，減少した", "電池から遠ざかる，変化しなかった", "電池から遠ざかる，増加した"] },
+      "en": { "prompt": "A metal rod R on horizontal parallel rails, vertical field $B$, battery E and switch S at one end. Closing S makes the rod start moving in direction $\\boxed{\\text{I}}$; its speed then increases and the acceleration magnitude is $\\boxed{\\text{II}}$. Which combination is correct (neglect the field from the circuit's own current)?", "choices": ["toward the battery, decreased", "toward the battery, unchanged", "toward the battery, increased", "away from the battery, decreased", "away from the battery, unchanged", "away from the battery, increased"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "電池から遠ざかる，減少した", "en": "away from the battery, decreased" },
+      "explanation": { "en": "The battery current in field B gives a force $F=BIL$ that drives the rod away from the battery. As it speeds up, the motional back-EMF reduces the net EMF and current, so the force — and the acceleration — decrease.", "ja": "電池電流と磁場で力 $F=BIL$ が働き，棒は電池から遠ざかる。速くなると逆起電力で電流が減り，力＝加速度は減少する。" }
+    },
+    {
+      "id": "2018-2-phy-19", "answerRow": 19, "block": "V", "topicId": "atoms",
+      "subtopic": "Wave–particle duality (photon energy and electron KE vs wavelength)",
+      "patternTags": ["express-formula", "wave-particle-duality", "de-broglie", "proportionality"], "hasFigure": false,
+      "ja": { "prompt": "光の波長を $\\lambda$ とするとき光子のエネルギーは $\\boxed{\\text{I}}$ に比例し，電子波の波長を $\\lambda$ とするとき電子の運動エネルギーは $\\boxed{\\text{II}}$ に比例する。$\\text{I}$，$\\text{II}$ の正しい組み合わせはどれか。", "choices": ["$\\lambda^2,\\ \\lambda^2$", "$\\lambda^2,\\ \\lambda$", "$\\lambda,\\ \\lambda^2$", "$\\lambda,\\ \\lambda$", "$\\dfrac{1}{\\lambda},\\ \\dfrac{1}{\\lambda}$", "$\\dfrac{1}{\\lambda},\\ \\dfrac{1}{\\lambda^2}$", "$\\dfrac{1}{\\lambda^2},\\ \\dfrac{1}{\\lambda}$", "$\\dfrac{1}{\\lambda^2},\\ \\dfrac{1}{\\lambda^2}$"] },
+      "en": { "prompt": "For light of wavelength $\\lambda$, the photon energy is proportional to $\\boxed{\\text{I}}$; for an electron wave of wavelength $\\lambda$, the electron's kinetic energy is proportional to $\\boxed{\\text{II}}$. Which combination is correct?", "choices": ["$\\lambda^2,\\ \\lambda^2$", "$\\lambda^2,\\ \\lambda$", "$\\lambda,\\ \\lambda^2$", "$\\lambda,\\ \\lambda$", "$\\dfrac{1}{\\lambda},\\ \\dfrac{1}{\\lambda}$", "$\\dfrac{1}{\\lambda},\\ \\dfrac{1}{\\lambda^2}$", "$\\dfrac{1}{\\lambda^2},\\ \\dfrac{1}{\\lambda}$", "$\\dfrac{1}{\\lambda^2},\\ \\dfrac{1}{\\lambda^2}$"] },
+      "answerIndex": 5, "answerOption": 6, "answer": { "ja": "$\\dfrac{1}{\\lambda},\\ \\dfrac{1}{\\lambda^2}$", "en": "$\\dfrac{1}{\\lambda},\\ \\dfrac{1}{\\lambda^2}$" },
+      "explanation": { "en": "Photon: $E=\\dfrac{hc}{\\lambda}\\propto\\dfrac1\\lambda$. Electron: $K=\\dfrac{p^2}{2m}=\\dfrac{h^2}{2m\\lambda^2}\\propto\\dfrac{1}{\\lambda^2}$.", "ja": "光子 $E=\\dfrac{hc}{\\lambda}\\propto\\dfrac1\\lambda$。電子 $K=\\dfrac{p^2}{2m}=\\dfrac{h^2}{2m\\lambda^2}\\propto\\dfrac1{\\lambda^2}$。" }
+    }
+  ],
+  "patterns": {
+    "blockSkeleton": "Same 5-block skeleton (I Mechanics ×6, II Thermo ×3, III Waves ×3, IV E&M ×6, V Atoms ×1).",
+    "newArchetypesVsPrevious": [
+      "Rigid body with multiple strings exploiting a 3-4-5 triangle (Q1).",
+      "Impulse–momentum as a vector triangle to choose (Q4).",
+      "Conical pendulum where tension is given as a multiple of mg (Q5).",
+      "Doppler with observer ahead vs behind, asked as a ratio (Q11).",
+      "Lloyd's-mirror interference with the π phase change (Q12) — a classic trap.",
+      "Two-battery network solved by node/Kirchhoff analysis (Q15).",
+      "Photon E vs electron-KE wavelength dependence side-by-side (Q19)."
+    ],
+    "recurringWithPrevious": ["v–t / p–V area problems (Q2, Q9)", "projectile off a smooth ramp via energy (Q3, cf 2020-2 Q5 family)", "SHM relations (Q6)", "calorimetry (Q7)", "movable-piston gas with equal pressures (Q8, cf 2019-1 Q8)", "two-charge field/potential reasoning (Q13, cf 2019-1 Q13)", "capacitor charge sharing (Q14)", "force between parallel currents & particle in B field (Q16, Q17, recurring every year)"],
+    "examTacticNotes": [
+      "Reflection adds a π phase: in Lloyd's-mirror / thin-film problems the on-axis point is DARK, shifting the bright-fringe formula by a half — memorize this to avoid the most common wave trap (Q12).",
+      "For 'movable insulated piston' gas problems, pressures on the two sides are always equal — reduces the problem to volumes (Q8).",
+      "Right-triangle ratios (3-4-5, 5-12-13) and 30/45/60° recur so the algebra stays clean — recognizing them is a speed advantage (Q1)."
+    ],
+    "difficulty": "Standard 'Basic + Advanced Physics'; conceptual with light computation."
+  }
+}

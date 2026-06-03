@@ -1,0 +1,276 @@
+{
+  "id": "2018-1-chemistry",
+  "year": 2018,
+  "session": 1,
+  "subject": "chemistry",
+  "title": "EJU 2018 · Session 1 · Chemistry",
+  "source": "平成30年度（2018年度）日本留学試験（第1回）理科〈化学〉 © Japan Student Services Organization (JASSO)",
+  "attribution": "EJU past questions © JASSO. Question text paraphrased from the official past paper; figures described in text; correct answers taken from the official JASSO answer key and independently re-solved for verification.",
+  "languages": ["ja", "en"],
+  "answerKeyVerified": true,
+  "structure": {
+    "format": "flat",
+    "totalQuestions": 20,
+    "note": "Chemistry is a flat list of 20 single-best-answer items (問1–問20, answer rows 1–20) — no Roman-numeral blocks. Order ≈ structure & bonding → states/energetics/electrochemistry/equilibria → inorganic → organic.",
+    "givens": {
+      "ja": "標準状態 $0\\,$°C・$1.0\\times10^5\\,$Pa，気体 $1\\,$mol の体積 $22.4\\,$L，気体定数 $R=8.31\\times10^3\\,$Pa·L/(K·mol)，アボガドロ定数 $N_A=6.02\\times10^{23}\\,$/mol，ファラデー定数 $F=9.65\\times10^4\\,$C/mol。原子量：H 1.0, C 12, N 14, O 16, Na 23, Mg 24, S 32, Cl 35.5。族・周期は周期表の通り。",
+      "en": "STP $0\\,$°C, $1.0\\times10^5\\,$Pa; molar volume $22.4\\,$L; $R=8.31\\times10^3\\,$Pa·L/(K·mol); $N_A=6.02\\times10^{23}\\,$/mol; $F=9.65\\times10^4\\,$C/mol. Atomic weights: H 1.0, C 12, N 14, O 16, Na 23, Mg 24, S 32, Cl 35.5. Groups/periods per the periodic table."
+    }
+  },
+  "questions": [
+    {
+      "id": "2018-1-chem-1", "answerRow": 1, "topicId": "matter-structure",
+      "subtopic": "Neutrons, electrons and outer-shell electrons of argon-40",
+      "patternTags": ["atomic-structure", "neutrons", "electron-shells", "plug-in-numbers"], "hasFigure": true,
+      "figure": { "ja": "表：⁴⁰Ar の（中性子の数 / 電子の数 / 最外殻電子の数）の組み合わせ①〜⑧。", "en": "Table of (number of neutrons / electrons / outermost-shell electrons) combinations ①–⑧ for ⁴⁰Ar." },
+      "ja": { "prompt": "$^{40}\\mathrm{Ar}$ の原子に含まれる中性子・電子・最外殻電子の数の組み合わせとして正しいものを選びなさい。", "choices": ["中性子20 / 電子18 / 最外殻0", "中性子20 / 電子18 / 最外殻8", "中性子20 / 電子20 / 最外殻0", "中性子20 / 電子20 / 最外殻8", "中性子22 / 電子18 / 最外殻0", "中性子22 / 電子18 / 最外殻8", "中性子22 / 電子20 / 最外殻0", "中性子22 / 電子20 / 最外殻8"] },
+      "en": { "prompt": "Which gives the correct numbers of neutrons, electrons, and outermost-shell electrons in a $^{40}\\mathrm{Ar}$ atom?", "choices": ["neutrons 20 / electrons 18 / outer 0", "neutrons 20 / electrons 18 / outer 8", "neutrons 20 / electrons 20 / outer 0", "neutrons 20 / electrons 20 / outer 8", "neutrons 22 / electrons 18 / outer 0", "neutrons 22 / electrons 18 / outer 8", "neutrons 22 / electrons 20 / outer 0", "neutrons 22 / electrons 20 / outer 8"] },
+      "answerIndex": 5, "answerOption": 6, "answer": { "ja": "⑥ 中性子22 / 電子18 / 最外殻8", "en": "⑥ neutrons 22 / electrons 18 / outer 8" },
+      "explanation": { "en": "Argon has $Z=18$. Neutrons $=40-18=22$; electrons $=18$; configuration $(2,8,8)$ gives 8 outermost-shell electrons.", "ja": "Ar は $Z=18$。中性子 $=40-18=22$，電子 $=18$，配置 $(2,8,8)$ で最外殻電子は 8。" }
+    },
+    {
+      "id": "2018-1-chem-2", "answerRow": 2, "topicId": "matter-structure",
+      "subtopic": "Species with a different total electron count",
+      "patternTags": ["atomic-structure", "electron-count", "odd-one-out"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の分子やイオン①〜⑥のうち，含まれる電子の総数が他と異なるものを選びなさい。 ① $\\mathrm{CH_4}$ ② $\\mathrm{F^-}$ ③ $\\mathrm{Na^+}$ ④ $\\mathrm{NH_4^+}$ ⑤ NO ⑥ $\\mathrm{OH^-}$", "choices": ["$\\mathrm{CH_4}$", "$\\mathrm{F^-}$", "$\\mathrm{Na^+}$", "$\\mathrm{NH_4^+}$", "NO", "$\\mathrm{OH^-}$"] },
+      "en": { "prompt": "Which has a total electron count DIFFERENT from the rest? ① $\\mathrm{CH_4}$ ② $\\mathrm{F^-}$ ③ $\\mathrm{Na^+}$ ④ $\\mathrm{NH_4^+}$ ⑤ NO ⑥ $\\mathrm{OH^-}$", "choices": ["$\\mathrm{CH_4}$", "$\\mathrm{F^-}$", "$\\mathrm{Na^+}$", "$\\mathrm{NH_4^+}$", "NO", "$\\mathrm{OH^-}$"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "⑤ NO（15 個）", "en": "⑤ NO (15)" },
+      "explanation": { "en": "$\\mathrm{CH_4}$, $\\mathrm{F^-}$, $\\mathrm{Na^+}$, $\\mathrm{NH_4^+}$, $\\mathrm{OH^-}$ all have 10 electrons, but NO has $7+8=15$. NO is the odd one out.", "ja": "$\\mathrm{CH_4}$，$\\mathrm{F^-}$，$\\mathrm{Na^+}$，$\\mathrm{NH_4^+}$，$\\mathrm{OH^-}$ はすべて 10 電子だが NO は $7+8=15$。NO だけ異なる。" }
+    },
+    {
+      "id": "2018-1-chem-3", "answerRow": 3, "topicId": "matter-structure",
+      "subtopic": "Correct statement about atoms and ions",
+      "patternTags": ["atomic-structure", "ionization-energy", "ionic-radius", "pick-statement"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "原子やイオンに関する記述①〜⑥のうち，正しいものを選びなさい。 ① 原子番号 6 の原子は，L 殻に 6 個の価電子をもつ。 ② $^1\\mathrm{H}$ 原子と $^2\\mathrm{H}$ 原子は同じ電子配置をもつ。 ③ アルカリ金属の原子は，同一周期でイオン化エネルギーが最も大きい。 ④ $\\mathrm{Li^+},\\ \\mathrm{Na^+},\\ \\mathrm{K^+}$ のうちイオン半径が最も大きいのは $\\mathrm{Li^+}$ である。 ⑤ ハロゲンの原子は電子を放出しやすく 1 価の陰イオンになりやすい。 ⑥ He, Ne, Ar のうち空気より軽いものは Ar である。", "choices": ["①", "②", "③", "④", "⑤", "⑥"] },
+      "en": { "prompt": "Which statement about atoms and ions is correct? ① An atom of atomic number 6 has 6 valence electrons in the L shell. ② $^1\\mathrm{H}$ and $^2\\mathrm{H}$ atoms have the same electron configuration. ③ Alkali-metal atoms have the largest ionization energy in their period. ④ Among $\\mathrm{Li^+},\\ \\mathrm{Na^+},\\ \\mathrm{K^+}$, the largest ionic radius is $\\mathrm{Li^+}$. ⑤ Halogen atoms readily release electrons to become monovalent anions. ⑥ Among He, Ne, Ar, the one lighter than air is Ar.", "choices": ["①", "②", "③", "④", "⑤", "⑥"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "②（同位体は同じ電子配置）", "en": "② (isotopes share the same electron configuration)" },
+      "explanation": { "en": "$^1\\mathrm{H}$ and $^2\\mathrm{H}$ are isotopes — both have one electron ($1s^1$), the same configuration. ① wrong (carbon has 4 valence electrons); ③ wrong (alkali metals have the smallest IE); ④ wrong ($\\mathrm{K^+}$ is largest); ⑤ wrong (halogens GAIN electrons); ⑥ wrong (Ar is heavier than air).", "ja": "$^1\\mathrm{H}$ と $^2\\mathrm{H}$ は同位体でともに電子 1 個（$1s^1$）の同じ配置。① 誤（炭素の価電子は 4）；③ 誤（アルカリ金属はイオン化エネルギー最小）；④ 誤（$\\mathrm{K^+}$ が最大）；⑤ 誤（ハロゲンは電子を受け取る）；⑥ 誤（Ar は空気より重い）。" }
+    },
+    {
+      "id": "2018-1-chem-4", "answerRow": 4, "topicId": "matter-structure",
+      "subtopic": "Two incorrect statements about crystals",
+      "patternTags": ["crystal-structure", "bond-types", "true-false-combo"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "結晶に関する記述(a)〜(e)のうち，誤っているものが二つある。その組み合わせを選びなさい。 (a) $\\mathrm{MgCl_2}$ の結晶はイオン結合により形成されている。 (b) Ag の結晶は金属結合により形成されている。 (c) Si の結晶は金属結合により形成されている。 (d) ダイヤモンドは自由電子をもつ。 (e) ドライアイスは昇華性がある。", "choices": ["a, b", "a, d", "b, c", "b, e", "c, d", "d, e"] },
+      "en": { "prompt": "Two of these statements about crystals are INCORRECT. Which pair? (a) $\\mathrm{MgCl_2}$ crystal is formed by ionic bonds. (b) Ag crystal is formed by metallic bonds. (c) Si crystal is formed by metallic bonds. (d) Diamond has free electrons. (e) Dry ice is sublimable.", "choices": ["a, b", "a, d", "b, c", "b, e", "c, d", "d, e"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "c と d", "en": "c and d" },
+      "explanation": { "en": "(c) False — silicon forms a covalent crystal, not a metallic one. (d) False — diamond has no free electrons (it is a covalent insulator). The others are correct.", "ja": "(c) 誤 — ケイ素は共有結合の結晶で金属結合ではない。(d) 誤 — ダイヤモンドに自由電子はない（共有結合の絶縁体）。他は正しい。" }
+    },
+    {
+      "id": "2018-1-chem-5", "answerRow": 5, "topicId": "states-and-change",
+      "subtopic": "Volume of ozone formed from oxygen",
+      "patternTags": ["stoichiometry", "gas-volume", "allotropes", "plug-in-numbers"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "$10.0\\,$L の酸素 $\\mathrm{O_2}$ をオゾン発生器に通じると，酸素とオゾン $\\mathrm{O_3}$ の混合気体が同温同圧で $9.5\\,$L 得られた。混合気体中のオゾンを分離したとき，その体積は同温同圧で何 L か。", "choices": ["0.5", "1.0", "1.5", "2.0", "2.5"] },
+      "en": { "prompt": "Passing $10.0\\,$L of oxygen $\\mathrm{O_2}$ through an ozone generator gives $9.5\\,$L of an $\\mathrm{O_2}$/$\\mathrm{O_3}$ mixture at the same temperature and pressure. What volume of ozone (same conditions) does the mixture contain?", "choices": ["0.5", "1.0", "1.5", "2.0", "2.5"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "$1.0\\,$L", "en": "1.0 L" },
+      "explanation": { "en": "$\\mathrm{3O_2\\to 2O_3}$. If $x\\,$L of $\\mathrm{O_2}$ reacts it forms $\\tfrac{2}{3}x\\,$L $\\mathrm{O_3}$. Total $=(10.0-x)+\\tfrac{2}{3}x=10.0-\\tfrac{x}{3}=9.5 \\Rightarrow x=1.5$. Ozone $=\\tfrac{2}{3}\\times1.5=1.0\\,$L.", "ja": "$\\mathrm{3O_2\\to 2O_3}$。反応した $\\mathrm{O_2}$ を $x\\,$L とすると $\\mathrm{O_3}$ は $\\tfrac{2}{3}x\\,$L。合計 $=(10.0-x)+\\tfrac{2}{3}x=10.0-\\tfrac{x}{3}=9.5 \\Rightarrow x=1.5$。オゾン $=\\tfrac{2}{3}\\times1.5=1.0\\,$L。" }
+    },
+    {
+      "id": "2018-1-chem-6", "answerRow": 6, "topicId": "states-and-change",
+      "subtopic": "Molecular weight from gas density",
+      "patternTags": ["gas-laws", "ideal-gas", "density", "plug-in-numbers"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "ある気体の密度は $27\\,$°C，$1.0\\times10^5\\,$Pa において $1.2\\,$g/L であった。この気体の分子量に最も近い値を選びなさい。ただし気体は理想気体とする。", "choices": ["16", "27", "30", "32", "44"] },
+      "en": { "prompt": "A gas has density $1.2\\,$g/L at $27\\,$°C and $1.0\\times10^5\\,$Pa. What is its molecular weight (treat it as ideal)?", "choices": ["16", "27", "30", "32", "44"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "約 30", "en": "≈ 30" },
+      "explanation": { "en": "$M=\\dfrac{\\rho RT}{P}=\\dfrac{1.2\\times8.31\\times10^3\\times300}{1.0\\times10^5}\\approx30$.", "ja": "$M=\\dfrac{\\rho RT}{P}=\\dfrac{1.2\\times8.31\\times10^3\\times300}{1.0\\times10^5}\\approx30$。" }
+    },
+    {
+      "id": "2018-1-chem-7", "answerRow": 7, "topicId": "states-and-change",
+      "subtopic": "Heat from neutralization plus dissolution",
+      "patternTags": ["thermochemistry", "neutralization", "heat-of-dissolution", "limiting-reagent", "plug-in-numbers"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "$0.50\\,$mol/L の塩酸 $100\\,$mL に固体の水酸化ナトリウム NaOH $4.0\\,$g を加えて反応させた。このとき発生した熱量は何 kJ か。ただし中和熱は $56\\,$kJ/mol，NaOH の水への溶解熱は $44\\,$kJ/mol とする。", "choices": ["2.8", "7.2", "10", "32", "60"] },
+      "en": { "prompt": "To $100\\,$mL of $0.50\\,$mol/L HCl, $4.0\\,$g of solid NaOH is added and reacted. How much heat (kJ) is released? Take the heat of neutralization as $56\\,$kJ/mol and the heat of dissolution of NaOH in water as $44\\,$kJ/mol.", "choices": ["2.8", "7.2", "10", "32", "60"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "$7.2\\,$kJ", "en": "7.2 kJ" },
+      "explanation": { "en": "NaOH $=4.0/40=0.10\\,$mol; HCl $=0.50\\times0.100=0.050\\,$mol. Dissolution heat $=44\\times0.10=4.4\\,$kJ. Neutralization is limited by HCl: $56\\times0.050=2.8\\,$kJ. Total $=4.4+2.8=7.2\\,$kJ.", "ja": "NaOH $=4.0/40=0.10\\,$mol，HCl $=0.50\\times0.100=0.050\\,$mol。溶解熱 $=44\\times0.10=4.4\\,$kJ。中和は HCl が不足で $56\\times0.050=2.8\\,$kJ。合計 $=4.4+2.8=7.2\\,$kJ。" }
+    },
+    {
+      "id": "2018-1-chem-8", "answerRow": 8, "topicId": "states-and-change",
+      "subtopic": "Series electrolysis: incorrect statement",
+      "patternTags": ["electrochemistry", "electrolysis", "series-cells", "pick-false-statement"], "hasFigure": true,
+      "figure": { "ja": "二つの電解槽を直列接続した図。電解槽 I は $\\mathrm{CuSO_4}$ aq に銅電極 A・B，電解槽 II は NaCl aq に炭素電極 C・D。電源の − 側が A に，＋ 側が D につながる（B と C は直列接続）。よって A は陰極，B は陽極，C は陰極，D は陽極。", "en": "Two electrolytic cells in series. Cell I: $\\mathrm{CuSO_4}$ aq with copper electrodes A and B; cell II: NaCl aq with carbon electrodes C and D. The supply's − connects to A and + to D (B and C are wired in series). So A is a cathode, B an anode, C a cathode, D an anode." },
+      "ja": { "prompt": "図の直列接続した電解槽（I: $\\mathrm{CuSO_4}$ aq・Cu 電極 A,B；II: NaCl aq・C 電極 C,D）の電気分解に関する記述として誤っているものを選びなさい。 ① 銅電極 A の質量は増加する。 ② 銅電極 B の質量は減少する。 ③ 炭素電極 C 付近の溶液は酸性になる。 ④ 炭素電極 D からは気体が発生する。 ⑤ 電解槽 I と II を流れる電気量は等しい。", "choices": ["①", "②", "③", "④", "⑤"] },
+      "en": { "prompt": "For the series electrolysis (cell I: $\\mathrm{CuSO_4}$ aq with Cu electrodes A, B; cell II: NaCl aq with carbon electrodes C, D), which statement is INCORRECT? ① The mass of Cu electrode A increases. ② The mass of Cu electrode B decreases. ③ The solution near carbon electrode C becomes acidic. ④ Gas evolves from carbon electrode D. ⑤ The charge through cells I and II is equal.", "choices": ["①", "②", "③", "④", "⑤"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "③（C 付近は塩基性になる）", "en": "③ (the solution near C becomes basic)" },
+      "explanation": { "en": "C is a cathode in NaCl: $\\mathrm{2H_2O+2e^-\\to H_2+2OH^-}$, so the solution near C becomes BASIC, not acidic. The rest are correct: A (cathode) gains Cu, B (anode) dissolves, D (anode) evolves $\\mathrm{Cl_2}$, and series cells carry equal charge.", "ja": "C は NaCl の陰極で $\\mathrm{2H_2O+2e^-\\to H_2+2OH^-}$ となり，C 付近は塩基性であって酸性ではない。他は正：A（陰極）は Cu が析出，B（陽極）は溶解，D（陽極）は $\\mathrm{Cl_2}$ 発生，直列なので電気量は等しい。" }
+    },
+    {
+      "id": "2018-1-chem-9", "answerRow": 9, "topicId": "states-and-change",
+      "subtopic": "Incorrect statement about reaction rate of H2O2 decomposition",
+      "patternTags": ["reaction-rate", "catalyst", "stoichiometry", "pick-false-statement"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "$\\mathrm{2H_2O_2\\to 2H_2O+O_2}$（触媒あり）に関する記述①〜④のうち，誤っているものを選びなさい。 ① 過酸化水素が分解する速度は，酸素が発生する速度の半分である。 ② 過酸化水素の濃度を小さくすると，酸素が発生する速度は小さくなる。 ③ 水溶液の温度を低くすると，酸素が発生する速度は小さくなる。 ④ 触媒の量を少なくすると，酸素が発生する速度は小さくなる。", "choices": ["①", "②", "③", "④"] },
+      "en": { "prompt": "For $\\mathrm{2H_2O_2\\to 2H_2O+O_2}$ (with catalyst), which statement is INCORRECT? ① The rate of $\\mathrm{H_2O_2}$ decomposition is HALF the rate of $\\mathrm{O_2}$ formation. ② Lowering the $\\mathrm{H_2O_2}$ concentration lowers the $\\mathrm{O_2}$ formation rate. ③ Lowering the temperature lowers the $\\mathrm{O_2}$ formation rate. ④ Using less catalyst lowers the $\\mathrm{O_2}$ formation rate.", "choices": ["①", "②", "③", "④"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "①（分解速度は発生速度の 2 倍）", "en": "① (decomposition rate is twice the $\\mathrm{O_2}$ rate)" },
+      "explanation": { "en": "From $\\mathrm{2H_2O_2\\to 2H_2O+O_2}$, two $\\mathrm{H_2O_2}$ are consumed per $\\mathrm{O_2}$ formed, so $\\mathrm{H_2O_2}$ decomposes at TWICE the rate of $\\mathrm{O_2}$ formation, not half — ① is wrong. The others correctly describe rate dependence.", "ja": "$\\mathrm{2H_2O_2\\to 2H_2O+O_2}$ より $\\mathrm{O_2}$ 1 個あたり $\\mathrm{H_2O_2}$ が 2 個消費されるので，$\\mathrm{H_2O_2}$ の分解速度は $\\mathrm{O_2}$ 発生速度の 2 倍で，半分ではない — ①が誤り。他は速度依存性を正しく述べている。" }
+    },
+    {
+      "id": "2018-1-chem-10", "answerRow": 10, "topicId": "states-and-change",
+      "subtopic": "Acid dissociation constant in terms of c and α",
+      "patternTags": ["acids-bases", "dissociation-constant", "degree-of-dissociation", "formula-selection"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "弱酸 HA は $\\mathrm{HA\\rightleftharpoons H^++A^-}$ の電離平衡にあり，電離定数 $K_a=\\dfrac{[\\mathrm{H^+}][\\mathrm{A^-}]}{[\\mathrm{HA}]}$ である。酸の濃度を $c\\,$mol/L，電離度を $\\alpha$ とするとき，$K_a$ を $c$ と $\\alpha$ で表したものを選びなさい。", "choices": ["$\\dfrac{\\alpha}{c(1-\\alpha)}$", "$\\dfrac{\\alpha^2}{c(1-\\alpha)}$", "$\\dfrac{c\\alpha}{1-\\alpha}$", "$\\dfrac{c\\alpha^2}{1-\\alpha}$", "$\\dfrac{c\\alpha}{1+\\alpha}$", "$\\dfrac{c\\alpha^2}{1+\\alpha}$"] },
+      "en": { "prompt": "A weak acid HA has the equilibrium $\\mathrm{HA\\rightleftharpoons H^++A^-}$ with $K_a=\\dfrac{[\\mathrm{H^+}][\\mathrm{A^-}]}{[\\mathrm{HA}]}$. With acid concentration $c\\,$mol/L and degree of dissociation $\\alpha$, express $K_a$ in terms of $c$ and $\\alpha$.", "choices": ["$\\dfrac{\\alpha}{c(1-\\alpha)}$", "$\\dfrac{\\alpha^2}{c(1-\\alpha)}$", "$\\dfrac{c\\alpha}{1-\\alpha}$", "$\\dfrac{c\\alpha^2}{1-\\alpha}$", "$\\dfrac{c\\alpha}{1+\\alpha}$", "$\\dfrac{c\\alpha^2}{1+\\alpha}$"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "④ $\\dfrac{c\\alpha^2}{1-\\alpha}$", "en": "④ $\\dfrac{c\\alpha^2}{1-\\alpha}$" },
+      "explanation": { "en": "$[\\mathrm{H^+}]=[\\mathrm{A^-}]=c\\alpha$, $[\\mathrm{HA}]=c(1-\\alpha)$, so $K_a=\\dfrac{(c\\alpha)^2}{c(1-\\alpha)}=\\dfrac{c\\alpha^2}{1-\\alpha}$.", "ja": "$[\\mathrm{H^+}]=[\\mathrm{A^-}]=c\\alpha$，$[\\mathrm{HA}]=c(1-\\alpha)$ なので $K_a=\\dfrac{(c\\alpha)^2}{c(1-\\alpha)}=\\dfrac{c\\alpha^2}{1-\\alpha}$。" }
+    },
+    {
+      "id": "2018-1-chem-11", "answerRow": 11, "topicId": "inorganic",
+      "subtopic": "Correct statement about alkali metals",
+      "patternTags": ["inorganic", "alkali-metals", "storage", "pick-statement"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "第 2 周期から第 4 周期までのアルカリ金属に関する記述①〜④のうち，正しいものを選びなさい。 ① アルカリ金属の密度はいずれも $1.0\\,\\mathrm{g/cm^3}$ より大きい。 ② アルカリ金属には，緑色の炎色反応を示すものがある。 ③ アルカリ金属は石油の中に保存する。 ④ アルカリ金属は電子親和力が大きい。", "choices": ["①", "②", "③", "④"] },
+      "en": { "prompt": "Which statement about the alkali metals (periods 2–4) is correct? ① All alkali metals have a density greater than $1.0\\,\\mathrm{g/cm^3}$. ② Some alkali metals give a green flame test. ③ Alkali metals are stored under petroleum (oil). ④ Alkali metals have a large electron affinity.", "choices": ["①", "②", "③", "④"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "③（石油中で保存する）", "en": "③ (stored under oil)" },
+      "explanation": { "en": "Alkali metals react with air and water, so they are stored under petroleum — ③ correct. ① wrong (Li, Na, K all have density < 1.0); ② wrong (flames are red/yellow/lilac, not green); ④ wrong (they readily lose electrons, so electron affinity is small).", "ja": "アルカリ金属は空気・水と反応するため石油中で保存 — ③が正。① 誤（Li,Na,K の密度はすべて 1.0 未満）；② 誤（炎色は赤・黄・赤紫で緑ではない）；④ 誤（電子を失いやすく電子親和力は小さい）。" }
+    },
+    {
+      "id": "2018-1-chem-12", "answerRow": 12, "topicId": "inorganic",
+      "subtopic": "Operation producing the least gas per mole",
+      "patternTags": ["inorganic", "gas-preparation", "stoichiometry", "compare-cases"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の操作①〜⑤のうち，下線を引いた化合物の $1\\,$mol がすべて反応したとき，発生する気体の物質量が常温・常圧で最も少ないものを選びなさい。 ① $\\underline{\\mathrm{H_2O_2}}$ 水溶液に $\\mathrm{MnO_2}$ を加える。 ② $\\underline{\\mathrm{FeS}}$ に希硫酸を加える。 ③ $\\underline{\\mathrm{CaCO_3}}$ に希塩酸を加える。 ④ $\\underline{\\mathrm{NaHCO_3}}$ に希塩酸を加える。 ⑤ $\\underline{\\mathrm{NH_4Cl}}$ と $\\mathrm{Ca(OH)_2}$ の混合物を加熱する。", "choices": ["①", "②", "③", "④", "⑤"] },
+      "en": { "prompt": "When 1 mol of the underlined compound reacts completely, which operation produces the LEAST amount (mol) of gas at NTP? ① add $\\mathrm{MnO_2}$ to $\\underline{\\mathrm{H_2O_2}}$ solution. ② add dilute $\\mathrm{H_2SO_4}$ to $\\underline{\\mathrm{FeS}}$. ③ add dilute HCl to $\\underline{\\mathrm{CaCO_3}}$. ④ add dilute HCl to $\\underline{\\mathrm{NaHCO_3}}$. ⑤ heat a mixture of $\\underline{\\mathrm{NH_4Cl}}$ and $\\mathrm{Ca(OH)_2}$.", "choices": ["①", "②", "③", "④", "⑤"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "①（$\\mathrm{H_2O_2}$ 1 mol → $\\mathrm{O_2}$ 0.5 mol）", "en": "① ($1\\,$mol $\\mathrm{H_2O_2}\\to 0.5\\,$mol $\\mathrm{O_2}$)" },
+      "explanation": { "en": "$\\mathrm{2H_2O_2\\to 2H_2O+O_2}$ gives only $0.5\\,$mol $\\mathrm{O_2}$ per mol $\\mathrm{H_2O_2}$. The others each give $1\\,$mol of gas per mol: ② $\\mathrm{H_2S}$, ③ $\\mathrm{CO_2}$, ④ $\\mathrm{CO_2}$, ⑤ $\\mathrm{NH_3}$.", "ja": "$\\mathrm{2H_2O_2\\to 2H_2O+O_2}$ より $\\mathrm{H_2O_2}$ 1 mol あたり $\\mathrm{O_2}$ は $0.5\\,$mol のみ。他は 1 mol あたり気体 1 mol：② $\\mathrm{H_2S}$，③ $\\mathrm{CO_2}$，④ $\\mathrm{CO_2}$，⑤ $\\mathrm{NH_3}$。" }
+    },
+    {
+      "id": "2018-1-chem-13", "answerRow": 13, "topicId": "inorganic",
+      "subtopic": "Oxidation numbers of nitrogen in three compounds",
+      "patternTags": ["inorganic", "nitrogen", "oxidation-number", "industrial-processes"], "hasFigure": true,
+      "figure": { "ja": "表は A・B・C 中の N の酸化数の組み合わせ①〜⑨。A＝ハーバー・ボッシュ法で得る窒素化合物（$\\mathrm{NH_3}$），B＝$\\mathrm{N_2}$ と $\\mathrm{O_2}$ が高温で反応して生じる無色の窒素化合物（NO），C＝オストワルト法で製造される窒素化合物（$\\mathrm{HNO_3}$）。", "en": "Table of oxidation-number combinations ①–⑨ for N in A, B, C. A = the nitrogen compound from the Haber–Bosch process ($\\mathrm{NH_3}$); B = the colourless nitrogen compound formed when $\\mathrm{N_2}$ and $\\mathrm{O_2}$ react at high temperature (NO); C = the nitrogen compound made by the Ostwald process ($\\mathrm{HNO_3}$)." },
+      "ja": { "prompt": "A〜C の化合物中の窒素 N の酸化数の正しい組み合わせを選びなさい。 A：ハーバー・ボッシュ法で得られる窒素化合物 B：$\\mathrm{N_2}$ と $\\mathrm{O_2}$ が高温で反応して生じる無色の窒素化合物 C：オストワルト法で製造される窒素化合物", "choices": ["A:−3 B:+2 C:+3", "A:−3 B:+2 C:+5", "A:−3 B:+4 C:+5", "A:−1 B:+2 C:+3", "A:−1 B:+4 C:+3", "A:−1 B:+4 C:+5", "A:+3 B:+2 C:+3", "A:+3 B:+2 C:+5", "A:+3 B:+4 C:+5"] },
+      "en": { "prompt": "Choose the correct oxidation numbers of nitrogen in A–C. A: the nitrogen compound from the Haber–Bosch process. B: the colourless nitrogen compound from $\\mathrm{N_2}+\\mathrm{O_2}$ at high temperature. C: the nitrogen compound made by the Ostwald process.", "choices": ["A:−3 B:+2 C:+3", "A:−3 B:+2 C:+5", "A:−3 B:+4 C:+5", "A:−1 B:+2 C:+3", "A:−1 B:+4 C:+3", "A:−1 B:+4 C:+5", "A:+3 B:+2 C:+3", "A:+3 B:+2 C:+5", "A:+3 B:+4 C:+5"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "② A:−3 B:+2 C:+5", "en": "② A:−3 B:+2 C:+5" },
+      "explanation": { "en": "A is $\\mathrm{NH_3}$ (N $=-3$); B is NO, the colourless gas from $\\mathrm{N_2}+\\mathrm{O_2}$ (N $=+2$); C is $\\mathrm{HNO_3}$ from the Ostwald process (N $=+5$).", "ja": "A は $\\mathrm{NH_3}$（N$=-3$），B は $\\mathrm{N_2}+\\mathrm{O_2}$ からの無色気体 NO（N$=+2$），C はオストワルト法の $\\mathrm{HNO_3}$（N$=+5$）。" }
+    },
+    {
+      "id": "2018-1-chem-14", "answerRow": 14, "topicId": "inorganic",
+      "subtopic": "Change common to both Fe2+ and Fe3+ solutions",
+      "patternTags": ["inorganic", "iron-ions", "qualitative-analysis", "pick-statement"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "記述①〜⑤のうち，$\\mathrm{Fe^{2+}}$ 水溶液と $\\mathrm{Fe^{3+}}$ 水溶液の両方ともに起こる変化を選びなさい。 ① NaOH aq を加えると沈殿が生じる。 ② KSCN aq を加えると血赤色になる。 ③ サリチル酸水溶液に加えると赤紫色になる。 ④ $\\mathrm{[Fe(CN)_6]^{3-}}$ を加えると濃青色の沈殿が生じる。 ⑤ $\\mathrm{[Fe(CN)_6]^{4-}}$ を加えると濃青色の沈殿が生じる。", "choices": ["①", "②", "③", "④", "⑤"] },
+      "en": { "prompt": "Which change occurs with BOTH $\\mathrm{Fe^{2+}}$ and $\\mathrm{Fe^{3+}}$ solutions? ① Adding NaOH gives a precipitate. ② Adding KSCN gives a blood-red solution. ③ Adding salicylic acid gives a reddish-purple solution. ④ Adding $\\mathrm{[Fe(CN)_6]^{3-}}$ gives a dark-blue precipitate. ⑤ Adding $\\mathrm{[Fe(CN)_6]^{4-}}$ gives a dark-blue precipitate.", "choices": ["①", "②", "③", "④", "⑤"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "①（両方とも水酸化物が沈殿）", "en": "① (both form hydroxide precipitates)" },
+      "explanation": { "en": "Both ions precipitate as hydroxides with NaOH ($\\mathrm{Fe(OH)_2}$ green, $\\mathrm{Fe(OH)_3}$ reddish-brown). The others are specific: ②③⑤ only $\\mathrm{Fe^{3+}}$, ④ only $\\mathrm{Fe^{2+}}$.", "ja": "両イオンとも NaOH で水酸化物が沈殿（$\\mathrm{Fe(OH)_2}$ 緑，$\\mathrm{Fe(OH)_3}$ 赤褐）。他は特異的：②③⑤ は $\\mathrm{Fe^{3+}}$ のみ，④ は $\\mathrm{Fe^{2+}}$ のみ。" }
+    },
+    {
+      "id": "2018-1-chem-15", "answerRow": 15, "topicId": "inorganic",
+      "subtopic": "Operations that separate one of two metal ions",
+      "patternTags": ["inorganic", "qualitative-analysis", "selective-precipitation", "true-false-combo"], "hasFigure": true,
+      "figure": { "ja": "表（A 2 種の金属イオン / B 操作）：a $\\mathrm{Al^{3+},Fe^{3+}}$ / $\\mathrm{NH_3}$ aq；b $\\mathrm{Ag^+,Cu^{2+}}$ / 希塩酸；c $\\mathrm{Ba^{2+},Pb^{2+}}$ / $\\mathrm{Na_2SO_4}$ aq；d $\\mathrm{Ca^{2+},K^+}$ / NaOH aq；e $\\mathrm{Cu^{2+},Zn^{2+}}$ / 酸性で $\\mathrm{H_2S}$。", "en": "Table (A two metal ions / B operation): a $\\mathrm{Al^{3+},Fe^{3+}}$ / $\\mathrm{NH_3}$ aq; b $\\mathrm{Ag^+,Cu^{2+}}$ / dilute HCl; c $\\mathrm{Ba^{2+},Pb^{2+}}$ / $\\mathrm{Na_2SO_4}$ aq; d $\\mathrm{Ca^{2+},K^+}$ / NaOH aq; e $\\mathrm{Cu^{2+},Zn^{2+}}$ / $\\mathrm{H_2S}$ in acid." },
+      "ja": { "prompt": "2 種類の金属イオンを含む水溶液に B 欄の操作を行うと，A 欄の一方のイオンを沈殿として分離できるものが二つある。その組み合わせを選びなさい。 a) $\\mathrm{Al^{3+},Fe^{3+}}$ / $\\mathrm{NH_3}$ aq b) $\\mathrm{Ag^+,Cu^{2+}}$ / 希塩酸 c) $\\mathrm{Ba^{2+},Pb^{2+}}$ / $\\mathrm{Na_2SO_4}$ aq d) $\\mathrm{Ca^{2+},K^+}$ / NaOH aq e) $\\mathrm{Cu^{2+},Zn^{2+}}$ / 酸性で $\\mathrm{H_2S}$", "choices": ["a, b", "a, d", "b, c", "b, e", "c, d", "d, e"] },
+      "en": { "prompt": "For two-ion solutions, the column-B operation precipitates ONE of the column-A ions to separate it in two cases. Which pair? a) $\\mathrm{Al^{3+},Fe^{3+}}$ / $\\mathrm{NH_3}$ aq b) $\\mathrm{Ag^+,Cu^{2+}}$ / dilute HCl c) $\\mathrm{Ba^{2+},Pb^{2+}}$ / $\\mathrm{Na_2SO_4}$ aq d) $\\mathrm{Ca^{2+},K^+}$ / NaOH aq e) $\\mathrm{Cu^{2+},Zn^{2+}}$ / $\\mathrm{H_2S}$ in acid", "choices": ["a, b", "a, d", "b, c", "b, e", "c, d", "d, e"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "b と e", "en": "b and e" },
+      "explanation": { "en": "(b) Dilute HCl precipitates only $\\mathrm{Ag^+}$ as AgCl (Cu²⁺ stays). (e) In acidic $\\mathrm{H_2S}$, only $\\mathrm{Cu^{2+}}$ gives CuS (Zn²⁺ stays). (a) both Al³⁺/Fe³⁺ precipitate as hydroxides; (c) both Ba²⁺/Pb²⁺ give sulfates; (d) neither Ca²⁺ nor K⁺ precipitates cleanly with NaOH.", "ja": "(b) 希塩酸は $\\mathrm{Ag^+}$ のみ AgCl として沈殿（Cu²⁺ は残る）。(e) 酸性 $\\mathrm{H_2S}$ では $\\mathrm{Cu^{2+}}$ のみ CuS（Zn²⁺ は残る）。(a) Al³⁺/Fe³⁺ は両方水酸化物が沈殿；(c) Ba²⁺/Pb²⁺ は両方硫酸塩；(d) Ca²⁺ も K⁺ も NaOH ではきれいに沈殿しない。" }
+    },
+    {
+      "id": "2018-1-chem-16", "answerRow": 16, "topicId": "organic",
+      "subtopic": "Matching alcohols to qualitative reactions",
+      "patternTags": ["organic", "alcohols", "iodoform", "oxidation", "compare-cases"], "hasFigure": true,
+      "figure": { "ja": "表は a/b/c の化合物の組み合わせ①〜⑥。a＝$\\mathrm{FeCl_3}$ で紫色（フェノール $\\mathrm{C_6H_5OH}$）；b＝ヨードホルム反応陽性（$\\mathrm{(CH_3)_2CHOH}$）；c＝酸化でカルボン酸（第一級アルコール $\\mathrm{(CH_3)_2CHCH_2OH}$）。", "en": "Table of compound combinations ①–⑥ for a/b/c. a = purple with $\\mathrm{FeCl_3}$ (phenol $\\mathrm{C_6H_5OH}$); b = positive iodoform ($\\mathrm{(CH_3)_2CHOH}$); c = oxidises to a carboxylic acid (primary alcohol $\\mathrm{(CH_3)_2CHCH_2OH}$)." },
+      "ja": { "prompt": "ヒドロキシ基をもつ有機化合物の中で，記述(a)〜(c)それぞれにあてはまるものの組み合わせを選びなさい。 (a) $\\mathrm{FeCl_3}$ aq を加えると紫色になる。 (b) ヨードホルム反応を示す。 (c) 酸化するとカルボン酸を生成する。", "choices": ["$\\mathrm{C_6H_5OH}$ / $\\mathrm{(CH_3)_3COH}$ / $\\mathrm{(CH_3)_2CHOH}$", "$\\mathrm{C_6H_5CH_2OH}$ / $\\mathrm{(CH_3)_3COH}$ / $\\mathrm{(CH_3)_2CHCH_2OH}$", "$\\mathrm{C_6H_5OH}$ / $\\mathrm{(CH_3)_2CHOH}$ / $\\mathrm{(CH_3)_2CHCH_2OH}$", "$\\mathrm{C_6H_5CH_2OH}$ / $\\mathrm{(CH_3)_2CHOH}$ / $\\mathrm{(CH_3)_2CHCH_2OH}$", "$\\mathrm{C_6H_5OH}$ / $\\mathrm{(CH_3)_2CHOH}$ / $\\mathrm{(CH_3)_2CHOH}$", "$\\mathrm{C_6H_5CH_2OH}$ / $\\mathrm{(CH_3)_3COH}$ / $\\mathrm{(CH_3)_2CHOH}$"] },
+      "en": { "prompt": "Among hydroxy-group compounds, choose the set matching each of (a)–(c). (a) Turns purple with $\\mathrm{FeCl_3}$ aq. (b) Gives the iodoform reaction. (c) Oxidises to a carboxylic acid.", "choices": ["$\\mathrm{C_6H_5OH}$ / $\\mathrm{(CH_3)_3COH}$ / $\\mathrm{(CH_3)_2CHOH}$", "$\\mathrm{C_6H_5CH_2OH}$ / $\\mathrm{(CH_3)_3COH}$ / $\\mathrm{(CH_3)_2CHCH_2OH}$", "$\\mathrm{C_6H_5OH}$ / $\\mathrm{(CH_3)_2CHOH}$ / $\\mathrm{(CH_3)_2CHCH_2OH}$", "$\\mathrm{C_6H_5CH_2OH}$ / $\\mathrm{(CH_3)_2CHOH}$ / $\\mathrm{(CH_3)_2CHCH_2OH}$", "$\\mathrm{C_6H_5OH}$ / $\\mathrm{(CH_3)_2CHOH}$ / $\\mathrm{(CH_3)_2CHOH}$", "$\\mathrm{C_6H_5CH_2OH}$ / $\\mathrm{(CH_3)_3COH}$ / $\\mathrm{(CH_3)_2CHOH}$"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "③ $\\mathrm{C_6H_5OH}$ / $\\mathrm{(CH_3)_2CHOH}$ / $\\mathrm{(CH_3)_2CHCH_2OH}$", "en": "③ $\\mathrm{C_6H_5OH}$ / $\\mathrm{(CH_3)_2CHOH}$ / $\\mathrm{(CH_3)_2CHCH_2OH}$" },
+      "explanation": { "en": "(a) Only phenol $\\mathrm{C_6H_5OH}$ gives the $\\mathrm{FeCl_3}$ purple colour. (b) $\\mathrm{(CH_3)_2CHOH}$ (2-propanol) has a $\\mathrm{CH_3CH(OH)}$ group → positive iodoform. (c) $\\mathrm{(CH_3)_2CHCH_2OH}$ is a primary alcohol → oxidises through an aldehyde to a carboxylic acid.", "ja": "(a) フェノール $\\mathrm{C_6H_5OH}$ のみ $\\mathrm{FeCl_3}$ で紫色。(b) $\\mathrm{(CH_3)_2CHOH}$（2-プロパノール）は $\\mathrm{CH_3CH(OH)}$ をもち ヨードホルム陽性。(c) $\\mathrm{(CH_3)_2CHCH_2OH}$ は第一級アルコールでアルデヒドを経てカルボン酸に酸化。" }
+    },
+    {
+      "id": "2018-1-chem-17", "answerRow": 17, "topicId": "organic",
+      "subtopic": "Incorrect statement about toluene",
+      "patternTags": ["organic", "aromatics", "toluene", "isomers", "pick-false-statement"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "トルエン $\\mathrm{C_6H_5CH_3}$ に関する記述①〜⑤のうち，誤っているものを選びなさい。 ① 常温・常圧で液体である。 ② 水に溶けにくい。 ③ 炭素原子はすべて同一平面上にある。 ④ 1 個の水素原子を塩素原子で置き換えた化合物には 3 種類の構造異性体がある。 ⑤ $\\mathrm{KMnO_4}$ で酸化した後に酸性にすると安息香酸が得られる。", "choices": ["①", "②", "③", "④", "⑤"] },
+      "en": { "prompt": "Which statement about toluene $\\mathrm{C_6H_5CH_3}$ is INCORRECT? ① It is a liquid at NTP. ② It is poorly soluble in water. ③ All its carbon atoms lie in one plane. ④ Replacing one hydrogen with a chlorine gives 3 structural isomers. ⑤ Oxidation with $\\mathrm{KMnO_4}$ then acidification gives benzoic acid.", "choices": ["①", "②", "③", "④", "⑤"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "④（構造異性体は 4 種類）", "en": "④ (there are 4 structural isomers)" },
+      "explanation": { "en": "Monochlorination of toluene gives 4 structural isomers: o-, m-, p-chlorotoluene (ring) plus benzyl chloride $\\mathrm{C_6H_5CH_2Cl}$ (side chain) — not 3, so ④ is wrong. The others are correct (toluene is a water-insoluble liquid, its carbons are coplanar, and it oxidises to benzoic acid).", "ja": "トルエンの一塩素化では o-,m-,p-クロロトルエン（環）と塩化ベンジル $\\mathrm{C_6H_5CH_2Cl}$（側鎖）の 4 種の構造異性体ができ，3 種ではないので④が誤り。他は正（水に溶けにくい液体，炭素は同一平面，酸化で安息香酸）。" }
+    },
+    {
+      "id": "2018-1-chem-18", "answerRow": 18, "topicId": "organic",
+      "subtopic": "Which pairs are stereoisomers",
+      "patternTags": ["organic", "stereoisomers", "cis-trans", "enantiomers", "compare-cases"], "hasFigure": true,
+      "figure": { "ja": "(a) o-ジクロロベンゼンを 2 通りに描いたもの（同一物質）。(b) o-キシレンと p-キシレン（構造異性体）。(c) 不斉炭素 C(H)(OH)(COOH)(CH₃) の鏡像 2 つ（鏡像異性体）。(d) C(H)(Cl)(Cl)(CH₃) の 2 つ（同一物質，不斉でない）。(e) 2-ブテンのシス形とトランス形（幾何異性体）。(f) 幾何異性をもたないアルケンを 2 通りに描いたもの（同一物質）。", "en": "(a) o-dichlorobenzene drawn two ways (same compound). (b) o-xylene and p-xylene (structural isomers). (c) two mirror images of a chiral carbon C(H)(OH)(COOH)(CH₃) (enantiomers). (d) two drawings of C(H)(Cl)(Cl)(CH₃) (same compound, not chiral). (e) cis- and trans-2-butene (geometric isomers). (f) an alkene without geometric isomerism drawn two ways (same compound)." },
+      "ja": { "prompt": "(a)〜(f)のうち，互いに立体異性体であるものが二つある。その組み合わせを選びなさい。", "choices": ["a, c", "a, d", "b, e", "c, e", "d, e", "d, f"] },
+      "en": { "prompt": "Two of (a)–(f) are pairs of stereoisomers. Which combination?", "choices": ["a, c", "a, d", "b, e", "c, e", "d, e", "d, f"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "c と e", "en": "c and e" },
+      "explanation": { "en": "(c) The carbon bears four different groups (H, OH, COOH, CH₃); the two mirror images are enantiomers — stereoisomers. (e) cis- and trans-2-butene are geometric (cis–trans) stereoisomers. (a)/(f) are the same compound drawn twice; (b) are positional (structural) isomers; (d) has two identical Cl groups so it is not chiral.", "ja": "(c) 炭素は 4 つの異なる基（H,OH,COOH,CH₃）をもち，鏡像は鏡像異性体＝立体異性体。(e) シス・トランス-2-ブテンは幾何異性体。(a)/(f) は同一物質を 2 通り描いたもの；(b) は位置（構造）異性体；(d) は Cl が 2 つ同じで不斉でない。" }
+    },
+    {
+      "id": "2018-1-chem-19", "answerRow": 19, "topicId": "organic",
+      "subtopic": "Molecular formula of a carboxylic acid from combustion",
+      "patternTags": ["organic", "combustion-analysis", "molecular-formula", "plug-in-numbers"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "C, H, O からなる 1 価のカルボン酸 $4.50\\,$mg を完全燃焼させたところ，$6.60\\,$mg の $\\mathrm{CO_2}$ と $2.70\\,$mg の $\\mathrm{H_2O}$ を生じた。この化合物の分子式として正しいものを選びなさい。", "choices": ["$\\mathrm{CH_2O}$", "$\\mathrm{CH_2O_2}$", "$\\mathrm{C_2H_4O_2}$", "$\\mathrm{C_3H_6O_2}$", "$\\mathrm{C_4H_8O_2}$"] },
+      "en": { "prompt": "Combusting $4.50\\,$mg of a monovalent carboxylic acid (C, H, O) gives $6.60\\,$mg $\\mathrm{CO_2}$ and $2.70\\,$mg $\\mathrm{H_2O}$. What is its molecular formula?", "choices": ["$\\mathrm{CH_2O}$", "$\\mathrm{CH_2O_2}$", "$\\mathrm{C_2H_4O_2}$", "$\\mathrm{C_3H_6O_2}$", "$\\mathrm{C_4H_8O_2}$"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "③ $\\mathrm{C_2H_4O_2}$（酢酸）", "en": "③ $\\mathrm{C_2H_4O_2}$ (acetic acid)" },
+      "explanation": { "en": "C $=6.60/44=0.15\\,$mmol $=1.80\\,$mg; H $=2\\times(2.70/18)=0.30\\,$mmol $=0.30\\,$mg; O $=4.50-1.80-0.30=2.40\\,$mg $=0.15\\,$mmol. C:H:O $=0.15:0.30:0.15=1:2:1$. A monocarboxylic acid has 2 oxygens, so the formula is $\\mathrm{C_2H_4O_2}$ (acetic acid).", "ja": "C $=6.60/44=0.15\\,$mmol$=1.80\\,$mg，H $=2\\times(2.70/18)=0.30\\,$mmol$=0.30\\,$mg，O $=4.50-1.80-0.30=2.40\\,$mg$=0.15\\,$mmol。C:H:O$=0.15:0.30:0.15=1:2:1$。1 価カルボン酸は O が 2 個なので $\\mathrm{C_2H_4O_2}$（酢酸）。" }
+    },
+    {
+      "id": "2018-1-chem-20", "answerRow": 20, "topicId": "organic",
+      "subtopic": "Incorrect statement about saccharides",
+      "patternTags": ["organic", "saccharides", "reducing-sugars", "pick-false-statement"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "糖類に関する記述①〜④のうち，誤っているものを選びなさい。 ① グルコース・フルクトース・ガラクトースの分子式はいずれも $\\mathrm{C_6H_{12}O_6}$ である。 ② グルコース・フルクトース・ガラクトースはいずれも還元性を示す。 ③ マルトース・スクロース・ラクトースの分子式はいずれも $\\mathrm{C_{12}H_{22}O_{11}}$ である。 ④ マルトース・スクロース・ラクトースはいずれも還元性を示す。", "choices": ["①", "②", "③", "④"] },
+      "en": { "prompt": "Which statement about saccharides is INCORRECT? ① Glucose, fructose, and galactose all have formula $\\mathrm{C_6H_{12}O_6}$. ② Glucose, fructose, and galactose all show reducing ability. ③ Maltose, sucrose, and lactose all have formula $\\mathrm{C_{12}H_{22}O_{11}}$. ④ Maltose, sucrose, and lactose all show reducing ability.", "choices": ["①", "②", "③", "④"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "④（スクロースは還元性を示さない）", "en": "④ (sucrose is non-reducing)" },
+      "explanation": { "en": "Sucrose is a non-reducing sugar (its glycosidic bond links both anomeric carbons), so ④ is wrong — maltose and lactose are reducing, but sucrose is not. The other statements are correct.", "ja": "スクロースは還元性を示さない（グリコシド結合が両方のアノマー炭素を結ぶ）ので④が誤り — マルトースとラクトースは還元性だがスクロースは示さない。他は正しい。" }
+    }
+  ],
+  "patterns": {
+    "archetypes": [
+      "Neutron/electron/outer-shell count of a specified isotope (⁴⁰Ar).",
+      "Odd-one-out by total electron count (isoelectronic screen, NO differs).",
+      "Correct atom/ion statement (isotopes share electron configuration).",
+      "Two incorrect crystal statements (Si covalent; diamond has no free electrons).",
+      "Ozone volume formed from oxygen (3O₂→2O₃ volume contraction).",
+      "Molecular weight from gas density (M = ρRT/P).",
+      "Heat from dissolution + neutralization (limiting reagent for neutralization).",
+      "Series-electrolysis incorrect statement (cathode region is basic).",
+      "Rate-law/stoichiometry statement for H₂O₂ decomposition (rate ratio 2:1).",
+      "Ka in terms of c and α (cα²/(1−α)).",
+      "Correct alkali-metal statement (stored under oil).",
+      "Operation giving the least gas per mole (H₂O₂ → ½ O₂).",
+      "Oxidation numbers of N in NH₃/NO/HNO₃ (Haber, N₂+O₂, Ostwald).",
+      "Change common to both Fe²⁺ and Fe³⁺ (NaOH precipitate).",
+      "Operations that selectively precipitate one of two ions.",
+      "Match alcohols to FeCl₃/iodoform/oxidation behaviour.",
+      "Incorrect toluene statement (4 monochloro isomers, not 3).",
+      "Identify which drawn pairs are stereoisomers (enantiomers + cis/trans).",
+      "Molecular formula of a carboxylic acid from combustion masses.",
+      "Incorrect saccharide statement (sucrose is non-reducing)."
+    ],
+    "recurring": [
+      "Atomic structure / electron-count / crystal screens open the paper.",
+      "Quantitative core: gas-volume stoichiometry, density→M, calorimetry, Ka(c,α), combustion formula.",
+      "Electrochemistry and reaction-rate conceptual items appear mid-paper.",
+      "Qualitative inorganic block: alkali metals, gas amounts, nitrogen oxidation states, Fe²⁺/Fe³⁺ tests, selective precipitation.",
+      "Organic: alcohol qualitative tests, aromatic substitution counting, stereoisomer recognition, combustion analysis, saccharides."
+    ],
+    "examTacticNotes": [
+      "Isotope: neutrons = mass − Z; ⁴⁰Ar → 22 n, 18 e, outer 8.",
+      "Isoelectronic 10-electron set: CH₄, F⁻, Na⁺, NH₄⁺, OH⁻; NO has 15.",
+      "Isotopes share electron configuration; alkali metals have the smallest IE; K⁺ > Na⁺ > Li⁺ in radius.",
+      "Si is a covalent crystal; diamond is a covalent insulator (no free electrons).",
+      "3O₂→2O₃: each reacted O₂ volume gives ⅔ that volume of O₃; solve the contraction.",
+      "M = ρRT/P (use R = 8.31×10³, T in K).",
+      "Total heat = dissolution (all NaOH) + neutralization (limited by HCl).",
+      "Series electrolysis: same charge; CuSO₄ cathode plates Cu, NaCl cathode goes basic (OH⁻).",
+      "2H₂O₂→2H₂O+O₂: H₂O₂ disappears twice as fast as O₂ appears.",
+      "Weak acid: Ka = cα²/(1−α).",
+      "Alkali metals: density < 1 (Li/Na/K), flames red/yellow/lilac, stored under oil, small electron affinity.",
+      "Least gas per mole: H₂O₂ gives ½ mol O₂; the others give 1 mol.",
+      "N oxidation states: NH₃ −3, NO +2, HNO₃ +5 (Haber / N₂+O₂ / Ostwald).",
+      "NaOH precipitates both Fe(OH)₂ and Fe(OH)₃; KSCN/salicylic only Fe³⁺.",
+      "Dilute HCl isolates Ag⁺ (AgCl); acidic H₂S isolates Cu²⁺ (CuS).",
+      "FeCl₃ purple ⇒ phenol; iodoform ⇒ CH₃CH(OH)–; carboxylic acid from a primary alcohol.",
+      "Toluene monochlorination → 4 isomers (o/m/p + benzyl chloride).",
+      "Stereoisomers: chiral carbon with 4 different groups (enantiomers) and 2-butene (cis/trans).",
+      "Combustion: mol C from CO₂, mol H from H₂O, O by difference; carboxylic acid has 2 O.",
+      "Sucrose is the non-reducing disaccharide; maltose and lactose are reducing."
+    ],
+    "difficulty": "Standard EJU chemistry — a full-syllabus sweep with a solid quantitative core. The more discriminating items are the calorimetry with a limiting reagent (Q7), the series-electrolysis analysis (Q8), the stereoisomer recognition (Q18), and the combustion-to-formula problem (Q19)."
+  }
+}

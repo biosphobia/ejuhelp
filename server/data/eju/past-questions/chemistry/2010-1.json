@@ -1,0 +1,265 @@
+{
+  "id": "2010-1-chemistry",
+  "year": 2010,
+  "session": 1,
+  "subject": "chemistry",
+  "title": "EJU 2010 · Session 1 · Chemistry",
+  "source": "平成22年度（2010年度）日本留学試験（第1回）理科〈化学〉 © Japan Student Services Organization (JASSO)",
+  "attribution": "EJU past questions © JASSO. Question text transcribed from the official past paper; figures described in text; correct answers taken from the official JASSO answer key and independently re-solved for verification.",
+  "languages": ["ja", "en"],
+  "answerKeyVerified": true,
+  "structure": {
+    "format": "flat",
+    "totalQuestions": 20,
+    "note": "Chemistry is a flat list of 20 single-best-answer items (問1–問20, answer rows 1–20) in the combined Science booklet — no Roman-numeral blocks. Order ≈ structure of matter & bonding → states/stoichiometry/energetics/equilibria/acids-bases/redox/electrochemistry → inorganic → organic.",
+    "givens": {
+      "ja": "気体定数 $R=8.31\\times10^3\\,$Pa·L/(K·mol)$=8.31\\,$J/(K·mol)$=0.082\\,$atm·L/(K·mol)，アボガドロ定数 $N_A=6.0\\times10^{23}\\,$/mol，標準状態 $0\\,$°C・$1.0\\times10^5\\,$Pa。原子量：H 1.0, He 4.0, C 12, N 14, O 16, Na 23, Cl 36。",
+      "en": "Gas constant $R=8.31\\times10^3\\,$Pa·L/(K·mol)$=8.31\\,$J/(K·mol)$=0.082\\,$atm·L/(K·mol); Avogadro $N_A=6.0\\times10^{23}\\,$/mol; STP $0\\,$°C, $1.0\\times10^5\\,$Pa. Atomic weights: H 1.0, He 4.0, C 12, N 14, O 16, Na 23, Cl 36."
+    }
+  },
+  "questions": [
+    {
+      "id": "2010-1-chem-1", "answerRow": 1, "topicId": "matter-structure",
+      "subtopic": "Identify the molecule with no unsaturated bond",
+      "patternTags": ["bonding", "odd-one-out", "molecular-structure"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の気体①〜⑤のうち，分子内に不飽和結合（unsaturated bond）を含まないものを一つ選びなさい。", "choices": ["メタン $\\mathrm{CH_4}$", "アセチレン $\\mathrm{C_2H_2}$", "二酸化炭素 $\\mathrm{CO_2}$", "窒素 $\\mathrm{N_2}$", "酸素 $\\mathrm{O_2}$"] },
+      "en": { "prompt": "Among gases ①–⑤, choose the one whose molecule contains no unsaturated (multiple) bond.", "choices": ["methane $\\mathrm{CH_4}$", "acetylene $\\mathrm{C_2H_2}$", "carbon dioxide $\\mathrm{CO_2}$", "nitrogen $\\mathrm{N_2}$", "oxygen $\\mathrm{O_2}$"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "メタン $\\mathrm{CH_4}$", "en": "methane $\\mathrm{CH_4}$" },
+      "explanation": { "en": "$\\mathrm{CH_4}$ has only C–H single bonds (saturated). The others all contain multiple bonds: $\\mathrm{C_2H_2}$ has C≡C, $\\mathrm{CO_2}$ has C=O, $\\mathrm{N_2}$ has N≡N, $\\mathrm{O_2}$ has O=O.", "ja": "$\\mathrm{CH_4}$ は C–H 単結合のみ（飽和）。他はすべて多重結合をもつ：$\\mathrm{C_2H_2}$ は C≡C，$\\mathrm{CO_2}$ は C=O，$\\mathrm{N_2}$ は N≡N，$\\mathrm{O_2}$ は O=O。" }
+    },
+    {
+      "id": "2010-1-chem-2", "answerRow": 2, "topicId": "matter-structure",
+      "subtopic": "Count molecules that are completely planar",
+      "patternTags": ["molecular-geometry", "count-how-many", "vsepr"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の 5 つの分子（メタン，エチレン，プロピレン，ベンゼン，アンモニア）のうち，構成するすべての原子が同一平面上にあるものはいくつあるか。", "choices": ["1", "2", "3", "4", "5", "0"] },
+      "en": { "prompt": "Of the five molecules (methane, ethylene, propylene, benzene, ammonia), how many have all their atoms in a single plane?", "choices": ["1", "2", "3", "4", "5", "0"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "2（エチレンとベンゼン）", "en": "2 (ethylene and benzene)" },
+      "explanation": { "en": "Ethylene ($\\mathrm{C_2H_4}$) and benzene ($\\mathrm{C_6H_6}$) are fully planar. Methane is tetrahedral and ammonia is pyramidal (non-planar). Propylene's $\\mathrm{C=C}$ part is planar but the rotating $\\mathrm{CH_3}$ hydrogens are not all coplanar. So 2.", "ja": "エチレン（$\\mathrm{C_2H_4}$）とベンゼン（$\\mathrm{C_6H_6}$）は完全に平面。メタンは正四面体，アンモニアは三角錐で非平面。プロピレンは $\\mathrm{C=C}$ 部分は平面だが回転する $\\mathrm{CH_3}$ の H が同一平面に来ない。よって 2 つ。" }
+    },
+    {
+      "id": "2010-1-chem-3", "answerRow": 3, "topicId": "matter-structure",
+      "subtopic": "True/false: mass number, atomic weight, mole of ¹²C",
+      "patternTags": ["true-false-combo", "atomic-structure", "mole-concept"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の記述(a)〜(c)の正誤の組み合わせとして正しいものを選びなさい。 (a) 原子の質量数は，原子核中の陽子の数と中性子の数の和に等しい。 (b) 元素の原子量は，同位体の相対質量とその存在比から求められる平均値である。 (c) 質量数 12 の炭素原子 $^{12}\\mathrm{C}$ $1\\,$mol の質量は $12.00\\,$g である。", "choices": ["正 正 正", "正 正 誤", "正 誤 正", "誤 正 正", "正 誤 誤", "誤 正 誤", "誤 誤 正", "誤 誤 誤"] },
+      "en": { "prompt": "Give the true/false combination for: (a) An atom's mass number equals the sum of protons and neutrons in its nucleus. (b) An element's atomic weight is the abundance-weighted average of its isotopes' relative masses. (c) The mass of $1\\,$mol of $^{12}\\mathrm{C}$ is $12.00\\,$g.", "choices": ["T T T", "T T F", "T F T", "F T T", "T F F", "F T F", "F F T", "F F F"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "(a)正 (b)正 (c)正", "en": "(a) T (b) T (c) T" },
+      "explanation": { "en": "All three are correct: mass number = protons + neutrons (a); atomic weight is the abundance-weighted mean of isotope relative masses (b); and by definition $1\\,$mol of $^{12}\\mathrm{C}$ weighs exactly $12.00\\,$g (c).", "ja": "3 つとも正しい：質量数＝陽子＋中性子(a)，原子量は同位体相対質量の存在比加重平均(b)，定義により $^{12}\\mathrm{C}$ $1\\,$mol はちょうど $12.00\\,$g(c)。" }
+    },
+    {
+      "id": "2010-1-chem-4", "answerRow": 4, "topicId": "states-and-change",
+      "subtopic": "CO₂ evolved from Na₂CO₃ with limiting vs excess HCl",
+      "patternTags": ["stoichiometry", "limiting-reagent", "gas-volume", "compare-cases"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "水溶液 A（$1.0\\,$mol/L 塩酸 $100\\,$mL）および B（$3.0\\,$mol/L 塩酸 $100\\,$mL）に，それぞれ炭酸ナトリウム $\\mathrm{Na_2CO_3}$ $10.6\\,$g を加えて完全に反応させると気体が発生した。発生した気体の体積をそれぞれ $V_A,\\ V_B$ とするとき，最も適当な関係はどれか。", "choices": ["$V_B=0.5\\,V_A$", "$V_B=V_A$", "$V_B=1.5\\,V_A$", "$V_B=2\\,V_A$", "$V_B=2.5\\,V_A$", "$V_B=3\\,V_A$"] },
+      "en": { "prompt": "To solution A ($1.0\\,$mol/L HCl, $100\\,$mL) and B ($3.0\\,$mol/L HCl, $100\\,$mL) is added $10.6\\,$g of $\\mathrm{Na_2CO_3}$ each, reacting completely and evolving gas of volumes $V_A,\\ V_B$. Which relation holds?", "choices": ["$V_B=0.5\\,V_A$", "$V_B=V_A$", "$V_B=1.5\\,V_A$", "$V_B=2\\,V_A$", "$V_B=2.5\\,V_A$", "$V_B=3\\,V_A$"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "$V_B=2\\,V_A$", "en": "$V_B=2\\,V_A$" },
+      "explanation": { "en": "$10.6\\,$g $\\mathrm{Na_2CO_3}$ ($M=106$) $=0.10\\,$mol; full reaction $\\mathrm{Na_2CO_3+2HCl\\to2NaCl+H_2O+CO_2}$ needs $0.20\\,$mol HCl and gives $0.10\\,$mol $\\mathrm{CO_2}$. A has $0.10\\,$mol HCl (limiting) ⇒ $\\mathrm{CO_2}=0.10/2=0.05\\,$mol. B has $0.30\\,$mol HCl (excess) ⇒ all carbonate reacts, $\\mathrm{CO_2}=0.10\\,$mol. So $V_B/V_A=0.10/0.05=2$.", "ja": "$10.6\\,$g の $\\mathrm{Na_2CO_3}$（$M=106$）$=0.10\\,$mol。完全反応 $\\mathrm{Na_2CO_3+2HCl\\to2NaCl+H_2O+CO_2}$ には HCl $0.20\\,$mol が必要で $\\mathrm{CO_2}$ $0.10\\,$mol が生じる。A は HCl $0.10\\,$mol（不足）⇒ $\\mathrm{CO_2}=0.10/2=0.05\\,$mol。B は HCl $0.30\\,$mol（過剰）⇒ 炭酸塩がすべて反応し $\\mathrm{CO_2}=0.10\\,$mol。よって $V_B/V_A=2$。" }
+    },
+    {
+      "id": "2010-1-chem-5", "answerRow": 5, "topicId": "inorganic",
+      "subtopic": "Which gas is collected by downward delivery",
+      "patternTags": ["gas-collection", "gas-properties", "inorganic-gases"], "hasFigure": true,
+      "figure": { "ja": "上向きの導管から気体を瓶の底へ導き，下方置換で集める図（瓶は正立）。", "en": "A bottle (upright) with the delivery tube reaching its bottom, collecting gas by downward displacement of air." },
+      "ja": { "prompt": "次の気体①〜⑤を実験室で発生させた。図に示す下方置換（downward delivery）が用いられる気体はどれか。", "choices": ["アセチレン $\\mathrm{C_2H_2}$", "水素 $\\mathrm{H_2}$", "塩化水素 $\\mathrm{HCl}$", "アンモニア $\\mathrm{NH_3}$", "一酸化窒素 $\\mathrm{NO}$"] },
+      "en": { "prompt": "Which of gases ①–⑤ is collected by downward delivery (downward displacement of air)?", "choices": ["acetylene $\\mathrm{C_2H_2}$", "hydrogen $\\mathrm{H_2}$", "hydrogen chloride $\\mathrm{HCl}$", "ammonia $\\mathrm{NH_3}$", "nitrogen monoxide $\\mathrm{NO}$"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "塩化水素 $\\mathrm{HCl}$", "en": "hydrogen chloride $\\mathrm{HCl}$" },
+      "explanation": { "en": "Downward delivery suits gases denser than air that are also water-soluble. $\\mathrm{HCl}$ ($M=36.5$) is denser than air and very water-soluble, so it is collected by downward delivery. $\\mathrm{H_2}$ and $\\mathrm{NH_3}$ are lighter than air (upward delivery); $\\mathrm{C_2H_2}$ and $\\mathrm{NO}$ are collected over water.", "ja": "下方置換は空気より重く水に溶けやすい気体に適する。$\\mathrm{HCl}$（$M=36.5$）は空気より重く水によく溶けるので下方置換。$\\mathrm{H_2}$・$\\mathrm{NH_3}$ は空気より軽く上方置換，$\\mathrm{C_2H_2}$・$\\mathrm{NO}$ は水上置換。" }
+    },
+    {
+      "id": "2010-1-chem-6", "answerRow": 6, "topicId": "states-and-change",
+      "subtopic": "Partial pressure of He in a He/N₂ mixture",
+      "patternTags": ["gas-law", "partial-pressure", "mole-fraction", "plug-in-numbers"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "標準状態において，ヘリウム $\\mathrm{He}$ と窒素 $\\mathrm{N_2}$ の混合気体 $22.4\\,$L の質量は $8.8\\,$g であった。この混合気体中のヘリウムの分圧（Pa）に最も近い値はどれか。", "choices": ["$2.0\\times10^4$", "$4.0\\times10^4$", "$5.0\\times10^4$", "$8.0\\times10^4$"] },
+      "en": { "prompt": "At STP, $22.4\\,$L of a He/$\\mathrm{N_2}$ mixture has mass $8.8\\,$g. What is the partial pressure of He (Pa)?", "choices": ["$2.0\\times10^4$", "$4.0\\times10^4$", "$5.0\\times10^4$", "$8.0\\times10^4$"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "$8.0\\times10^4\\,$Pa", "en": "$8.0\\times10^4\\,$Pa" },
+      "explanation": { "en": "At STP $22.4\\,$L $=1.0\\,$mol total. Let $x$ = mol He: $4x+28(1-x)=8.8\\Rightarrow x=0.8\\,$mol He. Partial pressure $=$ mole fraction $\\times$ total $=0.8\\times1.0\\times10^5=8.0\\times10^4\\,$Pa.", "ja": "標準状態で $22.4\\,$L $=1.0\\,$mol（全体）。He を $x\\,$mol とすると $4x+28(1-x)=8.8\\Rightarrow x=0.8\\,$mol。分圧＝モル分率×全圧 $=0.8\\times1.0\\times10^5=8.0\\times10^4\\,$Pa。" }
+    },
+    {
+      "id": "2010-1-chem-7", "answerRow": 7, "topicId": "states-and-change",
+      "subtopic": "Heat of reaction from heats of formation (Hess's law)",
+      "patternTags": ["thermochemistry", "hess-law", "heat-of-formation", "plug-in-numbers"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "$\\mathrm{C_2H_4}$，$\\mathrm{C_2H_6}$ の生成熱はそれぞれ $-53\\,$kJ/mol，$84\\,$kJ/mol である。熱化学方程式 $\\mathrm{C_2H_4+H_2=C_2H_6}+Q\\,$kJ における反応熱 $Q$ の値として最も適当なものはどれか。", "choices": ["$-137$", "$-69$", "$-31$", "$31$", "$69$", "$137$"] },
+      "en": { "prompt": "The heats of formation of $\\mathrm{C_2H_4}$ and $\\mathrm{C_2H_6}$ are $-53\\,$kJ/mol and $84\\,$kJ/mol. For $\\mathrm{C_2H_4+H_2=C_2H_6}+Q\\,$kJ, find $Q$.", "choices": ["$-137$", "$-69$", "$-31$", "$31$", "$69$", "$137$"] },
+      "answerIndex": 5, "answerOption": 6, "answer": { "ja": "$137\\,$kJ", "en": "$137\\,$kJ" },
+      "explanation": { "en": "Reaction heat $=\\sum Q_f(\\text{products})-\\sum Q_f(\\text{reactants})$ (Japanese heat-of-formation convention, $Q>0$ exothermic). $Q=Q_f(\\mathrm{C_2H_6})-Q_f(\\mathrm{C_2H_4})-Q_f(\\mathrm{H_2})=84-(-53)-0=137\\,$kJ.", "ja": "反応熱 $=\\sum Q_f(\\text{生成物})-\\sum Q_f(\\text{反応物})$（生成熱の符号は発熱が正）。$Q=Q_f(\\mathrm{C_2H_6})-Q_f(\\mathrm{C_2H_4})-Q_f(\\mathrm{H_2})=84-(-53)-0=137\\,$kJ。" }
+    },
+    {
+      "id": "2010-1-chem-8", "answerRow": 8, "topicId": "states-and-change",
+      "subtopic": "Le Chatelier shifts for 2CO + O₂ ⇌ 2CO₂ (exothermic)",
+      "patternTags": ["chemical-equilibrium", "le-chatelier", "true-false-combo"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "反応 $\\mathrm{2CO+O_2=2CO_2}+566\\,$kJ が平衡状態にあるとき，操作(a)〜(c)で平衡はどう移動するか。 (a) 温度一定で CO を加える。 (b) 温度一定で圧力を高くする。 (c) 圧力一定で温度を高くする。", "choices": ["a:移動しない b:左 c:移動しない", "a:移動しない b:移動しない c:右", "a:左 b:移動しない c:左", "a:左 b:右 c:右", "a:右 b:右 c:左", "a:右 b:左 c:移動しない"] },
+      "en": { "prompt": "For $\\mathrm{2CO+O_2=2CO_2}+566\\,$kJ at equilibrium, how does each operation shift it? (a) add CO at constant T; (b) raise pressure at constant T; (c) raise temperature at constant P.", "choices": ["a:none b:left c:none", "a:none b:none c:right", "a:left b:none c:left", "a:left b:right c:right", "a:right b:right c:left", "a:right b:left c:none"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "a:右へ b:右へ c:左へ", "en": "a: right, b: right, c: left" },
+      "explanation": { "en": "(a) Adding reactant CO shifts right. (b) Higher pressure favours fewer gas moles — right side has 2 mol vs left's 3, so shifts right. (c) The forward reaction is exothermic; raising T shifts toward the endothermic (reverse) direction, i.e. left.", "ja": "(a) 反応物 CO を加えると右へ。(b) 高圧は気体分子数の少ない側（右 2 mol < 左 3 mol）へ ⇒ 右。(c) 正反応は発熱なので昇温は吸熱（逆）方向＝左へ。" }
+    },
+    {
+      "id": "2010-1-chem-9", "answerRow": 9, "topicId": "states-and-change",
+      "subtopic": "Identify the Brønsted bases in an equilibrium",
+      "patternTags": ["acids-bases", "bronsted", "conjugate-pairs"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "反応 $\\mathrm{HSO_4^-}$(a)$+\\mathrm{H_2O}$(b)$\\rightleftharpoons \\mathrm{SO_4^{2-}}$(c)$+\\mathrm{H_3O^+}$(d) において，塩基（base）としてはたらいている物質の正しい組み合わせはどれか。", "choices": ["a, c", "a, d", "b, c", "b, d"] },
+      "en": { "prompt": "In $\\mathrm{HSO_4^-}$(a)$+\\mathrm{H_2O}$(b)$\\rightleftharpoons \\mathrm{SO_4^{2-}}$(c)$+\\mathrm{H_3O^+}$(d), which species act as bases?", "choices": ["a, c", "a, d", "b, c", "b, d"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "b（$\\mathrm{H_2O}$）と c（$\\mathrm{SO_4^{2-}}$）", "en": "b ($\\mathrm{H_2O}$) and c ($\\mathrm{SO_4^{2-}}$)" },
+      "explanation": { "en": "A Brønsted base accepts a proton. Forward: $\\mathrm{H_2O}$ (b) accepts $\\mathrm{H^+}$ (base) while $\\mathrm{HSO_4^-}$ donates (acid). Reverse: $\\mathrm{SO_4^{2-}}$ (c) accepts $\\mathrm{H^+}$ (base) while $\\mathrm{H_3O^+}$ donates (acid). Bases are b and c.", "ja": "ブレンステッド塩基は $\\mathrm{H^+}$ を受け取る。正反応では $\\mathrm{H_2O}$(b) が受容（塩基），$\\mathrm{HSO_4^-}$ が供与（酸）。逆反応では $\\mathrm{SO_4^{2-}}$(c) が受容（塩基），$\\mathrm{H_3O^+}$ が供与（酸）。よって塩基は b と c。" }
+    },
+    {
+      "id": "2010-1-chem-10", "answerRow": 10, "topicId": "states-and-change",
+      "subtopic": "Electrolysis of water: H₂ volume depends only on charge",
+      "patternTags": ["electrolysis", "faradays-law", "pick-correct-statement"], "hasFigure": true,
+      "figure": { "ja": "白金電極と水酸化ナトリウム水溶液 NaOH aq を用いた水の電気分解装置（両電極で気体を捕集）。", "en": "Electrolysis cell with platinum electrodes in NaOH aq, collecting the gases evolved at each electrode." },
+      "ja": { "prompt": "図の装置で水を電気分解した。発生する標準状態での水素 $\\mathrm{H_2}$ の体積に関する記述として正しいものはどれか。ただし，いずれの実験でも流れた電気量は同じとする。", "choices": ["$\\mathrm{NaOH}$ aq の濃度を 2 倍にすると，発生する水素の体積は 2 倍になる。", "$\\mathrm{NaOH}$ aq を $\\mathrm{NaCl}$ aq に変えても，発生する水素の体積は変わらない。", "電極の面積を $\\tfrac12$ にすると，水素の体積は $\\tfrac12$ になる。", "電極間の距離を 2 倍にすると，水素の体積は $\\tfrac12$ になる。"] },
+      "en": { "prompt": "Water is electrolysed in the apparatus. Which statement about the volume of $\\mathrm{H_2}$ (at STP) is correct, given the same charge passes in every experiment?", "choices": ["Doubling the $\\mathrm{NaOH}$ concentration doubles the $\\mathrm{H_2}$ volume.", "Changing $\\mathrm{NaOH}$ aq to $\\mathrm{NaCl}$ aq leaves the $\\mathrm{H_2}$ volume unchanged.", "Halving the electrode area halves the $\\mathrm{H_2}$ volume.", "Doubling the inter-electrode distance halves the $\\mathrm{H_2}$ volume."] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "$\\mathrm{NaCl}$ aq に変えても水素の体積は変わらない（②）", "en": "Switching to $\\mathrm{NaCl}$ aq leaves the $\\mathrm{H_2}$ volume unchanged (②)" },
+      "explanation": { "en": "By Faraday's law the amount of $\\mathrm{H_2}$ depends only on the charge passed, not on concentration, electrode area, or spacing. At the cathode $\\mathrm{2H_2O+2e^-\\to H_2+2OH^-}$ occurs regardless of the electrolyte, so changing $\\mathrm{NaOH}$ to $\\mathrm{NaCl}$ gives the same $\\mathrm{H_2}$ for the same charge.", "ja": "ファラデーの法則より $\\mathrm{H_2}$ の量は流れた電気量だけで決まり，濃度・電極面積・距離に依らない。陰極では電解質によらず $\\mathrm{2H_2O+2e^-\\to H_2+2OH^-}$ が起こるので，$\\mathrm{NaOH}$ を $\\mathrm{NaCl}$ に変えても同じ電気量なら $\\mathrm{H_2}$ は同じ。" }
+    },
+    {
+      "id": "2010-1-chem-11", "answerRow": 11, "topicId": "states-and-change",
+      "subtopic": "True/false on neutralization end point and pH of dilution",
+      "patternTags": ["acids-bases", "ph-calculation", "dilution", "true-false-combo"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "酸と塩基に関する記述(a)〜(c)の正誤の組み合わせとして正しいものはどれか。 (a) すべての中和反応の終点は pH=7 である。 (b) $0.001\\,$mol/L の塩酸は，水で 100 倍に希釈すると pH=5 になる。 (c) pH=12 の $\\mathrm{NaOH}$ aq は，水で 100 倍に希釈すると pH=10 になる。", "choices": ["正 正 正", "正 正 誤", "正 誤 正", "誤 正 正", "正 誤 誤", "誤 正 誤", "誤 誤 正", "誤 誤 誤"] },
+      "en": { "prompt": "Give the true/false combination: (a) Every neutralization end point is at pH 7. (b) $0.001\\,$mol/L HCl diluted 100-fold becomes pH 5. (c) pH 12 $\\mathrm{NaOH}$ aq diluted 100-fold becomes pH 10.", "choices": ["T T T", "T T F", "T F T", "F T T", "T F F", "F T F", "F F T", "F F F"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "(a)誤 (b)正 (c)正", "en": "(a) F (b) T (c) T" },
+      "explanation": { "en": "(a) False — a strong-acid/weak-base titration ends below pH 7, weak-acid/strong-base above 7. (b) True — $10^{-3}\\to10^{-5}\\,$mol/L $\\mathrm{H^+}$, pH 5. (c) True — pH 12 means $[\\mathrm{OH^-}]=10^{-2}$; $\\times\\tfrac1{100}$ gives $10^{-4}$, pOH 4, pH 10.", "ja": "(a) 誤 — 強酸弱塩基では終点 pH<7，弱酸強塩基では pH>7。(b) 正 — $10^{-3}\\to10^{-5}\\,$mol/L で pH 5。(c) 正 — pH 12 は $[\\mathrm{OH^-}]=10^{-2}$，$\\tfrac1{100}$ で $10^{-4}$，pOH 4，pH 10。" }
+    },
+    {
+      "id": "2010-1-chem-12", "answerRow": 12, "topicId": "states-and-change",
+      "subtopic": "Identify the oxidizing agent in three redox reactions",
+      "patternTags": ["redox", "oxidizing-agent", "oxidation-number", "true-false-combo"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の反応(a)〜(c)で，酸化剤としてはたらいている物質は A,B のどちらか。 (a) $\\underline{\\mathrm{Zn}}_{A}+\\underline{\\mathrm{H_2SO_4}}_{B}\\to\\mathrm{ZnSO_4+H_2}$ (b) $\\underline{\\mathrm{H_2O_2}}_{A}+\\underline{\\mathrm{SO_2}}_{B}\\to\\mathrm{H_2SO_4}$ (c) $\\underline{\\mathrm{2FeCl_3}}_{A}+\\underline{\\mathrm{SnCl_2}}_{B}\\to\\mathrm{2FeCl_2+SnCl_4}$", "choices": ["a:A b:A c:A", "a:A b:A c:B", "a:A b:B c:A", "a:B b:A c:A", "a:B b:B c:A", "a:B b:B c:B"] },
+      "en": { "prompt": "In each reaction, which species (A or B) is the oxidizing agent? (a) $\\underline{\\mathrm{Zn}}_{A}+\\underline{\\mathrm{H_2SO_4}}_{B}\\to\\mathrm{ZnSO_4+H_2}$ (b) $\\underline{\\mathrm{H_2O_2}}_{A}+\\underline{\\mathrm{SO_2}}_{B}\\to\\mathrm{H_2SO_4}$ (c) $\\underline{\\mathrm{2FeCl_3}}_{A}+\\underline{\\mathrm{SnCl_2}}_{B}\\to\\mathrm{2FeCl_2+SnCl_4}$", "choices": ["a:A b:A c:A", "a:A b:A c:B", "a:A b:B c:A", "a:B b:A c:A", "a:B b:B c:A", "a:B b:B c:B"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "a:B b:A c:A", "en": "a: B, b: A, c: A" },
+      "explanation": { "en": "The oxidizing agent is the species that is reduced. (a) $\\mathrm{H^+}$ in $\\mathrm{H_2SO_4}$ is reduced to $\\mathrm{H_2}$ → B. (b) O in $\\mathrm{H_2O_2}$ goes $-1\\to-2$ (reduced) → A. (c) $\\mathrm{Fe^{3+}\\to Fe^{2+}}$ (reduced) → A.", "ja": "酸化剤は還元される物質。(a) $\\mathrm{H_2SO_4}$ の $\\mathrm{H^+}$ が $\\mathrm{H_2}$ に還元 → B。(b) $\\mathrm{H_2O_2}$ の O が $-1\\to-2$（還元）→ A。(c) $\\mathrm{Fe^{3+}\\to Fe^{2+}}$（還元）→ A。" }
+    },
+    {
+      "id": "2010-1-chem-13", "answerRow": 13, "topicId": "inorganic",
+      "subtopic": "Identify gases CO, HCl, H₂S from properties",
+      "patternTags": ["inorganic-gases", "gas-properties", "qualitative-identification"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "記述(a)〜(c)にあてはまる気体を CO，HCl，$\\mathrm{H_2S}$ から選び，組み合わせを選びなさい。 (a) 水に少し溶けて弱酸性を示す。 (b) アンモニア $\\mathrm{NH_3}$ と反応すると白煙を生じる。 (c) 空気中で燃え，生成する気体を石灰水に通じると白濁する。", "choices": ["a:HCl b:CO c:$\\mathrm{H_2S}$", "a:HCl b:$\\mathrm{H_2S}$ c:CO", "a:$\\mathrm{H_2S}$ b:HCl c:CO", "a:$\\mathrm{H_2S}$ b:CO c:HCl", "a:CO b:HCl c:$\\mathrm{H_2S}$", "a:CO b:$\\mathrm{H_2S}$ c:HCl"] },
+      "en": { "prompt": "Match gases CO, HCl, $\\mathrm{H_2S}$ to: (a) slightly soluble in water, weakly acidic; (b) gives white smoke with $\\mathrm{NH_3}$; (c) burns in air, and the gas formed turns lime water cloudy.", "choices": ["a:HCl b:CO c:$\\mathrm{H_2S}$", "a:HCl b:$\\mathrm{H_2S}$ c:CO", "a:$\\mathrm{H_2S}$ b:HCl c:CO", "a:$\\mathrm{H_2S}$ b:CO c:HCl", "a:CO b:HCl c:$\\mathrm{H_2S}$", "a:CO b:$\\mathrm{H_2S}$ c:HCl"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "a:$\\mathrm{H_2S}$ b:HCl c:CO", "en": "a: $\\mathrm{H_2S}$, b: HCl, c: CO" },
+      "explanation": { "en": "(a) $\\mathrm{H_2S}$ is a weak acid, slightly soluble. (b) $\\mathrm{HCl}$ + $\\mathrm{NH_3}\\to\\mathrm{NH_4Cl}$ white smoke. (c) CO burns to $\\mathrm{CO_2}$, which clouds lime water. (HCl is strongly acidic, not 'weakly'; that rules it out of (a).)", "ja": "(a) $\\mathrm{H_2S}$ は弱酸でわずかに溶ける。(b) $\\mathrm{HCl+NH_3\\to NH_4Cl}$ で白煙。(c) CO は燃えて $\\mathrm{CO_2}$ となり石灰水を白濁させる。（HCl は強酸なので(a)ではない。）" }
+    },
+    {
+      "id": "2010-1-chem-14", "answerRow": 14, "topicId": "inorganic",
+      "subtopic": "Incorrect statement about alkali metals (Na, K)",
+      "patternTags": ["typical-elements", "alkali-metals", "pick-false-statement"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "金属ナトリウム Na や金属カリウム K に関する次の記述①〜⑤のうち，正しくないものを一つ選びなさい。", "choices": ["銀白色の金属光沢をもち，密度が小さく，比較的軟らかい。", "反応性に富み，強い酸化作用を示す。", "水と激しく反応するので，石油中に保存する。", "特有の炎色反応を示す。", "水酸化物は水によく溶け，強い塩基性を示す。"] },
+      "en": { "prompt": "Which statement about metallic sodium (Na) and potassium (K) is NOT correct?", "choices": ["Silver-white metallic lustre, low density, relatively soft.", "Highly reactive, showing strong oxidizing action.", "React violently with water, so stored under petroleum.", "Show characteristic flame colours.", "Their hydroxides dissolve well in water and are strongly basic."] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "「強い酸化作用を示す」は誤り（②）", "en": "\"strong oxidizing action\" is wrong (②)" },
+      "explanation": { "en": "Alkali metals readily give up their valence electron, so they are strong REDUCING agents (easily oxidized), not oxidizing agents. All other statements are correct.", "ja": "アルカリ金属は価電子を放出しやすく，強い還元剤（酸化されやすい）であって酸化剤ではない。他の記述はすべて正しい。" }
+    },
+    {
+      "id": "2010-1-chem-15", "answerRow": 15, "topicId": "inorganic",
+      "subtopic": "Qualitative separation of Cu²⁺, Fe³⁺, Pb²⁺, Zn²⁺",
+      "patternTags": ["ion-analysis", "qualitative-scheme", "selective-precipitation"], "hasFigure": true,
+      "figure": { "ja": "混合液（$\\mathrm{Cu^{2+},Fe^{3+},Pb^{2+},Zn^{2+}}$）に希塩酸を加え沈殿 a。ろ液に $\\mathrm{H_2S}$ を通じて沈殿 b。ろ液を煮沸し $\\mathrm{HNO_3}$ 加熱後，過剰の $\\mathrm{NH_3}$ aq を加えて沈殿 c。", "en": "From a mixture ($\\mathrm{Cu^{2+},Fe^{3+},Pb^{2+},Zn^{2+}}$): add dil. HCl → precipitate a; pass $\\mathrm{H_2S}$ into the filtrate → precipitate b; boil the filtrate, add $\\mathrm{HNO_3}$ and heat, then add excess $\\mathrm{NH_3}$ aq → precipitate c." },
+      "ja": { "prompt": "金属イオン $\\mathrm{Cu^{2+},Fe^{3+},Pb^{2+},Zn^{2+}}$ を含む混合液から，図の操作で沈殿として分離した。沈殿 a〜c に主に含まれる金属イオンの組み合わせはどれか。", "choices": ["a:$\\mathrm{Pb^{2+}}$ b:$\\mathrm{Cu^{2+}}$ c:$\\mathrm{Fe^{3+}}$", "a:$\\mathrm{Pb^{2+}}$ b:$\\mathrm{Fe^{3+}}$ c:$\\mathrm{Cu^{2+}}$", "a:$\\mathrm{Pb^{2+}}$ b:$\\mathrm{Zn^{2+}}$ c:$\\mathrm{Fe^{3+}}$", "a:$\\mathrm{Zn^{2+}}$ b:$\\mathrm{Cu^{2+}}$ c:$\\mathrm{Fe^{3+}}$", "a:$\\mathrm{Zn^{2+}}$ b:$\\mathrm{Fe^{3+}}$ c:$\\mathrm{Cu^{2+}}$", "a:$\\mathrm{Zn^{2+}}$ b:$\\mathrm{Pb^{2+}}$ c:$\\mathrm{Cu^{2+}}$"] },
+      "en": { "prompt": "From a mixture of $\\mathrm{Cu^{2+},Fe^{3+},Pb^{2+},Zn^{2+}}$, the scheme separates them as precipitates a–c. Which assignment is correct?", "choices": ["a:$\\mathrm{Pb^{2+}}$ b:$\\mathrm{Cu^{2+}}$ c:$\\mathrm{Fe^{3+}}$", "a:$\\mathrm{Pb^{2+}}$ b:$\\mathrm{Fe^{3+}}$ c:$\\mathrm{Cu^{2+}}$", "a:$\\mathrm{Pb^{2+}}$ b:$\\mathrm{Zn^{2+}}$ c:$\\mathrm{Fe^{3+}}$", "a:$\\mathrm{Zn^{2+}}$ b:$\\mathrm{Cu^{2+}}$ c:$\\mathrm{Fe^{3+}}$", "a:$\\mathrm{Zn^{2+}}$ b:$\\mathrm{Fe^{3+}}$ c:$\\mathrm{Cu^{2+}}$", "a:$\\mathrm{Zn^{2+}}$ b:$\\mathrm{Pb^{2+}}$ c:$\\mathrm{Cu^{2+}}$"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "a:$\\mathrm{Pb^{2+}}$ b:$\\mathrm{Cu^{2+}}$ c:$\\mathrm{Fe^{3+}}$", "en": "a: $\\mathrm{Pb^{2+}}$, b: $\\mathrm{Cu^{2+}}$, c: $\\mathrm{Fe^{3+}}$" },
+      "explanation": { "en": "Dilute HCl precipitates $\\mathrm{PbCl_2}$ → a = $\\mathrm{Pb^{2+}}$. $\\mathrm{H_2S}$ in acid precipitates CuS → b = $\\mathrm{Cu^{2+}}$. After boiling off $\\mathrm{H_2S}$ and re-oxidizing $\\mathrm{Fe^{2+}}$ with $\\mathrm{HNO_3}$, excess $\\mathrm{NH_3}$ precipitates $\\mathrm{Fe(OH)_3}$ → c = $\\mathrm{Fe^{3+}}$, while $\\mathrm{Zn^{2+}}$ stays in solution as $[\\mathrm{Zn(NH_3)_4}]^{2+}$.", "ja": "希塩酸で $\\mathrm{PbCl_2}$ 沈殿 → a=$\\mathrm{Pb^{2+}}$。酸性で $\\mathrm{H_2S}$ により CuS 沈殿 → b=$\\mathrm{Cu^{2+}}$。$\\mathrm{H_2S}$ を煮沸除去し $\\mathrm{HNO_3}$ で $\\mathrm{Fe^{2+}}$ を再酸化後，過剰 $\\mathrm{NH_3}$ で $\\mathrm{Fe(OH)_3}$ 沈殿 → c=$\\mathrm{Fe^{3+}}$。$\\mathrm{Zn^{2+}}$ は $[\\mathrm{Zn(NH_3)_4}]^{2+}$ として溶けたまま。" }
+    },
+    {
+      "id": "2010-1-chem-16", "answerRow": 16, "topicId": "states-and-change",
+      "subtopic": "Combustion stoichiometry: equal masses of CH₄ vs CH₃OH",
+      "patternTags": ["stoichiometry", "combustion", "mole-ratio", "true-false-combo"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "同じ質量のメタン $\\mathrm{CH_4}$ とメタノール $\\mathrm{CH_3OH}$ を完全燃焼させる。必要な酸素 $\\mathrm{O_2}$ の質量と生じる二酸化炭素 $\\mathrm{CO_2}$ の質量について，正しい記述の組み合わせはどれか。 (a) 必要な $\\mathrm{O_2}$ はメタンのほうが少ない。 (b) 必要な $\\mathrm{O_2}$ はメタンのほうが多い。 (c) 生じる $\\mathrm{CO_2}$ はメタンがメタノールの $\\tfrac12$ 倍。 (d) 生じる $\\mathrm{CO_2}$ は等しい。 (e) 生じる $\\mathrm{CO_2}$ はメタンがメタノールの 2 倍。", "choices": ["a, c", "a, d", "a, e", "b, c", "b, d", "b, e"] },
+      "en": { "prompt": "Equal masses of $\\mathrm{CH_4}$ and $\\mathrm{CH_3OH}$ are completely burned. Concerning the mass of $\\mathrm{O_2}$ required and $\\mathrm{CO_2}$ produced, which statements are correct? (a) less $\\mathrm{O_2}$ for methane; (b) more $\\mathrm{O_2}$ for methane; (c) methane gives $\\tfrac12$ the $\\mathrm{CO_2}$ of methanol; (d) equal $\\mathrm{CO_2}$; (e) methane gives twice the $\\mathrm{CO_2}$ of methanol.", "choices": ["a, c", "a, d", "a, e", "b, c", "b, d", "b, e"] },
+      "answerIndex": 5, "answerOption": 6, "answer": { "ja": "b, e", "en": "b, e" },
+      "explanation": { "en": "For equal mass $m$: moles $\\mathrm{CH_4}=m/16$, $\\mathrm{CH_3OH}=m/32$ (so twice as many moles of $\\mathrm{CH_4}$). $\\mathrm{O_2}$: $\\mathrm{CH_4}$ needs $2\\times m/16=m/8$; $\\mathrm{CH_3OH}$ needs $1.5\\times m/32=3m/64$. Since $m/8=8m/64>3m/64$, methane needs more $\\mathrm{O_2}$ (b). $\\mathrm{CO_2}$: $m/16$ vs $m/32$, so methane gives twice as much (e).", "ja": "等質量 $m$ では mol 数 $\\mathrm{CH_4}=m/16$，$\\mathrm{CH_3OH}=m/32$（$\\mathrm{CH_4}$ は 2 倍 mol）。$\\mathrm{O_2}$：$\\mathrm{CH_4}$ は $2\\times m/16=m/8$，$\\mathrm{CH_3OH}$ は $1.5\\times m/32=3m/64$。$m/8=8m/64>3m/64$ なのでメタンが多い(b)。$\\mathrm{CO_2}$：$m/16$ 対 $m/32$ でメタンが 2 倍(e)。" }
+    },
+    {
+      "id": "2010-1-chem-17", "answerRow": 17, "topicId": "organic",
+      "subtopic": "Count compounds that have structural isomers",
+      "patternTags": ["structural-isomers", "count-how-many", "functional-groups"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の化合物(a)〜(d)のうち，構造異性体（structural isomer）が存在するものはいくつあるか。 (a) 酢酸 (b) アセトン（2-プロパノン） (c) エチルアルコール（エタノール） (d) プロパン", "choices": ["1", "2", "3", "4"] },
+      "en": { "prompt": "How many of these have structural isomers? (a) acetic acid; (b) acetone (2-propanone); (c) ethyl alcohol (ethanol); (d) propane.", "choices": ["1", "2", "3", "4"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "3（酢酸・アセトン・エタノール）", "en": "3 (acetic acid, acetone, ethanol)" },
+      "explanation": { "en": "Acetic acid $\\mathrm{C_2H_4O_2}$ ↔ methyl formate; acetone $\\mathrm{C_3H_6O}$ ↔ propanal etc.; ethanol $\\mathrm{C_2H_6O}$ ↔ dimethyl ether — all have isomers. Propane $\\mathrm{C_3H_8}$ has only one structure. So 3.", "ja": "酢酸 $\\mathrm{C_2H_4O_2}$ ↔ ギ酸メチル，アセトン $\\mathrm{C_3H_6O}$ ↔ プロパナール等，エタノール $\\mathrm{C_2H_6O}$ ↔ ジメチルエーテル — いずれも異性体あり。プロパン $\\mathrm{C_3H_8}$ は構造が 1 つだけ。よって 3 つ。" }
+    },
+    {
+      "id": "2010-1-chem-18", "answerRow": 18, "topicId": "organic",
+      "subtopic": "Count C₅H₁₀ alkenes that show cis-trans isomerism",
+      "patternTags": ["geometric-isomers", "cis-trans", "alkenes", "count-how-many"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "分子式 $\\mathrm{C_5H_{10}}$ で表される二重結合をもつ化合物で，シス-トランス異性体が存在するものはいくつあるか。", "choices": ["1", "2", "3", "4", "0"] },
+      "en": { "prompt": "Among $\\mathrm{C_5H_{10}}$ compounds containing a C=C double bond, how many show cis-trans (geometric) isomerism?", "choices": ["1", "2", "3", "4", "0"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "1（2-ペンテンのみ）", "en": "1 (only 2-pentene)" },
+      "explanation": { "en": "The pentene skeletons are 1-pentene, 2-pentene, 2-methyl-1-butene, 3-methyl-1-butene, 2-methyl-2-butene. Only 2-pentene ($\\mathrm{CH_3CH{=}CHCH_2CH_3}$) has two different groups on each doubly-bonded carbon, giving cis and trans forms. So 1.", "ja": "ペンテンの異性体は 1-ペンテン，2-ペンテン，2-メチル-1-ブテン，3-メチル-1-ブテン，2-メチル-2-ブテン。二重結合の各炭素に異なる 2 基が付くのは 2-ペンテン（$\\mathrm{CH_3CH{=}CHCH_2CH_3}$）だけで，シス・トランスをもつ。よって 1 つ。" }
+    },
+    {
+      "id": "2010-1-chem-19", "answerRow": 19, "topicId": "organic",
+      "subtopic": "Acid hydrolysis of acetanilide",
+      "patternTags": ["amide-hydrolysis", "aromatic-amines", "reaction-products"], "hasFigure": true,
+      "figure": { "ja": "アセトアニリド $\\mathrm{CH_3CONH{-}C_6H_5}$ を希塩酸酸性で加熱し加水分解する反応式（生成物 A + B）。", "en": "Acid hydrolysis of acetanilide $\\mathrm{CH_3CONH{-}C_6H_5}$ on heating in HCl, giving products A + B." },
+      "ja": { "prompt": "アセトアニリド（$\\mathrm{CH_3CONH{-}C_6H_5}$）を塩酸酸性の水溶液中で加熱すると加水分解が起こる。生成物 A，B の組み合わせとして最も適当なものはどれか。", "choices": ["A:$\\mathrm{CH_4}$ B:アニリン", "A:$\\mathrm{CH_4}$ B:クロロベンゼン", "A:$\\mathrm{CH_3CONH_2}$ B:アニリン塩酸塩", "A:$\\mathrm{CH_3CONH_2}$ B:クロロベンゼン", "A:$\\mathrm{CH_3COOH}$ B:アニリン", "A:$\\mathrm{CH_3COOH}$ B:アニリン塩酸塩"] },
+      "en": { "prompt": "Heating acetanilide ($\\mathrm{CH_3CONH{-}C_6H_5}$) in HCl-acidified water hydrolyses it. Which pair of products A, B is correct?", "choices": ["A:$\\mathrm{CH_4}$ B:aniline", "A:$\\mathrm{CH_4}$ B:chlorobenzene", "A:$\\mathrm{CH_3CONH_2}$ B:aniline hydrochloride", "A:$\\mathrm{CH_3CONH_2}$ B:chlorobenzene", "A:$\\mathrm{CH_3COOH}$ B:aniline", "A:$\\mathrm{CH_3COOH}$ B:aniline hydrochloride"] },
+      "answerIndex": 5, "answerOption": 6, "answer": { "ja": "A:$\\mathrm{CH_3COOH}$，B:アニリン塩酸塩", "en": "A: $\\mathrm{CH_3COOH}$, B: aniline hydrochloride" },
+      "explanation": { "en": "Hydrolysis of the amide gives acetic acid ($\\mathrm{CH_3COOH}$) and aniline. In the HCl-acidic medium the basic aniline is protonated to aniline hydrochloride ($\\mathrm{C_6H_5NH_3^+Cl^-}$). So A = $\\mathrm{CH_3COOH}$, B = aniline hydrochloride.", "ja": "アミドの加水分解で酢酸（$\\mathrm{CH_3COOH}$）とアニリンが生じる。塩酸酸性なので塩基性のアニリンはプロトン化されアニリン塩酸塩（$\\mathrm{C_6H_5NH_3^+Cl^-}$）になる。よって A=$\\mathrm{CH_3COOH}$，B=アニリン塩酸塩。" }
+    },
+    {
+      "id": "2010-1-chem-20", "answerRow": 20, "topicId": "organic",
+      "subtopic": "Solvent extraction: which species moves to the aqueous layer",
+      "patternTags": ["solvent-extraction", "acid-base-separation", "aromatic"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "安息香酸 $\\mathrm{C_6H_5COOH}$，アニリン $\\mathrm{C_6H_5NH_2}$，フェノール $\\mathrm{C_6H_5OH}$ をジエチルエーテルに溶かした混合溶液に，水溶液(a)希塩酸 または(b)炭酸水素ナトリウム水溶液 を加えてよく振ったとき，エーテル層から水層に移る物質はそれぞれ何か。", "choices": ["a:アニリン b:アニリン", "a:アニリン b:フェノール", "a:アニリン b:安息香酸", "a:フェノール b:アニリン", "a:フェノール b:フェノール", "a:フェノール b:安息香酸"] },
+      "en": { "prompt": "A diethyl-ether solution of benzoic acid, aniline, and phenol is shaken with either (a) dilute HCl or (b) $\\mathrm{NaHCO_3}$ aq. Which species moves from the ether layer into the aqueous layer in each case?", "choices": ["a:aniline b:aniline", "a:aniline b:phenol", "a:aniline b:benzoic acid", "a:phenol b:aniline", "a:phenol b:phenol", "a:phenol b:benzoic acid"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "a:アニリン，b:安息香酸", "en": "a: aniline, b: benzoic acid" },
+      "explanation": { "en": "(a) HCl protonates the base aniline to the water-soluble salt $\\mathrm{C_6H_5NH_3^+Cl^-}$, which enters the aqueous layer. (b) $\\mathrm{NaHCO_3}$ is basic enough to deprotonate benzoic acid (pKa ≈ 4) to sodium benzoate (water-soluble) but not the much weaker phenol (pKa ≈ 10); so benzoic acid moves to the aqueous layer.", "ja": "(a) HCl は塩基のアニリンをプロトン化し水溶性の $\\mathrm{C_6H_5NH_3^+Cl^-}$ にして水層へ移す。(b) $\\mathrm{NaHCO_3}$ は安息香酸（pKa≈4）を中和して安息香酸ナトリウム（水溶性）にできるが，より弱いフェノール（pKa≈10）は中和できない。よって安息香酸が水層へ移る。" }
+    }
+  ],
+  "patterns": {
+    "archetypes": [
+      "Bonding/structure recall: pick the molecule lacking a multiple bond; count fully-planar molecules (geometry from VSEPR).",
+      "True/false triples on fundamental definitions (mass number, atomic weight, the mole of ¹²C).",
+      "Carbonate + acid gas volume with a limiting-vs-excess-acid twist (Na₂CO₃ + 2HCl → CO₂).",
+      "Gas-collection method from density and water-solubility (downward delivery for dense, soluble gases).",
+      "Partial pressure of a component from average molar mass of a binary mixture at STP.",
+      "Heat of reaction by Hess's law from heats of formation (Japanese Q>0 = exothermic sign convention).",
+      "Le Chatelier shift table for an exothermic gas reaction (add reactant / change P / change T).",
+      "Brønsted acid–base role assignment and conjugate pairs in a written equilibrium.",
+      "Electrolysis amount governed only by charge (Faraday) — concentration/area/spacing are distractors.",
+      "pH of strong acid/base on 100-fold dilution; neutralization end point need not be pH 7.",
+      "Oxidizing-agent identification across several redox equations via oxidation-number change.",
+      "Inorganic gas identification (CO/HCl/H₂S) and alkali-metal property check (reducing, not oxidizing).",
+      "Classic cation qualitative-analysis flow (HCl → H₂S → NH₃) for Pb/Cu/Fe/Zn.",
+      "Equal-mass combustion comparison (O₂ needed, CO₂ produced) using inverse molar masses.",
+      "Counting structural isomers / cis-trans isomers (C₅H₁₀ alkenes).",
+      "Aromatic reaction outcome: amide hydrolysis gives the carboxylic acid + the amine (as its HCl salt in acid).",
+      "Three-component solvent extraction: HCl pulls the amine, NaHCO₃ pulls the carboxylic acid (not phenol)."
+    ],
+    "recurring": [
+      "STP molar volume 22.4 L/mol used for mole↔volume and for mixture-mass problems.",
+      "Heats of formation → reaction heat via Σ(products) − Σ(reactants).",
+      "Le Chatelier reasoning (moles of gas, exo/endo) drives most equilibrium items.",
+      "Stoichiometry with a limiting reagent appears in both inorganic gas-evolution and organic combustion forms.",
+      "Qualitative inorganic separation and gas identification are near-guaranteed items.",
+      "Organic isomer counting and the acid/base behaviour of aniline, phenol, and benzoic acid recur every year."
+    ],
+    "examTacticNotes": [
+      "For carbonate + acid, compute mol acid vs the 2:1 acid:carbonate need; limiting acid halves the gas relative to full reaction.",
+      "Downward delivery ⇔ denser than air AND water-soluble (HCl, Cl₂); upward ⇔ lighter and soluble (NH₃); over water ⇔ insoluble (H₂, NO, C₂H₂).",
+      "Partial pressure = mole fraction × total pressure; get moles from average molar mass.",
+      "Japanese 'heat of formation' is +ve for exothermic; reaction heat = Σ Qf(products) − Σ Qf(reactants).",
+      "Le Chatelier: higher pressure → side with fewer gas moles; higher T → endothermic direction.",
+      "Electrolysis product amount depends ONLY on charge — ignore concentration, electrode area, electrode spacing.",
+      "Dilution of a strong acid/base by 10ⁿ shifts pH by n toward 7 (valid while well away from 7).",
+      "Oxidizing agent = the species reduced (oxidation number decreases).",
+      "Cation scheme: dil. HCl → PbCl₂/AgCl/Hg₂Cl₂; acidic H₂S → CuS (group II); NH₃ → Fe(OH)₃/Al(OH)₃ while Zn²⁺/Cu²⁺ stay as ammine complexes.",
+      "Equal-mass combustion: more moles (smaller M) ⇒ more CO₂; compare O₂ from the balanced equations.",
+      "Separation funnel: a base (aniline) leaves with HCl; a carboxylic acid (benzoic) leaves with NaHCO₃; phenol needs NaOH."
+    ],
+    "difficulty": "Standard EJU chemistry: a flat 20-item set spanning the whole syllabus. The more discriminating items are the limiting-reagent carbonate gas comparison (Q4), the equal-mass combustion comparison (Q16), and the qualitative cation scheme (Q15); the rest are direct recall or one-step calculations."
+  }
+}

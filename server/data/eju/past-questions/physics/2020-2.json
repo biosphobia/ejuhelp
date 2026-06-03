@@ -1,0 +1,225 @@
+{
+  "id": "2020-2-physics",
+  "year": 2020,
+  "session": 2,
+  "subject": "physics",
+  "title": "EJU 2020 · Session 2 · Physics",
+  "source": "2020年度 日本留学試験（第2回）理科〈物理〉 © Japan Student Services Organization (JASSO)",
+  "attribution": "EJU past questions © JASSO. Question text transcribed from the official past paper; figures described in text; correct answers taken from the official JASSO answer key and independently re-solved for verification.",
+  "languages": ["ja", "en"],
+  "answerKeyVerified": true,
+  "structure": {
+    "blocks": [
+      { "id": "I", "topicId": "mech", "name": { "ja": "力学", "en": "Mechanics" }, "questionCount": 6 },
+      { "id": "II", "topicId": "thermo", "name": { "ja": "熱力学", "en": "Thermodynamics" }, "questionCount": 3 },
+      { "id": "III", "topicId": "waves", "name": { "ja": "波動", "en": "Waves" }, "questionCount": 3 },
+      { "id": "IV", "topicId": "em", "name": { "ja": "電気と磁気", "en": "Electricity & Magnetism" }, "questionCount": 6 },
+      { "id": "V", "topicId": "atoms", "name": { "ja": "原子", "en": "Atoms" }, "questionCount": 1 }
+    ],
+    "totalQuestions": 19,
+    "givens": { "ja": "重力加速度の大きさを g とし，空気の抵抗は無視できるものとする。", "en": "Take the magnitude of gravitational acceleration as g; air resistance is negligible." }
+  },
+  "questions": [
+    {
+      "id": "2020-2-phy-1", "answerRow": 1, "block": "I", "topicId": "mech",
+      "subtopic": "Equilibrium of a rigid body (torque, center of mass)",
+      "patternTags": ["express-formula", "torque", "center-of-mass", "ratio"], "hasFigure": true,
+      "figure": { "ja": "長さ L・質量 M の密度が一様でない細い棒を水平に保つ。両端に鉛直上向きの力を加え，左端の力は f。左端から重心 G までの距離が x。", "en": "A thin non-uniform rod (length L, mass M) is held horizontal by upward forces at both ends; the left force is f, and the center of mass G is a distance x from the left end." },
+      "ja": { "prompt": "密度が一様でない細い棒（長さ $L$，質量 $M$）の両端に鉛直上向きの力を加えて水平に保った。左端に加えた力の大きさは $f$ であった。左端から重心 G までの距離を $x$ とする。$\\dfrac{x}{L}$ はどのように表されるか。", "choices": ["$\\dfrac{Mg}{f}$", "$\\dfrac{f}{Mg}$", "$\\dfrac{Mg}{f}-1$", "$1-\\dfrac{f}{Mg}$", "$\\dfrac{f}{Mg-f}$", "$\\dfrac{f}{Mg+f}$"] },
+      "en": { "prompt": "A thin non-uniform rod (length $L$, mass $M$) is held horizontal by upward forces at its two ends; the force at the left end is $f$. Let $x$ be the distance from the left end to the center of mass G. Express $\\dfrac{x}{L}$.", "choices": ["$\\dfrac{Mg}{f}$", "$\\dfrac{f}{Mg}$", "$\\dfrac{Mg}{f}-1$", "$1-\\dfrac{f}{Mg}$", "$\\dfrac{f}{Mg-f}$", "$\\dfrac{f}{Mg+f}$"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "$1-\\dfrac{f}{Mg}$", "en": "$1-\\dfrac{f}{Mg}$" },
+      "explanation": { "en": "Torque about the right end: the left force f over arm L balances gravity Mg over arm (L−x): $fL=Mg(L-x)$, so $x/L=1-f/(Mg)$.", "ja": "右端まわりのモーメント：$fL=Mg(L-x)$ より $x/L=1-f/(Mg)$。" }
+    },
+    {
+      "id": "2020-2-phy-2", "answerRow": 2, "block": "I", "topicId": "mech",
+      "subtopic": "Inertial (pseudo) force; spring in an accelerating frame",
+      "patternTags": ["plug-in-numbers", "inertial-force", "hookes-law"], "hasFigure": true,
+      "figure": { "ja": "滑らかな台車の上に，ばね定数 30 N/m のばね（一端は台車右の壁に固定，他端に質量 0.5 kg の小物体）が運動方向と平行に置かれている。台車は右向きに進みながら大きさ 3 m/s² で減速し，物体は台車に対し静止。", "en": "On a smooth cart, a spring (constant 30 N/m; one end fixed to the cart's right wall, the other attached to a 0.5 kg object) lies parallel to the motion. The cart moves right while decelerating at 3 m/s²; the object is at rest relative to the cart." },
+      "ja": { "prompt": "上面が滑らかな台車の上に，ばね定数 $30\\,\\text{N/m}$ のばねが運動方向と平行に置かれ，一端は台車右の壁に固定，他端に質量 $0.5\\,\\text{kg}$ の小物体が付く。台車は右向きの速度で直線運動しながら一定の大きさ $3\\,\\text{m/s}^2$ で減速しており，物体は台車に対して静止していた。ばねの長さは自然長からどれだけ変化していたか。", "choices": ["0.03 m 縮んでいた", "0.05 m 縮んでいた", "0.1 m 縮んでいた", "0.03 m 伸びていた", "0.05 m 伸びていた", "0.1 m 伸びていた"] },
+      "en": { "prompt": "On a smooth cart, a spring of constant $30\\,\\text{N/m}$ lies parallel to the motion (one end fixed to the cart's right wall, the other carrying a $0.5\\,\\text{kg}$ object). The cart moves right and decelerates at a constant $3\\,\\text{m/s}^2$; the object is at rest relative to the cart. By how much did the spring length change from its natural length?", "choices": ["compressed 0.03 m", "compressed 0.05 m", "compressed 0.1 m", "stretched 0.03 m", "stretched 0.05 m", "stretched 0.1 m"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "0.05 m 縮んでいた", "en": "compressed 0.05 m" },
+      "explanation": { "en": "In the cart frame a pseudo-force $ma=0.5\\times3=1.5\\,$N pushes the object forward (right) toward the wall, compressing the spring: $x=F/k=1.5/30=0.05$ m.", "ja": "台車の系で慣性力 $ma=1.5\\,$N が前向き（右・壁側）に働き，ばねを縮める：$x=1.5/30=0.05$ m。" }
+    },
+    {
+      "id": "2020-2-phy-3", "answerRow": 3, "block": "I", "topicId": "mech",
+      "subtopic": "Momentum & impulse (area under F–t graph)",
+      "patternTags": ["read-from-graph", "impulse-momentum", "area-under-curve"], "hasFigure": true,
+      "figure": { "ja": "F–t グラフ：原点 (0,0) から直線的に増加し，t=3.0 s で F=12 N に達する三角形（F軸の目盛 4,8,12）。", "en": "F–t graph: a straight line rising from the origin (0,0) to F=12 N at t=3.0 s (F-axis gridlines at 4, 8, 12) — a triangle." },
+      "ja": { "prompt": "ある速度で運動している物体に，$t=0\\,$s から $t=3.0\\,$s の間，速度と同じ向きの力を加えた。力の大きさ $F$ は図のように原点から直線的に増加し $t=3.0\\,$s で $12\\,$N に達した。この間に物体の運動量の大きさはどれだけ変化したか。", "choices": ["2.0", "4.0", "8.0", "9.0", "18", "36"] },
+      "en": { "prompt": "A moving object is acted on, from $t=0\\,$s to $t=3.0\\,$s, by a force in its direction of motion. As in the graph, $F$ rises linearly from the origin to $12\\,$N at $t=3.0\\,$s. By how much did the object's momentum change (in kg·m/s)?", "choices": ["2.0", "4.0", "8.0", "9.0", "18", "36"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "18 kg·m/s", "en": "18 kg·m/s" },
+      "explanation": { "en": "Impulse = area of the triangle = $\\frac12\\times3.0\\times12=18\\,$kg·m/s, which equals the change in momentum.", "ja": "力積＝三角形の面積＝$\\frac12\\times3.0\\times12=18$。これが運動量変化。" }
+    },
+    {
+      "id": "2020-2-phy-4", "answerRow": 4, "block": "I", "topicId": "mech",
+      "subtopic": "Collision (restitution) with friction (stopping distance ∝ v²)",
+      "patternTags": ["express-formula", "coefficient-of-restitution", "friction", "ratio"], "hasFigure": true,
+      "figure": { "ja": "摩擦のある水平床上で，静止した小物体 A に小物体 B が右向きに衝突（A,B 同質量）。衝突後 A は距離 LA，B は距離 LB すべって止まる。床との動摩擦係数は等しい。", "en": "On a floor with friction, object B strikes a stationary object A (equal masses). After the collision A slides distance LA and B slides distance LB before stopping; the kinetic-friction coefficients with the floor are equal." },
+      "ja": { "prompt": "摩擦のある水平な床の上で，静止している小物体 A に小物体 B がある速さで衝突した。A と B の質量は等しい。衝突後，A は距離 $L_A$，B は距離 $L_B$ すべって静止した。A と B の間の反発係数を $e$ とし，床との動摩擦係数は等しい。$\\dfrac{L_A}{L_B}$ はどのように表されるか。", "choices": ["$\\dfrac{1-e}{1+e}$", "$\\dfrac{1+e}{1-e}$", "$\\left(\\dfrac{1-e}{1+e}\\right)^2$", "$\\left(\\dfrac{1+e}{1-e}\\right)^2$"] },
+      "en": { "prompt": "On a floor with friction, object B (moving) strikes a stationary object A of equal mass with restitution coefficient $e$. After the collision A slides $L_A$ and B slides $L_B$ before stopping, with equal kinetic-friction coefficients. Express $\\dfrac{L_A}{L_B}$.", "choices": ["$\\dfrac{1-e}{1+e}$", "$\\dfrac{1+e}{1-e}$", "$\\left(\\dfrac{1-e}{1+e}\\right)^2$", "$\\left(\\dfrac{1+e}{1-e}\\right)^2$"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "$\\left(\\dfrac{1+e}{1-e}\\right)^2$", "en": "$\\left(\\dfrac{1+e}{1-e}\\right)^2$" },
+      "explanation": { "en": "Equal masses: post-collision speeds $v_A=\\frac{1+e}{2}u$, $v_B=\\frac{1-e}{2}u$. With equal friction, stopping distance $\\propto v^2$, so $L_A/L_B=(v_A/v_B)^2=\\left(\\frac{1+e}{1-e}\\right)^2$.", "ja": "同質量より $v_A=\\frac{1+e}{2}u,\\ v_B=\\frac{1-e}{2}u$。摩擦が等しく停止距離 $\\propto v^2$ なので $L_A/L_B=\\left(\\frac{1+e}{1-e}\\right)^2$。" }
+    },
+    {
+      "id": "2020-2-phy-5", "answerRow": 5, "block": "I", "topicId": "mech",
+      "subtopic": "Vertical circular motion (critical speed) + energy conservation",
+      "patternTags": ["plug-in-numbers", "energy-conservation", "vertical-circle", "ratio"], "hasFigure": true,
+      "figure": { "ja": "長さ L の糸の一端を天井に固定し，他端の小物体を糸が鉛直と 60° をなす位置から静かにはなす。最下点の距離 r 上に釘があり，小物体は釘のまわり半径 r の円運動をする。r が R より大きいと釘の真上まで回れない。", "en": "A string of length L hangs from the ceiling; the bob is released from rest where the string makes 60° with vertical. A nail sits a distance r above the lowest point, so the bob then circles the nail with radius r. If r exceeds R the bob cannot reach the top of that small circle." },
+      "ja": { "prompt": "長さ $L$ の軽くて伸び縮みしない糸の一端を天井に固定し，他端の小物体を糸が鉛直と $60^\\circ$ をなす位置から静かにはなす。小物体は最下点に達した後，最下点より距離 $r$ 上にある細い釘のまわりに半径 $r$ の円運動を始める。$r$ がある長さ $R$ より大きくなると，小物体は釘の真上の位置まで円運動できない。$\\dfrac{R}{L}$ はいくらか。", "choices": ["$\\dfrac{1}{8}$", "$\\dfrac{1}{6}$", "$\\dfrac{1}{5}$", "$\\dfrac{1}{4}$", "$\\dfrac{1}{3}$", "$\\dfrac{2}{5}$"] },
+      "en": { "prompt": "A bob on a string of length $L$ is released from rest at $60^\\circ$ from vertical. After reaching the lowest point it circles (radius $r$) around a nail located a distance $r$ above the lowest point. If $r>R$ the bob cannot reach the top of that circle. Find $\\dfrac{R}{L}$.", "choices": ["$\\dfrac{1}{8}$", "$\\dfrac{1}{6}$", "$\\dfrac{1}{5}$", "$\\dfrac{1}{4}$", "$\\dfrac{1}{3}$", "$\\dfrac{2}{5}$"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "$\\dfrac{1}{5}$", "en": "$\\dfrac{1}{5}$" },
+      "explanation": { "en": "Speed at lowest point: $\\frac12v^2=gL(1-\\cos60^\\circ)=\\frac{gL}{2}$, so $v^2=gL$. Critical condition at top of the small circle: $v_{top}^2=gR$, and energy $v^2=v_{top}^2+4gR=5gR$. Thus $gL=5gR$, $R/L=1/5$.", "ja": "最下点 $v^2=2gL(1-\\cos60^\\circ)=gL$。小円の頂点で臨界 $v_{top}^2=gR$，エネルギー $v^2=v_{top}^2+4gR=5gR$。よって $gL=5gR$，$R/L=1/5$。" }
+    },
+    {
+      "id": "2020-2-phy-6", "answerRow": 6, "block": "I", "topicId": "mech",
+      "subtopic": "Universal gravitation; angular momentum (Kepler's 2nd law)",
+      "patternTags": ["plug-in-numbers", "universal-gravitation", "angular-momentum", "ratio"], "hasFigure": false,
+      "ja": { "prompt": "人工衛星が地球の重心を1つの焦点とする楕円軌道を運動している。地球に最も近づいたとき，地球の重心との距離は地球の半径の $5$ 倍で，そのときの速さは最も遠ざかったときの速さの $2$ 倍であった。最も遠ざかったときに衛星が地球から受ける万有引力の大きさは，衛星が地球表面上にあったときに受けていた万有引力の何倍か。", "choices": ["0", "$\\dfrac{1}{500}$", "$\\dfrac{1}{250}$", "$\\dfrac{1}{100}$", "$\\dfrac{1}{50}$", "$\\dfrac{1}{25}$", "$\\dfrac{1}{10}$", "$\\dfrac{1}{5}$"] },
+      "en": { "prompt": "A satellite moves on an elliptical orbit with Earth's center at one focus. At perigee its distance from Earth's center is $5$ Earth-radii and its speed is twice the speed at apogee. At apogee, the gravitational force on the satellite is what fraction of the force it felt at Earth's surface?", "choices": ["0", "$\\dfrac{1}{500}$", "$\\dfrac{1}{250}$", "$\\dfrac{1}{100}$", "$\\dfrac{1}{50}$", "$\\dfrac{1}{25}$", "$\\dfrac{1}{10}$", "$\\dfrac{1}{5}$"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "$\\dfrac{1}{100}$", "en": "$\\dfrac{1}{100}$" },
+      "explanation": { "en": "Angular momentum (Kepler II): $5R_E\\cdot2u=r_a\\cdot u\\Rightarrow r_a=10R_E$. Gravity $\\propto 1/r^2$, so ratio $=(R_E/10R_E)^2=1/100$.", "ja": "面積速度一定：$5R_E\\cdot2u=r_a u\\Rightarrow r_a=10R_E$。万有引力 $\\propto 1/r^2$ より $(R_E/10R_E)^2=1/100$。" }
+    },
+    {
+      "id": "2020-2-phy-7", "answerRow": 7, "block": "II", "topicId": "thermo",
+      "subtopic": "Calorimetry (heat capacity of container, heat of fusion)",
+      "patternTags": ["plug-in-numbers", "calorimetry", "heat-of-fusion", "conservation-of-heat"], "hasFigure": false,
+      "ja": { "prompt": "温度 $t$，熱容量 $150\\,\\text{J/K}$ の容器に，$10\\,^\\circ\\text{C}$ の水 $100\\,\\text{g}$ を入れたところ，じゅうぶん時間後に容器の温度は $0.0\\,^\\circ\\text{C}$ になり，水の一部が凍って $0.0\\,^\\circ\\text{C}$ の氷 $5.0\\,\\text{g}$ と水 $95\\,\\text{g}$ になった。水の比熱を $4.2\\,\\text{J/(g·K)}$，氷の融解熱を $330\\,\\text{J/g}$，外部との熱の出入りはないとする。$t$ は何 $^\\circ\\text{C}$ か。", "choices": ["$-54$", "$-43$", "$-39$", "$-21$", "$-17$", "$-4.0$"] },
+      "en": { "prompt": "A container (temperature $t$, heat capacity $150\\,\\text{J/K}$) receives $100\\,\\text{g}$ of water at $10\\,^\\circ\\text{C}$. After a long time the container is at $0.0\\,^\\circ\\text{C}$ and part of the water has frozen, leaving $5.0\\,\\text{g}$ of ice and $95\\,\\text{g}$ of water at $0.0\\,^\\circ\\text{C}$. Specific heat of water $4.2\\,\\text{J/(g·K)}$, heat of fusion $330\\,\\text{J/g}$, no external heat exchange. Find $t$ (in $^\\circ\\text{C}$).", "choices": ["$-54$", "$-43$", "$-39$", "$-21$", "$-17$", "$-4.0$"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "$-39\\,^\\circ\\text{C}$", "en": "$-39\\,^\\circ\\text{C}$" },
+      "explanation": { "en": "Heat released by water cooling 10→0 plus freezing 5 g: $100\\times4.2\\times10+5\\times330=4200+1650=5850$ J. This warms the container from $t$ to 0: $150(0-t)=5850\\Rightarrow t=-39\\,^\\circ$C.", "ja": "水の放熱 $100\\times4.2\\times10+5\\times330=5850$ J が容器を $t\\to0$ に加熱：$150(0-t)=5850\\Rightarrow t=-39$。" }
+    },
+    {
+      "id": "2020-2-phy-8", "answerRow": 8, "block": "II", "topicId": "thermo",
+      "subtopic": "Internal energy; thermal equilibrium of two gas samples",
+      "patternTags": ["express-formula", "ideal-gas", "internal-energy", "thermal-equilibrium"], "hasFigure": true,
+      "figure": { "ja": "断熱壁の容器を，熱を通す固定壁で2領域に分け，一方に (n1 mol, T1)，他方に (n2 mol, T2) の単原子分子理想気体を入れる。十分後，両者の絶対温度が等しく T3 になる（n1>n2, T1>T2）。", "en": "An insulated container is split by a fixed heat-conducting wall into two regions holding monatomic ideal gas (n1 mol, T1) and (n2 mol, T2). After a long time both reach the same temperature T3 (n1>n2, T1>T2)." },
+      "ja": { "prompt": "断熱壁でできた容器を，熱を通す移動しない壁で2つの領域に分け，一方に物質量 $n_1$，絶対温度 $T_1$ の単原子分子理想気体を，他方に物質量 $n_2$，絶対温度 $T_2$ の単原子分子理想気体を入れた。じゅうぶん時間後，2領域の絶対温度が等しく $T_3$ になった（$n_1>n_2$，$T_1>T_2$）。$T_3$ はどのように表されるか。", "choices": ["$\\dfrac{T_1+T_2}{2}$", "$\\dfrac{T_1}{2}+\\dfrac{n_2T_2}{2n_1}$", "$\\dfrac{T_1}{2}+\\dfrac{n_1T_2}{2n_2}$", "$\\dfrac{n_1T_1}{2n_2}+\\dfrac{T_2}{2}$", "$\\dfrac{n_2T_1}{2n_1}+\\dfrac{T_2}{2}$", "$\\dfrac{n_1T_1+n_2T_2}{n_1+n_2}$", "$\\dfrac{n_2T_1+n_1T_2}{n_1+n_2}$"] },
+      "en": { "prompt": "An insulated container is divided by a fixed heat-conducting wall into two regions, one with $n_1$ mol at $T_1$ and the other with $n_2$ mol at $T_2$ of monatomic ideal gas. After a long time both reach the same temperature $T_3$ ($n_1>n_2$, $T_1>T_2$). Express $T_3$.", "choices": ["$\\dfrac{T_1+T_2}{2}$", "$\\dfrac{T_1}{2}+\\dfrac{n_2T_2}{2n_1}$", "$\\dfrac{T_1}{2}+\\dfrac{n_1T_2}{2n_2}$", "$\\dfrac{n_1T_1}{2n_2}+\\dfrac{T_2}{2}$", "$\\dfrac{n_2T_1}{2n_1}+\\dfrac{T_2}{2}$", "$\\dfrac{n_1T_1+n_2T_2}{n_1+n_2}$", "$\\dfrac{n_2T_1+n_1T_2}{n_1+n_2}$"] },
+      "answerIndex": 5, "answerOption": 6, "answer": { "ja": "$\\dfrac{n_1T_1+n_2T_2}{n_1+n_2}$", "en": "$\\dfrac{n_1T_1+n_2T_2}{n_1+n_2}$" },
+      "explanation": { "en": "Energy is conserved (rigid, insulated): $n_1C_VT_1+n_2C_VT_2=(n_1+n_2)C_VT_3$, so $T_3=\\dfrac{n_1T_1+n_2T_2}{n_1+n_2}$.", "ja": "内部エネルギー保存：$n_1C_VT_1+n_2C_VT_2=(n_1+n_2)C_VT_3$ より $T_3=\\dfrac{n_1T_1+n_2T_2}{n_1+n_2}$。" }
+    },
+    {
+      "id": "2020-2-phy-9", "answerRow": 9, "block": "II", "topicId": "thermo",
+      "subtopic": "First law; isobaric & adiabatic processes (sign of ΔU)",
+      "patternTags": ["identify", "first-law", "isobaric", "adiabatic", "pv-diagram"], "hasFigure": true,
+      "figure": { "ja": "p–V 図。状態 A を中心に4過程：(1) A→B 定圧で体積増（右）；(2) A→C 断熱で圧力増・体積減（左上の曲線）；(3) A→D 定圧で体積減（左）；(4) A→E 断熱で圧力減・体積増（右下の曲線）。(1)(3) は定圧，(2)(4) は断熱。", "en": "p–V diagram centered on state A with four processes: (1) A→B isobaric, volume up (right); (2) A→C adiabatic, pressure up/volume down (upper-left curve); (3) A→D isobaric, volume down (left); (4) A→E adiabatic, pressure down/volume up (lower-right curve)." },
+      "ja": { "prompt": "一定量の単原子分子理想気体について，$p$–$V$ 図のように状態 A から，過程(1) A→B（定圧），過程(2) A→C（断熱），過程(3) A→D（定圧），過程(4) A→E（断熱）を考える。過程(1)〜(4) のうち，気体の内部エネルギーが減少する過程はどれか。", "choices": ["過程(1)と過程(2)", "過程(2)と過程(3)", "過程(3)と過程(4)", "過程(1)と過程(4)"] },
+      "en": { "prompt": "For a fixed amount of monatomic ideal gas, consider from state A: process (1) A→B (isobaric), (2) A→C (adiabatic), (3) A→D (isobaric), (4) A→E (adiabatic), as in the $p$–$V$ diagram. In which processes does the gas's internal energy decrease?", "choices": ["(1) and (2)", "(2) and (3)", "(3) and (4)", "(1) and (4)"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "過程(3)と過程(4)", "en": "(3) and (4)" },
+      "explanation": { "en": "ΔU∝ΔT. (1) isobaric expansion → T up. (2) adiabatic compression → T up. (3) isobaric compression (D, smaller V) → T down. (4) adiabatic expansion (E) → T down. So U decreases in (3) and (4).", "ja": "$\\Delta U\\propto\\Delta T$。(1)定圧膨張→上昇，(2)断熱圧縮→上昇，(3)定圧圧縮→低下，(4)断熱膨張→低下。よって(3)(4)。" }
+    },
+    {
+      "id": "2020-2-phy-10", "answerRow": 10, "block": "III", "topicId": "waves",
+      "subtopic": "Sinusoidal wave: equation y(x,t) from waveform & time graphs",
+      "patternTags": ["read-from-graph", "travelling-wave", "express-formula"], "hasFigure": true,
+      "figure": { "ja": "図1：t=0 s の y–x グラフ（振幅 0.2 m，波長 6 m；x 軸目盛 5,10,15）。図2：x=0 m の y–t グラフ（振幅 0.2 m，周期 3 s；t 軸目盛 5,10）。波は x 軸を正の向きに進む。", "en": "Fig 1: y–x snapshot at t=0 s (amplitude 0.2 m, wavelength 6 m; x gridlines 5,10,15). Fig 2: y–t graph at x=0 m (amplitude 0.2 m, period 3 s; t gridlines 5,10). The wave travels in the +x direction." },
+      "ja": { "prompt": "$x$ 軸上を進む正弦波について，図1は $t=0\\,$s の変位 $y$ と位置 $x$ の関係（振幅 $0.2\\,$m，波長 $6\\,$m），図2は $x=0\\,$m での $y$ と $t$ の関係（周期 $3\\,$s）を示す。この正弦波を表す式はどれか（$y,x$ は m，$t$ は s）。", "choices": ["$y=0.2\\sin\\!\\left(\\dfrac{\\pi}{3}t-\\dfrac{2\\pi}{3}x\\right)$", "$y=0.2\\sin\\!\\left(\\dfrac{\\pi}{3}t+\\dfrac{2\\pi}{3}x\\right)$", "$y=0.2\\sin\\!\\left(\\dfrac{2\\pi}{3}t-\\dfrac{\\pi}{3}x\\right)$", "$y=0.2\\sin\\!\\left(\\dfrac{2\\pi}{3}t+\\dfrac{\\pi}{3}x\\right)$", "$y=0.4\\sin\\!\\left(\\dfrac{\\pi}{3}t-\\dfrac{2\\pi}{3}x\\right)$", "$y=0.4\\sin\\!\\left(\\dfrac{\\pi}{3}t+\\dfrac{2\\pi}{3}x\\right)$", "$y=0.4\\sin\\!\\left(\\dfrac{2\\pi}{3}t-\\dfrac{\\pi}{3}x\\right)$", "$y=0.4\\sin\\!\\left(\\dfrac{2\\pi}{3}t+\\dfrac{\\pi}{3}x\\right)$"] },
+      "en": { "prompt": "For a sinusoidal wave on the $x$-axis: Fig 1 is the $y$ vs $x$ snapshot at $t=0\\,$s (amplitude $0.2\\,$m, wavelength $6\\,$m); Fig 2 is $y$ vs $t$ at $x=0\\,$m (period $3\\,$s). Which equation represents it ($y,x$ in m, $t$ in s)?", "choices": ["$y=0.2\\sin\\!\\left(\\dfrac{\\pi}{3}t-\\dfrac{2\\pi}{3}x\\right)$", "$y=0.2\\sin\\!\\left(\\dfrac{\\pi}{3}t+\\dfrac{2\\pi}{3}x\\right)$", "$y=0.2\\sin\\!\\left(\\dfrac{2\\pi}{3}t-\\dfrac{\\pi}{3}x\\right)$", "$y=0.2\\sin\\!\\left(\\dfrac{2\\pi}{3}t+\\dfrac{\\pi}{3}x\\right)$", "$y=0.4\\sin\\!\\left(\\dfrac{\\pi}{3}t-\\dfrac{2\\pi}{3}x\\right)$", "$y=0.4\\sin\\!\\left(\\dfrac{\\pi}{3}t+\\dfrac{2\\pi}{3}x\\right)$", "$y=0.4\\sin\\!\\left(\\dfrac{2\\pi}{3}t-\\dfrac{\\pi}{3}x\\right)$", "$y=0.4\\sin\\!\\left(\\dfrac{2\\pi}{3}t+\\dfrac{\\pi}{3}x\\right)$"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "$y=0.2\\sin\\!\\left(\\dfrac{2\\pi}{3}t-\\dfrac{\\pi}{3}x\\right)$", "en": "$y=0.2\\sin\\!\\left(\\dfrac{2\\pi}{3}t-\\dfrac{\\pi}{3}x\\right)$" },
+      "explanation": { "en": "Amplitude 0.2 m. From Fig 1 $\\lambda=6\\,$m ⇒ $k=2\\pi/\\lambda=\\pi/3$. From Fig 2 $T=3\\,$s ⇒ $\\omega=2\\pi/T=2\\pi/3$. Travelling in $+x$ gives $(\\omega t-kx)$: $y=0.2\\sin(\\tfrac{2\\pi}{3}t-\\tfrac{\\pi}{3}x)$.", "ja": "振幅 0.2，図1より $\\lambda=6$ ⇒ $k=\\pi/3$，図2より $T=3$ ⇒ $\\omega=2\\pi/3$。$+x$ 進行で $(\\omega t-kx)$：$y=0.2\\sin(\\tfrac{2\\pi}{3}t-\\tfrac{\\pi}{3}x)$。" }
+    },
+    {
+      "id": "2020-2-phy-11", "answerRow": 11, "block": "III", "topicId": "waves",
+      "subtopic": "Vibration of strings (fundamental frequency, v∝√tension)",
+      "patternTags": ["express-formula", "standing-waves", "string-fundamental", "ratio"], "hasFigure": true,
+      "figure": { "ja": "図1：弦の一端固定，他端に質量 m1 のおもりを滑車でつるし，間隔 L1 の2つのこまの間で基本振動，振動数 f。図2：おもりを m2(>m1)，こま間隔を L2 に変えても基本振動数は f のまま。弦を伝わる速さは張力の 1/2 乗に比例。", "en": "Fig 1: a string fixed at one end, a mass m1 hung over a pulley at the other, vibrating in its fundamental between two bridges spaced L1, frequency f. Fig 2: with mass m2(>m1) and bridge spacing L2 the fundamental is still f. Wave speed ∝ (tension)^(1/2)." },
+      "ja": { "prompt": "図1のように弦の一端を固定し他端に質量 $m_1$ のおもりを滑車でつるし，間隔 $L_1$ の2つのこまの間で基本振動させると振動数は $f$ であった。図2のようにおもりを $m_2\\,(>m_1)$，こまの間隔を $L_2$ に変えても基本振動数は $f$ のままだった。弦を伝わる波の速さは張力の $\\frac12$ 乗に比例する。$\\dfrac{L_2}{L_1}$ はどのように表されるか。", "choices": ["$\\left(\\dfrac{m_1}{m_2}\\right)^2$", "$\\dfrac{m_1}{m_2}$", "$\\sqrt{\\dfrac{m_1}{m_2}}$", "$1$", "$\\sqrt{\\dfrac{m_2}{m_1}}$", "$\\dfrac{m_2}{m_1}$", "$\\left(\\dfrac{m_2}{m_1}\\right)^2$"] },
+      "en": { "prompt": "A string fixed at one end with a hung mass $m_1$ vibrates in its fundamental between two bridges spaced $L_1$, frequency $f$. Changing the mass to $m_2\\,(>m_1)$ and the spacing to $L_2$ keeps the fundamental at $f$. Wave speed ∝ (tension)$^{1/2}$. Express $\\dfrac{L_2}{L_1}$.", "choices": ["$\\left(\\dfrac{m_1}{m_2}\\right)^2$", "$\\dfrac{m_1}{m_2}$", "$\\sqrt{\\dfrac{m_1}{m_2}}$", "$1$", "$\\sqrt{\\dfrac{m_2}{m_1}}$", "$\\dfrac{m_2}{m_1}$", "$\\left(\\dfrac{m_2}{m_1}\\right)^2$"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "$\\sqrt{\\dfrac{m_2}{m_1}}$", "en": "$\\sqrt{\\dfrac{m_2}{m_1}}$" },
+      "explanation": { "en": "$f=\\dfrac{v}{2L}\\propto\\dfrac{\\sqrt{m}}{L}$ (tension = $mg$). Equal $f$: $\\dfrac{\\sqrt{m_1}}{L_1}=\\dfrac{\\sqrt{m_2}}{L_2}$, so $L_2/L_1=\\sqrt{m_2/m_1}$.", "ja": "$f=\\dfrac{v}{2L}\\propto\\dfrac{\\sqrt{m}}{L}$。等しいので $L_2/L_1=\\sqrt{m_2/m_1}$。" }
+    },
+    {
+      "id": "2020-2-phy-12", "answerRow": 12, "block": "III", "topicId": "waves",
+      "subtopic": "Refraction & total internal reflection (critical angle, layers)",
+      "patternTags": ["plug-in-numbers", "total-internal-reflection", "snells-law"], "hasFigure": true,
+      "figure": { "ja": "水（絶対屈折率 4/3）／ガラス（3/2）／空気（1）が平行境界。水中から入射角 θ で光を入れ θ を増すと，θ>θ0 でガラス–空気面で全反射する。", "en": "Water (n=4/3) / glass (n=3/2) / air (n=1) in parallel layers. Light enters from the water at angle θ; as θ increases, for θ>θ0 it undergoes total internal reflection at the glass–air boundary." },
+      "ja": { "prompt": "水，ガラス，空気が平行な境界面で接している。水中から入射角 $\\theta$ で光を入射させ $\\theta$ を大きくすると，$\\theta>\\theta_0$ でガラスと空気の境界面で全反射した。水の絶対屈折率を $\\frac43$，ガラスを $\\frac32$，空気を $1$ とする。$\\sin\\theta_0$ の値はいくらか。", "choices": ["$\\dfrac{1}{4}$", "$\\dfrac{1}{3}$", "$\\dfrac{1}{2}$", "$\\dfrac{2}{3}$", "$\\dfrac{3}{4}$", "$\\dfrac{4}{5}$", "$\\dfrac{8}{9}$"] },
+      "en": { "prompt": "Water, glass, and air meet at parallel boundaries. Light enters from the water at angle $\\theta$; for $\\theta>\\theta_0$ it totally reflects at the glass–air boundary. Indices: water $\\frac43$, glass $\\frac32$, air $1$. Find $\\sin\\theta_0$.", "choices": ["$\\dfrac{1}{4}$", "$\\dfrac{1}{3}$", "$\\dfrac{1}{2}$", "$\\dfrac{2}{3}$", "$\\dfrac{3}{4}$", "$\\dfrac{4}{5}$", "$\\dfrac{8}{9}$"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "$\\dfrac{3}{4}$", "en": "$\\dfrac{3}{4}$" },
+      "explanation": { "en": "By Snell across parallel layers, $n_{water}\\sin\\theta = n_{air}\\sin90^\\circ=1$ at the critical condition (glass index cancels). So $\\sin\\theta_0=1/n_{water}=1/(4/3)=3/4$.", "ja": "平行層では $n_{水}\\sin\\theta_0=n_{空気}\\sin90^\\circ=1$（ガラスは相殺）。$\\sin\\theta_0=1/(4/3)=3/4$。" }
+    },
+    {
+      "id": "2020-2-phy-13", "answerRow": 13, "block": "IV", "topicId": "em",
+      "subtopic": "Coulomb's law; equilibrium of two suspended charges",
+      "patternTags": ["express-formula", "coulombs-law", "equilibrium", "trig"], "hasFigure": true,
+      "figure": { "ja": "同じ点から長さ ℓ の2本の絶縁糸でつるした質量 m の小球 A（電荷 q）と B（電荷 Q>q）。互いの反発で各糸が鉛直と角 θ をなして静止。クーロン定数 k。", "en": "From a common point, two insulating strings of length ℓ suspend mass-m balls A (charge q) and B (charge Q>q). Mutual repulsion holds each string at angle θ from vertical. Coulomb constant k." },
+      "ja": { "prompt": "同じ点から長さ $\\ell$ の2本の絶縁糸で質量 $m$ の小球 A（電気量 $q>0$）と B（電気量 $Q>q$）をつるすと，図のように各糸が鉛直と角 $\\theta$ をなして鉛直面内で静止した。クーロンの法則の比例定数を $k$ とする。$Q$ はどのように表されるか。", "choices": ["$\\dfrac{4mg\\ell^2\\sin\\theta}{kq}$", "$\\dfrac{4mg\\ell^2\\cos\\theta}{kq}$", "$\\dfrac{4mg\\ell^2\\sin\\theta\\cos\\theta}{kq}$", "$\\dfrac{4mg\\ell^2\\sin^2\\theta}{kq\\cos\\theta}$", "$\\dfrac{4mg\\ell^2\\cos^2\\theta}{kq\\sin\\theta}$", "$\\dfrac{4mg\\ell^2\\sin^3\\theta}{kq\\cos\\theta}$", "$\\dfrac{4mg\\ell^2\\cos^3\\theta}{kq\\sin\\theta}$"] },
+      "en": { "prompt": "From a common point, two insulating strings of length $\\ell$ suspend mass-$m$ balls A (charge $q>0$) and B (charge $Q>q$); each string rests at angle $\\theta$ from vertical. With Coulomb constant $k$, express $Q$.", "choices": ["$\\dfrac{4mg\\ell^2\\sin\\theta}{kq}$", "$\\dfrac{4mg\\ell^2\\cos\\theta}{kq}$", "$\\dfrac{4mg\\ell^2\\sin\\theta\\cos\\theta}{kq}$", "$\\dfrac{4mg\\ell^2\\sin^2\\theta}{kq\\cos\\theta}$", "$\\dfrac{4mg\\ell^2\\cos^2\\theta}{kq\\sin\\theta}$", "$\\dfrac{4mg\\ell^2\\sin^3\\theta}{kq\\cos\\theta}$", "$\\dfrac{4mg\\ell^2\\cos^3\\theta}{kq\\sin\\theta}$"] },
+      "answerIndex": 5, "answerOption": 6, "answer": { "ja": "$\\dfrac{4mg\\ell^2\\sin^3\\theta}{kq\\cos\\theta}$", "en": "$\\dfrac{4mg\\ell^2\\sin^3\\theta}{kq\\cos\\theta}$" },
+      "explanation": { "en": "Separation $=2\\ell\\sin\\theta$, so $F=\\dfrac{kqQ}{(2\\ell\\sin\\theta)^2}$. For ball A: $\\tan\\theta=F/(mg)$, i.e. $F=mg\\tan\\theta$. Solving, $Q=\\dfrac{4mg\\ell^2\\sin^2\\theta\\tan\\theta}{kq}=\\dfrac{4mg\\ell^2\\sin^3\\theta}{kq\\cos\\theta}$.", "ja": "間隔 $2\\ell\\sin\\theta$，$F=\\dfrac{kqQ}{(2\\ell\\sin\\theta)^2}=mg\\tan\\theta$ より $Q=\\dfrac{4mg\\ell^2\\sin^3\\theta}{kq\\cos\\theta}$。" }
+    },
+    {
+      "id": "2020-2-phy-14", "answerRow": 14, "block": "IV", "topicId": "em",
+      "subtopic": "Electric potential (superposition; cube of point charges)",
+      "patternTags": ["express-formula", "electric-potential", "superposition", "geometry"], "hasFigure": true,
+      "figure": { "ja": "一辺 a の立方体。頂点 A,C,H に +Q，頂点 B,D,E,F,G に −Q を固定。中心は線分 AG の中点。クーロン定数 k，無限遠を電位の基準。", "en": "A cube of side a with +Q at vertices A,C,H and −Q at B,D,E,F,G. The center is the midpoint of the body diagonal AG. Coulomb constant k; potential reference at infinity." },
+      "ja": { "prompt": "一辺 $a$ の立方体の頂点 A，C，H に電気量 $Q\\,(>0)$，頂点 B，D，E，F，G に $-Q$ の点電荷を固定した。無限遠を電位の基準，クーロンの比例定数を $k$ とする。立方体の中心（線分 AG の中点）における電位はどのように表されるか。", "choices": ["$-\\dfrac{2\\sqrt3\\,kQ}{3a}$", "$-\\dfrac{4\\sqrt3\\,kQ}{3a}$", "$-\\dfrac{\\sqrt2\\,kQ}{a}$", "$-\\dfrac{2\\sqrt2\\,kQ}{a}$", "$\\dfrac{2\\sqrt3\\,kQ}{3a}$", "$\\dfrac{4\\sqrt3\\,kQ}{3a}$", "$\\dfrac{\\sqrt2\\,kQ}{a}$", "$\\dfrac{2\\sqrt2\\,kQ}{a}$"] },
+      "en": { "prompt": "A cube of side $a$ has $+Q$ at vertices A,C,H and $-Q$ at B,D,E,F,G. With potential zero at infinity and Coulomb constant $k$, what is the potential at the cube's center (midpoint of AG)?", "choices": ["$-\\dfrac{2\\sqrt3\\,kQ}{3a}$", "$-\\dfrac{4\\sqrt3\\,kQ}{3a}$", "$-\\dfrac{\\sqrt2\\,kQ}{a}$", "$-\\dfrac{2\\sqrt2\\,kQ}{a}$", "$\\dfrac{2\\sqrt3\\,kQ}{3a}$", "$\\dfrac{4\\sqrt3\\,kQ}{3a}$", "$\\dfrac{\\sqrt2\\,kQ}{a}$", "$\\dfrac{2\\sqrt2\\,kQ}{a}$"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "$-\\dfrac{4\\sqrt3\\,kQ}{3a}$", "en": "$-\\dfrac{4\\sqrt3\\,kQ}{3a}$" },
+      "explanation": { "en": "All 8 vertices are at distance $r=\\frac{\\sqrt3}{2}a$ from the center. Net charge $=3Q-5Q=-2Q$, so $V=\\dfrac{k(-2Q)}{\\frac{\\sqrt3}{2}a}=-\\dfrac{4kQ}{\\sqrt3\\,a}=-\\dfrac{4\\sqrt3\\,kQ}{3a}$.", "ja": "全頂点が中心から $r=\\frac{\\sqrt3}{2}a$。合計電荷 $-2Q$ より $V=\\dfrac{k(-2Q)}{\\frac{\\sqrt3}{2}a}=-\\dfrac{4\\sqrt3\\,kQ}{3a}$。" }
+    },
+    {
+      "id": "2020-2-phy-15", "answerRow": 15, "block": "IV", "topicId": "em",
+      "subtopic": "Capacitor network with a battery; node potential",
+      "patternTags": ["express-formula", "capacitors", "charge-conservation", "circuit"], "hasFigure": true,
+      "figure": { "ja": "上の横線（レール）と下の横線（P で接地，電位 0）の間に，左の容量 C，右の容量 C を並列に接続。中央枝は上レールから抵抗 R，起電力 V の電池，点 Q，容量 C，P の順。十分充電後。", "en": "Between a top rail and a bottom rail (grounded at P, potential 0): a left capacitor C and right capacitor C in parallel. The middle branch goes top rail → resistor R → battery V → node Q → capacitor C → P. Fully charged." },
+      "ja": { "prompt": "図のように，3つの電気容量 $C$ のコンデンサーと起電力 $V$ の電池と抵抗を接続し，電荷のない状態からじゅうぶん時間をかけて充電した。点 P を電位の基準（0）とする。回路中の点 Q の電位はどのように表されるか。", "choices": ["$-V$", "$-\\dfrac{2}{3}V$", "$-\\dfrac{1}{2}V$", "$-\\dfrac{1}{3}V$", "$V$", "$\\dfrac{2}{3}V$", "$\\dfrac{1}{2}V$", "$\\dfrac{1}{3}V$"] },
+      "en": { "prompt": "Three capacitors of capacitance $C$, a battery of emf $V$, and a resistor are connected and charged fully from zero. Taking point P as the potential reference (0), what is the potential at point Q?", "choices": ["$-V$", "$-\\dfrac{2}{3}V$", "$-\\dfrac{1}{2}V$", "$-\\dfrac{1}{3}V$", "$V$", "$\\dfrac{2}{3}V$", "$\\dfrac{1}{2}V$", "$\\dfrac{1}{3}V$"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "$-\\dfrac{2}{3}V$", "en": "$-\\dfrac{2}{3}V$" },
+      "explanation": { "en": "No current when charged ⇒ no drop across R, so the top rail sits at potential $U$ with $U=V_Q+V$. The left+right caps hold $2CU$; charge conservation of the isolated rail gives $2CU=-CV_Q$. Solving: $V_Q=-\\tfrac{2}{3}V$.", "ja": "充電後は R に電流なし。上レール電位 $U=V_Q+V$。左右の容量は $2CU$，孤立導体の電荷保存 $2CU=-CV_Q$ より $V_Q=-\\tfrac{2}{3}V$。" }
+    },
+    {
+      "id": "2020-2-phy-16", "answerRow": 16, "block": "IV", "topicId": "em",
+      "subtopic": "DC circuits (series/parallel; current division)",
+      "patternTags": ["plug-in-numbers", "dc-circuits", "series-parallel", "current-division"], "hasFigure": true,
+      "figure": { "ja": "起電力 V の電池と直列に 2R（上枝）。これに並列に，抵抗 R（中央枝）と 2R（下枝）。R を流れる電流が I。内部抵抗は無視。", "en": "A battery V in series with 2R (top branch); in parallel across that are R (middle branch) and 2R (bottom branch). Current I flows through R. Internal resistance negligible." },
+      "ja": { "prompt": "抵抗値 $R$ の抵抗，2つの抵抗値 $2R$ の抵抗，起電力 $V$ の電池を図のように接続した（電池は一方の $2R$ と直列，残りの $R$ と $2R$ が並列）。内部抵抗は無視できる。抵抗値 $R$ を流れる電流の大きさ $I$ はどのように表されるか。", "choices": ["$\\dfrac{V}{8R}$", "$\\dfrac{V}{6R}$", "$\\dfrac{V}{5R}$", "$\\dfrac{V}{4R}$", "$\\dfrac{V}{3R}$", "$\\dfrac{2V}{5R}$"] },
+      "en": { "prompt": "A resistor $R$, two resistors $2R$, and a battery $V$ are connected as shown (the battery is in series with one $2R$; the remaining $R$ and $2R$ are in parallel). Internal resistance is negligible. Find the current $I$ through the resistor $R$.", "choices": ["$\\dfrac{V}{8R}$", "$\\dfrac{V}{6R}$", "$\\dfrac{V}{5R}$", "$\\dfrac{V}{4R}$", "$\\dfrac{V}{3R}$", "$\\dfrac{2V}{5R}$"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "$\\dfrac{V}{4R}$", "en": "$\\dfrac{V}{4R}$" },
+      "explanation": { "en": "Parallel of $R$ and $2R$ = $2R/3$; total = $2R+2R/3=8R/3$, so battery current $=3V/8R$. Voltage across the parallel pair $=\\tfrac{3V}{8R}\\cdot\\tfrac{2R}{3}=V/4$, hence $I=(V/4)/R=V/(4R)$.", "ja": "並列 $R\\parallel2R=2R/3$，全抵抗 $8R/3$，電池電流 $3V/8R$。並列部の電圧 $V/4$ より $I=V/(4R)$。" }
+    },
+    {
+      "id": "2020-2-phy-17", "answerRow": 17, "block": "IV", "topicId": "em",
+      "subtopic": "Lorentz force; circular motion of a charged particle",
+      "patternTags": ["geometry", "lorentz-force", "circular-motion", "exit-point"], "hasFigure": true,
+      "figure": { "ja": "長方形 ABCD（D 左上, C 右上, A 左下, B 右下）。AB=CD=2ℓ（下/上の辺），BC=DA=ℓ（左右の辺）。O は AB の中点，P は CD の中点。紙面裏→表の一様磁場。電荷 q(>0)・質量 m の粒子を O から AB に垂直（上向き）に速さ v で入射すると BC 上（B,C 以外）から出る。次に電荷 −q・質量 2m を同じ向き・速さで入射。", "en": "Rectangle ABCD (D top-left, C top-right, A bottom-left, B bottom-right). AB=CD=2ℓ (bottom/top), BC=DA=ℓ (sides). O = midpoint of AB, P = midpoint of CD. Uniform field out of the page. A particle q(>0), mass m enters at O perpendicular to AB (upward) at speed v and exits on BC (not at B or C). Then a particle −q, mass 2m enters identically." },
+      "ja": { "prompt": "長方形 ABCD の領域に紙面の裏から表へ一様な磁場がある。$BC=DA=\\ell$，$AB=CD=2\\ell$。AB の中点を O，CD の中点を P とする。電気量 $q\\,(>0)$，質量 $m$ の荷電粒子を O から AB に垂直（上向き）に速さ $v$ で入射させると，B,C 以外の辺 BC 上の点から飛び出した。次に電気量 $-q$，質量 $2m$ の荷電粒子を同じ向き・速さ $v$ で O から入射させた。この粒子が領域から飛び出す点はどこにあるか。", "choices": ["線分 OB 上", "辺 BC 上", "線分 CP 上", "線分 PD 上", "辺 DA 上", "線分 AO 上"] },
+      "en": { "prompt": "A rectangle ABCD has a uniform field out of the page; $BC=DA=\\ell$, $AB=CD=2\\ell$, O = midpoint of AB, P = midpoint of CD. A particle $q\\,(>0)$, mass $m$ enters at O perpendicular to AB (upward) at speed $v$ and exits on side BC (not at B or C). Next, a particle $-q$, mass $2m$ enters identically at speed $v$. Where does it exit?", "choices": ["on segment OB", "on side BC", "on segment CP", "on segment PD", "on side DA", "on segment AO"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "線分 PD 上", "en": "on segment PD" },
+      "explanation": { "en": "Radius $r=mv/(qB)$. The first particle (q,m) curves right (toward B) and exits BC, fixing $\\ell/2<r<\\ell$. The second (−q, 2m) has radius $2r$ and curves the opposite way (toward D/left), so its larger arc crosses the top edge between P and D — segment PD.", "ja": "$r=mv/(qB)$。第1粒子(q,m)は右に曲がり BC から出るので $\\ell/2<r<\\ell$。第2粒子(−q,2m)は半径 $2r$ で逆向き（左）に曲がり，上辺の P〜D の間（線分 PD）から出る。" }
+    },
+    {
+      "id": "2020-2-phy-18", "answerRow": 18, "block": "IV", "topicId": "em",
+      "subtopic": "Electromagnetic induction (Faraday/Lenz); force on a wire",
+      "patternTags": ["choose-from-graph", "electromagnetic-induction", "force-on-current"], "hasFigure": true,
+      "figure": { "ja": "図1：xy 平面上の長方形回路 ABCD（辺 AB は y 軸に平行），z 軸正は紙面裏→表。z 方向の一様磁場 Bz が時刻 t で変化。図2：Bz–t は三角波（周期 2T）。辺 AB が受ける力の x 成分 Fx を問う。選択肢①〜④は Fx–t の異なる波形（①②はのこぎり波，③④は方形波）。", "en": "Fig 1: rectangular circuit ABCD on the xy-plane (AB parallel to y); +z out of page; a uniform z-field Bz varies with t. Fig 2: Bz vs t is a triangular wave (period 2T). Asked: the x-component Fx of the force on side AB. Options ①–④ are different Fx vs t shapes (①② sawtooth, ③④ square)." },
+      "ja": { "prompt": "$xy$ 平面上に長方形回路 ABCD を辺 AB が $y$ 軸に平行になるように固定する。$z$ 軸に平行な空間的に一様な磁場が時刻 $t$ とともに変化し，その $z$ 成分 $B_z$ は図2の三角波（周期 $2T$）である。辺 AB が磁場から受ける力の $x$ 成分を $F_x$ とする。$F_x$ と $t$ の関係を表すグラフとして最も適当なものはどれか。", "choices": ["①（のこぎり波・各区間で下降する直線）", "②（のこぎり波・各区間で上昇する直線）", "③（方形波）", "④（方形波）"] },
+      "en": { "prompt": "A rectangular circuit ABCD lies on the $xy$-plane with AB parallel to $y$. A uniform $z$-field varies in time; its $z$-component $B_z$ is the triangular wave of Fig 2 (period $2T$). Let $F_x$ be the $x$-component of the force on side AB. Which graph best represents $F_x$ vs $t$?", "choices": ["① sawtooth (descending ramps)", "② sawtooth (ascending ramps)", "③ square wave", "④ square wave"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "①（のこぎり波・下降する直線）", "en": "① sawtooth with descending ramps" },
+      "explanation": { "en": "Induced current $I\\propto-dB_z/dt$ is a square wave (constant magnitude, sign flipping each half). The force $F_x\\propto I\\,B_z$ is (square)×(triangle) = piecewise-linear ramps. Matching signs gives the descending-sawtooth pattern of option ①.", "ja": "誘導電流 $I\\propto-dB_z/dt$ は方形波，$F_x\\propto I\\,B_z$ は（方形）×（三角）で各区間が直線（のこぎり波）。符号より下降型の①。" }
+    },
+    {
+      "id": "2020-2-phy-19", "answerRow": 19, "block": "V", "topicId": "atoms",
+      "subtopic": "de Broglie wavelength (matter waves)",
+      "patternTags": ["express-formula", "de-broglie", "wave-particle-duality"], "hasFigure": false,
+      "ja": { "prompt": "真空中で電子の運動エネルギーが $K$ のときの電子波（物質波）の波長（ド・ブロイ波長）を $\\lambda$ とする。電子の質量を $m$，プランク定数を $h$ とする。$K$ は $\\lambda$ を用いてどのように表されるか。", "choices": ["$\\dfrac{h^2}{2m\\lambda^2}$", "$\\dfrac{\\lambda^2}{2mh^2}$", "$\\dfrac{mh^2}{2\\lambda^2}$", "$\\dfrac{m\\lambda^2}{2h^2}$"] },
+      "en": { "prompt": "In vacuum, an electron of kinetic energy $K$ has de Broglie wavelength $\\lambda$. With electron mass $m$ and Planck constant $h$, express $K$ in terms of $\\lambda$.", "choices": ["$\\dfrac{h^2}{2m\\lambda^2}$", "$\\dfrac{\\lambda^2}{2mh^2}$", "$\\dfrac{mh^2}{2\\lambda^2}$", "$\\dfrac{m\\lambda^2}{2h^2}$"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "$\\dfrac{h^2}{2m\\lambda^2}$", "en": "$\\dfrac{h^2}{2m\\lambda^2}$" },
+      "explanation": { "en": "$\\lambda=h/p$ with $p=\\sqrt{2mK}$, so $K=p^2/(2m)=h^2/(2m\\lambda^2)$.", "ja": "$\\lambda=h/p$，$p=\\sqrt{2mK}$ より $K=h^2/(2m\\lambda^2)$。" }
+    }
+  ],
+  "patterns": {
+    "blockSkeleton": "Same 5-block skeleton (I Mechanics ×6, II Thermo ×3, III Waves ×3, IV E&M ×6, V Atoms ×1).",
+    "newArchetypesVsPrevious": [
+      "Rigid-body torque / center-of-mass (Q1) — first seen in this set.",
+      "Inertial (pseudo-)force in an accelerating frame (Q2).",
+      "Universal gravitation + Kepler's 2nd law / angular momentum (Q6).",
+      "Wave equation y(x,t) chosen from paired waveform+time graphs (Q10).",
+      "Electric potential at the center of a charge configuration (Q14).",
+      "Lorentz-force geometry: exit point of a charged particle, comparing two particles (Q17).",
+      "Induction with a time-varying field → choose F(t) graph (Q18)."
+    ],
+    "recurringWithPrevious": ["calorimetry+heat-of-fusion (Q7≈2021-1 Q7)", "string fundamental v∝√T (Q11)", "refraction/TIR across layers with a distractor index (Q12)", "capacitor energy/charge redistribution (Q15)", "atoms = single modern-physics formula (Q19 de Broglie)"],
+    "difficulty": "Standard 'Basic + Advanced Physics'; conceptual with light computation."
+  }
+}

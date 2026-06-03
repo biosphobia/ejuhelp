@@ -1,0 +1,245 @@
+{
+  "id": "2014-2-physics",
+  "year": 2014,
+  "session": 2,
+  "subject": "physics",
+  "title": "EJU 2014 · Session 2 · Physics",
+  "source": "平成26年度（2014年度）日本留学試験（第2回）理科〈物理〉 © Japan Student Services Organization (JASSO)",
+  "attribution": "EJU past questions © JASSO. Question text transcribed from the official past paper; figures described in text; correct answers taken from the official JASSO answer key and independently re-solved for verification.",
+  "languages": ["ja", "en"],
+  "answerKeyVerified": true,
+  "structure": {
+    "blocks": [
+      { "id": "I", "topicId": "mech", "name": { "ja": "力学", "en": "Mechanics" }, "questionCount": 7 },
+      { "id": "II", "topicId": "thermo", "name": { "ja": "熱力学", "en": "Thermodynamics" }, "questionCount": 3 },
+      { "id": "III", "topicId": "waves", "name": { "ja": "波動", "en": "Waves" }, "questionCount": 3 },
+      { "id": "IV", "topicId": "em", "name": { "ja": "電気と磁気", "en": "Electricity & Magnetism" }, "questionCount": 6 }
+    ],
+    "totalQuestions": 19,
+    "note": "This older paper uses a 7/3/3/6 split (Mechanics has 7 items) and has no Atoms (V) block.",
+    "givens": { "ja": "重力加速度の大きさを g とし，空気の抵抗は無視できるものとする。", "en": "Take the magnitude of gravitational acceleration as g; air resistance is negligible." }
+  },
+  "questions": [
+    {
+      "id": "2014-2-phy-1", "answerRow": 1, "block": "I", "topicId": "mech",
+      "subtopic": "Normal force on a block resting on an incline",
+      "patternTags": ["express-formula", "statics", "incline"], "hasFigure": true,
+      "figure": { "ja": "断面が直角三角形（直角をはさむ 2 辺が a と h）の三角柱が水平面に固定。斜面（斜辺）上に質量 m の物体 A が静止。", "en": "A prism with a right-triangle cross-section (legs a and h) is fixed on the floor; block A (mass m) rests on the inclined hypotenuse." },
+      "ja": { "prompt": "断面が直角三角形（直角をはさむ 2 辺の長さが $a$ と $h$）の三角柱が水平面上に固定され，その斜面上に質量 $m$ の物体 A が静止している。A が斜面から受ける垂直抗力の大きさはどのように表されるか。", "choices": ["$\\dfrac{h}{a}mg$", "$\\dfrac{a}{h}mg$", "$\\dfrac{h}{\\sqrt{a^2+h^2}}mg$", "$\\dfrac{a}{\\sqrt{a^2+h^2}}mg$", "$\\dfrac{\\sqrt{a^2+h^2}}{a}mg$", "$\\dfrac{\\sqrt{a^2+h^2}}{h}mg$"] },
+      "en": { "prompt": "A prism with a right-triangle cross-section (legs $a$ and $h$) is fixed on the floor, and block A (mass $m$) rests on its inclined surface. Find the normal force on A from the incline.", "choices": ["$\\dfrac{h}{a}mg$", "$\\dfrac{a}{h}mg$", "$\\dfrac{h}{\\sqrt{a^2+h^2}}mg$", "$\\dfrac{a}{\\sqrt{a^2+h^2}}mg$", "$\\dfrac{\\sqrt{a^2+h^2}}{a}mg$", "$\\dfrac{\\sqrt{a^2+h^2}}{h}mg$"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "$\\dfrac{a}{\\sqrt{a^2+h^2}}mg$", "en": "$\\dfrac{a}{\\sqrt{a^2+h^2}}mg$" },
+      "explanation": { "en": "The incline makes angle $\\theta$ with the horizontal where $\\tan\\theta=h/a$, so $\\cos\\theta=\\dfrac{a}{\\sqrt{a^2+h^2}}$. The normal force balances the perpendicular weight component: $N=mg\\cos\\theta=\\dfrac{a}{\\sqrt{a^2+h^2}}mg$.", "ja": "斜面が水平となす角 $\\theta$ は $\\tan\\theta=h/a$ なので $\\cos\\theta=\\dfrac{a}{\\sqrt{a^2+h^2}}$。垂直抗力は重力の垂直成分とつり合い $N=mg\\cos\\theta=\\dfrac{a}{\\sqrt{a^2+h^2}}mg$。" }
+    },
+    {
+      "id": "2014-2-phy-2", "answerRow": 2, "block": "I", "topicId": "mech",
+      "subtopic": "Ladder against a smooth wall (friction at floor)",
+      "patternTags": ["plug-in-numbers", "torque-balance", "statics"], "hasFigure": true,
+      "figure": { "ja": "長さ 0.50 m の一様な棒。一端 A を摩擦のある床に，他端 B をなめらかな壁に立てかける。A と壁の水平距離 0.40 m，棒の重力 12 N。", "en": "A uniform 0.50 m rod: end A on a rough floor, end B against a smooth wall. Horizontal distance A-to-wall is 0.40 m; weight 12 N." },
+      "ja": { "prompt": "長さ $0.50\\,$m の一様な棒の一端 A を摩擦のある水平な床に置き，他端 B をなめらかな壁に立てかけて静止させた。A と壁の距離は $0.40\\,$m，棒の重力は $12\\,$N である。A で棒が床から受ける静止摩擦力は何 N か。", "choices": ["$6.0$", "$8.0$", "$10$", "$12$"] },
+      "en": { "prompt": "A uniform $0.50\\,$m rod has end A on a rough floor and end B leaning on a smooth wall. The horizontal distance from A to the wall is $0.40\\,$m, and the rod's weight is $12\\,$N. Find the static friction force on the rod at A (in N).", "choices": ["$6.0$", "$8.0$", "$10$", "$12$"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "$8.0$", "en": "$8.0$" },
+      "explanation": { "en": "Height of B $=\\sqrt{0.50^2-0.40^2}=0.30\\,$m. The smooth wall exerts only a horizontal force $N_w$ at B. Torque about A: $N_w\\cdot0.30=12\\cdot(0.40/2)=2.4$, so $N_w=8.0\\,$N. Horizontal equilibrium gives friction $f=N_w=8.0\\,$N.", "ja": "B の高さ $=\\sqrt{0.50^2-0.40^2}=0.30\\,$m。なめらかな壁は B で水平力 $N_w$ のみ。A まわりのモーメント $N_w\\cdot0.30=12\\cdot0.20=2.4$ より $N_w=8.0\\,$N。水平方向のつり合いから摩擦 $f=N_w=8.0\\,$N。" }
+    },
+    {
+      "id": "2014-2-phy-3", "answerRow": 3, "block": "I", "topicId": "mech",
+      "subtopic": "From v–t graph to x–t graph",
+      "patternTags": ["read-from-graph", "kinematics"], "hasFigure": true,
+      "figure": { "ja": "v–t グラフ：t=0 で正の速度，一定の傾きで直線的に減少し，途中で 0 を横切って負になる。", "en": "v–t graph: positive velocity at t=0, decreasing linearly at a constant rate, crossing zero and becoming negative." },
+      "ja": { "prompt": "$x$ 軸上を運動する物体の速度 $v$ が，時刻 $t$ とともに図のように，正の値から一定の傾きで直線的に減少し，途中で 0 を横切って負になった。$t$ と位置座標 $x$ の関係を表すグラフはどれか。", "choices": ["$x$ は一定（水平）", "$x$ は一定の傾きで増加（直線）", "$x$ は一定の傾きで減少（直線）", "$x$ は増加して最大値をとり，その後減少する（上に凸の放物線）", "$x$ は減少して最小値をとり，その後増加する（下に凸の放物線）"] },
+      "en": { "prompt": "An object on the $x$-axis has velocity $v$ that decreases linearly from a positive value, crosses zero, and becomes negative. Which graph shows position $x$ versus $t$?", "choices": ["$x$ constant (horizontal)", "$x$ increases linearly (straight line)", "$x$ decreases linearly (straight line)", "$x$ rises to a maximum then falls (downward parabola)", "$x$ falls to a minimum then rises (upward parabola)"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "$x$ は増加して最大値をとり，その後減少する（上に凸の放物線）", "en": "$x$ rises to a maximum then falls (downward parabola)" },
+      "explanation": { "en": "$x$ is the integral of $v$. While $v>0$, $x$ increases; $x$ peaks when $v=0$; then $v<0$ makes $x$ decrease. Constant (negative) acceleration gives a parabola — rising then falling.", "ja": "$x$ は $v$ の積分。$v>0$ の間 $x$ は増加し，$v=0$ で最大，その後 $v<0$ で減少。加速度一定なので放物線（増加→最大→減少）。" }
+    },
+    {
+      "id": "2014-2-phy-4", "answerRow": 4, "block": "I", "topicId": "mech",
+      "subtopic": "Projectile motion confined to a smooth incline",
+      "patternTags": ["express-formula", "projectile-motion", "inclined-plane"], "hasFigure": true,
+      "figure": { "ja": "水平となす角 α のなめらかな斜面上で，斜面内の水平方向から角 θ・初速 v0 で小物体を投げ上げる。最高点での出発点からの鉛直高さは h。", "en": "On a smooth incline of angle α, a body is launched within the inclined plane at angle θ above the in-plane horizontal with speed v0; at the highest point its vertical height above the start is h." },
+      "ja": { "prompt": "水平面と角度 $\\alpha$ をなすなめらかな斜面上で，斜面内の水平方向から角度 $\\theta$ の向きに初速 $v_0$ で小物体を投げ上げ，斜面に沿って運動させた。斜面上で最高点に達したとき，出発点からの鉛直方向の高さは $h$ であった。$v_0$ はどのように表されるか。", "choices": ["$\\dfrac{1}{\\cos\\theta}\\sqrt{\\dfrac{2gh}{\\sin\\alpha}}$", "$\\dfrac{\\sqrt{2gh}}{\\cos\\theta}$", "$\\dfrac{\\sqrt{2gh\\sin\\alpha}}{\\cos\\theta}$", "$\\dfrac{1}{\\sin\\theta}\\sqrt{\\dfrac{2gh}{\\sin\\alpha}}$", "$\\dfrac{\\sqrt{2gh}}{\\sin\\theta}$", "$\\dfrac{\\sqrt{2gh\\sin\\alpha}}{\\sin\\theta}$"] },
+      "en": { "prompt": "On a smooth incline of angle $\\alpha$, a body is launched within the inclined plane at angle $\\theta$ above the in-plane horizontal with speed $v_0$. At its highest point on the incline, its vertical height above the start is $h$. Express $v_0$.", "choices": ["$\\dfrac{1}{\\cos\\theta}\\sqrt{\\dfrac{2gh}{\\sin\\alpha}}$", "$\\dfrac{\\sqrt{2gh}}{\\cos\\theta}$", "$\\dfrac{\\sqrt{2gh\\sin\\alpha}}{\\cos\\theta}$", "$\\dfrac{1}{\\sin\\theta}\\sqrt{\\dfrac{2gh}{\\sin\\alpha}}$", "$\\dfrac{\\sqrt{2gh}}{\\sin\\theta}$", "$\\dfrac{\\sqrt{2gh\\sin\\alpha}}{\\sin\\theta}$"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "$\\dfrac{\\sqrt{2gh}}{\\sin\\theta}$", "en": "$\\dfrac{\\sqrt{2gh}}{\\sin\\theta}$" },
+      "explanation": { "en": "On the incline the effective acceleration down-slope is $g\\sin\\alpha$ and the up-slope launch component is $v_0\\sin\\theta$. Max up-slope distance $s=\\dfrac{(v_0\\sin\\theta)^2}{2g\\sin\\alpha}$. Its vertical height is $h=s\\sin\\alpha=\\dfrac{(v_0\\sin\\theta)^2}{2g}$ (the $\\sin\\alpha$ cancels). Hence $v_0=\\dfrac{\\sqrt{2gh}}{\\sin\\theta}$.", "ja": "斜面方向の有効加速度は $g\\sin\\alpha$，斜面上向きの初速成分は $v_0\\sin\\theta$。最高到達距離 $s=\\dfrac{(v_0\\sin\\theta)^2}{2g\\sin\\alpha}$。その鉛直高さ $h=s\\sin\\alpha=\\dfrac{(v_0\\sin\\theta)^2}{2g}$（$\\sin\\alpha$ が消える）。よって $v_0=\\dfrac{\\sqrt{2gh}}{\\sin\\theta}$。" }
+    },
+    {
+      "id": "2014-2-phy-5", "answerRow": 5, "block": "I", "topicId": "mech",
+      "subtopic": "Up-and-down a rough incline (return speed)",
+      "patternTags": ["express-formula", "energy-conservation", "friction"], "hasFigure": true,
+      "figure": { "ja": "摩擦のある斜面上の点 A から初速 v0 で上向きに発射，高さ h まで上り戻ってくる。上り下りで一定の動摩擦力。", "en": "From point A on a rough incline a body is given speed v0 up the slope; it rises to height h and slides back. Constant kinetic friction throughout." },
+      "ja": { "prompt": "摩擦のある斜面上の点 A に質量 $m$ の小物体を置き，斜面に沿って上向きに初速 $v_0$ を与えると，高さ $h$ まで上って戻ってきた。上り下りの間，一定の大きさの動摩擦力がはたらく。A まで戻ってきたときの速さはどのように表されるか。", "choices": ["$\\sqrt{2gh}$", "$\\sqrt{v_0^2-2gh}$", "$v_0-\\sqrt{2gh}$", "$\\sqrt{4gh-v_0^2}$", "$2\\sqrt{gh}-v_0$"] },
+      "en": { "prompt": "On a rough incline, block (mass $m$) at A is given speed $v_0$ up the slope; it rises to height $h$ and slides back. A constant kinetic friction acts throughout. Find its speed back at A.", "choices": ["$\\sqrt{2gh}$", "$\\sqrt{v_0^2-2gh}$", "$v_0-\\sqrt{2gh}$", "$\\sqrt{4gh-v_0^2}$", "$2\\sqrt{gh}-v_0$"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "$\\sqrt{4gh-v_0^2}$", "en": "$\\sqrt{4gh-v_0^2}$" },
+      "explanation": { "en": "Up: $\\tfrac12mv_0^2=mgh+fL$ (friction work $fL$ over slope length $L$), so $fL=\\tfrac12mv_0^2-mgh$. Down: $\\tfrac12mv'^2=mgh-fL=2mgh-\\tfrac12mv_0^2$, giving $v'=\\sqrt{4gh-v_0^2}$.", "ja": "上り：$\\tfrac12mv_0^2=mgh+fL$ より $fL=\\tfrac12mv_0^2-mgh$。下り：$\\tfrac12mv'^2=mgh-fL=2mgh-\\tfrac12mv_0^2$ なので $v'=\\sqrt{4gh-v_0^2}$。" }
+    },
+    {
+      "id": "2014-2-phy-6", "answerRow": 6, "block": "I", "topicId": "mech",
+      "subtopic": "2-D perfectly inelastic collision (resultant direction)",
+      "patternTags": ["express-formula", "momentum", "collision", "vectors"], "hasFigure": true,
+      "figure": { "ja": "なめらかな水平面で A（質量 3m）が速さ v で進み，B（質量 m）が A の進行方向に垂直に速さ 4v で進む。衝突して一体となり A の元の向きから角 θ の方向へ進む。", "en": "On a smooth floor, A (mass 3m) moves at v; B (mass m) moves at 4v perpendicular to A's direction. They stick together and move at angle θ from A's original direction." },
+      "ja": { "prompt": "なめらかな水平面上で，質量 $3m$ の A が速さ $v$ で，質量 $m$ の B が A の進行方向に垂直な向きに速さ $4v$ で等速度運動している。A と B が衝突して一体となり，衝突前の A の進行方向に対して角度 $\\theta$ の向きに進んだ。$\\tan\\theta$ はいくらか。", "choices": ["$\\dfrac{3}{5}$", "$\\dfrac{3}{4}$", "$\\dfrac{4}{5}$", "$\\dfrac{4}{3}$", "$\\dfrac{5}{4}$", "$\\dfrac{5}{3}$"] },
+      "en": { "prompt": "On a smooth floor, A (mass $3m$) moves at $v$ and B (mass $m$) moves at $4v$ perpendicular to A. They collide and stick, moving at angle $\\theta$ from A's original direction. Find $\\tan\\theta$.", "choices": ["$\\dfrac{3}{5}$", "$\\dfrac{3}{4}$", "$\\dfrac{4}{5}$", "$\\dfrac{4}{3}$", "$\\dfrac{5}{4}$", "$\\dfrac{5}{3}$"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "$\\dfrac{4}{3}$", "en": "$\\dfrac{4}{3}$" },
+      "explanation": { "en": "Momentum components: along A, $p_\\parallel=3m\\cdot v=3mv$; perpendicular, $p_\\perp=m\\cdot4v=4mv$. So $\\tan\\theta=\\dfrac{p_\\perp}{p_\\parallel}=\\dfrac{4mv}{3mv}=\\dfrac{4}{3}$.", "ja": "運動量成分：A 方向 $p_\\parallel=3mv$，垂直方向 $p_\\perp=4mv$。よって $\\tan\\theta=\\dfrac{4mv}{3mv}=\\dfrac{4}{3}$。" }
+    },
+    {
+      "id": "2014-2-phy-7", "answerRow": 7, "block": "I", "topicId": "mech",
+      "subtopic": "Normal force on a vertical circular track",
+      "patternTags": ["express-formula", "circular-motion", "energy-conservation"], "hasFigure": true,
+      "figure": { "ja": "半径 r の円筒面となめらかにつながった斜面。円筒面の最下点 O。P は O から高さ 2r の斜面上の点，Q は O から高さ r の円筒面上の点（中心と同じ高さ＝側面）。P で静かに離す。摩擦なし。", "en": "A smooth incline joins a circular track of radius r with lowest point O. P is on the incline at height 2r above O; Q is on the circle at height r (level with the centre — the side). Released from rest at P; frictionless." },
+      "ja": { "prompt": "半径 $r$ の円筒面となめらかにつながった斜面がある。円筒面の最下点 O からの高さが $2r$ の斜面上の点を P，O からの高さが $r$ の円筒面上の点を Q とする。質量 $m$ の小物体を P に置いて静かに離した。摩擦は無視できる。Q で物体が円筒面から受ける垂直抗力の大きさはどのように表されるか。", "choices": ["$mg$", "$2mg$", "$3mg$", "$4mg$", "$5mg$", "$6mg$"] },
+      "en": { "prompt": "A smooth incline joins a circular track of radius $r$ (lowest point O). P is on the incline at height $2r$ above O; Q is on the circle at height $r$ (level with its centre). A block (mass $m$) is released from rest at P (frictionless). Find the normal force on the block at Q.", "choices": ["$mg$", "$2mg$", "$3mg$", "$4mg$", "$5mg$", "$6mg$"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "$2mg$", "en": "$2mg$" },
+      "explanation": { "en": "At Q (height $r$, level with the centre) the radius is horizontal, so the normal force is horizontal and supplies the centripetal force; gravity is tangential there. Energy P→Q: $\\tfrac12mv^2=mg(2r-r)=mgr$, so $v^2=2gr$. Then $N=\\dfrac{mv^2}{r}=\\dfrac{m\\cdot2gr}{r}=2mg$.", "ja": "Q（高さ $r$，中心と同じ高さ）では半径が水平なので垂直抗力が水平＝向心力，重力は接線方向。エネルギー P→Q：$\\tfrac12mv^2=mg(2r-r)=mgr$ より $v^2=2gr$。よって $N=\\dfrac{mv^2}{r}=2mg$。" }
+    },
+    {
+      "id": "2014-2-phy-8", "answerRow": 8, "block": "II", "topicId": "thermo",
+      "subtopic": "Calorimetry with partial melting (ice + hot water)",
+      "patternTags": ["plug-in-numbers", "calorimetry", "latent-heat"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "容器に $-20\\,$℃ の氷を入れ，同じ質量の $43\\,$℃ のお湯を加えた。じゅうぶん時間後，$0\\,$℃ の水と氷が残った。氷の融解熱 $3.3\\times10^2\\,$J/g，水の比熱 $4.2$，氷の比熱 $2.1\\,$J/(g·K)。容器の熱容量・外部との熱の出入りは無視する。残っている氷の質量は，最初に入れた氷の質量の何 % か。", "choices": ["$26$", "$42$", "$58$", "$74$"] },
+      "en": { "prompt": "$-20\\,$℃ ice is mixed with an equal mass of $43\\,$℃ water; at equilibrium $0\\,$℃ water and ice remain. Fusion heat of ice $3.3\\times10^2\\,$J/g, $c_{water}=4.2$, $c_{ice}=2.1\\,$J/(g·K); ignore the container and heat loss. What percent of the original ice mass remains as ice?", "choices": ["$26$", "$42$", "$58$", "$74$"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "$58$", "en": "$58$" },
+      "explanation": { "en": "Per mass $m$ each: hot water cooling $43\\to0$ releases $m\\cdot4.2\\cdot43=180.6m\\,$J. Warming ice $-20\\to0$ uses $m\\cdot2.1\\cdot20=42m\\,$J. Remaining $138.6m\\,$J melts $138.6m/330=0.42m$ of ice, so $1-0.42=0.58$, i.e. $58\\%$ remains.", "ja": "質量 $m$ ずつ。お湯 $43\\to0$ で放出 $m\\cdot4.2\\cdot43=180.6m\\,$J。氷 $-20\\to0$ に $m\\cdot2.1\\cdot20=42m\\,$J。残り $138.6m\\,$J が $138.6m/330=0.42m$ を融かすので，残る氷は $0.58m=58\\%$。" }
+    },
+    {
+      "id": "2014-2-phy-9", "answerRow": 9, "block": "II", "topicId": "thermo",
+      "subtopic": "First law with a pulley-loaded piston (isobaric)",
+      "patternTags": ["express-formula", "first-law", "isobaric", "monatomic"], "hasFigure": true,
+      "figure": { "ja": "固定シリンダー内のなめらかな質量無視のピストン（断面積 S）で単原子分子理想気体を封入。ピストンから糸を定滑車に通し質量 m のおもりをつるす。熱量 Q を加えるとおもりが d 下がる（ピストンが滑車側へ d 移動＝膨張）。大気圧 p。", "en": "A smooth massless piston (area S) seals a monatomic ideal gas in a fixed cylinder; a string over a pulley connects the piston to a hanging mass m. Adding heat Q lowers the weight by d (piston moves out toward the pulley by d, gas expands). Atmospheric pressure p." },
+      "ja": { "prompt": "固定シリンダー内に，なめらかで質量の無視できる断面積 $S$ のピストンで単原子分子理想気体を封じ込めた。ピストンに付けた糸を定滑車に通し，他端に質量 $m$ のおもりをつるすと静止した。気体に熱量 $Q$ を与えると，おもりが $d$ 下がって静止した（ピストンは滑車側へ $d$ 動き気体は膨張）。大気圧を $p$ とする。$d$ はどのように表されるか。", "choices": ["$\\dfrac{2Q}{5(pS+mg)}$", "$\\dfrac{2Q}{3(pS+mg)}$", "$\\dfrac{2Q}{5(pS-mg)}$", "$\\dfrac{2Q}{3(pS-mg)}$"] },
+      "en": { "prompt": "A smooth massless piston (area $S$) seals a monatomic ideal gas; a string over a pulley connects it to a hanging mass $m$. Heat $Q$ lowers the weight by $d$ (gas expands by $Sd$). With atmospheric pressure $p$, express $d$.", "choices": ["$\\dfrac{2Q}{5(pS+mg)}$", "$\\dfrac{2Q}{3(pS+mg)}$", "$\\dfrac{2Q}{5(pS-mg)}$", "$\\dfrac{2Q}{3(pS-mg)}$"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "$\\dfrac{2Q}{5(pS-mg)}$", "en": "$\\dfrac{2Q}{5(pS-mg)}$" },
+      "explanation": { "en": "Piston equilibrium (string tension $mg$ pulls outward): $P_{gas}S+mg=pS$, so $P_{gas}=p-\\dfrac{mg}{S}$, constant (isobaric). Monatomic: $Q=\\Delta U+W=\\tfrac32P\\Delta V+P\\Delta V=\\tfrac52P\\cdot Sd$. Thus $d=\\dfrac{2Q}{5P S}=\\dfrac{2Q}{5(pS-mg)}$.", "ja": "ピストンのつり合い（張力 $mg$ は外向き）：$P_{気}S+mg=pS$ より $P_{気}=p-\\dfrac{mg}{S}$（定圧）。単原子なので $Q=\\Delta U+W=\\tfrac32P\\Delta V+P\\Delta V=\\tfrac52P\\cdot Sd$。よって $d=\\dfrac{2Q}{5PS}=\\dfrac{2Q}{5(pS-mg)}$。" }
+    },
+    {
+      "id": "2014-2-phy-10", "answerRow": 10, "block": "II", "topicId": "thermo",
+      "subtopic": "Sign of work over each leg of a p–V cycle",
+      "patternTags": ["conceptual", "pv-diagram", "work"], "hasFigure": true,
+      "figure": { "ja": "p–V 図の三角形サイクル A→B→C→A。A→B は定圧（A は右の大体積，B は左の小体積：圧縮），B→C は定積（圧力上昇），C→A は等温（曲線，膨張）。", "en": "Triangular p–V cycle A→B→C→A: A→B isobaric (A at large V right, B at small V left = compression), B→C isochoric (pressure rises), C→A isothermal curve (expansion)." },
+      "ja": { "prompt": "$p$-$V$ 図のように一定量の理想気体を A→B→C→A と変化させる。A→B は定圧変化，B→C は定積変化，C→A は等温変化である。各過程で気体が外部にした仕事はそれぞれ正・負・0 のどれか。正しい組み合わせはどれか。", "choices": ["A→B 正, B→C 負, C→A 0", "A→B 正, B→C 0, C→A 負", "A→B 負, B→C 正, C→A 0", "A→B 負, B→C 0, C→A 正", "A→B 0, B→C 正, C→A 負", "A→B 0, B→C 負, C→A 正"] },
+      "en": { "prompt": "An ideal gas runs A→B→C→A: A→B isobaric, B→C isochoric, C→A isothermal. For each leg, is the work done by the gas positive, negative, or 0? Choose the correct set.", "choices": ["A→B +, B→C −, C→A 0", "A→B +, B→C 0, C→A −", "A→B −, B→C +, C→A 0", "A→B −, B→C 0, C→A +", "A→B 0, B→C +, C→A −", "A→B 0, B→C −, C→A +"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "A→B 負, B→C 0, C→A 正", "en": "A→B −, B→C 0, C→A +" },
+      "explanation": { "en": "A→B isobaric with volume decreasing ⇒ work by gas negative. B→C isochoric (constant volume) ⇒ work $=0$. C→A isothermal with volume increasing ⇒ work positive.", "ja": "A→B は定圧で体積減少 ⇒ 仕事は負。B→C は定積 ⇒ 仕事 0。C→A は等温で体積増加 ⇒ 仕事は正。" }
+    },
+    {
+      "id": "2014-2-phy-11", "answerRow": 11, "block": "III", "topicId": "waves",
+      "subtopic": "Phase at another position for a travelling wave",
+      "patternTags": ["read-from-graph", "travelling-wave", "phase"], "hasFigure": true,
+      "figure": { "ja": "速さ 0.50 m/s で +x に進む正弦波。x=0 の y–t グラフは t=0 で最大，周期 0.4 s（コサイン）。x=0.45 m での y–t を選ぶ。", "en": "A sine wave moving +x at 0.50 m/s. The y–t graph at x=0 is a cosine (maximum at t=0), period 0.4 s. Choose the y–t graph at x=0.45 m." },
+      "ja": { "prompt": "$x$ 軸の正の向きに速さ $0.50\\,$m/s で進む正弦波がある。$x=0$ での $y$–$t$ グラフは $t=0$ で最大値をとり周期 $0.4\\,$s で変化する。$x=0.45\\,$m での $y$–$t$ グラフはどれか。", "choices": ["$t=0$ で $y=0$，立ち上がり（上昇），最初の山は $t\\approx0.1\\,$s（正弦）", "$t=0$ で $y=0$ から下降（負の正弦）", "$t=0$ で $y=$ 最大（コサイン，x=0 と同じ）", "$t=0$ で $y=$ 最小（負のコサイン）"] },
+      "en": { "prompt": "A sine wave moves $+x$ at $0.50\\,$m/s. At $x=0$ the $y$–$t$ graph is maximal at $t=0$ with period $0.4\\,$s. Which $y$–$t$ graph applies at $x=0.45\\,$m?", "choices": ["$y=0$ at $t=0$, rising, first crest at $t\\approx0.1\\,$s (a sine)", "$y=0$ at $t=0$, falling (negative sine)", "$y=$ maximum at $t=0$ (cosine, same as x=0)", "$y=$ minimum at $t=0$ (negative cosine)"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "$t=0$ で $y=0$，上昇して $t\\approx0.1\\,$s で山（正弦）", "en": "$y=0$ at $t=0$, rising to a crest at $t\\approx0.1\\,$s (a sine)" },
+      "explanation": { "en": "Wavelength $\\lambda=vT=0.50\\times0.4=0.20\\,$m. At $x=0.45$ the motion lags $x=0$ by $\\Delta t=x/v=0.9\\,$s $\\equiv0.1\\,$s (mod $T=0.4$). Delaying the cosine (peak at $t=0$) by $0.1\\,$s$=T/4$ gives a sine: $y=0$ at $t=0$, rising, crest at $t=0.1\\,$s.", "ja": "波長 $\\lambda=vT=0.20\\,$m。$x=0.45$ の振動は $x=0$ より $\\Delta t=x/v=0.9\\,$s$\\equiv0.1\\,$s（$T=0.4$ で割った余り）遅れる。$t=0$ で最大のコサインを $T/4$ 遅らせると正弦になり，$t=0$ で $y=0$，上昇，$t=0.1\\,$s で山。" }
+    },
+    {
+      "id": "2014-2-phy-12", "answerRow": 12, "block": "III", "topicId": "waves",
+      "subtopic": "Beats from two strings (fundamental frequencies)",
+      "patternTags": ["express-formula", "beats", "standing-waves"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "長さ $L_1$ の弦と長さ $L_2\\,(>L_1)$ の弦を並べ，それぞれを基本振動させると 1 秒あたり $n$ 回のうなりが聞こえた。波の速さはどちらの弦でも等しい。$L_1$ の弦の基本振動数を $f_1$ とする。$\\dfrac{L_2-L_1}{L_1}$ はどのように表されるか。", "choices": ["$\\dfrac{n}{f_1-n}$", "$\\dfrac{n}{f_1}$", "$\\dfrac{n}{f_1+n}$", "$\\dfrac{2n}{f_1-n}$", "$\\dfrac{2n}{f_1}$", "$\\dfrac{2n}{f_1+n}$"] },
+      "en": { "prompt": "Strings of length $L_1$ and $L_2\\,(>L_1)$ are sounded in their fundamentals, giving $n$ beats per second. The wave speed is the same on both. With $f_1$ the fundamental of the $L_1$ string, express $\\dfrac{L_2-L_1}{L_1}$.", "choices": ["$\\dfrac{n}{f_1-n}$", "$\\dfrac{n}{f_1}$", "$\\dfrac{n}{f_1+n}$", "$\\dfrac{2n}{f_1-n}$", "$\\dfrac{2n}{f_1}$", "$\\dfrac{2n}{f_1+n}$"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "$\\dfrac{n}{f_1-n}$", "en": "$\\dfrac{n}{f_1-n}$" },
+      "explanation": { "en": "Fundamental $f=\\dfrac{v}{2L}\\propto\\dfrac1L$. Since $L_2>L_1$, $f_2<f_1$ and the beat gives $f_2=f_1-n$. Then $\\dfrac{L_2}{L_1}=\\dfrac{f_1}{f_2}=\\dfrac{f_1}{f_1-n}$, so $\\dfrac{L_2-L_1}{L_1}=\\dfrac{f_1}{f_1-n}-1=\\dfrac{n}{f_1-n}$.", "ja": "基本振動数 $f=\\dfrac{v}{2L}\\propto\\dfrac1L$。$L_2>L_1$ より $f_2<f_1$，うなりから $f_2=f_1-n$。$\\dfrac{L_2}{L_1}=\\dfrac{f_1}{f_2}=\\dfrac{f_1}{f_1-n}$ なので $\\dfrac{L_2-L_1}{L_1}=\\dfrac{n}{f_1-n}$。" }
+    },
+    {
+      "id": "2014-2-phy-13", "answerRow": 13, "block": "III", "topicId": "waves",
+      "subtopic": "Lens displacement method (two image positions)",
+      "patternTags": ["plug-in-numbers", "geometric-optics", "conjugate-positions"], "hasFigure": true,
+      "figure": { "ja": "物体とスクリーンを 0.90 m 離して固定。間で凸レンズを動かすと実像が 2 回できる。1 回目の物体–レンズ距離＝2 回目のレンズ–スクリーン距離（共役）。一方の像は他方の 4 倍。", "en": "Object and screen fixed 0.90 m apart. Moving a convex lens between them gives a real image twice (conjugate positions). One image is 4× the other." },
+      "ja": { "prompt": "物体とスクリーンを $0.90\\,$m 離して固定し，その間で凸レンズを動かすとスクリーン上に実像が 2 度できた。1 度目の物体–レンズ距離は 2 度目のレンズ–スクリーン距離に等しく（共役），一方の実像は他方の $4$ 倍であった。このレンズの焦点距離は何 m か。", "choices": ["$0.10$", "$0.20$", "$0.30$", "$0.40$"] },
+      "en": { "prompt": "Object and screen are fixed $0.90\\,$m apart; moving a convex lens between them gives a real image at two conjugate positions, one image $4\\times$ the other. Find the focal length (m).", "choices": ["$0.10$", "$0.20$", "$0.30$", "$0.40$"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "$0.20$", "en": "$0.20$" },
+      "explanation": { "en": "Conjugate positions satisfy $a+b=0.90$, and the two magnifications are $b/a$ and $a/b$ whose ratio $(b/a)^2=4\\Rightarrow b/a=2$. So $a=0.30$, $b=0.60$. Lens equation $\\dfrac1a+\\dfrac1b=\\dfrac1f$ gives $\\dfrac1{0.30}+\\dfrac1{0.60}=5=\\dfrac1f$, so $f=0.20\\,$m.", "ja": "共役位置で $a+b=0.90$，倍率は $b/a$ と $a/b$ でその比 $(b/a)^2=4\\Rightarrow b/a=2$。よって $a=0.30$，$b=0.60$。$\\dfrac1a+\\dfrac1b=\\dfrac1f$ より $\\dfrac1{0.30}+\\dfrac1{0.60}=5=\\dfrac1f$，$f=0.20\\,$m。" }
+    },
+    {
+      "id": "2014-2-phy-14", "answerRow": 14, "block": "IV", "topicId": "em",
+      "subtopic": "Superposition of point-charge fields at the origin",
+      "patternTags": ["express-formula", "electric-field", "superposition", "vectors"], "hasFigure": true,
+      "figure": { "ja": "図1：A(a,0) に +Q，原点 O での電場 E0。図2：さらに B(0,a) に +Q，C(−2a,0) に +Q を加える。O での電場 E1。", "en": "Fig 1: +Q at A(a,0); field at O is E0. Fig 2: also +Q at B(0,a) and +Q at C(−2a,0); field at O is E1." },
+      "ja": { "prompt": "図1 のように $xy$ 平面の A$(a,0)$ に電気量 $Q(>0)$ を固定すると，原点 O での電場の大きさは $E_0$ であった。図2 のように，さらに B$(0,a)$ に $Q$，C$(-2a,0)$ に $Q$ を固定すると，O での電場の大きさは $E_1$ になった。$\\dfrac{E_1}{E_0}$ はいくらか。", "choices": ["$\\dfrac{\\sqrt5}{2}$", "$\\dfrac{5}{4}$", "$\\dfrac{\\sqrt{41}}{4}$", "$\\dfrac{7}{4}$", "$\\dfrac{\\sqrt{13}}{2}$", "$\\dfrac{9}{4}$"] },
+      "en": { "prompt": "With $Q(>0)$ at A$(a,0)$, the field at the origin O is $E_0$. Adding $Q$ at B$(0,a)$ and $Q$ at C$(-2a,0)$ makes the field at O equal to $E_1$. Find $\\dfrac{E_1}{E_0}$.", "choices": ["$\\dfrac{\\sqrt5}{2}$", "$\\dfrac{5}{4}$", "$\\dfrac{\\sqrt{41}}{4}$", "$\\dfrac{7}{4}$", "$\\dfrac{\\sqrt{13}}{2}$", "$\\dfrac{9}{4}$"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "$\\dfrac{5}{4}$", "en": "$\\dfrac{5}{4}$" },
+      "explanation": { "en": "$E_0=\\dfrac{kQ}{a^2}$. At O: A gives $-\\dfrac{kQ}{a^2}\\hat x$; C (distance $2a$) gives $+\\dfrac{kQ}{4a^2}\\hat x$; B (distance $a$) gives $-\\dfrac{kQ}{a^2}\\hat y$. Net: $E_x=-\\tfrac34\\dfrac{kQ}{a^2}$, $E_y=-\\dfrac{kQ}{a^2}$, magnitude $\\sqrt{(3/4)^2+1^2}\\dfrac{kQ}{a^2}=\\tfrac54\\dfrac{kQ}{a^2}$. So $E_1/E_0=\\tfrac54$.", "ja": "$E_0=\\dfrac{kQ}{a^2}$。O で：A は $-\\dfrac{kQ}{a^2}\\hat x$，C（距離 $2a$）は $+\\dfrac{kQ}{4a^2}\\hat x$，B（距離 $a$）は $-\\dfrac{kQ}{a^2}\\hat y$。合成は $E_x=-\\tfrac34\\dfrac{kQ}{a^2}$，$E_y=-\\dfrac{kQ}{a^2}$，大きさ $\\sqrt{(3/4)^2+1}\\dfrac{kQ}{a^2}=\\tfrac54\\dfrac{kQ}{a^2}$。よって $E_1/E_0=\\tfrac54$。" }
+    },
+    {
+      "id": "2014-2-phy-15", "answerRow": 15, "block": "IV", "topicId": "em",
+      "subtopic": "Potential profile across a dielectric slab",
+      "patternTags": ["read-from-graph", "electric-potential", "dielectric"], "hasFigure": true,
+      "figure": { "ja": "大きさ E0 の一様電場中に厚さ 2d の誘電体板（−d≤x≤d）。板内の電場 E1 は外部と同じ向きで一定，E0 より小さい（>0）。x 軸は電場の向き。V(x) のグラフを選ぶ。", "en": "A dielectric slab (−d≤x≤d) of thickness 2d sits in a uniform field E0; inside, the field E1 is in the same direction, constant, and smaller than E0 (but >0). x is along the field. Choose the V(x) graph." },
+      "ja": { "prompt": "大きさ $E_0$ の一様な電場中に，厚さ $2d$ の誘電体板を電場に垂直に置く。板内部の電場 $E_1$ は外部と同じ向きで一定，かつ $E_0$ より小さい。板の中心を原点 O とし電場方向に $x$ 軸をとる（板は $-d\\le x\\le d$）。$x$ 軸上の電位 $V$ の変化を表すグラフはどれか。", "choices": ["板内が水平（電位一定）で外側は上昇", "外側が緩く上昇し板内が急上昇", "全体が一定の傾きで上昇（直線）", "外側が急上昇し板内が緩く上昇", "板内が水平で外側は下降", "外側が急に下降し板内は緩やかに下降（単調減少，外側が急で板内が緩い）", "全体が一定の傾きで下降（直線）", "板内の傾きが外側より急な下降"] },
+      "en": { "prompt": "A dielectric slab of thickness $2d$ ($-d\\le x\\le d$) sits in a uniform field $E_0$; inside, the field $E_1$ is in the same direction, constant, and smaller than $E_0$. With $x$ along the field, which graph shows the potential $V(x)$?", "choices": ["flat (constant V) inside, rising outside", "outside rises gently, inside rises steeply", "uniform rising line throughout", "outside rises steeply, inside rises gently", "flat inside, falling outside", "V decreases monotonically: steeper slope outside the slab, gentler slope inside", "uniform falling line throughout", "decreasing with a steeper slope inside than outside"] },
+      "answerIndex": 5, "answerOption": 6, "answer": { "ja": "外側が急に下降し板内は緩やかに下降（単調減少；外側 $-E_0$，板内 $-E_1$）", "en": "monotonically decreasing: steeper slope $(-E_0)$ outside, gentler slope $(-E_1)$ inside" },
+      "explanation": { "en": "Since $E=-\\dfrac{dV}{dx}$ and the field points in $+x$, $V$ decreases with $x$ everywhere. Outside the slab the slope is $-E_0$ (steeper); inside it is $-E_1$ with $0<E_1<E_0$ (gentler but not flat). So $V$ falls steeply, then gently across the slab, then steeply — graph ⑥. (A flat middle would need $E_1=0$; a straight line would need $E_1=E_0$.)", "ja": "$E=-\\dfrac{dV}{dx}$ で電場は $+x$ 向きなので $V$ は至る所で減少。板の外は傾き $-E_0$（急），板内は $-E_1$（$0<E_1<E_0$，緩いが水平ではない）。よって急→緩→急の単調減少（⑥）。板内水平なら $E_1=0$，直線なら $E_1=E_0$ になってしまう。" }
+    },
+    {
+      "id": "2014-2-phy-16", "answerRow": 16, "block": "IV", "topicId": "em",
+      "subtopic": "Series–parallel resistor network (branch current)",
+      "patternTags": ["express-formula", "dc-circuit", "series-parallel"], "hasFigure": true,
+      "figure": { "ja": "7 個の抵抗 R と電池 V。A から R 1 個（直列）の後，2 つの並列枝に分かれ，各枝は「R（直列）＋（R と R の並列）」。", "en": "Seven resistors R with battery V: from A, one series R, then two parallel branches, each being [R in series + (R∥R)]." },
+      "ja": { "prompt": "抵抗値 $R$ の抵抗 7 個と起電力 $V$ の電池を図のように接続した（内部抵抗は無視）。位置 A から $R$ を 1 個通った後，2 つの並列な枝に分かれ，各枝は「$R$（直列）＋$R$ 2 個の並列」からなる。位置 A を流れる電流 $I$ はどのように表されるか。", "choices": ["$\\dfrac{V}{3R}$", "$\\dfrac{2V}{5R}$", "$\\dfrac{4V}{7R}$", "$\\dfrac{8V}{7R}$"] },
+      "en": { "prompt": "Seven resistors $R$ and a battery $V$ are connected (no internal resistance): from A a single series $R$, then two parallel branches, each being [$R$ in series + two $R$ in parallel]. Find the current $I$ through A.", "choices": ["$\\dfrac{V}{3R}$", "$\\dfrac{2V}{5R}$", "$\\dfrac{4V}{7R}$", "$\\dfrac{8V}{7R}$"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "$\\dfrac{4V}{7R}$", "en": "$\\dfrac{4V}{7R}$" },
+      "explanation": { "en": "Each branch $=R+(R\\parallel R)=R+\\tfrac{R}{2}=\\tfrac{3R}{2}$. The two branches in parallel $=\\tfrac{3R}{4}$. Total $=R+\\tfrac{3R}{4}=\\tfrac{7R}{4}$. So $I=\\dfrac{V}{7R/4}=\\dfrac{4V}{7R}$.", "ja": "各枝 $=R+(R\\parallel R)=\\tfrac{3R}{2}$。2 枝の並列 $=\\tfrac{3R}{4}$。全体 $=R+\\tfrac{3R}{4}=\\tfrac{7R}{4}$。よって $I=\\dfrac{V}{7R/4}=\\dfrac{4V}{7R}$。" }
+    },
+    {
+      "id": "2014-2-phy-17", "answerRow": 17, "block": "IV", "topicId": "em",
+      "subtopic": "Two parallel capacitors, then dielectric after isolation",
+      "patternTags": ["express-formula", "capacitors", "dielectric", "charge-conservation"], "hasFigure": true,
+      "figure": { "ja": "面積 S・間隔 d の平行板コンデンサー 2 個と電池 V・スイッチを並列接続。スイッチを閉じ十分後に開く（電池切り離し）。その後，右のコンデンサーを誘電率 2ε0 の誘電体で満たす。右の電荷 Q。", "en": "Two parallel-plate capacitors (area S, gap d) connected in parallel with battery V and a switch. Close, wait, then open (disconnect battery). Then fill the right capacitor with dielectric 2ε0; its charge is Q." },
+      "ja": { "prompt": "面積 $S$，間隔 $d$ の平行板コンデンサー 2 個と起電力 $V$ の電池・スイッチを並列に接続する。スイッチを閉じて十分時間後に開いた（電池を切り離す）。空気の誘電率は真空の $\\varepsilon_0$ に等しい。その後，右のコンデンサーの極板間を誘電率 $2\\varepsilon_0$ の誘電体で満たすと，十分時間後に右のコンデンサーには電気量 $Q$ がたくわえられた。$Q$ はどのように表されるか。", "choices": ["$\\dfrac{2\\varepsilon_0 SV}{3d}$", "$\\dfrac{2dV}{3\\varepsilon_0 S}$", "$\\dfrac{4\\varepsilon_0 SV}{3d}$", "$\\dfrac{4dV}{3\\varepsilon_0 S}$"] },
+      "en": { "prompt": "Two parallel-plate capacitors (area $S$, gap $d$) are connected in parallel with battery $V$ and a switch. After closing and waiting, the switch is opened (battery disconnected). Then the right capacitor is filled with a dielectric of permittivity $2\\varepsilon_0$; its stored charge becomes $Q$. Express $Q$.", "choices": ["$\\dfrac{2\\varepsilon_0 SV}{3d}$", "$\\dfrac{2dV}{3\\varepsilon_0 S}$", "$\\dfrac{4\\varepsilon_0 SV}{3d}$", "$\\dfrac{4dV}{3\\varepsilon_0 S}$"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "$\\dfrac{4\\varepsilon_0 SV}{3d}$", "en": "$\\dfrac{4\\varepsilon_0 SV}{3d}$" },
+      "explanation": { "en": "Each cap $C_0=\\dfrac{\\varepsilon_0 S}{d}$ charges to $V$; total charge of the isolated parallel pair is $2C_0V$ (conserved after the switch opens). The right cap becomes $2C_0$; common voltage $V'=\\dfrac{2C_0V}{C_0+2C_0}=\\dfrac{2V}{3}$. So $Q=2C_0V'=2C_0\\cdot\\dfrac{2V}{3}=\\dfrac{4C_0V}{3}=\\dfrac{4\\varepsilon_0 SV}{3d}$.", "ja": "各コンデンサー $C_0=\\dfrac{\\varepsilon_0 S}{d}$ が $V$ に充電。スイッチを開いた後の孤立並列系の総電荷は $2C_0V$（保存）。右は $2C_0$ になり共通電圧 $V'=\\dfrac{2C_0V}{3C_0}=\\dfrac{2V}{3}$。よって $Q=2C_0V'=\\dfrac{4C_0V}{3}=\\dfrac{4\\varepsilon_0 SV}{3d}$。" }
+    },
+    {
+      "id": "2014-2-phy-18", "answerRow": 18, "block": "IV", "topicId": "em",
+      "subtopic": "Zero net field from two perpendicular current wires",
+      "patternTags": ["express-formula", "magnetic-field", "biot-savart", "superposition"], "hasFigure": true,
+      "figure": { "ja": "x 軸の導線に +x 向き電流 I0，y 軸の導線に +y 向き電流 2I0（交点で絶縁）。点 (x0,y0) で合成磁場が 0。", "en": "Wire on the x-axis carries I0 in +x; wire on the y-axis carries 2I0 in +y (insulated at the crossing). The net field is zero at (x0,y0)." },
+      "ja": { "prompt": "2 本の無限直線導線が直交し（交点で絶縁），$x$ 軸の導線に $+x$ 向きに $I_0$，$y$ 軸の導線に $+y$ 向きに $2I_0$ の電流が流れている。$xy$ 平面内の原点以外の点 $(x_0,y_0)$ で磁場の大きさが $0$ になった。$x_0$ と $y_0$ の関係はどれか。", "choices": ["$y_0=\\dfrac{1}{2}x_0$", "$y_0=2x_0$", "$y_0=-\\dfrac{1}{2}x_0$", "$y_0=-2x_0$"] },
+      "en": { "prompt": "Two perpendicular infinite wires (insulated at the crossing): the $x$-axis wire carries $I_0$ in $+x$, the $y$-axis wire carries $2I_0$ in $+y$. The net magnetic field vanishes at a point $(x_0,y_0)\\neq O$. What is the relation between $x_0$ and $y_0$?", "choices": ["$y_0=\\dfrac{1}{2}x_0$", "$y_0=2x_0$", "$y_0=-\\dfrac{1}{2}x_0$", "$y_0=-2x_0$"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "$y_0=\\dfrac{1}{2}x_0$", "en": "$y_0=\\dfrac{1}{2}x_0$" },
+      "explanation": { "en": "Both wires give fields along $\\pm z$ at a point in the plane. The $x$-wire gives $\\dfrac{\\mu_0 I_0}{2\\pi|y_0|}$ and the $y$-wire gives $\\dfrac{\\mu_0\\cdot2I_0}{2\\pi|x_0|}$, in opposite senses for cancellation. Setting magnitudes equal: $\\dfrac{I_0}{|y_0|}=\\dfrac{2I_0}{|x_0|}\\Rightarrow|x_0|=2|y_0|$, with the point in the first/third quadrant, i.e. $y_0=\\tfrac12x_0$.", "ja": "平面内の点で各導線の磁場は $\\pm z$ 向き。$x$ 軸導線は $\\dfrac{\\mu_0 I_0}{2\\pi|y_0|}$，$y$ 軸導線は $\\dfrac{\\mu_0\\cdot2I_0}{2\\pi|x_0|}$ で，打ち消すには逆向き。大きさを等しく $\\dfrac{I_0}{|y_0|}=\\dfrac{2I_0}{|x_0|}$ より $|x_0|=2|y_0|$，符号は同じ象限で $y_0=\\tfrac12x_0$。" }
+    },
+    {
+      "id": "2014-2-phy-19", "answerRow": 19, "block": "IV", "topicId": "em",
+      "subtopic": "Accelerated electron in a magnetic field (radius & time)",
+      "patternTags": ["conceptual", "magnetic-force", "circular-motion", "scaling"], "hasFigure": true,
+      "figure": { "ja": "電位差 V で電子を初速 0 から加速し，磁束密度一定の領域に垂直入射。半径 r の半円を描き，時間 T 後に出る。磁場は紙面の表から裏。", "en": "An electron accelerated from rest through potential difference V enters a uniform field perpendicularly, traces a semicircle of radius r, and exits after time T." },
+      "ja": { "prompt": "電位差 $V$ で電子を初速 $0$ から加速し，一様な磁場の領域に磁場と垂直に入射させると，半径 $r$ の半円軌道を一定の速さで運動し，時間 $T$ 後に出てきた。$V$ を $2$ 倍にすると $r$ と $T$ はどうなるか。", "choices": ["$r$: $\\sqrt2$ 倍, $T$: 変わらない", "$r$: $\\sqrt2$ 倍, $T$: $\\sqrt2$ 倍", "$r$: $\\sqrt2$ 倍, $T$: $2$ 倍", "$r$: $2$ 倍, $T$: 変わらない", "$r$: $2$ 倍, $T$: $\\sqrt2$ 倍", "$r$: $2$ 倍, $T$: $2$ 倍"] },
+      "en": { "prompt": "An electron accelerated from rest through $V$ enters a uniform field perpendicularly, traces a semicircle of radius $r$, and exits after time $T$. If $V$ is doubled, what happens to $r$ and $T$?", "choices": ["$r$: $\\sqrt2\\times$, $T$: unchanged", "$r$: $\\sqrt2\\times$, $T$: $\\sqrt2\\times$", "$r$: $\\sqrt2\\times$, $T$: $2\\times$", "$r$: $2\\times$, $T$: unchanged", "$r$: $2\\times$, $T$: $\\sqrt2\\times$", "$r$: $2\\times$, $T$: $2\\times$"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "$r$: $\\sqrt2$ 倍, $T$: 変わらない", "en": "$r$: $\\sqrt2\\times$, $T$: unchanged" },
+      "explanation": { "en": "$eV=\\tfrac12mv^2\\Rightarrow v\\propto\\sqrt V$. Radius $r=\\dfrac{mv}{eB}\\propto v\\propto\\sqrt V$, so doubling $V$ multiplies $r$ by $\\sqrt2$. The semicircle time $T=\\dfrac{\\pi m}{eB}$ is independent of speed, so $T$ is unchanged.", "ja": "$eV=\\tfrac12mv^2$ より $v\\propto\\sqrt V$。半径 $r=\\dfrac{mv}{eB}\\propto v\\propto\\sqrt V$ なので $V$ を 2 倍にすると $r$ は $\\sqrt2$ 倍。半円の時間 $T=\\dfrac{\\pi m}{eB}$ は速さによらず一定なので変わらない。" }
+    }
+  ],
+  "patterns": {
+    "blockSkeleton": "An older-format paper: Mechanics ×7, Thermodynamics ×3, Waves ×3, Electricity & Magnetism ×6, and NO Atoms block — 19 items total. (Post-2015 papers settled into 6/3/3/6/1.)",
+    "newArchetypesVsPrevious": [
+      "Projectile confined to a smooth inclined plane (effective gravity g·sinα along the slope); the slope angle cancels and v0=√(2gh)/sinθ.",
+      "Up-and-down a rough incline: combine the up and down energy equations to eliminate the friction term, giving return speed √(4gh−v0²).",
+      "Pulley-loaded piston: the hanging weight's tension sets a constant gas pressure p−mg/S (isobaric), then the monatomic first law gives Q=(5/2)P·Sd.",
+      "Dielectric-slab potential profile: V is piecewise-linear, steeper (−E0) outside and gentler (−E1) inside.",
+      "Two perpendicular current wires: balance the two ±z fields to get x0=2y0.",
+      "Accelerated electron in B: r∝√V but the semicircle time T=πm/(eB) is speed-independent."
+    ],
+    "recurringWithPrevious": [
+      "Normal force on an incline N=mg·cosθ with cosθ from the leg ratio.",
+      "Ladder/rod against a smooth wall: torque about the floor contact; friction = wall normal force.",
+      "v–t graph → x–t graph (area/integral reasoning).",
+      "2-D perfectly inelastic collision: tanθ = perpendicular momentum / parallel momentum.",
+      "Vertical circular track normal force via energy conservation; at the side (level with centre) N=mv²/r.",
+      "Calorimetry with a partial-melt endpoint (0℃ ice+water coexisting).",
+      "Sign of work on each p–V leg; isochoric leg does zero work.",
+      "Travelling-wave phase shift to another position; beats from two strings f∝1/L.",
+      "Lens displacement (conjugate) method; superposition of point-charge fields; isolated-capacitor charge conservation with a dielectric."
+    ],
+    "examTacticNotes": [
+      "Projectile on an incline = ordinary projectile with g replaced by g·sinα along the slope; vertical height = (slope distance)·sinα, so α often cancels.",
+      "Rough up/down slope: write KE_up = mgh + fL and KE_down = mgh − fL; adding/subtracting eliminates the unknown friction.",
+      "A weight on a string over a pulley fixes the gas pressure → treat the heating as isobaric; for a monatomic gas Q = (5/2)PΔV.",
+      "Field ⇄ potential: V is the (negative) running integral of E; a region of weaker field is a gentler slope on the V–x graph (flat only if E=0).",
+      "Cyclotron motion: radius scales with speed (∝√(accelerating voltage)), but the period/half-period is independent of speed.",
+      "For fields of two crossing wires at an in-plane point, both fields are ⊥ to the plane (±z); just balance magnitudes μ0I/(2πr)."
+    ],
+    "difficulty": "Standard EJU level with a heavier Mechanics section (7 items). The incline-projectile (Q4), pulley-piston first law (Q9), dielectric-slab potential graph (Q15) and the crossing-wires balance (Q18) are the most discriminating."
+  }
+}

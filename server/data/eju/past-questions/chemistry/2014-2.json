@@ -1,0 +1,275 @@
+{
+  "id": "2014-2-chemistry",
+  "year": 2014,
+  "session": 2,
+  "subject": "chemistry",
+  "title": "EJU 2014 · Session 2 · Chemistry",
+  "source": "平成26年度（2014年度）日本留学試験（第2回）理科〈化学〉 © Japan Student Services Organization (JASSO)",
+  "attribution": "EJU past questions © JASSO. Question text transcribed from the official past paper; figures described in text; correct answers taken from the official JASSO answer key and independently re-solved for verification.",
+  "languages": ["ja", "en"],
+  "answerKeyVerified": true,
+  "structure": {
+    "format": "flat",
+    "totalQuestions": 20,
+    "note": "Chemistry is a flat list of 20 single-best-answer items (問1–問20, answer rows 1–20) — no Roman-numeral blocks. Order ≈ structure & bonding → states/energetics/electrochemistry/equilibria → inorganic → organic.",
+    "givens": {
+      "ja": "標準状態 $0\\,$°C・$1.0\\times10^5\\,$Pa，気体 $1\\,$mol の体積 $22.4\\,$L，気体定数 $R=8.31\\times10^3\\,$Pa·L/(K·mol)，アボガドロ定数 $N_A=6.02\\times10^{23}\\,$/mol，ファラデー定数 $F=9.65\\times10^4\\,$C/mol。原子量：H 1.0, C 12, N 14, O 16, Mg 24, Cl 35, Cu 64, Br 80。",
+      "en": "STP $0\\,$°C, $1.0\\times10^5\\,$Pa; molar volume $22.4\\,$L; $R=8.31\\times10^3\\,$Pa·L/(K·mol); $N_A=6.02\\times10^{23}\\,$/mol; $F=9.65\\times10^4\\,$C/mol. Atomic weights: H 1.0, C 12, N 14, O 16, Mg 24, Cl 35, Cu 64, Br 80."
+    }
+  },
+  "questions": [
+    {
+      "id": "2014-2-chem-1", "answerRow": 1, "topicId": "matter-structure",
+      "subtopic": "Incorrect statement about elements in periods 1–4",
+      "patternTags": ["electron-config-periodic", "periodic-classification", "pick-false-statement"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "周期表の第 1 周期から第 4 周期（K で始まる周期）の元素に関する次の記述①〜⑤のうち，誤っているものを選びなさい。", "choices": ["Al は典型元素である。", "K はアルカリ土類金属である。", "Fe は遷移元素である。", "He はイオン化エネルギーが最も大きい。", "F は電気陰性度が最も大きい。"] },
+      "en": { "prompt": "For elements in periods 1–4 (period 4 begins with K), which statement is INCORRECT?", "choices": ["Al is a main-group element.", "K is an alkaline-earth metal.", "Fe is a transition element.", "He has the largest ionization energy.", "F has the largest electronegativity."] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "「K はアルカリ土類金属」は誤り（②，K は 1 族のアルカリ金属）", "en": "\"K is an alkaline-earth metal\" is wrong (② — K is a group-1 alkali metal)" },
+      "explanation": { "en": "Potassium is a group-1 alkali metal, not a group-2 alkaline-earth metal. The other statements are correct (Al is a main-group element; Fe is a transition metal; He has the highest ionization energy; F is the most electronegative element).", "ja": "カリウムは 1 族のアルカリ金属で，2 族のアルカリ土類金属ではない。他は正しい（Al は典型元素，Fe は遷移金属，He はイオン化エネルギー最大，F は電気陰性度最大）。" }
+    },
+    {
+      "id": "2014-2-chem-2", "answerRow": 2, "topicId": "matter-structure",
+      "subtopic": "Which compound is a covalent (network) crystal",
+      "patternTags": ["chemical-bonds", "crystal-type", "covalent-crystal"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の化合物①〜④のうち，共有結合の結晶であるものを一つ選びなさい。", "choices": ["$\\mathrm{BaSO_4}$", "CaO", "$\\mathrm{CO_2}$", "$\\mathrm{SiO_2}$"] },
+      "en": { "prompt": "Which compound forms a covalent (network) crystal?", "choices": ["$\\mathrm{BaSO_4}$", "CaO", "$\\mathrm{CO_2}$", "$\\mathrm{SiO_2}$"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "$\\mathrm{SiO_2}$", "en": "$\\mathrm{SiO_2}$" },
+      "explanation": { "en": "$\\mathrm{SiO_2}$ is a covalent network crystal (quartz). $\\mathrm{BaSO_4}$ and CaO are ionic crystals; $\\mathrm{CO_2}$ (dry ice) is a molecular crystal.", "ja": "$\\mathrm{SiO_2}$（石英）は共有結合の結晶。$\\mathrm{BaSO_4}$ と CaO はイオン結晶，$\\mathrm{CO_2}$（ドライアイス）は分子結晶。" }
+    },
+    {
+      "id": "2014-2-chem-3", "answerRow": 3, "topicId": "states-and-change",
+      "subtopic": "Balancing coefficient in pyrite roasting",
+      "patternTags": ["stoichiometry", "balancing-equations"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "黄鉄鉱 $\\mathrm{FeS_2}$ と酸素の反応 $\\mathrm{4FeS_2}+x\\,\\mathrm{O_2}\\to y\\,\\mathrm{Fe_2O_3}+z\\,\\mathrm{SO_2}$ における係数 $x$ の値を選びなさい。", "choices": ["5", "7", "11", "12", "14"] },
+      "en": { "prompt": "In $\\mathrm{4FeS_2}+x\\,\\mathrm{O_2}\\to y\\,\\mathrm{Fe_2O_3}+z\\,\\mathrm{SO_2}$, find the coefficient $x$.", "choices": ["5", "7", "11", "12", "14"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "$x=11$", "en": "$x=11$" },
+      "explanation": { "en": "Fe: 4 → $y=2$. S: 8 → $z=8$. O on the right $=2\\times3+8\\times2=22$, so $2x=22$ and $x=11$. ($\\mathrm{4FeS_2+11O_2\\to2Fe_2O_3+8SO_2}$).", "ja": "Fe：4 → $y=2$。S：8 → $z=8$。右辺の O $=2\\times3+8\\times2=22$ なので $2x=22$，$x=11$。（$\\mathrm{4FeS_2+11O_2\\to2Fe_2O_3+8SO_2}$）。" }
+    },
+    {
+      "id": "2014-2-chem-4", "answerRow": 4, "topicId": "states-and-change",
+      "subtopic": "Gas with a given STP density",
+      "patternTags": ["gas-law", "density", "molar-mass", "plug-in-numbers"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "標準状態で密度が $1.25\\,$g/L である気体を①〜⑤から選びなさい。", "choices": ["$\\mathrm{CH_4}$", "$\\mathrm{CO_2}$", "$\\mathrm{H_2}$", "$\\mathrm{N_2}$", "$\\mathrm{O_2}$"] },
+      "en": { "prompt": "Which gas has a density of $1.25\\,$g/L at STP?", "choices": ["$\\mathrm{CH_4}$", "$\\mathrm{CO_2}$", "$\\mathrm{H_2}$", "$\\mathrm{N_2}$", "$\\mathrm{O_2}$"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "$\\mathrm{N_2}$", "en": "$\\mathrm{N_2}$" },
+      "explanation": { "en": "At STP, $M=\\text{density}\\times22.4=1.25\\times22.4=28\\,$g/mol → $\\mathrm{N_2}$.", "ja": "標準状態で $M=\\text{密度}\\times22.4=1.25\\times22.4=28\\,$g/mol → $\\mathrm{N_2}$。" }
+    },
+    {
+      "id": "2014-2-chem-5", "answerRow": 5, "topicId": "states-and-change",
+      "subtopic": "Mass for a volumetric flask prep and meniscus reading",
+      "patternTags": ["concentration", "lab-technique", "meniscus", "plug-in-numbers"], "hasFigure": true,
+      "figure": { "ja": "$100\\,$mL のメスフラスコで $0.10\\,$mol/L シュウ酸 $\\mathrm{C_2H_2O_4}$ 水溶液を作る。液量合わせ：(a) メニスカスの底を標線に合わせる，(b) メニスカスの上端などを合わせる。", "en": "Making $0.10\\,$mol/L oxalic acid $\\mathrm{C_2H_2O_4}$ in a $100\\,$mL volumetric flask. Level alignment: (a) bottom of the meniscus on the mark, (b) a different alignment." },
+      "ja": { "prompt": "$100\\,$mL のメスフラスコで $0.10\\,$mol/L のシュウ酸 $\\mathrm{C_2H_2O_4}$ 水溶液 $100\\,$mL を作るのに必要なシュウ酸は何 g か。また，標線への液量合わせは (a)（メニスカスの底を標線に合わせる）と (b) のどちらが正しいか。", "choices": ["0.90 g／a", "0.90 g／b", "9.0 g／a", "9.0 g／b", "90 g／a", "90 g／b"] },
+      "en": { "prompt": "How many grams of oxalic acid $\\mathrm{C_2H_2O_4}$ are needed to make $100\\,$mL of $0.10\\,$mol/L solution in a volumetric flask, and which level alignment is correct: (a) bottom of the meniscus on the mark, or (b)?", "choices": ["0.90 g / a", "0.90 g / b", "9.0 g / a", "9.0 g / b", "90 g / a", "90 g / b"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "0.90 g／(a)", "en": "0.90 g / (a)" },
+      "explanation": { "en": "Oxalic acid $\\mathrm{C_2H_2O_4}$ has $M=90$; $0.10\\,\\text{mol/L}\\times0.100\\,\\text{L}=0.010\\,$mol $=0.90\\,$g. Fill so the BOTTOM of the meniscus sits on the marked line (read at eye level) — that is (a).", "ja": "シュウ酸 $\\mathrm{C_2H_2O_4}$ は $M=90$，$0.10\\,\\text{mol/L}\\times0.100\\,\\text{L}=0.010\\,$mol$=0.90\\,$g。液面はメニスカスの底を標線に合わせる（目の高さで読む）— (a)。" }
+    },
+    {
+      "id": "2014-2-chem-6", "answerRow": 6, "topicId": "states-and-change",
+      "subtopic": "Correct equilibrium statement for methanol synthesis",
+      "patternTags": ["chemical-equilibrium", "le-chatelier", "pick-correct-statement"], "hasFigure": false,
+      "figure": { "ja": "$\\mathrm{CO+2H_2\\rightleftharpoons CH_3OH}+92\\,$kJ（発熱）。", "en": "$\\mathrm{CO+2H_2\\rightleftharpoons CH_3OH}+92\\,$kJ (exothermic)." },
+      "ja": { "prompt": "$\\mathrm{CO+2H_2\\rightleftharpoons CH_3OH}+92\\,$kJ が平衡状態にあるとき，正しい記述を選びなさい。", "choices": ["平衡状態とは，正反応も逆反応もおこらず反応が止まった状態である。", "平衡状態では，CO とメタノールの物質量の比は常に 1:1 である。", "触媒を増やすと平衡は右に移動する。", "圧力一定で温度を高くすると平衡は右に移動する。", "温度一定で圧力を高くすると平衡は右に移動する。"] },
+      "en": { "prompt": "For $\\mathrm{CO+2H_2\\rightleftharpoons CH_3OH}+92\\,$kJ at equilibrium, which statement is correct?", "choices": ["Equilibrium means both forward and reverse reactions have stopped.", "At equilibrium, the CO-to-methanol mole ratio is always 1:1.", "Adding catalyst shifts the equilibrium right.", "Raising T at constant pressure shifts it right.", "Raising the pressure at constant temperature shifts it right."] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "温度一定で圧力を高くすると右に移動する（⑤）", "en": "Raising the pressure at constant T shifts it right (⑤)" },
+      "explanation": { "en": "The left side has 3 mol of gas (CO + 2H₂) and the right side 1 mol (CH₃OH), so higher pressure shifts the equilibrium right (⑤). Equilibrium is dynamic (both reactions continue); the mole ratio is not fixed; a catalyst does not shift it; and raising T (exothermic forward) shifts it left.", "ja": "左辺は気体 3 mol（CO+2H₂），右辺は 1 mol（CH₃OH）なので加圧で右へ移動（⑤）。平衡は動的（両反応とも進行），物質量比は一定でない，触媒は移動させない，昇温（発熱反応）は左へ移動。" }
+    },
+    {
+      "id": "2014-2-chem-7", "answerRow": 7, "topicId": "states-and-change",
+      "subtopic": "Correct pH statement for a weak acid and strong base",
+      "patternTags": ["acids-bases", "ph-calculation", "dilution", "pick-correct-statement"], "hasFigure": false,
+      "figure": { "ja": "A：$0.050\\,$mol/L 酢酸（電離度 0.020）。B：$0.10\\,$mol/L NaOH。", "en": "A: $0.050\\,$mol/L acetic acid (degree of dissociation 0.020). B: $0.10\\,$mol/L NaOH." },
+      "ja": { "prompt": "水溶液 A（$0.050\\,$mol/L 酢酸，電離度 $0.020$）と B（$0.10\\,$mol/L NaOH）に関する記述として正しいものを選びなさい。", "choices": ["A の pH は 4 である。", "B の pH は 12 である。", "A $20\\,$mL と B $10\\,$mL を混合した溶液の pH は 7 である。", "A を 100 倍に薄めると pH は 2 大きくなる。", "B を 100 倍に薄めると pH は 2 小さくなる。"] },
+      "en": { "prompt": "Which statement is correct? A: $0.050\\,$mol/L acetic acid (dissociation 0.020); B: $0.10\\,$mol/L NaOH.", "choices": ["A's pH is 4.", "B's pH is 12.", "Mixing $20\\,$mL A and $10\\,$mL B gives pH 7.", "Diluting A 100-fold raises pH by 2.", "Diluting B 100-fold lowers pH by 2."] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "B を 100 倍に薄めると pH は 2 小さくなる（⑤）", "en": "Diluting B 100-fold lowers pH by 2 (⑤)" },
+      "explanation": { "en": "B is strong base, pH 13 ($[\\mathrm{OH^-}]=0.10$); diluting 100× gives $[\\mathrm{OH^-}]=10^{-3}$, pH 11 — down by 2 (⑤). A's $[\\mathrm{H^+}]=0.050\\times0.020=10^{-3}$, pH 3 (not 4); the mixture is equimolar sodium acetate, basic (not 7); a weak acid does not shift pH by a full 2 on dilution.", "ja": "B は強塩基で pH 13（$[\\mathrm{OH^-}]=0.10$），100 倍希釈で $[\\mathrm{OH^-}]=10^{-3}$，pH 11 で 2 下がる（⑤）。A の $[\\mathrm{H^+}]=0.050\\times0.020=10^{-3}$ で pH 3（4 でない），混合液は等量で酢酸ナトリウムとなり塩基性（7 でない），弱酸は希釈で pH が 2 も変わらない。" }
+    },
+    {
+      "id": "2014-2-chem-8", "answerRow": 8, "topicId": "states-and-change",
+      "subtopic": "Incorrect statement about a KMnO₄/H₂O₂ redox",
+      "patternTags": ["redox", "oxidizing-reducing-agent", "pick-false-statement"], "hasFigure": true,
+      "figure": { "ja": "$\\mathrm{2KMnO_4+5H_2O_2+3H_2SO_4\\to2MnSO_4+5O_2+8H_2O+K_2SO_4}$。", "en": "$\\mathrm{2KMnO_4+5H_2O_2+3H_2SO_4\\to2MnSO_4+5O_2+8H_2O+K_2SO_4}$." },
+      "ja": { "prompt": "反応 $\\mathrm{2KMnO_4+5H_2O_2+3H_2SO_4\\to2MnSO_4+5O_2+8H_2O+K_2SO_4}$ に関する記述として誤っているものを選びなさい。 ① $\\mathrm{H_2O_2}$ の O の酸化数は $-1$ から $0$ に変化した。 ② $\\mathrm{H_2O_2}$ は酸化剤としてはたらいた。 ③ $\\mathrm{2\\,mol}$ の $\\mathrm{KMnO_4}$ と $5\\,$mol の $\\mathrm{H_2O_2}$ が反応するとき $10\\,$mol の電子が移動した。 ④ $\\mathrm{KMnO_4}$ の Mn は電子を受け取った。 ⑤ $\\mathrm{H_2SO_4}$ は酸性条件にするために用いた。", "choices": ["①", "②", "③", "④", "⑤"] },
+      "en": { "prompt": "For $\\mathrm{2KMnO_4+5H_2O_2+3H_2SO_4\\to2MnSO_4+5O_2+8H_2O+K_2SO_4}$, which statement is INCORRECT? ① O in $\\mathrm{H_2O_2}$ goes $-1\\to0$. ② $\\mathrm{H_2O_2}$ acted as the oxidizing agent. ③ For 2 mol $\\mathrm{KMnO_4}$ and 5 mol $\\mathrm{H_2O_2}$, 10 mol electrons are transferred. ④ Mn in $\\mathrm{KMnO_4}$ gained electrons. ⑤ $\\mathrm{H_2SO_4}$ provided acidic conditions.", "choices": ["①", "②", "③", "④", "⑤"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "②（$\\mathrm{H_2O_2}$ は還元剤としてはたらいた）", "en": "② ($\\mathrm{H_2O_2}$ acted as the reducing agent)" },
+      "explanation": { "en": "Here $\\mathrm{H_2O_2}$ is oxidized (O $-1\\to0$, releasing $\\mathrm{O_2}$), so it is the REDUCING agent, not the oxidizing agent. $\\mathrm{KMnO_4}$ (Mn $+7\\to+2$) is the oxidizer. The other statements are correct (10 mol e⁻ transferred).", "ja": "ここでは $\\mathrm{H_2O_2}$ が酸化され（O $-1\\to0$，$\\mathrm{O_2}$ 発生）還元剤としてはたらく。$\\mathrm{KMnO_4}$（Mn $+7\\to+2$）が酸化剤。他は正しい（電子 10 mol 移動）。" }
+    },
+    {
+      "id": "2014-2-chem-9", "answerRow": 9, "topicId": "states-and-change",
+      "subtopic": "Cathode product and mass in CuSO₄ electrolysis",
+      "patternTags": ["electrolysis", "faradays-law", "electrode-products", "plug-in-numbers"], "hasFigure": true,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "白金電極を用いて硫酸銅(II)水溶液 $\\mathrm{CuSO_4}$ aq を $0.25\\,$A で $3860\\,$秒間電気分解した。陰極で生じた物質とその質量の組み合わせを選びなさい。", "choices": ["$\\mathrm{H_2}$ / 0.0020 g", "$\\mathrm{H_2}$ / 0.010 g", "Cu / 0.064 g", "Cu / 0.32 g", "$\\mathrm{O_2}$ / 0.016 g", "$\\mathrm{O_2}$ / 0.080 g"] },
+      "en": { "prompt": "Electrolysing $\\mathrm{CuSO_4}$ aq with Pt electrodes at $0.25\\,$A for $3860\\,$s, what forms at the cathode and with what mass?", "choices": ["$\\mathrm{H_2}$ / 0.0020 g", "$\\mathrm{H_2}$ / 0.010 g", "Cu / 0.064 g", "Cu / 0.32 g", "$\\mathrm{O_2}$ / 0.016 g", "$\\mathrm{O_2}$ / 0.080 g"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "Cu，$0.32\\,$g", "en": "Cu, 0.32 g" },
+      "explanation": { "en": "Charge $=0.25\\times3860=965\\,$C → $0.010\\,$mol $e^-$. The cathode deposits copper ($\\mathrm{Cu^{2+}+2e^-\\to Cu}$): $0.0050\\,$mol $\\times64=0.32\\,$g.", "ja": "電気量 $=0.25\\times3860=965\\,$C → $0.010\\,$mol $e^-$。陰極で銅が析出（$\\mathrm{Cu^{2+}+2e^-\\to Cu}$）：$0.0050\\,$mol$\\times64=0.32\\,$g。" }
+    },
+    {
+      "id": "2014-2-chem-10", "answerRow": 10, "topicId": "states-and-change",
+      "subtopic": "Mass of KNO₃ deposited on cooling (solubility curve)",
+      "patternTags": ["states-equilibria", "solubility", "recrystallization", "read-from-graph"], "hasFigure": true,
+      "figure": { "ja": "$\\mathrm{KNO_3}$ の溶解度曲線（水 100 g あたり g）。60 °C で約 110 g/100 g 水，10 °C で約 22 g/100 g 水。", "en": "$\\mathrm{KNO_3}$ solubility curve (g per 100 g water): ≈110 at 60 °C, ≈22 at 10 °C." },
+      "ja": { "prompt": "$\\mathrm{KNO_3}$ の溶解度曲線（水 100 g あたりの溶質質量）が与えられている。$60\\,$°C の水 $50\\,$g に $\\mathrm{KNO_3}$ $50\\,$g を溶かした溶液を $10\\,$°C まで冷却したとき，析出する $\\mathrm{KNO_3}$ の質量は何 g か。", "choices": ["4.4", "16", "39", "46", "78"] },
+      "en": { "prompt": "Using the $\\mathrm{KNO_3}$ solubility curve, $50\\,$g of $\\mathrm{KNO_3}$ is dissolved in $50\\,$g of water at $60\\,$°C and cooled to $10\\,$°C. How many grams of $\\mathrm{KNO_3}$ crystallize out?", "choices": ["4.4", "16", "39", "46", "78"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "約 $39\\,$g", "en": "≈ 39 g" },
+      "explanation": { "en": "At $60\\,$°C, $50\\,$g water can hold $110\\times0.5=55\\,$g, so all $50\\,$g is dissolved. At $10\\,$°C it holds only $22\\times0.5\\approx11\\,$g, so $50-11\\approx39\\,$g crystallizes out.", "ja": "$60\\,$°C では水 $50\\,$g に $110\\times0.5=55\\,$g 溶けるので $50\\,$g は全溶。$10\\,$°C では $22\\times0.5\\approx11\\,$g しか溶けないので $50-11\\approx39\\,$g 析出。" }
+    },
+    {
+      "id": "2014-2-chem-11", "answerRow": 11, "topicId": "inorganic",
+      "subtopic": "Incorrect statement about halogens",
+      "patternTags": ["typical-elements", "halogens", "oxidizing-power", "pick-false-statement"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "ハロゲンに関する記述として誤っているものを選びなさい。", "choices": ["ハロゲン原子の酸化数は $-1$ 以外の場合もある。", "ハロゲン原子は価電子を 7 個もつ。", "$\\mathrm{Cl_2}$ と $\\mathrm{H_2}$ の混合物に常温で光を当てると爆発的に反応する。", "酸化力の強さは $\\mathrm{F_2<Cl_2<Br_2<I_2}$ である。", "$\\mathrm{F_2,Cl_2,Br_2,I_2}$ のうち，二つは常温・常圧で気体である。"] },
+      "en": { "prompt": "Which statement about halogens is INCORRECT?", "choices": ["A halogen's oxidation number can be other than $-1$.", "A halogen atom has 7 valence electrons.", "A $\\mathrm{Cl_2}$/$\\mathrm{H_2}$ mixture reacts explosively when exposed to light at room temperature.", "Oxidizing power increases as $\\mathrm{F_2<Cl_2<Br_2<I_2}$.", "Two of $\\mathrm{F_2,Cl_2,Br_2,I_2}$ are gases at room temperature and pressure."] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "「$\\mathrm{F_2<Cl_2<Br_2<I_2}$」は誤り（酸化力は $\\mathrm{F_2>Cl_2>Br_2>I_2}$）", "en": "\"$\\mathrm{F_2<Cl_2<Br_2<I_2}$\" is wrong (oxidizing power is $\\mathrm{F_2>Cl_2>Br_2>I_2}$)" },
+      "explanation": { "en": "Oxidizing power DECREASES down the halogen group: $\\mathrm{F_2>Cl_2>Br_2>I_2}$, so the stated increasing order is wrong. The others are correct ($\\mathrm{F_2}$ and $\\mathrm{Cl_2}$ are gases, $\\mathrm{Br_2}$ liquid, $\\mathrm{I_2}$ solid).", "ja": "酸化力はハロゲン族を下にいくほど弱くなる：$\\mathrm{F_2>Cl_2>Br_2>I_2}$ なので増加の順は誤り。他は正しい（$\\mathrm{F_2}$・$\\mathrm{Cl_2}$ は気体，$\\mathrm{Br_2}$ は液体，$\\mathrm{I_2}$ は固体）。" }
+    },
+    {
+      "id": "2014-2-chem-12", "answerRow": 12, "topicId": "inorganic",
+      "subtopic": "Which methods generate Cl₂ and SO₂",
+      "patternTags": ["gas-prep-industry", "gas-generation", "compare-cases"], "hasFigure": false,
+      "figure": { "ja": "操作：(a) $\\mathrm{MnO_2}$ に濃塩酸を加えて加熱。(b) Fe に希硫酸。(c) FeS に希硫酸。(d) NaCl に濃硫酸を加えて加熱。(e) $\\mathrm{NaHSO_3}$ に希硫酸。", "en": "Operations: (a) $\\mathrm{MnO_2}$ + conc. HCl, heated; (b) Fe + dilute $\\mathrm{H_2SO_4}$; (c) FeS + dilute $\\mathrm{H_2SO_4}$; (d) NaCl + conc. $\\mathrm{H_2SO_4}$, heated; (e) $\\mathrm{NaHSO_3}$ + dilute $\\mathrm{H_2SO_4}$." },
+      "ja": { "prompt": "操作(a)〜(e)のうち，塩素 $\\mathrm{Cl_2}$ と二酸化硫黄 $\\mathrm{SO_2}$ の発生方法はそれぞれどれか。 (a) $\\mathrm{MnO_2}$+濃塩酸・加熱 (b) Fe+希硫酸 (c) FeS+希硫酸 (d) NaCl+濃硫酸・加熱 (e) $\\mathrm{NaHSO_3}$+希硫酸", "choices": ["$\\mathrm{Cl_2}$:a / $\\mathrm{SO_2}$:b", "$\\mathrm{Cl_2}$:a / $\\mathrm{SO_2}$:c", "$\\mathrm{Cl_2}$:a / $\\mathrm{SO_2}$:e", "$\\mathrm{Cl_2}$:d / $\\mathrm{SO_2}$:b", "$\\mathrm{Cl_2}$:d / $\\mathrm{SO_2}$:c", "$\\mathrm{Cl_2}$:d / $\\mathrm{SO_2}$:e"] },
+      "en": { "prompt": "Which operations generate $\\mathrm{Cl_2}$ and $\\mathrm{SO_2}$? (a) $\\mathrm{MnO_2}$+conc. HCl, heated (b) Fe+dilute $\\mathrm{H_2SO_4}$ (c) FeS+dilute $\\mathrm{H_2SO_4}$ (d) NaCl+conc. $\\mathrm{H_2SO_4}$, heated (e) $\\mathrm{NaHSO_3}$+dilute $\\mathrm{H_2SO_4}$", "choices": ["$\\mathrm{Cl_2}$:a / $\\mathrm{SO_2}$:b", "$\\mathrm{Cl_2}$:a / $\\mathrm{SO_2}$:c", "$\\mathrm{Cl_2}$:a / $\\mathrm{SO_2}$:e", "$\\mathrm{Cl_2}$:d / $\\mathrm{SO_2}$:b", "$\\mathrm{Cl_2}$:d / $\\mathrm{SO_2}$:c", "$\\mathrm{Cl_2}$:d / $\\mathrm{SO_2}$:e"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "$\\mathrm{Cl_2}$:a，$\\mathrm{SO_2}$:e", "en": "$\\mathrm{Cl_2}$: a, $\\mathrm{SO_2}$: e" },
+      "explanation": { "en": "$\\mathrm{MnO_2}$+conc. HCl (heated) gives $\\mathrm{Cl_2}$ (a); $\\mathrm{NaHSO_3}$+acid gives $\\mathrm{SO_2}$ (e). (b) Fe+acid → $\\mathrm{H_2}$; (c) FeS+acid → $\\mathrm{H_2S}$; (d) NaCl+conc. $\\mathrm{H_2SO_4}$ → HCl.", "ja": "$\\mathrm{MnO_2}$+濃塩酸（加熱）で $\\mathrm{Cl_2}$（a），$\\mathrm{NaHSO_3}$+酸で $\\mathrm{SO_2}$（e）。(b) Fe+酸→$\\mathrm{H_2}$，(c) FeS+酸→$\\mathrm{H_2S}$，(d) NaCl+濃硫酸→HCl。" }
+    },
+    {
+      "id": "2014-2-chem-13", "answerRow": 13, "topicId": "states-and-change",
+      "subtopic": "Largest oxidation number of the underlined atom",
+      "patternTags": ["redox", "oxidation-number", "compare-cases"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の化合物①〜⑤のうち，下線をつけた原子の酸化数が最も大きいものを選びなさい。 ① $\\underline{\\mathrm{N}}\\mathrm{H_3}$ ② $\\mathrm{H_2}\\underline{\\mathrm{S}}\\mathrm{O_4}$ ③ $\\underline{\\mathrm{Fe}}\\mathrm{Cl_3}$ ④ $\\mathrm{K_2}\\underline{\\mathrm{Cr}}_2\\mathrm{O_7}$ ⑤ $\\mathrm{K}\\underline{\\mathrm{Mn}}\\mathrm{O_4}$", "choices": ["①", "②", "③", "④", "⑤"] },
+      "en": { "prompt": "In which compound is the oxidation number of the underlined atom the largest? ① $\\underline{\\mathrm{N}}\\mathrm{H_3}$ ② $\\mathrm{H_2}\\underline{\\mathrm{S}}\\mathrm{O_4}$ ③ $\\underline{\\mathrm{Fe}}\\mathrm{Cl_3}$ ④ $\\mathrm{K_2}\\underline{\\mathrm{Cr}}_2\\mathrm{O_7}$ ⑤ $\\mathrm{K}\\underline{\\mathrm{Mn}}\\mathrm{O_4}$", "choices": ["①", "②", "③", "④", "⑤"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "⑤（Mn は $+7$）", "en": "⑤ (Mn is $+7$)" },
+      "explanation": { "en": "Oxidation numbers: N $-3$, S $+6$, Fe $+3$, Cr $+6$, Mn $+7$. The largest is Mn in $\\mathrm{KMnO_4}$, $+7$.", "ja": "酸化数：N $-3$，S $+6$，Fe $+3$，Cr $+6$，Mn $+7$。最大は $\\mathrm{KMnO_4}$ の Mn の $+7$。" }
+    },
+    {
+      "id": "2014-2-chem-14", "answerRow": 14, "topicId": "inorganic",
+      "subtopic": "Which solutions give a precipitate with CuSO₄",
+      "patternTags": ["ion-analysis", "precipitation", "solubility-rules", "true-false-combo"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の化合物(a)〜(d)の $0.01\\,$mol/L 水溶液に $0.01\\,$mol/L 硫酸銅(II)水溶液 $\\mathrm{CuSO_4}$ aq を加えたとき，沈殿が生じるものが二つある。それらの組み合わせを選びなさい。 (a) $\\mathrm{BaCl_2}$ (b) $\\mathrm{H_2S}$ (c) NaCl (d) $\\mathrm{ZnCl_2}$", "choices": ["a, b", "a, c", "a, d", "b, c", "b, d", "c, d"] },
+      "en": { "prompt": "Adding $0.01\\,$mol/L $\\mathrm{CuSO_4}$ to $0.01\\,$mol/L solutions of (a)–(d), two give a precipitate. Which pair? (a) $\\mathrm{BaCl_2}$ (b) $\\mathrm{H_2S}$ (c) NaCl (d) $\\mathrm{ZnCl_2}$", "choices": ["a, b", "a, c", "a, d", "b, c", "b, d", "c, d"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "a（$\\mathrm{BaSO_4}$）と b（CuS）", "en": "a ($\\mathrm{BaSO_4}$) and b (CuS)" },
+      "explanation": { "en": "$\\mathrm{BaCl_2}+\\mathrm{CuSO_4}\\to\\mathrm{BaSO_4}$ (white precipitate); $\\mathrm{H_2S}+\\mathrm{CuSO_4}\\to\\mathrm{CuS}$ (black precipitate, insoluble even in acid). NaCl and $\\mathrm{ZnCl_2}$ give no precipitate with $\\mathrm{CuSO_4}$.", "ja": "$\\mathrm{BaCl_2}+\\mathrm{CuSO_4}\\to\\mathrm{BaSO_4}$（白色沈殿），$\\mathrm{H_2S}+\\mathrm{CuSO_4}\\to\\mathrm{CuS}$（黒色沈殿，酸にも不溶）。NaCl と $\\mathrm{ZnCl_2}$ は $\\mathrm{CuSO_4}$ と沈殿しない。" }
+    },
+    {
+      "id": "2014-2-chem-15", "answerRow": 15, "topicId": "states-and-change",
+      "subtopic": "H₂ volume from Mg + limiting HCl",
+      "patternTags": ["stoichiometry", "limiting-reagent", "gas-volume", "plug-in-numbers"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "$8.0\\,$g のマグネシウム Mg に $0.50\\,$mol/L の塩酸 $500\\,$mL を加えて水素 $\\mathrm{H_2}$ を発生させた。生じる水素は標準状態で何 L か。ただし，塩酸かマグネシウムのどちらかは完全に反応したものとする。", "choices": ["2.8", "3.7", "5.6", "7.4", "15"] },
+      "en": { "prompt": "Adding $500\\,$mL of $0.50\\,$mol/L HCl to $8.0\\,$g of Mg evolves $\\mathrm{H_2}$. What volume (L at STP)? (Either the acid or the Mg reacts completely.)", "choices": ["2.8", "3.7", "5.6", "7.4", "15"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "$2.8\\,$L", "en": "2.8 L" },
+      "explanation": { "en": "Mg $=8.0/24=0.33\\,$mol; HCl $=0.50\\times0.500=0.25\\,$mol. $\\mathrm{Mg+2HCl\\to MgCl_2+H_2}$ needs $0.67\\,$mol HCl for all the Mg, so HCl is limiting: $\\mathrm{H_2}=0.25/2=0.125\\,$mol $=0.125\\times22.4=2.8\\,$L.", "ja": "Mg $=8.0/24=0.33\\,$mol，HCl $=0.50\\times0.500=0.25\\,$mol。$\\mathrm{Mg+2HCl\\to MgCl_2+H_2}$ は Mg 全部に HCl $0.67\\,$mol 必要なので HCl が不足：$\\mathrm{H_2}=0.25/2=0.125\\,$mol$=0.125\\times22.4=2.8\\,$L。" }
+    },
+    {
+      "id": "2014-2-chem-16", "answerRow": 16, "topicId": "organic",
+      "subtopic": "Number of C₅H₁₀ chain isomers (cis-trans counted)",
+      "patternTags": ["aliphatic-hydrocarbons", "structural-isomers", "cis-trans", "count-how-many"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "分子式 $\\mathrm{C_5H_{10}}$ で表される鎖式炭化水素の異性体の数として正しいものを選びなさい。ただし，シス-トランス異性体がある場合にはその各々も数に含める。", "choices": ["5", "6", "7", "8", "9"] },
+      "en": { "prompt": "How many isomers does the chain hydrocarbon $\\mathrm{C_5H_{10}}$ have, counting cis-trans isomers separately?", "choices": ["5", "6", "7", "8", "9"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "6 個", "en": "6" },
+      "explanation": { "en": "Chain $\\mathrm{C_5H_{10}}$ = pentenes: 1-pentene, cis-2-pentene, trans-2-pentene, 2-methyl-1-butene, 3-methyl-1-butene, 2-methyl-2-butene = 6 (2-pentene contributes two).", "ja": "鎖式 $\\mathrm{C_5H_{10}}$ はペンテン：1-ペンテン，シス-2-ペンテン，トランス-2-ペンテン，2-メチル-1-ブテン，3-メチル-1-ブテン，2-メチル-2-ブテン＝6 個（2-ペンテンが 2 つ）。" }
+    },
+    {
+      "id": "2014-2-chem-17", "answerRow": 17, "topicId": "organic",
+      "subtopic": "Carbon number of an alkene from Cl₂/Br₂ addition masses",
+      "patternTags": ["aliphatic-hydrocarbons", "halogen-addition", "mass-balance", "plug-in-numbers"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "ある量のアルケン A に $\\mathrm{Cl_2}$ を完全に付加させると質量が $140\\,$g 増加した。同じ量の A に $\\mathrm{Br_2}$ を完全に付加させると $460\\,$g の生成物が得られた。A の炭素数を選びなさい。", "choices": ["4", "5", "6", "7", "8", "9"] },
+      "en": { "prompt": "Adding $\\mathrm{Cl_2}$ to a quantity of alkene A increases its mass by $140\\,$g. Adding $\\mathrm{Br_2}$ to the same quantity gives $460\\,$g of product. How many carbons does A have?", "choices": ["4", "5", "6", "7", "8", "9"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "5（$\\mathrm{C_5H_{10}}$）", "en": "5 ($\\mathrm{C_5H_{10}}$)" },
+      "explanation": { "en": "$\\mathrm{Cl_2}$ mass added $=140\\,$g $=140/70=2.0\\,$mol, so $2.0\\,$mol A. The $\\mathrm{Br_2}$ product $=\\text{mass}_A+2.0\\times160=460$, so $\\text{mass}_A=140\\,$g and $M_A=70$. $\\mathrm{C_nH_{2n}}$: $14n=70\\Rightarrow n=5$.", "ja": "加わった $\\mathrm{Cl_2}=140\\,$g$=140/70=2.0\\,$mol なので A は $2.0\\,$mol。$\\mathrm{Br_2}$ 生成物 $=\\text{質量}_A+2.0\\times160=460$ より $\\text{質量}_A=140\\,$g，$M_A=70$。$\\mathrm{C_nH_{2n}}$：$14n=70\\Rightarrow n=5$。" }
+    },
+    {
+      "id": "2014-2-chem-18", "answerRow": 18, "topicId": "organic",
+      "subtopic": "Correct statement about 2-butanol",
+      "patternTags": ["functional-groups", "alcohol-reactions", "iodoform-reaction", "pick-correct-statement"], "hasFigure": true,
+      "figure": { "ja": "構造式 $\\mathrm{CH_3CH_2{-}CH(OH){-}CH_3}$（2-ブタノール）。", "en": "Structure $\\mathrm{CH_3CH_2{-}CH(OH){-}CH_3}$ (2-butanol)." },
+      "ja": { "prompt": "$\\mathrm{CH_3CH_2{-}CH(OH){-}CH_3}$（2-ブタノール）の反応に関する記述として正しいものを選びなさい。 ① Na を加えると $\\mathrm{CO_2}$ を発生する。 ② 硫酸酸性の $\\mathrm{K_2Cr_2O_7}$ で酸化されない。 ③ 銀鏡反応を示す。 ④ ヨードホルム反応を示す。 ⑤ 脱水で生じるアルケンは 1 種類である。", "choices": ["①", "②", "③", "④", "⑤"] },
+      "en": { "prompt": "Which statement about $\\mathrm{CH_3CH_2{-}CH(OH){-}CH_3}$ (2-butanol) is correct? ① Adding Na evolves $\\mathrm{CO_2}$. ② It cannot be oxidized by acidified $\\mathrm{K_2Cr_2O_7}$. ③ It gives a silver-mirror reaction. ④ It gives an iodoform reaction. ⑤ Dehydration gives only one alkene.", "choices": ["①", "②", "③", "④", "⑤"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "④（ヨードホルム反応を示す）", "en": "④ (it gives an iodoform reaction)" },
+      "explanation": { "en": "2-Butanol has the $\\mathrm{CH_3CH(OH)-}$ group, so it gives a positive iodoform test (④). The others are false: Na + alcohol gives $\\mathrm{H_2}$ (not $\\mathrm{CO_2}$); a secondary alcohol IS oxidized (to a ketone); it gives no silver mirror; and dehydration gives both 1-butene and 2-butene.", "ja": "2-ブタノールは $\\mathrm{CH_3CH(OH)-}$ 構造をもちヨードホルム反応陽性（④）。他は誤り：Na+アルコールは $\\mathrm{H_2}$（$\\mathrm{CO_2}$ でない），第二級アルコールは酸化される（ケトンに），銀鏡反応は示さない，脱水で 1-ブテンと 2-ブテンが生じる。" }
+    },
+    {
+      "id": "2014-2-chem-19", "answerRow": 19, "topicId": "organic",
+      "subtopic": "Which conversions are reduction reactions",
+      "patternTags": ["functional-groups", "reduction", "reaction-types", "true-false-combo"], "hasFigure": true,
+      "figure": { "ja": "A→B：a ニトロベンゼン→アニリン。b ベンゼン→クロロベンゼン。c アセチレン→アセトアルデヒド。d アセトン→2-プロパノール。e サリチル酸→アセチルサリチル酸。", "en": "A→B: a nitrobenzene→aniline; b benzene→chlorobenzene; c acetylene→acetaldehyde; d acetone→2-propanol; e salicylic acid→acetylsalicylic acid." },
+      "ja": { "prompt": "A 欄の化合物の還元反応により B 欄の化合物が得られるものが二つある。組み合わせを選びなさい。 a ニトロベンゼン→アニリン b ベンゼン→クロロベンゼン c アセチレン→アセトアルデヒド d アセトン→2-プロパノール e サリチル酸→アセチルサリチル酸", "choices": ["a, b", "a, d", "a, e", "b, c", "b, d", "b, e", "c, d", "d, e"] },
+      "en": { "prompt": "Two of these B compounds are obtained by REDUCTION of A. Which pair? a nitrobenzene→aniline; b benzene→chlorobenzene; c acetylene→acetaldehyde; d acetone→2-propanol; e salicylic acid→acetylsalicylic acid", "choices": ["a, b", "a, d", "a, e", "b, c", "b, d", "b, e", "c, d", "d, e"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "a（ニトロベンゼン→アニリン）と d（アセトン→2-プロパノール）", "en": "a (nitrobenzene→aniline) and d (acetone→2-propanol)" },
+      "explanation": { "en": "Reductions: nitrobenzene → aniline (–NO₂ to –NH₂) and acetone → 2-propanol (C=O to C–OH). The others are substitution (benzene→chlorobenzene), hydration (acetylene→acetaldehyde), and acetylation (salicylic acid→aspirin).", "ja": "還元：ニトロベンゼン→アニリン（–NO₂ → –NH₂），アセトン→2-プロパノール（C=O → C–OH）。他は置換（ベンゼン→クロロベンゼン），付加（アセチレン→アセトアルデヒド），アセチル化（サリチル酸→アスピリン）。" }
+    },
+    {
+      "id": "2014-2-chem-20", "answerRow": 20, "topicId": "organic",
+      "subtopic": "Which polymers form by addition polymerization",
+      "patternTags": ["polymers", "addition-polymerization", "true-false-combo"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の高分子(a)〜(d)のうち，付加重合で生成するものが二つある。それらの組み合わせを選びなさい。 (a) ナイロン 66 (b) ポリアクリロニトリル (c) ポリエチレンテレフタラート (d) ポリ塩化ビニル", "choices": ["a, b", "a, c", "a, d", "b, c", "b, d", "c, d"] },
+      "en": { "prompt": "Two of these polymers form by addition polymerization. Which pair? (a) nylon 6,6 (b) polyacrylonitrile (c) poly(ethylene terephthalate) (d) poly(vinyl chloride)", "choices": ["a, b", "a, c", "a, d", "b, c", "b, d", "c, d"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "b（ポリアクリロニトリル）と d（ポリ塩化ビニル）", "en": "b (polyacrylonitrile) and d (poly(vinyl chloride))" },
+      "explanation": { "en": "Polyacrylonitrile and poly(vinyl chloride) form by addition polymerization of C=C monomers. Nylon 6,6 and PET are condensation polymers.", "ja": "ポリアクリロニトリルとポリ塩化ビニルは C=C 単量体の付加重合。ナイロン 66 と PET は縮合重合。" }
+    }
+  ],
+  "patterns": {
+    "archetypes": [
+      "Periodic classification false-statement (K is an alkali, not alkaline-earth, metal).",
+      "Identify the covalent network crystal (SiO₂).",
+      "Balance a roasting/combustion equation for a coefficient.",
+      "Gas identity from STP density (M = density × 22.4).",
+      "Mass for a volumetric-flask prep plus the correct meniscus reading.",
+      "Correct Le Chatelier statement for an exothermic, mole-reducing equilibrium.",
+      "Weak-acid/strong-base pH and dilution true-statement.",
+      "Oxidizing/reducing-agent identification in a permanganate–peroxide redox.",
+      "Cathode product and mass in metal-salt electrolysis (Cu deposits).",
+      "Recrystallization mass from a solubility curve.",
+      "Halogen false-statement (oxidizing power decreases down the group).",
+      "Match gas-generation methods (Cl₂ from MnO₂+HCl, SO₂ from sulfite+acid).",
+      "Largest oxidation number among underlined atoms (Mn +7).",
+      "Which solutions precipitate with CuSO₄ (BaSO₄, CuS).",
+      "H₂ volume from a metal + limiting acid.",
+      "Counting C₅H₁₀ chain isomers including cis-trans.",
+      "Alkene carbon number from Cl₂ vs Br₂ adduct masses.",
+      "2-Butanol true-statement (iodoform-positive secondary alcohol).",
+      "Identify the reduction conversions among reaction types.",
+      "Classify polymers as addition (PAN, PVC) vs condensation."
+    ],
+    "recurring": [
+      "Periodic/structure recall and crystal-type questions open the paper.",
+      "Gas laws (density, equilibrium), electrolysis, and solubility curves recur.",
+      "Acid–base pH/dilution and redox-agent identification are standard.",
+      "Qualitative inorganic (halogens, gas prep, precipitation) is a guaranteed block.",
+      "Organic: isomer counting, halogen-addition stoichiometry, alcohol qualitative tests, reaction-type classification, and polymers recur."
+    ],
+    "examTacticNotes": [
+      "K is an alkali (group 1) metal; alkaline-earth = group 2 (Be, Mg, Ca…).",
+      "Covalent network crystals: SiO₂, diamond, SiC.",
+      "Gas identity: M = density × 22.4 L/mol at STP.",
+      "Volumetric ware: align the BOTTOM of the meniscus with the mark at eye level.",
+      "Le Chatelier: fewer-gas-mole side favoured by pressure; exothermic forward favoured by lower T; catalysts don't shift equilibria.",
+      "Diluting a strong base 100× lowers pH by 2; a weak acid/base shifts less.",
+      "In KMnO₄ + H₂O₂, H₂O₂ is the reducing agent (O −1→0); KMnO₄ is the oxidizer.",
+      "CuSO₄ electrolysis: cathode deposits Cu (mass = mol e⁻ /2 × 64).",
+      "Recrystallization: deposited = initial − (solubility at low T scaled to the water mass).",
+      "Halogen oxidizing power: F₂ > Cl₂ > Br₂ > I₂; F₂/Cl₂ gases, Br₂ liquid, I₂ solid.",
+      "Cl₂ ⇐ MnO₂ + conc. HCl (heat); SO₂ ⇐ sulfite/bisulfite + acid (or hot conc. acid + Cu, burning S).",
+      "Highest common oxidation number: Mn(+7) in KMnO₄ beats Cr(+6), S(+6).",
+      "CuSO₄ precipitates with sulfate-formers (Ba²⁺) and sulfide-formers in acid (H₂S → CuS).",
+      "H₂ from metal + acid: find the limiting reagent first.",
+      "C₅H₁₀ chain isomers: count the pentenes and add the cis/trans of 2-pentene.",
+      "Cl₂ adds 70 g and Br₂ adds 160 g per double bond — use both mass clues to get moles and M.",
+      "Secondary alcohols with a CH₃CH(OH)– group are iodoform-positive and oxidize to ketones.",
+      "Reduction lowers oxidation state: –NO₂→–NH₂, C=O→C–OH.",
+      "Addition polymers come from C=C monomers (PAN, PVC, PE, PS); nylon/PET are condensation."
+    ],
+    "difficulty": "Standard EJU chemistry — a full-syllabus sweep. The more discriminating items are the volumetric-flask meniscus question (Q5), the KMnO₄/H₂O₂ agent identification (Q8), the recrystallization from a solubility curve (Q10), and the dual-halogen alkene determination (Q17)."
+  }
+}

@@ -1,0 +1,248 @@
+{
+  "id": "2013-2-physics",
+  "year": 2013,
+  "session": 2,
+  "subject": "physics",
+  "title": "EJU 2013 · Session 2 · Physics",
+  "source": "平成25年度（2013年度）日本留学試験（第2回）理科〈物理〉 © Japan Student Services Organization (JASSO)",
+  "attribution": "EJU past questions © JASSO. Question text transcribed from the official past paper; figures described in text; correct answers taken from the official JASSO answer key and independently re-solved for verification.",
+  "languages": ["ja", "en"],
+  "answerKeyVerified": true,
+  "structure": {
+    "blocks": [
+      { "id": "I", "topicId": "mech", "name": { "ja": "力学", "en": "Mechanics" }, "questionCount": 7 },
+      { "id": "II", "topicId": "thermo", "name": { "ja": "熱力学", "en": "Thermodynamics" }, "questionCount": 3 },
+      { "id": "III", "topicId": "waves", "name": { "ja": "波動", "en": "Waves" }, "questionCount": 3 },
+      { "id": "IV", "topicId": "em", "name": { "ja": "電気と磁気", "en": "Electricity & Magnetism" }, "questionCount": 6 }
+    ],
+    "totalQuestions": 19,
+    "note": "Older 7/3/3/6 split (Mechanics has 7 items), no Atoms (V) block.",
+    "givens": { "ja": "重力加速度の大きさを g とし，空気の抵抗は無視できるものとする。", "en": "Take the magnitude of gravitational acceleration as g; air resistance is negligible." }
+  },
+  "questions": [
+    {
+      "id": "2013-2-phy-1", "answerRow": 1, "block": "I", "topicId": "mech",
+      "subtopic": "Static friction threshold for a block on a pulled plank",
+      "patternTags": ["express-formula", "friction", "newtons-second-law"], "hasFigure": true,
+      "figure": { "ja": "なめらかな床に質量 M の板、その上に質量 m の小物体。板を水平に力 F で引く。板と物体の間に摩擦。F が F0 を超えると物体が板上を滑り始める。", "en": "On a smooth floor, a plank (mass M) carries a block (mass m); the plank is pulled horizontally with force F. Friction acts between them; when F exceeds F0 the block starts to slide on the plank." },
+      "ja": { "prompt": "なめらかな床上に質量 $M$ の板を置き，その上に質量 $m$ の小物体をのせて，板を水平に力 $F$ で引く。板と小物体の間には摩擦があり，はじめ一体で運動するが，$F$ を大きくして $F_0$ を超えると小物体が板上を滑り始めた。小物体と板の間の静止摩擦係数はどう表されるか。", "choices": ["$\\dfrac{F_0}{mg}$", "$\\dfrac{F_0}{Mg}$", "$\\dfrac{F_0}{(M+m)g}$", "$\\dfrac{(M+m)F_0}{Mmg}$"] },
+      "en": { "prompt": "On a smooth floor a plank (mass $M$) carries a block (mass $m$); the plank is pulled horizontally with force $F$. Friction acts between them; they move together until $F$ exceeds $F_0$, when the block begins to slide on the plank. Find the static friction coefficient between block and plank.", "choices": ["$\\dfrac{F_0}{mg}$", "$\\dfrac{F_0}{Mg}$", "$\\dfrac{F_0}{(M+m)g}$", "$\\dfrac{(M+m)F_0}{Mmg}$"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "$\\dfrac{F_0}{(M+m)g}$", "en": "$\\dfrac{F_0}{(M+m)g}$" },
+      "explanation": { "en": "Moving together, acceleration $a=\\dfrac{F}{M+m}$. The only horizontal force on the block is friction, $f=ma=\\dfrac{mF}{M+m}$. Sliding begins when $f$ reaches its maximum $\\mu mg$ at $F=F_0$: $\\mu mg=\\dfrac{mF_0}{M+m}$, so $\\mu=\\dfrac{F_0}{(M+m)g}$.", "ja": "一体で運動するとき加速度 $a=\\dfrac{F}{M+m}$。小物体に働く水平力は摩擦のみで $f=ma=\\dfrac{mF}{M+m}$。$F=F_0$ で $f$ が最大 $\\mu mg$ に達するので $\\mu mg=\\dfrac{mF_0}{M+m}$，$\\mu=\\dfrac{F_0}{(M+m)g}$。" }
+    },
+    {
+      "id": "2013-2-phy-2", "answerRow": 2, "block": "I", "topicId": "mech",
+      "subtopic": "Rigid rod on two supports — condition not to tip",
+      "patternTags": ["express-formula", "torque-balance", "rigid-body"], "hasFigure": true,
+      "figure": { "ja": "長さ 3ℓ・質量 3m の一様な棒。端 A，端 B，P は B から ℓ（A から 2ℓ）。A と P で下から支える。質量 M(>3m) の物体を PB 間で P から距離 x に置く。", "en": "A uniform rod (length 3ℓ, mass 3m): ends A and B, P at distance ℓ from B (2ℓ from A). Supported from below at A and P. A block (mass M>3m) is placed on PB at distance x from P." },
+      "ja": { "prompt": "長さ $3\\ell$，質量 $3m$ の一様な棒の一端を A，他端を B，B から距離 $\\ell$ の位置を P とする。棒を A と P で下から水平に支える。質量 $M\\,(>3m)$ の小物体を PB 間で P から距離 $x$ に静かに置く。A が浮き上がらないための $x$ の範囲はどれか。", "choices": ["$x<\\dfrac{m}{M}\\ell$", "$x<\\dfrac{3m}{2M}\\ell$", "$x<\\dfrac{2m}{M}\\ell$", "$x<\\dfrac{3m}{M}\\ell$"] },
+      "en": { "prompt": "A uniform rod (length $3\\ell$, mass $3m$): end A, end B, and P at distance $\\ell$ from B. It is supported from below at A and P. A block (mass $M>3m$) is placed on PB at distance $x$ from P. For A not to lift off, find the range of $x$.", "choices": ["$x<\\dfrac{m}{M}\\ell$", "$x<\\dfrac{3m}{2M}\\ell$", "$x<\\dfrac{2m}{M}\\ell$", "$x<\\dfrac{3m}{M}\\ell$"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "$x<\\dfrac{3m}{2M}\\ell$", "en": "$x<\\dfrac{3m}{2M}\\ell$" },
+      "explanation": { "en": "A lifts when the support force at A reaches zero; take torques about P (which is $2\\ell$ from A). The rod's weight $3mg$ acts at its centre, $0.5\\ell$ on the A-side of P; the block's weight $Mg$ acts $x$ on the B-side. The balance point is $3mg\\cdot0.5\\ell=Mg\\cdot x$, so A stays down while $x<\\dfrac{3m}{2M}\\ell$.", "ja": "A の支持力が 0 になると浮く。P（A から $2\\ell$）まわりのモーメントを考える。棒の重力 $3mg$ は中心（P より A 側に $0.5\\ell$）に，物体の重力 $Mg$ は P より B 側に $x$ に働く。境界は $3mg\\cdot0.5\\ell=Mg\\cdot x$ なので $x<\\dfrac{3m}{2M}\\ell$ で A は浮かない。" }
+    },
+    {
+      "id": "2013-2-phy-3", "answerRow": 3, "block": "I", "topicId": "mech",
+      "subtopic": "Oblique 2-D collision (speed ratio from momentum)",
+      "patternTags": ["express-formula", "momentum", "collision", "vectors"], "hasFigure": true,
+      "figure": { "ja": "なめらかな水平面で A(質量 m) が静止した B(質量 M) に衝突。衝突後 A は元の進行方向から 30°，B は反対側 45° に進む。速さ v_A, v_B。", "en": "On a smooth floor, A (mass m) strikes stationary B (mass M). After: A goes 30° from its original direction, B goes 45° on the other side. Speeds v_A, v_B." },
+      "ja": { "prompt": "なめらかな水平面で，質量 $m$ の A が静止した質量 $M$ の B に衝突した。衝突後，A は衝突前の進行方向に対して $30°$，B は反対側に $45°$ の方向に進んだ。衝突後の A,B の速さを $v_A,v_B$ とする。$\\dfrac{v_B}{v_A}$ はどれか。", "choices": ["$\\dfrac{\\sqrt2\\,m}{2M}$", "$\\dfrac{\\sqrt6\\,m}{3M}$", "$\\dfrac{\\sqrt6\\,m}{2M}$", "$\\dfrac{\\sqrt2\\,m}{M}$"] },
+      "en": { "prompt": "On a smooth floor, A (mass $m$) strikes stationary B (mass $M$). After the collision A goes $30°$ from its original direction and B goes $45°$ on the other side, with speeds $v_A,v_B$. Find $\\dfrac{v_B}{v_A}$.", "choices": ["$\\dfrac{\\sqrt2\\,m}{2M}$", "$\\dfrac{\\sqrt6\\,m}{3M}$", "$\\dfrac{\\sqrt6\\,m}{2M}$", "$\\dfrac{\\sqrt2\\,m}{M}$"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "$\\dfrac{\\sqrt2\\,m}{2M}$", "en": "$\\dfrac{\\sqrt2\\,m}{2M}$" },
+      "explanation": { "en": "Momentum perpendicular to the original direction is zero: $m\\,v_A\\sin30°=M\\,v_B\\sin45°$. So $m\\,v_A\\cdot\\tfrac12=M\\,v_B\\cdot\\tfrac{\\sqrt2}{2}$, giving $\\dfrac{v_B}{v_A}=\\dfrac{m}{\\sqrt2\\,M}=\\dfrac{\\sqrt2\\,m}{2M}$.", "ja": "元の進行方向に垂直な運動量は 0：$m\\,v_A\\sin30°=M\\,v_B\\sin45°$。$m\\,v_A\\cdot\\tfrac12=M\\,v_B\\cdot\\tfrac{\\sqrt2}{2}$ より $\\dfrac{v_B}{v_A}=\\dfrac{m}{\\sqrt2\\,M}=\\dfrac{\\sqrt2\\,m}{2M}$。" }
+    },
+    {
+      "id": "2013-2-phy-4", "answerRow": 4, "block": "I", "topicId": "mech",
+      "subtopic": "Horizontal circle on the inside of a hemisphere",
+      "patternTags": ["express-formula", "circular-motion", "kinetic-energy"], "hasFigure": true,
+      "figure": { "ja": "固定された半球面（半径 R）の内側のなめらかな面上を、質量 m の小物体 A が水平面内で半径 r(<R) の等速円運動。", "en": "On the smooth inside of a fixed hemispherical bowl (radius R), a block A (mass m) moves in a horizontal circle of radius r (<R)." },
+      "ja": { "prompt": "固定された半球面（半径 $R$）の内側のなめらかな面上を，質量 $m$ の小物体 A が水平面内で半径 $r\\,(<R)$ の等速円運動をしている。A の運動エネルギーはどう表されるか。", "choices": ["$\\dfrac{mgr}{2}$", "$\\dfrac{mgR}{2}$", "$\\dfrac{mgr^2}{2R}$", "$\\dfrac{mg\\sqrt{R^2-r^2}}{2}$", "$\\dfrac{mgr\\sqrt{R^2-r^2}}{2R}$", "$\\dfrac{mgr^2}{2\\sqrt{R^2-r^2}}$", "$\\dfrac{mgrR}{2\\sqrt{R^2-r^2}}$"] },
+      "en": { "prompt": "On the smooth inside of a fixed hemisphere (radius $R$), a block A (mass $m$) moves in a horizontal circle of radius $r\\,(<R)$. Find its kinetic energy.", "choices": ["$\\dfrac{mgr}{2}$", "$\\dfrac{mgR}{2}$", "$\\dfrac{mgr^2}{2R}$", "$\\dfrac{mg\\sqrt{R^2-r^2}}{2}$", "$\\dfrac{mgr\\sqrt{R^2-r^2}}{2R}$", "$\\dfrac{mgr^2}{2\\sqrt{R^2-r^2}}$", "$\\dfrac{mgrR}{2\\sqrt{R^2-r^2}}$"] },
+      "answerIndex": 5, "answerOption": 6, "answer": { "ja": "$\\dfrac{mgr^2}{2\\sqrt{R^2-r^2}}$", "en": "$\\dfrac{mgr^2}{2\\sqrt{R^2-r^2}}$" },
+      "explanation": { "en": "The normal force $N$ points from the block toward the sphere's centre. Vertical: $N\\cdot\\dfrac{\\sqrt{R^2-r^2}}{R}=mg$; horizontal (centripetal): $N\\cdot\\dfrac{r}{R}=\\dfrac{mv^2}{r}$. Dividing, $\\dfrac{r}{\\sqrt{R^2-r^2}}=\\dfrac{v^2}{gr}$, so $v^2=\\dfrac{gr^2}{\\sqrt{R^2-r^2}}$ and $KE=\\tfrac12mv^2=\\dfrac{mgr^2}{2\\sqrt{R^2-r^2}}$.", "ja": "垂直抗力 $N$ は球の中心向き。鉛直：$N\\cdot\\dfrac{\\sqrt{R^2-r^2}}{R}=mg$，水平（向心）：$N\\cdot\\dfrac{r}{R}=\\dfrac{mv^2}{r}$。割ると $\\dfrac{r}{\\sqrt{R^2-r^2}}=\\dfrac{v^2}{gr}$，$v^2=\\dfrac{gr^2}{\\sqrt{R^2-r^2}}$，$KE=\\dfrac{mgr^2}{2\\sqrt{R^2-r^2}}$。" }
+    },
+    {
+      "id": "2013-2-phy-5", "answerRow": 5, "block": "I", "topicId": "mech",
+      "subtopic": "Breaking tension of a whirling string",
+      "patternTags": ["plug-in-numbers", "circular-motion", "tension"], "hasFigure": true,
+      "figure": { "ja": "なめらかな水平面で、長さ 0.90 m の糸の端に 0.40 kg の小球をつけ円運動。糸は張力 16 N で切れる。", "en": "On a smooth floor, a 0.40 kg ball on a 0.90 m string moves in a circle; the string breaks at a tension of 16 N." },
+      "ja": { "prompt": "なめらかな水平面で，長さ $0.90\\,$m の糸の端に質量 $0.40\\,$kg の小球をつけて円運動させる。糸は張力が $16\\,$N になると切れる。小球の速さを少しずつ大きくすると，速さが何 m/s になったときに糸が切れるか。", "choices": ["$3.0$", "$6.0$", "$9.0$", "$18$", "$36$"] },
+      "en": { "prompt": "On a smooth floor, a $0.40\\,$kg ball on a $0.90\\,$m string moves in a circle; the string breaks at $16\\,$N. As the speed is gradually increased, at what speed (m/s) does the string break?", "choices": ["$3.0$", "$6.0$", "$9.0$", "$18$", "$36$"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "$6.0$", "en": "$6.0$" },
+      "explanation": { "en": "Tension provides the centripetal force: $T=\\dfrac{mv^2}{r}$. At breaking, $16=\\dfrac{0.40\\,v^2}{0.90}$, so $v^2=\\dfrac{16\\cdot0.90}{0.40}=36$, $v=6.0\\,$m/s.", "ja": "張力が向心力：$T=\\dfrac{mv^2}{r}$。切れるとき $16=\\dfrac{0.40\\,v^2}{0.90}$ より $v^2=36$，$v=6.0\\,$m/s。" }
+    },
+    {
+      "id": "2013-2-phy-6", "answerRow": 6, "block": "I", "topicId": "mech",
+      "subtopic": "Energy with friction on the up-slope",
+      "patternTags": ["express-formula", "energy-conservation", "friction", "incline"], "hasFigure": true,
+      "figure": { "ja": "質量 m の P を高さ h の A から静かに離す。なめらかな斜面 AB→なめらかな水平面 BC→粗い斜面 CD（30°、動摩擦係数 √3/6）を上り、C から距離 ℓ の E で静止。", "en": "Block P (mass m) released from rest at A (height h). It slides down smooth AB, along smooth floor BC, then up rough incline CD (30°, kinetic friction √3/6), stopping at E a distance ℓ from C." },
+      "ja": { "prompt": "質量 $m$ の小物体 P を水平面 BC から高さ $h$ の点 A に置き，静かに離す。なめらかな斜面 AB を滑り降り，なめらかな水平面 BC を進み，水平面とのなす角 $30°$・動摩擦係数 $\\dfrac{\\sqrt3}{6}$ の粗い斜面 CD を上り，C から距離 $\\ell$ の点 E で静止した。$\\ell$ はどう表されるか。", "choices": ["$\\dfrac{2}{3}h$", "$\\dfrac{4}{5}h$", "$h$", "$\\dfrac{4}{3}h$"] },
+      "en": { "prompt": "Block P (mass $m$) is released from rest at A, height $h$ above floor BC. It slides down smooth AB, along smooth BC, then up a rough incline CD ($30°$, kinetic friction $\\dfrac{\\sqrt3}{6}$), stopping at E a distance $\\ell$ from C. Express $\\ell$.", "choices": ["$\\dfrac{2}{3}h$", "$\\dfrac{4}{5}h$", "$h$", "$\\dfrac{4}{3}h$"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "$\\dfrac{4}{3}h$", "en": "$\\dfrac{4}{3}h$" },
+      "explanation": { "en": "Energy from A (height $h$) to E (height $\\ell\\sin30°=\\tfrac{\\ell}{2}$) with friction on CD: $mgh=mg\\tfrac{\\ell}{2}+\\mu mg\\cos30°\\cdot\\ell$. Here $\\mu\\cos30°=\\tfrac{\\sqrt3}{6}\\cdot\\tfrac{\\sqrt3}{2}=\\tfrac14$, so $h=\\ell(\\tfrac12+\\tfrac14)=\\tfrac{3\\ell}{4}$, giving $\\ell=\\tfrac{4}{3}h$.", "ja": "A（高さ $h$）から E（高さ $\\ell\\sin30°=\\tfrac{\\ell}{2}$）へ，CD の摩擦を含めて $mgh=mg\\tfrac{\\ell}{2}+\\mu mg\\cos30°\\cdot\\ell$。$\\mu\\cos30°=\\tfrac{\\sqrt3}{6}\\cdot\\tfrac{\\sqrt3}{2}=\\tfrac14$ なので $h=\\ell(\\tfrac12+\\tfrac14)=\\tfrac{3\\ell}{4}$，$\\ell=\\tfrac{4}{3}h$。" }
+    },
+    {
+      "id": "2013-2-phy-7", "answerRow": 7, "block": "I", "topicId": "mech",
+      "subtopic": "Two masses on a spring (kinetic-energy ratio)",
+      "patternTags": ["express-formula", "momentum", "simple-harmonic-motion"], "hasFigure": true,
+      "figure": { "ja": "なめらかな床に軽いばね、両端に A(質量 m)、B(質量 M)。両手で引いて自然長より伸ばし静止させ、同時に離すと両方が単振動。", "en": "On a smooth floor, a light spring has A (mass m) on one end and B (mass M) on the other. Pulled apart (stretched) and released from rest, both oscillate." },
+      "ja": { "prompt": "なめらかな水平面に軽いばねを置き，一端に質量 $m$ の A，他端に質量 $M$ の B を付ける。両手で A,B を引いてばねを自然長より伸ばして静止させ，同時に離すと両方が単振動した。ばねが自然長になった時の A,B の運動エネルギーを $K_A,K_B$ とすると，$\\dfrac{K_A}{K_B}$ はどれか。", "choices": ["$\\dfrac{m^2}{M^2}$", "$\\dfrac{m}{M}$", "$1$", "$\\dfrac{M}{m}$", "$\\dfrac{M^2}{m^2}$"] },
+      "en": { "prompt": "A light spring on a smooth floor has A (mass $m$) and B (mass $M$) on its ends. Stretched and released from rest, both oscillate. At the moment the spring returns to natural length, with kinetic energies $K_A,K_B$, find $\\dfrac{K_A}{K_B}$.", "choices": ["$\\dfrac{m^2}{M^2}$", "$\\dfrac{m}{M}$", "$1$", "$\\dfrac{M}{m}$", "$\\dfrac{M^2}{m^2}$"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "$\\dfrac{M}{m}$", "en": "$\\dfrac{M}{m}$" },
+      "explanation": { "en": "Total momentum stays zero (released from rest, no external horizontal force), so $m\\,v_A=M\\,v_B$ at all times. Then $\\dfrac{K_A}{K_B}=\\dfrac{m\\,v_A^2}{M\\,v_B^2}=\\dfrac{m}{M}\\left(\\dfrac{v_A}{v_B}\\right)^2=\\dfrac{m}{M}\\left(\\dfrac{M}{m}\\right)^2=\\dfrac{M}{m}$.", "ja": "全運動量は 0 のまま（静止から放し外力なし）なので $m\\,v_A=M\\,v_B$。$\\dfrac{K_A}{K_B}=\\dfrac{m\\,v_A^2}{M\\,v_B^2}=\\dfrac{m}{M}\\left(\\dfrac{M}{m}\\right)^2=\\dfrac{M}{m}$。" }
+    },
+    {
+      "id": "2013-2-phy-8", "answerRow": 8, "block": "II", "topicId": "thermo",
+      "subtopic": "Joule heating from a temperature–time graph",
+      "patternTags": ["read-from-graph", "calorimetry", "electric-power"], "hasFigure": true,
+      "figure": { "ja": "断熱容器に水 200 g。かきまぜ棒＋容器の熱容量 40 J/K、水の比熱 4.2 J/(g·K)、初め 20℃。直流 20 V のヒーターで加熱、温度は図2のように時間に対し直線的に上昇（200 s で 20→30℃）。", "en": "Insulated vessel with 200 g water; stirrer+vessel heat capacity 40 J/K, water specific heat 4.2 J/(g·K), initial 20℃. A 20 V DC heater warms it; temperature rises linearly (20→30℃ over 200 s)." },
+      "ja": { "prompt": "断熱容器に水 $200\\,$g。かきまぜ棒と容器の熱容量の合計 $40\\,$J/K，水の比熱 $4.2\\,$J/(g·K)，初め $20\\,$℃。直流 $20\\,$V のヒーターで加熱すると温度は図2のように時間に対し直線的に上昇した（$200\\,$s で $20\\to30\\,$℃，傾き $0.05\\,$K/s）。ヒーターに流れていた電流は何 A か。", "choices": ["$0.22$", "$0.44$", "$2.2$", "$4.4$", "$22$", "$44$"] },
+      "en": { "prompt": "Insulated vessel, $200\\,$g water; stirrer+vessel heat capacity $40\\,$J/K, water $c=4.2\\,$J/(g·K), initial $20\\,$℃. A $20\\,$V DC heater raises the temperature linearly (slope $0.05\\,$K/s, i.e. $20\\to30\\,$℃ in $200\\,$s). Find the heater current (A).", "choices": ["$0.22$", "$0.44$", "$2.2$", "$4.4$", "$22$", "$44$"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "$2.2$", "en": "$2.2$" },
+      "explanation": { "en": "Total heat capacity $C=200\\cdot4.2+40=880\\,$J/K. From the graph $\\dfrac{dT}{dt}=\\dfrac{10}{200}=0.05\\,$K/s, so power $P=C\\dfrac{dT}{dt}=880\\cdot0.05=44\\,$W. Since $P=VI$, $I=\\dfrac{44}{20}=2.2\\,$A.", "ja": "全熱容量 $C=200\\cdot4.2+40=880\\,$J/K。グラフより $\\dfrac{dT}{dt}=\\dfrac{10}{200}=0.05\\,$K/s なので $P=C\\dfrac{dT}{dt}=880\\cdot0.05=44\\,$W。$P=VI$ より $I=\\dfrac{44}{20}=2.2\\,$A。" }
+    },
+    {
+      "id": "2013-2-phy-9", "answerRow": 9, "block": "II", "topicId": "thermo",
+      "subtopic": "Heat to reach the friction threshold (isochoric)",
+      "patternTags": ["express-formula", "first-law", "isochoric", "friction"], "hasFigure": true,
+      "figure": { "ja": "床に固定したシリンダー内に軽いなめらかなピストン（断面積 S）で単原子分子理想気体（圧力＝大気圧 p0、体積 V0）。ピストン右端に質量 M の物体が床上に接する。ヒーターで加熱すると物体が右へ動き始める。物体と床の静止摩擦係数 μ。", "en": "A fixed cylinder with a light smooth piston (area S) holds monatomic ideal gas (pressure p0, volume V0). A block (mass M) on the floor touches the piston's right end. Heating eventually pushes the block; static friction coefficient μ between block and floor." },
+      "ja": { "prompt": "床に固定したシリンダー内に，軽いなめらかなピストン（断面積 $S$）で単原子分子理想気体を閉じ込めた。圧力は大気圧 $p_0$ と等しく，体積は $V_0$。ピストンの右端に接して質量 $M$ の物体が床上にある。ヒーターでゆっくり加熱すると物体が右へ動き始めた。物体と床の静止摩擦係数を $\\mu$ とする。物体が動き始める直前までに加えた熱量はどう表されるか。", "choices": ["$\\dfrac{\\mu MgV_0}{S}$", "$\\dfrac{3\\mu MgV_0}{2S}$", "$\\dfrac{5\\mu MgV_0}{2S}$", "$\\dfrac{(\\mu Mg-p_0S)V_0}{S}$", "$\\dfrac{3(\\mu Mg-p_0S)V_0}{2S}$", "$\\dfrac{5(\\mu Mg-p_0S)V_0}{2S}$"] },
+      "en": { "prompt": "A fixed cylinder with a light smooth piston (area $S$) holds monatomic ideal gas at pressure $p_0$ (atmospheric), volume $V_0$. A block (mass $M$) on the floor touches the piston's right end. Slow heating eventually moves the block; static friction coefficient $\\mu$. Find the heat added just up to when the block begins to move.", "choices": ["$\\dfrac{\\mu MgV_0}{S}$", "$\\dfrac{3\\mu MgV_0}{2S}$", "$\\dfrac{5\\mu MgV_0}{2S}$", "$\\dfrac{(\\mu Mg-p_0S)V_0}{S}$", "$\\dfrac{3(\\mu Mg-p_0S)V_0}{2S}$", "$\\dfrac{5(\\mu Mg-p_0S)V_0}{2S}$"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "$\\dfrac{3\\mu MgV_0}{2S}$", "en": "$\\dfrac{3\\mu MgV_0}{2S}$" },
+      "explanation": { "en": "Until the block moves, the piston is blocked, so the gas is heated at constant volume $V_0$. The block stays put while the piston force $(p-p_0)S$ is below the maximum static friction $\\mu Mg$; it moves when $(p-p_0)S=\\mu Mg$, i.e. $\\Delta p=\\dfrac{\\mu Mg}{S}$. Monatomic isochoric heat: $Q=\\Delta U=\\tfrac32V_0\\,\\Delta p=\\dfrac{3\\mu MgV_0}{2S}$.", "ja": "物体が動くまでピストンは止まったままなので気体は定積 $V_0$ で加熱される。ピストンが物体を押す力 $(p-p_0)S$ が最大静止摩擦 $\\mu Mg$ に達すると動く：$\\Delta p=\\dfrac{\\mu Mg}{S}$。単原子・定積で $Q=\\Delta U=\\tfrac32V_0\\,\\Delta p=\\dfrac{3\\mu MgV_0}{2S}$。" }
+    },
+    {
+      "id": "2013-2-phy-10", "answerRow": 10, "block": "II", "topicId": "thermo",
+      "subtopic": "Internal-energy ordering of four p–V states",
+      "patternTags": ["conceptual", "pv-diagram", "internal-energy"], "hasFigure": true,
+      "figure": { "ja": "単原子分子理想気体の 4 状態。A($V_0,p_0$)，B($\\tfrac{V_0}{2},p_0$)，C($\\tfrac{V_0}{2},\\tfrac{p_0}{2}$)，D($V_0,\\tfrac{p_0}{2}$)。", "en": "Four states of a monatomic ideal gas: A($V_0,p_0$), B($\\tfrac{V_0}{2},p_0$), C($\\tfrac{V_0}{2},\\tfrac{p_0}{2}$), D($V_0,\\tfrac{p_0}{2}$)." },
+      "ja": { "prompt": "一定量の単原子分子理想気体の 4 状態 A,B,C,D が $p$-$V$ 図に示されている。A は $(V_0,p_0)$，B は $(\\tfrac{V_0}{2},p_0)$，C は $(\\tfrac{V_0}{2},\\tfrac{p_0}{2})$，D は $(V_0,\\tfrac{p_0}{2})$。内部エネルギー $U_A,U_B,U_C,U_D$ の大小関係はどれか。", "choices": ["$U_A>U_B=U_D>U_C$", "$U_B>U_A=U_C>U_D$", "$U_C>U_B=U_D>U_A$", "$U_D>U_A=U_C>U_B$"] },
+      "en": { "prompt": "Four states A,B,C,D of a monatomic ideal gas: A$(V_0,p_0)$, B$(\\tfrac{V_0}{2},p_0)$, C$(\\tfrac{V_0}{2},\\tfrac{p_0}{2})$, D$(V_0,\\tfrac{p_0}{2})$. Order the internal energies $U_A,U_B,U_C,U_D$.", "choices": ["$U_A>U_B=U_D>U_C$", "$U_B>U_A=U_C>U_D$", "$U_C>U_B=U_D>U_A$", "$U_D>U_A=U_C>U_B$"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "$U_A>U_B=U_D>U_C$", "en": "$U_A>U_B=U_D>U_C$" },
+      "explanation": { "en": "$U=\\tfrac32pV\\propto pV$. $U_A\\propto p_0V_0$; $U_B\\propto p_0\\tfrac{V_0}{2}=\\tfrac12p_0V_0$; $U_C\\propto\\tfrac{p_0}{2}\\tfrac{V_0}{2}=\\tfrac14p_0V_0$; $U_D\\propto\\tfrac{p_0}{2}V_0=\\tfrac12p_0V_0$. Hence $U_A>U_B=U_D>U_C$.", "ja": "$U=\\tfrac32pV\\propto pV$。$U_A\\propto p_0V_0$，$U_B\\propto\\tfrac12p_0V_0$，$U_C\\propto\\tfrac14p_0V_0$，$U_D\\propto\\tfrac12p_0V_0$。よって $U_A>U_B=U_D>U_C$。" }
+    },
+    {
+      "id": "2013-2-phy-11", "answerRow": 11, "block": "III", "topicId": "waves",
+      "subtopic": "Standing wave — antinodes and nodes from a snapshot",
+      "patternTags": ["read-from-graph", "standing-wave", "superposition"], "hasFigure": true,
+      "figure": { "ja": "波長・振幅・速さの等しい逆向きの 2 正弦波が重なる定常波。実線＝右進、破線＝左進。x 軸上の点 a,b,c,d,e で腹と節を選ぶ。", "en": "Two oppositely-travelling sine waves (equal wavelength, amplitude, speed) form a standing wave; solid = right-moving, dashed = left-moving. Identify antinodes and nodes among points a–e." },
+      "ja": { "prompt": "波長・振幅・速さが等しく互いに逆向きに進む 2 つの正弦波が重なって定常波ができている（実線＝右進，破線＝左進）。図の点 a〜e のうち，定常波の腹（最も大きく振動）と節（全く振動しない）になるのはどれか。", "choices": ["腹: b,d / 節: a,c,e", "腹: a,c,e / 節: b,d", "腹: c / 節: a,e", "腹: a,e / 節: c"] },
+      "en": { "prompt": "Two oppositely-travelling sine waves (equal wavelength, amplitude, speed) form a standing wave (solid = right-moving, dashed = left-moving). Among points a–e, which are antinodes (max vibration) and which are nodes (no vibration)?", "choices": ["antinodes: b,d / nodes: a,c,e", "antinodes: a,c,e / nodes: b,d", "antinodes: c / nodes: a,e", "antinodes: a,e / nodes: c"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "腹: a,c,e / 節: b,d", "en": "antinodes: a,c,e / nodes: b,d" },
+      "explanation": { "en": "For two opposite waves $y_1=A\\sin(kx-\\omega t)$, $y_2=A\\sin(kx+\\omega t)$: at antinodes the two always coincide ($y_1=y_2$, where the snapshot curves cross), and at nodes they are always equal-and-opposite ($y_1=-y_2$). Reading the figure, a, c, e are antinodes and b, d are nodes.", "ja": "逆向きの 2 波 $y_1=A\\sin(kx-\\omega t)$，$y_2=A\\sin(kx+\\omega t)$ では，腹は常に $y_1=y_2$（瞬間図で両曲線が交わる点），節は常に $y_1=-y_2$。図より a,c,e が腹，b,d が節。" }
+    },
+    {
+      "id": "2013-2-phy-12", "answerRow": 12, "block": "III", "topicId": "waves",
+      "subtopic": "Open vs closed pipe — speed of sound in another gas",
+      "patternTags": ["express-formula", "resonance", "open-closed-pipe"], "hasFigure": true,
+      "figure": { "ja": "両端開管。空気中で振動数を上げ最初の共鳴は f1。同じ管の反対端を閉じ、別の気体 A 中で最初の共鳴は f2。空気中の音速 V。開口端補正は無視。", "en": "An open–open pipe; in air the first resonance is at f1. With the far end closed, in gas A the first resonance is at f2. Speed of sound in air V; ignore end correction." },
+      "ja": { "prompt": "両端が開いた管で，空気中で振動数を $0$ から上げると最初の共鳴は $f_1$ であった。同じ管のスピーカーと逆の端を閉じ，別の気体 A 中で同様に行うと最初の共鳴は $f_2$ であった。空気中の音速を $V$，開口端補正は無視する。気体 A 中の音速はどう表されるか。", "choices": ["$\\dfrac{2f_1V}{f_2}$", "$\\dfrac{2f_2V}{f_1}$", "$\\dfrac{f_1V}{2f_2}$", "$\\dfrac{f_2V}{2f_1}$"] },
+      "en": { "prompt": "An open–open pipe gives first resonance $f_1$ in air. With the far end closed, in gas A the first resonance is $f_2$. Speed of sound in air is $V$ (ignore end correction). Express the speed of sound in gas A.", "choices": ["$\\dfrac{2f_1V}{f_2}$", "$\\dfrac{2f_2V}{f_1}$", "$\\dfrac{f_1V}{2f_2}$", "$\\dfrac{f_2V}{2f_1}$"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "$\\dfrac{2f_2V}{f_1}$", "en": "$\\dfrac{2f_2V}{f_1}$" },
+      "explanation": { "en": "Open–open fundamental: $f_1=\\dfrac{V}{2L}$, so $L=\\dfrac{V}{2f_1}$. Closed–open fundamental in gas A: $f_2=\\dfrac{V_A}{4L}$, so $V_A=4Lf_2=4\\cdot\\dfrac{V}{2f_1}\\cdot f_2=\\dfrac{2f_2V}{f_1}$.", "ja": "両端開管の基本振動 $f_1=\\dfrac{V}{2L}$ より $L=\\dfrac{V}{2f_1}$。片側を閉じた管（気体 A）では $f_2=\\dfrac{V_A}{4L}$ より $V_A=4Lf_2=\\dfrac{2f_2V}{f_1}$。" }
+    },
+    {
+      "id": "2013-2-phy-13", "answerRow": 13, "block": "III", "topicId": "waves",
+      "subtopic": "Two thin films — thickness for phase opposition",
+      "patternTags": ["plug-in-numbers", "thin-film", "optical-path"], "hasFigure": true,
+      "figure": { "ja": "空気中で波長 600 nm の光が、厚さ ℓ の 2 枚の薄膜 A,B に同位相で垂直入射。屈折率 n_A, n_B、差 n_A−n_B=6.0×10⁻³。直接透過した 2 光が逆位相（λ/2 ずれ）になる ℓ を求める。", "en": "600 nm light enters two films A,B (each thickness ℓ) in phase; indices n_A,n_B with n_A−n_B=6.0×10⁻³. Find ℓ so the two directly-transmitted beams are in opposite phase (λ/2 shift)." },
+      "ja": { "prompt": "空気中での波長 $600\\,$nm の光が，厚さ $\\ell$ の 2 枚の透明な薄膜 A,B に同位相で垂直入射する。A,B の屈折率を $n_A,n_B$ とし $n_A-n_B=6.0\\times10^{-3}$。境界面で反射されず直接透過した 2 光の位相が互いに逆になる（半波長ずれる）ようにするには，$\\ell$ をいくらにすればよいか（単位 m）。", "choices": ["$1.0\\times10^{-3}$", "$5.0\\times10^{-4}$", "$2.0\\times10^{-4}$", "$1.0\\times10^{-4}$", "$5.0\\times10^{-5}$", "$2.0\\times10^{-5}$"] },
+      "en": { "prompt": "$600\\,$nm light enters two transparent films A,B (each thickness $\\ell$) in phase; $n_A-n_B=6.0\\times10^{-3}$. Find $\\ell$ (m) so the two directly-transmitted beams end up in opposite phase (half-wavelength shift).", "choices": ["$1.0\\times10^{-3}$", "$5.0\\times10^{-4}$", "$2.0\\times10^{-4}$", "$1.0\\times10^{-4}$", "$5.0\\times10^{-5}$", "$2.0\\times10^{-5}$"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "$5.0\\times10^{-5}$", "en": "$5.0\\times10^{-5}$" },
+      "explanation": { "en": "Optical-path difference $(n_A-n_B)\\ell=\\dfrac{\\lambda}{2}$ for opposite phase. $(6.0\\times10^{-3})\\ell=\\dfrac{600\\times10^{-9}}{2}=3.0\\times10^{-7}$, so $\\ell=\\dfrac{3.0\\times10^{-7}}{6.0\\times10^{-3}}=5.0\\times10^{-5}\\,$m.", "ja": "逆位相条件は光路差 $(n_A-n_B)\\ell=\\dfrac{\\lambda}{2}$。$(6.0\\times10^{-3})\\ell=\\dfrac{600\\times10^{-9}}{2}=3.0\\times10^{-7}$ より $\\ell=5.0\\times10^{-5}\\,$m。" }
+    },
+    {
+      "id": "2013-2-phy-14", "answerRow": 14, "block": "IV", "topicId": "em",
+      "subtopic": "Field component and potential at the origin",
+      "patternTags": ["express-formula", "electric-field", "electric-potential", "superposition"], "hasFigure": true,
+      "figure": { "ja": "x 軸上：x=−a に +q、x=2a に −q。無限遠基準、クーロン定数 k。原点 O での E_x と V を求める。", "en": "On the x-axis: +q at x=−a and −q at x=2a; potential zero at infinity, Coulomb constant k. Find E_x and V at the origin O." },
+      "ja": { "prompt": "$x$ 軸上の $x=-a\\,(a>0)$ に電気量 $q\\,(q>0)$，$x=2a$ に $-q$ を固定した。無限遠を電位の基準，クーロンの法則の比例定数を $k$ とする。原点 O での電場の $x$ 成分 $E_x$ と電位 $V$ の正しい組み合わせはどれか。", "choices": ["$E_x=\\dfrac{3kq}{4a^2},\\ V=-\\dfrac{kq}{2a}$", "$E_x=\\dfrac{3kq}{4a^2},\\ V=+\\dfrac{kq}{2a}$", "$E_x=\\dfrac{3kq}{4a^2},\\ V=+\\dfrac{3kq}{2a}$", "$E_x=\\dfrac{5kq}{4a^2},\\ V=-\\dfrac{kq}{2a}$", "$E_x=\\dfrac{5kq}{4a^2},\\ V=+\\dfrac{kq}{2a}$", "$E_x=\\dfrac{5kq}{4a^2},\\ V=+\\dfrac{3kq}{2a}$"] },
+      "en": { "prompt": "On the $x$-axis, $+q$ is at $x=-a$ and $-q$ at $x=2a$ (potential zero at infinity, Coulomb constant $k$). Give $E_x$ and $V$ at the origin O.", "choices": ["$E_x=\\dfrac{3kq}{4a^2},\\ V=-\\dfrac{kq}{2a}$", "$E_x=\\dfrac{3kq}{4a^2},\\ V=+\\dfrac{kq}{2a}$", "$E_x=\\dfrac{3kq}{4a^2},\\ V=+\\dfrac{3kq}{2a}$", "$E_x=\\dfrac{5kq}{4a^2},\\ V=-\\dfrac{kq}{2a}$", "$E_x=\\dfrac{5kq}{4a^2},\\ V=+\\dfrac{kq}{2a}$", "$E_x=\\dfrac{5kq}{4a^2},\\ V=+\\dfrac{3kq}{2a}$"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "$E_x=\\dfrac{5kq}{4a^2},\\ V=+\\dfrac{kq}{2a}$", "en": "$E_x=\\dfrac{5kq}{4a^2},\\ V=+\\dfrac{kq}{2a}$" },
+      "explanation": { "en": "Field at O: from $+q$ (distance $a$) points $+x$, $\\dfrac{kq}{a^2}$; from $-q$ (distance $2a$, to the right) points $+x$ (toward it), $\\dfrac{kq}{4a^2}$. Sum $E_x=\\dfrac{kq}{a^2}+\\dfrac{kq}{4a^2}=\\dfrac{5kq}{4a^2}$. Potential $V=\\dfrac{kq}{a}+\\dfrac{k(-q)}{2a}=\\dfrac{kq}{a}-\\dfrac{kq}{2a}=\\dfrac{kq}{2a}$.", "ja": "O での電場：$+q$（距離 $a$）は $+x$ に $\\dfrac{kq}{a^2}$，$-q$（距離 $2a$，右）も $+x$（引きつけ）に $\\dfrac{kq}{4a^2}$。合計 $E_x=\\dfrac{5kq}{4a^2}$。電位 $V=\\dfrac{kq}{a}-\\dfrac{kq}{2a}=\\dfrac{kq}{2a}$。" }
+    },
+    {
+      "id": "2013-2-phy-15", "answerRow": 15, "block": "IV", "topicId": "em",
+      "subtopic": "Fields of three charged infinite planes",
+      "patternTags": ["express-formula", "electric-field", "superposition", "charged-plane"], "hasFigure": true,
+      "figure": { "ja": "無限平面の電場は距離によらず |σ| に比例。平面 I,II,III が面密度 −2Q, Q, 3Q（Q>0）。領域 A（I の上）、B（I と II の間）、C（II と III の間）の電場の大きさ E_A,E_B,E_C。", "en": "An infinite charged plane gives a field ∝ |σ| independent of distance. Planes I,II,III have surface densities −2Q, Q, 3Q (Q>0). Regions A (above I), B (between I,II), C (between II,III): field magnitudes E_A,E_B,E_C." },
+      "ja": { "prompt": "無限に広い帯電平面の電場の大きさは距離によらず $|\\sigma|$ に比例する（正電荷なら離れる向き，負なら近づく向き）。平面 I,II,III が面密度 $-2Q,Q,3Q\\,(Q>0)$ で帯電している。領域 A（I の上），B（I と II の間），C（II と III の間）の電場の大きさを $E_A,E_B,E_C$ とする。大小関係はどれか。", "choices": ["$E_A>E_B>E_C$", "$E_A>E_C>E_B$", "$E_B>E_A>E_C$", "$E_B>E_C>E_A$", "$E_C>E_A>E_B$", "$E_C>E_B>E_A$"] },
+      "en": { "prompt": "An infinite charged plane's field magnitude is ∝ $|\\sigma|$ (away from positive, toward negative). Planes I,II,III have densities $-2Q,Q,3Q\\,(Q>0)$. Regions A (above I), B (between I,II), C (between II,III) have field magnitudes $E_A,E_B,E_C$. Order them.", "choices": ["$E_A>E_B>E_C$", "$E_A>E_C>E_B$", "$E_B>E_A>E_C$", "$E_B>E_C>E_A$", "$E_C>E_A>E_B$", "$E_C>E_B>E_A$"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "$E_B>E_C>E_A$", "en": "$E_B>E_C>E_A$" },
+      "explanation": { "en": "Each plane contributes $\\tfrac{|\\sigma|}{2}$ on each side (sign by direction). Taking up as +: region A (above all) $=-Q+\\tfrac{Q}{2}+\\tfrac{3Q}{2}=Q$; region B (below I, above II,III) $=+Q+\\tfrac{Q}{2}+\\tfrac{3Q}{2}=3Q$; region C (below I,II, above III) $=+Q-\\tfrac{Q}{2}+\\tfrac{3Q}{2}=2Q$. So $E_B(3Q)>E_C(2Q)>E_A(Q)$.", "ja": "各平面は片側に $\\tfrac{|\\sigma|}{2}$ を寄与（向きは符号による）。上向きを正とすると，A（全平面の上）$=-Q+\\tfrac{Q}{2}+\\tfrac{3Q}{2}=Q$，B（I の下，II・III の上）$=+Q+\\tfrac{Q}{2}+\\tfrac{3Q}{2}=3Q$，C（I・II の下，III の上）$=+Q-\\tfrac{Q}{2}+\\tfrac{3Q}{2}=2Q$。よって $E_B>E_C>E_A$。" }
+    },
+    {
+      "id": "2013-2-phy-16", "answerRow": 16, "block": "IV", "topicId": "em",
+      "subtopic": "Two-branch bridge: potential difference between midpoints",
+      "patternTags": ["plug-in-numbers", "dc-circuit", "voltage-divider"], "hasFigure": true,
+      "figure": { "ja": "4.5 V 電池に 2 つの並列枝。上枝 9.0 kΩ–a–6.0 kΩ、下枝 5.0 kΩ–b–4.0 kΩ。b 基準で a の電位を求める。", "en": "A 4.5 V battery with two parallel branches: top 9.0 kΩ–a–6.0 kΩ, bottom 5.0 kΩ–b–4.0 kΩ. Find the potential at a relative to b." },
+      "ja": { "prompt": "起電力 $4.5\\,$V の電池に，上枝（$9.0\\,$kΩ–点 a–$6.0\\,$kΩ）と下枝（$5.0\\,$kΩ–点 b–$4.0\\,$kΩ）を並列に接続した（内部抵抗無視）。点 b を基準としたときの点 a の電位は何 V か。", "choices": ["$-0.3$", "$-0.2$", "$-0.1$", "$0$", "$0.1$", "$0.2$", "$0.3$"] },
+      "en": { "prompt": "A $4.5\\,$V battery has two parallel branches: top ($9.0\\,$kΩ–a–$6.0\\,$kΩ) and bottom ($5.0\\,$kΩ–b–$4.0\\,$kΩ); internal resistance negligible. Taking b as reference, find the potential at a (V).", "choices": ["$-0.3$", "$-0.2$", "$-0.1$", "$0$", "$0.1$", "$0.2$", "$0.3$"] },
+      "answerIndex": 5, "answerOption": 6, "answer": { "ja": "$0.2$", "en": "$0.2$" },
+      "explanation": { "en": "Each branch carries $4.5\\,$V. Measured from the high-potential rail, the top divider puts a at $4.5\\cdot\\dfrac{6}{9+6}=1.8\\,$V from that rail, and the bottom divider puts b at $4.5\\cdot\\dfrac{4}{5+4}=2.0\\,$V; equivalently, relative to the other rail $V_a=2.7\\,$V and $V_b=2.5\\,$V. Either way $V_a-V_b=+0.2\\,$V.", "ja": "各枝に $4.5\\,$V がかかる。高電位側のレールから測ると，上枝の分圧で a は $4.5\\cdot\\dfrac{6}{15}=1.8\\,$V，下枝で b は $4.5\\cdot\\dfrac{4}{9}=2.0\\,$V（反対側レール基準では $V_a=2.7$，$V_b=2.5$）。いずれにせよ $V_a-V_b=+0.2\\,$V。" }
+    },
+    {
+      "id": "2013-2-phy-17", "answerRow": 17, "block": "IV", "topicId": "em",
+      "subtopic": "Two identical nonlinear bulbs in series",
+      "patternTags": ["read-from-graph", "dc-circuit", "power", "nonohmic"], "hasFigure": true,
+      "figure": { "ja": "電球の I–V 特性（非線形、図1）。同じ電球 2 個と起電力 10 V の電池を直列（図2）。電球 1 個 5 V のとき電流は約 0.4 A。", "en": "A bulb's I–V curve (nonlinear, fig 1). Two identical bulbs in series with a 10 V battery (fig 2); at 5 V per bulb the current is about 0.4 A." },
+      "ja": { "prompt": "図1 はある電球の電流-電圧特性（非線形）。これと同じ電球 2 個と起電力 $10\\,$V の電池を直列に接続した（内部抵抗無視）。電球 1 個に $5\\,$V かかるとき，図1 より電流は約 $0.4\\,$A である。2 つの電球が消費する電力の合計はいくらか（W）。", "choices": ["$2.0$", "$4.0$", "$6.0$", "$8.0$", "$10$", "$12$"] },
+      "en": { "prompt": "Fig 1 is a bulb's (nonlinear) I–V curve. Two identical bulbs are in series with a $10\\,$V battery; at $5\\,$V per bulb the current is about $0.4\\,$A. Find the total power consumed by the two bulbs (W).", "choices": ["$2.0$", "$4.0$", "$6.0$", "$8.0$", "$10$", "$12$"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "$4.0$", "en": "$4.0$" },
+      "explanation": { "en": "In series the two identical bulbs share the $10\\,$V equally, so each has $5\\,$V; the curve gives $I=0.4\\,$A. Total power $=10\\,$V$\\times0.4\\,$A$=4.0\\,$W (i.e. $2\\times5\\times0.4$).", "ja": "直列で同じ電球が $10\\,$V を等分するので各 $5\\,$V，特性より $I=0.4\\,$A。合計電力 $=10\\times0.4=4.0\\,$W（$2\\times5\\times0.4$）。" }
+    },
+    {
+      "id": "2013-2-phy-18", "answerRow": 18, "block": "IV", "topicId": "em",
+      "subtopic": "Deflection of a charge crossing a circular field region",
+      "patternTags": ["express-formula", "magnetic-force", "circular-motion", "geometry"], "hasFigure": true,
+      "figure": { "ja": "点 A を中心とする半径 a の円内に、紙面裏→表の一様磁場 B。質量 m・電荷 q(>0) の粒子が外の P から A へ速さ v で直進し入射、半径 r の円弧（中心 O）に沿い、角 2θ 曲げられて Q へ出る。", "en": "A uniform field B (out of page) fills a circle of radius a centred at A. A particle (mass m, charge q>0) travels from P toward A at speed v, enters, follows a circular arc of radius r (centre O), and is deflected by 2θ toward Q." },
+      "ja": { "prompt": "点 A を中心とする半径 $a$ の円内に，紙面に垂直で裏から表向きの一様磁場 $B$ がある。質量 $m$，電荷 $q\\,(>0)$ の荷電粒子が外の点 P から A に向かって速さ $v$ で直進して入射し，半径 $r$ の円弧（中心 O）に沿って運動し，角 $2\\theta$ だけ曲げられて Q へ出た。$\\tan\\theta$ はどう表されるか。", "choices": ["$\\dfrac{aqB}{mv}$", "$\\dfrac{amv}{qB}$", "$\\dfrac{mv}{aqB}$", "$\\dfrac{qB}{amv}$"] },
+      "en": { "prompt": "A uniform field $B$ (out of page) fills a circle of radius $a$ centred at A. A particle (mass $m$, charge $q>0$) heads from P toward A at speed $v$, enters, follows a circular arc of radius $r$ (centre O), and is deflected by $2\\theta$ toward Q. Express $\\tan\\theta$.", "choices": ["$\\dfrac{aqB}{mv}$", "$\\dfrac{amv}{qB}$", "$\\dfrac{mv}{aqB}$", "$\\dfrac{qB}{amv}$"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "$\\dfrac{aqB}{mv}$", "en": "$\\dfrac{aqB}{mv}$" },
+      "explanation": { "en": "The orbit radius is $r=\\dfrac{mv}{qB}$. The particle enters along a line through the centre A, so at the entry point the radius $OE\\perp$ velocity and the distance from the entry point to A is $a$. In that right triangle $\\tan\\theta=\\dfrac{a}{r}=\\dfrac{a}{mv/(qB)}=\\dfrac{aqB}{mv}$.", "ja": "軌道半径 $r=\\dfrac{mv}{qB}$。粒子は中心 A を通る直線に沿って入るので，入射点で半径 $OE\\perp$ 速度，入射点から A までは $a$。この直角三角形で $\\tan\\theta=\\dfrac{a}{r}=\\dfrac{aqB}{mv}$。" }
+    },
+    {
+      "id": "2013-2-phy-19", "answerRow": 19, "block": "IV", "topicId": "em",
+      "subtopic": "RL vs RC: resistor power as frequency rises",
+      "patternTags": ["conceptual", "ac-circuit", "impedance", "power"], "hasFigure": true,
+      "figure": { "ja": "回路 a：抵抗とコイル（RL 直列）、回路 b：抵抗とコンデンサー（RC 直列）、交流電源 周波数 f。実効電圧一定で f を上げる。", "en": "Circuit a: resistor + inductor (RL series); circuit b: resistor + capacitor (RC series); AC source frequency f. With rms voltage fixed, f is increased." },
+      "ja": { "prompt": "回路 a は抵抗とコイル（RL 直列），回路 b は抵抗とコンデンサー（RC 直列）で，交流電源の周波数は $f$。電圧の実効値を変えずに周波数を $f$ から増加させたとき，各回路の抵抗で消費される電力の時間平均はどう変化するか。", "choices": ["a 増える / b 増える", "a 増える / b 減る", "a 減る / b 増える", "a 減る / b 減る"] },
+      "en": { "prompt": "Circuit a is R–L series, circuit b is R–C series, AC frequency $f$. With the rms voltage fixed, the frequency is increased from $f$. How does the time-averaged power in each resistor change?", "choices": ["a increases / b increases", "a increases / b decreases", "a decreases / b increases", "a decreases / b decreases"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "a 減る / b 増える", "en": "a decreases / b increases" },
+      "explanation": { "en": "Circuit a (R–L): impedance $\\sqrt{R^2+(\\omega L)^2}$ grows with frequency, so the current and the resistor power $I^2R$ decrease. Circuit b (R–C): impedance $\\sqrt{R^2+(1/\\omega C)^2}$ shrinks with frequency, so the current and resistor power increase.", "ja": "回路 a（RL）：インピーダンス $\\sqrt{R^2+(\\omega L)^2}$ は周波数とともに増え，電流と抵抗の電力 $I^2R$ は減る。回路 b（RC）：$\\sqrt{R^2+(1/\\omega C)^2}$ は減り，電流・電力は増える。" }
+    }
+  ],
+  "patterns": {
+    "blockSkeleton": "Older 7/3/3/6 format: Mechanics ×7, Thermodynamics ×3, Waves ×3, Electricity & Magnetism ×6, no Atoms block (19 items).",
+    "newArchetypesVsPrevious": [
+      "Block on a pulled plank: the top block is driven only by friction; slipping threshold gives μ=F0/((M+m)g).",
+      "Rod on two supports: 'lift-off' condition by zeroing one support's force and taking torques about the other.",
+      "Horizontal circle on the inside of a hemisphere: resolve the radial normal force into vertical (balances gravity) and horizontal (centripetal).",
+      "Heated gas blocked by a friction-held object: isochoric until the piston force reaches μMg.",
+      "Two thin films, phase opposition: (n_A−n_B)ℓ=λ/2.",
+      "Three charged infinite planes: superpose the constant |σ|/2 fields region by region.",
+      "Charge crossing a circular field region: tan θ = a/r with r=mv/(qB).",
+      "RL vs RC resistor power vs frequency: R–L power falls, R–C power rises as f increases."
+    ],
+    "recurringWithPrevious": [
+      "Oblique 2-D collision: perpendicular momentum conservation gives the speed ratio.",
+      "Whirling-string breaking tension T=mv²/r.",
+      "Up-slope energy with friction: include μmg·cosθ·(slope distance).",
+      "Two masses on a spring released from rest: total momentum zero ⇒ m v_A=M v_B, KE ratio = M/m.",
+      "Joule heating C·(dT/dt)=VI from a temperature–time graph (include the calorimeter heat capacity).",
+      "Internal energy U∝pV ordering of p–V states; open/closed pipe resonance.",
+      "Standing-wave node/antinode identification from two travelling waves.",
+      "Field & potential superposition from point charges; bridge/divider node potentials; series nonlinear bulbs read from an I–V curve."
+    ],
+    "examTacticNotes": [
+      "A block carried on another body is accelerated only by friction — set ma = (max static friction) to find the slip threshold.",
+      "'Does a support lift off?' = set that support's force to zero and take torques about the OTHER support.",
+      "Motion on a sphere/cone: split the single contact (normal) force into vertical (supports weight) and horizontal (centripetal) and divide the two equations.",
+      "If a piston is mechanically blocked (by a friction-held mass), the heating is isochoric until the gas pressure can overcome the block.",
+      "Thin-film/two-path phase: opposite phase needs optical-path difference = λ/2 (odd multiple).",
+      "Charged-plane fields are uniform (|σ|/2 each side); just add signed contributions in each region.",
+      "Charge bent by a circular field region: tan(half-deflection) = (region radius)/(orbit radius).",
+      "RL impedance rises with f (less power), RC impedance falls with f (more power)."
+    ],
+    "difficulty": "Standard EJU level with a 7-item Mechanics section. The rod lift-off (Q2), the hemisphere circular motion (Q4), the friction-blocked isochoric heating (Q9) and the circular-field deflection geometry (Q18) are the most discriminating."
+  }
+}

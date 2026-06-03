@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { existsSync } from 'node:fs';
 import { requireAuth } from './auth';
-import { topicsFor, subtopicsFor, SUBJECTS, type Subject } from './eju';
+import { topicsFor, subtopicsFor, mockExamList, mockExam, SUBJECTS, type Subject } from './eju';
 import { hasApiKey, ask, generate, check, keypoints } from './claude';
 
 const here = dirname(fileURLToPath(import.meta.url));
@@ -16,7 +16,10 @@ app.use(express.json({ limit: '16mb' }));
 
 const isSubject = (s: unknown): s is Subject =>
   typeof s === 'string' && (SUBJECTS as string[]).includes(s);
-const toLang = (l: unknown): 'en' | 'ja' => (l === 'ja' ? 'ja' : 'en');
+const LANGS = ['en', 'ja', 'zh', 'tr'] as const;
+type Lang = (typeof LANGS)[number];
+const toLang = (l: unknown): Lang =>
+  typeof l === 'string' && (LANGS as readonly string[]).includes(l) ? (l as Lang) : 'en';
 
 function handleErr(e: any, res: Response) {
   const status = Number.isInteger(e?.status) && e.status >= 400 && e.status < 600 ? e.status : 500;
@@ -38,6 +41,18 @@ app.post('/api/eju/topics', (req: Request, res: Response) => {
   res.json({ topics: topicsFor(subject, l), subtopics: subtopicsFor(subject, l) });
 });
 
+// Mock exams (exact past-paper review) — public, no Claude call needed.
+app.post('/api/eju/exams', (_req: Request, res: Response) => {
+  res.json({ exams: mockExamList() });
+});
+
+app.post('/api/eju/exam', (req: Request, res: Response) => {
+  const id = req.body?.id;
+  const exam = typeof id === 'string' ? mockExam(id, toLang(req.body?.lang)) : null;
+  if (!exam) return res.status(404).json({ error: 'not_found' });
+  res.json(exam);
+});
+
 // Helper to extract BYOK credentials from requests
 const getAiContext = (req: Request) => {
   const model = req.body?.model || 'gemini'; 
@@ -47,14 +62,15 @@ const getAiContext = (req: Request) => {
 
 app.post('/api/claude/ask', requireAuth, async (req: Request, res: Response) => {
   try {
-    const { subject, lang, messages } = req.body ?? {};
+    const { subject, lang, messages, context } = req.body ?? {};
     const { model, userKey } = getAiContext(req);
     if (!isSubject(subject)) return res.status(400).json({ error: 'bad_subject' });
-    
+
     const result = await ask({
       subject,
       lang: toLang(lang),
       messages: Array.isArray(messages) ? messages : [],
+      context: typeof context === 'string' ? context : undefined,
       model,
       userKey
     });

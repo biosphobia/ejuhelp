@@ -14,6 +14,12 @@ interface AnswersState {
    * wherever it is shown.
    */
   answer: (subject: Subject, q: GenQuestion, idx: number) => void;
+  /**
+   * Reflect a detected choice on a question (e.g. a final answer read off the
+   * page by "Check my work") WITHOUT recording a separate attempt — the check
+   * already grades the work, so this only updates the on-screen answered state.
+   */
+  mark: (id: string, idx: number) => void;
   clear: () => void;
 }
 
@@ -31,6 +37,7 @@ export const useAnswers = create<AnswersState>()(
           source: 'quiz',
         });
       },
+      mark: (id, idx) => set((s) => ({ picked: { ...s.picked, [id]: idx } })),
       clear: () => set({ picked: {} }),
     }),
     { name: 'eju-answers' }

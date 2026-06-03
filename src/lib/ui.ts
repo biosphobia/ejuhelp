@@ -1,14 +1,16 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
-export type Lang = 'en' | 'ja';
+export type Lang = 'en' | 'ja' | 'zh' | 'tr';
+export const LANGS: Lang[] = ['en', 'ja', 'zh', 'tr'];
 export type Subject = 'physics' | 'chemistry' | 'biology' | 'math';
 export type PanelId =
   | 'ask'
   | 'generate'
+  | 'exams'
   | 'notes'
-  | 'check'
   | 'progress'
+  | 'timer'
   | 'settings'
   | 'account'
   | null;
@@ -41,7 +43,7 @@ export const useUI = create<UIState>()(
       launcherOpen: false,
       fingerDraw: false, // default: pen draws, fingers navigate (pan / pinch-zoom)
       setLang: (lang) => set({ lang }),
-      toggleLang: () => set({ lang: get().lang === 'en' ? 'ja' : 'en' }),
+      toggleLang: () => set({ lang: LANGS[(LANGS.indexOf(get().lang) + 1) % LANGS.length] }),
       setSubject: (subject) => set({ subject }),
       openPanel: (panel) => set({ panel, launcherOpen: false }),
       closePanel: () => set({ panel: null }),

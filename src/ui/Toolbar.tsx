@@ -3,12 +3,30 @@ import {
   PEN_SIZES,
   useBoard,
   type InkColor,
+  type ShapeKind,
 } from '../lib/board';
 import { useUI } from '../lib/ui';
 import { useT } from '../i18n';
-import { PenIcon, EraserIcon, UndoIcon, TrashIcon, HandIcon, SelectIcon } from './icons';
+import {
+  PenIcon,
+  EraserIcon,
+  UndoIcon,
+  TrashIcon,
+  HandIcon,
+  SelectIcon,
+  ShapesIcon,
+  TriangleIcon,
+  SquareIcon,
+  CircleIcon,
+} from './icons';
+import type { StringKey } from '../i18n';
 
 const COLORS: InkColor[] = ['black', 'red', 'blue', 'green'];
+const SHAPES: { kind: ShapeKind; Icon: typeof TriangleIcon; label: StringKey }[] = [
+  { kind: 'square', Icon: SquareIcon, label: 'shapeSquare' },
+  { kind: 'triangle', Icon: TriangleIcon, label: 'shapeTriangle' },
+  { kind: 'circle', Icon: CircleIcon, label: 'shapeCircle' },
+];
 
 function IconBtn({
   active,
@@ -41,9 +59,11 @@ export default function Toolbar() {
   const tool = useBoard((s) => s.tool);
   const color = useBoard((s) => s.color);
   const size = useBoard((s) => s.size);
+  const shape = useBoard((s) => s.shape);
   const setTool = useBoard((s) => s.setTool);
   const setColor = useBoard((s) => s.setColor);
   const setSize = useBoard((s) => s.setSize);
+  const setShape = useBoard((s) => s.setShape);
   const undoLast = useBoard((s) => s.undoLast);
   const clearCurrentPage = useBoard((s) => s.clearCurrentPage);
   const fingerDraw = useUI((s) => s.fingerDraw);
@@ -60,11 +80,30 @@ export default function Toolbar() {
       <IconBtn active={tool === 'select'} onClick={() => setTool('select')} title={t('select')}>
         <SelectIcon />
       </IconBtn>
+      <IconBtn active={tool === 'shapes'} onClick={() => setTool('shapes')} title={t('shapes')}>
+        <ShapesIcon />
+      </IconBtn>
+
+      {tool === 'shapes' && (
+        <>
+          <span className="mx-1 h-7 w-px bg-slate-200" />
+          {SHAPES.map(({ kind, Icon, label }) => (
+            <IconBtn
+              key={kind}
+              active={shape === kind}
+              onClick={() => setShape(kind)}
+              title={t(label)}
+            >
+              <Icon />
+            </IconBtn>
+          ))}
+        </>
+      )}
 
       <span className="mx-1 h-7 w-px bg-slate-200" />
 
       {COLORS.map((c) => {
-        const isActive = tool === 'pen' && color === c;
+        const isActive = (tool === 'pen' || tool === 'shapes') && color === c;
         return (
           <button
             key={c}

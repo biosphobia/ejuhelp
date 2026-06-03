@@ -1,0 +1,275 @@
+{
+  "id": "2021-1-chemistry",
+  "year": 2021,
+  "session": 1,
+  "subject": "chemistry",
+  "title": "EJU 2021 · Session 1 · Chemistry",
+  "source": "2021年度（令和3年度）日本留学試験（第1回）理科〈化学〉 © Japan Student Services Organization (JASSO)",
+  "attribution": "EJU past questions © JASSO. Question text paraphrased from the official past paper; figures described in text; correct answers taken from the official JASSO answer key and independently re-solved for verification.",
+  "languages": ["ja", "en"],
+  "answerKeyVerified": true,
+  "structure": {
+    "format": "flat",
+    "totalQuestions": 20,
+    "note": "Chemistry is a flat list of 20 single-best-answer items (問1–問20, answer rows 1–20) — no Roman-numeral blocks. Order ≈ structure & bonding → states/energetics/electrochemistry/equilibria → inorganic → organic.",
+    "givens": {
+      "ja": "標準状態 $0\\,$°C・$1.01\\times10^5\\,$Pa，気体 $1\\,$mol の体積 $22.4\\,$L，気体定数 $R=8.31\\times10^3\\,$Pa·L/(K·mol)，アボガドロ定数 $N_A=6.02\\times10^{23}\\,$/mol，ファラデー定数 $F=9.65\\times10^4\\,$C/mol。原子量：H 1.0, C 12, N 14, O 16, Na 23, Mg 24, S 32, Cl 35.5, Br 80。族・周期は周期表の通り。",
+      "en": "STP $0\\,$°C, $1.01\\times10^5\\,$Pa; molar volume $22.4\\,$L; $R=8.31\\times10^3\\,$Pa·L/(K·mol); $N_A=6.02\\times10^{23}\\,$/mol; $F=9.65\\times10^4\\,$C/mol. Atomic weights: H 1.0, C 12, N 14, O 16, Na 23, Mg 24, S 32, Cl 35.5, Br 80. Groups/periods per the periodic table."
+    }
+  },
+  "questions": [
+    {
+      "id": "2021-1-chem-1", "answerRow": 1, "topicId": "matter-structure",
+      "subtopic": "Incorrect particle-count value",
+      "patternTags": ["atomic-structure", "electron-shells", "neutrons", "valence-electrons", "pick-false-statement"], "hasFigure": true,
+      "figure": { "ja": "表（A 量 / B 数値）：① $\\mathrm{H^+}$ の電子数 / 0；② He 原子の陽子数 / 2；③ Na 原子の M 殻電子数 / 2；④ C 原子の価電子数 / 4；⑤ $^{37}_{17}\\mathrm{Cl}$ の中性子数 / 20。", "en": "Table (A quantity / B value): ① electrons in $\\mathrm{H^+}$ / 0; ② protons in a He atom / 2; ③ M-shell electrons of a Na atom / 2; ④ valence electrons of a C atom / 4; ⑤ neutrons in $^{37}_{17}\\mathrm{Cl}$ / 20." },
+      "ja": { "prompt": "物質の構成粒子に関する記述①〜⑤で，A 欄の数に対応する B 欄の数値が誤っているものを選びなさい。 ① $\\mathrm{H^+}$ の電子数 = 0 ② He 原子の陽子数 = 2 ③ Na 原子の M 殻電子数 = 2 ④ C 原子の価電子数 = 4 ⑤ $^{37}_{17}\\mathrm{Cl}$ の中性子数 = 20", "choices": ["①", "②", "③", "④", "⑤"] },
+      "en": { "prompt": "Among these, which B-value is INCORRECT? ① electrons in $\\mathrm{H^+}$ = 0 ② protons in a He atom = 2 ③ M-shell electrons of a Na atom = 2 ④ valence electrons of a C atom = 4 ⑤ neutrons in $^{37}_{17}\\mathrm{Cl}$ = 20", "choices": ["①", "②", "③", "④", "⑤"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "③（Na の M 殻電子は 1 個）", "en": "③ (Na has 1 M-shell electron)" },
+      "explanation": { "en": "Sodium is $(2,8,1)$, so its M shell holds 1 electron, not 2 — ③ is wrong. The others are correct: $\\mathrm{H^+}$ has 0 electrons, He has 2 protons, C has 4 valence electrons, and $^{37}_{17}\\mathrm{Cl}$ has $37-17=20$ neutrons.", "ja": "ナトリウムは $(2,8,1)$ で M 殻電子は 1 個であり 2 ではない — ③が誤り。他は正：$\\mathrm{H^+}$ は電子 0，He は陽子 2，C は価電子 4，$^{37}_{17}\\mathrm{Cl}$ は中性子 $37-17=20$。" }
+    },
+    {
+      "id": "2021-1-chem-2", "answerRow": 2, "topicId": "matter-structure",
+      "subtopic": "Species with the most shared electron pairs",
+      "patternTags": ["chemical-bonds", "shared-pairs", "compare-cases"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の分子またはイオン①〜⑤のうち，最も多くの共有電子対をもつものを選びなさい。 ① アンモニア $\\mathrm{NH_3}$ ② 窒素 $\\mathrm{N_2}$ ③ 硫化水素 $\\mathrm{H_2S}$ ④ オキソニウムイオン $\\mathrm{H_3O^+}$ ⑤ アンモニウムイオン $\\mathrm{NH_4^+}$", "choices": ["$\\mathrm{NH_3}$", "$\\mathrm{N_2}$", "$\\mathrm{H_2S}$", "$\\mathrm{H_3O^+}$", "$\\mathrm{NH_4^+}$"] },
+      "en": { "prompt": "Which molecule or ion has the MOST shared electron pairs? ① ammonia $\\mathrm{NH_3}$ ② nitrogen $\\mathrm{N_2}$ ③ hydrogen sulfide $\\mathrm{H_2S}$ ④ oxonium ion $\\mathrm{H_3O^+}$ ⑤ ammonium ion $\\mathrm{NH_4^+}$", "choices": ["$\\mathrm{NH_3}$", "$\\mathrm{N_2}$", "$\\mathrm{H_2S}$", "$\\mathrm{H_3O^+}$", "$\\mathrm{NH_4^+}$"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "⑤ $\\mathrm{NH_4^+}$（4 対）", "en": "⑤ $\\mathrm{NH_4^+}$ (4 pairs)" },
+      "explanation": { "en": "Shared pairs: $\\mathrm{NH_3}$ 3, $\\mathrm{N_2}$ 3 (triple bond), $\\mathrm{H_2S}$ 2, $\\mathrm{H_3O^+}$ 3, $\\mathrm{NH_4^+}$ 4 (four N–H bonds). $\\mathrm{NH_4^+}$ has the most.", "ja": "共有電子対：$\\mathrm{NH_3}$ 3，$\\mathrm{N_2}$ 3（三重結合），$\\mathrm{H_2S}$ 2，$\\mathrm{H_3O^+}$ 3，$\\mathrm{NH_4^+}$ 4（N–H 4 本）。$\\mathrm{NH_4^+}$ が最多。" }
+    },
+    {
+      "id": "2021-1-chem-3", "answerRow": 3, "topicId": "matter-structure",
+      "subtopic": "Molecule that is not planar",
+      "patternTags": ["molecular-shape", "planar-structure", "compare-cases"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の化合物①〜⑤のうち，分子が平面構造をとらないものを選びなさい。 ① ベンゼン ② 水 ③ ナフタレン ④ アンモニア ⑤ ホルムアルデヒド", "choices": ["ベンゼン", "水", "ナフタレン", "アンモニア", "ホルムアルデヒド"] },
+      "en": { "prompt": "Which molecule is NOT planar? ① benzene ② water ③ naphthalene ④ ammonia ⑤ formaldehyde", "choices": ["benzene", "water", "naphthalene", "ammonia", "formaldehyde"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "④ アンモニア（三角錐形）", "en": "④ ammonia (trigonal pyramidal)" },
+      "explanation": { "en": "Ammonia is trigonal pyramidal, so it is non-planar. Benzene, naphthalene and formaldehyde are flat (planar), and any 3-atom molecule (water) is necessarily planar.", "ja": "アンモニアは三角錐形で平面でない。ベンゼン・ナフタレン・ホルムアルデヒドは平面で，3 原子分子の水も必ず平面になる。" }
+    },
+    {
+      "id": "2021-1-chem-4", "answerRow": 4, "topicId": "matter-structure",
+      "subtopic": "Crystal type of CO2, SiO2, CaO",
+      "patternTags": ["crystal-structure", "crystal-types", "compare-cases"], "hasFigure": true,
+      "figure": { "ja": "表は 二酸化炭素 / 二酸化ケイ素 / 酸化カルシウム の結晶分類の組み合わせ①〜⑥（イオン結晶・共有結合の結晶・分子結晶）。", "en": "Table of crystal-type combinations ①–⑥ for carbon dioxide / silicon dioxide / calcium oxide (ionic / covalent / molecular crystal)." },
+      "ja": { "prompt": "$\\mathrm{CO_2}$，$\\mathrm{SiO_2}$，CaO が固体状態にあるとき，それぞれの結晶の分類として正しい組み合わせを選びなさい。", "choices": ["$\\mathrm{CO_2}$:イオン / $\\mathrm{SiO_2}$:共有結合 / CaO:分子", "$\\mathrm{CO_2}$:イオン / $\\mathrm{SiO_2}$:分子 / CaO:共有結合", "$\\mathrm{CO_2}$:共有結合 / $\\mathrm{SiO_2}$:イオン / CaO:分子", "$\\mathrm{CO_2}$:共有結合 / $\\mathrm{SiO_2}$:分子 / CaO:イオン", "$\\mathrm{CO_2}$:分子 / $\\mathrm{SiO_2}$:イオン / CaO:共有結合", "$\\mathrm{CO_2}$:分子 / $\\mathrm{SiO_2}$:共有結合 / CaO:イオン"] },
+      "en": { "prompt": "For solid $\\mathrm{CO_2}$, $\\mathrm{SiO_2}$, CaO, choose the correct crystal classifications.", "choices": ["$\\mathrm{CO_2}$:ionic / $\\mathrm{SiO_2}$:covalent / CaO:molecular", "$\\mathrm{CO_2}$:ionic / $\\mathrm{SiO_2}$:molecular / CaO:covalent", "$\\mathrm{CO_2}$:covalent / $\\mathrm{SiO_2}$:ionic / CaO:molecular", "$\\mathrm{CO_2}$:covalent / $\\mathrm{SiO_2}$:molecular / CaO:ionic", "$\\mathrm{CO_2}$:molecular / $\\mathrm{SiO_2}$:ionic / CaO:covalent", "$\\mathrm{CO_2}$:molecular / $\\mathrm{SiO_2}$:covalent / CaO:ionic"] },
+      "answerIndex": 5, "answerOption": 6, "answer": { "ja": "⑥ $\\mathrm{CO_2}$:分子 / $\\mathrm{SiO_2}$:共有結合 / CaO:イオン", "en": "⑥ $\\mathrm{CO_2}$:molecular / $\\mathrm{SiO_2}$:covalent / CaO:ionic" },
+      "explanation": { "en": "Dry ice ($\\mathrm{CO_2}$) is a molecular crystal, quartz ($\\mathrm{SiO_2}$) is a covalent (network) crystal, and CaO is an ionic crystal.", "ja": "ドライアイス（$\\mathrm{CO_2}$）は分子結晶，石英（$\\mathrm{SiO_2}$）は共有結合の結晶，CaO はイオン結晶。" }
+    },
+    {
+      "id": "2021-1-chem-5", "answerRow": 5, "topicId": "states-and-change",
+      "subtopic": "Max magnesium and acid concentration from a gas-volume plateau",
+      "patternTags": ["stoichiometry", "limiting-reagent", "gas-volume", "graph-reading", "plug-in-numbers"], "hasFigure": true,
+      "figure": { "ja": "$\\mathrm{Mg+2HCl\\to MgCl_2+H_2}$。$4.0\\,$mL の塩酸にさまざまな質量の Mg を反応させ，$20\\,$°C・$1.01\\times10^5\\,$Pa での $\\mathrm{H_2}$ 体積を測定。表：Mg 質量 0.018/0.037/0.052/0.070/0.085 g に対し $\\mathrm{H_2}$ 18/37/48/48/48 mL。気体 $1.00\\,$mol $=24.0\\,$L。表は (反応する Mg の最大質量, 塩酸の濃度) の組み合わせ①〜⑥。", "en": "$\\mathrm{Mg+2HCl\\to MgCl_2+H_2}$. Various masses of Mg react with $4.0\\,$mL of HCl; $\\mathrm{H_2}$ volume at $20\\,$°C, $1.01\\times10^5\\,$Pa is measured. Table: Mg 0.018/0.037/0.052/0.070/0.085 g → $\\mathrm{H_2}$ 18/37/48/48/48 mL. $1.00\\,$mol gas $=24.0\\,$L. The answer table gives (max Mg mass, HCl concentration) pairs ①–⑥." },
+      "ja": { "prompt": "$\\mathrm{Mg+2HCl\\to MgCl_2+H_2}$ で，$4.0\\,$mL の塩酸に Mg を反応させた。$\\mathrm{H_2}$ 体積は Mg 0.018/0.037/0.052/0.070/0.085 g に対し 18/37/48/48/48 mL であった（$1.00\\,$mol $=24.0\\,$L）。反応する Mg の最大質量と塩酸の濃度の組み合わせを選びなさい。", "choices": ["Mg 0.048 g / HCl 0.25 mol/L", "Mg 0.048 g / HCl 0.50 mol/L", "Mg 0.048 g / HCl 1.0 mol/L", "Mg 0.051 g / HCl 0.25 mol/L", "Mg 0.051 g / HCl 0.50 mol/L", "Mg 0.051 g / HCl 1.0 mol/L"] },
+      "en": { "prompt": "For $\\mathrm{Mg+2HCl\\to MgCl_2+H_2}$ with $4.0\\,$mL of HCl, the $\\mathrm{H_2}$ volume was 18/37/48/48/48 mL for Mg 0.018/0.037/0.052/0.070/0.085 g ($1.00\\,$mol $=24.0\\,$L). Choose the maximum mass of Mg that reacts and the HCl concentration.", "choices": ["Mg 0.048 g / HCl 0.25 mol/L", "Mg 0.048 g / HCl 0.50 mol/L", "Mg 0.048 g / HCl 1.0 mol/L", "Mg 0.051 g / HCl 0.25 mol/L", "Mg 0.051 g / HCl 0.50 mol/L", "Mg 0.051 g / HCl 1.0 mol/L"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "③ Mg 0.048 g / HCl 1.0 mol/L", "en": "③ Mg 0.048 g / HCl 1.0 mol/L" },
+      "explanation": { "en": "The plateau ($48\\,$mL) is reached when HCl runs out. Max $\\mathrm{H_2}=48\\,$mL $/24000=2.0\\times10^{-3}\\,$mol. Max Mg $=$ mol $\\mathrm{H_2}=2.0\\times10^{-3}\\times24=0.048\\,$g. HCl $=2\\times2.0\\times10^{-3}=4.0\\times10^{-3}\\,$mol in $4.0\\,$mL → $1.0\\,$mol/L.", "ja": "頭打ち（$48\\,$mL）は HCl がなくなった点。最大 $\\mathrm{H_2}=48\\,$mL$/24000=2.0\\times10^{-3}\\,$mol。最大 Mg $=\\mathrm{H_2}$ の mol $=2.0\\times10^{-3}\\times24=0.048\\,$g。HCl $=2\\times2.0\\times10^{-3}=4.0\\times10^{-3}\\,$mol が $4.0\\,$mL → $1.0\\,$mol/L。" }
+    },
+    {
+      "id": "2021-1-chem-6", "answerRow": 6, "topicId": "states-and-change",
+      "subtopic": "Volume at which all water just vaporizes",
+      "patternTags": ["gas-laws", "vapor-pressure", "stoichiometry", "plug-in-numbers"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "体積を変えられる密閉容器に $\\mathrm{H_2}\\ 1.0\\times10^{-3}\\,$mol と $\\mathrm{O_2}\\ 5.0\\times10^{-3}\\,$mol を入れて点火した。水素は完全に反応し水滴が生じた。$33\\,$°C で容器の体積を少しずつ大きくすると，すべての水が水蒸気となった。そのときの体積は何 L か。最も近い値を選びなさい。$33\\,$°C での水の蒸気圧は $5.0\\times10^3\\,$Pa とする。", "choices": ["0.50", "0.75", "1.0", "1.5", "2.0"] },
+      "en": { "prompt": "In a variable-volume sealed container, $1.0\\times10^{-3}\\,$mol $\\mathrm{H_2}$ and $5.0\\times10^{-3}\\,$mol $\\mathrm{O_2}$ are ignited. The hydrogen reacts completely, forming water droplets. At $33\\,$°C the volume is slowly increased until all the water vaporizes. What volume (L) is that? The vapor pressure of water at $33\\,$°C is $5.0\\times10^3\\,$Pa.", "choices": ["0.50", "0.75", "1.0", "1.5", "2.0"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "約 $0.50\\,$L", "en": "≈ 0.50 L" },
+      "explanation": { "en": "$\\mathrm{2H_2+O_2\\to2H_2O}$ makes $1.0\\times10^{-3}\\,$mol water. The last droplet vaporizes when the water-vapour partial pressure equals its vapour pressure $5.0\\times10^3\\,$Pa. $V=\\dfrac{nRT}{P}=\\dfrac{1.0\\times10^{-3}\\times8.31\\times10^3\\times306}{5.0\\times10^3}\\approx0.50\\,$L.", "ja": "$\\mathrm{2H_2+O_2\\to2H_2O}$ で水 $1.0\\times10^{-3}\\,$mol。最後の水滴が蒸発するのは水蒸気の分圧が蒸気圧 $5.0\\times10^3\\,$Pa に等しいとき。$V=\\dfrac{nRT}{P}=\\dfrac{1.0\\times10^{-3}\\times8.31\\times10^3\\times306}{5.0\\times10^3}\\approx0.50\\,$L。" }
+    },
+    {
+      "id": "2021-1-chem-7", "answerRow": 7, "topicId": "states-and-change",
+      "subtopic": "Salt from a divalent acid and monovalent base, basic solution",
+      "patternTags": ["acids-bases", "salt-hydrolysis", "ph", "compare-cases"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の記述 a, b の両方にあてはまる塩を選びなさい。 a: 2 価の酸と 1 価の塩基から生じた塩である。 b: 水溶液の pH は 7 より大きい。 ① 塩化バリウム ② 炭酸ナトリウム ③ 硫酸アンモニウム ④ 酢酸ナトリウム ⑤ 硝酸カルシウム ⑥ 硫酸カリウム", "choices": ["塩化バリウム $\\mathrm{BaCl_2}$", "炭酸ナトリウム $\\mathrm{Na_2CO_3}$", "硫酸アンモニウム $\\mathrm{(NH_4)_2SO_4}$", "酢酸ナトリウム $\\mathrm{CH_3COONa}$", "硝酸カルシウム $\\mathrm{Ca(NO_3)_2}$", "硫酸カリウム $\\mathrm{K_2SO_4}$"] },
+      "en": { "prompt": "Which salt satisfies BOTH a and b? a: formed from a divalent acid and a monovalent base. b: its aqueous solution has pH > 7. ① barium chloride ② sodium carbonate ③ ammonium sulfate ④ sodium acetate ⑤ calcium nitrate ⑥ potassium sulfate", "choices": ["barium chloride $\\mathrm{BaCl_2}$", "sodium carbonate $\\mathrm{Na_2CO_3}$", "ammonium sulfate $\\mathrm{(NH_4)_2SO_4}$", "sodium acetate $\\mathrm{CH_3COONa}$", "calcium nitrate $\\mathrm{Ca(NO_3)_2}$", "potassium sulfate $\\mathrm{K_2SO_4}$"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "② 炭酸ナトリウム $\\mathrm{Na_2CO_3}$", "en": "② sodium carbonate $\\mathrm{Na_2CO_3}$" },
+      "explanation": { "en": "$\\mathrm{Na_2CO_3}$ comes from the divalent (weak) acid $\\mathrm{H_2CO_3}$ and the monovalent base NaOH (so a holds), and its solution is basic (weak acid + strong base, pH > 7, so b holds). $\\mathrm{(NH_4)_2SO_4}$ and $\\mathrm{K_2SO_4}$ satisfy a but are acidic/neutral; the others fail a.", "ja": "$\\mathrm{Na_2CO_3}$ は 2 価（弱）酸 $\\mathrm{H_2CO_3}$ と 1 価塩基 NaOH からなり（a 成立），弱酸＋強塩基で塩基性（pH>7，b 成立）。$\\mathrm{(NH_4)_2SO_4}$・$\\mathrm{K_2SO_4}$ は a を満たすが酸性・中性，他は a を満たさない。" }
+    },
+    {
+      "id": "2021-1-chem-8", "answerRow": 8, "topicId": "states-and-change",
+      "subtopic": "Volume of KMnO4 to oxidize H2O2",
+      "patternTags": ["redox", "titration", "stoichiometry", "plug-in-numbers"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "$0.300\\,$mol/L の過酸化水素水 $50.0\\,$mL を含む硫酸酸性溶液に，$0.200\\,$mol/L の過マンガン酸カリウム水溶液を加えて過酸化水素を完全に酸化したい。必要な過マンガン酸カリウム水溶液の体積は何 mL か。", "choices": ["15", "30", "75", "150", "300"] },
+      "en": { "prompt": "To $50.0\\,$mL of $0.300\\,$mol/L hydrogen peroxide (acidified with sulfuric acid), $0.200\\,$mol/L potassium permanganate is added to fully oxidize the peroxide. What volume of permanganate (mL) is needed?", "choices": ["15", "30", "75", "150", "300"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "$30\\,$mL", "en": "30 mL" },
+      "explanation": { "en": "$\\mathrm{2KMnO_4+5H_2O_2+3H_2SO_4\\to2MnSO_4+5O_2+8H_2O+K_2SO_4}$ (ratio 2:5). $\\mathrm{H_2O_2}=0.300\\times0.0500=0.0150\\,$mol → $\\mathrm{KMnO_4}=\\tfrac{2}{5}\\times0.0150=0.0060\\,$mol → $0.0060/0.200=0.030\\,$L $=30\\,$mL.", "ja": "$\\mathrm{2KMnO_4+5H_2O_2+3H_2SO_4\\to2MnSO_4+5O_2+8H_2O+K_2SO_4}$（2:5）。$\\mathrm{H_2O_2}=0.300\\times0.0500=0.0150\\,$mol → $\\mathrm{KMnO_4}=\\tfrac{2}{5}\\times0.0150=0.0060\\,$mol → $0.0060/0.200=0.030\\,$L$=30\\,$mL。" }
+    },
+    {
+      "id": "2021-1-chem-9", "answerRow": 9, "topicId": "states-and-change",
+      "subtopic": "Charge from total electrolysis gas volume",
+      "patternTags": ["electrochemistry", "electrolysis", "faraday", "gas-volume", "plug-in-numbers"], "hasFigure": true,
+      "figure": { "ja": "白金電極で希硫酸を電気分解。陽極（$\\mathrm{O_2}$）と陰極（$\\mathrm{H_2}$）で発生した気体は標準状態で合計 $672\\,$mL。電源は左が＋，右が−。", "en": "Electrolysis of dilute $\\mathrm{H_2SO_4}$ with Pt electrodes. The total gas from the anode ($\\mathrm{O_2}$) and cathode ($\\mathrm{H_2}$) is $672\\,$mL at STP. The supply's + is left, − is right." },
+      "ja": { "prompt": "白金電極を用いて希硫酸を電気分解したとき，陽極と陰極で発生した気体は標準状態で合計 $672\\,$mL だった。このとき流れた電気量は何 C か，最も近い値を選びなさい。", "choices": ["$3.86\\times10^2$", "$1.93\\times10^3$", "$3.86\\times10^3$", "$7.72\\times10^3$", "$1.93\\times10^4$", "$3.86\\times10^4$", "$7.72\\times10^4$", "$9.65\\times10^4$"] },
+      "en": { "prompt": "Electrolysing dilute $\\mathrm{H_2SO_4}$ with Pt electrodes, the total gas from anode and cathode is $672\\,$mL at STP. What charge (C) flowed?", "choices": ["$3.86\\times10^2$", "$1.93\\times10^3$", "$3.86\\times10^3$", "$7.72\\times10^3$", "$1.93\\times10^4$", "$3.86\\times10^4$", "$7.72\\times10^4$", "$9.65\\times10^4$"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "③ $3.86\\times10^3\\,$C", "en": "③ $3.86\\times10^3$ C" },
+      "explanation": { "en": "For $n$ mol e⁻: anode $\\mathrm{O_2}=n/4$, cathode $\\mathrm{H_2}=n/2$, total $=3n/4\\,$mol. Total gas $=0.672/22.4=0.030\\,$mol → $n=0.040\\,$mol e⁻. Charge $=0.040\\times96500=3.86\\times10^3\\,$C.", "ja": "電子 $n$ mol で 陽極 $\\mathrm{O_2}=n/4$，陰極 $\\mathrm{H_2}=n/2$，計 $3n/4$。気体合計 $=0.672/22.4=0.030\\,$mol → $n=0.040\\,$mol e⁻。電気量 $=0.040\\times96500=3.86\\times10^3\\,$C。" }
+    },
+    {
+      "id": "2021-1-chem-10", "answerRow": 10, "topicId": "states-and-change",
+      "subtopic": "Correct statement about HI decomposition equilibrium",
+      "patternTags": ["equilibrium", "le-chatelier", "endothermic", "pick-statement"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "HI を密閉容器に入れ温度・圧力一定に保つと $\\mathrm{2HI(気)=H_2(気)+I_2(気)}-9\\,$kJ の平衡に達した（HI, H₂, I₂ はすべて気体）。正しい記述を選びなさい。 ① 平衡時の HI の物質量は H₂ の 2 倍になる。 ② 平衡時の H₂ と I₂ の物質量は等しいとは限らない。 ③ 温度を低くすると平衡時の HI の物質量は大きくなる。 ④ 圧力を低くすると平衡時の HI の物質量は大きくなる。 ⑤ 触媒を加えると平衡時の HI の物質量は大きくなる。", "choices": ["①", "②", "③", "④", "⑤"] },
+      "en": { "prompt": "Pure HI in a sealed container at constant T and P reaches the equilibrium $\\mathrm{2HI(g)=H_2(g)+I_2(g)}-9\\,$kJ (all gaseous). Which statement is correct? ① At equilibrium, mol HI = 2 × mol H₂. ② At equilibrium, mol H₂ and mol I₂ are not necessarily equal. ③ Lowering the temperature increases the equilibrium mol HI. ④ Lowering the pressure increases the equilibrium mol HI. ⑤ Adding a catalyst increases the equilibrium mol HI.", "choices": ["①", "②", "③", "④", "⑤"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "③（吸熱の正反応なので冷却で HI 増加）", "en": "③ (forward is endothermic, so cooling raises HI)" },
+      "explanation": { "en": "The forward decomposition absorbs 9 kJ (endothermic), so lowering the temperature shifts it back toward HI — ③ correct. ① no fixed 2:1 ratio; ② starting from pure HI, $\\mathrm{H_2}=\\mathrm{I_2}$ always; ④ equal gas moles (2⇌2) means pressure doesn't shift it; ⑤ a catalyst doesn't change the equilibrium position.", "ja": "正反応（分解）は $9\\,$kJ 吸熱なので冷却すると HI 側に移動 — ③が正。① 2:1 の固定比はない；② 純 HI から始めると $\\mathrm{H_2}=\\mathrm{I_2}$；④ 両辺の気体 mol が等しく（2⇌2）圧力で移動しない；⑤ 触媒は平衡を動かさない。" }
+    },
+    {
+      "id": "2021-1-chem-11", "answerRow": 11, "topicId": "inorganic",
+      "subtopic": "Operation that does not produce hydrogen",
+      "patternTags": ["inorganic", "hydrogen-generation", "metal-reactivity", "odd-one-out"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の操作①〜⑤のうち，水素 $\\mathrm{H_2}$ が発生しないものを選びなさい。 ① 銅 Cu に希塩酸を加える。 ② カルシウム Ca に水を加える。 ③ ナトリウム Na にエタノール $\\mathrm{C_2H_5OH}$ を加える。 ④ アルミニウム Al に NaOH aq を加える。 ⑤ 白金電極を用いて NaOH 水溶液を電気分解する。", "choices": ["①", "②", "③", "④", "⑤"] },
+      "en": { "prompt": "Which operation does NOT produce hydrogen $\\mathrm{H_2}$? ① add dilute HCl to copper Cu. ② add water to calcium Ca. ③ add ethanol $\\mathrm{C_2H_5OH}$ to sodium Na. ④ add NaOH aq to aluminium Al. ⑤ electrolyse NaOH solution with Pt electrodes.", "choices": ["①", "②", "③", "④", "⑤"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "①（Cu は希塩酸と反応しない）", "en": "① (Cu does not react with dilute HCl)" },
+      "explanation": { "en": "Copper is below hydrogen in the reactivity series, so it does not react with dilute HCl — no $\\mathrm{H_2}$. The others give $\\mathrm{H_2}$: Ca + water, Na + ethanol, Al + NaOH, and the cathode in NaOH electrolysis.", "ja": "銅は水素よりイオン化傾向が小さく希塩酸と反応しないので $\\mathrm{H_2}$ は出ない。他は $\\mathrm{H_2}$ を発生：Ca＋水，Na＋エタノール，Al＋NaOH，NaOH 電気分解の陰極。" }
+    },
+    {
+      "id": "2021-1-chem-12", "answerRow": 12, "topicId": "inorganic",
+      "subtopic": "Two operations that do not proceed",
+      "patternTags": ["inorganic", "ionization-tendency", "noble-metals", "true-false-combo"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の操作 a〜f の中に，化学反応が進行しないものが二つある。その組み合わせを選びなさい。 a Li に水を加える。 b Zn に塩酸を加える。 c Ag に塩酸を加える。 d Cu に希硝酸を加える。 e Cu に硝酸銀水溶液を加える。 f 白金 Pt に硫酸鉄(II)水溶液を加える。", "choices": ["a, e", "b, e", "b, f", "c, d", "c, f", "d, e"] },
+      "en": { "prompt": "Two of these operations do NOT proceed. Which pair? a add water to Li. b add HCl to Zn. c add HCl to Ag. d add dilute $\\mathrm{HNO_3}$ to Cu. e add $\\mathrm{AgNO_3}$ solution to Cu. f add $\\mathrm{FeSO_4}$ solution to platinum Pt.", "choices": ["a, e", "b, e", "b, f", "c, d", "c, f", "d, e"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "c と f", "en": "c and f" },
+      "explanation": { "en": "(c) Ag is below hydrogen, so it does not react with (non-oxidizing) HCl. (f) Pt is far less reactive than iron, so it cannot displace $\\mathrm{Fe^{2+}}$ — no reaction. The rest proceed: Li+water, Zn+HCl, Cu+dilute $\\mathrm{HNO_3}$, and Cu displacing Ag from $\\mathrm{AgNO_3}$.", "ja": "(c) Ag は水素より下で（非酸化性の）塩酸と反応しない。(f) Pt は鉄よりはるかに反応性が低く $\\mathrm{Fe^{2+}}$ を析出できず反応しない。他は進行：Li＋水，Zn＋HCl，Cu＋希硝酸，Cu が $\\mathrm{AgNO_3}$ から Ag を析出。" }
+    },
+    {
+      "id": "2021-1-chem-13", "answerRow": 13, "topicId": "states-and-change",
+      "subtopic": "Reactions where water acts as an acid",
+      "patternTags": ["acids-bases", "bronsted-lowry", "proton-donor", "true-false-combo"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の反応 a〜d の中に，水が酸としてはたらいているものが二つある。その組み合わせを選びなさい。 a $\\mathrm{HCl+H_2O\\to H_3O^++Cl^-}$ b $\\mathrm{NH_3+H_2O\\to NH_4^++OH^-}$ c $\\mathrm{2Na+2H_2O\\to2NaOH+H_2}$ d $\\mathrm{CaO+H_2O\\to Ca(OH)_2}$", "choices": ["a, b", "a, c", "a, d", "b, c", "b, d", "c, d"] },
+      "en": { "prompt": "Two of these reactions have water acting as an ACID. Which pair? a $\\mathrm{HCl+H_2O\\to H_3O^++Cl^-}$ b $\\mathrm{NH_3+H_2O\\to NH_4^++OH^-}$ c $\\mathrm{2Na+2H_2O\\to2NaOH+H_2}$ d $\\mathrm{CaO+H_2O\\to Ca(OH)_2}$", "choices": ["a, b", "a, c", "a, d", "b, c", "b, d", "c, d"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "b と d", "en": "b and d" },
+      "explanation": { "en": "Water acts as a (Brønsted) acid when it donates a proton, becoming OH⁻. (b) water gives H⁺ to $\\mathrm{NH_3}$; (d) water gives H⁺ to the oxide ion $\\mathrm{O^{2-}}$. (a) water accepts H⁺ (a base); (c) is a redox reaction (water acts as an oxidant, not a Brønsted acid).", "ja": "水が H⁺ を放出し OH⁻ になるとき（ブレンステッド）酸としてはたらく。(b) 水が $\\mathrm{NH_3}$ に H⁺ を与える；(d) 水が酸化物イオン $\\mathrm{O^{2-}}$ に H⁺ を与える。(a) 水は H⁺ を受け取る塩基；(c) は酸化還元反応（水は酸化剤で酸ではない）。" }
+    },
+    {
+      "id": "2021-1-chem-14", "answerRow": 14, "topicId": "inorganic",
+      "subtopic": "Incorrect statement about sulfur dioxide",
+      "patternTags": ["inorganic", "sulfur-dioxide", "bleaching", "pick-false-statement"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "二酸化硫黄 $\\mathrm{SO_2}$ に関する記述①〜⑤のうち，誤っているものを選びなさい。 ① $\\mathrm{SO_2}$ は酸化作用によって色素を漂白する。 ② $\\mathrm{SO_2}$ を $\\mathrm{H_2S}$ aq に通じると液が白濁する。 ③ $\\mathrm{SO_2}$ は無色で刺激臭をもつ有毒な気体である。 ④ $\\mathrm{SO_2}$ は水に溶けて弱い酸性を示す。 ⑤ 硫酸酸性の $\\mathrm{KMnO_4}$ aq に $\\mathrm{SO_2}$ を通じると赤紫色が消える。", "choices": ["①", "②", "③", "④", "⑤"] },
+      "en": { "prompt": "Which statement about sulfur dioxide $\\mathrm{SO_2}$ is INCORRECT? ① $\\mathrm{SO_2}$ bleaches pigments by an OXIDIZING action. ② Passing $\\mathrm{SO_2}$ into $\\mathrm{H_2S}$ aq turns the liquid turbid white. ③ $\\mathrm{SO_2}$ is a colourless, pungent, poisonous gas. ④ $\\mathrm{SO_2}$ dissolves in water to give a weakly acidic solution. ⑤ Passing $\\mathrm{SO_2}$ into acidified $\\mathrm{KMnO_4}$ discharges the red-purple colour.", "choices": ["①", "②", "③", "④", "⑤"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "①（漂白は還元作用による）", "en": "① (it bleaches by a REDUCING action)" },
+      "explanation": { "en": "$\\mathrm{SO_2}$ bleaches by a REDUCING action, not an oxidizing one, so ① is wrong. The others are correct: $\\mathrm{SO_2}+\\mathrm{H_2S}$ gives sulfur (white turbidity); it is colourless, pungent and toxic; it forms weakly acidic sulfurous acid; and it reduces (decolourises) acidified $\\mathrm{KMnO_4}$.", "ja": "$\\mathrm{SO_2}$ の漂白は還元作用によるもので酸化作用ではないので①が誤り。他は正：$\\mathrm{SO_2}+\\mathrm{H_2S}$ で硫黄が生じ白濁，無色・刺激臭・有毒，弱酸の亜硫酸となり，硫酸酸性 $\\mathrm{KMnO_4}$ を還元して脱色する。" }
+    },
+    {
+      "id": "2021-1-chem-15", "answerRow": 15, "topicId": "inorganic",
+      "subtopic": "Identify a metal ion from solubility tests",
+      "patternTags": ["inorganic", "qualitative-analysis", "amphoteric", "ammine-complex", "compare-cases"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "ある金属イオンを 1 種類含む無色の水溶液が次の a〜c を示した。含まれる金属イオンを選びなさい。 a NaOH aq を加えると沈殿を生じたが，さらに加えると沈殿は溶解した。 b $\\mathrm{NH_3}$ aq を加えると沈殿を生じたが，さらに加えると沈殿は溶解した。 c NaCl aq を加えても沈殿を生じなかった。", "choices": ["$\\mathrm{Ag^+}$", "$\\mathrm{Ca^{2+}}$", "$\\mathrm{Mg^{2+}}$", "$\\mathrm{Pb^{2+}}$", "$\\mathrm{Zn^{2+}}$", "$\\mathrm{Al^{3+}}$"] },
+      "en": { "prompt": "A colourless solution of one metal ion shows: a — adding NaOH gives a precipitate that redissolves in excess; b — adding $\\mathrm{NH_3}$ gives a precipitate that redissolves in excess; c — adding NaCl gives no precipitate. Which ion is it?", "choices": ["$\\mathrm{Ag^+}$", "$\\mathrm{Ca^{2+}}$", "$\\mathrm{Mg^{2+}}$", "$\\mathrm{Pb^{2+}}$", "$\\mathrm{Zn^{2+}}$", "$\\mathrm{Al^{3+}}$"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "⑤ $\\mathrm{Zn^{2+}}$", "en": "⑤ $\\mathrm{Zn^{2+}}$" },
+      "explanation": { "en": "(a) Redissolving in excess NaOH ⇒ amphoteric (Al³⁺, Zn²⁺, Pb²⁺). (b) Redissolving in excess $\\mathrm{NH_3}$ ⇒ forms an ammine complex (Zn²⁺). The overlap is $\\mathrm{Zn^{2+}}$, which is colourless and gives no precipitate with NaCl. (Al³⁺ doesn't redissolve in excess $\\mathrm{NH_3}$; Pb²⁺/Ag⁺ precipitate with NaCl.)", "ja": "(a) 過剰 NaOH で再溶解 ⇒ 両性（Al³⁺, Zn²⁺, Pb²⁺）。(b) 過剰 $\\mathrm{NH_3}$ で再溶解 ⇒ アンミン錯体をつくる（Zn²⁺）。共通は $\\mathrm{Zn^{2+}}$ で，無色かつ NaCl で沈殿しない。（Al³⁺ は過剰 $\\mathrm{NH_3}$ で溶けず，Pb²⁺/Ag⁺ は NaCl で沈殿。）" }
+    },
+    {
+      "id": "2021-1-chem-16", "answerRow": 16, "topicId": "organic",
+      "subtopic": "Counting C3H5Br isomers and chiral products",
+      "patternTags": ["organic", "isomers", "geometric-isomers", "chirality", "counting"], "hasFigure": true,
+      "figure": { "ja": "表は (A, B) の数の組み合わせ①〜⑥。A＝$\\mathrm{C_3H_5Br}$（C=C を一つもつ）の異性体数。B＝そのうち，二重結合に $\\mathrm{Br_2}$ を付加すると不斉炭素をもつ生成物を与える異性体の数。", "en": "Table of (A, B) count combinations ①–⑥. A = number of $\\mathrm{C_3H_5Br}$ isomers with one C=C double bond. B = among those, the number that give a product with an asymmetric carbon when $\\mathrm{Br_2}$ adds to the double bond." },
+      "ja": { "prompt": "分子式 $\\mathrm{C_3H_5Br}$ で示される化合物の異性体のうち，炭素−炭素二重結合を一つもつ化合物の数を A とする。この異性体の中で，二重結合に $\\mathrm{Br_2}$ を付加させると不斉炭素原子をもつ生成物を与えるものの数を B とする。A，B の正しい組み合わせを選びなさい。", "choices": ["A:3 B:1", "A:3 B:2", "A:4 B:1", "A:4 B:2", "A:5 B:1", "A:5 B:2"] },
+      "en": { "prompt": "Let A be the number of $\\mathrm{C_3H_5Br}$ isomers with one C=C double bond, and B the number of those that, on adding $\\mathrm{Br_2}$ across the double bond, give a product with an asymmetric carbon. Choose A and B.", "choices": ["A:3 B:1", "A:3 B:2", "A:4 B:1", "A:4 B:2", "A:5 B:1", "A:5 B:2"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "④ A:4 B:2", "en": "④ A:4 B:2" },
+      "explanation": { "en": "The C=C isomers of $\\mathrm{C_3H_5Br}$ are 2-bromopropene, 3-bromopropene (allyl bromide), and 1-bromopropene which has cis and trans forms — so A = 4. Adding $\\mathrm{Br_2}$ to 1-bromopropene gives $\\mathrm{CHBr_2{-}CHBr{-}CH_3}$, whose central carbon is asymmetric; both the cis and trans isomers give this, so B = 2 (the other two give no asymmetric carbon).", "ja": "$\\mathrm{C_3H_5Br}$ で C=C をもつ異性体は 2-ブロモプロペン，3-ブロモプロペン（臭化アリル），およびシス・トランスをもつ 1-ブロモプロペン — よって A=4。1-ブロモプロペンに $\\mathrm{Br_2}$ を付加すると $\\mathrm{CHBr_2{-}CHBr{-}CH_3}$ となり中央の炭素が不斉。シス・トランスとも同じ生成物を与えるので B=2（他の 2 つは不斉炭素を生じない）。" }
+    },
+    {
+      "id": "2021-1-chem-17", "answerRow": 17, "topicId": "organic",
+      "subtopic": "Correct statement about ethylene",
+      "patternTags": ["organic", "alkenes", "bromine-water", "permanganate", "pick-statement"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "エチレン（エテン）に関する記述①〜④のうち，正しいものを選びなさい。 ① エチレンは無色の気体で，水によく溶ける。 ② 臭素水にじゅうぶんな量のエチレンを通じると，臭素水の色が消える。 ③ 硫酸酸性の $\\mathrm{KMnO_4}$ aq にエチレンを通じると，過マンガン酸イオンが酸化されて色が消える。 ④ エチレンが縮合重合するとポリエチレンが生じる。", "choices": ["①", "②", "③", "④"] },
+      "en": { "prompt": "Which statement about ethylene (ethene) is correct? ① Ethylene is a colourless gas that dissolves well in water. ② Passing enough ethylene into bromine water discharges its colour. ③ Passing ethylene into acidified $\\mathrm{KMnO_4}$ oxidizes the permanganate ion and the colour disappears. ④ Ethylene forms polyethylene by condensation polymerization.", "choices": ["①", "②", "③", "④"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "②（臭素水を脱色する）", "en": "② (it decolourises bromine water)" },
+      "explanation": { "en": "Ethylene adds bromine, decolourising bromine water — ② correct. ① ethylene is nearly insoluble in water; ③ the permanganate ion is REDUCED (not oxidized) as it decolourises; ④ polyethylene forms by ADDITION polymerization.", "ja": "エチレンは臭素を付加して臭素水を脱色する — ②が正。① エチレンは水にほとんど溶けない；③ 過マンガン酸イオンは還元されて（酸化ではない）脱色する；④ ポリエチレンは付加重合で生じる。" }
+    },
+    {
+      "id": "2021-1-chem-18", "answerRow": 18, "topicId": "organic",
+      "subtopic": "Incorrect reaction product",
+      "patternTags": ["organic", "synthesis", "aromatic-substitution", "pick-false-statement"], "hasFigure": true,
+      "figure": { "ja": "表（A 反応 / B 生成物）：① $\\mathrm{CH_4}$＋$\\mathrm{Cl_2}$（光）→ $\\mathrm{CCl_4}$；② $\\mathrm{CaC_2}$＋$\\mathrm{H_2O}$ → $\\mathrm{HC{\\equiv}CH}$；③ 酢酸 ×2＋脱水剤・加熱 → 無水酢酸；④ ベンゼン＋$\\mathrm{HNO_3,H_2SO_4}$ → ベンゼンスルホン酸（$\\mathrm{C_6H_5SO_3H}$）；⑤ フェノール＋NaOH aq → ナトリウムフェノキシド；⑥ サリチル酸＋$\\mathrm{CH_3OH,H_2SO_4}$ → サリチル酸メチル。", "en": "Table (A reaction / B product): ① $\\mathrm{CH_4}+\\mathrm{Cl_2}$ (light) → $\\mathrm{CCl_4}$; ② $\\mathrm{CaC_2}+\\mathrm{H_2O}$ → $\\mathrm{HC{\\equiv}CH}$; ③ acetic acid ×2 + dehydrating agent, heat → acetic anhydride; ④ benzene + $\\mathrm{HNO_3,H_2SO_4}$ → benzenesulfonic acid ($\\mathrm{C_6H_5SO_3H}$); ⑤ phenol + NaOH aq → sodium phenoxide; ⑥ salicylic acid + $\\mathrm{CH_3OH,H_2SO_4}$ → methyl salicylate." },
+      "ja": { "prompt": "A 欄の反応の生成物を B 欄に示した。B 欄が誤っているものを選びなさい。 ① $\\mathrm{CH_4}$＋$\\mathrm{Cl_2}$（光）→ $\\mathrm{CCl_4}$ ② $\\mathrm{CaC_2}$＋水 → アセチレン ③ 酢酸を脱水剤とともに加熱 → 無水酢酸 ④ ベンゼン＋$\\mathrm{HNO_3,H_2SO_4}$ → ベンゼンスルホン酸 ⑤ フェノール＋NaOH → ナトリウムフェノキシド ⑥ サリチル酸＋$\\mathrm{CH_3OH,H_2SO_4}$ → サリチル酸メチル", "choices": ["①", "②", "③", "④", "⑤", "⑥"] },
+      "en": { "prompt": "The product B of each reaction A is shown. Which B is INCORRECT? ① $\\mathrm{CH_4}+\\mathrm{Cl_2}$ (light) → $\\mathrm{CCl_4}$ ② $\\mathrm{CaC_2}$+water → acetylene ③ acetic acid + dehydrating agent, heat → acetic anhydride ④ benzene + $\\mathrm{HNO_3,H_2SO_4}$ → benzenesulfonic acid ⑤ phenol + NaOH → sodium phenoxide ⑥ salicylic acid + $\\mathrm{CH_3OH,H_2SO_4}$ → methyl salicylate", "choices": ["①", "②", "③", "④", "⑤", "⑥"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "④（生成物はニトロベンゼン）", "en": "④ (the product is nitrobenzene)" },
+      "explanation": { "en": "Benzene with $\\mathrm{HNO_3}$/$\\mathrm{H_2SO_4}$ gives NITRObenzene (nitration), not benzenesulfonic acid (which comes from sulfonation with conc. $\\mathrm{H_2SO_4}$) — so ④ is wrong. The other products are correct.", "ja": "ベンゼンに $\\mathrm{HNO_3}$/$\\mathrm{H_2SO_4}$ を作用させるとニトロベンゼン（ニトロ化）が生じ，ベンゼンスルホン酸（濃硫酸によるスルホン化）ではないので④が誤り。他の生成物は正しい。" }
+    },
+    {
+      "id": "2021-1-chem-19", "answerRow": 19, "topicId": "organic",
+      "subtopic": "Molecular weight of a bromide from a cyclic diene",
+      "patternTags": ["organic", "hydrogenation", "bromine-addition", "unsaturation", "plug-in-numbers"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "化合物 A は分子量 80 の環式不飽和炭化水素である。A に触媒を用いて $\\mathrm{H_2}$ を付加すると分子量 84 の環式飽和炭化水素が得られた。また，A をじゅうぶんな量の $\\mathrm{Br_2}$ と反応させると環式飽和炭化水素の臭化物が得られた。その分子量に最も近い値を選びなさい。", "choices": ["160", "240", "320", "400", "480", "600"] },
+      "en": { "prompt": "Compound A is a cyclic unsaturated hydrocarbon of molecular weight 80. Adding $\\mathrm{H_2}$ (catalyst) to A gives a cyclic saturated hydrocarbon of molecular weight 84. Reacting A with excess $\\mathrm{Br_2}$ gives a saturated cyclic bromide. What is its molecular weight?", "choices": ["160", "240", "320", "400", "480", "600"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "400", "en": "400" },
+      "explanation": { "en": "The MW rises $84-80=4$ on hydrogenation, i.e. 2 $\\mathrm{H_2}$ added, so A has 2 C=C double bonds (A is $\\mathrm{C_6H_8}$, MW 80; the saturated ring is $\\mathrm{C_6H_{12}}$, MW 84). Adding $\\mathrm{Br_2}$ to both double bonds adds $2\\times\\mathrm{Br_2}=2\\times160=320$, so the bromide MW $=80+320=400$.", "ja": "水素化で分子量が $84-80=4$ 増えるので $\\mathrm{H_2}$ 2 分子付加＝C=C 2 個（A は $\\mathrm{C_6H_8}$ 分子量 80，飽和環は $\\mathrm{C_6H_{12}}$ 分子量 84）。二重結合 2 つに $\\mathrm{Br_2}$ を付加すると $2\\times160=320$ 増え，臭化物の分子量 $=80+320=400$。" }
+    },
+    {
+      "id": "2021-1-chem-20", "answerRow": 20, "topicId": "organic",
+      "subtopic": "Polymers made using formaldehyde",
+      "patternTags": ["organic", "polymers", "formaldehyde", "true-false-combo"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の高分子化合物 a〜e の中に，合成するときにホルムアルデヒドを用いるものが二つある。その組み合わせを選びなさい。 a フェノール樹脂 b ポリエチレンテレフタラート c ポリスチレン d ビニロン e ポリ塩化ビニル", "choices": ["a, b", "a, d", "a, e", "b, c", "b, d", "b, e", "c, d", "d, e"] },
+      "en": { "prompt": "Two of these polymers use formaldehyde in their synthesis. Which pair? a phenol resin b poly(ethylene terephthalate) c polystyrene d vinylon e poly(vinyl chloride)", "choices": ["a, b", "a, d", "a, e", "b, c", "b, d", "b, e", "c, d", "d, e"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "a と d", "en": "a and d" },
+      "explanation": { "en": "Phenol resin is made by condensing phenol with formaldehyde (a), and vinylon is made by treating poly(vinyl alcohol) with formaldehyde (acetalization) (d). PET, polystyrene and PVC do not use formaldehyde.", "ja": "フェノール樹脂はフェノールとホルムアルデヒドの縮合で（a），ビニロンはポリビニルアルコールをホルムアルデヒドで処理（アセタール化）して（d）つくる。PET・ポリスチレン・PVC はホルムアルデヒドを用いない。" }
+    }
+  ],
+  "patterns": {
+    "archetypes": [
+      "Incorrect particle-count value (Na M-shell has 1 electron).",
+      "Species with the most shared electron pairs (NH₄⁺).",
+      "Molecule that is not planar (ammonia).",
+      "Crystal type of CO₂/SiO₂/CaO (molecular/covalent/ionic).",
+      "Max metal mass + acid concentration from a gas-volume plateau.",
+      "Volume at which all water just vaporizes (vapour-pressure limit).",
+      "Salt from a divalent acid and monovalent base with basic solution.",
+      "Volume of KMnO₄ to oxidize H₂O₂ (2:5 ratio).",
+      "Charge from total electrolysis gas (3n/4 relation).",
+      "Correct HI-decomposition equilibrium statement (endothermic).",
+      "Operation that does not produce hydrogen (Cu + dilute HCl).",
+      "Two operations that do not proceed (Ag/HCl, Pt/FeSO₄).",
+      "Reactions where water acts as an acid (proton donor).",
+      "Incorrect SO₂ statement (bleaches by reduction).",
+      "Identify a metal ion from solubility tests (amphoteric + ammine = Zn²⁺).",
+      "Count C₃H₅Br isomers and chiral Br₂-addition products.",
+      "Correct ethylene statement (decolourises bromine water).",
+      "Incorrect aromatic product (HNO₃/H₂SO₄ gives nitrobenzene).",
+      "Bromide molecular weight from a cyclic diene.",
+      "Polymers made using formaldehyde (phenol resin, vinylon)."
+    ],
+    "recurring": [
+      "Atomic-structure / bonding / crystal screens open the paper.",
+      "Quantitative core: gas-volume plateau, vapour-pressure volume, redox titration, electrolysis charge, hydrogenation/bromination MW.",
+      "Equilibrium reasoning and acid-base salt analysis sit mid-paper.",
+      "Qualitative inorganic: hydrogen generation, ionization-tendency, water-as-acid, SO₂, single-ion identification.",
+      "Organic: isomer/chirality counting, alkene tests, aromatic substitution products, unsaturation calculations, polymers."
+    ],
+    "examTacticNotes": [
+      "Na is (2,8,1): the M shell has 1 electron.",
+      "Shared pairs: NH₄⁺ has 4 (most); N₂ and H₃O⁺ have 3.",
+      "Ammonia is pyramidal (non-planar); 3-atom molecules are always planar.",
+      "CO₂ molecular, SiO₂ covalent network, CaO ionic.",
+      "Gas-volume plateau marks the acid running out: max H₂ = plateau/24000; back out metal and acid amounts.",
+      "All water vaporizes when its partial pressure = vapour pressure; V = nRT/P for the water vapour.",
+      "Na₂CO₃: divalent weak acid + monovalent strong base ⇒ basic salt.",
+      "KMnO₄:H₂O₂ = 2:5; mol KMnO₄ = (2/5)·mol H₂O₂.",
+      "Electrolysis of dilute H₂SO₄: total gas = 3n/4 mol e⁻; charge = n·F.",
+      "HI decomposition is endothermic: cooling shifts back to HI; equal gas moles ⇒ pressure-insensitive.",
+      "Cu is below H, so no H₂ with dilute HCl; Ag/HCl and Pt/FeSO₄ don't react.",
+      "Water acts as an acid (donates H⁺→OH⁻) toward NH₃ and toward O²⁻ in CaO.",
+      "SO₂ bleaches by reduction (not oxidation); it decolourises acidified KMnO₄.",
+      "Amphoteric + ammine-soluble + colourless + no AgCl/PbCl₂ ⇒ Zn²⁺.",
+      "C₃H₅Br with C=C: 4 isomers (incl. cis/trans 1-bromopropene); 2 give chiral Br₂-adducts.",
+      "Ethylene decolourises bromine water; KMnO₄ is reduced (decolourised), not oxidised.",
+      "Benzene + HNO₃/H₂SO₄ → nitrobenzene (sulfonation needs conc. H₂SO₄).",
+      "Hydrogenation ΔMW = 4 ⇒ 2 C=C; Br₂ adds 2×160 ⇒ bromide MW 400.",
+      "Phenol resin and vinylon are the formaldehyde-using polymers."
+    ],
+    "difficulty": "Standard EJU chemistry — a full-syllabus sweep with a strong quantitative core. The more discriminating items are the gas-volume-plateau interpretation (Q5), the vapour-pressure vaporization volume (Q6), the C₃H₅Br isomer/chirality count (Q16), and the cyclic-diene bromide MW (Q19)."
+  }
+}

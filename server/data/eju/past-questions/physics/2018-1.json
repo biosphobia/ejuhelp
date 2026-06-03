@@ -1,0 +1,232 @@
+{
+  "id": "2018-1-physics",
+  "year": 2018,
+  "session": 1,
+  "subject": "physics",
+  "title": "EJU 2018 · Session 1 · Physics",
+  "source": "平成30年度（2018年度）日本留学試験（第1回）理科〈物理〉 © Japan Student Services Organization (JASSO)",
+  "attribution": "EJU past questions © JASSO. The question paper for this session is a scanned image-only PDF; question text was transcribed from the page images, figures described in text, and correct answers read from the official JASSO answer table and independently re-solved for verification.",
+  "languages": ["ja", "en"],
+  "answerKeyVerified": true,
+  "extractionNote": "Source question PDF had no text layer (scanned); transcribed via image OCR by hand.",
+  "structure": {
+    "blocks": [
+      { "id": "I", "topicId": "mech", "name": { "ja": "力学", "en": "Mechanics" }, "questionCount": 6 },
+      { "id": "II", "topicId": "thermo", "name": { "ja": "熱力学", "en": "Thermodynamics" }, "questionCount": 3 },
+      { "id": "III", "topicId": "waves", "name": { "ja": "波動", "en": "Waves" }, "questionCount": 3 },
+      { "id": "IV", "topicId": "em", "name": { "ja": "電気と磁気", "en": "Electricity & Magnetism" }, "questionCount": 6 },
+      { "id": "V", "topicId": "atoms", "name": { "ja": "原子", "en": "Atoms" }, "questionCount": 1 }
+    ],
+    "totalQuestions": 19,
+    "givens": { "ja": "重力加速度の大きさを g とし，空気の抵抗は無視できるものとする。", "en": "Take the magnitude of gravitational acceleration as g; air resistance is negligible." }
+  },
+  "questions": [
+    {
+      "id": "2018-1-phy-1", "answerRow": 1, "block": "I", "topicId": "mech",
+      "subtopic": "Static friction threshold (pull at an angle above horizontal)",
+      "patternTags": ["express-formula", "static-friction", "force-resolution"], "hasFigure": true,
+      "figure": { "ja": "粗い水平床上の質量 m の小物体に糸を付け，糸と水平面のなす角 θ を保って引く。張力を増し T0 を超えると滑り出す。静止摩擦係数 μ。", "en": "A block (mass m) on a rough floor is pulled by a string at angle θ above the horizontal. Increasing the tension past T0 makes it slide. Static-friction coefficient μ." },
+      "ja": { "prompt": "粗い水平な床の上の質量 $m$ の小物体に糸を付け，糸と水平面のなす角を $\\theta$ に保って引いた。張力を徐々に大きくし $T_0$ を超えたとき小物体は滑り始めた。静止摩擦係数を $\\mu$ とする。$\\dfrac{T_0}{mg}$ はどのように表されるか。", "choices": ["$\\dfrac{\\mu}{\\sin\\theta}$", "$\\dfrac{\\mu}{\\cos\\theta}$", "$\\dfrac{\\mu}{\\sin\\theta+\\mu\\cos\\theta}$", "$\\dfrac{\\mu}{\\sin\\theta-\\mu\\cos\\theta}$", "$\\dfrac{\\mu}{\\cos\\theta+\\mu\\sin\\theta}$", "$\\dfrac{\\mu}{\\cos\\theta-\\mu\\sin\\theta}$"] },
+      "en": { "prompt": "A block of mass $m$ on a rough floor is pulled by a string at angle $\\theta$ above the horizontal. It begins to slide just as the tension exceeds $T_0$. With static-friction coefficient $\\mu$, express $\\dfrac{T_0}{mg}$.", "choices": ["$\\dfrac{\\mu}{\\sin\\theta}$", "$\\dfrac{\\mu}{\\cos\\theta}$", "$\\dfrac{\\mu}{\\sin\\theta+\\mu\\cos\\theta}$", "$\\dfrac{\\mu}{\\sin\\theta-\\mu\\cos\\theta}$", "$\\dfrac{\\mu}{\\cos\\theta+\\mu\\sin\\theta}$", "$\\dfrac{\\mu}{\\cos\\theta-\\mu\\sin\\theta}$"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "$\\dfrac{\\mu}{\\cos\\theta+\\mu\\sin\\theta}$", "en": "$\\dfrac{\\mu}{\\cos\\theta+\\mu\\sin\\theta}$" },
+      "explanation": { "en": "At the slipping threshold $T_0\\cos\\theta=\\mu N$ with $N=mg-T_0\\sin\\theta$. So $T_0\\cos\\theta=\\mu(mg-T_0\\sin\\theta)\\Rightarrow T_0=\\dfrac{\\mu mg}{\\cos\\theta+\\mu\\sin\\theta}$.", "ja": "滑り出す条件 $T_0\\cos\\theta=\\mu N$，$N=mg-T_0\\sin\\theta$。よって $T_0=\\dfrac{\\mu mg}{\\cos\\theta+\\mu\\sin\\theta}$。" }
+    },
+    {
+      "id": "2018-1-phy-2", "answerRow": 2, "block": "I", "topicId": "mech",
+      "subtopic": "Atwood-on-a-table system (which case maximizes a and T)",
+      "patternTags": ["compare-cases", "equation-of-motion", "pulley-system"], "hasFigure": true,
+      "figure": { "ja": "おもり1（m1）をなめらかな水平台上に置き手で固定，台端の定滑車に糸をかけおもり2（m2）をつるす。手をはなすと等加速度運動。3 通り：A(m1=5,m2=3) kg, B(4,4), C(3,5)。", "en": "Mass m1 on a smooth horizontal table, connected over a pulley at the edge to a hanging mass m2. Released, they accelerate. Three cases: A(m1=5,m2=3) kg, B(4,4), C(3,5)." },
+      "ja": { "prompt": "おもり1（質量 $m_1$）をなめらかな水平台上に置き，台端の定滑車を通して糸でおもり2（質量 $m_2$）をつるす。静かにはなすと等加速度運動した。$m_1,m_2$ を A($5,3$)，B($4,4$)，C($3,5$) kg の 3 通りで実験する。おもり1の加速度 $a$ が最大となる場合と，糸の張力 $T$ が最大となる場合の正しい組み合わせはどれか。", "choices": ["a最大 A，T最大 B", "a最大 A，T最大 C", "a最大 B，T最大 A", "a最大 B，T最大 C", "a最大 C，T最大 A", "a最大 C，T最大 B"] },
+      "en": { "prompt": "Mass $m_1$ sits on a smooth table connected over a pulley to a hanging mass $m_2$; released, they accelerate. Cases A($5,3$), B($4,4$), C($3,5$) kg. Which case maximizes the acceleration $a$, and which maximizes the string tension $T$?", "choices": ["a max A, T max B", "a max A, T max C", "a max B, T max A", "a max B, T max C", "a max C, T max A", "a max C, T max B"] },
+      "answerIndex": 5, "answerOption": 6, "answer": { "ja": "a最大 C，T最大 B", "en": "a max C, T max B" },
+      "explanation": { "en": "$a=\\dfrac{m_2g}{m_1+m_2}$ is largest when $m_2/(m_1+m_2)$ is largest → C (5/8). $T=\\dfrac{m_1m_2g}{m_1+m_2}$ is largest when $m_1m_2$ is largest (sum fixed at 8) → B (4×4). So C and B.", "ja": "$a=\\dfrac{m_2g}{m_1+m_2}$ は C で最大，$T=\\dfrac{m_1m_2g}{m_1+m_2}$ は積 $m_1m_2$ 最大の B で最大。" }
+    },
+    {
+      "id": "2018-1-phy-3", "answerRow": 3, "block": "I", "topicId": "mech",
+      "subtopic": "Successive elastic collisions (velocity ratio)",
+      "patternTags": ["express-formula", "elastic-collision", "ratio"], "hasFigure": true,
+      "figure": { "ja": "なめらかな床の同一直線上に A(質量 m)，B(m/2)，C(m/4)。A が速さ vA で B に弾性衝突，その後 B が静止していた C に弾性衝突。最終的に C が速さ vC で運動。", "en": "On a smooth line: A(mass m), B(m/2), C(m/4). A (speed vA) elastically hits B; then B elastically hits stationary C. Finally C moves at speed vC." },
+      "ja": { "prompt": "なめらかで水平な床の同一直線上に質量 $m$ の A，$\\dfrac m2$ の B，$\\dfrac m4$ の C を置く。A が速さ $v_A$ で静止した B と弾性衝突し，その後 B が静止した C と弾性衝突した。衝突後 C は速さ $v_C$ で運動した。$\\dfrac{v_C}{v_A}$ はいくらか。", "choices": ["$\\dfrac14$", "$\\dfrac12$", "$\\dfrac{9}{16}$", "$\\dfrac34$", "$\\dfrac43$", "$\\dfrac{16}{9}$", "$2$", "$4$"] },
+      "en": { "prompt": "On a smooth line, A(mass $m$), B($\\tfrac m2$), C($\\tfrac m4$). A (speed $v_A$) elastically hits stationary B; then B elastically hits stationary C, which moves off at $v_C$. Find $\\dfrac{v_C}{v_A}$.", "choices": ["$\\dfrac14$", "$\\dfrac12$", "$\\dfrac{9}{16}$", "$\\dfrac34$", "$\\dfrac43$", "$\\dfrac{16}{9}$", "$2$", "$4$"] },
+      "answerIndex": 5, "answerOption": 6, "answer": { "ja": "$\\dfrac{16}{9}$", "en": "$\\dfrac{16}{9}$" },
+      "explanation": { "en": "Elastic, target at rest: $v_{target}=\\dfrac{2m_1}{m_1+m_2}v$. A→B: $v_B=\\dfrac{2m}{m+m/2}v_A=\\dfrac43v_A$. B→C: $v_C=\\dfrac{2(m/2)}{m/2+m/4}v_B=\\dfrac43v_B=\\dfrac{16}{9}v_A$.", "ja": "弾性衝突（標的静止）で $v_{標的}=\\dfrac{2m_1}{m_1+m_2}v$。A→B：$v_B=\\dfrac43v_A$，B→C：$v_C=\\dfrac43v_B=\\dfrac{16}{9}v_A$。" }
+    },
+    {
+      "id": "2018-1-phy-4", "answerRow": 4, "block": "I", "topicId": "mech",
+      "subtopic": "Projectile: impulse delivered by gravity over the flight",
+      "patternTags": ["express-formula", "impulse-momentum", "projectile-motion"], "hasFigure": true,
+      "figure": { "ja": "質量 m の小物体を水平な床から，水平となす角 θ・速さ v で打ち出し，再び床に落ちる放物運動。", "en": "A mass m launched from the floor at angle θ above horizontal with speed v, following a projectile arc back to the floor." },
+      "ja": { "prompt": "質量 $m$ の小物体を水平な床から，水平面となす角 $\\theta$ の向きに速さ $v$ で打ち出した。打ち出されてから床に達する直前までに，重力により小物体に与えられた力積の大きさはいくらか。", "choices": ["$mv\\sin\\theta$", "$mv\\cos\\theta$", "$2mv\\sin\\theta$", "$2mv\\cos\\theta$", "$mv\\sin2\\theta$", "$mv\\cos2\\theta$", "$2mv\\sin2\\theta$", "$2mv\\cos2\\theta$"] },
+      "en": { "prompt": "A mass $m$ is launched from the floor at angle $\\theta$ with speed $v$. What is the magnitude of the impulse delivered to it by gravity from launch until just before it lands?", "choices": ["$mv\\sin\\theta$", "$mv\\cos\\theta$", "$2mv\\sin\\theta$", "$2mv\\cos\\theta$", "$mv\\sin2\\theta$", "$mv\\cos2\\theta$", "$2mv\\sin2\\theta$", "$2mv\\cos2\\theta$"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "$2mv\\sin\\theta$", "en": "$2mv\\sin\\theta$" },
+      "explanation": { "en": "Flight time $T=\\dfrac{2v\\sin\\theta}{g}$. Gravity's impulse $=mgT=2mv\\sin\\theta$ (equivalently the change in vertical momentum from $+mv\\sin\\theta$ to $-mv\\sin\\theta$).", "ja": "滞空時間 $T=\\dfrac{2v\\sin\\theta}{g}$。重力の力積 $=mgT=2mv\\sin\\theta$（鉛直方向の運動量変化に等しい）。" }
+    },
+    {
+      "id": "2018-1-phy-5", "answerRow": 5, "block": "I", "topicId": "mech",
+      "subtopic": "Pendulum + perfectly inelastic collision (rise height)",
+      "patternTags": ["express-formula", "energy-conservation", "perfectly-inelastic-collision", "ratio"], "hasFigure": true,
+      "figure": { "ja": "長さ ℓ の軽い糸の一端を O に固定，他端に質量 m の P。O の真下 ℓ に質量 M の Q が床上にある。P を O と同じ高さまで持ち上げ静かにはなすと，最下点で Q と衝突して一体となり，高さ h まで上がる。", "en": "A bob P (mass m) on a string of length ℓ from O; a mass M block Q sits on the floor at distance ℓ directly below O. P is raised to O's level and released, collides with Q at the bottom, they stick, and rise to height h." },
+      "ja": { "prompt": "長さ $\\ell$ の軽い糸の一端を O に固定し他端に質量 $m$ の P を付ける。O の真下 $\\ell$ に質量 $M$ の Q が床上にある。P を O と同じ高さまで持ち上げ静かにはなすと，最下点で Q と衝突して一体となり，床から高さ $h$ まで上がった。$\\dfrac{h}{\\ell}$ はどのように表されるか。", "choices": ["$\\dfrac{m}{m+M}$", "$\\dfrac{M}{m+M}$", "$\\left(\\dfrac{m}{m+M}\\right)^2$", "$\\left(\\dfrac{M}{m+M}\\right)^2$", "$1-\\left(\\dfrac{m}{m+M}\\right)^2$", "$1-\\left(\\dfrac{M}{m+M}\\right)^2$"] },
+      "en": { "prompt": "A bob P (mass $m$) on a string of length $\\ell$ from O; a block Q (mass $M$) sits on the floor $\\ell$ directly below O. P is raised to O's level, released, sticks to Q at the bottom, and the pair rises to height $h$. Express $\\dfrac{h}{\\ell}$.", "choices": ["$\\dfrac{m}{m+M}$", "$\\dfrac{M}{m+M}$", "$\\left(\\dfrac{m}{m+M}\\right)^2$", "$\\left(\\dfrac{M}{m+M}\\right)^2$", "$1-\\left(\\dfrac{m}{m+M}\\right)^2$", "$1-\\left(\\dfrac{M}{m+M}\\right)^2$"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "$\\left(\\dfrac{m}{m+M}\\right)^2$", "en": "$\\left(\\dfrac{m}{m+M}\\right)^2$" },
+      "explanation": { "en": "Speed at bottom $v=\\sqrt{2g\\ell}$. Sticking: $v'=\\dfrac{m}{m+M}v$. Rise $h=\\dfrac{v'^2}{2g}=\\left(\\dfrac{m}{m+M}\\right)^2\\ell$, so $h/\\ell=\\left(\\dfrac{m}{m+M}\\right)^2$.", "ja": "最下点 $v=\\sqrt{2g\\ell}$。合体 $v'=\\dfrac{m}{m+M}v$。$h=\\dfrac{v'^2}{2g}=\\left(\\dfrac{m}{m+M}\\right)^2\\ell$。" }
+    },
+    {
+      "id": "2018-1-phy-6", "answerRow": 6, "block": "I", "topicId": "mech",
+      "subtopic": "Vertical spring SHM (amplitude and period ratios)",
+      "patternTags": ["express-formula", "simple-harmonic-motion", "ratio"], "hasFigure": true,
+      "figure": { "ja": "軽いばねにおもり（質量 m1）を自然長位置で支え静かにはなすと振幅 A1・周期 T1 の単振動。同じばねで質量 m2 にすると振幅 A2・周期 T2。", "en": "On a light spring, a mass m1 held at the natural length and released oscillates with amplitude A1, period T1. With mass m2, amplitude A2, period T2." },
+      "ja": { "prompt": "軽いばねに質量 $m_1$ のおもりをつるし，ばねが自然長となる位置で支え静かにはなすと，振幅 $A_1$・周期 $T_1$ の単振動をした。同じばねで質量 $m_2$ にかえると振幅 $A_2$・周期 $T_2$ になった。$\\dfrac{A_2}{A_1}$ と $\\dfrac{T_2}{T_1}$ の正しい組み合わせはどれか。", "choices": ["$\\dfrac{m_2}{m_1},\\ \\sqrt{\\dfrac{m_2}{m_1}}$", "$\\dfrac{m_2}{m_1},\\ \\sqrt{\\dfrac{m_1}{m_2}}$", "$\\sqrt{\\dfrac{m_2}{m_1}},\\ \\sqrt{\\dfrac{m_2}{m_1}}$", "$\\sqrt{\\dfrac{m_2}{m_1}},\\ \\sqrt{\\dfrac{m_1}{m_2}}$", "$1,\\ \\sqrt{\\dfrac{m_2}{m_1}}$", "$1,\\ \\sqrt{\\dfrac{m_1}{m_2}}$"] },
+      "en": { "prompt": "On a light spring, a mass $m_1$ held at the natural length and released does SHM with amplitude $A_1$, period $T_1$; with mass $m_2$, amplitude $A_2$, period $T_2$. Which combination of $\\dfrac{A_2}{A_1}$ and $\\dfrac{T_2}{T_1}$ is correct?", "choices": ["$\\dfrac{m_2}{m_1},\\ \\sqrt{\\dfrac{m_2}{m_1}}$", "$\\dfrac{m_2}{m_1},\\ \\sqrt{\\dfrac{m_1}{m_2}}$", "$\\sqrt{\\dfrac{m_2}{m_1}},\\ \\sqrt{\\dfrac{m_2}{m_1}}$", "$\\sqrt{\\dfrac{m_2}{m_1}},\\ \\sqrt{\\dfrac{m_1}{m_2}}$", "$1,\\ \\sqrt{\\dfrac{m_2}{m_1}}$", "$1,\\ \\sqrt{\\dfrac{m_1}{m_2}}$"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "$\\dfrac{m_2}{m_1},\\ \\sqrt{\\dfrac{m_2}{m_1}}$", "en": "$\\dfrac{m_2}{m_1},\\ \\sqrt{\\dfrac{m_2}{m_1}}$" },
+      "explanation": { "en": "Released from the natural length, amplitude = equilibrium stretch $=mg/k\\propto m$, so $A_2/A_1=m_2/m_1$. Period $T=2\\pi\\sqrt{m/k}\\propto\\sqrt m$, so $T_2/T_1=\\sqrt{m_2/m_1}$.", "ja": "自然長からはなすので振幅＝つり合いの伸び $mg/k\\propto m$，$A_2/A_1=m_2/m_1$。周期 $T\\propto\\sqrt m$，$T_2/T_1=\\sqrt{m_2/m_1}$。" }
+    },
+    {
+      "id": "2018-1-phy-7", "answerRow": 7, "block": "II", "topicId": "thermo",
+      "subtopic": "Calorimetry (metal + container + water)",
+      "patternTags": ["plug-in-numbers", "calorimetry", "heat-capacity"], "hasFigure": false,
+      "ja": { "prompt": "比熱 $c$ の金属 $500\\,$g を $55\\,^\\circ$C に加熱し，$20\\,^\\circ$C の容器（熱容量 $300\\,$J/K）に入った $20\\,^\\circ$C の水 $500\\,$g に入れると，じゅうぶん時間後すべて $25\\,^\\circ$C になった。水の比熱を $4.2\\,$J/(g·K)，熱は金属・容器・水の間だけで移動するとする。$c$ は何 J/(g·K) か。", "choices": ["0.50", "0.60", "0.70", "0.80", "0.90"] },
+      "en": { "prompt": "A metal ($500\\,$g, specific heat $c$) heated to $55\\,^\\circ$C is placed into $500\\,$g of $20\\,^\\circ$C water in a $20\\,^\\circ$C container (heat capacity $300\\,$J/K); all reach $25\\,^\\circ$C. Water's specific heat is $4.2\\,$J/(g·K); heat flows only among metal, container, water. Find $c$ in J/(g·K).", "choices": ["0.50", "0.60", "0.70", "0.80", "0.90"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "0.80 J/(g·K)", "en": "0.80 J/(g·K)" },
+      "explanation": { "en": "Metal releases $500\\,c\\,(55-25)=15000c$. Container+water gain $(300+500\\cdot4.2)(25-20)=2400\\cdot5=12000$ J. So $15000c=12000\\Rightarrow c=0.80$.", "ja": "金属放熱 $500c\\cdot30=15000c$，容器＋水 $(300+2100)\\cdot5=12000$ J。$15000c=12000$ より $c=0.80$。" }
+    },
+    {
+      "id": "2018-1-phy-8", "answerRow": 8, "block": "II", "topicId": "thermo",
+      "subtopic": "Two coupled cylinders (temperature ratio via pressure equality)",
+      "patternTags": ["express-formula", "ideal-gas", "pressure-force-balance"], "hasFigure": true,
+      "figure": { "ja": "断面積の等しいシリンダー A,B を向かい合わせ，2 つのピストンを棒で接続。等量の理想気体，初め両方 (p0,V0,T0)。A の温度を T0 に保ったまま… いや，A の絶対温度を T1 に変え，B の圧力が p1 になった。大気圧無視。", "en": "Cylinders A and B of equal cross-section face each other, pistons joined by a rod; equal moles, both initially (p0,V0,T0). A's temperature is changed to T1, and B's pressure becomes p1. Atmospheric pressure neglected." },
+      "ja": { "prompt": "断面積が等しい 2 つのシリンダー A,B を向かい合わせ，2 つのピストンを棒でつなぐ。等量の理想気体を入れ，初め両方とも圧力 $p_0$，体積 $V_0$，絶対温度 $T_0$。A の絶対温度を $T_1$ に変えると B の圧力は $p_1$ になった。大気圧は無視する。$\\dfrac{T_1}{T_0}$ はどのように表されるか。", "choices": ["$\\dfrac{p_1}{p_0}$", "$\\dfrac{p_0}{p_1}$", "$\\dfrac{2p_1}{p_0}-1$", "$\\dfrac{2p_0}{p_1}-1$", "$2-\\dfrac{p_1}{p_0}$", "$2-\\dfrac{p_0}{p_1}$"] },
+      "en": { "prompt": "Two cylinders A, B of equal cross-section face each other with pistons joined by a rod; equal moles, both initially $(p_0,V_0,T_0)$. A's temperature is changed to $T_1$ and B's pressure becomes $p_1$. Atmospheric pressure neglected. Express $\\dfrac{T_1}{T_0}$.", "choices": ["$\\dfrac{p_1}{p_0}$", "$\\dfrac{p_0}{p_1}$", "$\\dfrac{2p_1}{p_0}-1$", "$\\dfrac{2p_0}{p_1}-1$", "$2-\\dfrac{p_1}{p_0}$", "$2-\\dfrac{p_0}{p_1}$"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "$\\dfrac{2p_1}{p_0}-1$", "en": "$\\dfrac{2p_1}{p_0}-1$" },
+      "explanation": { "en": "Rod ⇒ equal pressures, so A is also at $p_1$. B stays at $T_0$: $p_0V_0=p_1V_B\\Rightarrow V_B=\\tfrac{p_0}{p_1}V_0$, and $V_A=2V_0-V_B$. For A: $\\dfrac{T_1}{T_0}=\\dfrac{p_1V_A}{p_0V_0}=\\dfrac{p_1(2V_0-\\frac{p_0}{p_1}V_0)}{p_0V_0}=\\dfrac{2p_1}{p_0}-1$.", "ja": "棒で圧力等しく A も $p_1$。B は $T_0$ のまま $V_B=\\tfrac{p_0}{p_1}V_0$，$V_A=2V_0-V_B$。A より $\\dfrac{T_1}{T_0}=\\dfrac{p_1V_A}{p_0V_0}=\\dfrac{2p_1}{p_0}-1$。" }
+    },
+    {
+      "id": "2018-1-phy-9", "answerRow": 9, "block": "II", "topicId": "thermo",
+      "subtopic": "Kinetic theory (ratio of root-mean-square speeds)",
+      "patternTags": ["plug-in-numbers", "kinetic-theory", "rms-speed", "ratio"], "hasFigure": false,
+      "ja": { "prompt": "温度の等しい水素分子 $H_2$ と酸素分子 $O_2$ の気体がある。2 乗平均速度を $\\sqrt{\\overline{v_{H_2}^2}}$，$\\sqrt{\\overline{v_{O_2}^2}}$ とする。理想気体とみなし，分子量を $H_2$:2.0，$O_2$:32 とする。$\\dfrac{\\sqrt{\\overline{v_{H_2}^2}}}{\\sqrt{\\overline{v_{O_2}^2}}}$ はいくらか。", "choices": ["0.063", "0.25", "1.0", "4.0", "16"] },
+      "en": { "prompt": "Hydrogen $H_2$ and oxygen $O_2$ gas are at the same temperature, with rms speeds $\\sqrt{\\overline{v_{H_2}^2}}$ and $\\sqrt{\\overline{v_{O_2}^2}}$. Treating them as ideal (molar masses $H_2$:2.0, $O_2$:32), find $\\dfrac{\\sqrt{\\overline{v_{H_2}^2}}}{\\sqrt{\\overline{v_{O_2}^2}}}$.", "choices": ["0.063", "0.25", "1.0", "4.0", "16"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "4.0", "en": "4.0" },
+      "explanation": { "en": "At equal temperature $v_{rms}\\propto1/\\sqrt M$, so the ratio $=\\sqrt{M_{O_2}/M_{H_2}}=\\sqrt{32/2}=\\sqrt{16}=4.0$.", "ja": "同温度で $v_{rms}\\propto1/\\sqrt M$。比は $\\sqrt{32/2}=4.0$。" }
+    },
+    {
+      "id": "2018-1-phy-10", "answerRow": 10, "block": "III", "topicId": "waves",
+      "subtopic": "Travelling wave: speed and direction from y–x and y–t graphs",
+      "patternTags": ["read-from-graph", "travelling-wave", "wave-speed", "direction"], "hasFigure": true,
+      "figure": { "ja": "図1：t=0 の y–x グラフ（波長 4 m，振幅 0.2 m）。図2：x=0 の y–t グラフ（周期 0.5 s，振幅 0.2 m，t=0 で y は正から増加）。", "en": "Fig 1: y–x at t=0 (wavelength 4 m, amplitude 0.2 m). Fig 2: y–t at x=0 (period 0.5 s, amplitude 0.2 m; at t=0, y positive and increasing)." },
+      "ja": { "prompt": "$x$ 軸上を進む正弦波について，図1は $t=0\\,$s の $y$–$x$ グラフ（波長 $4\\,$m），図2は $x=0\\,$m の $y$–$t$ グラフ（周期 $0.5\\,$s）である。この波の速さと進む向き（$x$ 軸の正／負）の正しい組み合わせはどれか。", "choices": ["2 m/s，正の向き", "2 m/s，負の向き", "4 m/s，正の向き", "4 m/s，負の向き", "8 m/s，正の向き", "8 m/s，負の向き"] },
+      "en": { "prompt": "For a wave on the $x$-axis, Fig 1 is the $y$–$x$ graph at $t=0\\,$s (wavelength $4\\,$m) and Fig 2 is the $y$–$t$ graph at $x=0\\,$m (period $0.5\\,$s). Give the wave speed and direction ($+x$ or $-x$).", "choices": ["2 m/s, $+x$", "2 m/s, $-x$", "4 m/s, $+x$", "4 m/s, $-x$", "8 m/s, $+x$", "8 m/s, $-x$"] },
+      "answerIndex": 5, "answerOption": 6, "answer": { "ja": "8 m/s，負の向き", "en": "8 m/s, $-x$" },
+      "explanation": { "en": "$v=\\lambda/T=4/0.5=8$ m/s. At $x=0$, $y$ is increasing (Fig 2) while the spatial slope at $x=0$ is positive (Fig 1); since $\\partial y/\\partial t=-v\\,\\partial y/\\partial x$, a positive time-rate with positive slope needs $v<0$ — the wave moves in $-x$.", "ja": "$v=\\lambda/T=4/0.5=8$ m/s。$x=0$ で $y$ は増加，$\\partial y/\\partial x>0$。$\\partial y/\\partial t=-v\\,\\partial y/\\partial x$ より負の向き。" }
+    },
+    {
+      "id": "2018-1-phy-11", "answerRow": 11, "block": "III", "topicId": "waves",
+      "subtopic": "Beats + Doppler (observer speed for zero beat)",
+      "patternTags": ["plug-in-numbers", "beats", "doppler-effect"], "hasFigure": true,
+      "figure": { "ja": "一直線上に観測者 O と固定音源 A(342 Hz, 左)・B(338 Hz, 右)。静止時はうなりが聞こえる。O が A から B の向きに速さ v で進むとうなりが消えた。音速 340 m/s。", "en": "On a line: observer O between fixed sources A(342 Hz, left) and B(338 Hz, right). At rest, beats are heard. Moving from A toward B at speed v, the beats vanish. Sound speed 340 m/s." },
+      "ja": { "prompt": "一直線上に観測者 O と固定音源 A（$342\\,$Hz），B（$338\\,$Hz）が並ぶ。O が静止しているとうなりが観測された。O が A から B の向きに速さ $v$ で移動するとうなりが消えた。音速 $340\\,$m/s。$v$ は何 m/s か。", "choices": ["1", "2", "3", "4"] },
+      "en": { "prompt": "On a line, observer O is between fixed sources A($342\\,$Hz) and B($338\\,$Hz). At rest, beats are heard; moving from A toward B at speed $v$, the beats vanish. With sound speed $340\\,$m/s, find $v$ (m/s).", "choices": ["1", "2", "3", "4"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "2 m/s", "en": "2 m/s" },
+      "explanation": { "en": "Moving away from A and toward B, the heard frequencies are $342\\dfrac{V-v}{V}$ and $338\\dfrac{V+v}{V}$. Zero beat: $342(V-v)=338(V+v)\\Rightarrow 4V=680v\\Rightarrow v=\\dfrac{4\\cdot340}{680}=2$ m/s.", "ja": "A から遠ざかり B へ近づくので $342\\dfrac{V-v}{V}=338\\dfrac{V+v}{V}$。$4V=680v$ より $v=2$ m/s。" }
+    },
+    {
+      "id": "2018-1-phy-12", "answerRow": 12, "block": "III", "topicId": "waves",
+      "subtopic": "Prism refraction + total internal reflection (geometry)",
+      "patternTags": ["plug-in-numbers", "refraction", "total-internal-reflection", "geometry"], "hasFigure": true,
+      "figure": { "ja": "直角三角柱プリズム ABC（∠B=30°, ∠A=90°, ∠C=60°）。AB 面の点 P に入射角 45° で単色光が入り，BC 面で全反射し，AC 面の点 Q から AC 面に垂直に出る。空気の屈折率 1。", "en": "Right-triangular prism ABC (∠B=30°, ∠A=90°, ∠C=60°). Light enters face AB at P at incidence 45°, totally reflects at face BC, and exits face AC perpendicularly at Q. Air index 1." },
+      "ja": { "prompt": "直角三角柱のプリズム ABC（鋭角 $30^\\circ$ と $60^\\circ$）がある。AB 面上の点 P に入射角 $45^\\circ$ で単色光を入射させると，BC 面で全反射して AC 面上の点 Q から AC 面に垂直に出てきた。空気の屈折率を 1 とする。プリズムの屈折率はいくらか。", "choices": ["$\\dfrac{\\sqrt6}{2}$", "$\\sqrt2$", "$\\sqrt3$", "$\\sqrt6$"] },
+      "en": { "prompt": "A right-triangular prism ABC (acute angles $30^\\circ$ and $60^\\circ$). Light enters face AB at P at incidence $45^\\circ$, totally reflects at face BC, and exits face AC perpendicularly at Q. With air index 1, find the prism's refractive index.", "choices": ["$\\dfrac{\\sqrt6}{2}$", "$\\sqrt2$", "$\\sqrt3$", "$\\sqrt6$"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "$\\sqrt2$", "en": "$\\sqrt2$" },
+      "explanation": { "en": "Trying $n=\\sqrt2$: at P, $\\sin45^\\circ=n\\sin r\\Rightarrow\\sin r=\\tfrac12$, $r=30^\\circ$. The geometry then sends the ray to BC at $45^\\circ$ (> critical angle $\\theta_c=\\arcsin(1/\\sqrt2)=45^\\circ$, so it totally reflects) and out of AC normally. Consistent, so $n=\\sqrt2$.", "ja": "$n=\\sqrt2$ とすると P で $\\sin45^\\circ=n\\sin r$，$r=30^\\circ$。幾何より BC への入射角が臨界角 $45^\\circ$ となり全反射，AC から垂直に出る。整合するので $n=\\sqrt2$。" }
+    },
+    {
+      "id": "2018-1-phy-13", "answerRow": 13, "block": "IV", "topicId": "em",
+      "subtopic": "Coulomb equilibrium (charge at midpoint of a triangle base)",
+      "patternTags": ["express-formula", "coulombs-law", "equilibrium", "geometry"], "hasFigure": true,
+      "figure": { "ja": "正三角形 ABC：A に +Q，B に −Q，C に −Q。BC の中点 D に電荷 q を固定すると，A の受ける静電気力が 0 になった。", "en": "Equilateral triangle ABC: +Q at A, −Q at B, −Q at C. A charge q is fixed at D (midpoint of BC) so the net force on A becomes zero." },
+      "ja": { "prompt": "正三角形 ABC の頂点 A に $Q\\,(>0)$，B に $-Q$，C に $-Q$ を固定する。BC の中点 D に電荷 $q$ を固定すると，A に固定した点電荷が受ける静電気力の大きさが 0 になった。$\\dfrac{q}{Q}$ はいくらか。", "choices": ["$3\\sqrt3$", "$2\\sqrt3$", "$\\dfrac{4\\sqrt3}{3}$", "$\\sqrt3$", "$\\dfrac{3\\sqrt3}{4}$", "$\\dfrac{\\sqrt3}{2}$", "$\\dfrac{\\sqrt3}{3}$"] },
+      "en": { "prompt": "On equilateral triangle ABC: $Q\\,(>0)$ at A, $-Q$ at B, $-Q$ at C. A charge $q$ at D (midpoint of BC) makes the net force on A zero. Find $\\dfrac{q}{Q}$.", "choices": ["$3\\sqrt3$", "$2\\sqrt3$", "$\\dfrac{4\\sqrt3}{3}$", "$\\sqrt3$", "$\\dfrac{3\\sqrt3}{4}$", "$\\dfrac{\\sqrt3}{2}$", "$\\dfrac{\\sqrt3}{3}$"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "$\\dfrac{3\\sqrt3}{4}$", "en": "$\\dfrac{3\\sqrt3}{4}$" },
+      "explanation": { "en": "The two $-Q$ at B,C attract A; their resultant along AD (toward D) is $2\\cdot\\dfrac{kQ^2}{s^2}\\cos30^\\circ=\\sqrt3\\dfrac{kQ^2}{s^2}$. D ($AD=\\tfrac{\\sqrt3}{2}s$) must repel A equally: $\\dfrac{kqQ}{(\\sqrt3 s/2)^2}=\\sqrt3\\dfrac{kQ^2}{s^2}\\Rightarrow\\dfrac{4q}{3}=\\sqrt3 Q$, so $\\dfrac qQ=\\dfrac{3\\sqrt3}{4}$.", "ja": "B,C(−Q) が A を引き，合力は AD 方向に $2\\cdot\\dfrac{kQ^2}{s^2}\\cos30^\\circ=\\sqrt3\\dfrac{kQ^2}{s^2}$。D($AD=\\tfrac{\\sqrt3}2 s$) が同じ大きさで反発：$\\dfrac{kqQ}{(\\sqrt3 s/2)^2}=\\sqrt3\\dfrac{kQ^2}{s^2}$ より $\\dfrac qQ=\\dfrac{3\\sqrt3}{4}$。" }
+    },
+    {
+      "id": "2018-1-phy-14", "answerRow": 14, "block": "IV", "topicId": "em",
+      "subtopic": "Parallel-plate capacitor with a conducting slab (potential differences)",
+      "patternTags": ["express-formula", "capacitors", "conductor-in-field"], "hasFigure": true,
+      "figure": { "ja": "間隔 3d の平行板コンデンサーに，厚さ d の帯電していない導体板を平行に挿入。下の極板と導体板下面の距離は 3d/2（よって上の隙間は d/2）。起電力 V（上極板が正）。導体板と上極板間の電位差 V1，導体板と下極板間 V2。", "en": "A parallel-plate capacitor with gap 3d contains an uncharged conducting slab of thickness d. The lower plate to the slab's bottom is 3d/2 (so the upper gap is d/2). EMF V (top plate positive). V1 = slab-to-top voltage, V2 = slab-to-bottom." },
+      "ja": { "prompt": "極板間隔 $3d$ の平行板コンデンサーの中に，厚さ $d$ の帯電していない導体板を平行に入れる。下の極板と導体板下面の距離は $\\dfrac{3d}{2}$ である。起電力 $V\\,(>0)$ の電池の正極を上の極板に，負極を下の極板につなぐ。導体板と上の極板間の電位差を $V_1$，導体板と下の極板間を $V_2$ とする。$V_1-V_2$ はどのように表されるか。", "choices": ["$-\\dfrac{V}{2}$", "$-\\dfrac{V}{3}$", "$-\\dfrac{V}{4}$", "$\\dfrac{V}{4}$", "$\\dfrac{V}{3}$", "$\\dfrac{V}{2}$"] },
+      "en": { "prompt": "A parallel-plate capacitor (gap $3d$) contains an uncharged conducting slab of thickness $d$; the lower plate to the slab's bottom is $\\dfrac{3d}{2}$. A battery of EMF $V\\,(>0)$ connects + to the top plate, − to the bottom. With $V_1$ the slab-to-top voltage and $V_2$ the slab-to-bottom voltage, express $V_1-V_2$.", "choices": ["$-\\dfrac{V}{2}$", "$-\\dfrac{V}{3}$", "$-\\dfrac{V}{4}$", "$\\dfrac{V}{4}$", "$\\dfrac{V}{3}$", "$\\dfrac{V}{2}$"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "$-\\dfrac{V}{2}$", "en": "$-\\dfrac{V}{2}$" },
+      "explanation": { "en": "Upper gap $=3d-\\tfrac{3d}{2}-d=\\tfrac d2$, lower gap $=\\tfrac{3d}{2}$. Same field $E$ in both: $E(\\tfrac d2+\\tfrac{3d}{2})=V\\Rightarrow E=\\tfrac{V}{2d}$. Then $V_1=E\\tfrac d2=\\tfrac V4$, $V_2=E\\tfrac{3d}{2}=\\tfrac{3V}{4}$, so $V_1-V_2=-\\tfrac V2$.", "ja": "上隙間 $\\tfrac d2$，下隙間 $\\tfrac{3d}2$。同じ電場 $E(\\tfrac d2+\\tfrac{3d}2)=V$ より $E=\\tfrac{V}{2d}$。$V_1=\\tfrac V4$，$V_2=\\tfrac{3V}4$，$V_1-V_2=-\\tfrac V2$。" }
+    },
+    {
+      "id": "2018-1-phy-15", "answerRow": 15, "block": "IV", "topicId": "em",
+      "subtopic": "Two-battery circuit (power supplied by a battery)",
+      "patternTags": ["plug-in-numbers", "kirchhoff", "dc-circuits", "power"], "hasFigure": true,
+      "figure": { "ja": "長方形回路の上辺に 3.0V 電池，右辺に 6.0Ω，下辺に 6.0V 電池，左上から右下への対角線に 12.0Ω，左辺は導線。内部抵抗無視。", "en": "Rectangular loop: 3.0 V battery on the top edge, 6.0 Ω on the right edge, 6.0 V battery on the bottom edge, a 12.0 Ω resistor on the diagonal (top-left to bottom-right), left edge a wire. Internal resistance negligible." },
+      "ja": { "prompt": "起電力 $3.0\\,$V，$6.0\\,$V の 2 つの電池と，抵抗 $6.0\\,\\Omega$，$12.0\\,\\Omega$ を図のように接続した（上辺 3.0V，右辺 6.0Ω，下辺 6.0V，対角線 12.0Ω）。内部抵抗は無視できる。起電力 $6.0\\,$V の電池が供給する電力は何 W か。", "choices": ["3.0", "4.5", "6.0", "9.0", "12", "15", "17"] },
+      "en": { "prompt": "Batteries $3.0\\,$V and $6.0\\,$V and resistors $6.0\\,\\Omega$, $12.0\\,\\Omega$ are connected as shown (3.0 V top, 6.0 Ω right, 6.0 V bottom, 12.0 Ω diagonal). Internal resistance negligible. What power (W) does the $6.0\\,$V battery supply?", "choices": ["3.0", "4.5", "6.0", "9.0", "12", "15", "17"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "12 W", "en": "12 W" },
+      "explanation": { "en": "The 6.0 V battery (no series resistance) fixes its node at 6.0 V. Current through the 12 Ω is $6.0/12=0.5$ A; through the branch with the 3.0 V battery and 6.0 Ω is $1.5$ A. Their sum, $2.0$ A, flows through the 6.0 V battery, giving $P=6.0\\times2.0=12$ W.", "ja": "6.0V 電池（直列抵抗なし）が節点を 6.0V に固定。12Ω に $0.5$A，3.0V＋6.0Ω の枝に $1.5$A。合計 $2.0$A が 6.0V 電池を流れ $P=6.0\\times2.0=12$ W。" }
+    },
+    {
+      "id": "2018-1-phy-16", "answerRow": 16, "block": "IV", "topicId": "em",
+      "subtopic": "Magnetic field lines of two parallel currents (same direction)",
+      "patternTags": ["choose-from-figure", "magnetic-field-of-current", "field-lines"], "hasFigure": true,
+      "figure": { "ja": "紙面に垂直な 2 本の直線導線（点 A,B）に，裏から表へ等しい電流が流れる。選択肢①〜④は磁力線の図。正解は，各導線のまわりを反時計回りに回り，2 線の中間に中性点をもち，全体を大きく囲む向きの図。", "en": "Two wires (through A and B) perpendicular to the page carry equal currents out of the page. Options ①–④ show field-line patterns. The correct one circulates counterclockwise around each wire with a neutral point between them and large loops enclosing both." },
+      "ja": { "prompt": "紙面に垂直な 2 本の直線導線が点 A，B を通り，紙面の裏から表へ大きさの等しい電流が流れている。これらの電流のつくる磁場の磁力線を表す図として最も適当なものを①〜④から選びなさい。", "choices": ["①（各線のまわり反時計回り，中間に中性点）", "②", "③", "④"] },
+      "en": { "prompt": "Two wires through A and B carry equal currents out of the page. Which diagram (①–④) best represents the magnetic field lines?", "choices": ["① counterclockwise around each wire, neutral point between", "②", "③", "④"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "①", "en": "①" },
+      "explanation": { "en": "Currents out of the page produce counterclockwise field circles around each wire. Between the wires the two fields oppose (a neutral point), while far away the lines enclose both wires together — pattern ①.", "ja": "裏→表の電流は各線のまわりに反時計回りの磁力線をつくる。2 線の間では打ち消し（中性点），遠方では 2 線を一緒に囲む → ①。" }
+    },
+    {
+      "id": "2018-1-phy-17", "answerRow": 17, "block": "IV", "topicId": "em",
+      "subtopic": "Force on a current from two wires (deduce current directions)",
+      "patternTags": ["identify", "force-between-currents", "vector-sum", "direction"], "hasFigure": true,
+      "figure": { "ja": "xy 平面に垂直な 3 本の導線 A(−ℓ,0), B(ℓ,0), C(0,a)。C の電流は紙面の表から裏（into page）。C が受ける力は +x 向き。A,B の電流の向きを問う。", "en": "Three wires perpendicular to the xy-plane at A(−ℓ,0), B(ℓ,0), C(0,a). C's current is into the page; the force on C is in the +x direction. Asked: the current directions in A and B." },
+      "ja": { "prompt": "$xy$ 平面上の点 A$(-\\ell,0)$，B$(\\ell,0)$，C$(0,a)$ を紙面に垂直に 3 本の導線が通り，等しい大きさの電流が流れる。C の電流は紙面の表から裏向き。このとき C が受ける力は $x$ 軸の正の向きであった。A，B に流した電流の向きの正しい組み合わせはどれか。", "choices": ["A:表→裏，B:表→裏", "A:表→裏，B:裏→表", "A:裏→表，B:表→裏", "A:裏→表，B:裏→表"] },
+      "en": { "prompt": "Three wires (equal currents) pass perpendicular to the $xy$-plane at A$(-\\ell,0)$, B$(\\ell,0)$, C$(0,a)$. C's current is into the page, and the force on C is in the $+x$ direction. What are the current directions in A and B?", "choices": ["A: into, B: into", "A: into, B: out", "A: out, B: into", "A: out, B: out"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "A:裏→表，B:表→裏", "en": "A: out of page, B: into page" },
+      "explanation": { "en": "By symmetry a net $+x$ force needs A to repel C and B to attract C. Repulsion ⇒ A opposite to C (out of page); attraction ⇒ B same as C (into page).", "ja": "対称性より合力 $+x$ には A が C を反発・B が C を引く必要。反発→A は C と逆（裏→表），引力→B は C と同じ（表→裏）。" }
+    },
+    {
+      "id": "2018-1-phy-18", "answerRow": 18, "block": "IV", "topicId": "em",
+      "subtopic": "Electromagnetic induction (induced EMF magnitude and polarity)",
+      "patternTags": ["plug-in-numbers", "faradays-law", "lenzs-law"], "hasFigure": true,
+      "figure": { "ja": "断面積 3.0×10⁻⁴ m²，巻き数 400 のコイル，断面が磁場に垂直。端子 P,Q に抵抗。磁束密度 B は図2のように 0.4 T から 0 へ 2 s で直線的に減少（dB/dt=−0.2 T/s）。P,Q 間の電位差を測る。", "en": "A coil (area 3.0×10⁻⁴ m², 400 turns) with its plane perpendicular to the field; terminals P, Q across a resistor. B decreases linearly from 0.4 T to 0 over 2 s (dB/dt=−0.2 T/s). Measure the P–Q potential difference." },
+      "ja": { "prompt": "断面積 $3.0\\times10^{-4}\\,\\text{m}^2$，巻き数 $400$ のコイルを磁場に垂直に置く。端子 P,Q に抵抗をつなぎ，磁束密度 $B$ を図2のように $0.4\\,$T から $0$ へ $2\\,$s で直線的に減少させた。P と Q の電位の関係として最も適当なものはどれか。", "choices": ["P が Q より $1.2\\times10^{-2}$ V 高い", "Q が P より $1.2\\times10^{-2}$ V 高い", "P が Q より $2.4\\times10^{-2}$ V 高い", "Q が P より $2.4\\times10^{-2}$ V 高い", "P が Q より $4.8\\times10^{-2}$ V 高い", "Q が P より $4.8\\times10^{-2}$ V 高い"] },
+      "en": { "prompt": "A coil (area $3.0\\times10^{-4}\\,\\text{m}^2$, $400$ turns) is perpendicular to the field, with terminals P, Q across a resistor. $B$ decreases linearly from $0.4\\,$T to $0$ over $2\\,$s. Which describes the P–Q potentials?", "choices": ["P higher than Q by $1.2\\times10^{-2}$ V", "Q higher than P by $1.2\\times10^{-2}$ V", "P higher than Q by $2.4\\times10^{-2}$ V", "Q higher than P by $2.4\\times10^{-2}$ V", "P higher than Q by $4.8\\times10^{-2}$ V", "Q higher than P by $4.8\\times10^{-2}$ V"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "Q が P より $2.4\\times10^{-2}$ V 高い", "en": "Q higher than P by $2.4\\times10^{-2}$ V" },
+      "explanation": { "en": "$|\\text{EMF}|=N A|dB/dt|=400\\times3.0\\times10^{-4}\\times0.2=2.4\\times10^{-2}$ V. By Lenz's law the induced current opposes the decreasing upward flux, fixing the polarity so that Q is higher than P.", "ja": "$|起電力|=NA|dB/dt|=400\\times3.0\\times10^{-4}\\times0.2=2.4\\times10^{-2}$ V。レンツの法則より Q が P より高い。" }
+    },
+    {
+      "id": "2018-1-phy-19", "answerRow": 19, "block": "V", "topicId": "atoms",
+      "subtopic": "Photon momentum and energy (and pair-annihilation conservation)",
+      "patternTags": ["express-formula", "wave-particle-duality", "photon", "conservation"], "hasFigure": false,
+      "ja": { "prompt": "光は粒子（光子）としての性質をもち， $\\boxed{a}$ と $\\boxed{b}$ をもつ。光速 $c$，プランク定数 $h$，波長 $\\lambda$ を用いると，光子 1 個の $\\boxed{a}$ は $\\boxed{c}$，$\\boxed{b}$ は $\\boxed{d}$ と表される。電子と陽電子が静止したまま対消滅するとき，光子が 1 個では $\\boxed{a}$ の保存則を満たせないので光子は 2 個以上発生する。$a,b$ の語句と $c,d$ の式の正しい組み合わせはどれか。", "choices": ["a:運動量, b:エネルギー, c:$\\dfrac{hc}{\\lambda}$, d:$\\dfrac{h}{\\lambda}$", "a:運動量, b:エネルギー, c:$\\dfrac{h}{\\lambda}$, d:$\\dfrac{hc}{\\lambda}$", "a:エネルギー, b:運動量, c:$\\dfrac{hc}{\\lambda}$, d:$\\dfrac{h}{\\lambda}$", "a:エネルギー, b:運動量, c:$\\dfrac{h}{\\lambda}$, d:$\\dfrac{hc}{\\lambda}$"] },
+      "en": { "prompt": "A photon has $\\boxed{a}$ and $\\boxed{b}$. Using $c$ (light speed), $h$, and wavelength $\\lambda$, a photon's $\\boxed{a}$ is $\\boxed{c}$ and its $\\boxed{b}$ is $\\boxed{d}$. In electron–positron annihilation at rest, a single photon cannot conserve $\\boxed{a}$, so two or more photons appear. Which combination of words $a,b$ and formulas $c,d$ is correct?", "choices": ["a: momentum, b: energy, c: $\\dfrac{hc}{\\lambda}$, d: $\\dfrac{h}{\\lambda}$", "a: momentum, b: energy, c: $\\dfrac{h}{\\lambda}$, d: $\\dfrac{hc}{\\lambda}$", "a: energy, b: momentum, c: $\\dfrac{hc}{\\lambda}$, d: $\\dfrac{h}{\\lambda}$", "a: energy, b: momentum, c: $\\dfrac{h}{\\lambda}$, d: $\\dfrac{hc}{\\lambda}$"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "a:運動量, b:エネルギー, c:$\\dfrac{h}{\\lambda}$, d:$\\dfrac{hc}{\\lambda}$", "en": "a: momentum, b: energy, c: $\\dfrac{h}{\\lambda}$, d: $\\dfrac{hc}{\\lambda}$" },
+      "explanation": { "en": "A photon has momentum $p=\\dfrac h\\lambda$ and energy $E=\\dfrac{hc}\\lambda$. Annihilation at rest has zero total momentum, which one photon (with $p\\ne0$) cannot match — so $a$ is momentum. Thus a=momentum ($h/\\lambda$), b=energy ($hc/\\lambda$).", "ja": "光子は運動量 $p=\\dfrac h\\lambda$，エネルギー $E=\\dfrac{hc}\\lambda$。静止対消滅は全運動量 0 で，1 個の光子では満たせない → a は運動量。よって a=運動量($h/\\lambda$), b=エネルギー($hc/\\lambda$)。" }
+    }
+  ],
+  "patterns": {
+    "blockSkeleton": "Same 5-block skeleton (I Mechanics ×6, II Thermo ×3, III Waves ×3, IV E&M ×6, V Atoms ×1).",
+    "newArchetypesVsPrevious": [
+      "Static-friction 'pull at an angle' threshold (Q1) — derive μ/(cosθ+μsinθ).",
+      "Compare which case maximizes a vs T in an Atwood-on-table system (Q2).",
+      "Chained elastic collisions with the 2m₁/(m₁+m₂) transfer rule (Q3).",
+      "Beats combined with Doppler to solve for an observer speed (Q11).",
+      "Prism with TIR using 30/45/60° geometry (Q12).",
+      "Conducting slab inside a parallel-plate capacitor (Q14).",
+      "Photon momentum/energy + pair-annihilation conservation reasoning (Q19)."
+    ],
+    "recurringWithPrevious": ["projectile impulse/kinematics (Q4)", "pendulum + collision → rise height (Q5, cf 2019-1 Q4)", "vertical-spring SHM ratios (Q6)", "calorimetry (Q7)", "coupled-cylinder gas pressure equality (Q8, cf 2019-1 Q8 & 2018-2 Q8)", "wave speed/direction from graphs (Q10)", "Coulomb equilibrium with geometry (Q13)", "two-battery circuit power (Q15)", "field lines / force-between-currents / induction (Q16–Q18, every year)"],
+    "examTacticNotes": [
+      "Elastic collision with a stationary target: the target leaves with 2m₁/(m₁+m₂)·v — chain it for multi-collision problems (Q3).",
+      "Beats vanish when the two Doppler-shifted frequencies become equal — set them equal and solve (Q11).",
+      "Ideal battery with no series resistance pins the node voltage; find branch currents, then P = EMF × (battery current) (Q15).",
+      "Photon: momentum h/λ, energy hc/λ. Pair annihilation needs ≥2 photons because total momentum is zero (Q19)."
+    ],
+    "difficulty": "Standard 'Basic + Advanced Physics'; conceptual with light computation."
+  }
+}

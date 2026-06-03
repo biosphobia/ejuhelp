@@ -1,0 +1,214 @@
+{
+  "id": "2011-2-physics",
+  "year": 2011,
+  "session": 2,
+  "subject": "physics",
+  "title": "EJU 2011 · Session 2 · Physics",
+  "source": "平成23年度（2011年度）日本留学試験（第2回）理科〈物理〉 © Japan Student Services Organization (JASSO)",
+  "attribution": "EJU past questions © JASSO. Question text paraphrased from the official past paper; figures described in text; correct answers taken from the official JASSO answer key and independently re-solved for verification.",
+  "languages": ["ja", "en"],
+  "answerKeyVerified": true,
+  "structure": {
+    "blocks": [
+      { "id": "I", "topicId": "mech", "name": { "ja": "力学", "en": "Mechanics" }, "questionCount": 7 },
+      { "id": "II", "topicId": "thermo", "name": { "ja": "熱力学", "en": "Thermodynamics" }, "questionCount": 3 },
+      { "id": "III", "topicId": "waves", "name": { "ja": "波動", "en": "Waves" }, "questionCount": 3 },
+      { "id": "IV", "topicId": "em", "name": { "ja": "電気と磁気", "en": "Electricity & Magnetism" }, "questionCount": 6 }
+    ],
+    "totalQuestions": 19,
+    "note": "Older 7/3/3/6 split (Mechanics has 7 items A–G), no Atoms (V) block. Within each Roman-numeral block the sub-problems are lettered A, B, C, … with continuous answer rows.",
+    "givens": { "ja": "重力加速度の大きさを g とし，空気の抵抗は無視できるものとする。", "en": "Take the magnitude of gravitational acceleration as g; air resistance is negligible." }
+  },
+  "questions": [
+    {
+      "id": "2011-2-phy-1", "answerRow": 1, "block": "I", "topicId": "mech",
+      "subtopic": "Tension on a hanging mass: accelerating up vs constant velocity",
+      "patternTags": ["dynamics", "newton-second-law", "tension", "plug-in-numbers"], "hasFigure": true,
+      "figure": { "ja": "質量 $0.50\\,$kg の物体を糸でつるし，糸の上端を持って動かす。$g=9.8\\,\\mathrm{m/s^2}$。", "en": "A $0.50\\,$kg object hangs from a string held at the top and moved. $g=9.8\\,\\mathrm{m/s^2}$." },
+      "ja": { "prompt": "質量 $0.50\\,$kg の物体を糸でつるす。物体が鉛直方向に等加速度 $2.8\\,\\mathrm{m/s^2}$ で上昇しているときの張力は $a$，鉛直方向に等速度 $1.4\\,$m/s で下降しているときの張力は $b$ であった。$a,b$ の組み合わせとして最も適当なものを選びなさい。", "choices": ["$a=3.5\\,$N, $b=4.2\\,$N", "$a=3.5\\,$N, $b=4.9\\,$N", "$a=3.5\\,$N, $b=5.6\\,$N", "$a=6.3\\,$N, $b=4.2\\,$N", "$a=6.3\\,$N, $b=4.9\\,$N", "$a=6.3\\,$N, $b=5.6\\,$N"] },
+      "en": { "prompt": "A $0.50\\,$kg object hangs from a string. The tension is $a$ when the object accelerates upward at $2.8\\,\\mathrm{m/s^2}$, and $b$ when it moves down at a constant $1.4\\,$m/s. Find $a$ and $b$.", "choices": ["$a=3.5\\,$N, $b=4.2\\,$N", "$a=3.5\\,$N, $b=4.9\\,$N", "$a=3.5\\,$N, $b=5.6\\,$N", "$a=6.3\\,$N, $b=4.2\\,$N", "$a=6.3\\,$N, $b=4.9\\,$N", "$a=6.3\\,$N, $b=5.6\\,$N"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "$a=6.3\\,$N, $b=4.9\\,$N", "en": "$a=6.3$ N, $b=4.9$ N" },
+      "explanation": { "en": "Accelerating up: $T-mg=ma\\Rightarrow T=m(g+a)=0.50(9.8+2.8)=6.3\\,$N. Constant velocity: $T=mg=0.50\\times9.8=4.9\\,$N.", "ja": "上昇加速：$T-mg=ma\\Rightarrow T=m(g+a)=0.50(9.8+2.8)=6.3\\,$N。等速：$T=mg=0.50\\times9.8=4.9\\,$N。" }
+    },
+    {
+      "id": "2011-2-phy-2", "answerRow": 2, "block": "I", "topicId": "mech",
+      "subtopic": "Acceleration graph from a velocity graph",
+      "patternTags": ["kinematics", "graph-reading", "derivative", "pick-statement"], "hasFigure": true,
+      "figure": { "ja": "$x$ 軸上を運動する小球の速度 $v(t)$ のグラフ：$t=0$ で $0$，いったん負に下がって極小をとり，増加して $0$ を横切り，正の一定値に達して一定になる。", "en": "Velocity $v(t)$ of a ball on the x-axis: starts at 0, dips negative to a minimum, rises back through 0, and levels off at a positive constant." },
+      "ja": { "prompt": "図の速度 $v(t)$ のグラフをもつ小球について，加速度 $a(t)$ の変化を表すグラフとして最も適当なものを選びなさい。", "choices": ["①（正の山→負へ→負一定）", "②（負へ下がり極小→0 に戻る）", "③（負から始まり 0 を横切り正の山→0 に戻る）", "④（負から始まり正一定に達する）"] },
+      "en": { "prompt": "For the ball with the given $v(t)$, which graph best shows the acceleration $a(t)$?", "choices": ["① positive hump then negative, level negative", "② dips to a negative minimum then back to 0", "③ starts negative, crosses 0, peaks positive, returns to 0", "④ starts negative, rises to a positive constant"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "③", "en": "③" },
+      "explanation": { "en": "$a=dv/dt$. While $v$ decreases (early, going negative) $a<0$; at $v$'s minimum $a=0$; while $v$ rises $a>0$ (peaking where $v$ is steepest); at the final plateau $a\\to0$. So $a$ starts negative, crosses zero, peaks positive, and returns to zero — graph ③.", "ja": "$a=dv/dt$。$v$ が減少する初め（負へ）は $a<0$，$v$ の極小で $a=0$，$v$ が増加するとき $a>0$（最も急なところで極大），最後の一定値で $a\\to0$。よって $a$ は負から始まり 0 を横切り正の山を経て 0 に戻る — ③。" }
+    },
+    {
+      "id": "2011-2-phy-3", "answerRow": 3, "block": "I", "topicId": "mech",
+      "subtopic": "Ladder against a smooth wall: max climber mass",
+      "patternTags": ["statics", "torque-balance", "friction", "express-formula"], "hasFigure": true,
+      "figure": { "ja": "質量 $M$ の一様なはしごを，なめらかな鉛直壁に水平床と $45°$ をなして立てかける。床とはしごの静止摩擦係数は $2/3$，重心ははしごの中心。質量 $m$ の人がはしごの上端に立つ。", "en": "A uniform ladder (mass $M$) leans against a smooth vertical wall at $45°$ to the floor; floor–ladder static friction $2/3$; centre of mass at the middle. A person of mass $m$ stands at the top." },
+      "ja": { "prompt": "質量 $M$ の一様なはしごをなめらかな鉛直壁に $45°$ で立てかける。床との静止摩擦係数は $2/3$。質量 $m$ の人がはしごの上端に立つとき，$m<x$ なら滑らず $m>x$ なら滑る。$x$ として最も適当なものを選びなさい。", "choices": ["$2M$", "$\\dfrac{3}{2}M$", "$\\dfrac{2}{3}M$", "$\\dfrac{1}{2}M$"] },
+      "en": { "prompt": "A uniform ladder (mass $M$) leans on a smooth wall at $45°$; floor friction $2/3$. A person of mass $m$ stands at the top; the ladder slips if $m>x$. Find $x$.", "choices": ["$2M$", "$\\dfrac{3}{2}M$", "$\\dfrac{2}{3}M$", "$\\dfrac{1}{2}M$"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "$\\dfrac{1}{2}M$", "en": "$\\dfrac{1}{2}M$" },
+      "explanation": { "en": "Torque about the foot (45°): wall normal $W=\\tfrac{M}{2}g+mg$. Floor normal $N=(M+m)g$, friction $f=W$. No slip needs $f\\le\\mu N$: $\\tfrac{M}{2}g+mg\\le\\tfrac23(M+m)g$. This gives $\\tfrac13 m\\le\\tfrac16 M$, i.e. $m\\le\\tfrac12 M$, so $x=\\tfrac12 M$.", "ja": "足元まわりのモーメント（45°）：壁の垂直抗力 $W=\\tfrac{M}{2}g+mg$。床の垂直抗力 $N=(M+m)g$，摩擦 $f=W$。滑らない条件 $f\\le\\mu N$：$\\tfrac{M}{2}g+mg\\le\\tfrac23(M+m)g$。整理して $\\tfrac13 m\\le\\tfrac16 M$，すなわち $m\\le\\tfrac12 M$ なので $x=\\tfrac12 M$。" }
+    },
+    {
+      "id": "2011-2-phy-4", "answerRow": 4, "block": "I", "topicId": "mech",
+      "subtopic": "Rope sliding off a table: acceleration vs hanging length",
+      "patternTags": ["dynamics", "variable-mass-distribution", "graph-reading", "express-formula"], "hasFigure": true,
+      "figure": { "ja": "長さ $L$ の一様なひもの一部を水平な台に置き，残りを端から垂らす。垂れた長さが $x$（はじめ $\\ell$）。摩擦なし。A は台上のひもの端。加速度 $a$ と $x$ の関係を表すグラフを選ぶ。", "en": "A uniform rope of length $L$ lies on a table with part hanging over the edge; the hanging length is $x$ (initially $\\ell$). Frictionless. A is the rope end on the table. Choose the graph of acceleration $a$ vs $x$." },
+      "ja": { "prompt": "長さ $L$ の一様なひもの一部を台に置き残りを垂らす。摩擦は無視できる。垂れた部分の長さ $x$ と，ひも全体の加速度 $a$ の関係を表すグラフとして最も適当なものを選びなさい（運動は $x\\ge\\ell$ で起こる）。", "choices": ["①（原点から上に凸で $a=g$ に近づく）", "②（原点を通る直線，$x=L$ で $a=g$）", "③（原点から下に凸で立ち上がる）", "④（$x=\\ell$ から上に凸）", "⑤（$x=\\ell$ から原点を通る直線にのって $x=L$ で $a=g$）", "⑥（$x=\\ell$ から下に凸）"] },
+      "en": { "prompt": "A uniform rope of length $L$ lies on a table with part hanging; frictionless. Which graph best shows the acceleration $a$ of the rope vs the hanging length $x$ (motion occurs for $x\\ge\\ell$)?", "choices": ["① concave-down from origin, approaching $a=g$", "② straight line through origin, $a=g$ at $x=L$", "③ concave-up from origin", "④ concave-down from $x=\\ell$", "⑤ straight line (through origin) drawn for $x\\ge\\ell$, $a=g$ at $x=L$", "⑥ concave-up from $x=\\ell$"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "⑤", "en": "⑤" },
+      "explanation": { "en": "The driving force is the weight of the hanging part $\\lambda x g$ ($\\lambda$ = mass per length); the whole rope (mass $\\lambda L$) accelerates, so $a=\\dfrac{\\lambda x g}{\\lambda L}=\\dfrac{g}{L}x$ — linear through the origin (slope $g/L$, reaching $g$ at $x=L$). Since motion only occurs for $x\\ge\\ell$, the graph is this line drawn from $x=\\ell$ — ⑤.", "ja": "駆動力は垂れた部分の重さ $\\lambda x g$（$\\lambda$ は線密度）。質量 $\\lambda L$ のひも全体が加速するので $a=\\dfrac{\\lambda x g}{\\lambda L}=\\dfrac{g}{L}x$ — 原点を通る直線（傾き $g/L$，$x=L$ で $g$）。運動は $x\\ge\\ell$ でのみ起こるので，その直線を $x=\\ell$ から描いた ⑤。" }
+    },
+    {
+      "id": "2011-2-phy-5", "answerRow": 5, "block": "I", "topicId": "mech",
+      "subtopic": "Mechanical energy change as a spring stretches by d",
+      "patternTags": ["energy", "spring", "gravitational-pe", "express-formula"], "hasFigure": true,
+      "figure": { "ja": "ばねに質量 $m$ のおもりをつけてつり下げる。図1：ばね自然長の位置でおもりを板で支える。図2：板をゆっくり下げ，ばねが $d$ 伸びたところでおもりが板を離れて静止。", "en": "A mass $m$ hangs on a spring. Fig 1: the mass is supported by a board at the spring's natural length. Fig 2: the board is lowered slowly; when the spring has stretched by $d$ the mass leaves the board and is in equilibrium." },
+      "ja": { "prompt": "図1（ばね自然長）のばねとおもりの力学的エネルギーの和を $U_1$，図2（ばねが $d$ 伸びた状態）の和を $U_2$ とする。$U_2-U_1$ はいくらか。", "choices": ["$-mgd$", "$-\\dfrac{1}{2}mgd$", "$0$", "$\\dfrac{1}{2}mgd$", "$mgd$"] },
+      "en": { "prompt": "Let $U_1$ be the total mechanical energy (spring + mass) in Fig 1 (natural length) and $U_2$ in Fig 2 (spring stretched by $d$). Find $U_2-U_1$.", "choices": ["$-mgd$", "$-\\dfrac{1}{2}mgd$", "$0$", "$\\dfrac{1}{2}mgd$", "$mgd$"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "$-\\dfrac{1}{2}mgd$", "en": "$-\\dfrac{1}{2}mgd$" },
+      "explanation": { "en": "At Fig 2 the mass just leaves the board, so $kd=mg$, i.e. $k=mg/d$. $U_2-U_1=[\\tfrac12kd^2+mg(-d)]-[0]=\\tfrac12kd^2-mgd=\\tfrac12(mg/d)d^2-mgd=\\tfrac12mgd-mgd=-\\tfrac12mgd$.", "ja": "図2でおもりが板を離れるので $kd=mg$，すなわち $k=mg/d$。$U_2-U_1=[\\tfrac12kd^2+mg(-d)]-[0]=\\tfrac12kd^2-mgd=\\tfrac12(mg/d)d^2-mgd=\\tfrac12mgd-mgd=-\\tfrac12mgd$。" }
+    },
+    {
+      "id": "2011-2-phy-6", "answerRow": 6, "block": "I", "topicId": "mech",
+      "subtopic": "Centripetal force on a semicircular track",
+      "patternTags": ["circular-motion", "energy-conservation", "centripetal-force", "plug-in-numbers"], "hasFigure": true,
+      "figure": { "ja": "なめらかな曲面。A と C は B から高さ $h$。曲線 BC は直径 $h$ の半円（半径 $h/2$，中心は B より高さ $h/2$）。質量 $m$ の小物体を A から初速 0 で運動させる。P は BC 上で B から高さ $\\tfrac{2}{3}h$。", "en": "A smooth surface. A and C are at height $h$ above B. Curve BC is a semicircle of diameter $h$ (radius $h/2$). A mass $m$ starts from rest at A. P is on BC at height $\\tfrac{2}{3}h$ above B." },
+      "ja": { "prompt": "曲線 BC 上で B からの高さが $\\tfrac{2}{3}h$ の点を P とする。小物体が P を通過するときに受ける向心力の大きさはいくらか。", "choices": ["$\\dfrac{2}{3}mg$", "$mg$", "$\\dfrac{4}{3}mg$", "$\\dfrac{5}{3}mg$", "$2mg$", "$4mg$"] },
+      "en": { "prompt": "Point P is on BC at height $\\tfrac{2}{3}h$ above B. Find the magnitude of the centripetal force on the object as it passes P.", "choices": ["$\\dfrac{2}{3}mg$", "$mg$", "$\\dfrac{4}{3}mg$", "$\\dfrac{5}{3}mg$", "$2mg$", "$4mg$"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "$\\dfrac{4}{3}mg$", "en": "$\\dfrac{4}{3}mg$" },
+      "explanation": { "en": "Energy from A (height $h$, rest) to P (height $\\tfrac23h$): $\\tfrac12mv^2=mg(h-\\tfrac23h)=\\tfrac13mgh$, so $v^2=\\tfrac23gh$. Radius $r=h/2$, so centripetal force $=\\dfrac{mv^2}{r}=\\dfrac{m(2gh/3)}{h/2}=\\dfrac{4}{3}mg$.", "ja": "A（高さ $h$，静止）から P（高さ $\\tfrac23h$）へのエネルギー：$\\tfrac12mv^2=mg(h-\\tfrac23h)=\\tfrac13mgh$ より $v^2=\\tfrac23gh$。半径 $r=h/2$ なので向心力 $=\\dfrac{mv^2}{r}=\\dfrac{m(2gh/3)}{h/2}=\\dfrac{4}{3}mg$。" }
+    },
+    {
+      "id": "2011-2-phy-7", "answerRow": 7, "block": "I", "topicId": "mech",
+      "subtopic": "Centripetal acceleration of a satellite",
+      "patternTags": ["gravitation", "circular-orbit", "surface-gravity", "express-formula"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "国際宇宙ステーション（ISS）が万有引力を受けて，地表からの高度 $h$ の円軌道上を一定の速さで運動している。ISS の向心加速度の大きさはいくらか。地球の半径を $R$，地表での重力加速度の大きさを $g$ とする。", "choices": ["$\\dfrac{R^2}{(R+h)^2}g$", "$\\dfrac{R}{R+h}g$", "$g$", "$\\dfrac{R+h}{R}g$", "$\\dfrac{(R+h)^2}{R^2}g$"] },
+      "en": { "prompt": "The ISS orbits in a circle at height $h$ above the surface under gravity. Find its centripetal acceleration. Earth's radius is $R$ and surface gravity is $g$.", "choices": ["$\\dfrac{R^2}{(R+h)^2}g$", "$\\dfrac{R}{R+h}g$", "$g$", "$\\dfrac{R+h}{R}g$", "$\\dfrac{(R+h)^2}{R^2}g$"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "$\\dfrac{R^2}{(R+h)^2}g$", "en": "$\\dfrac{R^2}{(R+h)^2}g$" },
+      "explanation": { "en": "Gravity provides the centripetal acceleration: $a=\\dfrac{GM}{(R+h)^2}$. At the surface $g=\\dfrac{GM}{R^2}$, so $GM=gR^2$ and $a=\\dfrac{gR^2}{(R+h)^2}=\\dfrac{R^2}{(R+h)^2}g$.", "ja": "重力が向心加速度を与える：$a=\\dfrac{GM}{(R+h)^2}$。地表で $g=\\dfrac{GM}{R^2}$ より $GM=gR^2$ なので $a=\\dfrac{gR^2}{(R+h)^2}=\\dfrac{R^2}{(R+h)^2}g$。" }
+    },
+    {
+      "id": "2011-2-phy-8", "answerRow": 8, "block": "II", "topicId": "thermo",
+      "subtopic": "Calorimetry with a constant-power heater and added water",
+      "patternTags": ["calorimetry", "specific-heat", "mixing", "plug-in-numbers"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "ヒーター付きの容器に $20\\,$°C の水 $2.0\\,$kg を入れ $42$ 分加熱すると $80\\,$°C になった。これに $20\\,$°C の水 $1.0\\,$kg を加え，同じヒーターで加熱を続けた。蒸発はなく，単位時間当たりの発熱は一定で熱はすべて水に伝わる。水の比熱を $4.2\\,\\mathrm{J/(g\\cdot K)}$ とする。$1.0\\,$kg を追加してから容器内の水が $100\\,$°C に達するのは何分後か。", "choices": ["10", "26", "33", "42", "56", "64"] },
+      "en": { "prompt": "A heater warms $2.0\\,$kg of $20\\,$°C water to $80\\,$°C in $42$ min. Then $1.0\\,$kg of $20\\,$°C water is added and heating continues (no evaporation, constant power, all heat to the water; specific heat $4.2\\,\\mathrm{J/(g\\cdot K)}$). How many minutes after adding the $1.0\\,$kg does the water reach $100\\,$°C?", "choices": ["10", "26", "33", "42", "56", "64"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "$42$ 分", "en": "42 min" },
+      "explanation": { "en": "Power: $2000\\times4.2\\times60=5.04\\times10^5\\,$J in $42\\,$min $\\Rightarrow1.2\\times10^4\\,$J/min. Adding $1.0\\,$kg of $20$ °C water to $2.0\\,$kg at $80$ °C mixes to $\\dfrac{2\\times80+1\\times20}{3}=60$ °C. Heating $3.0\\,$kg from $60$ to $100$ °C needs $3000\\times4.2\\times40=5.04\\times10^5\\,$J $\\Rightarrow42\\,$min.", "ja": "出力：$2000\\times4.2\\times60=5.04\\times10^5\\,$J を $42\\,$分 $\\Rightarrow1.2\\times10^4\\,$J/分。$20$°C の水 $1.0\\,$kg を $80$°C の $2.0\\,$kg に加えると $\\dfrac{2\\times80+1\\times20}{3}=60$°C。$3.0\\,$kg を $60\\to100$°C にするには $3000\\times4.2\\times40=5.04\\times10^5\\,$J $\\Rightarrow42\\,$分。" }
+    },
+    {
+      "id": "2011-2-phy-9", "answerRow": 9, "block": "II", "topicId": "thermo",
+      "subtopic": "Net work over a PV cycle",
+      "patternTags": ["thermodynamics", "pv-diagram", "work", "cycle", "plug-in-numbers"], "hasFigure": true,
+      "figure": { "ja": "一定量の理想気体の状態を $A\\to B\\to C\\to A$ と変える。$A=(V{=}1,P{=}400)$，$B=(V{=}4,P{=}100)$，$C=(V{=}1,P{=}100)$（単位 m³, N/m²）。$A\\to B$ は直線，$B\\to C$ は定圧，$C\\to A$ は定積。", "en": "A fixed amount of ideal gas cycles $A\\to B\\to C\\to A$. $A=(V{=}1,P{=}400)$, $B=(V{=}4,P{=}100)$, $C=(V{=}1,P{=}100)$ (m³, N/m²). $A\\to B$ straight line, $B\\to C$ isobaric, $C\\to A$ isochoric." },
+      "ja": { "prompt": "$A\\to B\\to C\\to A$（1 サイクル）の間に，この気体が外部にした仕事はいくらか。", "choices": ["300", "450", "750", "900"] },
+      "en": { "prompt": "How much work does the gas do on its surroundings over one cycle $A\\to B\\to C\\to A$ (in J)?", "choices": ["300", "450", "750", "900"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "$450\\,$J", "en": "450 J" },
+      "explanation": { "en": "Net work = enclosed area of the (clockwise) triangle $=\\tfrac12\\times3\\times300=450\\,$J. Check: $A\\to B$ does $+\\tfrac12(400+100)(3)=750\\,$J, $B\\to C$ does $100\\times(1-4)=-300\\,$J, $C\\to A$ does $0$; total $=450\\,$J.", "ja": "正味の仕事＝（時計回りの）三角形の囲む面積 $=\\tfrac12\\times3\\times300=450\\,$J。確認：$A\\to B$ で $+\\tfrac12(400+100)(3)=750\\,$J，$B\\to C$ で $100\\times(1-4)=-300\\,$J，$C\\to A$ で $0$，合計 $450\\,$J。" }
+    },
+    {
+      "id": "2011-2-phy-10", "answerRow": 10, "block": "II", "topicId": "thermo",
+      "subtopic": "Identify heat engine and refrigerator from energy-flow diagrams",
+      "patternTags": ["thermodynamics", "heat-engine", "refrigerator", "energy-flow", "compare-cases"], "hasFigure": true,
+      "figure": { "ja": "エネルギーの流れの図 (a)〜(d)。上下矢印は熱の向き，左右矢印は仕事をされる側を向く。(a) $Q_1,Q_2$ 下向き・$W$ は外部向き；(b) $Q_1,Q_2$ 下向き・$W$ は装置向き；(c) $Q_1,Q_2$ 上向き・$W$ は外部向き；(d) $Q_1,Q_2$ 上向き・$W$ は装置向き。表は 熱機関/冷蔵庫 の組み合わせ①〜④。", "en": "Energy-flow diagrams (a)–(d). Vertical arrows = heat direction; the horizontal $W$ arrow points to the side that is worked on. (a) $Q_1,Q_2$ down, $W$ toward external; (b) $Q_1,Q_2$ down, $W$ toward device; (c) $Q_1,Q_2$ up, $W$ toward external; (d) $Q_1,Q_2$ up, $W$ toward device. The table pairs heat-engine/refrigerator, options ①–④." },
+      "ja": { "prompt": "図 (a)〜(d) の中で，熱機関と冷蔵庫に対応するものはどれか。正しい組み合わせを選びなさい。", "choices": ["熱機関:(a) / 冷蔵庫:(c)", "熱機関:(a) / 冷蔵庫:(d)", "熱機関:(b) / 冷蔵庫:(c)", "熱機関:(b) / 冷蔵庫:(d)"] },
+      "en": { "prompt": "Which diagrams correspond to a heat engine and a refrigerator?", "choices": ["engine:(a) / fridge:(c)", "engine:(a) / fridge:(d)", "engine:(b) / fridge:(c)", "engine:(b) / fridge:(d)"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "熱機関:(a) / 冷蔵庫:(d)", "en": "engine:(a) / fridge:(d)" },
+      "explanation": { "en": "A heat engine takes heat from the hot source ($Q_1$ down into the device), exhausts $Q_2$ to the cold source (down), and does work on the surroundings ($W$ toward external) — that is (a). A refrigerator is driven by work input ($W$ toward the device) to move heat from cold up to hot ($Q_1,Q_2$ up) — that is (d).", "ja": "熱機関は高温源から熱を受け（$Q_1$ 下向きで装置へ），$Q_2$ を低温源へ捨て（下向き），外部に仕事をする（$W$ は外部向き）— (a)。冷蔵庫は仕事を受けて（$W$ は装置向き）低温から高温へ熱を移す（$Q_1,Q_2$ 上向き）— (d)。" }
+    },
+    {
+      "id": "2011-2-phy-11", "answerRow": 11, "block": "III", "topicId": "waves",
+      "subtopic": "Reflection of a pulse at a fixed vs free end",
+      "patternTags": ["waves", "reflection", "fixed-free-end", "compare-cases"], "hasFigure": true,
+      "figure": { "ja": "右へ進む波形（左に山，右に谷）が右端で反射する。反射波の候補：(a)〜(d)（いずれも左へ進む）。(b) は左に谷・右に山，(d) は左に山・右に谷。表は 固定端/自由端 の組み合わせ①〜⑧。", "en": "A pulse moving right (crest on the left, trough on the right) reflects at the right end. Reflected candidates (a)–(d) all move left; (b) is trough-left/crest-right, (d) is crest-left/trough-right. The table pairs fixed-end/free-end, options ①–⑧." },
+      "ja": { "prompt": "右端が固定端の場合と自由端の場合に，反射波はそれぞれどのような波形になるか。正しい組み合わせを選びなさい。", "choices": ["固定:(a) 自由:(b)", "固定:(a) 自由:(c)", "固定:(b) 自由:(a)", "固定:(b) 自由:(d)", "固定:(c) 自由:(a)", "固定:(c) 自由:(d)", "固定:(d) 自由:(a)", "固定:(d) 自由:(b)"] },
+      "en": { "prompt": "What is the reflected pulse for a fixed end and for a free end? Choose the correct pair.", "choices": ["fixed:(a) free:(b)", "fixed:(a) free:(c)", "fixed:(b) free:(a)", "fixed:(b) free:(d)", "fixed:(c) free:(a)", "fixed:(c) free:(d)", "fixed:(d) free:(a)", "fixed:(d) free:(b)"] },
+      "answerIndex": 7, "answerOption": 8, "answer": { "ja": "固定端:(d) / 自由端:(b)", "en": "fixed:(d) / free:(b)" },
+      "explanation": { "en": "Free end: reflect the pulse left–right with NO inversion → trough-left, crest-right = (b). Fixed end: reflect AND invert → crest-left, trough-right = (d). (The two reflected pulses are vertical mirror images of each other.)", "ja": "自由端：左右反転のみで上下反転なし → 左に谷・右に山 ＝(b)。固定端：左右反転＋上下反転 → 左に山・右に谷 ＝(d)。（固定端と自由端の反射波は互いに上下反転の関係。）" }
+    },
+    {
+      "id": "2011-2-phy-12", "answerRow": 12, "block": "III", "topicId": "waves",
+      "subtopic": "Number of destructive points between two in-phase sources",
+      "patternTags": ["waves", "interference", "path-difference", "plug-in-numbers"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "2 つの地点 A, B から同じ周波数 $f$・同位相の音波を発する。線分 AB 上で音が弱め合う地点が（A, B を含まず）$20$ 箇所あった。$AB=2.50\\,$m，音速 $350\\,$m/s。$f$ の範囲として最も適当なものを選びなさい。", "choices": ["$1330<f\\le1470\\,$Hz", "$1470<f\\le1610\\,$Hz", "$2660<f\\le2940\\,$Hz", "$2940<f\\le3220\\,$Hz"] },
+      "en": { "prompt": "Two points A and B emit sound of the same frequency $f$ in phase. On segment AB there are $20$ points (excluding A, B) of destructive interference. $AB=2.50\\,$m, sound speed $350\\,$m/s. Find the range of $f$.", "choices": ["$1330<f\\le1470\\,$Hz", "$1470<f\\le1610\\,$Hz", "$2660<f\\le2940\\,$Hz", "$2940<f\\le3220\\,$Hz"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "$1330<f\\le1470\\,$Hz", "en": "$1330<f\\le1470$ Hz" },
+      "explanation": { "en": "On AB the path difference ranges over $(-d,d)$; destructive points occur at half-integer multiples of $\\lambda$. Their count is $2\\times$(positive half-integers $<d/\\lambda$). For 20 points we need exactly 10 positive half-integers $<d/\\lambda$: $9.5<d/\\lambda\\le10.5$. With $d/\\lambda=df/v=f/140$: $9.5<f/140\\le10.5\\Rightarrow1330<f\\le1470\\,$Hz.", "ja": "AB 上で行路差は $(-d,d)$ を動き，弱め合いは $\\lambda$ の半整数倍で起こる。その数は $2\\times$（$d/\\lambda$ 未満の正の半整数）。20 箇所には正の半整数がちょうど 10 個必要で $9.5<d/\\lambda\\le10.5$。$d/\\lambda=df/v=f/140$ より $9.5<f/140\\le10.5\\Rightarrow1330<f\\le1470\\,$Hz。" }
+    },
+    {
+      "id": "2011-2-phy-13", "answerRow": 13, "block": "III", "topicId": "waves",
+      "subtopic": "Air-wedge interference: wavelength from fringe count",
+      "patternTags": ["waves", "thin-film", "air-wedge", "express-formula"], "hasFigure": true,
+      "figure": { "ja": "2 枚の平面板ガラスの一端に薄い紙をはさみ，くさび形の空気層をつくる。上から波長 $\\lambda$ の光を当て，平行な明暗縞ができる。接している端 O から距離 $x_1$ の点 P と $x_2$ の点 Q の間に $N$ 本の明線。なす角 $\\theta$ は小さく $\\tan\\theta\\approx\\theta$，$N$ は十分大きい。", "en": "Two flat glass plates with a thin paper at one end form an air wedge. Light of wavelength $\\lambda$ is shone from above, giving parallel fringes. Between point P (distance $x_1$ from the contact edge O) and Q (distance $x_2$) there are $N$ bright fringes. The wedge angle $\\theta$ is small, $\\tan\\theta\\approx\\theta$, and $N$ is large." },
+      "ja": { "prompt": "2 枚のガラスのなす角を $\\theta$ とするとき，O から距離 $x_1$ の P と $x_2$ の Q の間に $N$ 本の明線が観測された。$\\lambda$ はいくらか。", "choices": ["$\\dfrac{(x_2-x_1)\\theta}{N}$", "$\\dfrac{2(x_2-x_1)\\theta}{N}$", "$\\dfrac{x_2-x_1}{N\\theta}$", "$\\dfrac{2(x_2-x_1)}{N\\theta}$"] },
+      "en": { "prompt": "With wedge angle $\\theta$, there are $N$ bright fringes between P (distance $x_1$ from O) and Q (distance $x_2$). Find $\\lambda$.", "choices": ["$\\dfrac{(x_2-x_1)\\theta}{N}$", "$\\dfrac{2(x_2-x_1)\\theta}{N}$", "$\\dfrac{x_2-x_1}{N\\theta}$", "$\\dfrac{2(x_2-x_1)}{N\\theta}$"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "$\\dfrac{2(x_2-x_1)\\theta}{N}$", "en": "$\\dfrac{2(x_2-x_1)\\theta}{N}$" },
+      "explanation": { "en": "The air gap at distance $x$ is $t=x\\theta$. Adjacent bright fringes differ by $\\Delta t=\\lambda/2$, so the fringe spacing is $\\Delta x=\\lambda/(2\\theta)$. Then $N=\\dfrac{x_2-x_1}{\\Delta x}=\\dfrac{2\\theta(x_2-x_1)}{\\lambda}$, giving $\\lambda=\\dfrac{2(x_2-x_1)\\theta}{N}$.", "ja": "距離 $x$ での空気層は $t=x\\theta$。隣り合う明線で $\\Delta t=\\lambda/2$ なので縞間隔 $\\Delta x=\\lambda/(2\\theta)$。よって $N=\\dfrac{x_2-x_1}{\\Delta x}=\\dfrac{2\\theta(x_2-x_1)}{\\lambda}$ となり $\\lambda=\\dfrac{2(x_2-x_1)\\theta}{N}$。" }
+    },
+    {
+      "id": "2011-2-phy-14", "answerRow": 14, "block": "IV", "topicId": "em",
+      "subtopic": "Charge ratio for two suspended charged balls",
+      "patternTags": ["electrostatics", "coulomb-law", "equilibrium", "plug-in-numbers"], "hasFigure": true,
+      "figure": { "ja": "長さ $\\ell$ の 2 本の絶縁糸の端に等質量の小球をつけ同じ点からつるす。図1：電気量 $q_1$ で糸のなす角 $\\tfrac13\\pi$（各糸は鉛直と $30°$）。図2：電気量 $q_2$ で糸のなす角 $\\tfrac23\\pi$（各糸は鉛直と $60°$）。", "en": "Two insulating threads of length $\\ell$ with equal-mass balls hang from one point. Fig 1: charge $q_1$, threads' included angle $\\tfrac13\\pi$ (each $30°$ from vertical). Fig 2: charge $q_2$, included angle $\\tfrac23\\pi$ (each $60°$ from vertical)." },
+      "ja": { "prompt": "$\\dfrac{q_2}{q_1}$ はいくらか。", "choices": ["$\\sqrt{2}$", "$\\sqrt{3}$", "$2$", "$3$", "$9$"] },
+      "en": { "prompt": "Find $\\dfrac{q_2}{q_1}$.", "choices": ["$\\sqrt{2}$", "$\\sqrt{3}$", "$2$", "$3$", "$9$"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "$3$", "en": "$3$" },
+      "explanation": { "en": "For each ball $\\tan\\alpha=\\dfrac{F}{mg}$ with $F=\\dfrac{kq^2}{(2\\ell\\sin\\alpha)^2}$, so $q^2\\propto\\tan\\alpha\\,\\sin^2\\alpha$. At $30°$: $\\tan30°\\sin^230°=\\tfrac1{4\\sqrt3}$; at $60°$: $\\tan60°\\sin^260°=\\tfrac{3\\sqrt3}{4}$. Ratio $=\\dfrac{3\\sqrt3/4}{1/(4\\sqrt3)}=9$, so $q_2/q_1=3$.", "ja": "各球で $\\tan\\alpha=\\dfrac{F}{mg}$，$F=\\dfrac{kq^2}{(2\\ell\\sin\\alpha)^2}$ なので $q^2\\propto\\tan\\alpha\\,\\sin^2\\alpha$。$30°$：$\\tan30°\\sin^230°=\\tfrac1{4\\sqrt3}$，$60°$：$\\tan60°\\sin^260°=\\tfrac{3\\sqrt3}{4}$。比 $=\\dfrac{3\\sqrt3/4}{1/(4\\sqrt3)}=9$ なので $q_2/q_1=3$。" }
+    },
+    {
+      "id": "2011-2-phy-15", "answerRow": 15, "block": "IV", "topicId": "em",
+      "subtopic": "Field lines between angled plates",
+      "patternTags": ["electrostatics", "electric-field", "field-lines", "compare-cases"], "hasFigure": true,
+      "figure": { "ja": "ある角をなして配置した 2 枚の金属板に電圧をかけ，板間に電場が生じる。下の板は水平，上の板は傾く。選択肢①〜⑥は板間の電気力線。正解⑥は，板の間隔が狭い側ほど電気力線が密で，力線は板に垂直に描かれる。", "en": "Two metal plates at an angle have a voltage applied; a field forms between them (bottom plate horizontal, top plate tilted). Options ①–⑥ show field lines. The correct one (⑥) has the lines densest where the gap is smallest and perpendicular to the plates." },
+      "ja": { "prompt": "金属板間（端の部分以外）の電気力線のようすを描いた図として最も適当なものを選びなさい。", "choices": ["①（一様な間隔）", "②（左側ほど密）", "③（右側ほど密・別配置）", "④（一様な間隔，湾曲）", "⑤（左側ほど密，湾曲）", "⑥（間隔の狭い側ほど密，湾曲）"] },
+      "en": { "prompt": "Which figure best shows the field lines between the plates (away from the edges)?", "choices": ["① uniform spacing", "② denser on the left", "③ denser on the right (different layout)", "④ uniform, curved", "⑤ denser on the left, curved", "⑥ densest where the gap is smallest, curved"] },
+      "answerIndex": 5, "answerOption": 6, "answer": { "ja": "⑥", "en": "⑥" },
+      "explanation": { "en": "Both plates are equipotentials, so the field is $E\\approx V/d$ locally; where the gap $d$ is smaller the field is stronger and the field lines are denser. Lines meet each conductor perpendicularly. Graph ⑥ shows the lines densest at the narrow end and perpendicular to the plates.", "ja": "両板は等電位なので局所的に $E\\approx V/d$。間隔 $d$ が狭いところほど電場が強く電気力線が密になる。力線は導体に垂直。⑥ は狭い側で力線が密で板に垂直になっている。" }
+    },
+    {
+      "id": "2011-2-phy-16", "answerRow": 16, "block": "IV", "topicId": "em",
+      "subtopic": "Bulb with nonlinear I–V curve in a circuit (load line)",
+      "patternTags": ["circuits", "nonlinear-element", "load-line", "graph-reading"], "hasFigure": true,
+      "figure": { "ja": "豆電球 L の電圧–電流特性が図1（上に凸の曲線：$V{=}2$ で $I\\approx0.20\\,$A 付近）。図2の回路：L と $30\\,\\Omega$ が並列，それと $15\\,\\Omega$ が直列，起電力 $6.0\\,$V（内部抵抗なし）。", "en": "A bulb L with the I–V curve in Fig 1 (concave-down; at $V{=}2$, $I\\approx0.20\\,$A). Fig 2 circuit: L in parallel with $30\\,\\Omega$, that combination in series with $15\\,\\Omega$, EMF $6.0\\,$V (no internal resistance)." },
+      "ja": { "prompt": "L に流れる電流は何 A か。", "choices": ["0.13", "0.20", "0.26", "0.30"] },
+      "en": { "prompt": "What current flows through L (in A)?", "choices": ["0.13", "0.20", "0.26", "0.30"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "$0.20\\,$A", "en": "0.20 A" },
+      "explanation": { "en": "Let $V_L$ be the voltage across L (= across $30\\,\\Omega$). KVL: $6.0=V_L+15\\left(I_L+\\dfrac{V_L}{30}\\right)=1.5V_L+15I_L$, so the load line is $I_L=0.4-0.1V_L$. This meets the bulb curve near $V_L=2.0\\,$V, $I_L\\approx0.20\\,$A.", "ja": "L にかかる電圧を $V_L$（＝$30\\,\\Omega$ にも）とする。KVL：$6.0=V_L+15\\left(I_L+\\dfrac{V_L}{30}\\right)=1.5V_L+15I_L$ より負荷直線 $I_L=0.4-0.1V_L$。これが電球特性と交わるのは $V_L\\approx2.0\\,$V，$I_L\\approx0.20\\,$A。" }
+    },
+    {
+      "id": "2011-2-phy-17", "answerRow": 17, "block": "IV", "topicId": "em",
+      "subtopic": "Two parallel wires: current in B for a given field at P",
+      "patternTags": ["magnetism", "field-of-wire", "superposition", "plug-in-numbers"], "hasFigure": true,
+      "figure": { "ja": "十分長い 2 本の平行直線導線 A, B が距離 $a$ 離れている。A と B を含む平面内で，A から $2a$，B から $3a$ の点 P がある（配置は P—$2a$—A—$a$—B）。A には上向きに電流 $I$。B に電流 $I_B$ を流すと P の磁束密度の大きさが（B に流さない場合と比べて）$\\tfrac14$ 倍になり向きは変わらなかった。", "en": "Two long parallel wires A, B are distance $a$ apart. In their plane, point P is $2a$ from A and $3a$ from B (arrangement P—$2a$—A—$a$—B). A carries current $I$ upward. Passing $I_B$ through B makes the field magnitude at P $\\tfrac14$ of its value without $I_B$, with unchanged direction." },
+      "ja": { "prompt": "B に流した電流の向き（上向き↑または下向き↓）と大きさ $I_B$ として正しい組み合わせを選びなさい。", "choices": ["↑ / $\\tfrac{9}{8}I$", "↓ / $\\tfrac{9}{8}I$", "↑ / $\\tfrac{15}{8}I$", "↓ / $\\tfrac{15}{8}I$", "↑ / $\\tfrac{27}{16}I$", "↓ / $\\tfrac{27}{16}I$", "↑ / $\\tfrac{45}{16}I$", "↓ / $\\tfrac{45}{16}I$"] },
+      "en": { "prompt": "Find the direction (up ↑ or down ↓) and magnitude $I_B$ of the current in B.", "choices": ["↑ / $\\tfrac{9}{8}I$", "↓ / $\\tfrac{9}{8}I$", "↑ / $\\tfrac{15}{8}I$", "↓ / $\\tfrac{15}{8}I$", "↑ / $\\tfrac{27}{16}I$", "↓ / $\\tfrac{27}{16}I$", "↑ / $\\tfrac{45}{16}I$", "↓ / $\\tfrac{45}{16}I$"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "↓ / $\\tfrac{9}{8}I$", "en": "↓ / $\\tfrac{9}{8}I$" },
+      "explanation": { "en": "Field from A at P (distance $2a$): $B_A=\\dfrac{kI}{2a}$, out of the page. To make the total $\\tfrac14B_A$ in the same direction, B must contribute $B_B=-\\tfrac34 B_A$ (into the page). With distance $3a$: $\\dfrac{kI_B}{3a}=\\dfrac34\\dfrac{kI}{2a}\\Rightarrow I_B=\\tfrac98 I$, and the into-page field at P (left of B) requires the current downward.", "ja": "P（A から $2a$）での A の磁場 $B_A=\\dfrac{kI}{2a}$（紙面手前向き）。合成が同じ向きで $\\tfrac14B_A$ になるには B が $B_B=-\\tfrac34 B_A$（紙面奥向き）を作る必要。距離 $3a$ で $\\dfrac{kI_B}{3a}=\\dfrac34\\dfrac{kI}{2a}\\Rightarrow I_B=\\tfrac98 I$。P（B の左）で奥向きの磁場には電流は下向き。" }
+    },
+    {
+      "id": "2011-2-phy-18", "answerRow": 18, "block": "IV", "topicId": "em",
+      "subtopic": "Current-carrying wire frame tilted in a magnetic field",
+      "patternTags": ["magnetism", "force-on-current", "torque-balance", "express-formula"], "hasFigure": true,
+      "figure": { "ja": "針金 $AB=BC=CD=a$。PA, DQ が水平一直線になるよう支えてつるす（回転軸は AD，水平）。電流 $I$ を $A\\to B\\to C\\to D$ に流す。鉛直上向きの磁束密度 $B$ をかけると回転してつり合い，AB, CD が鉛直線となす角は $30°$。ABCD の質量 $m$。", "en": "A wire with $AB=BC=CD=a$ is suspended so PA and DQ are a horizontal line (rotation axis AD, horizontal). Current $I$ flows $A\\to B\\to C\\to D$. With a vertical (upward) field $B$, it rotates to equilibrium with AB and CD at $30°$ from vertical. The ABCD part has mass $m$." },
+      "ja": { "prompt": "針金を流れる電流 $I$ を $m,g,B,a$ で表すとどうなるか。", "choices": ["$\\dfrac{2\\sqrt3}{3}\\dfrac{mg}{Ba}$", "$\\dfrac{mg}{Ba}$", "$\\dfrac{\\sqrt3}{3}\\dfrac{mg}{Ba}$", "$\\dfrac{2\\sqrt3}{9}\\dfrac{mg}{Ba}$"] },
+      "en": { "prompt": "Express the current $I$ in terms of $m,g,B,a$.", "choices": ["$\\dfrac{2\\sqrt3}{3}\\dfrac{mg}{Ba}$", "$\\dfrac{mg}{Ba}$", "$\\dfrac{\\sqrt3}{3}\\dfrac{mg}{Ba}$", "$\\dfrac{2\\sqrt3}{9}\\dfrac{mg}{Ba}$"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "$\\dfrac{2\\sqrt3}{9}\\dfrac{mg}{Ba}$", "en": "$\\dfrac{2\\sqrt3}{9}\\dfrac{mg}{Ba}$" },
+      "explanation": { "en": "Only the bottom segment BC (horizontal, length $a$, perpendicular to the vertical field) gives a torque about the axis AD: its force $IaB$ acts at the swung position, giving torque $\\tfrac{\\sqrt3}{2}Ia^2B$ (the forces on AB, CD lie along the axis and give no torque). Gravity torque $=mg\\cdot\\tfrac{a}{3}$ (the centre of mass is offset $a/3$). Balancing: $\\tfrac{\\sqrt3}{2}Ia^2B=\\tfrac{mga}{3}\\Rightarrow I=\\dfrac{2mg}{3\\sqrt3\\,aB}=\\dfrac{2\\sqrt3}{9}\\dfrac{mg}{Ba}$.", "ja": "鉛直磁場に垂直な下辺 BC（水平・長さ $a$）だけが軸 AD まわりにトルクを与える：力 $IaB$ により $\\tfrac{\\sqrt3}{2}Ia^2B$（AB, CD への力は軸方向でトルクを生まない）。重力トルクは $mg\\cdot\\tfrac{a}{3}$（重心は $a/3$ ずれる）。つり合い：$\\tfrac{\\sqrt3}{2}Ia^2B=\\tfrac{mga}{3}\\Rightarrow I=\\dfrac{2mg}{3\\sqrt3\\,aB}=\\dfrac{2\\sqrt3}{9}\\dfrac{mg}{Ba}$。" }
+    },
+    {
+      "id": "2011-2-phy-19", "answerRow": 19, "block": "IV", "topicId": "em",
+      "subtopic": "Induced EMF from a triangular flux waveform",
+      "patternTags": ["electromagnetic-induction", "faraday-law", "graph-reading", "compare-cases"], "hasFigure": true,
+      "figure": { "ja": "1 巻きのコイルを磁束が貫く。磁束は時間に対して対称な三角波（$t=0,2,4,6\\,$ms で 0，間で最大，周期 $2\\,$ms）。誘導起電力 vs 時間のグラフを選ぶ。正解②は一定の大きさで $1\\,$ms ごとに符号が反転する方形波。", "en": "Flux through a single-turn coil is a symmetric triangle wave (0 at $t=0,2,4,6\\,$ms, peaks between, period $2\\,$ms). Choose the EMF-vs-time graph. The correct one (②) is a square wave of constant magnitude that flips sign every $1\\,$ms." },
+      "ja": { "prompt": "このコイルに生じる誘導起電力の時間変化を示すグラフとして最も適当なものを選びなさい。", "choices": ["①（方形波・逆位相）", "②（方形波・$1\\,$ms ごとに符号反転）", "③（三角波）", "④（三角波・下向き）", "⑤（のこぎり波）", "⑥（のこぎり波・別位相）"] },
+      "en": { "prompt": "Which graph best shows the induced EMF vs time?", "choices": ["① square wave (opposite phase)", "② square wave flipping sign every $1\\,$ms", "③ triangular wave", "④ triangular wave (downward)", "⑤ sawtooth", "⑥ sawtooth (other phase)"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "②", "en": "②" },
+      "explanation": { "en": "EMF $=-\\dfrac{d\\Phi}{dt}$. A triangular flux has a piecewise-constant slope that reverses every $1\\,$ms, so the EMF is a square wave of constant magnitude alternating sign each half-period — graph ②. Triangular (③④) and sawtooth (⑤⑥) shapes cannot represent a constant-magnitude alternating EMF.", "ja": "起電力 $=-\\dfrac{d\\Phi}{dt}$。三角波の磁束は傾きが $1\\,$ms ごとに反転する区分一定なので，起電力は一定の大きさで半周期ごとに符号が変わる方形波 — ②。三角波（③④）やのこぎり波（⑤⑥）は一定の大きさの交番起電力を表せない。" }
+    }
+  ]
+}

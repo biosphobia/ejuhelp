@@ -1,0 +1,273 @@
+{
+  "id": "2013-2-chemistry",
+  "year": 2013,
+  "session": 2,
+  "subject": "chemistry",
+  "title": "EJU 2013 · Session 2 · Chemistry",
+  "source": "平成25年度（2013年度）日本留学試験（第2回）理科〈化学〉 © Japan Student Services Organization (JASSO)",
+  "attribution": "EJU past questions © JASSO. Question text transcribed from the official past paper; figures described in text; correct answers taken from the official JASSO answer key and independently re-solved for verification.",
+  "languages": ["ja", "en"],
+  "answerKeyVerified": true,
+  "structure": {
+    "format": "flat",
+    "totalQuestions": 20,
+    "note": "Chemistry is a flat list of 20 single-best-answer items (問1–問20, answer rows 1–20) — no Roman-numeral blocks. Order ≈ structure & bonding → states/energetics/electrochemistry/equilibria → inorganic → organic.",
+    "givens": {
+      "ja": "標準状態 $0\\,$°C・$1.0\\times10^5\\,$Pa，気体 $1\\,$mol の体積 $22.4\\,$L，気体定数 $R=8.31\\times10^3\\,$Pa·L/(K·mol)，アボガドロ定数 $N_A=6.02\\times10^{23}\\,$/mol，ファラデー定数 $F=9.65\\times10^4\\,$C/mol。原子量：H 1.0, C 12, N 14, O 16, Cl 35, Cu 64。",
+      "en": "STP $0\\,$°C, $1.0\\times10^5\\,$Pa; molar volume $22.4\\,$L; $R=8.31\\times10^3\\,$Pa·L/(K·mol); $N_A=6.02\\times10^{23}\\,$/mol; $F=9.65\\times10^4\\,$C/mol. Atomic weights: H 1.0, C 12, N 14, O 16, Cl 35, Cu 64."
+    }
+  },
+  "questions": [
+    {
+      "id": "2013-2-chem-1", "answerRow": 1, "topicId": "matter-structure",
+      "subtopic": "Species with the largest total number of electrons",
+      "patternTags": ["atomic-structure", "electron-count", "compare-cases"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の分子またはイオン①〜⑥のうち，電子の総数が最も大きいものを一つ選びなさい。", "choices": ["CO", "$\\mathrm{F^-}$", "HCl", "$\\mathrm{H_3O^+}$", "NO", "$\\mathrm{O_2}$"] },
+      "en": { "prompt": "Which molecule or ion has the largest total number of electrons?", "choices": ["CO", "$\\mathrm{F^-}$", "HCl", "$\\mathrm{H_3O^+}$", "NO", "$\\mathrm{O_2}$"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "HCl（18 個）", "en": "HCl (18 electrons)" },
+      "explanation": { "en": "Electron totals: CO 14, $\\mathrm{F^-}$ 10, HCl 18, $\\mathrm{H_3O^+}$ 10, NO 15, $\\mathrm{O_2}$ 16. HCl has the most.", "ja": "電子総数：CO 14，$\\mathrm{F^-}$ 10，HCl 18，$\\mathrm{H_3O^+}$ 10，NO 15，$\\mathrm{O_2}$ 16。HCl が最大。" }
+    },
+    {
+      "id": "2013-2-chem-2", "answerRow": 2, "topicId": "matter-structure",
+      "subtopic": "Correct statement about atomic structure",
+      "patternTags": ["atomic-structure", "subatomic-particles", "pick-correct-statement"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "原子の構造・性質に関する記述として正しいものを一つ選びなさい。", "choices": ["陽子は正の電荷をもつ。", "陽子は原子核の周りを運動している。", "中性子は負の電荷をもつ。", "原子の質量数は陽子の数と同じである。", "すべての原子には中性子が存在する。"] },
+      "en": { "prompt": "Which statement about atomic structure is correct?", "choices": ["A proton has a positive charge.", "Protons orbit around the nucleus.", "A neutron has a negative charge.", "The mass number equals the number of protons.", "Every atom contains neutrons."] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "陽子は正の電荷をもつ（①）", "en": "A proton has a positive charge (①)" },
+      "explanation": { "en": "Only ① is correct. Protons sit in the nucleus (electrons orbit it); neutrons are neutral; mass number = protons + neutrons; and ¹H has no neutron, so not every atom has neutrons.", "ja": "正しいのは①のみ。陽子は原子核内にあり（電子が周りを回る），中性子は電荷をもたず，質量数＝陽子＋中性子，$^{1}\\mathrm{H}$ は中性子をもたない。" }
+    },
+    {
+      "id": "2013-2-chem-3", "answerRow": 3, "topicId": "matter-structure",
+      "subtopic": "Atom with neutrons = electrons and the most valence electrons",
+      "patternTags": ["atomic-structure", "isotope-notation", "valence-electrons", "compare-cases"], "hasFigure": true,
+      "figure": { "ja": "原子：$^{13}_{6}\\mathrm{C}$，$^{16}_{8}\\mathrm{O}$，$^{14}_{7}\\mathrm{N}$，$^{19}_{9}\\mathrm{F}$，$^{23}_{11}\\mathrm{Na}$，$^{24}_{12}\\mathrm{Mg}$。", "en": "Atoms: $^{13}_{6}\\mathrm{C}$, $^{16}_{8}\\mathrm{O}$, $^{14}_{7}\\mathrm{N}$, $^{19}_{9}\\mathrm{F}$, $^{23}_{11}\\mathrm{Na}$, $^{24}_{12}\\mathrm{Mg}$." },
+      "ja": { "prompt": "原子 $^{13}_{6}\\mathrm{C}$，$^{16}_{8}\\mathrm{O}$，$^{14}_{7}\\mathrm{N}$，$^{19}_{9}\\mathrm{F}$，$^{23}_{11}\\mathrm{Na}$，$^{24}_{12}\\mathrm{Mg}$ のうち，(a) 中性子の数と電子の数が等しい原子，(b) 最外殻電子の数が最も大きい原子 はそれぞれどれか。正しい組み合わせを選びなさい。", "choices": ["a:$^{13}\\mathrm{C}$ b:$^{19}\\mathrm{F}$", "a:$^{13}\\mathrm{C}$ b:$^{23}\\mathrm{Na}$", "a:$^{16}\\mathrm{O}$ b:$^{24}\\mathrm{Mg}$", "a:$^{16}\\mathrm{O}$ b:$^{23}\\mathrm{Na}$", "a:$^{14}\\mathrm{N}$ b:$^{19}\\mathrm{F}$", "a:$^{14}\\mathrm{N}$ b:$^{24}\\mathrm{Mg}$"] },
+      "en": { "prompt": "Among $^{13}_{6}\\mathrm{C}$, $^{16}_{8}\\mathrm{O}$, $^{14}_{7}\\mathrm{N}$, $^{19}_{9}\\mathrm{F}$, $^{23}_{11}\\mathrm{Na}$, $^{24}_{12}\\mathrm{Mg}$: (a) which atom has neutrons = electrons, and (b) which has the most valence electrons?", "choices": ["a:$^{13}\\mathrm{C}$ b:$^{19}\\mathrm{F}$", "a:$^{13}\\mathrm{C}$ b:$^{23}\\mathrm{Na}$", "a:$^{16}\\mathrm{O}$ b:$^{24}\\mathrm{Mg}$", "a:$^{16}\\mathrm{O}$ b:$^{23}\\mathrm{Na}$", "a:$^{14}\\mathrm{N}$ b:$^{19}\\mathrm{F}$", "a:$^{14}\\mathrm{N}$ b:$^{24}\\mathrm{Mg}$"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "a:$^{14}\\mathrm{N}$，b:$^{19}\\mathrm{F}$", "en": "a: $^{14}\\mathrm{N}$, b: $^{19}\\mathrm{F}$" },
+      "explanation": { "en": "(b) F (group 17) has 7 valence electrons — the most, so b = $^{19}\\mathrm{F}$ (eliminating all options except ① and ⑤). (a) $^{14}_{7}\\mathrm{N}$ has $14-7=7$ neutrons and 7 electrons (equal), while $^{13}_{6}\\mathrm{C}$ has 7 neutrons but 6 electrons. So a = $^{14}\\mathrm{N}$, giving ⑤.", "ja": "(b) F（17 族）は価電子 7 個で最多なので b=$^{19}\\mathrm{F}$（①と⑤に絞れる）。(a) $^{14}_{7}\\mathrm{N}$ は中性子 $14-7=7$，電子 7 で等しい。$^{13}_{6}\\mathrm{C}$ は中性子 7・電子 6 で不一致。よって a=$^{14}\\mathrm{N}$，⑤。" }
+    },
+    {
+      "id": "2013-2-chem-4", "answerRow": 4, "topicId": "matter-structure",
+      "subtopic": "Incorrect statement (electronegativity, polarity)",
+      "patternTags": ["chemical-bonds", "polarity", "electronegativity", "pick-false-statement"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の記述①〜⑤のうち，正しくないものを一つ選びなさい。", "choices": ["金属元素は，非金属元素よりイオン化エネルギーが小さい。", "二酸化炭素 $\\mathrm{CO_2}$ は，極性分子である。", "極性の大きな分子は，水に溶けやすい。", "フッ素原子 F の電気陰性度は，酸素原子 O より大きい。", "電子親和力が大きい原子は，陰イオンになりやすい。"] },
+      "en": { "prompt": "Which statement is INCORRECT?", "choices": ["Metals have smaller ionization energy than non-metals.", "$\\mathrm{CO_2}$ is a polar molecule.", "Highly polar molecules dissolve readily in water.", "Fluorine's electronegativity is greater than oxygen's.", "Atoms with large electron affinity tend to form anions."] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "「$\\mathrm{CO_2}$ は極性分子」は誤り（②）", "en": "\"$\\mathrm{CO_2}$ is polar\" is wrong (②)" },
+      "explanation": { "en": "$\\mathrm{CO_2}$ is linear and symmetric, so its two C=O bond dipoles cancel — it is non-polar. The other statements are correct.", "ja": "$\\mathrm{CO_2}$ は直線で対称なので 2 つの C=O の極性が打ち消し合い，無極性分子。他は正しい。" }
+    },
+    {
+      "id": "2013-2-chem-5", "answerRow": 5, "topicId": "states-and-change",
+      "subtopic": "Molarity of 20% HCl from density",
+      "patternTags": ["concentration", "mass-percent-to-molarity", "density", "plug-in-numbers"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "質量パーセント濃度 $20\\%$ の塩酸 HCl aq のモル濃度〔mol/L〕として最も近い値を選びなさい。ただし，この塩酸の密度は $1.1\\,$g/cm³ とする。", "choices": ["0.51", "0.61", "1.2", "5.1", "6.1", "12"] },
+      "en": { "prompt": "What is the molarity (mol/L) of $20\\%$ (by mass) HCl with density $1.1\\,$g/cm³?", "choices": ["0.51", "0.61", "1.2", "5.1", "6.1", "12"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "約 $6.1\\,$mol/L", "en": "≈ 6.1 mol/L" },
+      "explanation": { "en": "Per litre: mass $=1.1\\times1000=1100\\,$g; HCl $=0.20\\times1100=220\\,$g $=220/36.5\\approx6.0\\,$mol → about $6.1\\,$mol/L.", "ja": "$1\\,$L あたり質量 $=1.1\\times1000=1100\\,$g，HCl $=0.20\\times1100=220\\,$g $=220/36.5\\approx6.0\\,$mol → 約 $6.1\\,$mol/L。" }
+    },
+    {
+      "id": "2013-2-chem-6", "answerRow": 6, "topicId": "states-and-change",
+      "subtopic": "Equilibrium constant of H₂ + I₂ ⇌ 2HI",
+      "patternTags": ["chemical-equilibrium", "equilibrium-constant", "ice-table", "plug-in-numbers"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "体積一定の密閉容器に水素 $\\mathrm{H_2}$ $1.5\\,$mol とヨウ素 $\\mathrm{I_2}$ $1.5\\,$mol を入れて一定温度に保つと，ヨウ化水素 HI $2.4\\,$mol が生じて平衡状態 $\\mathrm{H_2+I_2\\rightleftharpoons 2HI}$ になった。この反応の平衡定数として最も近い値を選びなさい。", "choices": ["10", "16", "20", "32", "40", "64"] },
+      "en": { "prompt": "In a fixed-volume container, $1.5\\,$mol $\\mathrm{H_2}$ and $1.5\\,$mol $\\mathrm{I_2}$ reach equilibrium $\\mathrm{H_2+I_2\\rightleftharpoons 2HI}$ with $2.4\\,$mol HI. What is the equilibrium constant?", "choices": ["10", "16", "20", "32", "40", "64"] },
+      "answerIndex": 5, "answerOption": 6, "answer": { "ja": "64", "en": "64" },
+      "explanation": { "en": "$2.4\\,$mol HI forms, so $1.2\\,$mol each of $\\mathrm{H_2}$ and $\\mathrm{I_2}$ react, leaving $0.3\\,$mol each. Since $\\Delta n=0$, volume cancels: $K=\\dfrac{[\\mathrm{HI}]^2}{[\\mathrm{H_2}][\\mathrm{I_2}]}=\\dfrac{2.4^2}{0.3\\times0.3}=\\dfrac{5.76}{0.09}=64$.", "ja": "HI が $2.4\\,$mol 生成 → $\\mathrm{H_2}$，$\\mathrm{I_2}$ が各 $1.2\\,$mol 反応し，各 $0.3\\,$mol 残る。$\\Delta n=0$ なので体積は消えて $K=\\dfrac{[\\mathrm{HI}]^2}{[\\mathrm{H_2}][\\mathrm{I_2}]}=\\dfrac{2.4^2}{0.3\\times0.3}=64$。" }
+    },
+    {
+      "id": "2013-2-chem-7", "answerRow": 7, "topicId": "states-and-change",
+      "subtopic": "Heat from hydrogenating acetylene (combustion-heat Hess)",
+      "patternTags": ["thermochemistry", "hess-law", "heat-of-combustion", "plug-in-numbers"], "hasFigure": false,
+      "figure": { "ja": "燃焼熱：$\\mathrm{C_2H_2}$ 1300，$\\mathrm{C_2H_6}$ 1560，$\\mathrm{H_2}$ 286（kJ/mol）。", "en": "Heats of combustion: $\\mathrm{C_2H_2}$ 1300, $\\mathrm{C_2H_6}$ 1560, $\\mathrm{H_2}$ 286 (kJ/mol)." },
+      "ja": { "prompt": "$\\mathrm{C_2H_2}$，$\\mathrm{C_2H_6}$，$\\mathrm{H_2}$ の燃焼熱はそれぞれ $1300$，$1560$，$286\\,$kJ/mol である。$2.60\\,$g のアセチレンに水素を付加してすべてエタンにしたとき発生する熱量は何 kJ か。", "choices": ["$-312$", "$-31.2$", "$-26.0$", "26.0", "31.2", "312"] },
+      "en": { "prompt": "Heats of combustion of $\\mathrm{C_2H_2}$, $\\mathrm{C_2H_6}$, $\\mathrm{H_2}$ are $1300$, $1560$, $286\\,$kJ/mol. Hydrogenating $2.60\\,$g of acetylene fully to ethane releases how many kJ?", "choices": ["$-312$", "$-31.2$", "$-26.0$", "26.0", "31.2", "312"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "$31.2\\,$kJ", "en": "31.2 kJ" },
+      "explanation": { "en": "For $\\mathrm{C_2H_2+2H_2\\to C_2H_6}$, heat $=\\sum Q_c(\\text{reactants})-\\sum Q_c(\\text{products})=(1300+2\\times286)-1560=312\\,$kJ/mol. With $2.60/26=0.10\\,$mol acetylene: $0.10\\times312=31.2\\,$kJ.", "ja": "$\\mathrm{C_2H_2+2H_2\\to C_2H_6}$ の反応熱 $=\\sum Q_c(\\text{反応物})-\\sum Q_c(\\text{生成物})=(1300+2\\times286)-1560=312\\,$kJ/mol。$2.60/26=0.10\\,$mol なので $0.10\\times312=31.2\\,$kJ。" }
+    },
+    {
+      "id": "2013-2-chem-8", "answerRow": 8, "topicId": "states-and-change",
+      "subtopic": "Water-to-argon mole ratio from vapor pressure",
+      "patternTags": ["gas-law", "vapor-pressure", "partial-pressure", "express-formula"], "hasFigure": true,
+      "figure": { "ja": "密閉容器（体積一定）にアルゴンと水。$100\\,$°C（373 K）では水の一部が液体で残り全圧 $P_1$（水蒸気は飽和蒸気圧 $P_s$）。$130\\,$°C（403 K）に加熱すると水はすべて気化し全圧 $P_2$。", "en": "Sealed fixed-volume container with argon and water. At $100\\,$°C (373 K) some water is liquid, total pressure $P_1$ (water vapour at its saturation pressure $P_s$). At $130\\,$°C (403 K) all water is gas, total pressure $P_2$." },
+      "ja": { "prompt": "体積一定の密閉容器にアルゴンと水を入れ $100\\,$°C に保つと水の一部が液体で残り全圧は $P_1$。$130\\,$°C に加熱するとすべての水が気化して全圧は $P_2$ になった。容器内の水とアルゴンの物質量の比 $\\dfrac{\\text{水}}{\\text{アルゴン}}$ を表す式を選びなさい。ただし $100\\,$°C での水の飽和蒸気圧を $P_s$，アルゴンは理想気体，加熱前の水の体積は無視できるものとする。", "choices": ["$\\dfrac{373\\times P_2}{403\\times(P_1-P_s)}-1$", "$\\dfrac{403\\times P_2}{373\\times(P_1-P_s)}-1$", "$\\dfrac{373\\times P_1}{403\\times(P_2-P_s)}-1$", "$\\dfrac{403\\times P_1}{373\\times(P_2-P_s)}-1$", "$\\dfrac{373\\times(P_2-P_s)}{403\\times P_1}-1$", "$\\dfrac{403\\times(P_2-P_s)}{373\\times P_1}-1$"] },
+      "en": { "prompt": "A sealed fixed-volume vessel holds argon and water. At $100\\,$°C some water is liquid (total pressure $P_1$, water vapour at its saturation pressure $P_s$); heated to $130\\,$°C all water vaporizes (total pressure $P_2$). Find $\\dfrac{n(\\text{water})}{n(\\text{argon})}$. (Argon ideal; initial liquid-water volume negligible.)", "choices": ["$\\dfrac{373\\times P_2}{403\\times(P_1-P_s)}-1$", "$\\dfrac{403\\times P_2}{373\\times(P_1-P_s)}-1$", "$\\dfrac{373\\times P_1}{403\\times(P_2-P_s)}-1$", "$\\dfrac{403\\times P_1}{373\\times(P_2-P_s)}-1$", "$\\dfrac{373\\times(P_2-P_s)}{403\\times P_1}-1$", "$\\dfrac{403\\times(P_2-P_s)}{373\\times P_1}-1$"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "$\\dfrac{373\\times P_2}{403\\times(P_1-P_s)}-1$", "en": "$\\dfrac{373\\times P_2}{403\\times(P_1-P_s)}-1$" },
+      "explanation": { "en": "At $100\\,$°C the argon pressure is $P_1-P_s$, so $\\dfrac{n_aR}{V}=\\dfrac{P_1-P_s}{373}$. At $130\\,$°C all is gas: $\\dfrac{(n_a+n_w)R}{V}=\\dfrac{P_2}{403}$. Dividing, $\\dfrac{n_a+n_w}{n_a}=\\dfrac{373\\,P_2}{403(P_1-P_s)}$, so $\\dfrac{n_w}{n_a}=\\dfrac{373\\,P_2}{403(P_1-P_s)}-1$.", "ja": "$100\\,$°C ではアルゴンの分圧 $=P_1-P_s$ なので $\\dfrac{n_aR}{V}=\\dfrac{P_1-P_s}{373}$。$130\\,$°C では全部気体：$\\dfrac{(n_a+n_w)R}{V}=\\dfrac{P_2}{403}$。割ると $\\dfrac{n_a+n_w}{n_a}=\\dfrac{373\\,P_2}{403(P_1-P_s)}$，よって $\\dfrac{n_w}{n_a}=\\dfrac{373\\,P_2}{403(P_1-P_s)}-1$。" }
+    },
+    {
+      "id": "2013-2-chem-9", "answerRow": 9, "topicId": "states-and-change",
+      "subtopic": "Which acidic solution has the smallest pH",
+      "patternTags": ["acids-bases", "ph-comparison", "strong-weak-acid", "compare-cases"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の酸性水溶液①〜⑤のうち，pH が最も小さいものを一つ選びなさい。", "choices": ["$0.10\\,$mol/L 酢酸", "$0.010\\,$mol/L 硝酸", "$0.020\\,$mol/L リン酸", "$0.030\\,$mol/L 塩酸", "$0.030\\,$mol/L 硫酸"] },
+      "en": { "prompt": "Which acidic solution has the smallest pH?", "choices": ["$0.10\\,$mol/L acetic acid", "$0.010\\,$mol/L nitric acid", "$0.020\\,$mol/L phosphoric acid", "$0.030\\,$mol/L hydrochloric acid", "$0.030\\,$mol/L sulfuric acid"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "$0.030\\,$mol/L 硫酸", "en": "$0.030\\,$mol/L sulfuric acid" },
+      "explanation": { "en": "Smallest pH = largest $[\\mathrm{H^+}]$. $\\mathrm{H_2SO_4}$ is a strong diprotic acid, giving up to $2\\times0.030=0.060\\,$mol/L $\\mathrm{H^+}$ — more than $0.030\\,$mol/L HCl. The weak acetic acid and phosphoric acid, and the very dilute nitric acid, give less $\\mathrm{H^+}$.", "ja": "pH 最小＝$[\\mathrm{H^+}]$ 最大。$\\mathrm{H_2SO_4}$ は強い 2 価の酸で最大 $2\\times0.030=0.060\\,$mol/L の $\\mathrm{H^+}$ を出し，$0.030\\,$mol/L の塩酸より多い。弱酸の酢酸・リン酸や希薄な硝酸は $\\mathrm{H^+}$ が少ない。" }
+    },
+    {
+      "id": "2013-2-chem-10", "answerRow": 10, "topicId": "states-and-change",
+      "subtopic": "Electrolysis combination that raises the solution pH",
+      "patternTags": ["electrolysis", "electrode-products", "ph-change", "compare-cases"], "hasFigure": true,
+      "figure": { "ja": "電極（陰極/陽極）と電解液の組み合わせ：① Cu/Pt，$\\mathrm{CuSO_4}$ aq。② Pt/C，NaCl aq。③ Pt/C，$\\mathrm{CuCl_2}$ aq。④ Pt/Pt，希硫酸。", "en": "Cathode/anode and electrolyte: ① Cu/Pt, $\\mathrm{CuSO_4}$ aq; ② Pt/C, NaCl aq; ③ Pt/C, $\\mathrm{CuCl_2}$ aq; ④ Pt/Pt, dil. $\\mathrm{H_2SO_4}$." },
+      "ja": { "prompt": "表に示す電極を用いて電解液をそれぞれ電気分解したとき，電解液の pH が大きくなる組み合わせはどれか。 ① 陰極 Cu・陽極 Pt／$\\mathrm{CuSO_4}$ aq ② 陰極 Pt・陽極 C／NaCl aq ③ 陰極 Pt・陽極 C／$\\mathrm{CuCl_2}$ aq ④ 陰極 Pt・陽極 Pt／希硫酸", "choices": ["①", "②", "③", "④"] },
+      "en": { "prompt": "Which electrolysis raises the electrolyte's pH? ① Cu/Pt, $\\mathrm{CuSO_4}$ aq ② Pt/C, NaCl aq ③ Pt/C, $\\mathrm{CuCl_2}$ aq ④ Pt/Pt, dil. $\\mathrm{H_2SO_4}$", "choices": ["①", "②", "③", "④"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "②（NaCl aq）", "en": "② (NaCl aq)" },
+      "explanation": { "en": "For NaCl aq, the cathode makes $\\mathrm{OH^-}$ ($\\mathrm{2H_2O+2e^-\\to H_2+2OH^-}$) while the carbon anode makes $\\mathrm{Cl_2}$ (no $\\mathrm{H^+}$), so the solution becomes basic and pH rises. ① and ④ produce $\\mathrm{H^+}$ at the anode (pH falls); ③ deposits Cu and gives $\\mathrm{Cl_2}$ with little net pH change.", "ja": "NaCl aq では陰極で $\\mathrm{OH^-}$（$\\mathrm{2H_2O+2e^-\\to H_2+2OH^-}$），炭素陽極で $\\mathrm{Cl_2}$（$\\mathrm{H^+}$ を出さない）なので塩基性になり pH 上昇。①④ は陽極で $\\mathrm{H^+}$ 生成（pH 低下），③ は Cu 析出と $\\mathrm{Cl_2}$ で pH ほぼ不変。" }
+    },
+    {
+      "id": "2013-2-chem-11", "answerRow": 11, "topicId": "inorganic",
+      "subtopic": "Correct statement about an oxide's properties",
+      "patternTags": ["typical-elements", "acidic-basic-oxides", "pick-correct-statement"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "酸化物の性質に関する記述として正しいものを一つ選びなさい。", "choices": ["二酸化窒素 $\\mathrm{NO_2}$ を水に溶かすと，水溶液は酸性を示す。", "酸化マグネシウム MgO を水に溶かすと，水溶液は酸性を示す。", "十酸化四リン $\\mathrm{P_4O_{10}}$ を水に溶かすと，水溶液は塩基性を示す。", "二酸化硫黄 $\\mathrm{SO_2}$ を水に溶かすと，水溶液は塩基性を示す。", "酸化アルミニウム $\\mathrm{Al_2O_3}$ は，強塩基の水溶液に溶けない。"] },
+      "en": { "prompt": "Which statement about an oxide's properties is correct?", "choices": ["$\\mathrm{NO_2}$ dissolved in water gives an acidic solution.", "MgO dissolved in water gives an acidic solution.", "$\\mathrm{P_4O_{10}}$ dissolved in water gives a basic solution.", "$\\mathrm{SO_2}$ dissolved in water gives a basic solution.", "$\\mathrm{Al_2O_3}$ does not dissolve in strong base."] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "$\\mathrm{NO_2}$ は水に溶けて酸性（①）", "en": "$\\mathrm{NO_2}$ gives an acidic solution (①)" },
+      "explanation": { "en": "$\\mathrm{NO_2}$ is an acidic oxide ($\\mathrm{3NO_2+H_2O\\to2HNO_3+NO}$), so ① is correct. MgO is basic; $\\mathrm{P_4O_{10}}$ and $\\mathrm{SO_2}$ are acidic; $\\mathrm{Al_2O_3}$ is amphoteric and DOES dissolve in strong base.", "ja": "$\\mathrm{NO_2}$ は酸性酸化物（$\\mathrm{3NO_2+H_2O\\to2HNO_3+NO}$）で①が正しい。MgO は塩基性，$\\mathrm{P_4O_{10}}$・$\\mathrm{SO_2}$ は酸性，$\\mathrm{Al_2O_3}$ は両性で強塩基に溶ける。" }
+    },
+    {
+      "id": "2013-2-chem-12", "answerRow": 12, "topicId": "inorganic",
+      "subtopic": "Incorrect statement about SO₂",
+      "patternTags": ["typical-elements", "gas-prep-industry", "pick-false-statement"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "二酸化硫黄 $\\mathrm{SO_2}$ に関する記述のうち，正しくないものを選びなさい。", "choices": ["銅 Cu に濃硫酸を加えて熱すると生成する。", "硫化鉄 FeS に希硫酸を加えると生成する。", "硫黄 S を燃焼させると生成する。", "亜硫酸ナトリウム $\\mathrm{Na_2SO_3}$ に希硫酸を加えると生成する。", "硫化水素 $\\mathrm{H_2S}$ と反応して硫黄を生成する。", "水に溶けると還元作用を示し，漂白剤として用いられる。"] },
+      "en": { "prompt": "Which statement about $\\mathrm{SO_2}$ is INCORRECT?", "choices": ["It forms when conc. $\\mathrm{H_2SO_4}$ is heated with Cu.", "It forms when dilute $\\mathrm{H_2SO_4}$ is added to FeS.", "It forms when sulfur is burned.", "It forms when dilute acid is added to $\\mathrm{Na_2SO_3}$.", "It reacts with $\\mathrm{H_2S}$ to give sulfur.", "Dissolved in water it acts as a reducing agent and is used as a bleach."] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "「FeS + 希硫酸で生成」は誤り（②）", "en": "\"forms from FeS + dilute $\\mathrm{H_2SO_4}$\" is wrong (②)" },
+      "explanation": { "en": "FeS with dilute $\\mathrm{H_2SO_4}$ gives hydrogen sulfide ($\\mathrm{FeS+H_2SO_4\\to FeSO_4+H_2S}$), not $\\mathrm{SO_2}$. The other routes (hot conc. acid + Cu, burning S, acid + sulfite) and properties are correct.", "ja": "FeS に希硫酸では硫化水素が生じる（$\\mathrm{FeS+H_2SO_4\\to FeSO_4+H_2S}$）で，$\\mathrm{SO_2}$ ではない。他の生成法（熱濃硫酸+Cu，硫黄の燃焼，酸+亜硫酸塩）や性質は正しい。" }
+    },
+    {
+      "id": "2013-2-chem-13", "answerRow": 13, "topicId": "states-and-change",
+      "subtopic": "Unreacted copper from partial oxidation",
+      "patternTags": ["stoichiometry", "mass-conservation", "oxidation", "plug-in-numbers"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "銅 Cu の粉末 $0.16\\,$g を空気中で熱したところ，一部が酸化されて，銅と酸化銅(II) CuO の混合物 $0.19\\,$g を得た。この混合物中の未反応の銅の質量は何 g か。", "choices": ["0.0080", "0.010", "0.030", "0.032", "0.040", "0.050"] },
+      "en": { "prompt": "Heating $0.16\\,$g of Cu powder in air partially oxidizes it, giving $0.19\\,$g of a Cu/CuO mixture. What mass of unreacted Cu remains?", "choices": ["0.0080", "0.010", "0.030", "0.032", "0.040", "0.050"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "$0.040\\,$g", "en": "0.040 g" },
+      "explanation": { "en": "The mass gain $0.19-0.16=0.03\\,$g is the oxygen added. $\\mathrm{2Cu+O_2\\to2CuO}$: $0.03\\,$g O $=0.03/16=1.875\\times10^{-3}\\,$mol O reacts with twice as many mol Cu $=3.75\\times10^{-3}\\,$mol $=0.24\\,$g? — instead use mass: reacted Cu $=0.03\\times\\dfrac{2\\times64}{32}=0.12\\,$g, so unreacted Cu $=0.16-0.12=0.04\\,$g.", "ja": "質量増加 $0.19-0.16=0.03\\,$g が結合した酸素。$\\mathrm{2Cu+O_2\\to2CuO}$ より反応した Cu $=0.03\\times\\dfrac{2\\times64}{32}=0.12\\,$g。未反応 Cu $=0.16-0.12=0.04\\,$g。" }
+    },
+    {
+      "id": "2013-2-chem-14", "answerRow": 14, "topicId": "states-and-change",
+      "subtopic": "Reaction where A acts as the oxidizing agent",
+      "patternTags": ["redox", "oxidizing-agent", "catalyst-vs-reagent", "compare-cases"], "hasFigure": true,
+      "figure": { "ja": "A と B：① Zn / 希塩酸。② $\\mathrm{H_2O_2}$ aq / $\\mathrm{KMnO_4}$。③ $\\mathrm{MnO_2}$ / $\\mathrm{H_2O_2}$ aq。④ $\\mathrm{MnO_2}$ / 濃塩酸。⑤ $\\mathrm{CaCO_3}$ / 希塩酸。", "en": "A and B: ① Zn / dil. HCl; ② $\\mathrm{H_2O_2}$ aq / $\\mathrm{KMnO_4}$; ③ $\\mathrm{MnO_2}$ / $\\mathrm{H_2O_2}$ aq; ④ $\\mathrm{MnO_2}$ / conc. HCl; ⑤ $\\mathrm{CaCO_3}$ / dil. HCl." },
+      "ja": { "prompt": "表の A と B を混合したとき，A の物質が酸化剤としてはたらくものを選びなさい。 ① Zn／希塩酸 ② $\\mathrm{H_2O_2}$ aq／$\\mathrm{KMnO_4}$ ③ $\\mathrm{MnO_2}$／$\\mathrm{H_2O_2}$ aq ④ $\\mathrm{MnO_2}$／濃塩酸 ⑤ $\\mathrm{CaCO_3}$／希塩酸", "choices": ["①", "②", "③", "④", "⑤"] },
+      "en": { "prompt": "In which mixture does substance A act as the oxidizing agent? ① Zn / dil. HCl ② $\\mathrm{H_2O_2}$ aq / $\\mathrm{KMnO_4}$ ③ $\\mathrm{MnO_2}$ / $\\mathrm{H_2O_2}$ aq ④ $\\mathrm{MnO_2}$ / conc. HCl ⑤ $\\mathrm{CaCO_3}$ / dil. HCl", "choices": ["①", "②", "③", "④", "⑤"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "④（$\\mathrm{MnO_2}$ + 濃塩酸）", "en": "④ ($\\mathrm{MnO_2}$ + conc. HCl)" },
+      "explanation": { "en": "In ④, $\\mathrm{MnO_2+4HCl\\to MnCl_2+Cl_2+2H_2O}$: Mn is reduced $+4\\to+2$, so $\\mathrm{MnO_2}$ is the oxidizing agent. In ③, $\\mathrm{MnO_2}$ merely catalyses $\\mathrm{H_2O_2}$ decomposition (not consumed). In ①, ②, ⑤ substance A is the reducing agent or no redox occurs.", "ja": "④ では $\\mathrm{MnO_2+4HCl\\to MnCl_2+Cl_2+2H_2O}$ で Mn が $+4\\to+2$（還元）され $\\mathrm{MnO_2}$ が酸化剤。③ では $\\mathrm{MnO_2}$ は $\\mathrm{H_2O_2}$ 分解の触媒（消費されない）。①②⑤ では A は還元剤か非酸化還元。" }
+    },
+    {
+      "id": "2013-2-chem-15", "answerRow": 15, "topicId": "inorganic",
+      "subtopic": "Operation that does NOT separate a cation pair",
+      "patternTags": ["ion-analysis", "selective-precipitation", "pick-false-statement"], "hasFigure": true,
+      "figure": { "ja": "A（陽イオン対）と B（操作）：① $\\mathrm{Ag^+,Fe^{3+}}$／希塩酸。② $\\mathrm{Al^{3+},Cu^{2+}}$／過剰 $\\mathrm{NH_3}$ aq。③ $\\mathrm{Ba^{2+},Pb^{2+}}$／$\\mathrm{(NH_4)_2SO_4}$ aq。④ $\\mathrm{Ca^{2+},Na^+}$／$\\mathrm{(NH_4)_2CO_3}$ aq。⑤ $\\mathrm{Cu^{2+},Fe^{3+}}$／酸性で $\\mathrm{H_2S}$。⑥ $\\mathrm{Cu^{2+},Zn^{2+}}$／過剰 NaOH aq。", "en": "A (cation pair) and B (operation): ① $\\mathrm{Ag^+,Fe^{3+}}$/dil. HCl; ② $\\mathrm{Al^{3+},Cu^{2+}}$/excess $\\mathrm{NH_3}$ aq; ③ $\\mathrm{Ba^{2+},Pb^{2+}}$/$\\mathrm{(NH_4)_2SO_4}$ aq; ④ $\\mathrm{Ca^{2+},Na^+}$/$\\mathrm{(NH_4)_2CO_3}$ aq; ⑤ $\\mathrm{Cu^{2+},Fe^{3+}}$/acidic $\\mathrm{H_2S}$; ⑥ $\\mathrm{Cu^{2+},Zn^{2+}}$/excess NaOH aq." },
+      "ja": { "prompt": "A 欄の 2 種類の金属イオンを分離するために B 欄の実験を行った。このうち B 欄の操作が適当でないものを選びなさい。 ① $\\mathrm{Ag^+,Fe^{3+}}$／希塩酸 ② $\\mathrm{Al^{3+},Cu^{2+}}$／過剰 $\\mathrm{NH_3}$ aq ③ $\\mathrm{Ba^{2+},Pb^{2+}}$／$\\mathrm{(NH_4)_2SO_4}$ aq ④ $\\mathrm{Ca^{2+},Na^+}$／$\\mathrm{(NH_4)_2CO_3}$ aq ⑤ $\\mathrm{Cu^{2+},Fe^{3+}}$／酸性で $\\mathrm{H_2S}$ ⑥ $\\mathrm{Cu^{2+},Zn^{2+}}$／過剰 NaOH aq", "choices": ["①", "②", "③", "④", "⑤", "⑥"] },
+      "en": { "prompt": "Each B operation is meant to separate the cation pair in A. Which operation does NOT work? ① $\\mathrm{Ag^+,Fe^{3+}}$/dil. HCl ② $\\mathrm{Al^{3+},Cu^{2+}}$/excess $\\mathrm{NH_3}$ ③ $\\mathrm{Ba^{2+},Pb^{2+}}$/$\\mathrm{(NH_4)_2SO_4}$ ④ $\\mathrm{Ca^{2+},Na^+}$/$\\mathrm{(NH_4)_2CO_3}$ ⑤ $\\mathrm{Cu^{2+},Fe^{3+}}$/acidic $\\mathrm{H_2S}$ ⑥ $\\mathrm{Cu^{2+},Zn^{2+}}$/excess NaOH", "choices": ["①", "②", "③", "④", "⑤", "⑥"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "③（$\\mathrm{Ba^{2+}}$ も $\\mathrm{Pb^{2+}}$ も硫酸塩が沈殿）", "en": "③ (both $\\mathrm{Ba^{2+}}$ and $\\mathrm{Pb^{2+}}$ form insoluble sulfates)" },
+      "explanation": { "en": "Adding sulfate precipitates BOTH $\\mathrm{BaSO_4}$ and $\\mathrm{PbSO_4}$ (both insoluble), so it cannot separate them. The other operations each precipitate only one ion of the pair (e.g. AgCl, $\\mathrm{Al(OH)_3}$, $\\mathrm{CaCO_3}$, CuS, $\\mathrm{Cu(OH)_2}$).", "ja": "硫酸イオンを加えると $\\mathrm{BaSO_4}$ も $\\mathrm{PbSO_4}$ も（ともに難溶）沈殿してしまい分離できない。他は片方だけ沈殿させる（AgCl，$\\mathrm{Al(OH)_3}$，$\\mathrm{CaCO_3}$，CuS，$\\mathrm{Cu(OH)_2}$）。" }
+    },
+    {
+      "id": "2013-2-chem-16", "answerRow": 16, "topicId": "organic",
+      "subtopic": "Correct statement about isomers",
+      "patternTags": ["functional-groups", "isomerism", "optical-isomers", "pick-correct-statement"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "有機化合物の異性体に関する記述として正しいものを一つ選びなさい。", "choices": ["キシレンには，異性体がない。", "乳酸には，光学異性体がある。", "エタノールとジエチルエーテルは，互いに異性体である。", "エチレンとアセチレンは，互いに異性体である。", "ヘキサンとシクロヘキサンは，互いに異性体である。"] },
+      "en": { "prompt": "Which statement about isomers is correct?", "choices": ["Xylene has no isomers.", "Lactic acid has optical isomers.", "Ethanol and diethyl ether are isomers.", "Ethylene and acetylene are isomers.", "Hexane and cyclohexane are isomers."] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "乳酸には光学異性体がある（②）", "en": "Lactic acid has optical isomers (②)" },
+      "explanation": { "en": "Lactic acid $\\mathrm{CH_3CH(OH)COOH}$ has an asymmetric carbon, so it has optical isomers. The rest are false: xylene has o/m/p isomers; ethanol ($\\mathrm{C_2H_6O}$)/diethyl ether ($\\mathrm{C_4H_{10}O}$), ethylene/acetylene, and hexane/cyclohexane all have different molecular formulas.", "ja": "乳酸 $\\mathrm{CH_3CH(OH)COOH}$ は不斉炭素をもち光学異性体がある。他は誤り：キシレンには o/m/p 異性体があり，エタノール($\\mathrm{C_2H_6O}$)/ジエチルエーテル($\\mathrm{C_4H_{10}O}$)，エチレン/アセチレン，ヘキサン/シクロヘキサンは分子式が異なる。" }
+    },
+    {
+      "id": "2013-2-chem-17", "answerRow": 17, "topicId": "organic",
+      "subtopic": "Acyclic hydrocarbon needing the most H₂ to saturate per gram",
+      "patternTags": ["aliphatic-hydrocarbons", "hydrogenation", "degree-of-unsaturation", "compare-cases"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の鎖式炭化水素 $1.0\\,$g 中のすべての不飽和結合に水素 $\\mathrm{H_2}$ を付加させた。このとき最も多くの水素を必要とするものを一つ選びなさい。", "choices": ["$\\mathrm{C_2H_4}$", "$\\mathrm{C_3H_6}$", "$\\mathrm{C_4H_6}$", "$\\mathrm{C_5H_8}$", "$\\mathrm{C_6H_{12}}$"] },
+      "en": { "prompt": "For $1.0\\,$g of each acyclic hydrocarbon, $\\mathrm{H_2}$ is added to all unsaturated bonds. Which needs the most $\\mathrm{H_2}$?", "choices": ["$\\mathrm{C_2H_4}$", "$\\mathrm{C_3H_6}$", "$\\mathrm{C_4H_6}$", "$\\mathrm{C_5H_8}$", "$\\mathrm{C_6H_{12}}$"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "$\\mathrm{C_4H_6}$", "en": "$\\mathrm{C_4H_6}$" },
+      "explanation": { "en": "$\\mathrm{H_2}$ needed $=\\dfrac{1.0}{M}\\times(\\text{degrees of unsaturation})$. $\\mathrm{C_2H_4}$ $\\tfrac{1}{28}\\times1=0.036$; $\\mathrm{C_3H_6}$ $0.024$; $\\mathrm{C_4H_6}$ $\\tfrac{1}{54}\\times2=0.037$; $\\mathrm{C_5H_8}$ $\\tfrac{1}{68}\\times2=0.029$; $\\mathrm{C_6H_{12}}$ $0.012$. $\\mathrm{C_4H_6}$ (2 unsaturations, low M) needs the most.", "ja": "必要 $\\mathrm{H_2}=\\dfrac{1.0}{M}\\times(\\text{不飽和度})$。$\\mathrm{C_2H_4}$ $\\tfrac{1}{28}\\times1=0.036$，$\\mathrm{C_3H_6}$ $0.024$，$\\mathrm{C_4H_6}$ $\\tfrac{1}{54}\\times2=0.037$，$\\mathrm{C_5H_8}$ $0.029$，$\\mathrm{C_6H_{12}}$ $0.012$。$\\mathrm{C_4H_6}$（不飽和度 2・$M$ 小）が最多。" }
+    },
+    {
+      "id": "2013-2-chem-18", "answerRow": 18, "topicId": "organic",
+      "subtopic": "Alkene whose Br₂ adduct has no asymmetric carbon",
+      "patternTags": ["aliphatic-hydrocarbons", "bromine-addition", "asymmetric-carbon", "compare-cases"], "hasFigure": true,
+      "figure": { "ja": "アルケン：① $\\mathrm{CH_2{=}CH{-}CH_2{-}CH_3}$ ② $\\mathrm{CH_2{=}C(CH_3){-}CH_3}$ ③ $\\mathrm{CH_2{=}C(CH_3){-}CH_2CH_3}$ ④ $\\mathrm{CH_3{-}CH{=}C(CH_3){-}CH_3}$ ⑤ $\\mathrm{CH_3{-}CH{=}C(CH_3){-}CH_2CH_3}$。", "en": "Alkenes: ① $\\mathrm{CH_2{=}CH{-}CH_2{-}CH_3}$ ② $\\mathrm{CH_2{=}C(CH_3){-}CH_3}$ ③ $\\mathrm{CH_2{=}C(CH_3){-}CH_2CH_3}$ ④ $\\mathrm{CH_3{-}CH{=}C(CH_3){-}CH_3}$ ⑤ $\\mathrm{CH_3{-}CH{=}C(CH_3){-}CH_2CH_3}$." },
+      "ja": { "prompt": "次のアルケン①〜⑤のうち，臭素 $\\mathrm{Br_2}$ を付加させたときに生成する化合物が不斉炭素原子をもたないものを一つ選びなさい。 ① $\\mathrm{CH_2{=}CH{-}CH_2{-}CH_3}$ ② $\\mathrm{CH_2{=}C(CH_3){-}CH_3}$ ③ $\\mathrm{CH_2{=}C(CH_3){-}CH_2CH_3}$ ④ $\\mathrm{CH_3{-}CH{=}C(CH_3){-}CH_3}$ ⑤ $\\mathrm{CH_3{-}CH{=}C(CH_3){-}CH_2CH_3}$", "choices": ["①", "②", "③", "④", "⑤"] },
+      "en": { "prompt": "For which alkene does adding $\\mathrm{Br_2}$ give a product with NO asymmetric carbon? ① $\\mathrm{CH_2{=}CH{-}CH_2{-}CH_3}$ ② $\\mathrm{CH_2{=}C(CH_3){-}CH_3}$ ③ $\\mathrm{CH_2{=}C(CH_3){-}CH_2CH_3}$ ④ $\\mathrm{CH_3{-}CH{=}C(CH_3){-}CH_3}$ ⑤ $\\mathrm{CH_3{-}CH{=}C(CH_3){-}CH_2CH_3}$", "choices": ["①", "②", "③", "④", "⑤"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "②（2-メチルプロペン）", "en": "② (2-methylpropene)" },
+      "explanation": { "en": "Adding $\\mathrm{Br_2}$ to isobutylene $\\mathrm{CH_2{=}C(CH_3)_2}$ gives $\\mathrm{CH_2Br{-}CBr(CH_3)_2}$; the central carbon bears two identical $\\mathrm{CH_3}$ groups, so it is not asymmetric. The other adducts each have a carbon with four different groups.", "ja": "イソブチレン $\\mathrm{CH_2{=}C(CH_3)_2}$ に $\\mathrm{Br_2}$ を付加すると $\\mathrm{CH_2Br{-}CBr(CH_3)_2}$ となり，中心炭素は同じ $\\mathrm{CH_3}$ を 2 つもつので不斉でない。他は 4 種類の基をもつ炭素ができる。" }
+    },
+    {
+      "id": "2013-2-chem-19", "answerRow": 19, "topicId": "organic",
+      "subtopic": "Incorrect statement about carboxylic acids",
+      "patternTags": ["functional-groups", "carboxylic-acids", "pick-false-statement"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "カルボン酸に関する記述として正しくないものを選びなさい。", "choices": ["酢酸の縮合反応により，無水酢酸が生成する。", "酢酸は，エタノールの酸化により得られる。", "安息香酸は，トルエンの酸化により得られる。", "乳酸は，銀鏡反応を示す。", "マレイン酸とフマル酸は，互いにシス-トランス異性体である。", "シュウ酸は，2 価カルボン酸である。"] },
+      "en": { "prompt": "Which statement about carboxylic acids is INCORRECT?", "choices": ["Condensation of acetic acid gives acetic anhydride.", "Acetic acid is obtained by oxidizing ethanol.", "Benzoic acid is obtained by oxidizing toluene.", "Lactic acid gives a silver-mirror reaction.", "Maleic acid and fumaric acid are cis-trans isomers.", "Oxalic acid is a dicarboxylic acid."] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "「乳酸は銀鏡反応を示す」は誤り（④）", "en": "\"lactic acid gives a silver mirror\" is wrong (④)" },
+      "explanation": { "en": "Lactic acid ($\\mathrm{CH_3CH(OH)COOH}$) has no aldehyde group, so it does NOT give a silver-mirror reaction. The other statements are correct.", "ja": "乳酸（$\\mathrm{CH_3CH(OH)COOH}$）はアルデヒド基をもたないので銀鏡反応を示さない。他は正しい。" }
+    },
+    {
+      "id": "2013-2-chem-20", "answerRow": 20, "topicId": "organic",
+      "subtopic": "Polymer containing an ester bond",
+      "patternTags": ["polymers", "ester-bond", "classification"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の高分子化合物①〜⑤のうち，エステル結合を含むものを一つ選びなさい。", "choices": ["ポリアクリロニトリル", "ポリエチレン", "ポリエチレンテレフタラート", "ポリ塩化ビニル", "ナイロン 66"] },
+      "en": { "prompt": "Which polymer contains an ester bond?", "choices": ["polyacrylonitrile", "polyethylene", "poly(ethylene terephthalate)", "poly(vinyl chloride)", "nylon 6,6"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "ポリエチレンテレフタラート（PET）", "en": "poly(ethylene terephthalate) (PET)" },
+      "explanation": { "en": "PET is a polyester (–CO–O– ester linkages). Polyacrylonitrile has nitrile groups, polyethylene and PVC are pure C–C chains, and nylon 6,6 has amide bonds.", "ja": "PET はポリエステル（–CO–O– エステル結合）。ポリアクリロニトリルはニトリル基，ポリエチレン・PVC は C–C 鎖，ナイロン 66 はアミド結合。" }
+    }
+  ],
+  "patterns": {
+    "archetypes": [
+      "Largest electron-count species among molecules/ions.",
+      "Atomic-structure true statement (proton charge/location, neutron neutrality, mass number).",
+      "Atom selection by neutrons=electrons and by most valence electrons (isotope notation).",
+      "Polarity/electronegativity false statement (CO₂ is non-polar).",
+      "Mass% → molarity using density.",
+      "Equilibrium constant from an ICE table (Δn=0 case, volume cancels).",
+      "Hydrogenation heat from heats of combustion (Hess).",
+      "Vapor-pressure / partial-pressure algebra for a gas + condensable mixture.",
+      "Smallest-pH comparison across strong/weak and mono/di-protic acids.",
+      "Electrolysis combination that changes solution pH (cathode OH⁻ vs anode H⁺/Cl₂).",
+      "Acidic/basic/amphoteric oxide identification.",
+      "SO₂ preparation false statement (FeS + dilute acid → H₂S, not SO₂).",
+      "Mass-balance for partial oxidation of a metal (mass gain = O added).",
+      "Oxidizing-agent identification, distinguishing a catalyst (MnO₂ + H₂O₂) from a consumed reagent (MnO₂ + conc. HCl).",
+      "Cation-separation screen — spotting the non-separating sulfate pair (Ba²⁺/Pb²⁺).",
+      "Isomerism true statement (lactic acid is optically active).",
+      "Most H₂ to saturate 1 g of an unsaturated acyclic hydrocarbon.",
+      "Br₂-adduct asymmetric-carbon analysis (isobutylene gives a symmetric centre).",
+      "Carboxylic-acid false statement (lactic acid gives no silver mirror).",
+      "Polymer with an ester bond (PET)."
+    ],
+    "recurring": [
+      "Electron counting and isotope/valence reasoning open the paper.",
+      "Gas laws (partial/vapor pressure), equilibrium constants, and thermochemistry recur.",
+      "pH comparisons, electrolysis pH changes, and redox-agent identification are standard.",
+      "Qualitative inorganic (oxide acidity, gas prep, cation separation) is a guaranteed block.",
+      "Organic: isomer recall, hydrogenation/bromination stoichiometry & stereochemistry, carboxylic acids, and polymers recur."
+    ],
+    "examTacticNotes": [
+      "Count electrons directly; HCl (1+17) = 18 beats the diatomics.",
+      "For an atom, neutrons = mass − Z and electrons = Z; valence electrons follow the group number.",
+      "CO₂ is non-polar (linear, symmetric); don't be fooled by its polar bonds.",
+      "Mass% → molarity: 1 L = density×1000 g, solute mass = %×that, ÷ M.",
+      "When Δn(gas)=0 (e.g. H₂+I₂⇌2HI), K can use moles directly.",
+      "Hydrogenation heat = Σ Qc(reactants) − Σ Qc(products).",
+      "With a condensable gas present, the non-condensable's partial pressure = total − saturation pressure; use n∝P/T.",
+      "Smallest pH: a strong diprotic acid (H₂SO₄) usually wins over an equimolar monoprotic strong acid.",
+      "Electrolysis pH up ⇔ cathode releases OH⁻ and the anode releases no H⁺ (e.g. NaCl aq).",
+      "NO₂, SO₂, P₄O₁₀, CO₂ are acidic oxides; MgO/Na₂O basic; Al₂O₃/ZnO amphoteric.",
+      "FeS + dilute acid → H₂S; SO₂ comes from hot conc. H₂SO₄ + Cu, burning S, or acid + sulfite.",
+      "Partial oxidation: the mass increase equals the oxygen gained; back-calculate the metal that reacted.",
+      "MnO₂ is a catalyst for H₂O₂ decomposition but an oxidizing agent with conc. HCl (→ Cl₂).",
+      "Sulfate precipitates both Ba²⁺ and Pb²⁺, so it cannot separate that pair.",
+      "Lactic acid is chiral (optical isomers) but gives no silver-mirror test.",
+      "H₂ to saturate ∝ (degrees of unsaturation)/M per gram — favour low-M, high-unsaturation molecules.",
+      "PET is the polyester; nylon is a polyamide; PE/PVC/PAN have no ester bond."
+    ],
+    "difficulty": "Standard EJU chemistry — a full-syllabus sweep. The more discriminating items are the vapor-pressure mole-ratio derivation (Q8), the partial-oxidation mass balance (Q13), the catalyst-vs-oxidizer distinction (Q14), and the Br₂-adduct chirality analysis (Q18)."
+  }
+}

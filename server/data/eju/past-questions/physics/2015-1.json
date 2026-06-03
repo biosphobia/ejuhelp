@@ -1,0 +1,248 @@
+{
+  "id": "2015-1-physics",
+  "year": 2015,
+  "session": 1,
+  "subject": "physics",
+  "title": "EJU 2015 · Session 1 · Physics",
+  "source": "平成27年度（2015年度）日本留学試験（第1回）理科〈物理〉 © Japan Student Services Organization (JASSO)",
+  "attribution": "EJU past questions © JASSO. Question text transcribed from the official past paper; figures described in text; correct answers taken from the official JASSO answer key and independently re-solved for verification.",
+  "languages": ["ja", "en"],
+  "answerKeyVerified": true,
+  "structure": {
+    "blocks": [
+      { "id": "I", "topicId": "mech", "name": { "ja": "力学", "en": "Mechanics" }, "questionCount": 6 },
+      { "id": "II", "topicId": "thermo", "name": { "ja": "熱力学", "en": "Thermodynamics" }, "questionCount": 3 },
+      { "id": "III", "topicId": "waves", "name": { "ja": "波動", "en": "Waves" }, "questionCount": 3 },
+      { "id": "IV", "topicId": "em", "name": { "ja": "電気と磁気", "en": "Electricity & Magnetism" }, "questionCount": 6 },
+      { "id": "V", "topicId": "atoms", "name": { "ja": "原子", "en": "Atoms" }, "questionCount": 1 }
+    ],
+    "totalQuestions": 19,
+    "givens": { "ja": "重力加速度の大きさを g とし，D（問4）以外では空気の抵抗は無視できるものとする。", "en": "Take the magnitude of gravitational acceleration as g; except in D (Q4), air resistance is negligible." }
+  },
+  "questions": [
+    {
+      "id": "2015-1-phy-1", "answerRow": 1, "block": "I", "topicId": "mech",
+      "subtopic": "Rigid-body equilibrium (torque about a pivot)",
+      "patternTags": ["express-formula", "torque-balance", "rigid-body"], "hasFigure": true,
+      "figure": { "ja": "質量を無視できる二等辺三角形の板（頂点 O,A,B）。固定点 O のまわりに自由回転。底辺 AB=2，O の AB からの高さ=d。A に質量 m1，B に質量 m2 を糸でつるすと底辺 AB が水平から角 θ 傾いてつり合う。", "en": "A massless isosceles-triangle plate (vertices O,A,B) pivots freely about fixed O. Base AB=2, height of O above AB is d. Weights m1 at A and m2 at B make AB balance at angle θ from horizontal." },
+      "ja": { "prompt": "質量が無視できる二等辺三角形（頂点 O,A,B）の板が固定点 O のまわりを自由に回転できる。底辺 AB の長さは $2$，O の AB からの高さは $d$ である。A に質量 $m_1$，B に質量 $m_2$ のおもりを糸でつるすと，底辺 AB が水平から角 $\\theta$ 傾いてつり合った。$\\dfrac{m_1}{m_2}$ はどのように表されるか。", "choices": ["$\\cos\\theta + d\\sin\\theta$", "$\\cos\\theta - d\\sin\\theta$", "$\\dfrac{\\cos\\theta + d\\sin\\theta}{\\cos\\theta - d\\sin\\theta}$", "$\\cos\\theta + d\\tan\\theta$", "$\\cos\\theta - d\\tan\\theta$", "$\\dfrac{\\cos\\theta + d\\tan\\theta}{\\cos\\theta - d\\tan\\theta}$"] },
+      "en": { "prompt": "A massless isosceles triangle (vertices O,A,B) pivots freely about fixed O. Base AB$=2$, and O is height $d$ above AB. Weights $m_1$ at A and $m_2$ at B balance with AB tilted at angle $\\theta$ to the horizontal. Express $\\dfrac{m_1}{m_2}$.", "choices": ["$\\cos\\theta + d\\sin\\theta$", "$\\cos\\theta - d\\sin\\theta$", "$\\dfrac{\\cos\\theta + d\\sin\\theta}{\\cos\\theta - d\\sin\\theta}$", "$\\cos\\theta + d\\tan\\theta$", "$\\cos\\theta - d\\tan\\theta$", "$\\dfrac{\\cos\\theta + d\\tan\\theta}{\\cos\\theta - d\\tan\\theta}$"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "$\\dfrac{\\cos\\theta + d\\sin\\theta}{\\cos\\theta - d\\sin\\theta}$", "en": "$\\dfrac{\\cos\\theta + d\\sin\\theta}{\\cos\\theta - d\\sin\\theta}$" },
+      "explanation": { "en": "Put O at the origin, M = midpoint of AB. With half-base $1$ and OM$=d$ perpendicular to AB tilted by $\\theta$, the horizontal coordinates are $x_A=d\\sin\\theta-\\cos\\theta$, $x_B=d\\sin\\theta+\\cos\\theta$. Torque balance about O (vertical weights): $m_1x_A+m_2x_B=0$, giving $m_1(\\cos\\theta-d\\sin\\theta)=m_2(\\cos\\theta+d\\sin\\theta)$, so $\\dfrac{m_1}{m_2}=\\dfrac{\\cos\\theta+d\\sin\\theta}{\\cos\\theta-d\\sin\\theta}$.", "ja": "O を原点，M を AB の中点とする。半底辺 $1$，OM$=d$ が AB に垂直で θ 傾くので水平座標は $x_A=d\\sin\\theta-\\cos\\theta$，$x_B=d\\sin\\theta+\\cos\\theta$。O まわりのモーメントのつり合い $m_1x_A+m_2x_B=0$ より $m_1(\\cos\\theta-d\\sin\\theta)=m_2(\\cos\\theta+d\\sin\\theta)$，よって $\\dfrac{m_1}{m_2}=\\dfrac{\\cos\\theta+d\\sin\\theta}{\\cos\\theta-d\\sin\\theta}$。" }
+    },
+    {
+      "id": "2015-1-phy-2", "answerRow": 2, "block": "I", "topicId": "mech",
+      "subtopic": "Projectile + elastic bounce off a wall",
+      "patternTags": ["express-formula", "projectile-motion", "elastic-collision"], "hasFigure": true,
+      "figure": { "ja": "高さ h の建物の屋上端 A から水平に速さ v で小球を投げる。水平距離 L に鉛直な壁。壁で弾性的にはねかえり，A の真下の点 B（地面）に落ちる。壁はなめらか。", "en": "From the rooftop edge A (height h) a ball is thrown horizontally at speed v. A vertical wall stands at horizontal distance L. The ball bounces elastically off the (frictionless) wall and lands at B on the ground directly below A." },
+      "ja": { "prompt": "高さ $h$ の建物の屋上の端 A から，小球を水平に速さ $v$ で投げたところ，水平距離 $L$ にある鉛直な壁に衝突してはねかえり，A の直下の点 B に落ちた。壁はなめらかで衝突は弾性衝突である。速さ $v$ はどのように表されるか。", "choices": ["$L\\sqrt{\\dfrac{g}{h}}$", "$L\\sqrt{\\dfrac{2g}{h}}$", "$2L\\sqrt{\\dfrac{g}{h}}$", "$2L\\sqrt{\\dfrac{2g}{h}}$"] },
+      "en": { "prompt": "From rooftop edge A (height $h$) a ball is thrown horizontally at speed $v$; it hits a vertical wall a horizontal distance $L$ away, bounces elastically (frictionless wall), and lands at B directly below A. Express $v$.", "choices": ["$L\\sqrt{\\dfrac{g}{h}}$", "$L\\sqrt{\\dfrac{2g}{h}}$", "$2L\\sqrt{\\dfrac{g}{h}}$", "$2L\\sqrt{\\dfrac{2g}{h}}$"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "$L\\sqrt{\\dfrac{2g}{h}}$", "en": "$L\\sqrt{\\dfrac{2g}{h}}$" },
+      "explanation": { "en": "An elastic, frictionless wall reverses the horizontal velocity and leaves the vertical motion untouched. Horizontal: out $L$ then back $L$ to land below A, total time $T=\\dfrac{2L}{v}$. Vertical fall over that time is $h=\\tfrac12gT^2=\\tfrac12g\\left(\\dfrac{2L}{v}\\right)^2=\\dfrac{2gL^2}{v^2}$, so $v=L\\sqrt{2g/h}$.", "ja": "なめらかで弾性的な壁は水平速度を反転し，鉛直運動は変えない。水平には往復 $L+L$ で A の真下へ落ちるので総時間 $T=\\dfrac{2L}{v}$。その間の落下 $h=\\tfrac12gT^2=\\dfrac{2gL^2}{v^2}$ より $v=L\\sqrt{2g/h}$。" }
+    },
+    {
+      "id": "2015-1-phy-3", "answerRow": 3, "block": "I", "topicId": "mech",
+      "subtopic": "Elastic collision — impulse on the incident body",
+      "patternTags": ["express-formula", "elastic-collision", "impulse"], "hasFigure": true,
+      "figure": { "ja": "なめらかな水平面上を A（質量 m_A）が速さ v で進み，静止した B（質量 m_B）に弾性衝突する。一直線上。", "en": "On a smooth floor, A (mass m_A) moving at v collides elastically with B (mass m_B) at rest; motion is collinear." },
+      "ja": { "prompt": "なめらかな水平面上を一直線上に運動する A（質量 $m_A$）が，静止した B（質量 $m_B$）に速さ $v$ で弾性衝突した。衝突の間に A が B から受けた力積はどのように表されるか。ただし衝突前の A の速度の向きを正とする。", "choices": ["$-\\dfrac{2m_Am_B}{m_A+m_B}v$", "$-\\dfrac{m_A(m_A-m_B)}{m_A+m_B}v$", "$\\dfrac{2m_Am_B}{m_A+m_B}v$", "$\\dfrac{m_A(m_A-m_B)}{m_A+m_B}v$"] },
+      "en": { "prompt": "On a smooth floor, A (mass $m_A$) at speed $v$ collides elastically with B (mass $m_B$) at rest (collinear). Find the impulse A receives from B, taking A's initial velocity direction as positive.", "choices": ["$-\\dfrac{2m_Am_B}{m_A+m_B}v$", "$-\\dfrac{m_A(m_A-m_B)}{m_A+m_B}v$", "$\\dfrac{2m_Am_B}{m_A+m_B}v$", "$\\dfrac{m_A(m_A-m_B)}{m_A+m_B}v$"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "$-\\dfrac{2m_Am_B}{m_A+m_B}v$", "en": "$-\\dfrac{2m_Am_B}{m_A+m_B}v$" },
+      "explanation": { "en": "Elastic head-on: $v_A'=\\dfrac{m_A-m_B}{m_A+m_B}v$. Impulse $=m_A(v_A'-v)=m_A\\!\\left(\\dfrac{m_A-m_B}{m_A+m_B}-1\\right)v=-\\dfrac{2m_Am_B}{m_A+m_B}v$.", "ja": "弾性衝突で $v_A'=\\dfrac{m_A-m_B}{m_A+m_B}v$。力積 $=m_A(v_A'-v)=-\\dfrac{2m_Am_B}{m_A+m_B}v$。" }
+    },
+    {
+      "id": "2015-1-phy-4", "answerRow": 4, "block": "I", "topicId": "mech",
+      "subtopic": "Terminal velocity with linear drag (power)",
+      "patternTags": ["express-formula", "terminal-velocity", "power", "air-resistance"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "質量 $m$ の小球が速さ $v$ に比例する抵抗力（大きさ $kv$）を受けながら鉛直に落下し，じゅうぶん時間後に速度が一定になった。速度が一定になったとき，単位時間あたりに抵抗力がする仕事の大きさはどのように表されるか。", "choices": ["$\\dfrac{mg}{k}$", "$\\dfrac{mg}{k^2}$", "$\\dfrac{(mg)^2}{k}$", "$\\dfrac{(mg)^2}{k^2}$"] },
+      "en": { "prompt": "A mass $m$ falls under a drag force $kv$ (proportional to speed) and reaches terminal (constant) velocity. At terminal velocity, find the magnitude of the work done by the drag force per unit time.", "choices": ["$\\dfrac{mg}{k}$", "$\\dfrac{mg}{k^2}$", "$\\dfrac{(mg)^2}{k}$", "$\\dfrac{(mg)^2}{k^2}$"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "$\\dfrac{(mg)^2}{k}$", "en": "$\\dfrac{(mg)^2}{k}$" },
+      "explanation": { "en": "Terminal velocity: $mg=kv_t\\Rightarrow v_t=mg/k$, drag force $=kv_t=mg$. Power $=\\text{force}\\times v_t=mg\\cdot\\dfrac{mg}{k}=\\dfrac{(mg)^2}{k}$.", "ja": "終端速度では $mg=kv_t$ より $v_t=mg/k$，抵抗力 $=kv_t=mg$。仕事率 $=mg\\cdot\\dfrac{mg}{k}=\\dfrac{(mg)^2}{k}$。" }
+    },
+    {
+      "id": "2015-1-phy-5", "answerRow": 5, "block": "I", "topicId": "mech",
+      "subtopic": "Same force over same distance → momentum ratio",
+      "patternTags": ["express-formula", "work-energy-theorem", "momentum", "ratio"], "hasFigure": true,
+      "figure": { "ja": "なめらかな水平面（真上から見た図）。質量 m の A と質量 M の B がスタートラインに静止。同じ力 F で同じ距離だけ引きゴールラインへ。到達時の運動量を p_A,p_B。", "en": "Top view of a smooth floor: A (mass m) and B (mass M) start at rest and are each pulled by the same force F over the same distance to the goal; momenta there are p_A, p_B." },
+      "ja": { "prompt": "なめらかな水平面上で，質量 $m$ の A と質量 $M$ の B がスタートラインに静止している。A と B を同じ力 $F$ で同じ距離だけ引いてゴールラインに到達させた。到達した瞬間の運動量の大きさを $p_A,p_B$ とするとき，$\\dfrac{p_A}{p_B}$ はどのように表されるか。", "choices": ["$\\dfrac{m}{M}$", "$\\sqrt{\\dfrac{m}{M}}$", "$1$", "$\\sqrt{\\dfrac{M}{m}}$", "$\\dfrac{M}{m}$"] },
+      "en": { "prompt": "On a smooth floor, A (mass $m$) and B (mass $M$) start at rest and are each pulled by the same force $F$ over the same distance to the goal. With momenta $p_A,p_B$ at the goal, express $\\dfrac{p_A}{p_B}$.", "choices": ["$\\dfrac{m}{M}$", "$\\sqrt{\\dfrac{m}{M}}$", "$1$", "$\\sqrt{\\dfrac{M}{m}}$", "$\\dfrac{M}{m}$"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "$\\sqrt{\\dfrac{m}{M}}$", "en": "$\\sqrt{\\dfrac{m}{M}}$" },
+      "explanation": { "en": "Same force over same distance ⇒ same work ⇒ same kinetic energy $K=Fd$. Since $K=\\dfrac{p^2}{2(\\text{mass})}$, $p=\\sqrt{2(\\text{mass})K}$, so $\\dfrac{p_A}{p_B}=\\sqrt{\\dfrac{m}{M}}$.", "ja": "同じ力・同じ距離 ⇒ 同じ仕事 ⇒ 同じ運動エネルギー $K=Fd$。$K=\\dfrac{p^2}{2(\\text{質量})}$ より $p=\\sqrt{2(\\text{質量})K}$，よって $\\dfrac{p_A}{p_B}=\\sqrt{\\dfrac{m}{M}}$。" }
+    },
+    {
+      "id": "2015-1-phy-6", "answerRow": 6, "block": "I", "topicId": "mech",
+      "subtopic": "Vertical circular motion — tension at the top",
+      "patternTags": ["plug-in-numbers", "circular-motion", "tension"], "hasFigure": true,
+      "figure": { "ja": "長さ 1.0 m の軽い糸の一端を固定し，他端に質量 1.0 kg のおもりを付け鉛直面内で円運動。最高点 P での速さ 4.0 m/s。g=9.8。", "en": "A 1.0 kg bob on a 1.0 m light string moves in a vertical circle; at the top P the speed is 4.0 m/s. g=9.8." },
+      "ja": { "prompt": "長さ $1.0\\,$m の軽い糸の一端を固定し，他端に質量 $1.0\\,$kg のおもりを付けて鉛直面内で円運動させた。最高点 P での速さは $4.0\\,$m/s であった。重力加速度を $9.8\\,$m/s² とする。P を通過する瞬間の糸の張力の大きさは何 N か。", "choices": ["$6.2$", "$9.8$", "$16$", "$26$"] },
+      "en": { "prompt": "A $1.0\\,$kg bob on a $1.0\\,$m light string moves in a vertical circle; at the top P its speed is $4.0\\,$m/s ($g=9.8\\,$m/s²). Find the string tension (N) at P.", "choices": ["$6.2$", "$9.8$", "$16$", "$26$"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "$6.2$", "en": "$6.2$" },
+      "explanation": { "en": "At the top, $T+mg=\\dfrac{mv^2}{r}$, so $T=\\dfrac{mv^2}{r}-mg=\\dfrac{1.0\\cdot16}{1.0}-1.0\\cdot9.8=16-9.8=6.2\\,$N.", "ja": "最高点で $T+mg=\\dfrac{mv^2}{r}$。$T=\\dfrac{1.0\\cdot16}{1.0}-1.0\\cdot9.8=16-9.8=6.2\\,$N。" }
+    },
+    {
+      "id": "2015-1-phy-7", "answerRow": 7, "block": "II", "topicId": "thermo",
+      "subtopic": "Heating curve of ice (sensible heat then latent plateau)",
+      "patternTags": ["read-from-graph", "calorimetry", "latent-heat"], "hasFigure": true,
+      "figure": { "ja": "−20℃ の氷 100 g を断熱容器で 10 J/s で 50 分加熱。温度−時間グラフの形を選ぶ。選択肢①連続上昇 ②急上昇後ずっと水平 ③水平後上昇 ④上昇→水平→上昇。氷比熱2.1, 融解熱3.3×10²J/g, 水比熱4.2, 蒸発熱2.3×10³J/g。", "en": "Heat 100 g of −20℃ ice in an insulated vessel at 10 J/s for 50 min; pick the temperature–time graph. Options: ① steady rise; ② quick rise then flat the rest; ③ flat then rise; ④ rise–flat–rise. Ice c=2.1, fusion 330 J/g, water c=4.2, vaporization 2300 J/g." },
+      "ja": { "prompt": "$-20\\,$℃ の氷 $100\\,$g を一定圧の断熱容器に入れ，$1$ 秒あたり $10\\,$J で $50$ 分加熱した。加熱開始から $50$ 分後までの温度−時間グラフはどれか。（氷の比熱 $2.1$，融解熱 $3.3\\times10^2\\,$J/g，水の比熱 $4.2\\,$J/(g·K)）", "choices": ["①  −20℃ から一定の傾きで上昇し続ける", "②  数分で 0℃ まで急上昇し，その後 50 分まで 0℃ で一定", "③  しばらく −20℃ 付近で一定の後に上昇する", "④  上昇→一定→再上昇 となる"] },
+      "en": { "prompt": "$100\\,$g of $-20\\,$℃ ice in an insulated vessel is heated at $10\\,$J/s for $50$ min. Which temperature–time graph applies? (ice $c=2.1$, fusion $3.3\\times10^2\\,$J/g, water $c=4.2$)", "choices": ["① rises steadily from −20℃ the whole time", "② rises quickly to 0℃ in a few minutes, then stays at 0℃ until 50 min", "③ stays near −20℃ for a while, then rises", "④ rises, then flat, then rises again"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "②（数分で 0℃ まで上昇し，以後ずっと 0℃）", "en": "② (rise to 0℃ in a few minutes, then constant at 0℃)" },
+      "explanation": { "en": "Total heat $=10\\times50\\times60=30000\\,$J. Warming the ice $-20\\to0$℃ needs $100\\cdot2.1\\cdot20=4200\\,$J (≈7 min). Melting all the ice would need $100\\cdot330=33000\\,$J, but only $30000-4200=25800\\,$J remains — not enough — so the temperature stays at 0℃ for the rest of the 50 min. Graph ②.", "ja": "総熱量 $=10\\times50\\times60=30000\\,$J。氷を $-20\\to0$℃ にするのに $100\\cdot2.1\\cdot20=4200\\,$J（約7分）。全部融かすには $100\\cdot330=33000\\,$J 必要だが残りは $25800\\,$J しかなく融け切らないので，以後 0℃ のまま。グラフ②。" }
+    },
+    {
+      "id": "2015-1-phy-8", "answerRow": 8, "block": "II", "topicId": "thermo",
+      "subtopic": "First law with a spring-loaded piston",
+      "patternTags": ["express-formula", "first-law", "spring", "work"], "hasFigure": true,
+      "figure": { "ja": "床に固定したシリンダー内になめらかなピストン（断面積 S）で n モルの理想気体を封入。ピストンにばね定数 k のばねを水平に取り付け，他端固定。初め温度 T0，圧力＝大気圧 p0，ばねは自然長。加熱して T0+ΔT，ピストンが右へ Δx 移動。定積モル比熱 C_V。", "en": "A gas (n mol) is sealed by a smooth piston (area S) in a fixed cylinder; a spring (constant k) attaches the piston to a fixed wall. Initially T0, pressure = atmospheric p0, spring at natural length. Heating to T0+ΔT moves the piston out by Δx. Molar heat at constant volume C_V." },
+      "ja": { "prompt": "床に固定したシリンダー内に，なめらかに動く断面積 $S$ のピストンで $n$ モルの理想気体を封入する。ピストンにはばね定数 $k$ のばねが水平に付き，他端は固定。初め温度 $T_0$，圧力は大気圧 $p_0$ に等しく，ばねは自然長。加熱して温度が $T_0+\\Delta T$ となり，ピストンが右へ $\\Delta x$ 移動した。定積モル比熱を $C_V$ とする。気体に加えた熱量はどのように表されるか。", "choices": ["$nC_V\\Delta T$", "$nC_V\\Delta T + p_0S\\Delta x$", "$nC_V\\Delta T + \\tfrac12k(\\Delta x)^2$", "$nC_V\\Delta T - \\tfrac12k(\\Delta x)^2$", "$nC_V\\Delta T + p_0S\\Delta x + \\tfrac12k(\\Delta x)^2$", "$nC_V\\Delta T + p_0S\\Delta x - \\tfrac12k(\\Delta x)^2$"] },
+      "en": { "prompt": "A smooth piston (area $S$) seals $n$ mol of ideal gas in a fixed cylinder; a spring (constant $k$) attaches the piston to a fixed wall. Initially $T_0$, pressure $=p_0$ (atmospheric), spring at natural length. Heating to $T_0+\\Delta T$ pushes the piston out by $\\Delta x$. With molar heat $C_V$, find the heat added to the gas.", "choices": ["$nC_V\\Delta T$", "$nC_V\\Delta T + p_0S\\Delta x$", "$nC_V\\Delta T + \\tfrac12k(\\Delta x)^2$", "$nC_V\\Delta T - \\tfrac12k(\\Delta x)^2$", "$nC_V\\Delta T + p_0S\\Delta x + \\tfrac12k(\\Delta x)^2$", "$nC_V\\Delta T + p_0S\\Delta x - \\tfrac12k(\\Delta x)^2$"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "$nC_V\\Delta T + p_0S\\Delta x + \\tfrac12k(\\Delta x)^2$", "en": "$nC_V\\Delta T + p_0S\\Delta x + \\tfrac12k(\\Delta x)^2$" },
+      "explanation": { "en": "First law $Q=\\Delta U+W_{gas}$. $\\Delta U=nC_V\\Delta T$. The gas does work pushing the (massless) piston: against the atmosphere $p_0S\\Delta x$ plus storing spring energy $\\tfrac12k(\\Delta x)^2$ (spring starts at natural length). So $Q=nC_V\\Delta T+p_0S\\Delta x+\\tfrac12k(\\Delta x)^2$.", "ja": "熱力学第一法則 $Q=\\Delta U+W_{気体}$。$\\Delta U=nC_V\\Delta T$。気体がする仕事は大気への $p_0S\\Delta x$ とばねに蓄える $\\tfrac12k(\\Delta x)^2$（自然長から）。よって $Q=nC_V\\Delta T+p_0S\\Delta x+\\tfrac12k(\\Delta x)^2$。" }
+    },
+    {
+      "id": "2015-1-phy-9", "answerRow": 9, "block": "II", "topicId": "thermo",
+      "subtopic": "Thermal efficiency of a triangular p–V cycle (monatomic)",
+      "patternTags": ["express-formula", "thermal-efficiency", "pv-diagram", "monatomic"], "hasFigure": true,
+      "figure": { "ja": "単原子分子理想気体の p–V 三角形サイクル A→B→C→A。A($V_0,p_0$)，B($V_0,\\tfrac34p_0$)，C($\\tfrac34V_0,p_0$)。A→B 定積で降圧，B→C 斜め，C→A 定圧で膨張。熱吸収は C→A のみ。", "en": "Monatomic ideal-gas triangular p–V cycle A→B→C→A: A($V_0,p_0$), B($V_0,\\tfrac34p_0$), C($\\tfrac34V_0,p_0$). A→B isochoric pressure drop, B→C diagonal, C→A isobaric expansion; heat absorbed only in C→A." },
+      "ja": { "prompt": "なめらかなピストンの容器に一定量の単原子分子理想気体を封入し，$p$-$V$ 図のように A→B→C→A と変化させた。A は $(V_0,p_0)$，B は $(V_0,\\tfrac34p_0)$，C は $(\\tfrac34V_0,p_0)$ である。気体は C→A の過程でのみ熱を吸収する。この 1 サイクルの熱効率はいくらか。", "choices": ["$\\dfrac{1}{20}$", "$\\dfrac{1}{12}$", "$\\dfrac{1}{10}$", "$\\dfrac{1}{6}$"] },
+      "en": { "prompt": "A fixed amount of monatomic ideal gas runs the cycle A→B→C→A with A$=(V_0,p_0)$, B$=(V_0,\\tfrac34p_0)$, C$=(\\tfrac34V_0,p_0)$; heat is absorbed only during C→A. Find the thermal efficiency of one cycle.", "choices": ["$\\dfrac{1}{20}$", "$\\dfrac{1}{12}$", "$\\dfrac{1}{10}$", "$\\dfrac{1}{6}$"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "$\\dfrac{1}{20}$", "en": "$\\dfrac{1}{20}$" },
+      "explanation": { "en": "Net work $=$ triangle area $=\\tfrac12\\cdot\\tfrac14V_0\\cdot\\tfrac14p_0=\\dfrac{p_0V_0}{32}$. Heat in (isobaric C→A at $p_0$, $\\tfrac34V_0\\to V_0$): $Q=nC_p\\Delta T=\\tfrac52R\\cdot\\dfrac{p_0V_0}{4R}=\\dfrac{5p_0V_0}{8}$. Efficiency $\\eta=\\dfrac{p_0V_0/32}{5p_0V_0/8}=\\dfrac{1}{20}$.", "ja": "正味の仕事＝三角形の面積 $=\\tfrac12\\cdot\\tfrac14V_0\\cdot\\tfrac14p_0=\\dfrac{p_0V_0}{32}$。吸熱は定圧 C→A：$Q=nC_p\\Delta T=\\tfrac52R\\cdot\\dfrac{p_0V_0}{4R}=\\dfrac{5p_0V_0}{8}$。効率 $\\eta=\\dfrac{p_0V_0/32}{5p_0V_0/8}=\\dfrac{1}{20}$。" }
+    },
+    {
+      "id": "2015-1-phy-10", "answerRow": 10, "block": "III", "topicId": "waves",
+      "subtopic": "Travelling-wave equation from a snapshot",
+      "patternTags": ["read-from-graph", "wave-equation", "travelling-wave"], "hasFigure": true,
+      "figure": { "ja": "速さ 2 m/s の正弦波。t=0 の波形（実線）は原点で y=0 から立ち上がり，波長 1 m，振幅 0.02 m。破線は t=0.1T の波形で左へずれている（−x 方向に進行）。", "en": "A 2 m/s sine wave. The t=0 waveform (solid) starts at y=0 at the origin, wavelength 1 m, amplitude 0.02 m. The dashed t=0.1T waveform is shifted left (wave travels in −x)." },
+      "ja": { "prompt": "$x$ 軸上を速さ $2\\,$m/s で進む正弦波がある。実線は $t=0$ の波形（原点で $y=0$，波長 $1\\,$m，振幅 $0.02\\,$m），破線は $t=0.1T$ の波形を示す。この波の変位 $y$ を $t,x$ の関数で表すと最も適当なものはどれか。", "choices": ["$y=-0.02\\sin2\\pi(0.5t-x)$", "$y=0.02\\sin2\\pi(0.5t+x)$", "$y=-0.02\\sin2\\pi(2t-x)$", "$y=0.02\\sin2\\pi(2t+x)$"] },
+      "en": { "prompt": "A sine wave travels on the $x$-axis at $2\\,$m/s. Solid = $t=0$ waveform (zero at the origin, wavelength $1\\,$m, amplitude $0.02\\,$m); dashed = $t=0.1T$. Express $y(t,x)$.", "choices": ["$y=-0.02\\sin2\\pi(0.5t-x)$", "$y=0.02\\sin2\\pi(0.5t+x)$", "$y=-0.02\\sin2\\pi(2t-x)$", "$y=0.02\\sin2\\pi(2t+x)$"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "$y=0.02\\sin2\\pi(2t+x)$", "en": "$y=0.02\\sin2\\pi(2t+x)$" },
+      "explanation": { "en": "From the snapshot $A=0.02$, $\\lambda=1\\,$m, and $T=\\lambda/v=1/2=0.5\\,$s, so $t/T=2t$ and $x/\\lambda=x$. The dashed curve is shifted in $-x$, so the wave moves in $-x$: $y=A\\sin2\\pi(t/T+x/\\lambda)=0.02\\sin2\\pi(2t+x)$ (passes through the origin rising, as drawn).", "ja": "波形より $A=0.02$，$\\lambda=1\\,$m，$T=\\lambda/v=0.5\\,$s なので $t/T=2t$，$x/\\lambda=x$。破線は $-x$ にずれており波は $-x$ に進むので $y=A\\sin2\\pi(t/T+x/\\lambda)=0.02\\sin2\\pi(2t+x)$（原点で立ち上がる）。" }
+    },
+    {
+      "id": "2015-1-phy-11", "answerRow": 11, "block": "III", "topicId": "waves",
+      "subtopic": "Two-source interference — frequency from maxima spacing",
+      "patternTags": ["plug-in-numbers", "interference", "path-difference"], "hasFigure": true,
+      "figure": { "ja": "スピーカー S1,S2 が 5.0 m 離れ同位相・同振動数。S1,S2 を結ぶ線 A に平行で 12 m 離れた線 B 上を移動。等距離点 P0（強め合い）から順に強め合う点 P1,P2，P2 は P0 から 2.5 m。音速 340 m/s。", "en": "Speakers S1,S2 are 5.0 m apart, in phase. Listening along line B parallel to the speaker line A, at distance 12 m. From the equidistant maximum P0, successive maxima are P1,P2; P2 is 2.5 m from P0. Sound speed 340 m/s." },
+      "ja": { "prompt": "$5.0\\,$m 離れた同位相・同振動数の 2 スピーカー S1,S2。S1,S2 を結ぶ直線に平行で $12\\,$m 離れた直線 B 上で聞くと強弱が交互に現れ，等距離の点 P0 で強く聞こえた。P0 から順に強め合う点を P1,P2 とすると P2 は P0 から $2.5\\,$m にあった。音速 $340\\,$m/s。スピーカーの振動数は何 Hz か。", "choices": ["$170$", "$340$", "$680$", "$1360$"] },
+      "en": { "prompt": "Two in-phase speakers $5.0\\,$m apart are heard along a line $12\\,$m away (parallel to the speaker line). From the equidistant maximum P0, the second maximum P2 lies $2.5\\,$m from P0. With sound speed $340\\,$m/s, find the frequency.", "choices": ["$170$", "$340$", "$680$", "$1360$"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "$680$", "en": "$680$" },
+      "explanation": { "en": "At P2 (lateral offset $2.5\\,$m, $12\\,$m away) the path lengths are $\\sqrt{12^2+5^2}=13$ and $\\sqrt{12^2+0^2}=12$, difference $1\\,$m. P2 is the 2nd maximum so $2\\lambda=1\\Rightarrow\\lambda=0.5\\,$m, and $f=v/\\lambda=340/0.5=680\\,$Hz.", "ja": "P2（横ずれ $2.5\\,$m，距離 $12\\,$m）への経路は $\\sqrt{12^2+5^2}=13$ と $\\sqrt{12^2}=12$，差 $1\\,$m。P2 は 2 番目の強め合いなので $2\\lambda=1$，$\\lambda=0.5\\,$m，$f=340/0.5=680\\,$Hz。" }
+    },
+    {
+      "id": "2015-1-phy-12", "answerRow": 12, "block": "III", "topicId": "waves",
+      "subtopic": "Convex lens as a magnifier (object inside focus)",
+      "patternTags": ["conceptual", "geometric-optics", "virtual-image"], "hasFigure": true,
+      "figure": { "ja": "焦点距離 f の凸レンズの前，距離 a(<f) に物体。距離 b に虚像。物体を近づける（a を小さくする）と b と虚像の大きさはどう変わるか。", "en": "An object is at distance a (<f) from a convex lens of focal length f, giving a virtual image at distance b. As the object moves closer (a decreases), how do b and image size change?" },
+      "ja": { "prompt": "焦点距離 $f$ の凸レンズから距離 $a$（$<f$）に物体を置くと，距離 $b$ に虚像が見えた。物体をレンズに近づける（$a$ を小さくする）と，$b$ と虚像の大きさはどう変化するか。", "choices": ["$b$ 小さくなる，虚像 小さくなる", "$b$ 小さくなる，虚像 大きくなる", "$b$ 大きくなる，虚像 小さくなる", "$b$ 大きくなる，虚像 大きくなる"] },
+      "en": { "prompt": "An object at distance $a$ ($<f$) from a convex lens forms a virtual image at distance $b$. As the object moves closer (decrease $a$), how do $b$ and the image size change?", "choices": ["$b$ decreases, image decreases", "$b$ decreases, image increases", "$b$ increases, image decreases", "$b$ increases, image increases"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "$b$ 小さくなる，虚像 小さくなる", "en": "$b$ decreases, image decreases" },
+      "explanation": { "en": "For $a<f$: $b=\\dfrac{af}{f-a}$ and magnification $|M|=\\dfrac{b}{a}=\\dfrac{f}{f-a}$. As $a\\to0$, $b\\to0$ (decreases) and $|M|\\to1$ (decreases). So both $b$ and the image size decrease.", "ja": "$a<f$ で $b=\\dfrac{af}{f-a}$，倍率 $|M|=\\dfrac{b}{a}=\\dfrac{f}{f-a}$。$a\\to0$ で $b\\to0$（減少），$|M|\\to1$（減少）。よって $b$ も虚像も小さくなる。" }
+    },
+    {
+      "id": "2015-1-phy-13", "answerRow": 13, "block": "IV", "topicId": "em",
+      "subtopic": "Field lines of two like charges",
+      "patternTags": ["conceptual", "electric-field-lines", "superposition"], "hasFigure": true,
+      "figure": { "ja": "平面上の点 A,B に符号が同じで等しい大きさの点電荷。電気力線の図を選ぶ（矢印なし）。正解は同符号特有の，互いに反発して midpoint に近づかない放射状パターン。", "en": "Two equal, like-sign point charges at A and B. Choose the field-line picture (no arrows). The correct one shows the like-charge pattern: lines radiate and bend away from each other with a neutral point between them, never joining the two charges." },
+      "ja": { "prompt": "平面上の点 A と点 B に，符号が同じで大きさの等しい点電荷を置いた。この平面内の電気力線を表す図として最も適当なものはどれか（電気力線に矢印はつけていない）。", "choices": ["①  2 電荷の間を線が結ぶ（双極子＝異符号のパターン）", "②  各電荷から放射状に出て互いに反発し，中点付近に線が来ない（同符号のパターン）", "③  各電荷を囲む同心円のみ", "④  2 電荷をまとめて囲む閉曲線のみ"] },
+      "en": { "prompt": "Two equal, like-sign point charges sit at A and B. Which picture best shows the field lines in the plane (no arrows)?", "choices": ["① lines bridge between the two charges (dipole = opposite-sign pattern)", "② lines radiate from each charge and repel, with no lines through the midpoint (like-sign pattern)", "③ only concentric circles around each charge", "④ only a closed loop enclosing both charges"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "②（同符号：互いに反発し中点に中性点）", "en": "② (like charges: lines repel, neutral point between)" },
+      "explanation": { "en": "Like charges repel: field lines leave each charge and bend away from the other, never connecting the two, with a neutral point at the midpoint. That is picture ②. (Lines bridging the charges would mean opposite signs.)", "ja": "同符号は反発し，電気力線は互いを避けて曲がり 2 電荷を結ばず，中点に中性点ができる。これが②。（2 電荷を結ぶ線は異符号を表す。）" }
+    },
+    {
+      "id": "2015-1-phy-14", "answerRow": 14, "block": "IV", "topicId": "em",
+      "subtopic": "Series-capacitor plate stack with a switch",
+      "patternTags": ["express-formula", "capacitors", "series", "switch"], "hasFigure": true,
+      "figure": { "ja": "面積の等しい 4 枚の金属板 A,B,C,D を等間隔で平行配置。電池 V＋抵抗 R1＋スイッチ S1 が A と D につながり，B と C は S2＋R2 を介して互いに接続。まず S1 のみ閉じると A に電荷 Q。次に S2 も閉じると A に Q′。", "en": "Four equal parallel plates A,B,C,D, equally spaced. Battery V + R1 + switch S1 connect to plates A and D; plates B and C are joined to each other through S2 and R2. Closing only S1 gives plate A charge Q; then closing S2 gives A charge Q′." },
+      "ja": { "prompt": "面積の等しい 4 枚の金属板 A,B,C,D を等間隔で平行に置き，電池 $V$，抵抗 $R_1,R_2$，開いたスイッチ $S_1,S_2$ を導線でつないだ（A・D が電池側，B・C は $S_2$,$R_2$ を介して互いに接続）。$S_1$ を閉じて十分時間後，A の電荷は $Q$ であった。次に $S_1$ を閉じたまま $S_2$ も閉じると，A の電荷は $Q'$ になった。$\\dfrac{Q'}{Q}$ はいくらか。", "choices": ["$\\dfrac{1}{2}$", "$\\dfrac{2}{3}$", "$1$", "$\\dfrac{3}{2}$", "$2$"] },
+      "en": { "prompt": "Four equal parallel plates A,B,C,D are equally spaced; A and D connect to battery $V$ (via $R_1,S_1$), while B and C are joined to each other through $S_2,R_2$. With only $S_1$ closed, plate A has charge $Q$; then closing $S_2$ as well gives A charge $Q'$. Find $\\dfrac{Q'}{Q}$.", "choices": ["$\\dfrac{1}{2}$", "$\\dfrac{2}{3}$", "$1$", "$\\dfrac{3}{2}$", "$2$"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "$\\dfrac{3}{2}$", "en": "$\\dfrac{3}{2}$" },
+      "explanation": { "en": "Let each gap have capacitance $C_0$. With $S_2$ open, B and C float, so the three gaps A–B, B–C, C–D are in series across $V$: $Q=\\dfrac{C_0}{3}V$. Closing $S_2$ ties B and C together (equipotential), shorting the middle gap, leaving A–B and C–D in series: $Q'=\\dfrac{C_0}{2}V$. Hence $\\dfrac{Q'}{Q}=\\dfrac{1/2}{1/3}=\\dfrac{3}{2}$.", "ja": "各間隔の容量を $C_0$ とする。$S_2$ 開では B,C が浮き，A–B,B–C,C–D の 3 つが直列で $Q=\\dfrac{C_0}{3}V$。$S_2$ を閉じると B,C が等電位で中央間隔が短絡され，A–B と C–D の直列となり $Q'=\\dfrac{C_0}{2}V$。よって $\\dfrac{Q'}{Q}=\\dfrac{3}{2}$。" }
+    },
+    {
+      "id": "2015-1-phy-15", "answerRow": 15, "block": "IV", "topicId": "em",
+      "subtopic": "Balanced bridge with two EMFs (zero central current)",
+      "patternTags": ["plug-in-numbers", "dc-circuit", "kirchhoff", "symmetry"], "hasFigure": true,
+      "figure": { "ja": "節点 A(上),B(下) の間に 3 つの並列枝：左＝10Ω＋6.0V 電池，中央＝10Ω のみ，右＝10Ω＋6.0V 電池。2 つの電池は AB 枝に対し逆向きに配置され，外周ループを 0.6 A が流れ A,B は同電位。", "en": "Between nodes A(top) and B(bottom) are three parallel branches: left = 10Ω+6.0V cell, middle = 10Ω only, right = 10Ω+6.0V cell. The two cells oppose across the AB branch; 0.6 A circulates the outer loop and A,B are at equal potential." },
+      "ja": { "prompt": "起電力 $6.0\\,$V の 2 つの電池と $10\\,\\Omega$ の 3 つの抵抗が図のように接続されている（電池の内部抵抗は無視）。図中の AB 間（中央の $10\\,\\Omega$）を流れる電流 $I$ は何 A か。A→B の向きを正とする。", "choices": ["$-1.2$", "$-0.80$", "$-0.40$", "$0.0$", "$0.40$", "$0.80$", "$1.2$"] },
+      "en": { "prompt": "Two $6.0\\,$V cells and three $10\\,\\Omega$ resistors are connected as shown (no internal resistance). Find the current $I$ (A) through AB — the central $10\\,\\Omega$ — taking A→B as positive.", "choices": ["$-1.2$", "$-0.80$", "$-0.40$", "$0.0$", "$0.40$", "$0.80$", "$1.2$"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "$0.0$", "en": "$0.0$" },
+      "explanation": { "en": "The two cells are arranged in opposition across the central branch. They drive a current around the outer loop only: $12\\,$V across the two outer $10\\,\\Omega$ in series $=0.6\\,$A. This leaves nodes A and B at equal potential ($V_A=V_B$), so the central $10\\,\\Omega$ carries no current: $I=0.0\\,$A.", "ja": "2 つの電池は中央枝に対し逆向き。外周ループだけに電流を流し，外側 $10\\,\\Omega$ 2 個直列に $12\\,$V で $0.6\\,$A。このとき A,B は同電位（$V_A=V_B$）なので中央の $10\\,\\Omega$ には電流が流れず $I=0.0\\,$A。" }
+    },
+    {
+      "id": "2015-1-phy-16", "answerRow": 16, "block": "IV", "topicId": "em",
+      "subtopic": "Superposition of fields: coil + straight wire (rotated)",
+      "patternTags": ["express-formula", "magnetic-field", "superposition", "vectors"], "hasFigure": true,
+      "figure": { "ja": "xy 平面に中心 O・半径 a の円形コイル（電流 I1），O での磁場は強さ H（z 方向）。点 A(0,2a,0) を通り x 軸に平行な直線導線。図2 で I2 を流すと O の磁場が 0（導線の寄与は −z の H）。図3 で A を中心に導線を回し電流向きを z 軸正に変える。", "en": "In the xy-plane, a circular coil (radius a, current I1) centered at O gives field H (along z) at O. A straight wire through A(0,2a,0) parallel to x carries I2; in fig.2 it cancels the coil field at O (wire contributes H along −z). In fig.3 the wire is rotated about A so its current points along +z." },
+      "ja": { "prompt": "$xy$ 平面上に中心 O・半径 $a$ の円形コイルを置き電流 $I_1$ を流すと O での磁場の強さは $H$ であった。点 A$(0,2a,0)$ を通り $x$ 軸に平行な直線導線に電流 $I_2$ を流すと（図2）O の磁場は $0$ になった。次に（図3）$I_1,I_2$ は変えず A を中心に導線を回し，直線電流の向きを $z$ 軸の正の向きに変えた。図3 で O での磁場ベクトルを $(x,y,z)$ 成分で表すとどうなるか。", "choices": ["$(0,H,H)$", "$(H,0,H)$", "$(H,H,0)$", "$(2H,0,0)$", "$(0,2H,0)$", "$(0,0,2H)$"] },
+      "en": { "prompt": "A circular coil (radius $a$) centered at O carries $I_1$, giving field strength $H$ at O. A straight wire through A$(0,2a,0)$ parallel to $x$ carries $I_2$ and (fig.2) makes the field at O zero. Then (fig.3), keeping $I_1,I_2$, the wire is rotated about A so its current points along $+z$. Give the field vector at O in fig.3 as $(x,y,z)$ components.", "choices": ["$(0,H,H)$", "$(H,0,H)$", "$(H,H,0)$", "$(2H,0,0)$", "$(0,2H,0)$", "$(0,0,2H)$"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "$(H,0,H)$", "en": "$(H,0,H)$" },
+      "explanation": { "en": "The coil field at O is along $z$ with magnitude $H$. In fig.2 the wire (along $x$, at distance $2a$) produces $H$ along $-z$, cancelling it — so the wire's field magnitude at O is $H$. In fig.3 the wire current is along $+z$ at the same distance $2a$, so its field at O has the same magnitude $H$ but now lies along $x$ (current $\\hat z\\times$ displacement $-\\hat y$ gives $+\\hat x$). Adding the unchanged coil field $H\\hat z$ gives $(H,0,H)$.", "ja": "コイルの O での磁場は $z$ 方向に大きさ $H$。図2 で導線（$x$ 方向，距離 $2a$）は $-z$ に $H$ を作り打ち消す＝導線の寄与の大きさは $H$。図3 では電流が $+z$ 向き（距離は同じ $2a$）なので O での磁場は大きさ $H$ で向きは $x$（$\\hat z\\times(-\\hat y)=+\\hat x$）。不変のコイル磁場 $H\\hat z$ と足して $(H,0,H)$。" }
+    },
+    {
+      "id": "2015-1-phy-17", "answerRow": 17, "block": "IV", "topicId": "em",
+      "subtopic": "Net force on a coil near two parallel wires",
+      "patternTags": ["conceptual", "magnetic-force", "parallel-wires"], "hasFigure": true,
+      "figure": { "ja": "同一平面内に鉛直な 2 直線導線 P（左,電流 I1 下向き）と Q（右,I1 上向き），その右に正方形コイル ABCD（電流 I2 時計回り）。AB,CD は P,Q に平行。2 線の作る磁場はコイル付近で紙面奥（Q が近く優勢）で右へ行くほど弱まる。", "en": "Coplanar vertical wires P (left, I1 down) and Q (right, I1 up), with a square coil ABCD (clockwise I2) to their right. AB,CD parallel to P,Q. The wires' net field near the coil is into the page (Q nearer dominates) and weakens to the right." },
+      "ja": { "prompt": "同一平面内に十分長い 2 直線導線 P,Q（電流 $I_1$）と正方形コイル ABCD（電流 $I_2$）が置かれ，AB,CD,P,Q は平行である。電流の向きは図の通り。コイルの各辺が受ける力の合力の向きはどうなるか（上下左右は図の矢印の向き）。", "choices": ["P,Q に平行で上向き", "P,Q に平行で下向き", "P,Q に垂直で左向き", "P,Q に垂直で右向き"] },
+      "en": { "prompt": "Coplanar long wires P,Q (current $I_1$) and a square coil ABCD (current $I_2$) have AB,CD,P,Q all parallel, with currents as drawn. What is the direction of the net force on the coil (up/down/left/right as marked)?", "choices": ["parallel to P,Q, upward", "parallel to P,Q, downward", "perpendicular to P,Q, leftward", "perpendicular to P,Q, rightward"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "P,Q に垂直で右向き", "en": "perpendicular to P,Q, rightward" },
+      "explanation": { "en": "Near the coil the two wires give a net field into the page (the nearer wire Q dominates) that weakens with distance to the right. The two horizontal sides feel equal and opposite forces (cancel). The near vertical side sits in a stronger field than the far side, and working out $I\\vec L\\times\\vec B$ for the two opposite currents leaves a net force pointing away from the wires — perpendicular to P,Q, rightward.", "ja": "コイル付近では 2 線の合成磁場は紙面奥（近い Q が優勢）で右ほど弱い。水平 2 辺の力は相殺。近い縦辺は遠い縦辺より強い磁場中にあり，逆向き電流の $I\\vec L\\times\\vec B$ を合わせると合力は導線から離れる向き＝P,Q に垂直で右向き。" }
+    },
+    {
+      "id": "2015-1-phy-18", "answerRow": 18, "block": "IV", "topicId": "em",
+      "subtopic": "Induced current from a time-varying source current",
+      "patternTags": ["read-from-graph", "electromagnetic-induction", "lenz-law"], "hasFigure": true,
+      "figure": { "ja": "同一平面に直線導線 A と円形コイル B。A の電流 I_A は図2 のように直線的に立ち上がり，その後指数的に減衰。I_B の正の向きは反時計回り。求めるグラフ：立ち上がり中は一定の正，減衰中は負で 0 へ漸近。", "en": "Coplanar straight wire A and circular coil B. I_A (fig.2) rises linearly then decays exponentially. Positive I_B is counter-clockwise. The required graph: constant positive during the linear rise, negative approaching 0 during the decay." },
+      "ja": { "prompt": "同一平面内の直線導線 A と円形コイル B。A に図2 のように時間とともに変化する電流 $I_A$（直線的に増加した後，指数的に減衰）を流すと，B に電流 $I_B$ が流れた（図1 の矢印向きを正）。B の電流の作る磁場は無視できる。$I_B$ の時間変化を表すグラフはどれか。", "choices": ["①  立ち上がり後ゆるやかに減る正のグラフ", "②  一定の正の後，負へ落ち下方へ離れていく", "③  一定の正の後，負へ落ち 0 へ近づく", "④  負へ落ち込んでいくグラフ", "⑤  負で一定の後 0 へ増える", "⑥  正へ立ち上がった後 0 へ減る"] },
+      "en": { "prompt": "Coplanar straight wire A and circular coil B. The current $I_A$ in A varies as in fig.2 (rises linearly, then decays exponentially), inducing $I_B$ in B (positive sense as the arrow in fig.1). Neglect the field from $I_B$. Which graph shows $I_B$ vs $t$?", "choices": ["① positive, rising then slowly falling", "② constant positive, then drops negative and moves further down", "③ constant positive, then drops negative and approaches 0", "④ a downward (negative) dip", "⑤ negative-constant, then rising to 0", "⑥ rises positive then falls to 0"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "③（立ち上がり中は一定の正，減衰中は負で 0 へ）", "en": "③ (constant positive during the rise, negative approaching 0 during the decay)" },
+      "explanation": { "en": "Wire A makes an into-page flux through B proportional to $I_A$. While $I_A$ rises linearly, $dI_A/dt$ is constant, so the induced current is a constant value; Lenz opposes the increasing into-page flux with a counter-clockwise (positive) current — a flat positive level. During the exponential decay, $dI_A/dt<0$ with shrinking magnitude, so $I_B$ is negative and approaches 0. That is graph ③.", "ja": "A は B に $I_A$ に比例する紙面奥の磁束を作る。直線増加中は $dI_A/dt$ 一定なので誘導電流は一定値で，レンツの法則より増加する奥向き磁束に逆らう反時計回り（正）＝一定の正。指数減衰中は $dI_A/dt<0$ で大きさが減るので $I_B$ は負で 0 に近づく。よって③。" }
+    },
+    {
+      "id": "2015-1-phy-19", "answerRow": 19, "block": "V", "topicId": "atoms",
+      "subtopic": "Bohr model — speed ratio between levels",
+      "patternTags": ["express-formula", "bohr-model", "quantization"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "ボーアの水素原子模型で，電子は $\\dfrac{mv^2}{r}=k_0\\dfrac{e^2}{r^2}$ にしたがい半径 $r$，速さ $v$ で等速円運動し，量子化条件 $mvr=\\dfrac{nh}{2\\pi}$（$n$ は正の整数）が成り立つ。$n=1$ の速さを $v_1$，$n=2$ の速さを $v_2$ とすると $\\dfrac{v_1}{v_2}$ はいくらか。", "choices": ["$\\dfrac{1}{4}$", "$\\dfrac{1}{2}$", "$\\dfrac{1}{\\sqrt2}$", "$1$", "$\\sqrt2$", "$2$", "$4$"] },
+      "en": { "prompt": "In the Bohr model, an electron obeys $\\dfrac{mv^2}{r}=k_0\\dfrac{e^2}{r^2}$ with quantization $mvr=\\dfrac{nh}{2\\pi}$ ($n$ a positive integer). With $v_1,v_2$ the speeds for $n=1,2$, find $\\dfrac{v_1}{v_2}$.", "choices": ["$\\dfrac{1}{4}$", "$\\dfrac{1}{2}$", "$\\dfrac{1}{\\sqrt2}$", "$1$", "$\\sqrt2$", "$2$", "$4$"] },
+      "answerIndex": 5, "answerOption": 6, "answer": { "ja": "$2$", "en": "$2$" },
+      "explanation": { "en": "From the force law $v^2=\\dfrac{k_0e^2}{mr}$, i.e. $r=\\dfrac{k_0e^2}{mv^2}$. Substituting into $mvr=\\dfrac{nh}{2\\pi}$ gives $v=\\dfrac{2\\pi k_0e^2}{nh}\\propto\\dfrac1n$. Hence $\\dfrac{v_1}{v_2}=\\dfrac{1/1}{1/2}=2$.", "ja": "力のつり合いから $v^2=\\dfrac{k_0e^2}{mr}$（$r=\\dfrac{k_0e^2}{mv^2}$）。量子化条件 $mvr=\\dfrac{nh}{2\\pi}$ に代入すると $v=\\dfrac{2\\pi k_0e^2}{nh}\\propto\\dfrac1n$。よって $\\dfrac{v_1}{v_2}=2$。" }
+    }
+  ],
+  "patterns": {
+    "blockSkeleton": "Standard 19-item physics layout: I Mechanics ×6, II Thermodynamics ×3, III Waves ×3, IV Electricity & Magnetism ×6, V Atoms ×1. This 2015-1 paper matches it exactly.",
+    "newArchetypesVsPrevious": [
+      "Pivoted massless triangular plate with two hanging weights — solved by torque balance about the pivot, giving a tan/sin·cos ratio.",
+      "Projectile that bounces ELASTICALLY off a frictionless vertical wall (horizontal velocity reverses, vertical untouched) and returns under the launch point.",
+      "Terminal velocity with LINEAR drag $kv$, then power dissipated $=(mg)^2/k$.",
+      "Spring-loaded piston first law: heat = ΔU + atmospheric work + spring energy $\\tfrac12k(\\Delta x)^2$.",
+      "Four-plate stack whose series-capacitance changes when a switch shorts the middle plates (3 gaps → 2 gaps).",
+      "Balanced-bridge DC circuit with two opposing EMFs giving exactly zero current in the central branch.",
+      "Rotating a straight wire from x-parallel to z-parallel and re-superposing its field with a coil's field (vector components)."
+    ],
+    "recurringWithPrevious": [
+      "Elastic head-on collision formulas and impulse = Δ(momentum).",
+      "Same-force/same-distance ⇒ equal work ⇒ momentum ∝ √mass.",
+      "Vertical circular motion: $T+mg=mv^2/r$ at the top.",
+      "Calorimetry with a latent-heat plateau (read the heating curve).",
+      "p–V cycle efficiency for a monatomic gas via area / $nC_p\\Delta T$.",
+      "Travelling-wave equation from a snapshot (amplitude, λ, T, propagation direction from the dashed later-time curve).",
+      "Two-source interference: path difference $=n\\lambda$ at a maximum; 3-4-5 right triangles recur.",
+      "Field-line / field-superposition reasoning and Lenz-law sign of induced current.",
+      "Bohr model: combine the force law with $mvr=nh/2\\pi$; here $v\\propto1/n$."
+    ],
+    "examTacticNotes": [
+      "Hung/pivoted rigid body: set net torque about the pivot to zero (or put the combined centre of mass under the pivot) — only horizontal lever arms of vertical weights matter.",
+      "Elastic frictionless wall = mirror: horizontal speed flips sign, vertical motion is unaffected; treat the round trip as one projectile of total time 2L/v.",
+      "Linear-drag terminal velocity: set $mg=kv_t$; the dissipated power equals $mg\\,v_t$.",
+      "First law with moving pistons: gas work = (external pressure work) + (energy stored in any spring). Don't forget the $\\tfrac12k(\\Delta x)^2$.",
+      "Floating conductor plates form SERIES capacitors; a wire shorting two of them removes that gap from the series stack.",
+      "Spot balanced bridges: if two equal EMFs hold the two ends of a resistor at equal potential, its current is zero.",
+      "Reading a wave snapshot: get A and λ directly, $T=\\lambda/v$, then use the dashed (later) curve's shift direction to choose $t\\mp x$.",
+      "Induced-current graphs: the SHAPE of $I_B$ follows $-dI_A/dt$ — flat where $I_A$ is linear, decaying where $I_A$ decays; Lenz fixes the sign."
+    ],
+    "difficulty": "Standard-to-slightly-tricky EJU level. The pivoted plate (Q1), the four-plate series-capacitor switch (Q14), the balanced bridge (Q15), the rotated-wire field superposition (Q16) and the two-wire coil force (Q17) are the highest-value, most error-prone items."
+  }
+}

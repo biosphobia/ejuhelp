@@ -5,6 +5,7 @@ import PageBar from './ui/PageBar';
 import Launcher from './ui/Launcher';
 import PanelHost from './ui/PanelHost';
 import BoardQuestions from './ui/BoardQuestions';
+import BoardTimer from './ui/BoardTimer';
 import DebugHud from './ui/DebugHud';
 import { initPersistence } from './lib/persistence';
 import { initUserData } from './lib/userdata';
@@ -26,6 +27,7 @@ export default function App() {
         <Toolbar />
         <PageBar />
         <BoardQuestions />
+        <BoardTimer />
         <Launcher />
         <PanelHost />
         <DebugHud />

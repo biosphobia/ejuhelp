@@ -1,0 +1,275 @@
+{
+  "id": "2017-2-chemistry",
+  "year": 2017,
+  "session": 2,
+  "subject": "chemistry",
+  "title": "EJU 2017 · Session 2 · Chemistry",
+  "source": "平成29年度（2017年度）日本留学試験（第2回）理科〈化学〉 © Japan Student Services Organization (JASSO)",
+  "attribution": "EJU past questions © JASSO. Question text paraphrased from the official past paper; figures described in text; correct answers taken from the official JASSO answer key and independently re-solved for verification.",
+  "languages": ["ja", "en"],
+  "answerKeyVerified": true,
+  "structure": {
+    "format": "flat",
+    "totalQuestions": 20,
+    "note": "Chemistry is a flat list of 20 single-best-answer items (問1–問20, answer rows 1–20) — no Roman-numeral blocks. Order ≈ structure & bonding → states/energetics/electrochemistry/equilibria → inorganic → organic.",
+    "givens": {
+      "ja": "標準状態 $0\\,$°C・$1.0\\times10^5\\,$Pa，気体 $1\\,$mol の体積 $22.4\\,$L，アボガドロ定数 $N_A=6.02\\times10^{23}\\,$/mol，ファラデー定数 $F=9.65\\times10^4\\,$C/mol。原子量：H 1.0, C 12, N 14, O 16, Mg 24, S 32, Pb 207。族・周期は周期表の通り。",
+      "en": "STP $0\\,$°C, $1.0\\times10^5\\,$Pa; molar volume $22.4\\,$L; $N_A=6.02\\times10^{23}\\,$/mol; $F=9.65\\times10^4\\,$C/mol. Atomic weights: H 1.0, C 12, N 14, O 16, Mg 24, S 32, Pb 207. Groups/periods per the periodic table."
+    }
+  },
+  "questions": [
+    {
+      "id": "2017-2-chem-1", "answerRow": 1, "topicId": "matter-structure",
+      "subtopic": "Ion and formula from electron-shell diagrams",
+      "patternTags": ["atomic-structure", "electron-configuration", "ionic-formula", "figure-reading"], "hasFigure": true,
+      "figure": { "ja": "電子配置の図：X は K 殻 2・L 殻 8・M 殻 2（＝Mg，計 12 電子），Y は K 殻 2・L 殻 8・M 殻 7（＝Cl，計 17 電子）。表で「X の安定イオン式」と「X・Y のイオン結合化合物の組成式」を選ぶ。", "en": "Electron-shell diagrams: X has K 2, L 8, M 2 (= Mg, 12 electrons); Y has K 2, L 8, M 7 (= Cl, 17 electrons). The table asks for X's stable ion formula and the compositional formula of the ionic compound of X and Y." },
+      "ja": { "prompt": "図は原子 X と原子 Y の電子配置を示す。X が安定なイオンになるときのイオン式と，X と Y がイオン結合してできる化合物の組成式の組み合わせとして正しいものを選びなさい。", "choices": ["$\\mathrm{X^{2+}}$ / XY", "$\\mathrm{X^{2+}}$ / $\\mathrm{XY_2}$", "$\\mathrm{X^{2+}}$ / $\\mathrm{X_2Y}$", "$\\mathrm{X^{2-}}$ / YX", "$\\mathrm{X^{2-}}$ / $\\mathrm{Y_2X}$", "$\\mathrm{X^{2-}}$ / $\\mathrm{YX_2}$"] },
+      "en": { "prompt": "The figure shows the electron configurations of atoms X and Y. Choose the correct pairing of X's stable ion formula and the compositional formula of the ionic compound of X and Y.", "choices": ["$\\mathrm{X^{2+}}$ / XY", "$\\mathrm{X^{2+}}$ / $\\mathrm{XY_2}$", "$\\mathrm{X^{2+}}$ / $\\mathrm{X_2Y}$", "$\\mathrm{X^{2-}}$ / YX", "$\\mathrm{X^{2-}}$ / $\\mathrm{Y_2X}$", "$\\mathrm{X^{2-}}$ / $\\mathrm{YX_2}$"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "② $\\mathrm{X^{2+}}$ / $\\mathrm{XY_2}$", "en": "② $\\mathrm{X^{2+}}$ / $\\mathrm{XY_2}$" },
+      "explanation": { "en": "X (2,8,2) is magnesium → loses 2 electrons to give $\\mathrm{X^{2+}}$ ($\\mathrm{Mg^{2+}}$). Y (2,8,7) is chlorine → gains 1 electron to give $\\mathrm{Y^-}$ ($\\mathrm{Cl^-}$). Charge balance gives $\\mathrm{XY_2}$ ($\\mathrm{MgCl_2}$).", "ja": "X(2,8,2)はマグネシウムで電子 2 個を失い $\\mathrm{X^{2+}}$（$\\mathrm{Mg^{2+}}$）。Y(2,8,7)は塩素で電子 1 個を得て $\\mathrm{Y^-}$（$\\mathrm{Cl^-}$）。電荷を合わせると $\\mathrm{XY_2}$（$\\mathrm{MgCl_2}$）。" }
+    },
+    {
+      "id": "2017-2-chem-2", "answerRow": 2, "topicId": "matter-structure",
+      "subtopic": "Incorrect bonding statement",
+      "patternTags": ["chemical-bonds", "intermolecular-forces", "pick-false-statement"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "化学結合に関する記述①〜⑤のうち，下線部が誤っているものを選びなさい。 ① 金属の鉄では，鉄の原子が金属結合で結びついている。 ② 氷では，水 $\\mathrm{H_2O}$ の分子が水素結合で結びついている。 ③ ドライアイスでは，$\\mathrm{CO_2}$ の分子が共有結合で結びついている。 ④ アンモニウムイオン $\\mathrm{NH_4^+}$ は，$\\mathrm{NH_3}$ の分子が $\\mathrm{H^+}$ と配位結合したものである。 ⑤ 塩化ナトリウムでは，$\\mathrm{Na^+}$ と $\\mathrm{Cl^-}$ がイオン結合で結びついている。", "choices": ["①", "②", "③", "④", "⑤"] },
+      "en": { "prompt": "Which underlined part is INCORRECT? ① In metallic iron, Fe atoms are joined by metallic bonds. ② In ice, $\\mathrm{H_2O}$ molecules are joined by hydrogen bonds. ③ In dry ice, $\\mathrm{CO_2}$ molecules are joined to one another by COVALENT bonds. ④ In $\\mathrm{NH_4^+}$, an $\\mathrm{NH_3}$ molecule and $\\mathrm{H^+}$ are joined by a coordinate bond. ⑤ In NaCl, $\\mathrm{Na^+}$ and $\\mathrm{Cl^-}$ are joined by ionic bonds.", "choices": ["①", "②", "③", "④", "⑤"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "③（ドライアイスは分子間力で結びつく）", "en": "③ (dry ice molecules are held by intermolecular forces)" },
+      "explanation": { "en": "In dry ice, $\\mathrm{CO_2}$ molecules are held together by intermolecular (van der Waals) forces, not covalent bonds (the C=O bonds are covalent only WITHIN each molecule). The other statements are correct.", "ja": "ドライアイスでは $\\mathrm{CO_2}$ 分子どうしは分子間力（ファンデルワールス力）で結びつく。共有結合は各分子内の C=O だけ。他の記述は正しい。" }
+    },
+    {
+      "id": "2017-2-chem-3", "answerRow": 3, "topicId": "matter-structure",
+      "subtopic": "Pair that are both polar molecules",
+      "patternTags": ["molecular-shape", "polarity", "compare-cases"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の分子の組み合わせ①〜⑤のうち，両方とも極性分子であるものを選びなさい。 ① $\\mathrm{CH_4},\\ \\mathrm{CCl_4}$ ② $\\mathrm{H_2O},\\ \\mathrm{CO_2}$ ③ $\\mathrm{N_2},\\ \\mathrm{NH_3}$ ④ HCl, $\\mathrm{CH_3Cl}$ ⑤ $\\mathrm{F_2},\\ \\mathrm{Cl_2}$", "choices": ["$\\mathrm{CH_4},\\ \\mathrm{CCl_4}$", "$\\mathrm{H_2O},\\ \\mathrm{CO_2}$", "$\\mathrm{N_2},\\ \\mathrm{NH_3}$", "$\\mathrm{HCl},\\ \\mathrm{CH_3Cl}$", "$\\mathrm{F_2},\\ \\mathrm{Cl_2}$"] },
+      "en": { "prompt": "Which pair consists of TWO polar molecules? ① $\\mathrm{CH_4},\\ \\mathrm{CCl_4}$ ② $\\mathrm{H_2O},\\ \\mathrm{CO_2}$ ③ $\\mathrm{N_2},\\ \\mathrm{NH_3}$ ④ HCl, $\\mathrm{CH_3Cl}$ ⑤ $\\mathrm{F_2},\\ \\mathrm{Cl_2}$", "choices": ["$\\mathrm{CH_4},\\ \\mathrm{CCl_4}$", "$\\mathrm{H_2O},\\ \\mathrm{CO_2}$", "$\\mathrm{N_2},\\ \\mathrm{NH_3}$", "$\\mathrm{HCl},\\ \\mathrm{CH_3Cl}$", "$\\mathrm{F_2},\\ \\mathrm{Cl_2}$"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "④ HCl と $\\mathrm{CH_3Cl}$", "en": "④ HCl and $\\mathrm{CH_3Cl}$" },
+      "explanation": { "en": "HCl (polar diatomic) and $\\mathrm{CH_3Cl}$ (asymmetric tetrahedral) are both polar. The others contain non-polar molecules: $\\mathrm{CH_4}/\\mathrm{CCl_4}$ (symmetric), $\\mathrm{CO_2}$ (linear), $\\mathrm{N_2}/\\mathrm{F_2}/\\mathrm{Cl_2}$ (homonuclear).", "ja": "HCl（極性二原子分子）と $\\mathrm{CH_3Cl}$（非対称な四面体）はともに極性。他には無極性分子が含まれる：$\\mathrm{CH_4}/\\mathrm{CCl_4}$（対称），$\\mathrm{CO_2}$（直線），$\\mathrm{N_2}/\\mathrm{F_2}/\\mathrm{Cl_2}$（等核二原子）。" }
+    },
+    {
+      "id": "2017-2-chem-4", "answerRow": 4, "topicId": "states-and-change",
+      "subtopic": "Mole ratio from average molecular weight",
+      "patternTags": ["mole-concept", "average-molar-mass", "plug-in-numbers"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "窒素 $\\mathrm{N_2}$ と水素 $\\mathrm{H_2}$ の混合気体があり，その平均分子量は 8.5 である。この混合気体の窒素と水素の物質量の比 $(\\mathrm{N_2}:\\mathrm{H_2})$ として最も近い値を選びなさい。", "choices": ["1 : 1", "1 : 2", "1 : 3", "1 : 4", "1 : 5"] },
+      "en": { "prompt": "A mixture of nitrogen $\\mathrm{N_2}$ and hydrogen $\\mathrm{H_2}$ has an average molecular weight of 8.5. What is the mole ratio $(\\mathrm{N_2}:\\mathrm{H_2})$?", "choices": ["1 : 1", "1 : 2", "1 : 3", "1 : 4", "1 : 5"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "1 : 3", "en": "1 : 3" },
+      "explanation": { "en": "Let $x$ be the $\\mathrm{N_2}$ mole fraction: $28x+2(1-x)=8.5 \\Rightarrow 26x=6.5 \\Rightarrow x=0.25$. So $\\mathrm{N_2}:\\mathrm{H_2}=0.25:0.75=1:3$.", "ja": "$\\mathrm{N_2}$ のモル分率を $x$ とすると $28x+2(1-x)=8.5 \\Rightarrow 26x=6.5 \\Rightarrow x=0.25$。よって $\\mathrm{N_2}:\\mathrm{H_2}=0.25:0.75=1:3$。" }
+    },
+    {
+      "id": "2017-2-chem-5", "answerRow": 5, "topicId": "states-and-change",
+      "subtopic": "Gas volume after combustion of propane",
+      "patternTags": ["stoichiometry", "gas-volume", "combustion", "limiting-reagent", "plug-in-numbers"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "標準状態において $1.0\\,$L のプロパン $\\mathrm{C_3H_8}$ と $10.0\\,$L の酸素 $\\mathrm{O_2}$ を密閉容器に入れ，プロパンをすべて完全燃焼させた。反応で生成した水を除いた後，温度と圧力を標準状態にもどすと，気体の体積は何 L になるか。", "choices": ["3.0", "4.0", "5.0", "6.0", "7.0", "8.0"] },
+      "en": { "prompt": "At STP, $1.0\\,$L of propane $\\mathrm{C_3H_8}$ and $10.0\\,$L of $\\mathrm{O_2}$ are sealed in a container and the propane is fully combusted. After removing the water produced and returning to STP, what is the gas volume (L)?", "choices": ["3.0", "4.0", "5.0", "6.0", "7.0", "8.0"] },
+      "answerIndex": 5, "answerOption": 6, "answer": { "ja": "$8.0\\,$L", "en": "8.0 L" },
+      "explanation": { "en": "$\\mathrm{C_3H_8+5O_2\\to 3CO_2+4H_2O}$. $1.0\\,$L propane uses $5.0\\,$L $\\mathrm{O_2}$ and makes $3.0\\,$L $\\mathrm{CO_2}$ (water removed). Leftover $\\mathrm{O_2}=10.0-5.0=5.0\\,$L. Total gas $=3.0+5.0=8.0\\,$L.", "ja": "$\\mathrm{C_3H_8+5O_2\\to 3CO_2+4H_2O}$。プロパン $1.0\\,$L は $\\mathrm{O_2}\\ 5.0\\,$L を使い $\\mathrm{CO_2}\\ 3.0\\,$L を生成（水は除去）。残る $\\mathrm{O_2}=10.0-5.0=5.0\\,$L。気体の合計 $=3.0+5.0=8.0\\,$L。" }
+    },
+    {
+      "id": "2017-2-chem-6", "answerRow": 6, "topicId": "matter-structure",
+      "subtopic": "Face-centred cubic copper crystal",
+      "patternTags": ["crystal-structure", "fcc", "coordination-number", "true-false-combo"], "hasFigure": true,
+      "figure": { "ja": "銅の結晶構造の図：立方体の 8 つの頂点と 6 つの面の中心に原子がある面心立方格子（FCC）。", "en": "Diagram of copper's crystal structure: atoms at the 8 corners and 6 face-centres of a cube — a face-centred cubic (FCC) lattice." },
+      "ja": { "prompt": "図は銅 Cu の結晶構造を示す。この結晶に関する記述(a)〜(d)のうち，正しいものが二つある。その組み合わせを選びなさい。 (a) この結晶構造は最密充填構造の一つである。 (b) 単位格子の中に含まれる原子の数は 14 個である。 (c) 銅の原子半径を $r$ とすると，単位格子の一辺は $2\\sqrt{2}\\,r$ と表される。 (d) ある原子について，最短距離にある原子の数は 8 である。", "choices": ["a, b", "a, c", "a, d", "b, c", "b, d", "c, d"] },
+      "en": { "prompt": "The figure shows the crystal structure of copper. Two of these statements are correct. Which pair? (a) This is a close-packed structure. (b) The unit cell contains 14 atoms. (c) With atomic radius $r$, the cell edge is $2\\sqrt{2}\\,r$. (d) Each atom has 8 nearest-neighbour atoms.", "choices": ["a, b", "a, c", "a, d", "b, c", "b, d", "c, d"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "a と c", "en": "a and c" },
+      "explanation": { "en": "FCC is a close-packed structure (a). The face diagonal $=4r=\\sqrt{2}\\,a$, so the edge $a=2\\sqrt{2}\\,r$ (c). (b) False — FCC has $8\\times\\tfrac18+6\\times\\tfrac12=4$ atoms per cell. (d) False — the coordination number of FCC is 12, not 8.", "ja": "FCC は最密充填構造（a）。面対角線 $=4r=\\sqrt{2}\\,a$ より一辺 $a=2\\sqrt{2}\\,r$（c）。(b) 誤 — FCC は $8\\times\\tfrac18+6\\times\\tfrac12=4$ 個/格子。(d) 誤 — FCC の配位数は 12 で 8 ではない。" }
+    },
+    {
+      "id": "2017-2-chem-7", "answerRow": 7, "topicId": "states-and-change",
+      "subtopic": "Smallest pH among 0.01 mol/L solutions",
+      "patternTags": ["acids-bases", "ph", "strong-weak", "compare-cases"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の化合物①〜⑥の $0.01\\,$mol/L 水溶液のうち，pH が最も小さいものを選びなさい。 ① $\\mathrm{H_2S}$ ② $\\mathrm{HNO_3}$ ③ $\\mathrm{(COOH)_2}$ ④ $\\mathrm{CH_3COOH}$ ⑤ $\\mathrm{H_3PO_4}$ ⑥ $\\mathrm{H_2SO_4}$", "choices": ["$\\mathrm{H_2S}$", "$\\mathrm{HNO_3}$", "$\\mathrm{(COOH)_2}$", "$\\mathrm{CH_3COOH}$", "$\\mathrm{H_3PO_4}$", "$\\mathrm{H_2SO_4}$"] },
+      "en": { "prompt": "Among these $0.01\\,$mol/L solutions, which has the SMALLEST pH? ① $\\mathrm{H_2S}$ ② $\\mathrm{HNO_3}$ ③ $\\mathrm{(COOH)_2}$ ④ $\\mathrm{CH_3COOH}$ ⑤ $\\mathrm{H_3PO_4}$ ⑥ $\\mathrm{H_2SO_4}$", "choices": ["$\\mathrm{H_2S}$", "$\\mathrm{HNO_3}$", "$\\mathrm{(COOH)_2}$", "$\\mathrm{CH_3COOH}$", "$\\mathrm{H_3PO_4}$", "$\\mathrm{H_2SO_4}$"] },
+      "answerIndex": 5, "answerOption": 6, "answer": { "ja": "⑥ $\\mathrm{H_2SO_4}$", "en": "⑥ $\\mathrm{H_2SO_4}$" },
+      "explanation": { "en": "$\\mathrm{H_2SO_4}$ is a strong diprotic acid giving $[\\mathrm{H^+}]\\approx0.02$ (pH ≈ 1.7), lower than the strong monoprotic $\\mathrm{HNO_3}$ (pH 2) and far below the weak acids ($\\mathrm{H_2S}$, oxalic, acetic, phosphoric).", "ja": "$\\mathrm{H_2SO_4}$ は 2 価の強酸で $[\\mathrm{H^+}]\\approx0.02$（pH≈1.7）。1 価の強酸 $\\mathrm{HNO_3}$（pH2）より低く，弱酸（$\\mathrm{H_2S}$，シュウ酸，酢酸，リン酸）よりはるかに小さい。" }
+    },
+    {
+      "id": "2017-2-chem-8", "answerRow": 8, "topicId": "states-and-change",
+      "subtopic": "Mass change of lead-acid battery positive electrode",
+      "patternTags": ["electrochemistry", "lead-acid-battery", "faraday", "electrode-mass", "plug-in-numbers"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "鉛蓄電池を放電し，$0.4\\,$mol の電子が流れた。このときの正極の質量の変化として正しいものを選びなさい。", "choices": ["$12.8\\,$g 増加した", "$19.2\\,$g 増加した", "$25.6\\,$g 増加した", "$12.8\\,$g 減少した", "$19.2\\,$g 減少した", "$25.6\\,$g 減少した"] },
+      "en": { "prompt": "A lead-acid battery is discharged and $0.4\\,$mol of electrons flow. What is the change in mass of the positive electrode (cathode during discharge)?", "choices": ["increased by $12.8\\,$g", "increased by $19.2\\,$g", "increased by $25.6\\,$g", "decreased by $12.8\\,$g", "decreased by $19.2\\,$g", "decreased by $25.6\\,$g"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "① $12.8\\,$g 増加した", "en": "① increased by 12.8 g" },
+      "explanation": { "en": "Positive electrode: $\\mathrm{PbO_2+4H^++SO_4^{2-}+2e^-\\to PbSO_4+2H_2O}$. Per 2 mol e⁻, $\\mathrm{PbO_2}(239)\\to\\mathrm{PbSO_4}(303)$, a gain of $64\\,$g, i.e. $+32\\,$g per mol e⁻. For $0.4\\,$mol e⁻: $32\\times0.4=12.8\\,$g increase.", "ja": "正極：$\\mathrm{PbO_2+4H^++SO_4^{2-}+2e^-\\to PbSO_4+2H_2O}$。電子 2 mol あたり $\\mathrm{PbO_2}(239)\\to\\mathrm{PbSO_4}(303)$ で $64\\,$g 増，すなわち電子 1 mol あたり $+32\\,$g。$0.4\\,$mol で $32\\times0.4=12.8\\,$g 増加。" }
+    },
+    {
+      "id": "2017-2-chem-9", "answerRow": 9, "topicId": "states-and-change",
+      "subtopic": "Reaction heat from heats of formation",
+      "patternTags": ["thermochemistry", "heat-of-formation", "hess-law", "formula-selection"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "気体の四酸化二窒素 $\\mathrm{N_2O_4}$ の生成熱を $Q_1\\,$kJ/mol，気体の二酸化窒素 $\\mathrm{NO_2}$ の生成熱を $Q_2\\,$kJ/mol とする。熱化学方程式 $\\mathrm{N_2O_4(気)=2NO_2(気)}+Q\\,$kJ の $Q$ を表す式として正しいものを選びなさい。", "choices": ["$Q=Q_1+Q_2$", "$Q=Q_1-Q_2$", "$Q=-Q_1+Q_2$", "$Q=Q_1+2Q_2$", "$Q=Q_1-2Q_2$", "$Q=-Q_1+2Q_2$"] },
+      "en": { "prompt": "Let the heat of formation of gaseous $\\mathrm{N_2O_4}$ be $Q_1\\,$kJ/mol and that of gaseous $\\mathrm{NO_2}$ be $Q_2\\,$kJ/mol. For the thermochemical equation $\\mathrm{N_2O_4(g)=2NO_2(g)}+Q\\,$kJ, which expression gives $Q$?", "choices": ["$Q=Q_1+Q_2$", "$Q=Q_1-Q_2$", "$Q=-Q_1+Q_2$", "$Q=Q_1+2Q_2$", "$Q=Q_1-2Q_2$", "$Q=-Q_1+2Q_2$"] },
+      "answerIndex": 5, "answerOption": 6, "answer": { "ja": "⑥ $Q=-Q_1+2Q_2$", "en": "⑥ $Q=-Q_1+2Q_2$" },
+      "explanation": { "en": "Heat of reaction $=$ Σ(heat of formation of products) − Σ(heat of formation of reactants) $=2Q_2-Q_1=-Q_1+2Q_2$.", "ja": "反応熱 $=$ （生成物の生成熱の和）−（反応物の生成熱の和）$=2Q_2-Q_1=-Q_1+2Q_2$。" }
+    },
+    {
+      "id": "2017-2-chem-10", "answerRow": 10, "topicId": "states-and-change",
+      "subtopic": "Concentration equilibrium constant for N2O4 dissociation",
+      "patternTags": ["equilibrium", "equilibrium-constant", "partial-pressure", "plug-in-numbers"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "ある一定温度で $10\\,$L の容器に $1.0\\,$mol の $\\mathrm{N_2O_4}$ を入れたところ圧力は $1.0\\times10^5\\,$Pa であった。温度を保つと $\\mathrm{N_2O_4\\rightleftharpoons 2NO_2}$ の平衡に達し，全圧は $1.1\\times10^5\\,$Pa となった。この温度の濃度平衡定数 [mol/L] に最も近い値を選びなさい。", "choices": ["0.0011", "0.0022", "0.0044", "0.011", "0.022", "0.044"] },
+      "en": { "prompt": "At a fixed temperature, $1.0\\,$mol of $\\mathrm{N_2O_4}$ in a $10\\,$L vessel gives a pressure of $1.0\\times10^5\\,$Pa. After reaching the equilibrium $\\mathrm{N_2O_4\\rightleftharpoons 2NO_2}$, the total pressure is $1.1\\times10^5\\,$Pa. What is the concentration equilibrium constant [mol/L]?", "choices": ["0.0011", "0.0022", "0.0044", "0.011", "0.022", "0.044"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "約 $0.0044\\,$mol/L", "en": "≈ 0.0044 mol/L" },
+      "explanation": { "en": "At constant T, V, pressure ∝ moles; $1.0\\,$mol ↔ $1.0\\times10^5\\,$Pa, so total moles at equilibrium $=1.1$. With $x$ mol dissociated, $1.0+x=1.1 \\Rightarrow x=0.1$: $\\mathrm{N_2O_4}=0.9$, $\\mathrm{NO_2}=0.2\\,$mol. $[\\mathrm{N_2O_4}]=0.09$, $[\\mathrm{NO_2}]=0.02$. $K_c=\\dfrac{(0.02)^2}{0.09}\\approx0.0044$.", "ja": "一定 T,V で圧力 ∝ mol。$1.0\\,$mol ↔ $1.0\\times10^5\\,$Pa なので平衡時の総 mol $=1.1$。解離量 $x$ で $1.0+x=1.1 \\Rightarrow x=0.1$：$\\mathrm{N_2O_4}=0.9$，$\\mathrm{NO_2}=0.2\\,$mol。$[\\mathrm{N_2O_4}]=0.09$，$[\\mathrm{NO_2}]=0.02$。$K_c=\\dfrac{(0.02)^2}{0.09}\\approx0.0044$。" }
+    },
+    {
+      "id": "2017-2-chem-11", "answerRow": 11, "topicId": "inorganic",
+      "subtopic": "Metal soluble in NaOH but not in conc. HNO3",
+      "patternTags": ["inorganic", "amphoteric-metal", "passivation", "compare-cases"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の金属①〜⑤のうち，水酸化ナトリウム水溶液に溶け，濃硝酸には溶けないものを一つ選びなさい。 ① Ag ② Al ③ Fe ④ Zn ⑤ Pb", "choices": ["Ag", "Al", "Fe", "Zn", "Pb"] },
+      "en": { "prompt": "Which metal dissolves in NaOH solution but NOT in concentrated nitric acid? ① Ag ② Al ③ Fe ④ Zn ⑤ Pb", "choices": ["Ag", "Al", "Fe", "Zn", "Pb"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "② Al", "en": "② Al" },
+      "explanation": { "en": "Al is amphoteric, so it dissolves in NaOH giving $\\mathrm{H_2}$, but it becomes passive (forms a protective oxide film) in concentrated $\\mathrm{HNO_3}$ and does not dissolve. Ag/Fe don't react with NaOH; Zn dissolves in conc. $\\mathrm{HNO_3}$.", "ja": "Al は両性で NaOH に溶けて $\\mathrm{H_2}$ を出すが，濃硝酸では不動態（保護酸化被膜）となり溶けない。Ag・Fe は NaOH と反応せず，Zn は濃硝酸に溶ける。" }
+    },
+    {
+      "id": "2017-2-chem-12", "answerRow": 12, "topicId": "inorganic",
+      "subtopic": "Acidic oxides giving the named acid with water",
+      "patternTags": ["inorganic", "acidic-oxides", "acid-anhydrides", "true-false-combo"], "hasFigure": true,
+      "figure": { "ja": "表（A 酸性酸化物 / B 得られる酸）：a $\\mathrm{NO_2}$ / $\\mathrm{HNO_3}$；b $\\mathrm{P_4O_{10}}$ / $\\mathrm{H_3PO_4}$；c $\\mathrm{SO_2}$ / $\\mathrm{H_2SO_4}$；d $\\mathrm{Cl_2O_7}$ / HCl。", "en": "Table (A acidic oxide / B acid obtained): a $\\mathrm{NO_2}$ / $\\mathrm{HNO_3}$; b $\\mathrm{P_4O_{10}}$ / $\\mathrm{H_3PO_4}$; c $\\mathrm{SO_2}$ / $\\mathrm{H_2SO_4}$; d $\\mathrm{Cl_2O_7}$ / HCl." },
+      "ja": { "prompt": "表の A 欄に示す酸性酸化物のうち，じゅうぶんな量の水と反応させたとき B 欄に示す酸が得られるものが二つある。その組み合わせを選びなさい。 a) $\\mathrm{NO_2}\\to\\mathrm{HNO_3}$ b) $\\mathrm{P_4O_{10}}\\to\\mathrm{H_3PO_4}$ c) $\\mathrm{SO_2}\\to\\mathrm{H_2SO_4}$ d) $\\mathrm{Cl_2O_7}\\to\\mathrm{HCl}$", "choices": ["a, b", "a, c", "a, d", "b, c", "b, d", "c, d"] },
+      "en": { "prompt": "Two of these acidic oxides give the acid shown in column B when reacted with enough water. Which pair? a) $\\mathrm{NO_2}\\to\\mathrm{HNO_3}$ b) $\\mathrm{P_4O_{10}}\\to\\mathrm{H_3PO_4}$ c) $\\mathrm{SO_2}\\to\\mathrm{H_2SO_4}$ d) $\\mathrm{Cl_2O_7}\\to\\mathrm{HCl}$", "choices": ["a, b", "a, c", "a, d", "b, c", "b, d", "c, d"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "a と b", "en": "a and b" },
+      "explanation": { "en": "(a) $\\mathrm{3NO_2+H_2O\\to 2HNO_3+NO}$ — gives nitric acid. (b) $\\mathrm{P_4O_{10}+6H_2O\\to 4H_3PO_4}$. (c) Wrong — $\\mathrm{SO_2}$ gives sulfurous acid $\\mathrm{H_2SO_3}$, not $\\mathrm{H_2SO_4}$. (d) Wrong — $\\mathrm{Cl_2O_7}$ is the anhydride of perchloric acid $\\mathrm{HClO_4}$, not HCl.", "ja": "(a) $\\mathrm{3NO_2+H_2O\\to 2HNO_3+NO}$ で硝酸を生じる。(b) $\\mathrm{P_4O_{10}+6H_2O\\to 4H_3PO_4}$。(c) 誤 — $\\mathrm{SO_2}$ は亜硫酸 $\\mathrm{H_2SO_3}$ を生じ $\\mathrm{H_2SO_4}$ ではない。(d) 誤 — $\\mathrm{Cl_2O_7}$ は過塩素酸 $\\mathrm{HClO_4}$ の無水物で HCl ではない。" }
+    },
+    {
+      "id": "2017-2-chem-13", "answerRow": 13, "topicId": "states-and-change",
+      "subtopic": "Two reactions where the underlined species is oxidized",
+      "patternTags": ["redox", "oxidation-number", "pick-statement", "true-false-combo"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の反応(a)〜(e)のうち，下線部の物質が酸化されているものが二つある。その組み合わせを選びなさい。 (a) $\\mathrm{2\\underline{Cu}+O_2\\to 2CuO}$ (b) $\\mathrm{2\\underline{CuO}+C\\to 2Cu+CO_2}$ (c) $\\mathrm{2H_2+\\underline{O_2}\\to 2H_2O}$ (d) $\\mathrm{2\\underline{Al}+6HCl\\to 2AlCl_3+3H_2}$ (e) $\\mathrm{3Cu+8\\underline{HNO_3}\\to 3Cu(NO_3)_2+4H_2O+2NO}$", "choices": ["a, b", "a, d", "a, e", "b, d", "b, e", "c, d", "d, e"] },
+      "en": { "prompt": "In two of these reactions the underlined substance is OXIDISED. Which pair? (a) $\\mathrm{2\\underline{Cu}+O_2\\to 2CuO}$ (b) $\\mathrm{2\\underline{CuO}+C\\to 2Cu+CO_2}$ (c) $\\mathrm{2H_2+\\underline{O_2}\\to 2H_2O}$ (d) $\\mathrm{2\\underline{Al}+6HCl\\to 2AlCl_3+3H_2}$ (e) $\\mathrm{3Cu+8\\underline{HNO_3}\\to 3Cu(NO_3)_2+4H_2O+2NO}$", "choices": ["a, b", "a, d", "a, e", "b, d", "b, e", "c, d", "d, e"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "a と d", "en": "a and d" },
+      "explanation": { "en": "(a) Cu $0\\to+2$ — oxidised. (d) Al $0\\to+3$ — oxidised. (b) Cu in CuO $+2\\to0$ — reduced. (c) O $0\\to-2$ — reduced. (e) the underlined $\\mathrm{HNO_3}$ that becomes NO is reduced (N $+5\\to+2$).", "ja": "(a) Cu $0\\to+2$ で酸化。(d) Al $0\\to+3$ で酸化。(b) CuO の Cu $+2\\to0$ で還元。(c) O $0\\to-2$ で還元。(e) NO になる下線の $\\mathrm{HNO_3}$ は還元（N $+5\\to+2$）。" }
+    },
+    {
+      "id": "2017-2-chem-14", "answerRow": 14, "topicId": "states-and-change",
+      "subtopic": "Purity of magnesium from hydrogen evolved",
+      "patternTags": ["stoichiometry", "purity", "gas-mole", "plug-in-numbers"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "不純物を含むマグネシウム Mg の粉末 $3.0\\,$g に希塩酸を加えて Mg をすべて溶かしたところ，$0.10\\,$mol の水素 $\\mathrm{H_2}$ が発生した。このマグネシウムの純度は質量パーセントで何 % か。ただし不純物は希塩酸と反応しないものとする。", "choices": ["20", "40", "50", "80", "96"] },
+      "en": { "prompt": "Adding dilute HCl to $3.0\\,$g of impure magnesium powder dissolved all the Mg and produced $0.10\\,$mol of $\\mathrm{H_2}$. What is the purity of the magnesium in mass percent? (The impurity does not react with HCl.)", "choices": ["20", "40", "50", "80", "96"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "80%", "en": "80%" },
+      "explanation": { "en": "$\\mathrm{Mg+2HCl\\to MgCl_2+H_2}$, so mol Mg $=$ mol $\\mathrm{H_2}=0.10$. Mass Mg $=0.10\\times24=2.4\\,$g. Purity $=2.4/3.0=0.80=80\\%$.", "ja": "$\\mathrm{Mg+2HCl\\to MgCl_2+H_2}$ より Mg の mol $=\\mathrm{H_2}$ の mol $=0.10$。Mg の質量 $=0.10\\times24=2.4\\,$g。純度 $=2.4/3.0=0.80=80\\%$。" }
+    },
+    {
+      "id": "2017-2-chem-15", "answerRow": 15, "topicId": "inorganic",
+      "subtopic": "Incorrect reagent for detecting an anion as a precipitate",
+      "patternTags": ["inorganic", "anion-tests", "precipitation", "pick-false-statement"], "hasFigure": true,
+      "figure": { "ja": "表（A 陰イオン / B 沈殿に用いる試薬）：① $\\mathrm{Cl^-}$ / $\\mathrm{AgNO_3}$；② $\\mathrm{SO_4^{2-}}$ / $\\mathrm{Mg(NO_3)_2}$；③ $\\mathrm{CO_3^{2-}}$ / $\\mathrm{Ba(NO_3)_2}$；④ $\\mathrm{CrO_4^{2-}}$ / $\\mathrm{Pb(NO_3)_2}$；⑤ $\\mathrm{[Fe(CN)_6]^{4-}}$ / $\\mathrm{FeCl_3}$。", "en": "Table (A anion / B reagent to precipitate it): ① $\\mathrm{Cl^-}$ / $\\mathrm{AgNO_3}$; ② $\\mathrm{SO_4^{2-}}$ / $\\mathrm{Mg(NO_3)_2}$; ③ $\\mathrm{CO_3^{2-}}$ / $\\mathrm{Ba(NO_3)_2}$; ④ $\\mathrm{CrO_4^{2-}}$ / $\\mathrm{Pb(NO_3)_2}$; ⑤ $\\mathrm{[Fe(CN)_6]^{4-}}$ / $\\mathrm{FeCl_3}$." },
+      "ja": { "prompt": "表の A 欄の陰イオンを B 欄の試薬で沈殿として検出したい。B 欄の試薬が誤っているものを①〜⑤から選びなさい。", "choices": ["① $\\mathrm{Cl^-}$ / $\\mathrm{AgNO_3}$", "② $\\mathrm{SO_4^{2-}}$ / $\\mathrm{Mg(NO_3)_2}$", "③ $\\mathrm{CO_3^{2-}}$ / $\\mathrm{Ba(NO_3)_2}$", "④ $\\mathrm{CrO_4^{2-}}$ / $\\mathrm{Pb(NO_3)_2}$", "⑤ $\\mathrm{[Fe(CN)_6]^{4-}}$ / $\\mathrm{FeCl_3}$"] },
+      "en": { "prompt": "To detect each column-A anion as a precipitate using the column-B reagent, which reagent is INCORRECT?", "choices": ["① $\\mathrm{Cl^-}$ / $\\mathrm{AgNO_3}$", "② $\\mathrm{SO_4^{2-}}$ / $\\mathrm{Mg(NO_3)_2}$", "③ $\\mathrm{CO_3^{2-}}$ / $\\mathrm{Ba(NO_3)_2}$", "④ $\\mathrm{CrO_4^{2-}}$ / $\\mathrm{Pb(NO_3)_2}$", "⑤ $\\mathrm{[Fe(CN)_6]^{4-}}$ / $\\mathrm{FeCl_3}$"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "②（$\\mathrm{MgSO_4}$ は可溶で沈殿しない）", "en": "② ($\\mathrm{MgSO_4}$ is soluble — no precipitate)" },
+      "explanation": { "en": "$\\mathrm{MgSO_4}$ is water-soluble, so $\\mathrm{Mg(NO_3)_2}$ cannot precipitate sulfate (use $\\mathrm{Ba(NO_3)_2}\\to\\mathrm{BaSO_4}$). The others are correct: AgCl, $\\mathrm{BaCO_3}$, $\\mathrm{PbCrO_4}$, and Prussian blue all precipitate.", "ja": "$\\mathrm{MgSO_4}$ は水に溶けるので $\\mathrm{Mg(NO_3)_2}$ では硫酸イオンを沈殿させられない（$\\mathrm{Ba(NO_3)_2}\\to\\mathrm{BaSO_4}$ を使う）。他は正：AgCl，$\\mathrm{BaCO_3}$，$\\mathrm{PbCrO_4}$，紺青が沈殿する。" }
+    },
+    {
+      "id": "2017-2-chem-16", "answerRow": 16, "topicId": "organic",
+      "subtopic": "Molecular formula from combustion CO2",
+      "patternTags": ["organic", "combustion-analysis", "empirical-formula", "plug-in-numbers"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "ある炭化水素 $29\\,$mg を完全燃焼させたところ，二酸化炭素 $\\mathrm{CO_2}$ が $88\\,$mg 得られた。この炭化水素の分子式として正しいものを選びなさい。", "choices": ["$\\mathrm{C_2H_5}$", "$\\mathrm{C_2H_6}$", "$\\mathrm{C_3H_6}$", "$\\mathrm{C_3H_7}$", "$\\mathrm{C_4H_{10}}$", "$\\mathrm{C_4H_{12}}$"] },
+      "en": { "prompt": "Completely combusting $29\\,$mg of a hydrocarbon gives $88\\,$mg of $\\mathrm{CO_2}$. What is its molecular formula?", "choices": ["$\\mathrm{C_2H_5}$", "$\\mathrm{C_2H_6}$", "$\\mathrm{C_3H_6}$", "$\\mathrm{C_3H_7}$", "$\\mathrm{C_4H_{10}}$", "$\\mathrm{C_4H_{12}}$"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "⑤ $\\mathrm{C_4H_{10}}$", "en": "⑤ $\\mathrm{C_4H_{10}}$" },
+      "explanation": { "en": "$\\mathrm{CO_2}=88/44=2.0\\,$mmol → C $=2.0\\,$mmol $=24\\,$mg. H $=29-24=5\\,$mg $=5.0\\,$mmol. C:H $=2.0:5.0=4:10$, so $\\mathrm{C_4H_{10}}$ (M = 58 checks: $29/58=0.5\\,$mmol gives exactly these amounts).", "ja": "$\\mathrm{CO_2}=88/44=2.0\\,$mmol → C $=2.0\\,$mmol$=24\\,$mg。H $=29-24=5\\,$mg$=5.0\\,$mmol。C:H $=2.0:5.0=4:10$ なので $\\mathrm{C_4H_{10}}$（M=58 で $29/58=0.5\\,$mmol となり整合）。" }
+    },
+    {
+      "id": "2017-2-chem-17", "answerRow": 17, "topicId": "organic",
+      "subtopic": "Count C4H10O isomers that react with sodium",
+      "patternTags": ["organic", "isomers", "alcohols", "stereoisomers", "counting"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "分子式 $\\mathrm{C_4H_{10}O}$ で表される脂肪族化合物のうち，金属ナトリウム Na と反応して水素 $\\mathrm{H_2}$ を発生するものの数を選びなさい。ただし立体異性体がある場合はそれらを別々に数えるものとする。", "choices": ["1", "2", "3", "4", "5", "6", "7"] },
+      "en": { "prompt": "How many aliphatic compounds with formula $\\mathrm{C_4H_{10}O}$ react with sodium to release $\\mathrm{H_2}$? Count stereoisomers separately.", "choices": ["1", "2", "3", "4", "5", "6", "7"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "5", "en": "5" },
+      "explanation": { "en": "Reaction with Na means the compound is an alcohol (–OH). The $\\mathrm{C_4H_9OH}$ alcohols are: 1-butanol, 2-butanol (chiral → 2 stereoisomers), 2-methyl-1-propanol, and 2-methyl-2-propanol. Counting the two enantiomers separately: $1+2+1+1=5$.", "ja": "Na と反応するのはアルコール（–OH）。$\\mathrm{C_4H_9OH}$ は 1-ブタノール，2-ブタノール（不斉炭素→ 2 種の立体異性体），2-メチル-1-プロパノール，2-メチル-2-プロパノール。鏡像異性体を別に数えて $1+2+1+1=5$。" }
+    },
+    {
+      "id": "2017-2-chem-18", "answerRow": 18, "topicId": "organic",
+      "subtopic": "Incorrect reagent for distinguishing two compounds",
+      "patternTags": ["organic", "qualitative-tests", "distinguishing", "pick-false-statement"], "hasFigure": true,
+      "figure": { "ja": "表（A 2 つの化合物 / B 区別の試薬）：① ニトロベンゼン・アニリン / さらし粉水溶液；② フェノール・トルエン / NaOH aq；③ サリチル酸・アセチルサリチル酸 / $\\mathrm{NaHCO_3}$ aq；④ 安息香酸・サリチル酸メチル / $\\mathrm{FeCl_3}$ aq。", "en": "Table (A two compounds / B reagent to distinguish): ① nitrobenzene & aniline / bleaching-powder solution; ② phenol & toluene / NaOH aq; ③ salicylic acid & acetylsalicylic acid / $\\mathrm{NaHCO_3}$ aq; ④ benzoic acid & methyl salicylate / $\\mathrm{FeCl_3}$ aq." },
+      "ja": { "prompt": "表の A 欄に示す二つの化合物を B 欄の試薬で区別したい。B 欄の試薬が誤っているものを①〜④から選びなさい。", "choices": ["① ニトロベンゼン・アニリン / さらし粉水溶液", "② フェノール・トルエン / NaOH aq", "③ サリチル酸・アセチルサリチル酸 / $\\mathrm{NaHCO_3}$ aq", "④ 安息香酸・サリチル酸メチル / $\\mathrm{FeCl_3}$ aq"] },
+      "en": { "prompt": "To distinguish the two compounds in column A using the column-B reagent, which reagent is INCORRECT?", "choices": ["① nitrobenzene & aniline / bleaching-powder solution", "② phenol & toluene / NaOH aq", "③ salicylic acid & acetylsalicylic acid / $\\mathrm{NaHCO_3}$ aq", "④ benzoic acid & methyl salicylate / $\\mathrm{FeCl_3}$ aq"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "③（両方ともカルボキシ基をもち $\\mathrm{NaHCO_3}$ と反応）", "en": "③ (both are carboxylic acids, both react with $\\mathrm{NaHCO_3}$)" },
+      "explanation": { "en": "Salicylic acid and acetylsalicylic acid both have a –COOH group, so both react with $\\mathrm{NaHCO_3}$ (releasing $\\mathrm{CO_2}$) — it cannot distinguish them (use $\\mathrm{FeCl_3}$: only salicylic acid's phenol gives a colour). The others work: bleaching powder colours aniline; NaOH dissolves phenol; $\\mathrm{FeCl_3}$ colours methyl salicylate.", "ja": "サリチル酸とアセチルサリチル酸はどちらも –COOH をもち $\\mathrm{NaHCO_3}$ と反応（$\\mathrm{CO_2}$ 発生）するので区別できない（$\\mathrm{FeCl_3}$ ならサリチル酸のフェノール性 OH のみ呈色）。他は有効：さらし粉はアニリンを呈色，NaOH はフェノールを溶かす，$\\mathrm{FeCl_3}$ はサリチル酸メチルを呈色。" }
+    },
+    {
+      "id": "2017-2-chem-19", "answerRow": 19, "topicId": "organic",
+      "subtopic": "Two polymers made by condensation polymerization",
+      "patternTags": ["organic", "polymers", "condensation-polymerization", "true-false-combo"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の高分子化合物(a)〜(d)のうち，縮合重合により生成するものが二つある。その組み合わせを選びなさい。 (a) ポリエチレンテレフタラート (b) ポリ酢酸ビニル (c) ポリメタクリル酸メチル (d) ナイロン 66", "choices": ["a, b", "a, c", "a, d", "b, c", "b, d", "c, d"] },
+      "en": { "prompt": "Two of these polymers are made by CONDENSATION polymerization. Which pair? (a) poly(ethylene terephthalate) (b) poly(vinyl acetate) (c) poly(methyl methacrylate) (d) nylon 6,6", "choices": ["a, b", "a, c", "a, d", "b, c", "b, d", "c, d"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "a と d", "en": "a and d" },
+      "explanation": { "en": "PET (a, ester) and nylon 6,6 (d, amide) form by condensation polymerization (eliminating water). Poly(vinyl acetate) (b) and PMMA (c) form by addition polymerization of C=C monomers.", "ja": "PET（a，エステル）とナイロン 66（d，アミド）は縮合重合（水がとれる）で生成。ポリ酢酸ビニル（b）とポリメタクリル酸メチル（c）は C=C モノマーの付加重合。" }
+    },
+    {
+      "id": "2017-2-chem-20", "answerRow": 20, "topicId": "organic",
+      "subtopic": "Incorrect statement about egg-white protein",
+      "patternTags": ["organic", "protein", "color-reactions", "pick-false-statement"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "卵の白身部分のタンパク質に関する記述①〜⑤のうち，下線部が誤っているものを選びなさい。 ① うすい食塩水に溶ける。 ② 加熱すると固まる。 ③ 塩酸を加えると変性する。 ④ 水酸化ナトリウム水溶液と硫酸銅(II)水溶液を加えると赤紫色になる。 ⑤ ニンヒドリン水溶液を加えて加熱すると黄色になる。", "choices": ["①", "②", "③", "④", "⑤"] },
+      "en": { "prompt": "Which underlined part about egg-white protein is INCORRECT? ① It dissolves in dilute saline. ② Heating solidifies it. ③ Adding HCl denatures it. ④ Adding NaOH solution and copper(II) sulfate solution turns it reddish-purple. ⑤ Adding ninhydrin solution and heating turns it YELLOW.", "choices": ["①", "②", "③", "④", "⑤"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "⑤（ニンヒドリン反応は紫色）", "en": "⑤ (the ninhydrin reaction is purple)" },
+      "explanation": { "en": "The ninhydrin test for proteins/amino acids gives a purple (violet) colour, not yellow, so ⑤ is wrong. The others are correct: egg albumin dissolves in dilute saline, coagulates on heating, denatures with HCl, and the biuret test (NaOH + $\\mathrm{CuSO_4}$) gives reddish-purple.", "ja": "タンパク質・アミノ酸のニンヒドリン反応は紫色で黄色ではないので⑤が誤り。他は正：卵白アルブミンは薄い食塩水に溶け，加熱で凝固し，塩酸で変性し，ビウレット反応（NaOH＋$\\mathrm{CuSO_4}$）で赤紫色。" }
+    }
+  ],
+  "patterns": {
+    "archetypes": [
+      "Ion + ionic formula from electron-shell diagrams (Mg²⁺ + Cl⁻ → MgCl₂).",
+      "Incorrect bonding statement (dry ice is held by intermolecular forces).",
+      "Pair that are both polar molecules (HCl, CH₃Cl).",
+      "Mole ratio from an average molecular weight (N₂/H₂).",
+      "Gas volume after combustion with leftover O₂ (water removed).",
+      "FCC crystal facts: close-packed, edge = 2√2·r, 4 atoms, coordination 12.",
+      "Smallest pH among equimolar acids (diprotic strong acid wins).",
+      "Lead-acid battery electrode mass change per mole of electrons.",
+      "Reaction heat from heats of formation (−Q₁ + 2Q₂).",
+      "Concentration equilibrium constant from a pressure change.",
+      "Metal soluble in NaOH but passive in conc. HNO₃ (Al).",
+      "Acidic oxide → named acid with water (anhydride identification).",
+      "Two reactions where the underlined species is oxidised.",
+      "Purity of a metal from the hydrogen evolved.",
+      "Incorrect anion-detection reagent (MgSO₄ is soluble).",
+      "Molecular formula from combustion CO₂ mass.",
+      "Counting C₄H₁₀O alcohols that react with Na (stereoisomers separate).",
+      "Incorrect reagent to distinguish two organics (NaHCO₃ can't tell two –COOH apart).",
+      "Two condensation polymers (PET, nylon 6,6).",
+      "Incorrect protein statement (ninhydrin gives purple, not yellow)."
+    ],
+    "recurring": [
+      "Atomic-structure / bonding / polarity / crystal-structure screens open the paper.",
+      "Quantitative core: average molar mass, combustion gas balance, battery electrode mass, formation-heat algebra, equilibrium constant, purity.",
+      "Qualitative inorganic block: amphoteric/passive metals, acidic-oxide anhydrides, redox direction, anion precipitation tests.",
+      "Organic: combustion formula, isomer/alcohol counting, distinguishing reagents, condensation polymers, protein colour reactions."
+    ],
+    "examTacticNotes": [
+      "Read electron shells to get Z; Mg (2,8,2)→Mg²⁺, Cl (2,8,7)→Cl⁻ ⇒ MgCl₂.",
+      "Dry ice: covalent within each CO₂ molecule, intermolecular forces between molecules.",
+      "Both-polar pair: HCl and CH₃Cl (asymmetric); CH₄/CCl₄/CO₂/N₂/F₂/Cl₂ are non-polar.",
+      "Average M: 28x + 2(1−x) = 8.5 ⇒ x = 0.25 ⇒ N₂:H₂ = 1:3.",
+      "Combustion leftover: propane uses 5 O₂ per 1; remaining gas = CO₂ + excess O₂ (water removed).",
+      "FCC: close-packed, edge a = 2√2·r (face diagonal 4r), 4 atoms/cell, coordination number 12.",
+      "Smallest pH among 0.01 mol/L: H₂SO₄ (diprotic strong, [H⁺]≈0.02).",
+      "Lead-acid positive electrode: PbO₂→PbSO₄ gains 64 g per 2 e⁻ (+32 g per mol e⁻).",
+      "Reaction heat = Σ(formation heats of products) − Σ(reactants) = −Q₁ + 2Q₂.",
+      "At constant T,V pressure ∝ moles; solve dissociation x, then Kc = [NO₂]²/[N₂O₄].",
+      "Al dissolves in NaOH but is passivated by conc. HNO₃.",
+      "Acid anhydrides: NO₂→HNO₃, P₄O₁₀→H₃PO₄; SO₂→H₂SO₃ (not H₂SO₄), Cl₂O₇→HClO₄ (not HCl).",
+      "Oxidised = oxidation number rises: Cu 0→+2, Al 0→+3.",
+      "Purity: mol Mg = mol H₂; mass = mol×24; divide by sample mass.",
+      "MgSO₄ is soluble — use Ba²⁺ to precipitate sulfate.",
+      "Combustion: mol CO₂ → mol C; H mass = sample − C mass; ratio gives the formula.",
+      "C₄H₁₀O alcohols reacting with Na = 5 counting 2-butanol's two enantiomers.",
+      "NaHCO₃ reacts with any –COOH, so it can't distinguish two carboxylic acids; use FeCl₃ for the phenol.",
+      "Condensation polymers: PET (ester) and nylon 6,6 (amide); vinyl/methacrylate are addition.",
+      "Ninhydrin test → purple; biuret (NaOH + CuSO₄) → reddish-purple."
+    ],
+    "difficulty": "Standard EJU chemistry — a balanced full-syllabus sweep. The more discriminating items are the FCC geometry (Q6), the formation-heat sign algebra (Q9), the equilibrium-constant-from-pressure calculation (Q10), and the C₄H₁₀O alcohol/stereoisomer count (Q17)."
+  }
+}

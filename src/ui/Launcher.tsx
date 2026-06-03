@@ -3,9 +3,10 @@ import { useT, type StringKey } from '../i18n';
 import {
   AskIcon,
   GenerateIcon,
+  ExamIcon,
   NotesIcon,
-  CheckIcon,
   ChartIcon,
+  TimerIcon,
   SettingsIcon,
   UserIcon,
   MenuIcon,
@@ -15,11 +16,12 @@ import {
 type Item = { id: Exclude<PanelId, null>; label: StringKey; Icon: typeof AskIcon };
 
 const PRIMARY: Item[] = [
-  { id: 'ask', label: 'ask', Icon: AskIcon },
+  { id: 'ask', label: 'askCoach', Icon: AskIcon },
   { id: 'generate', label: 'generate', Icon: GenerateIcon },
-  { id: 'check', label: 'check', Icon: CheckIcon },
+  { id: 'exams', label: 'exams', Icon: ExamIcon },
   { id: 'progress', label: 'progress', Icon: ChartIcon },
   { id: 'notes', label: 'notes', Icon: NotesIcon },
+  { id: 'timer', label: 'timer', Icon: TimerIcon },
 ];
 const SECONDARY: Item[] = [
   { id: 'settings', label: 'settings', Icon: SettingsIcon },

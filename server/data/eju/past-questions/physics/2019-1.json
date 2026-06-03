@@ -1,0 +1,226 @@
+{
+  "id": "2019-1-physics",
+  "year": 2019,
+  "session": 1,
+  "subject": "physics",
+  "title": "EJU 2019 · Session 1 · Physics",
+  "source": "2019年度 日本留学試験（第1回）理科〈物理〉 © Japan Student Services Organization (JASSO)",
+  "attribution": "EJU past questions © JASSO. Question text transcribed from the official past paper; figures described in text; correct answers taken from the official JASSO answer key and independently re-solved for verification.",
+  "languages": ["ja", "en"],
+  "answerKeyVerified": true,
+  "structure": {
+    "blocks": [
+      { "id": "I", "topicId": "mech", "name": { "ja": "力学", "en": "Mechanics" }, "questionCount": 6 },
+      { "id": "II", "topicId": "thermo", "name": { "ja": "熱力学", "en": "Thermodynamics" }, "questionCount": 3 },
+      { "id": "III", "topicId": "waves", "name": { "ja": "波動", "en": "Waves" }, "questionCount": 3 },
+      { "id": "IV", "topicId": "em", "name": { "ja": "電気と磁気", "en": "Electricity & Magnetism" }, "questionCount": 6 },
+      { "id": "V", "topicId": "atoms", "name": { "ja": "原子", "en": "Atoms" }, "questionCount": 1 }
+    ],
+    "totalQuestions": 19,
+    "givens": { "ja": "重力加速度の大きさを g とし，空気の抵抗は無視できるものとする。", "en": "Take the magnitude of gravitational acceleration as g; air resistance is negligible." }
+  },
+  "questions": [
+    {
+      "id": "2019-1-phy-1", "answerRow": 1, "block": "I", "topicId": "mech",
+      "subtopic": "Equilibrium of a rigid body (two perpendicular rods, torque)",
+      "patternTags": ["express-formula", "torque", "equilibrium"], "hasFigure": true,
+      "figure": { "ja": "質量の無視できる2本の一様な細い棒が直角に接続され，接続点を糸でつるす。長さ ℓ1 の棒の先に質量 m1，長さ ℓ2 の棒の先に質量 m2。長さ ℓ1 の棒が鉛直下方となす角が θ（左下へ），もう一方は右下へ。", "en": "Two light rigid rods joined at right angles hang by a string from the joint. Rod of length ℓ1 (mass m1 at its tip) makes angle θ with the downward vertical (to the lower-left); the other rod (length ℓ2, mass m2) goes to the lower-right." },
+      "ja": { "prompt": "質量の無視できる2本の一様な細い棒が直角に接続され，接続点に糸をつけてつるしたところ静止した。長さ $\\ell_1$ の棒の先端に質量 $m_1$，長さ $\\ell_2$ の棒の先端に質量 $m_2$ がついている。長さ $\\ell_1$ の棒が鉛直下方となす角は $\\theta$ であった。$\\tan\\theta$ はどのように表されるか。", "choices": ["$\\dfrac{m_1\\ell_1}{m_2\\ell_2}$", "$\\dfrac{m_2\\ell_2}{m_1\\ell_1}$", "$\\dfrac{m_2\\ell_1}{m_1\\ell_2}$", "$\\dfrac{m_1\\ell_2}{m_2\\ell_1}$"] },
+      "en": { "prompt": "Two light rigid rods joined at right angles hang in equilibrium from a string at the joint. A mass $m_1$ is at the tip of the rod of length $\\ell_1$ and $m_2$ at the tip of the rod of length $\\ell_2$. The rod of length $\\ell_1$ makes angle $\\theta$ with the downward vertical. Express $\\tan\\theta$.", "choices": ["$\\dfrac{m_1\\ell_1}{m_2\\ell_2}$", "$\\dfrac{m_2\\ell_2}{m_1\\ell_1}$", "$\\dfrac{m_2\\ell_1}{m_1\\ell_2}$", "$\\dfrac{m_1\\ell_2}{m_2\\ell_1}$"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "$\\dfrac{m_2\\ell_2}{m_1\\ell_1}$", "en": "$\\dfrac{m_2\\ell_2}{m_1\\ell_1}$" },
+      "explanation": { "en": "Torque balance about the joint. Horizontal offset of $m_1$ is $\\ell_1\\sin\\theta$; since the rods are perpendicular, that of $m_2$ is $\\ell_2\\cos\\theta$. So $m_1g\\,\\ell_1\\sin\\theta=m_2g\\,\\ell_2\\cos\\theta$, giving $\\tan\\theta=\\dfrac{m_2\\ell_2}{m_1\\ell_1}$.", "ja": "接続点まわりのモーメント：$m_1g\\ell_1\\sin\\theta=m_2g\\ell_2\\cos\\theta$（棒は直角）より $\\tan\\theta=\\dfrac{m_2\\ell_2}{m_1\\ell_1}$。" }
+    },
+    {
+      "id": "2019-1-phy-2", "answerRow": 2, "block": "I", "topicId": "mech",
+      "subtopic": "Projectile motion (launched below the horizontal)",
+      "patternTags": ["plug-in-numbers", "projectile-motion", "kinematics"], "hasFigure": true,
+      "figure": { "ja": "高さ h の位置から，水平より下向き45°方向に初速 v0 で小球を投げると，投げた位置からの水平距離 h/2 で床に落ちる。", "en": "From height h, a ball is thrown at speed v0 directed 45° below the horizontal; it lands on the floor at a horizontal distance h/2 from the launch point." },
+      "ja": { "prompt": "水平な床からの高さ $h$ の位置から，水平方向となす角が下向き $45^\\circ$ の方向に初速 $v_0$ で小球を投げたところ，投げた位置からの水平距離が $\\dfrac{h}{2}$ の位置で床に落ちた。$v_0$ はどのように表されるか。", "choices": ["$\\dfrac{\\sqrt{gh}}{2}$", "$\\dfrac{\\sqrt{2gh}}{2}$", "$\\sqrt{gh}$", "$\\sqrt{2gh}$", "$2\\sqrt{gh}$"] },
+      "en": { "prompt": "From a height $h$ above the floor, a ball is thrown with speed $v_0$ at $45^\\circ$ below the horizontal and lands at horizontal distance $\\dfrac{h}{2}$ from the launch point. Express $v_0$.", "choices": ["$\\dfrac{\\sqrt{gh}}{2}$", "$\\dfrac{\\sqrt{2gh}}{2}$", "$\\sqrt{gh}$", "$\\sqrt{2gh}$", "$2\\sqrt{gh}$"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "$\\dfrac{\\sqrt{2gh}}{2}$", "en": "$\\dfrac{\\sqrt{2gh}}{2}$" },
+      "explanation": { "en": "Let $u=v_0\\cos45^\\circ=v_0\\sin45^\\circ=v_0/\\sqrt2$. Horizontal: $ut=h/2$. Vertical: $h=ut+\\tfrac12gt^2=h/2+\\tfrac12 g t^2$, so $h/2=\\tfrac12 g t^2$ with $t=h/(2u)$. This gives $u^2=gh/4$, so $v_0=u\\sqrt2=\\sqrt{2gh}/2$.", "ja": "$u=v_0/\\sqrt2$。水平 $ut=h/2$，鉛直 $h=ut+\\tfrac12gt^2$ より $u^2=gh/4$，$v_0=\\sqrt{2gh}/2$。" }
+    },
+    {
+      "id": "2019-1-phy-3", "answerRow": 3, "block": "I", "topicId": "mech",
+      "subtopic": "Friction on an incline (down-slide vs up-slide acceleration)",
+      "patternTags": ["express-formula", "friction", "inclined-plane"], "hasFigure": true,
+      "figure": { "ja": "図1：傾角 θ の摩擦のある斜面に小物体を静かに置くと加速度 a で下向きにすべる。図2：同じ斜面で同じ物体に上向きの初速を与えると加速度 a' で減速しながら上向きにすべる。", "en": "Fig 1: placed at rest on a rough incline (angle θ), a block slides down with acceleration a. Fig 2: given an initial up-slope speed, the same block decelerates up the incline with acceleration a'." },
+      "ja": { "prompt": "図1のように傾角 $\\theta$ の摩擦のある斜面に小物体を静かに置くと加速度の大きさ $a$ で下向きにすべり始めた。図2のように同じ斜面で同じ物体に上向きの初速を与えると加速度の大きさ $a'$ で上向きにすべった。$a'$ はどのように表されるか。", "choices": ["$2g\\sin\\theta+a$", "$2g\\cos\\theta+a$", "$2g\\tan\\theta+a$", "$2g\\sin\\theta-a$", "$2g\\cos\\theta-a$", "$2g\\tan\\theta-a$"] },
+      "en": { "prompt": "On a rough incline of angle $\\theta$, a block released from rest slides down with acceleration magnitude $a$ (Fig 1). Given an up-slope initial speed, the same block moves up with acceleration magnitude $a'$ (Fig 2). Express $a'$.", "choices": ["$2g\\sin\\theta+a$", "$2g\\cos\\theta+a$", "$2g\\tan\\theta+a$", "$2g\\sin\\theta-a$", "$2g\\cos\\theta-a$", "$2g\\tan\\theta-a$"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "$2g\\sin\\theta-a$", "en": "$2g\\sin\\theta-a$" },
+      "explanation": { "en": "Down: $a=g\\sin\\theta-\\mu g\\cos\\theta$. Up (friction also acts down-slope): $a'=g\\sin\\theta+\\mu g\\cos\\theta$. Adding the friction term from the first, $\\mu g\\cos\\theta=g\\sin\\theta-a$, so $a'=g\\sin\\theta+(g\\sin\\theta-a)=2g\\sin\\theta-a$.", "ja": "下り $a=g\\sin\\theta-\\mu g\\cos\\theta$，上り $a'=g\\sin\\theta+\\mu g\\cos\\theta$。$\\mu g\\cos\\theta=g\\sin\\theta-a$ より $a'=2g\\sin\\theta-a$。" }
+    },
+    {
+      "id": "2019-1-phy-4", "answerRow": 4, "block": "I", "topicId": "mech",
+      "subtopic": "Energy + inelastic collision + friction (sliding distance)",
+      "patternTags": ["plug-in-numbers", "energy-conservation", "momentum-conservation", "inelastic-collision", "friction"], "hasFigure": true,
+      "figure": { "ja": "長さ ℓ の軽い糸の一端を O に固定，他端に質量 M の P をつける。P を O と同じ高さ A まで持ち上げ静かにはなすと，最下点 B で静止中の質量 m の Q に非弾性衝突。衝突後 P は高さ ℓ/4 の C まで上がり，Q は床上を距離 d すべって D で止まる。Q と床の動摩擦係数 μ'。", "en": "A bob P (mass M) on a string of length ℓ from O is raised to A (level with O) and released; at the lowest point B it collides inelastically with a stationary block Q (mass m). After, P rises to height ℓ/4 (point C) and Q slides distance d to D. Kinetic-friction coefficient between Q and floor is μ'." },
+      "ja": { "prompt": "長さ $\\ell$ の伸び縮みしない軽い糸の一端を O に固定し，他端に質量 $M$ の小物体 P をつける。P を O と同じ高さの位置 A まで持ち上げ静かにはなすと，O の真下 B で静止している質量 $m$ の小物体 Q に非弾性衝突した。衝突後，P は床面から高さ $\\dfrac{\\ell}{4}$ の C まで上がり，Q は床面上を距離 $d$ すべって D で静止した。Q と床面の動摩擦係数を $\\mu'$ とする。$d$ はどのように表されるか。", "choices": ["$\\dfrac{M^2\\ell}{4\\mu' m^2}$", "$\\dfrac{M^2\\ell}{2\\mu' m^2}$", "$\\dfrac{3M^2\\ell}{2\\mu' m^2}$", "$\\dfrac{9M^2\\ell}{4\\mu' m^2}$"] },
+      "en": { "prompt": "A bob P (mass $M$) on a light inextensible string of length $\\ell$ from O is raised to A (level with O) and released; at point B (directly below O) it collides inelastically with a stationary block Q (mass $m$). Afterward P rises to height $\\dfrac{\\ell}{4}$ (point C) and Q slides distance $d$ before stopping. With kinetic-friction coefficient $\\mu'$ between Q and the floor, express $d$.", "choices": ["$\\dfrac{M^2\\ell}{4\\mu' m^2}$", "$\\dfrac{M^2\\ell}{2\\mu' m^2}$", "$\\dfrac{3M^2\\ell}{2\\mu' m^2}$", "$\\dfrac{9M^2\\ell}{4\\mu' m^2}$"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "$\\dfrac{M^2\\ell}{4\\mu' m^2}$", "en": "$\\dfrac{M^2\\ell}{4\\mu' m^2}$" },
+      "explanation": { "en": "P at B: $v=\\sqrt{2g\\ell}$. After, P rises to $\\ell/4$: $v_P'=\\sqrt{2g\\,\\ell/4}=\\sqrt{g\\ell/2}$ (forward). Momentum: $Mv=Mv_P'+mv_Q'$ gives $v_Q'=\\dfrac{M}{m}\\dfrac{\\sqrt{g\\ell}}{\\sqrt2}$. Friction stop: $d=\\dfrac{v_Q'^2}{2\\mu'g}=\\dfrac{M^2\\ell}{4\\mu' m^2}$.", "ja": "B で $v=\\sqrt{2g\\ell}$。P は $\\ell/4$ まで上がり $v_P'=\\sqrt{g\\ell/2}$。運動量保存より $v_Q'=\\dfrac{M}{m}\\dfrac{\\sqrt{g\\ell}}{\\sqrt2}$，摩擦停止 $d=\\dfrac{v_Q'^2}{2\\mu'g}=\\dfrac{M^2\\ell}{4\\mu'm^2}$。" }
+    },
+    {
+      "id": "2019-1-phy-5", "answerRow": 5, "block": "I", "topicId": "mech",
+      "subtopic": "Simple harmonic motion (spring pendulum vs simple pendulum period)",
+      "patternTags": ["express-formula", "simple-harmonic-motion", "period", "ratio"], "hasFigure": false,
+      "ja": { "prompt": "軽いばねに小球をつるした鉛直ばね振り子では，つり合いでばねは自然長から $d$ だけ伸びており，単振動の周期は $T$ であった。次に同じ小球を長さ $\\ell$ の軽い糸につけ単振り子として小さく振動させると，周期は同じく $T$ であった。$\\dfrac{\\ell}{d}$ はいくらか。", "choices": ["$\\dfrac{1}{4}$", "$\\dfrac{1}{2}$", "$\\dfrac{\\sqrt2}{2}$", "$1$", "$\\sqrt2$", "$2$", "$4$"] },
+      "en": { "prompt": "A vertical spring-mass oscillator stretches by $d$ at equilibrium and has period $T$. The same mass on a light string of length $\\ell$ swings as a simple pendulum with the same period $T$. Find $\\dfrac{\\ell}{d}$.", "choices": ["$\\dfrac{1}{4}$", "$\\dfrac{1}{2}$", "$\\dfrac{\\sqrt2}{2}$", "$1$", "$\\sqrt2$", "$2$", "$4$"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "$1$", "en": "$1$" },
+      "explanation": { "en": "Spring: $k=mg/d$, $T=2\\pi\\sqrt{m/k}=2\\pi\\sqrt{d/g}$. Pendulum: $T=2\\pi\\sqrt{\\ell/g}$. Equal periods ⇒ $\\ell=d$, so $\\ell/d=1$.", "ja": "ばね $T=2\\pi\\sqrt{d/g}$，振り子 $T=2\\pi\\sqrt{\\ell/g}$。等しいので $\\ell/d=1$。" }
+    },
+    {
+      "id": "2019-1-phy-6", "answerRow": 6, "block": "I", "topicId": "mech",
+      "subtopic": "Universal gravitation; period of a circular orbit",
+      "patternTags": ["express-formula", "universal-gravitation", "uniform-circular-motion"], "hasFigure": true,
+      "figure": { "ja": "半径 R の地球を中心に，半径 2R の円軌道で等速円運動する人工衛星。地表の重力加速度 g。", "en": "A satellite in a circular orbit of radius 2R about Earth (radius R); surface gravity is g." },
+      "ja": { "prompt": "地球を半径 $R$ の球とし，地表での重力加速度の大きさを $g$ とする。地球を中心として半径 $2R$ の等速円運動をする人工衛星の周期はどのように表されるか。", "choices": ["$\\pi\\sqrt{\\dfrac{R}{g}}$", "$\\pi\\sqrt{\\dfrac{2R}{g}}$", "$2\\pi\\sqrt{\\dfrac{R}{g}}$", "$2\\pi\\sqrt{\\dfrac{2R}{g}}$", "$4\\pi\\sqrt{\\dfrac{R}{g}}$", "$4\\pi\\sqrt{\\dfrac{2R}{g}}$"] },
+      "en": { "prompt": "Earth is a sphere of radius $R$ with surface gravity $g$. A satellite moves in a circular orbit of radius $2R$ about Earth's center. Express its orbital period.", "choices": ["$\\pi\\sqrt{\\dfrac{R}{g}}$", "$\\pi\\sqrt{\\dfrac{2R}{g}}$", "$2\\pi\\sqrt{\\dfrac{R}{g}}$", "$2\\pi\\sqrt{\\dfrac{2R}{g}}$", "$4\\pi\\sqrt{\\dfrac{R}{g}}$", "$4\\pi\\sqrt{\\dfrac{2R}{g}}$"] },
+      "answerIndex": 5, "answerOption": 6, "answer": { "ja": "$4\\pi\\sqrt{\\dfrac{2R}{g}}$", "en": "$4\\pi\\sqrt{\\dfrac{2R}{g}}$" },
+      "explanation": { "en": "$GM=gR^2$. Orbit: $GM/(2R)^2=v^2/(2R)\\Rightarrow v=\\sqrt{gR/2}$. Period $T=\\dfrac{2\\pi(2R)}{v}=4\\pi\\sqrt{\\dfrac{2R}{g}}$.", "ja": "$GM=gR^2$。$GM/(2R)^2=v^2/(2R)$ より $v=\\sqrt{gR/2}$，$T=\\dfrac{2\\pi(2R)}{v}=4\\pi\\sqrt{\\dfrac{2R}{g}}$。" }
+    },
+    {
+      "id": "2019-1-phy-7", "answerRow": 7, "block": "II", "topicId": "thermo",
+      "subtopic": "Calorimetry (heat exchanged between two bodies)",
+      "patternTags": ["express-formula", "calorimetry", "heat-capacity"], "hasFigure": false,
+      "ja": { "prompt": "断熱容器中の温度 $t_1$ の液体（熱容量 $C_1$）に，温度 $t_2\\,(<t_1)$ の金属球（熱容量 $C_2$）を入れると，じゅうぶん時間後に両者は等しい温度になった。熱は液体と金属球の間だけを移動する。液体から金属球に移動した熱量はどのように表されるか。", "choices": ["$(C_1+C_2)(t_1-t_2)$", "$\\dfrac{(C_1^2+C_2^2)(t_1-t_2)}{C_1+C_2}$", "$\\dfrac{C_1C_2(t_1-t_2)}{C_1+C_2}$", "$(C_1-C_2)(t_1-t_2)$", "$\\dfrac{(C_1^2+C_2^2)(t_1-t_2)}{C_1-C_2}$", "$\\dfrac{C_1C_2(t_1-t_2)}{C_1-C_2}$"] },
+      "en": { "prompt": "In an insulated container, a liquid at $t_1$ (heat capacity $C_1$) receives a metal ball at $t_2\\,(<t_1)$ (heat capacity $C_2$); they reach a common temperature, heat flowing only between them. How much heat moved from the liquid to the ball?", "choices": ["$(C_1+C_2)(t_1-t_2)$", "$\\dfrac{(C_1^2+C_2^2)(t_1-t_2)}{C_1+C_2}$", "$\\dfrac{C_1C_2(t_1-t_2)}{C_1+C_2}$", "$(C_1-C_2)(t_1-t_2)$", "$\\dfrac{(C_1^2+C_2^2)(t_1-t_2)}{C_1-C_2}$", "$\\dfrac{C_1C_2(t_1-t_2)}{C_1-C_2}$"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "$\\dfrac{C_1C_2(t_1-t_2)}{C_1+C_2}$", "en": "$\\dfrac{C_1C_2(t_1-t_2)}{C_1+C_2}$" },
+      "explanation": { "en": "Final temp $t_f=\\dfrac{C_1t_1+C_2t_2}{C_1+C_2}$. Heat into the ball $=C_2(t_f-t_2)=\\dfrac{C_1C_2(t_1-t_2)}{C_1+C_2}$.", "ja": "$t_f=\\dfrac{C_1t_1+C_2t_2}{C_1+C_2}$，球が得た熱 $=C_2(t_f-t_2)=\\dfrac{C_1C_2(t_1-t_2)}{C_1+C_2}$。" }
+    },
+    {
+      "id": "2019-1-phy-8", "answerRow": 8, "block": "II", "topicId": "thermo",
+      "subtopic": "Ideal gas; two connected cylinders (force balance + gas law)",
+      "patternTags": ["express-formula", "ideal-gas", "pressure-force-balance"], "hasFigure": true,
+      "figure": { "ja": "断面積 SA の水平シリンダー A と断面積 SB のシリンダー B を向かい合わせ，2つのピストンを棒で接続。等しい物質量の理想気体を封入。A 内ピストンは底から LA，B 内は LB で静止。A は (TA,pA)，B は (TB,pB)。大気圧は無視。", "en": "Horizontal cylinders A (cross-section SA) and B (SB) face each other with their pistons joined by a rod; each holds equal moles of ideal gas. Piston A rests at distance LA from A's base, piston B at LB. States: A (TA,pA), B (TB,pB). Atmospheric pressure neglected." },
+      "ja": { "prompt": "断面積 $S_A$ のシリンダー A と断面積 $S_B$ のシリンダー B を向かい合わせ，2つのピストンを棒で接続し，等しい物質量の理想気体を閉じ込めた。A 内のピストンは底面から $L_A$，B 内は $L_B$ で静止し，A 中の気体は $(T_A,p_A)$，B 中は $(T_B,p_B)$ であった。大気圧の影響は無視する。$\\dfrac{T_B}{T_A}$ はどのように表されるか。", "choices": ["$\\dfrac{L_B}{L_A}$", "$\\dfrac{S_BL_B}{S_AL_A}$", "$\\dfrac{p_BL_B}{p_AL_A}$", "$\\dfrac{L_A}{L_B}$", "$\\dfrac{S_AL_A}{S_BL_B}$", "$\\dfrac{p_AL_A}{p_BL_B}$"] },
+      "en": { "prompt": "Cylinders A (area $S_A$) and B (area $S_B$) face each other with pistons joined by a rod, each holding equal moles of ideal gas. Piston A rests at $L_A$ from A's base, piston B at $L_B$; gas states are A $(T_A,p_A)$, B $(T_B,p_B)$. Atmospheric pressure is neglected. Express $\\dfrac{T_B}{T_A}$.", "choices": ["$\\dfrac{L_B}{L_A}$", "$\\dfrac{S_BL_B}{S_AL_A}$", "$\\dfrac{p_BL_B}{p_AL_A}$", "$\\dfrac{L_A}{L_B}$", "$\\dfrac{S_AL_A}{S_BL_B}$", "$\\dfrac{p_AL_A}{p_BL_B}$"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "$\\dfrac{L_B}{L_A}$", "en": "$\\dfrac{L_B}{L_A}$" },
+      "explanation": { "en": "The rod transmits force, so $p_AS_A=p_BS_B$. With $pV=nRT$ and equal $n$: $\\dfrac{T_B}{T_A}=\\dfrac{p_BV_B}{p_AV_A}=\\dfrac{p_BS_BL_B}{p_AS_AL_A}=\\dfrac{L_B}{L_A}$ (using $p_AS_A=p_BS_B$).", "ja": "棒で力がつり合い $p_AS_A=p_BS_B$。$pV=nRT$（同じ $n$）より $\\dfrac{T_B}{T_A}=\\dfrac{p_BS_BL_B}{p_AS_AL_A}=\\dfrac{L_B}{L_A}$。" }
+    },
+    {
+      "id": "2019-1-phy-9", "answerRow": 9, "block": "II", "topicId": "thermo",
+      "subtopic": "First law on a p–V straight-line process (net heat)",
+      "patternTags": ["plug-in-numbers", "first-law", "pv-diagram", "monatomic-gas"], "hasFigure": true,
+      "figure": { "ja": "単原子分子理想気体。p–V 図で A=(3V0, p0)→B=(V0, 3p0) を直線で結ぶ変化（圧縮しながら昇圧）。", "en": "Monatomic ideal gas. On the p–V diagram, a straight line from A=(3V0, p0) to B=(V0, 3p0) (compression with rising pressure)." },
+      "ja": { "prompt": "一定量の単原子分子理想気体を，$p$–$V$ 図のように状態 A$(3V_0,p_0)$ から状態 B$(V_0,3p_0)$ まで直線的に変化させた。この過程全体で気体が吸収した正味の熱量はどのように表されるか。", "choices": ["$2p_0V_0$", "$4p_0V_0$", "$6p_0V_0$", "$-2p_0V_0$", "$-4p_0V_0$", "$-6p_0V_0$"] },
+      "en": { "prompt": "A monatomic ideal gas changes along a straight line from A$(3V_0,p_0)$ to B$(V_0,3p_0)$ on the $p$–$V$ diagram. What is the net heat absorbed by the gas over the whole process?", "choices": ["$2p_0V_0$", "$4p_0V_0$", "$6p_0V_0$", "$-2p_0V_0$", "$-4p_0V_0$", "$-6p_0V_0$"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "$-4p_0V_0$", "en": "$-4p_0V_0$" },
+      "explanation": { "en": "$\\Delta U=\\tfrac32(p_BV_B-p_AV_A)=\\tfrac32(3p_0V_0-3p_0V_0)=0$. Work by gas = area under line during compression $=-\\tfrac{(p_0+3p_0)}{2}(3V_0-V_0)=-4p_0V_0$. So $Q=\\Delta U+W_{by}=-4p_0V_0$.", "ja": "$\\Delta U=\\tfrac32(p_BV_B-p_AV_A)=0$。気体がする仕事＝圧縮で $-\\tfrac{p_0+3p_0}{2}(3V_0-V_0)=-4p_0V_0$。$Q=\\Delta U+W_{by}=-4p_0V_0$。" }
+    },
+    {
+      "id": "2019-1-phy-10", "answerRow": 10, "block": "III", "topicId": "waves",
+      "subtopic": "Travelling wave (waveform at a later time)",
+      "patternTags": ["choose-from-graph", "travelling-wave", "phase"], "hasFigure": true,
+      "figure": { "ja": "x 軸負の向きに進む振動数 0.50 Hz（周期 2 s）の正弦波。図は t=0 s のスナップショット（波長 0.2 m，振幅一定）。選択肢①〜④は t=3.5 s での y–x グラフ。", "en": "A sinusoidal wave (frequency 0.50 Hz, period 2 s) travelling in the −x direction; the figure is the t=0 s snapshot (wavelength 0.2 m). Options ①–④ are y–x graphs at t=3.5 s." },
+      "ja": { "prompt": "$x$ 軸上を負の向きに進む振動数 $0.50\\,$Hz の正弦波がある。図は時刻 $t=0\\,$s の媒質の変位 $y$ と位置 $x$ の関係（波長 $0.2\\,$m）である。時刻 $t=3.5\\,$s での $y$ と $x$ の関係を示すグラフはどれか。", "choices": ["①（t=0 を −x に 0.75λ ずらした波形）", "②", "③", "④"] },
+      "en": { "prompt": "A sinusoidal wave (frequency $0.50\\,$Hz) travels in the $-x$ direction; the figure shows $y$ vs $x$ at $t=0\\,$s (wavelength $0.2\\,$m). Which graph shows $y$ vs $x$ at $t=3.5\\,$s?", "choices": ["① (the t=0 waveform shifted 0.75λ in the −x direction)", "②", "③", "④"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "①", "en": "①" },
+      "explanation": { "en": "Period $T=1/0.50=2$ s, so $t=3.5$ s $=1.75T$. A full period restores the shape; the extra $0.75T$ shifts the pattern by $0.75\\lambda$ in the $-x$ direction, giving graph ①.", "ja": "$T=2$ s なので $t=3.5$ s $=1.75T$。1周期で元に戻り，残り $0.75T$ で波形が $-x$ に $0.75\\lambda$ ずれる → ①。" }
+    },
+    {
+      "id": "2019-1-phy-11", "answerRow": 11, "block": "III", "topicId": "waves",
+      "subtopic": "Open-pipe resonance (frequency for n antinodes)",
+      "patternTags": ["express-formula", "air-column", "standing-waves"], "hasFigure": true,
+      "figure": { "ja": "長さ ℓ の開管。開口付近のスピーカーが振動数 f の音を出し，2つの開口端を含めて腹の数が n の定在波が生じて共鳴。開口端補正は無視。", "en": "An open pipe of length ℓ; a speaker at the opening emits frequency f, producing a standing wave with n antinodes (counting both open ends). End correction neglected." },
+      "ja": { "prompt": "長さ $\\ell$ の開管の開口付近にスピーカーを置き振動数 $f$ の音を出すと，2つの開口端を含めた腹の数が $n$ の定在波が生じ共鳴した。音の速さを $V$，開口端補正は無視できるものとする。$f$ はどのように表されるか。", "choices": ["$\\dfrac{(n-1)V}{4\\ell}$", "$\\dfrac{nV}{4\\ell}$", "$\\dfrac{(n+1)V}{4\\ell}$", "$\\dfrac{(n-1)V}{2\\ell}$", "$\\dfrac{nV}{2\\ell}$", "$\\dfrac{(n+1)V}{2\\ell}$"] },
+      "en": { "prompt": "An open pipe of length $\\ell$ resonates at frequency $f$ from a nearby speaker, forming a standing wave with $n$ antinodes (counting both open ends). With sound speed $V$ and negligible end correction, express $f$.", "choices": ["$\\dfrac{(n-1)V}{4\\ell}$", "$\\dfrac{nV}{4\\ell}$", "$\\dfrac{(n+1)V}{4\\ell}$", "$\\dfrac{(n-1)V}{2\\ell}$", "$\\dfrac{nV}{2\\ell}$", "$\\dfrac{(n+1)V}{2\\ell}$"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "$\\dfrac{(n-1)V}{2\\ell}$", "en": "$\\dfrac{(n-1)V}{2\\ell}$" },
+      "explanation": { "en": "Open pipe: antinodes at both ends; with $n$ antinodes there are $(n-1)$ half-wavelengths in length $\\ell$, so $\\ell=(n-1)\\lambda/2$, $\\lambda=2\\ell/(n-1)$, and $f=V/\\lambda=(n-1)V/(2\\ell)$.", "ja": "開管は両端が腹。腹が $n$ 個なら $\\ell=(n-1)\\lambda/2$，$\\lambda=2\\ell/(n-1)$，$f=V/\\lambda=(n-1)V/(2\\ell)$。" }
+    },
+    {
+      "id": "2019-1-phy-12", "answerRow": 12, "block": "III", "topicId": "waves",
+      "subtopic": "Refraction + critical angle (with a 5-12-13 geometry)",
+      "patternTags": ["plug-in-numbers", "snells-law", "total-internal-reflection", "geometry"], "hasFigure": true,
+      "figure": { "ja": "平面ガラス1の上に絶対屈折率の異なるガラス2を密着。左の鉛直面上の点 A から入射角 θ で光が入り，θ=30° のとき内部の光が上の境界面の点 B に臨界角で入射，θ<30° で全反射。O は左上の頂点。OA=5.0 cm（左面に沿う），OB=12 cm（上面に沿う），AB=13 cm（直角三角形）。空気の屈折率 1.0。", "en": "Glass 2 is stuck atop glass 1 (different index). Light enters the left vertical face at A with incidence θ; at θ=30° the internal ray reaches point B on the top boundary at the critical angle (total reflection for θ<30°). O is the top-left corner; OA=5.0 cm (down the left face), OB=12 cm (along the top), AB=13 cm (right triangle). Air index 1.0." },
+      "ja": { "prompt": "平面ガラス1の上面に，絶対屈折率の異なる平面ガラス2を密着させた。ガラス1の左の鉛直面上の点 A から光を入射させ入射角 $\\theta$ を小さくすると，$\\theta=30^\\circ$ のときガラス1内を進んだ光が上の境界面の点 B に臨界角で入射し，$\\theta<30^\\circ$ で全反射した。左上の頂点を O とすると OA=$5.0$ cm，OB=$12$ cm，AB=$13$ cm（直角三角形）。空気の絶対屈折率を $1.0$ とする。ガラス2の絶対屈折率はいくらか。", "choices": ["1.1", "1.2", "1.3", "1.4", "1.5", "1.6"] },
+      "en": { "prompt": "Glass 2 (different index) is bonded on top of glass 1. Light enters glass 1's left vertical face at A; at incidence $\\theta=30^\\circ$ the ray inside reaches point B on the top boundary at the critical angle (total reflection for $\\theta<30^\\circ$). With O the top-left corner, OA=$5.0$ cm, OB=$12$ cm, AB=$13$ cm (right triangle), and air index $1.0$, find the absolute refractive index of glass 2.", "choices": ["1.1", "1.2", "1.3", "1.4", "1.5", "1.6"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "1.2", "en": "1.2" },
+      "explanation": { "en": "At A (air→glass1): the refracted ray A→B makes $\\sin r=\\text{(horizontal)}/AB=12/13$? Using the normal to the vertical face, $\\sin r=OB/AB=12/13$... carefully: refraction angle has $\\sin r=5/13$ vs normal, giving $1.0\\sin30^\\circ=n_1(5/13)\\Rightarrow n_1=1.3$. At B the ray hits the top boundary at the critical angle with $\\sin\\theta_c=12/13=n_2/n_1$, so $n_2=1.3\\times12/13=1.2$.", "ja": "A で空気→ガラス1：$1.0\\sin30^\\circ=n_1\\cdot\\tfrac{5}{13}$ より $n_1=1.3$。B で臨界角 $\\sin\\theta_c=\\tfrac{12}{13}=n_2/n_1$ より $n_2=1.3\\times\\tfrac{12}{13}=1.2$。" }
+    },
+    {
+      "id": "2019-1-phy-13", "answerRow": 13, "block": "IV", "topicId": "em",
+      "subtopic": "Electric field of two point charges (null point on the axis)",
+      "patternTags": ["identify", "electric-field", "superposition"], "hasFigure": true,
+      "figure": { "ja": "x 軸上，原点に +q，x=a に −4q を固定（q>0, a>0）。", "en": "On the x-axis: +q at the origin and −4q at x=a (q>0, a>0)." },
+      "ja": { "prompt": "$x$ 軸上の原点に電気量 $q\\,(q>0)$，$x=a\\,(a>0)$ に電気量 $-4q$ の点電荷を固定する。無限遠を除いて，$x$ 軸上で電場の大きさが 0 となる点はあるか。あるとしたらどの範囲にいくつあるか。", "choices": ["$x<0$ と $0<x<a$ と $a<x$ に1つずつ", "$0<x<a$ と $a<x$ に1つずつ", "$x<0$ と $0<x<a$ に1つずつ", "$x<0$ と $a<x$ に1つずつ", "$a<x$ に1つ", "$0<x<a$ に1つ", "$x<0$ に1つ", "ない"] },
+      "en": { "prompt": "On the $x$-axis, $+q$ ($q>0$) is at the origin and $-4q$ at $x=a$ ($a>0$). Excluding infinity, where (and how many) points on the $x$-axis have zero electric field?", "choices": ["one each in $x<0$, $0<x<a$, $a<x$", "one each in $0<x<a$ and $a<x$", "one each in $x<0$ and $0<x<a$", "one each in $x<0$ and $a<x$", "one in $a<x$", "one in $0<x<a$", "one in $x<0$", "none"] },
+      "answerIndex": 6, "answerOption": 7, "answer": { "ja": "$x<0$ に1つ", "en": "one in $x<0$" },
+      "explanation": { "en": "A null can only occur outside the charges, on the side of the smaller charge ($+q$), i.e. $x<0$. There $\\dfrac{kq}{x^2}=\\dfrac{4kq}{(a+|x|)^2}\\Rightarrow a+|x|=2|x|\\Rightarrow |x|=a$ — one point at $x=-a$. Between the charges both fields point the same way, so no null there.", "ja": "電場 0 は電荷の外側・小さい電荷($+q$)側の $x<0$ のみ。$\\tfrac{kq}{x^2}=\\tfrac{4kq}{(a+|x|)^2}$ より $|x|=a$（$x=-a$ の1点）。間では同じ向きで打ち消さない。" }
+    },
+    {
+      "id": "2019-1-phy-14", "answerRow": 14, "block": "IV", "topicId": "em",
+      "subtopic": "Electrostatic induction; field lines for a charge in a conducting shell",
+      "patternTags": ["choose-from-figure", "electrostatic-induction", "conductor", "field-lines"], "hasFigure": true,
+      "figure": { "ja": "中空の導体球殻の中心に正電荷 q をもつ導体球。静電誘導で殻の内面に −q，外面に +q。問は中心断面の電気力線図（①〜⑥）。正解は，内球から内面へ放射状の力線，導体（殻の金属部）内は力線なし，外面から外向きに放射状の力線（球対称）。", "en": "A charged sphere (charge q) sits centered in a hollow conducting shell; induction gives −q on the inner wall and +q on the outer surface. The question shows field-line diagrams (①–⑥). The correct one: radial lines from the inner sphere to the inner wall, NO lines inside the conductor metal, radial lines outward from the outer surface (spherically symmetric)." },
+      "ja": { "prompt": "帯電していない中空の導体球殻の中空部分に，正電荷 $q$ をもつ導体球を中心を合わせて配置すると，静電誘導により殻の内面に $-q$，外面に $+q$ が現れた。中心を含む断面内での電気力線のようすを表す図として最も適当なものを①〜⑥から選びなさい。", "choices": ["①", "②（内球→内面に放射状，金属内は力線なし，外面→外向きに放射状）", "③", "④", "⑤", "⑥"] },
+      "en": { "prompt": "A charged conducting sphere (charge $q$) is centered inside an uncharged hollow conducting shell; induction puts $-q$ on the inner wall and $+q$ on the outer surface. Which diagram (①–⑥) best shows the field lines in a central cross-section?", "choices": ["①", "② radial lines inner-sphere→inner-wall, none inside the metal, radial lines outward from the outer surface", "③", "④", "⑤", "⑥"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "②", "en": "②" },
+      "explanation": { "en": "Field lines run radially from the inner sphere to the negative inner wall, are zero inside the conductor metal, and emerge radially and symmetrically from the positive outer surface — diagram ②.", "ja": "力線は内球から内面($-q$)へ放射状，導体内部はゼロ，外面($+q$)から球対称に外向き → ②。" }
+    },
+    {
+      "id": "2019-1-phy-15", "answerRow": 15, "block": "IV", "topicId": "em",
+      "subtopic": "DC circuit (power dissipated in an unknown resistor)",
+      "patternTags": ["plug-in-numbers", "dc-circuits", "power", "kirchhoff"], "hasFigure": true,
+      "figure": { "ja": "起電力 9.0 V の電池に，0.50 kΩ が直列。続いて R と 3.0 kΩ が並列。点 P（主線）の電流は 6.0 mA。内部抵抗無視。", "en": "A 9.0 V battery in series with 0.50 kΩ, then R in parallel with 3.0 kΩ. The current at P (main line) is 6.0 mA. Internal resistance negligible." },
+      "ja": { "prompt": "起電力 $9.0\\,$V の電池，抵抗 $0.50\\,$kΩ と $3.0\\,$kΩ，および抵抗値のわからない抵抗 R を図のように接続した（$0.50\\,$kΩ が直列，R と $3.0\\,$kΩ が並列）。点 P を流れる電流は $6.0\\,$mA だった。内部抵抗は無視できる。R で消費される電力は何 mW か。", "choices": ["6.0", "12", "18", "24", "30", "36"] },
+      "en": { "prompt": "A $9.0\\,$V battery, resistors $0.50\\,$kΩ and $3.0\\,$kΩ, and an unknown resistor R are connected as shown ($0.50\\,$kΩ in series; R parallel with $3.0\\,$kΩ). The current at P is $6.0\\,$mA. Internal resistance is negligible. What is the power dissipated in R (in mW)?", "choices": ["6.0", "12", "18", "24", "30", "36"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "24 mW", "en": "24 mW" },
+      "explanation": { "en": "Drop across $0.50$ kΩ $=6.0\\,\\text{mA}\\times0.50\\,\\text{kΩ}=3.0$ V, so the parallel pair has $9.0-3.0=6.0$ V. Through $3.0$ kΩ: $2.0$ mA, so through R: $6.0-2.0=4.0$ mA. Power $=6.0\\,\\text{V}\\times4.0\\,\\text{mA}=24$ mW.", "ja": "$0.50$kΩ の降下 $=6.0\\text{mA}\\times0.50\\text{kΩ}=3.0$V，並列部は $6.0$V。$3.0$kΩ に $2.0$mA，R に $4.0$mA。$P=6.0\\text{V}\\times4.0\\text{mA}=24$mW。" }
+    },
+    {
+      "id": "2019-1-phy-16", "answerRow": 16, "block": "IV", "topicId": "em",
+      "subtopic": "Charging capacitors in series; Joule heat in the resistor",
+      "patternTags": ["plug-in-numbers", "capacitors", "energy-method", "joule-heat"], "hasFigure": true,
+      "figure": { "ja": "起電力 1.0 V の電池，スイッチ S，抵抗 R=1.0 kΩ，直列の2つのコンデンサー C1=C2=1.0 μF。最初 S 開・電荷なし。S を閉じて充電。内部抵抗無視。", "en": "A 1.0 V battery, switch S, resistor R=1.0 kΩ, and two capacitors C1=C2=1.0 μF in series. Initially S open and uncharged; closing S charges them. Internal resistance negligible." },
+      "ja": { "prompt": "起電力 $1.0\\,$V の電池，スイッチ S，抵抗 $R=1.0\\,$kΩ，電気容量 $1.0\\,\\mu$F の2つのコンデンサー $C_1,C_2$（直列）を接続した。最初 S は開いていて電荷はなかった。S を閉じて充電したとき，充電終了までに R で発生するジュール熱は何 $\\mu$J か。", "choices": ["0.25", "0.50", "1.0", "2.0"] },
+      "en": { "prompt": "A $1.0\\,$V battery, switch S, resistor $R=1.0\\,$kΩ, and two capacitors $C_1=C_2=1.0\\,\\mu$F in series are connected. Initially S is open and uncharged. After closing S, what Joule heat (in $\\mu$J) is generated in R by the end of charging?", "choices": ["0.25", "0.50", "1.0", "2.0"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "0.25 μJ", "en": "0.25 μJ" },
+      "explanation": { "en": "Series capacitance $=0.5\\,\\mu$F. Final charge $q=0.5\\,\\mu\\text{F}\\times1.0\\,\\text{V}=0.5\\,\\mu$C. Battery supplies $qV=0.5\\,\\mu$J; stored $=\\tfrac12qV=0.25\\,\\mu$J; heat $=0.5-0.25=0.25\\,\\mu$J.", "ja": "直列合成 $0.5\\mu$F，$q=0.5\\mu$C。電池供給 $qV=0.5\\mu$J，蓄積 $\\tfrac12qV=0.25\\mu$J，発熱 $=0.25\\mu$J。" }
+    },
+    {
+      "id": "2019-1-phy-17", "answerRow": 17, "block": "IV", "topicId": "em",
+      "subtopic": "Magnetic field from three parallel currents (vector sum at a corner)",
+      "patternTags": ["express-formula", "magnetic-field-of-current", "vector-sum", "direction"], "hasFigure": true,
+      "figure": { "ja": "正方形 ABCD（1辺 a）。A,B,D を紙面に垂直な導線が通る。A は表→裏（紙面に入る）に電流 I，B と D は裏→表（紙面から出る）に電流 I。C での合成磁場の強さ H と向き（C のまわりの矢印 (a)左上,(b)左下,(c)右下,(d)右上 の45°方向）を問う。", "en": "Square ABCD (side a). Wires pass through A, B, D perpendicular to the page: A carries I into the page, B and D carry I out of the page. Asked: field strength H at C and its direction among 45° arrows around C: (a) up-left, (b) down-left, (c) down-right, (d) up-right." },
+      "ja": { "prompt": "正方形 ABCD（1辺 $a$）の頂点 A，B，D を紙面に垂直な直線導線が通る。A の導線には紙面の表から裏へ，B，D の導線には裏から表へ，等しい大きさ $I$ の電流が流れている。3本の電流が C につくる磁場の強さ $H$ と，その向き（図中の矢印 (a)〜(d)）の正しい組み合わせはどれか。", "choices": ["$\\dfrac{3\\sqrt2 I}{4\\pi a}$，(a)", "$\\dfrac{3\\sqrt2 I}{4\\pi a}$，(b)", "$\\dfrac{3\\sqrt2 I}{4\\pi a}$，(c)", "$\\dfrac{3\\sqrt2 I}{4\\pi a}$，(d)", "$\\dfrac{\\sqrt2 I}{4\\pi a}$，(a)", "$\\dfrac{\\sqrt2 I}{4\\pi a}$，(b)", "$\\dfrac{\\sqrt2 I}{4\\pi a}$，(c)", "$\\dfrac{\\sqrt2 I}{4\\pi a}$，(d)"] },
+      "en": { "prompt": "Wires through vertices A, B, D of square ABCD (side $a$) run perpendicular to the page: A carries $I$ into the page, B and D carry $I$ out of the page. Choose the correct field strength $H$ at C and its direction (arrows (a)–(d)).", "choices": ["$\\dfrac{3\\sqrt2 I}{4\\pi a}$, (a)", "$\\dfrac{3\\sqrt2 I}{4\\pi a}$, (b)", "$\\dfrac{3\\sqrt2 I}{4\\pi a}$, (c)", "$\\dfrac{3\\sqrt2 I}{4\\pi a}$, (d)", "$\\dfrac{\\sqrt2 I}{4\\pi a}$, (a)", "$\\dfrac{\\sqrt2 I}{4\\pi a}$, (b)", "$\\dfrac{\\sqrt2 I}{4\\pi a}$, (c)", "$\\dfrac{\\sqrt2 I}{4\\pi a}$, (d)"] },
+      "answerIndex": 7, "answerOption": 8, "answer": { "ja": "$\\dfrac{\\sqrt2 I}{4\\pi a}$，(d)", "en": "$\\dfrac{\\sqrt2 I}{4\\pi a}$, (d)" },
+      "explanation": { "en": "B and D (distance $a$, out of page) each give $H=I/(2\\pi a)$ perpendicular to BC and DC; A (diagonal, distance $a\\sqrt2$, into page) gives $H=I/(2\\sqrt2\\pi a)$. Summing the vectors, the two adjacent contributions partly cancel the diagonal one, leaving $H=\\sqrt2 I/(4\\pi a)$ pointing toward the upper-right, direction (d).", "ja": "B,D（距離 $a$）は各 $I/(2\\pi a)$，A（対角 $a\\sqrt2$）は $I/(2\\sqrt2\\pi a)$。ベクトル合成すると $H=\\sqrt2 I/(4\\pi a)$，向きは右上 (d)。" }
+    },
+    {
+      "id": "2019-1-phy-18", "answerRow": 18, "block": "IV", "topicId": "em",
+      "subtopic": "Lorentz force; radius vs magnetic flux density (r = mv/qB)",
+      "patternTags": ["choose-from-graph", "lorentz-force", "circular-motion", "inverse-proportion"], "hasFigure": true,
+      "figure": { "ja": "一様磁場（磁束密度 B）に，電荷 q・質量 m の粒子を垂直に速さ v で入射すると半径 r の等速円運動。q,m,v を固定し B を変えたときの r–B グラフ（①〜⑥）。正解は r が B に反比例する双曲線。", "en": "A particle (charge q, mass m) enters a uniform field B perpendicularly at speed v, circling with radius r. With q,m,v fixed and B varied, choose the r–B graph (①–⑥). Correct = a hyperbola, r inversely proportional to B." },
+      "ja": { "prompt": "磁束密度 $B$ の一様な磁場中に，荷電粒子（電気量 $q$，質量 $m$）を磁場に垂直に速さ $v$ で入射すると半径 $r$ の等速円運動をした。$q,m,v$ を変えず $B$ を変えたとき，$r$ と $B$ の関係を表すグラフはどれか。", "choices": ["①（一定）", "②（増加直線）", "③（減少直線）", "④（下に凸増加）", "⑤（上に凸減少）", "⑥（B に反比例の双曲線）"] },
+      "en": { "prompt": "In a uniform field $B$, a particle (charge $q$, mass $m$) entering perpendicularly at speed $v$ moves in a circle of radius $r$. With $q,m,v$ fixed and $B$ varied, which graph shows $r$ vs $B$?", "choices": ["① constant", "② rising line", "③ falling line", "④ concave-up rising", "⑤ concave-down falling", "⑥ hyperbola (r ∝ 1/B)"] },
+      "answerIndex": 5, "answerOption": 6, "answer": { "ja": "⑥（r ∝ 1/B の双曲線）", "en": "⑥ (hyperbola, r ∝ 1/B)" },
+      "explanation": { "en": "$qvB=mv^2/r\\Rightarrow r=\\dfrac{mv}{qB}$, so with $m,v,q$ fixed, $r\\propto1/B$ — a hyperbola (graph ⑥).", "ja": "$qvB=mv^2/r$ より $r=\\dfrac{mv}{qB}$。$r\\propto1/B$ の双曲線 → ⑥。" }
+    },
+    {
+      "id": "2019-1-phy-19", "answerRow": 19, "block": "V", "topicId": "atoms",
+      "subtopic": "Quark model (charge of the down quark)",
+      "patternTags": ["express-formula", "particle-physics", "conservation-of-charge"], "hasFigure": false,
+      "ja": { "prompt": "クォーク模型では，陽子は 2 つのアップクォーク u と 1 つのダウンクォーク d，中性子は 1 つの u と 2 つの d で構成され，電荷はそれを構成するクォークの電荷の和に等しい。電気素量を $e$ とする。d のもつ電荷はどのように表されるか。", "choices": ["$-e$", "$-\\dfrac{2}{3}e$", "$-\\dfrac{1}{3}e$", "$\\dfrac{1}{3}e$", "$\\dfrac{2}{3}e$", "$e$"] },
+      "en": { "prompt": "In the quark model, a proton is two up quarks u and one down quark d, and a neutron is one u and two d; a particle's charge equals the sum of its quark charges. With elementary charge $e$, what is the charge of the d quark?", "choices": ["$-e$", "$-\\dfrac{2}{3}e$", "$-\\dfrac{1}{3}e$", "$\\dfrac{1}{3}e$", "$\\dfrac{2}{3}e$", "$e$"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "$-\\dfrac{1}{3}e$", "en": "$-\\dfrac{1}{3}e$" },
+      "explanation": { "en": "Proton: $2u+d=+e$; neutron: $u+2d=0$. Solving, $u=+\\tfrac23e$ and $d=-\\tfrac13e$.", "ja": "陽子 $2u+d=e$，中性子 $u+2d=0$ を解くと $u=+\\tfrac23e$，$d=-\\tfrac13e$。" }
+    }
+  ],
+  "patterns": {
+    "blockSkeleton": "Same 5-block skeleton (I Mechanics ×6, II Thermo ×3, III Waves ×3, IV E&M ×6, V Atoms ×1).",
+    "newArchetypesVsPrevious": [
+      "Projectile launched below the horizontal solved by joint x/y equations (Q2).",
+      "Friction incline: relate down-slide and up-slide accelerations (Q3) — a recurring 'eliminate μ' trick.",
+      "Multi-stage problem: pendulum energy → inelastic collision → friction stopping distance (Q4).",
+      "Compare two oscillators by matching periods (Q5).",
+      "Two gas cylinders coupled by a rod: pressure-force balance + gas law (Q8).",
+      "Field-line diagram selection for a charge inside a conductor (Q14).",
+      "Choose r–B graph from r=mv/qB inverse proportion (Q18); quark-charge bookkeeping (Q19)."
+    ],
+    "recurringWithPrevious": ["rigid-body torque (Q1, cf 2020-2 Q1)", "satellite/orbit gravitation (Q6, cf 2020-2 Q6)", "calorimetry (Q7)", "p–V net-heat via first law (Q9, cf 2021-1 Q9)", "later-time waveform / wave kinematics (Q10, cf 2021-1 Q10)", "DC circuit power & capacitor Joule heat (Q15, Q16, cf 2021-1 Q14)", "magnetic field of straight currents, null/sum (Q17, cf 2021-1 Q16 & 2020-2 Q16)"],
+    "highYieldFor3-4-5": "Several questions reuse the 3-4-5 / 5-12-13 right triangle and 30°/45°/60° angles so that sines/cosines are 'nice' — recognizing these saves time (Q2 45°, Q12 5-12-13).",
+    "difficulty": "Standard 'Basic + Advanced Physics'; conceptual with light computation."
+  }
+}

@@ -1,4 +1,4 @@
-import { readFileSync } from 'node:fs';
+import { readFileSync, readdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 
@@ -8,10 +8,17 @@ const DATA_DIR = join(here, 'data', 'eju');
 export type Subject = 'physics' | 'chemistry' | 'biology' | 'math';
 export const SUBJECTS: Subject[] = ['physics', 'chemistry', 'biology', 'math'];
 
+export type Lang = 'en' | 'ja' | 'zh' | 'tr';
+
 interface LocalizedName {
   en: string;
   ja: string;
+  zh?: string;
+  tr?: string;
 }
+
+// The topic taxonomy currently ships en/ja labels; zh/tr fall back to English.
+const pick = (n: LocalizedName, lang: Lang): string => n[lang] || n.en;
 interface Subtopic {
   id: string;
   name: LocalizedName;
@@ -69,34 +76,34 @@ export function getKB(subject: Subject): SubjectKB | null {
   return kbCache.get(subject) ?? null;
 }
 
-export function topicsFor(subject: Subject, lang: 'en' | 'ja') {
+export function topicsFor(subject: Subject, lang: Lang) {
   const kb = getKB(subject);
   if (!kb) return [];
-  return kb.topics.map((t) => ({ id: t.id, name: t.name[lang] || t.name.en }));
+  return kb.topics.map((t) => ({ id: t.id, name: pick(t.name, lang) }));
 }
 
 /** Flattened subtopics with their parent topic name as `group` (for grouped selects). */
-export function subtopicsFor(subject: Subject, lang: 'en' | 'ja') {
+export function subtopicsFor(subject: Subject, lang: Lang) {
   const kb = getKB(subject);
   if (!kb) return [];
   const out: { id: string; name: string; group: string }[] = [];
   for (const t of kb.topics) {
-    const group = t.name[lang] || t.name.en;
+    const group = pick(t.name, lang);
     for (const s of t.subtopics ?? []) {
-      out.push({ id: s.id, name: s.name[lang] || s.name.en, group });
+      out.push({ id: s.id, name: pick(s.name, lang), group });
     }
   }
   return out;
 }
 
 /** Resolve a topic OR subtopic id to a human label. */
-export function labelFor(subject: Subject, id: string, lang: 'en' | 'ja'): string {
+export function labelFor(subject: Subject, id: string, lang: Lang): string {
   const kb = getKB(subject);
   if (!kb) return id;
   for (const t of kb.topics) {
-    if (t.id === id) return t.name[lang] || t.name.en;
+    if (t.id === id) return pick(t.name, lang);
     for (const s of t.subtopics ?? []) {
-      if (s.id === id) return s.name[lang] || s.name.en;
+      if (s.id === id) return pick(s.name, lang);
     }
   }
   return id;
@@ -104,6 +111,152 @@ export function labelFor(subject: Subject, id: string, lang: 'en' | 'ja'): strin
 
 // Backwards-compatible alias.
 export const topicName = labelFor;
+
+// ─────────────────────────── Mock exams (past-paper review) ───────────────────────────
+export interface MockQuestion {
+  id: string;
+  number?: number;
+  topic: string;
+  prompt: string;
+  choices?: string[];
+  answerIndex: number;
+  answer: string;
+  explanation: string;
+}
+export interface MockExam {
+  id: string;
+  year: number;
+  session: number;
+  subject: Subject;
+  title: string;
+  source?: string;
+  questions: MockQuestion[];
+}
+
+let mockExamsCache: MockExam[] | null = null;
+function loadMockExams(): MockExam[] {
+  if (mockExamsCache) return mockExamsCache;
+  try {
+    const raw = JSON.parse(readFileSync(join(DATA_DIR, 'mock-exams.json'), 'utf8'));
+    mockExamsCache = Array.isArray(raw?.exams) ? (raw.exams as MockExam[]) : [];
+  } catch (e) {
+    console.warn('[eju] could not load mock-exams.json:', (e as Error).message);
+    mockExamsCache = [];
+  }
+  return mockExamsCache;
+}
+
+// ── Rich per-paper extractions (bilingual, figure-described, verified) ──
+// These live in data/eju/past-questions/<subject>/*.json and are localized on the
+// fly. When a rich exam shares an id with a legacy mock-exams.json entry, the rich
+// (more complete) version wins.
+interface RichLoc {
+  prompt: string;
+  choices?: string[];
+}
+interface RichQuestion {
+  id: string;
+  answerRow?: number;
+  topicId?: string;
+  subtopic?: string;
+  hasFigure?: boolean;
+  figure?: Partial<Record<Lang, string>>;
+  ja: RichLoc;
+  en: RichLoc;
+  answerIndex: number;
+  answer: Partial<Record<Lang, string>>;
+  explanation: Partial<Record<Lang, string>>;
+}
+interface RichExam {
+  id: string;
+  year: number;
+  session: number;
+  subject: Subject;
+  title: string;
+  source?: string;
+  questions: RichQuestion[];
+}
+
+const BLOCK_NAME: Record<string, LocalizedName> = {
+  mech: { en: 'Mechanics', ja: '力学' },
+  thermo: { en: 'Thermodynamics', ja: '熱力学' },
+  waves: { en: 'Waves', ja: '波動' },
+  em: { en: 'Electricity & Magnetism', ja: '電気と磁気' },
+  atoms: { en: 'Atoms', ja: '原子' },
+  // Chemistry topic categories (match data/eju/chemistry.json topic ids)
+  'matter-structure': { en: 'Structure of Matter', ja: '物質の構成' },
+  'states-and-change': { en: 'State & Change of Substances', ja: '物質の状態と変化' },
+  inorganic: { en: 'Inorganic Chemistry', ja: '無機化学' },
+  organic: { en: 'Organic Chemistry', ja: '有機化学' },
+};
+
+let richExamsCache: RichExam[] | null = null;
+function loadRichExams(): RichExam[] {
+  if (richExamsCache) return richExamsCache;
+  const out: RichExam[] = [];
+  for (const subject of SUBJECTS) {
+    const dir = join(DATA_DIR, 'past-questions', subject);
+    let files: string[] = [];
+    try {
+      files = readdirSync(dir).filter((f) => f.endsWith('.json'));
+    } catch {
+      continue; // no folder for this subject yet
+    }
+    for (const f of files) {
+      try {
+        out.push(JSON.parse(readFileSync(join(dir, f), 'utf8')) as RichExam);
+      } catch (e) {
+        console.warn(`[eju] could not load past-questions/${subject}/${f}:`, (e as Error).message);
+      }
+    }
+  }
+  richExamsCache = out;
+  return out;
+}
+
+/** Localize one rich question into the flat MockQuestion shape (en for zh/tr). */
+function richToMockQuestion(q: RichQuestion, lang: Lang): MockQuestion {
+  const loc: 'ja' | 'en' = lang === 'ja' ? 'ja' : 'en';
+  const block = q.topicId ? pick(BLOCK_NAME[q.topicId] ?? { en: q.topicId, ja: q.topicId }, lang) : '';
+  const topic = [block, q.subtopic].filter(Boolean).join(' · ');
+  let prompt = q[loc]?.prompt ?? q.en.prompt;
+  const fig = q.figure?.[loc] ?? q.figure?.en;
+  if (fig) prompt += `\n\n*${loc === 'ja' ? '図' : 'Figure'}: ${fig}*`;
+  return {
+    id: q.id,
+    number: q.answerRow,
+    topic,
+    prompt,
+    choices: q[loc]?.choices ?? q.en.choices,
+    answerIndex: q.answerIndex,
+    answer: q.answer?.[loc] ?? q.answer?.en ?? '',
+    explanation: q.explanation?.[loc] ?? q.explanation?.en ?? '',
+  };
+}
+
+function richToMockExam(ex: RichExam, lang: Lang): MockExam {
+  const { questions, ...meta } = ex;
+  return { ...meta, questions: questions.map((q) => richToMockQuestion(q, lang)) };
+}
+
+/** Legacy + rich exams merged by id (rich wins), localized to `lang`. */
+function allExams(lang: Lang): MockExam[] {
+  const byId = new Map<string, MockExam>();
+  for (const e of loadMockExams()) byId.set(e.id, e);
+  for (const e of loadRichExams()) byId.set(e.id, richToMockExam(e, lang));
+  return [...byId.values()];
+}
+
+/** Exam metadata (no questions) plus a question count, newest first. */
+export function mockExamList() {
+  return allExams('en')
+    .map(({ questions, ...meta }) => ({ ...meta, count: questions.length }))
+    .sort((a, b) => b.year - a.year || b.session - a.session || a.subject.localeCompare(b.subject));
+}
+
+export function mockExam(id: string, lang: Lang = 'en'): MockExam | null {
+  return allExams(lang).find((e) => e.id === id) ?? null;
+}
 
 // Build the (large, stable) per-subject system context. This is what we mark
 // for prompt caching, so it must be byte-identical across requests for a subject.

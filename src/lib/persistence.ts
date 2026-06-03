@@ -1,5 +1,5 @@
 import { doc, getDoc, setDoc } from 'firebase/firestore';
-import { useBoard, type Page, type InkColor } from './board';
+import { useBoard, type Page, type InkColor, type ShapeKind } from './board';
 import { useAuth } from './auth';
 import { db } from './firebase';
 
@@ -7,7 +7,7 @@ const LS_KEY = 'eju-board-v1';
 
 // Compact wire format: points stored as [x, y, pressure] tuples to save space
 // (Firestore docs are capped at ~1MB; ink can be large).
-type CStroke = { i: string; c: InkColor; s: number; p: number[][] };
+type CStroke = { i: string; c: InkColor; s: number; p: number[][]; sh?: ShapeKind };
 type CPage = { id: string; v: [number, number, number]; st: CStroke[] };
 
 const round = (n: number, d: number) => {
@@ -24,6 +24,7 @@ function encode(pages: Page[]): CPage[] {
       c: s.color,
       s: s.size,
       p: s.points.map((pt) => [Math.round(pt.x), Math.round(pt.y), round(pt.p, 2)]),
+      ...(s.shape ? { sh: s.shape } : {}),
     })),
   }));
 }
@@ -37,6 +38,7 @@ function decode(cps: CPage[]): Page[] {
       color: cs.c,
       size: cs.s,
       points: cs.p.map((t) => ({ x: t[0], y: t[1], p: t[2] })),
+      ...(cs.sh ? { shape: cs.sh } : {}),
     })),
   }));
 }

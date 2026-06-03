@@ -14,6 +14,13 @@ export class ApiError extends Error {
   }
 }
 
+/** Thrown locally (no network call) when the page has nothing to check. */
+export class EmptyBoardError extends Error {
+  constructor() {
+    super('empty_board');
+  }
+}
+
 async function call<T>(path: string, body: unknown): Promise<T> {
   const token = await getIdToken();
   
@@ -57,7 +64,7 @@ export interface AskResponse {
   text: string;
   keyPoints: KeyPointDTO[];
 }
-export const askClaude = (p: { subject: Subject; lang: Lang; messages: ChatMessage[] }) =>
+export const askClaude = (p: { subject: Subject; lang: Lang; messages: ChatMessage[]; context?: string }) =>
   call<AskResponse>('claude/ask', p);
 
 export type Difficulty = 'easy' | 'medium' | 'hard';
@@ -87,6 +94,8 @@ export interface CheckResponse {
   correct: 'yes' | 'no' | 'partial' | 'unknown';
   topic: string;
   errorTags: string[];
+  /** 0-based choice the student concluded for an MCQ, or -1 if none/unclear. */
+  studentAnswerIndex: number;
 }
 export const checkWork = (p: {
   subject: Subject;
@@ -107,3 +116,24 @@ export interface TopicsResponse {
 }
 export const fetchTopics = (p: { subject: Subject; lang: Lang }) =>
   call<TopicsResponse>('eju/topics', p);
+
+export interface ExamMeta {
+  id: string;
+  year: number;
+  session: number;
+  subject: Subject;
+  title: string;
+  source?: string;
+  count: number;
+}
+export interface Exam {
+  id: string;
+  year: number;
+  session: number;
+  subject: Subject;
+  title: string;
+  source?: string;
+  questions: GenQuestion[];
+}
+export const fetchExams = () => call<{ exams: ExamMeta[] }>('eju/exams', {});
+export const fetchExam = (id: string, lang: Lang) => call<Exam>('eju/exam', { id, lang });

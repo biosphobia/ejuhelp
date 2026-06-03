@@ -1,0 +1,243 @@
+{
+  "id": "2015-2-physics",
+  "year": 2015,
+  "session": 2,
+  "subject": "physics",
+  "title": "EJU 2015 · Session 2 · Physics",
+  "source": "平成27年度（2015年度）日本留学試験（第2回）理科〈物理〉 © Japan Student Services Organization (JASSO)",
+  "attribution": "EJU past questions © JASSO. Question text transcribed from the official past paper; figures described in text; correct answers taken from the official JASSO answer key and independently re-solved for verification.",
+  "languages": ["ja", "en"],
+  "answerKeyVerified": true,
+  "structure": {
+    "blocks": [
+      { "id": "I", "topicId": "mech", "name": { "ja": "力学", "en": "Mechanics" }, "questionCount": 6 },
+      { "id": "II", "topicId": "thermo", "name": { "ja": "熱力学", "en": "Thermodynamics" }, "questionCount": 3 },
+      { "id": "III", "topicId": "waves", "name": { "ja": "波動", "en": "Waves" }, "questionCount": 3 },
+      { "id": "IV", "topicId": "em", "name": { "ja": "電気と磁気", "en": "Electricity & Magnetism" }, "questionCount": 6 },
+      { "id": "V", "topicId": "atoms", "name": { "ja": "原子", "en": "Atoms" }, "questionCount": 1 }
+    ],
+    "totalQuestions": 19,
+    "givens": { "ja": "重力加速度の大きさを g とし，空気の抵抗は無視できるものとする。", "en": "Take the magnitude of gravitational acceleration as g; air resistance is negligible." }
+  },
+  "questions": [
+    {
+      "id": "2015-2-phy-1", "answerRow": 1, "block": "I", "topicId": "mech",
+      "subtopic": "Rigid-body equilibrium (centre of mass below pivot)",
+      "patternTags": ["express-formula", "torque-balance", "centre-of-mass"], "hasFigure": true,
+      "figure": { "ja": "一様な細い棒を B で直角に折り曲げる。BA=2L，BC=L。B に糸を付けてつるすと AB が水平となす角 θ でつり合う。", "en": "A uniform thin rod bent at a right angle at B: BA=2L, BC=L. Hung by a thread at B, it balances with AB making angle θ with the horizontal." },
+      "ja": { "prompt": "一様な細い棒を直角に折り曲げた。一端 A から折れ曲がりの位置 B までの長さは $2L$，B から他端 C までの長さは $L$ である。B に糸を付けてつるすと，AB の部分が水平面となす角が $\\theta$ の状態でつり合って静止した。$\\tan\\theta$ はいくらか。", "choices": ["$\\dfrac{1}{4}$", "$\\dfrac{1}{2}$", "$2$", "$4$"] },
+      "en": { "prompt": "A uniform thin rod is bent at a right angle. From end A to the bend B the length is $2L$; from B to the other end C it is $L$. Hung by a thread at B, it balances with segment AB making angle $\\theta$ with the horizontal. Find $\\tan\\theta$.", "choices": ["$\\dfrac{1}{4}$", "$\\dfrac{1}{2}$", "$2$", "$4$"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "$4$", "en": "$4$" },
+      "explanation": { "en": "Mass ∝ length: AB has mass $2$ with centre $L$ from B along BA; BC has mass $1$ with centre $L/2$ from B along BC (BA⊥BC). For equilibrium the combined centre of mass lies directly below B, so the horizontal moments balance: $2\\cdot L\\cos\\theta = 1\\cdot\\tfrac{L}{2}\\sin\\theta$, giving $\\tan\\theta=4$.", "ja": "質量は長さに比例。AB は質量 $2$，重心は BA 方向に B から $L$。BC は質量 $1$，重心は BC 方向に B から $L/2$（BA⊥BC）。つり合いでは合成重心が B の真下に来るので水平モーメントが等しく，$2L\\cos\\theta=\\tfrac{L}{2}\\sin\\theta$ より $\\tan\\theta=4$。" }
+    },
+    {
+      "id": "2015-2-phy-2", "answerRow": 2, "block": "I", "topicId": "mech",
+      "subtopic": "Uniform acceleration from rest",
+      "patternTags": ["plug-in-numbers", "kinematics"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "物体が静止状態から等加速度運動を始めた。運動を始めてから $12\\,$s 後に物体は $36\\,$m 移動していた。運動を始めてから $12\\,$s 後の物体の速さは何 m/s か。", "choices": ["$1.0$", "$2.0$", "$3.0$", "$4.0$", "$5.0$", "$6.0$"] },
+      "en": { "prompt": "An object starts from rest with uniform acceleration. After $12\\,$s it has moved $36\\,$m. What is its speed (m/s) at $12\\,$s?", "choices": ["$1.0$", "$2.0$", "$3.0$", "$4.0$", "$5.0$", "$6.0$"] },
+      "answerIndex": 5, "answerOption": 6, "answer": { "ja": "$6.0$", "en": "$6.0$" },
+      "explanation": { "en": "From rest: $36=\\tfrac12 a(12)^2\\Rightarrow a=0.5\\,$m/s². Then $v=at=0.5\\times12=6.0\\,$m/s. (Equivalently $v=2\\bar v=2\\cdot36/12$.)", "ja": "静止から $36=\\tfrac12 a(12)^2$ より $a=0.5\\,$m/s²。$v=at=0.5\\times12=6.0\\,$m/s（平均速度の 2 倍 $=2\\cdot36/12$ でもよい）。" }
+    },
+    {
+      "id": "2015-2-phy-3", "answerRow": 3, "block": "I", "topicId": "mech",
+      "subtopic": "Projectile launched off a prism apex",
+      "patternTags": ["express-formula", "projectile-motion"], "hasFigure": true,
+      "figure": { "ja": "断面が直角二等辺三角形 ABC（∠B=90°）の三角柱を斜辺 AC を下にして固定。頂点 B の AC からの高さは h。小球を AB（水平と 45°）に沿って投げ上げ，B で速さ v で飛び出し C に落下。", "en": "A prism whose cross-section is a right isosceles triangle ABC (∠B=90°) sits on its hypotenuse AC; apex B is height h above AC. A ball thrown up along AB (45° to horizontal) leaves B with speed v at 45° and lands at C." },
+      "ja": { "prompt": "断面が直角二等辺三角形 ABC の三角柱を斜辺 AC を下にして固定する。$\\angle\\mathrm{ABC}=90°$ で，頂点 B の AC からの高さは $h$ である。小球を水平となす角 $45°$ の辺 AB に沿って投げ上げたところ，頂点 B で速さ $v$ で飛び出し，頂点 C に落下した。$v$ はどのように表されるか。", "choices": ["$\\sqrt{\\dfrac{gh}{2}}$", "$\\dfrac{\\sqrt{2gh}}{2}$", "$\\sqrt{gh}$", "$\\sqrt{2gh}$", "$2\\sqrt{gh}$"] },
+      "en": { "prompt": "A right-isosceles-triangle prism ABC ($\\angle B=90°$) rests on hypotenuse AC; apex B is height $h$ above AC. A ball thrown up along AB (45° to horizontal) leaves B at speed $v$ (45°) and lands at C. Express $v$.", "choices": ["$\\sqrt{\\dfrac{gh}{2}}$", "$\\dfrac{\\sqrt{2gh}}{2}$", "$\\sqrt{gh}$", "$\\sqrt{2gh}$", "$2\\sqrt{gh}$"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "$\\dfrac{\\sqrt{2gh}}{2}$", "en": "$\\dfrac{\\sqrt{2gh}}{2}$" },
+      "explanation": { "en": "The altitude from the right angle to the hypotenuse is half of it, so AC$=2h$ and B lies horizontally $h$ from C, with B a height $h$ above C. Launch at 45°: $v_x=v_y=v/\\sqrt2$. Horizontal: $\\tfrac{v}{\\sqrt2}t=h$. Vertical: $h+\\tfrac{v}{\\sqrt2}t-\\tfrac12gt^2=0$. Substituting $t=\\sqrt2h/v$ gives $2h-\\dfrac{gh^2}{v^2}=0$, so $v=\\sqrt{gh/2}=\\dfrac{\\sqrt{2gh}}{2}$.", "ja": "直角から斜辺への垂線は斜辺の半分なので AC$=2h$，C は B から水平に $h$，高さは B が C より $h$ 高い。45° なので $v_x=v_y=v/\\sqrt2$。水平 $\\tfrac{v}{\\sqrt2}t=h$，鉛直 $h+\\tfrac{v}{\\sqrt2}t-\\tfrac12gt^2=0$。$t=\\sqrt2h/v$ を代入すると $2h-\\dfrac{gh^2}{v^2}=0$，よって $v=\\sqrt{gh/2}=\\dfrac{\\sqrt{2gh}}{2}$。" }
+    },
+    {
+      "id": "2015-2-phy-4", "answerRow": 4, "block": "I", "topicId": "mech",
+      "subtopic": "Vertical spring SHM (energy/amplitude)",
+      "patternTags": ["express-formula", "simple-harmonic-motion", "energy-conservation"], "hasFigure": true,
+      "figure": { "ja": "軽いばねに質量 m のおもりをつけ天井から鉛直につるすと自然長から d だけ伸びて静止。さらに引いて自然長から 3d 伸ばし静かに放すと鉛直に単振動。", "en": "A mass m on a light spring hangs from the ceiling, stretched d from natural length at rest. Pulled to a stretch of 3d and released, it performs vertical SHM." },
+      "ja": { "prompt": "軽いばねに質量 $m$ のおもりを付けて天井から鉛直につるすと，ばねが自然長から $d$ だけ伸びて静止した。おもりを引いてばねを自然長から $3d$ だけ伸ばし，静かに放すとおもりは鉛直方向に単振動をした。ばねが縮んで自然長になったときのおもりの速さはどのように表されるか。", "choices": ["$\\sqrt{gd}$", "$\\sqrt{2gd}$", "$\\sqrt{3gd}$", "$2\\sqrt{gd}$", "$\\sqrt{5gd}$"] },
+      "en": { "prompt": "A mass $m$ on a light vertical spring is stretched $d$ at rest. Pulled to a stretch of $3d$ and released, it oscillates. Find the speed when the spring returns to its natural length.", "choices": ["$\\sqrt{gd}$", "$\\sqrt{2gd}$", "$\\sqrt{3gd}$", "$2\\sqrt{gd}$", "$\\sqrt{5gd}$"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "$\\sqrt{3gd}$", "en": "$\\sqrt{3gd}$" },
+      "explanation": { "en": "Equilibrium at stretch $d$: $k=mg/d$, $\\omega=\\sqrt{g/d}$. Amplitude $A=3d-d=2d$. Natural length is at displacement $|x|=d$ from equilibrium, so $v=\\omega\\sqrt{A^2-x^2}=\\sqrt{g/d}\\,\\sqrt{4d^2-d^2}=\\sqrt{g/d}\\,(\\sqrt3\\,d)=\\sqrt{3gd}$.", "ja": "つり合いは伸び $d$ で $k=mg/d$，$\\omega=\\sqrt{g/d}$。振幅 $A=3d-d=2d$。自然長は中心から $|x|=d$ なので $v=\\omega\\sqrt{A^2-x^2}=\\sqrt{g/d}\\sqrt{4d^2-d^2}=\\sqrt{3gd}$。" }
+    },
+    {
+      "id": "2015-2-phy-5", "answerRow": 5, "block": "I", "topicId": "mech",
+      "subtopic": "Collision via spring (max compression = common velocity)",
+      "patternTags": ["express-formula", "momentum", "collision"], "hasFigure": true,
+      "figure": { "ja": "なめらかな水平面上に質量 m の A が静止し，A には軽いばねが付く。同じ質量 m の B が左から速さ v で近づき，A のばねに衝突。一直線上の運動。", "en": "On a smooth floor, mass m object A (with a light spring attached) is at rest; an equal mass B approaches from the left at speed v and hits A's spring; motion is collinear." },
+      "ja": { "prompt": "なめらかな水平面上に質量 $m$ の物体 A が静止し，A には軽いばねが付いている。同じ質量 $m$ の物体 B が左から速さ $v$ で近づき，A のばねに衝突した。ばねが最も縮んだときの A の速さはどのように表されるか。", "choices": ["$\\dfrac{1}{2}v$", "$\\dfrac{\\sqrt2}{2}v$", "$v$", "$\\sqrt2\\,v$"] },
+      "en": { "prompt": "On a smooth floor, A (mass $m$, with a light spring) is at rest; equal-mass B approaches from the left at speed $v$ and compresses A's spring. Find A's speed at maximum compression.", "choices": ["$\\dfrac{1}{2}v$", "$\\dfrac{\\sqrt2}{2}v$", "$v$", "$\\sqrt2\\,v$"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "$\\dfrac{1}{2}v$", "en": "$\\dfrac{1}{2}v$" },
+      "explanation": { "en": "At maximum compression A and B move with the same velocity. Momentum conservation: $mv=(m+m)v'\\Rightarrow v'=v/2$.", "ja": "最大圧縮時，A と B は同じ速度。運動量保存 $mv=(m+m)v'$ より $v'=v/2$。" }
+    },
+    {
+      "id": "2015-2-phy-6", "answerRow": 6, "block": "I", "topicId": "mech",
+      "subtopic": "Circular track: minimum entry speed to keep contact",
+      "patternTags": ["express-formula", "circular-motion", "energy-conservation", "critical-condition"], "hasFigure": true,
+      "figure": { "ja": "水平面になめらかにつながる半径 r・中心角 120° の円筒面（内側）。水平面から速さ v で入射し，円筒面に沿って運動。摩擦は無視。", "en": "A circular (cylindrical) surface of radius r and central angle 120° connects smoothly to a horizontal floor; a ball enters horizontally at speed v and runs along the inside; friction negligible." },
+      "ja": { "prompt": "水平面となめらかにつながった半径 $r$，中心角 $120°$ の円筒面がある。水平面に沿って小球を速さ $v$ で入射させ，円筒面に沿って運動させる。小球が円筒面から離れずに最上部まで運動するためには，$v$ はある速さ $v_0$ より大きくなければならない。$v_0$ はどのように表されるか。", "choices": ["$\\sqrt{3gr}$", "$\\sqrt{\\dfrac{7gr}{2}}$", "$2\\sqrt{gr}$", "$\\sqrt{\\dfrac{3gr}{2}}$", "$\\sqrt{5gr}$"] },
+      "en": { "prompt": "A circular surface of radius $r$ and central angle $120°$ joins smoothly to a horizontal floor. A ball enters at speed $v$ and runs along the inside. To reach the top without leaving the surface, $v$ must exceed $v_0$. Express $v_0$.", "choices": ["$\\sqrt{3gr}$", "$\\sqrt{\\dfrac{7gr}{2}}$", "$2\\sqrt{gr}$", "$\\sqrt{\\dfrac{3gr}{2}}$", "$\\sqrt{5gr}$"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "$\\sqrt{\\dfrac{7gr}{2}}$", "en": "$\\sqrt{\\dfrac{7gr}{2}}$" },
+      "explanation": { "en": "At central angle $\\alpha$ from the bottom, height $=r(1-\\cos\\alpha)$ and energy gives $v_\\alpha^2=v^2-2gr(1-\\cos\\alpha)$. Radial: $N=\\dfrac{mv_\\alpha^2}{r}+mg\\cos\\alpha=\\dfrac{mv^2}{r}-2mg+3mg\\cos\\alpha$, minimal at the top $\\alpha=120°$ ($\\cos=-\\tfrac12$). $N\\ge0\\Rightarrow v^2\\ge\\tfrac{7gr}{2}$, so $v_0=\\sqrt{7gr/2}$.", "ja": "底から中心角 $\\alpha$ で高さ $r(1-\\cos\\alpha)$，エネルギーより $v_\\alpha^2=v^2-2gr(1-\\cos\\alpha)$。動径方向 $N=\\dfrac{mv^2}{r}-2mg+3mg\\cos\\alpha$ は最上部 $\\alpha=120°$（$\\cos=-\\tfrac12$）で最小。$N\\ge0$ より $v^2\\ge\\tfrac{7gr}{2}$，$v_0=\\sqrt{7gr/2}$。" }
+    },
+    {
+      "id": "2015-2-phy-7", "answerRow": 7, "block": "II", "topicId": "thermo",
+      "subtopic": "Specific heat / calorimetry",
+      "patternTags": ["plug-in-numbers", "specific-heat", "calorimetry"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "質量 $1.0\\times10^2\\,$g の物質 A に $3.0\\times10^3\\,$J を与えると温度が $1.5\\times10^1\\,$K 上昇した。質量 $1.0\\times10^2\\,$g の物質 B に $4.0\\times10^3\\,$J を与えると $1.0\\times10^1\\,$K 上昇した。質量 $4.0\\times10^2\\,$g の A と $3.0\\times10^2\\,$g の B を同じ温度で接触させ $1.0\\times10^4\\,$J を与えると，両方の温度がともに $t$ [K] 上昇した。$t$ はいくらか。", "choices": ["$1.0$", "$2.0$", "$3.0$", "$4.0$", "$5.0$", "$6.0$"] },
+      "en": { "prompt": "Giving $3.0\\times10^3\\,$J to $100\\,$g of A raises it $15\\,$K; giving $4.0\\times10^3\\,$J to $100\\,$g of B raises it $10\\,$K. Then $400\\,$g of A and $300\\,$g of B (same temperature, in contact) receive $1.0\\times10^4\\,$J and both rise by $t$ [K]. Find $t$.", "choices": ["$1.0$", "$2.0$", "$3.0$", "$4.0$", "$5.0$", "$6.0$"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "$5.0$", "en": "$5.0$" },
+      "explanation": { "en": "$c_A=\\dfrac{3000}{100\\cdot15}=2.0$, $c_B=\\dfrac{4000}{100\\cdot10}=4.0\\,$J/(g·K). Then $(400\\cdot2+300\\cdot4)t=10000\\Rightarrow2000t=10000\\Rightarrow t=5.0\\,$K.", "ja": "$c_A=\\dfrac{3000}{100\\cdot15}=2.0$，$c_B=\\dfrac{4000}{100\\cdot10}=4.0\\,$J/(g·K)。$(400\\cdot2+300\\cdot4)t=10000$ より $2000t=10000$，$t=5.0\\,$K。" }
+    },
+    {
+      "id": "2015-2-phy-8", "answerRow": 8, "block": "II", "topicId": "thermo",
+      "subtopic": "Kinetic theory: equal P, T across a free conducting partition",
+      "patternTags": ["express-formula", "kinetic-theory", "ideal-gas"], "hasFigure": true,
+      "figure": { "ja": "断熱容器を，熱を伝えなめらかに動くしきりで領域 A,B に分ける。A は分子 N_A 個（1 分子質量 m_A），B は N_B 個（m_B）。同じ温度・同じ圧力で熱平衡。", "en": "An adiabatic container is split by a heat-conducting, freely-moving partition into A (N_A molecules, mass m_A each) and B (N_B, m_B); both at equal temperature and pressure." },
+      "ja": { "prompt": "断熱容器が，熱を伝えなめらかに動くしきりで領域 A と B に分けられている。A には分子 $N_A$ 個（1 分子の質量 $m_A$），B には $N_B$ 個（$m_B$）の理想気体が入り，同じ温度・同じ圧力で熱平衡にある。$\\dfrac{V_A}{V_B}$ と $\\dfrac{\\overline{v_A^2}}{\\overline{v_B^2}}$ の正しい組み合わせはどれか。", "choices": ["$\\dfrac{V_A}{V_B}=\\dfrac{N_A}{N_B},\\ \\dfrac{\\overline{v_A^2}}{\\overline{v_B^2}}=\\dfrac{m_A}{m_B}$", "$\\dfrac{V_A}{V_B}=\\dfrac{N_A}{N_B},\\ \\dfrac{\\overline{v_A^2}}{\\overline{v_B^2}}=\\dfrac{m_B}{m_A}$", "$\\dfrac{V_A}{V_B}=\\dfrac{N_B}{N_A},\\ \\dfrac{\\overline{v_A^2}}{\\overline{v_B^2}}=\\dfrac{m_A}{m_B}$", "$\\dfrac{V_A}{V_B}=\\dfrac{N_B}{N_A},\\ \\dfrac{\\overline{v_A^2}}{\\overline{v_B^2}}=\\dfrac{m_B}{m_A}$"] },
+      "en": { "prompt": "An adiabatic container is divided by a heat-conducting, freely-moving partition into A ($N_A$ molecules, mass $m_A$) and B ($N_B$, $m_B$), at equal temperature and pressure. Give $\\dfrac{V_A}{V_B}$ and $\\dfrac{\\overline{v_A^2}}{\\overline{v_B^2}}$.", "choices": ["$\\dfrac{V_A}{V_B}=\\dfrac{N_A}{N_B},\\ \\dfrac{\\overline{v_A^2}}{\\overline{v_B^2}}=\\dfrac{m_A}{m_B}$", "$\\dfrac{V_A}{V_B}=\\dfrac{N_A}{N_B},\\ \\dfrac{\\overline{v_A^2}}{\\overline{v_B^2}}=\\dfrac{m_B}{m_A}$", "$\\dfrac{V_A}{V_B}=\\dfrac{N_B}{N_A},\\ \\dfrac{\\overline{v_A^2}}{\\overline{v_B^2}}=\\dfrac{m_A}{m_B}$", "$\\dfrac{V_A}{V_B}=\\dfrac{N_B}{N_A},\\ \\dfrac{\\overline{v_A^2}}{\\overline{v_B^2}}=\\dfrac{m_B}{m_A}$"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "$\\dfrac{V_A}{V_B}=\\dfrac{N_A}{N_B},\\ \\dfrac{\\overline{v_A^2}}{\\overline{v_B^2}}=\\dfrac{m_B}{m_A}$", "en": "$\\dfrac{V_A}{V_B}=\\dfrac{N_A}{N_B},\\ \\dfrac{\\overline{v_A^2}}{\\overline{v_B^2}}=\\dfrac{m_B}{m_A}$" },
+      "explanation": { "en": "Free partition ⇒ equal pressure; conducting ⇒ equal temperature. From $PV=NkT$ with equal $P,T$: $V_A/V_B=N_A/N_B$. From $\\tfrac12m\\overline{v^2}=\\tfrac32kT$, $\\overline{v^2}=3kT/m$, so with equal $T$: $\\overline{v_A^2}/\\overline{v_B^2}=m_B/m_A$.", "ja": "可動しきり ⇒ 等圧，熱を伝える ⇒ 等温。$PV=NkT$ より $V_A/V_B=N_A/N_B$。$\\overline{v^2}=3kT/m$ より等温で $\\overline{v_A^2}/\\overline{v_B^2}=m_B/m_A$。" }
+    },
+    {
+      "id": "2015-2-phy-9", "answerRow": 9, "block": "II", "topicId": "thermo",
+      "subtopic": "Net heat over a p–V cycle (isochoric + isobaric)",
+      "patternTags": ["express-formula", "first-law", "pv-diagram"], "hasFigure": true,
+      "figure": { "ja": "p–V 図。A($V_0,2p_0$) → B($V_0,p_0$, 絶対温度 $T_0$) → C($2V_0,p_0$)。A→B は定積，B→C は定圧。定積モル比熱 $C_V$，定圧 $C_p$，気体定数 $R$。", "en": "p–V diagram: A($V_0,2p_0$) → B($V_0,p_0$, temperature $T_0$) → C($2V_0,p_0$). A→B isochoric, B→C isobaric. Molar heat capacities $C_V,C_p$; gas constant $R$." },
+      "ja": { "prompt": "$n$ モルの理想気体を A→B→C と変化させた。A は $(V_0,2p_0)$，B は $(V_0,p_0)$ で絶対温度 $T_0$，C は $(2V_0,p_0)$ である。A→B→C の過程全体で気体が吸収した正味の熱量はどのように表されるか。", "choices": ["$-nRT_0$", "$-nC_VT_0$", "$-nC_pT_0$", "$-n(C_V+C_p)T_0$", "$nRT_0$", "$nC_VT_0$", "$nC_pT_0$", "$n(C_V+C_p)T_0$"] },
+      "en": { "prompt": "$n$ mol of ideal gas goes A→B→C. A$=(V_0,2p_0)$; B$=(V_0,p_0)$ at temperature $T_0$; C$=(2V_0,p_0)$. Find the net heat absorbed over A→B→C.", "choices": ["$-nRT_0$", "$-nC_VT_0$", "$-nC_pT_0$", "$-n(C_V+C_p)T_0$", "$nRT_0$", "$nC_VT_0$", "$nC_pT_0$", "$n(C_V+C_p)T_0$"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "$nRT_0$", "en": "$nRT_0$" },
+      "explanation": { "en": "$T_B=T_0$, $T_A=2T_0$, $T_C=2T_0$. A→B (isochoric): $Q_1=nC_V(T_0-2T_0)=-nC_VT_0$. B→C (isobaric): $Q_2=nC_p(2T_0-T_0)=nC_pT_0$. Net $Q=nC_pT_0-nC_VT_0=n(C_p-C_V)T_0=nRT_0$ (Mayer).", "ja": "$T_B=T_0,\\ T_A=2T_0,\\ T_C=2T_0$。A→B（定積）$Q_1=nC_V(T_0-2T_0)=-nC_VT_0$。B→C（定圧）$Q_2=nC_p(2T_0-T_0)=nC_pT_0$。正味 $Q=n(C_p-C_V)T_0=nRT_0$（マイヤーの関係）。" }
+    },
+    {
+      "id": "2015-2-phy-10", "answerRow": 10, "block": "III", "topicId": "waves",
+      "subtopic": "Refraction of water waves (wavefront angle = incidence angle)",
+      "patternTags": ["express-formula", "refraction", "snells-law"], "hasFigure": true,
+      "figure": { "ja": "境界線 AB で深さの異なる領域 I,II が接する水槽（上から見た図）。波面と AB のなす角が領域 I で 60°，領域 II で 45°。", "en": "Top view of a tank where regions I and II of different depth meet along boundary AB. The wavefront makes 60° with AB in region I and 45° in region II." },
+      "ja": { "prompt": "直線 AB の境界線で深さの異なる領域 I と II が接する水槽（上から見た図）で水面波が屈折する。波面と AB のなす角が，領域 I で $60°$，領域 II で $45°$ であった。領域 I,II の波の速さを $v_I,v_{II}$ とするとき，$\\dfrac{v_I}{v_{II}}$ はいくらか。", "choices": ["$\\dfrac{\\sqrt2}{2}$", "$\\dfrac{\\sqrt6}{3}$", "$\\dfrac{\\sqrt6}{2}$", "$\\sqrt2$"] },
+      "en": { "prompt": "Water waves refract across boundary AB between regions I and II. The wavefront makes $60°$ with AB in region I and $45°$ in region II. With wave speeds $v_I,v_{II}$, find $\\dfrac{v_I}{v_{II}}$.", "choices": ["$\\dfrac{\\sqrt2}{2}$", "$\\dfrac{\\sqrt6}{3}$", "$\\dfrac{\\sqrt6}{2}$", "$\\sqrt2$"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "$\\dfrac{\\sqrt6}{2}$", "en": "$\\dfrac{\\sqrt6}{2}$" },
+      "explanation": { "en": "The wavefront–boundary angle equals the angle of incidence/refraction (ray to normal). Snell: $\\dfrac{v_I}{v_{II}}=\\dfrac{\\sin60°}{\\sin45°}=\\dfrac{\\sqrt3/2}{\\sqrt2/2}=\\sqrt{\\tfrac32}=\\dfrac{\\sqrt6}{2}$.", "ja": "波面と境界のなす角は入射角・屈折角に等しい。屈折の法則より $\\dfrac{v_I}{v_{II}}=\\dfrac{\\sin60°}{\\sin45°}=\\dfrac{\\sqrt3/2}{\\sqrt2/2}=\\dfrac{\\sqrt6}{2}$。" }
+    },
+    {
+      "id": "2015-2-phy-11", "answerRow": 11, "block": "III", "topicId": "waves",
+      "subtopic": "Two-source interference (first destructive frequency)",
+      "patternTags": ["plug-in-numbers", "interference", "path-difference"], "hasFigure": true,
+      "figure": { "ja": "スピーカー S1,S2 が 5.0 m 離れ同位相・同振動数。点 P は S1 から 12 m，S2 から 13 m。音速 340 m/s。", "en": "Speakers S1,S2 are 5.0 m apart, in phase at the same frequency. Point P is 12 m from S1 and 13 m from S2. Sound speed 340 m/s." },
+      "ja": { "prompt": "$5.0\\,$m 離れた 2 つのスピーカー S1,S2 が同位相・同振動数の音波を出す。S1 から $12\\,$m，S2 から $13\\,$m の点 P で観測する。振動数を $500\\,$Hz から徐々に大きくするとき，P の音が最初に弱め合うときの振動数は何 Hz か。音速 $340\\,$m/s。", "choices": ["$510$", "$680$", "$850$", "$1020$"] },
+      "en": { "prompt": "Speakers $5.0\\,$m apart emit in-phase sound. At P ($12\\,$m from S1, $13\\,$m from S2), as the frequency is raised from $500\\,$Hz, find the first frequency at which the sound is destructive. Speed $340\\,$m/s.", "choices": ["$510$", "$680$", "$850$", "$1020$"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "$510$", "en": "$510$" },
+      "explanation": { "en": "Path difference $=13-12=1\\,$m. Destructive: $1=(n+\\tfrac12)\\lambda=(n+\\tfrac12)\\dfrac{340}{f}\\Rightarrow f=(n+\\tfrac12)340$. $n=0$ gives $170$ (below 500); $n=1$ gives $510\\,$Hz, the first above 500.", "ja": "経路差 $=13-12=1\\,$m。弱め合い $1=(n+\\tfrac12)\\dfrac{340}{f}$ より $f=(n+\\tfrac12)340$。$n=0$ は $170$（500 未満），$n=1$ で $510\\,$Hz が 500 を超える最初。" }
+    },
+    {
+      "id": "2015-2-phy-12", "answerRow": 12, "block": "III", "topicId": "waves",
+      "subtopic": "Double slit: fringe spacing vs slit separation",
+      "patternTags": ["plug-in-numbers", "double-slit", "inverse-proportion"], "hasFigure": true,
+      "figure": { "ja": "単スリット S0 と間隔 d の複スリット S1,S2 に単色光。十分遠いスクリーンで隣り合う明線間隔は a。間隔を d→1.5d に変えると間隔は a′。経路差は xd/ℓ。", "en": "Monochromatic light through single slit S0 and double slit (separation d). On a distant screen the fringe spacing is a; changing d→1.5d gives a′; path difference is xd/ℓ." },
+      "ja": { "prompt": "単スリット S0 と間隔 $d$ の複スリット S1,S2 に単色光を通すと，十分遠いスクリーン上で隣り合う明線の間隔は $a$ であった。複スリットの間隔を $d$ から $1.5d$ に変えると間隔は $a'$ になった。$\\dfrac{a'}{a}$ はいくらか。（経路差は $\\dfrac{xd}{\\ell}$ と表せる。）", "choices": ["$0.33$", "$0.67$", "$1.5$", "$3.0$"] },
+      "en": { "prompt": "With double-slit separation $d$ the fringe spacing is $a$; changing to $1.5d$ gives $a'$. Find $\\dfrac{a'}{a}$ (path difference $=\\dfrac{xd}{\\ell}$).", "choices": ["$0.33$", "$0.67$", "$1.5$", "$3.0$"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "$0.67$", "en": "$0.67$" },
+      "explanation": { "en": "Fringe spacing $a=\\dfrac{\\ell\\lambda}{d}\\propto\\dfrac1d$. So $\\dfrac{a'}{a}=\\dfrac{d}{1.5d}=\\dfrac{1}{1.5}\\approx0.67$.", "ja": "明線間隔 $a=\\dfrac{\\ell\\lambda}{d}\\propto\\dfrac1d$。よって $\\dfrac{a'}{a}=\\dfrac{1}{1.5}\\approx0.67$。" }
+    },
+    {
+      "id": "2015-2-phy-13", "answerRow": 13, "block": "IV", "topicId": "em",
+      "subtopic": "Electric potential from two point charges",
+      "patternTags": ["express-formula", "electric-potential", "superposition"], "hasFigure": true,
+      "figure": { "ja": "長方形 ABCD。A に電荷 q(>0)，B に −8q を固定。AD=a，AB=√3·a。C の電位 V_C，D の電位 V_D。クーロン定数 k。", "en": "Rectangle ABCD: charge q(>0) at A, −8q at B. AD=a, AB=√3·a. Potentials V_C at C, V_D at D; Coulomb constant k." },
+      "ja": { "prompt": "長方形 ABCD の頂点 A に電気量 $q\\,(>0)$，頂点 B に $-8q$ の点電荷を固定した。辺 AD の長さは $a$，辺 AB の長さは $\\sqrt3\\,a$ である。クーロンの法則の比例定数を $k$ とする。$V_D-V_C$ はどのように表されるか。", "choices": ["$-\\dfrac{11kq}{2a}$", "$-\\dfrac{9kq}{2a}$", "$-\\dfrac{7kq}{2a}$", "$-\\dfrac{5kq}{2a}$", "$\\dfrac{5kq}{2a}$", "$\\dfrac{7kq}{2a}$", "$\\dfrac{9kq}{2a}$", "$\\dfrac{11kq}{2a}$"] },
+      "en": { "prompt": "Rectangle ABCD has charge $q\\,(>0)$ at A and $-8q$ at B, with AD$=a$, AB$=\\sqrt3\\,a$. With Coulomb constant $k$, express $V_D-V_C$.", "choices": ["$-\\dfrac{11kq}{2a}$", "$-\\dfrac{9kq}{2a}$", "$-\\dfrac{7kq}{2a}$", "$-\\dfrac{5kq}{2a}$", "$\\dfrac{5kq}{2a}$", "$\\dfrac{7kq}{2a}$", "$\\dfrac{9kq}{2a}$", "$\\dfrac{11kq}{2a}$"] },
+      "answerIndex": 6, "answerOption": 7, "answer": { "ja": "$\\dfrac{9kq}{2a}$", "en": "$\\dfrac{9kq}{2a}$" },
+      "explanation": { "en": "Distances: AC=BD=$2a$, BC=AD=$a$. $V_C=\\dfrac{kq}{2a}+\\dfrac{k(-8q)}{a}=-\\dfrac{15kq}{2a}$; $V_D=\\dfrac{kq}{a}+\\dfrac{k(-8q)}{2a}=-\\dfrac{3kq}{a}=-\\dfrac{6kq}{2a}$. So $V_D-V_C=\\dfrac{9kq}{2a}$.", "ja": "距離は AC=BD=$2a$，BC=AD=$a$。$V_C=\\dfrac{kq}{2a}-\\dfrac{8kq}{a}=-\\dfrac{15kq}{2a}$，$V_D=\\dfrac{kq}{a}-\\dfrac{8kq}{2a}=-\\dfrac{6kq}{2a}$。よって $V_D-V_C=\\dfrac{9kq}{2a}$。" }
+    },
+    {
+      "id": "2015-2-phy-14", "answerRow": 14, "block": "IV", "topicId": "em",
+      "subtopic": "Capacitors in series (charge equal, fields differ)",
+      "patternTags": ["express-formula", "capacitors", "dielectric", "series"], "hasFigure": true,
+      "figure": { "ja": "同形の平行板コンデンサー A（真空）と B（比誘電率 ε_r の誘電体）を，図のように直列に重ねて電池に接続（A が上，B が下）。", "en": "Identical parallel-plate capacitors A (vacuum) and B (dielectric ε_r) are stacked in series across a battery (A above, B below)." },
+      "ja": { "prompt": "同じ形状の平行板コンデンサー A（極板間は真空）と B（極板間は比誘電率 $\\varepsilon_r$ の誘電体）を，図のように直列に電池に接続した。A の電荷 $Q_A$，電場 $E_A$，B の電荷 $Q_B$，電場 $E_B$ とするとき，$\\dfrac{Q_B}{Q_A}$ と $\\dfrac{E_B}{E_A}$ の正しい組み合わせはどれか。", "choices": ["$\\dfrac{Q_B}{Q_A}=1,\\ \\dfrac{E_B}{E_A}=\\dfrac{1}{\\varepsilon_r}$", "$\\dfrac{Q_B}{Q_A}=1,\\ \\dfrac{E_B}{E_A}=1$", "$\\dfrac{Q_B}{Q_A}=1,\\ \\dfrac{E_B}{E_A}=\\varepsilon_r$", "$\\dfrac{Q_B}{Q_A}=\\varepsilon_r,\\ \\dfrac{E_B}{E_A}=\\dfrac{1}{\\varepsilon_r}$", "$\\dfrac{Q_B}{Q_A}=\\varepsilon_r,\\ \\dfrac{E_B}{E_A}=1$", "$\\dfrac{Q_B}{Q_A}=\\varepsilon_r,\\ \\dfrac{E_B}{E_A}=\\varepsilon_r$"] },
+      "en": { "prompt": "Identical capacitors A (vacuum) and B (dielectric $\\varepsilon_r$) are connected in series across a battery. Give $\\dfrac{Q_B}{Q_A}$ and $\\dfrac{E_B}{E_A}$.", "choices": ["$\\dfrac{Q_B}{Q_A}=1,\\ \\dfrac{E_B}{E_A}=\\dfrac{1}{\\varepsilon_r}$", "$\\dfrac{Q_B}{Q_A}=1,\\ \\dfrac{E_B}{E_A}=1$", "$\\dfrac{Q_B}{Q_A}=1,\\ \\dfrac{E_B}{E_A}=\\varepsilon_r$", "$\\dfrac{Q_B}{Q_A}=\\varepsilon_r,\\ \\dfrac{E_B}{E_A}=\\dfrac{1}{\\varepsilon_r}$", "$\\dfrac{Q_B}{Q_A}=\\varepsilon_r,\\ \\dfrac{E_B}{E_A}=1$", "$\\dfrac{Q_B}{Q_A}=\\varepsilon_r,\\ \\dfrac{E_B}{E_A}=\\varepsilon_r$"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "$\\dfrac{Q_B}{Q_A}=1,\\ \\dfrac{E_B}{E_A}=\\dfrac{1}{\\varepsilon_r}$", "en": "$\\dfrac{Q_B}{Q_A}=1,\\ \\dfrac{E_B}{E_A}=\\dfrac{1}{\\varepsilon_r}$" },
+      "explanation": { "en": "In series the two capacitors carry the same charge, so $Q_B/Q_A=1$. The field inside a plate gap is $E=\\dfrac{\\sigma}{\\varepsilon}=\\dfrac{Q}{\\varepsilon_0\\varepsilon_r' S}$; with equal $Q$ and area, $E_A=\\dfrac{Q}{\\varepsilon_0S}$, $E_B=\\dfrac{Q}{\\varepsilon_r\\varepsilon_0S}$, so $E_B/E_A=1/\\varepsilon_r$.", "ja": "直列なので両者の電荷は等しく $Q_B/Q_A=1$。極板間の電場は $E=\\dfrac{Q}{\\varepsilon S}$。同じ $Q$・面積で $E_A=\\dfrac{Q}{\\varepsilon_0S}$，$E_B=\\dfrac{Q}{\\varepsilon_r\\varepsilon_0S}$ より $E_B/E_A=1/\\varepsilon_r$。" }
+    },
+    {
+      "id": "2015-2-phy-15", "answerRow": 15, "block": "IV", "topicId": "em",
+      "subtopic": "DC circuit (series + parallel resistors, branch current)",
+      "patternTags": ["express-formula", "dc-circuit", "series-parallel"], "hasFigure": true,
+      "figure": { "ja": "起電力 V の電池に抵抗 R を 4 個接続。R1 直列の後，節点で R(中央, 縦)と「R2+R(A の縦)」が並列。点 A は R2 と縦 R の間。内部抵抗無視。", "en": "EMF V with four resistors R: a series R, then a node where a vertical R is in parallel with (another R in series with a vertical R at A). Point A is between the second R and its vertical R. Internal resistance negligible." },
+      "ja": { "prompt": "起電力 $V$ の電池に抵抗値 $R$ の抵抗 4 個を図のように接続した。点 A を流れる電流の大きさ $I$ はどのように表されるか。電池の内部抵抗は無視する。", "choices": ["$\\dfrac{V}{5R}$", "$\\dfrac{2V}{5R}$", "$\\dfrac{3V}{5R}$", "$\\dfrac{4V}{5R}$", "$\\dfrac{V}{R}$"] },
+      "en": { "prompt": "Four resistors $R$ are connected to an EMF $V$ as shown. Find the current $I$ through point A. Internal resistance negligible.", "choices": ["$\\dfrac{V}{5R}$", "$\\dfrac{2V}{5R}$", "$\\dfrac{3V}{5R}$", "$\\dfrac{4V}{5R}$", "$\\dfrac{V}{R}$"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "$\\dfrac{V}{5R}$", "en": "$\\dfrac{V}{5R}$" },
+      "explanation": { "en": "After the first series $R$ the node splits into a middle $R$ (to the bottom rail) in parallel with the branch ($R$ then the $R$ at A): $R\\parallel(2R)=\\tfrac{2R}{3}$. Total $=R+\\tfrac{2R}{3}=\\tfrac{5R}{3}$, so $I_{tot}=\\tfrac{3V}{5R}$. This splits 1:2, and the A-branch (resistance $2R$) takes the smaller share $I=I_{tot}\\cdot\\dfrac{R}{R+2R}=\\dfrac{V}{5R}$.", "ja": "最初の直列 $R$ の後，節点で中央の $R$ と「$R$＋A の $R$（$=2R$）」が並列：$R\\parallel2R=\\tfrac{2R}{3}$。全体 $=R+\\tfrac{2R}{3}=\\tfrac{5R}{3}$ より全電流 $\\tfrac{3V}{5R}$。これが $1{:}2$ に分かれ，A の枝（$2R$）には $I=\\tfrac{3V}{5R}\\cdot\\dfrac{R}{3R}=\\dfrac{V}{5R}$。" }
+    },
+    {
+      "id": "2015-2-phy-16", "answerRow": 16, "block": "IV", "topicId": "em",
+      "subtopic": "Field of straight wire vs circular coil (cancellation)",
+      "patternTags": ["express-formula", "magnetic-field", "biot-savart", "superposition"], "hasFigure": true,
+      "figure": { "ja": "長い直線導線 A（電流 I_A 上向き）と円形コイル B（半径 r）が同一平面内。中心 O と A の距離は 3r。B に I_B を流すと O の磁場が 0。図の矢印（反時計回り）を I_B の正の向きとする。", "en": "Long straight wire A (current I_A up) and circular coil B (radius r) are coplanar; centre O is 3r from A. Current I_B makes the field at O zero; the arrow (counter-clockwise) is the positive sense of I_B." },
+      "ja": { "prompt": "十分長い直線導線 A と円形コイル B（半径 $r$）が同一平面内にある。B の中心 O と A の距離は $3r$。A に電流 $I_A$ が流れ，B に電流 $I_B$ を流すと O の磁場が 0 になった。図中の矢印の向きを $I_B$ の正の向きとする。$\\dfrac{I_B}{I_A}$ はどのように表されるか。", "choices": ["$-\\dfrac{2}{3\\pi}$", "$-\\dfrac{1}{3\\pi}$", "$-\\dfrac{1}{6\\pi}$", "$\\dfrac{1}{6\\pi}$", "$\\dfrac{1}{3\\pi}$", "$\\dfrac{2}{3\\pi}$"] },
+      "en": { "prompt": "A long straight wire A and a coplanar circular coil B (radius $r$) have centre O at distance $3r$ from A. Current $I_A$ flows in A; current $I_B$ in B makes the field at O zero. With the arrow as positive $I_B$, express $\\dfrac{I_B}{I_A}$.", "choices": ["$-\\dfrac{2}{3\\pi}$", "$-\\dfrac{1}{3\\pi}$", "$-\\dfrac{1}{6\\pi}$", "$\\dfrac{1}{6\\pi}$", "$\\dfrac{1}{3\\pi}$", "$\\dfrac{2}{3\\pi}$"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "$\\dfrac{1}{3\\pi}$", "en": "$\\dfrac{1}{3\\pi}$" },
+      "explanation": { "en": "Wire field at O: $\\dfrac{\\mu_0 I_A}{2\\pi(3r)}$ (into the page). Coil field at centre: $\\dfrac{\\mu_0 I_B}{2r}$; the positive (CCW) sense gives out-of-page, which cancels the wire. Setting magnitudes equal: $\\dfrac{I_B}{2r}=\\dfrac{I_A}{6\\pi r}\\Rightarrow\\dfrac{I_B}{I_A}=\\dfrac{1}{3\\pi}$ (positive).", "ja": "O での直線導線の磁場 $\\dfrac{\\mu_0 I_A}{2\\pi(3r)}$（紙面裏向き）。コイル中心の磁場 $\\dfrac{\\mu_0 I_B}{2r}$，正（反時計回り）で紙面表向きとなり打ち消す。大きさを等しく $\\dfrac{I_B}{2r}=\\dfrac{I_A}{6\\pi r}$ より $\\dfrac{I_B}{I_A}=\\dfrac{1}{3\\pi}$（正）。" }
+    },
+    {
+      "id": "2015-2-phy-17", "answerRow": 17, "block": "IV", "topicId": "em",
+      "subtopic": "Force on a bent current path in a uniform field",
+      "patternTags": ["express-formula", "magnetic-force", "endpoints-rule"], "hasFigure": true,
+      "figure": { "ja": "直角二等辺三角形の 2 辺 PQR（∠Q=90°，PQ=QR=ℓ）を電流 I が P→Q→R に流れる。磁場 B は紙面に垂直で表→裏（紙面奥）。向きは a:右, b:上, c:左, d:下。", "en": "Two legs P→Q→R of a right isosceles triangle (∠Q=90°, PQ=QR=ℓ) carry current I from P to R. Field B is into the page. Directions: a=right, b=up, c=left, d=down." },
+      "ja": { "prompt": "直角二等辺三角形の 2 等辺 PQR（$\\angle Q=90°$，$PQ=QR=\\ell$）をもつ導線に電流 $I$ が P→Q→R の向きに流れる。紙面に垂直で表から裏へ向かう磁束密度 $B$ の一様な磁場中にある。PQR が受ける力の大きさと向き（a:右, b:上, c:左, d:下）の正しい組み合わせはどれか。", "choices": ["$\\sqrt2 IB\\ell$, a", "$\\sqrt2 IB\\ell$, b", "$\\sqrt2 IB\\ell$, c", "$\\sqrt2 IB\\ell$, d", "$2IB\\ell$, a", "$2IB\\ell$, b", "$2IB\\ell$, c", "$2IB\\ell$, d"] },
+      "en": { "prompt": "Two legs P→Q→R ($\\angle Q=90°$, $PQ=QR=\\ell$) carry current $I$ in a uniform field $B$ into the page. Give the magnitude and direction (a:right, b:up, c:left, d:down) of the force on PQR.", "choices": ["$\\sqrt2 IB\\ell$, a", "$\\sqrt2 IB\\ell$, b", "$\\sqrt2 IB\\ell$, c", "$\\sqrt2 IB\\ell$, d", "$2IB\\ell$, a", "$2IB\\ell$, b", "$2IB\\ell$, c", "$2IB\\ell$, d"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "$\\sqrt2 IB\\ell$, b", "en": "$\\sqrt2 IB\\ell$, b" },
+      "explanation": { "en": "The force on a current path in a uniform field depends only on the straight vector between endpoints. P→R is horizontal of length $\\sqrt2\\,\\ell$ (the hypotenuse), pointing right. $\\vec F=I\\vec L\\times\\vec B$: (right)×(into page)=up, magnitude $I(\\sqrt2\\ell)B=\\sqrt2 IB\\ell$, direction b.", "ja": "一様磁場中の電流が受ける力は両端を結ぶ直線ベクトルだけで決まる。P→R は水平で長さ $\\sqrt2\\,\\ell$（斜辺），右向き。$\\vec F=I\\vec L\\times\\vec B$：（右）×（紙面奥）＝上。大きさ $\\sqrt2 IB\\ell$，向き b。" }
+    },
+    {
+      "id": "2015-2-phy-18", "answerRow": 18, "block": "IV", "topicId": "em",
+      "subtopic": "Motional EMF on rails (current direction & polarity)",
+      "patternTags": ["conceptual", "electromagnetic-induction", "motional-emf"], "hasFigure": true,
+      "figure": { "ja": "鉛直上向き磁束密度 B の一様磁場中，水平な 2 本の平行レールの左端に抵抗 R。導体棒 ab をレールに垂直に乗せ，右向きに一定速さ v で動かす。a は奥側, b は手前側。", "en": "In a vertical (up) field B, a conducting bar ab on horizontal rails (resistor R at the left end) is pushed right at constant speed v. a is the far end, b the near end." },
+      "ja": { "prompt": "鉛直上向きで磁束密度 $B$ の一様な磁場内に，水平な 2 本の平行レールを置き，左端に抵抗 R を接続する。導体棒 ab をレールに垂直に乗せ，右向きに一定の速さ $v$ で動かす。導体棒に流れる電流の向きと，a・b の電位はどうなるか。", "choices": ["a→b，a の電位が高い", "a→b，b の電位が高い", "a→b，a と b の電位は等しい", "b→a，a の電位が高い", "b→a，b の電位が高い", "b→a，a と b の電位は等しい"] },
+      "en": { "prompt": "In a vertical (up) field $B$, a bar ab on horizontal rails (R at left) moves right at speed $v$. Give the current direction in the bar and the relative potentials of a and b.", "choices": ["a→b, a higher", "a→b, b higher", "a→b, equal", "b→a, a higher", "b→a, b higher", "b→a, equal"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "a→b，b の電位が高い", "en": "a→b, b higher" },
+      "explanation": { "en": "Force on a positive carrier $\\vec F=q\\vec v\\times\\vec B$ with $\\vec v$ right and $\\vec B$ up points along the bar toward b, so positive charge piles up at b: b is the higher-potential (+) terminal, and inside the bar the current runs a→b. (Equivalently, by Lenz the loop current is clockwise viewed from above, i.e. a→b in the bar.)", "ja": "正電荷に働く力 $\\vec F=q\\vec v\\times\\vec B$（$\\vec v$ 右，$\\vec B$ 上）は棒に沿って b 向き。よって b 側に正電荷がたまり b が高電位（＋極），棒内の電流は a→b。（レンツの法則でも上から見て時計回り＝棒内 a→b。）" }
+    },
+    {
+      "id": "2015-2-phy-19", "answerRow": 19, "block": "V", "topicId": "atoms",
+      "subtopic": "Hydrogen spectral line (energy levels → wavelength)",
+      "patternTags": ["plug-in-numbers", "bohr-model", "photon-energy"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "水素原子の $n$ 番目の定常状態のエネルギー準位は $E_n=-\\dfrac{2.2\\times10^{-18}}{n^2}\\,$J で与えられる。$n=4$ から $n=2$ へ移るときに放出される光の波長は何 m か。プランク定数 $6.6\\times10^{-34}\\,$J·s，光速 $3.0\\times10^{8}\\,$m/s とする。", "choices": ["$1.6\\times10^{-7}$", "$2.4\\times10^{-7}$", "$3.2\\times10^{-7}$", "$4.8\\times10^{-7}$", "$6.4\\times10^{-7}$", "$7.2\\times10^{-7}$"] },
+      "en": { "prompt": "Hydrogen energy levels are $E_n=-\\dfrac{2.2\\times10^{-18}}{n^2}\\,$J. For the $n=4\\to n=2$ transition, find the emitted wavelength (m). Use $h=6.6\\times10^{-34}\\,$J·s, $c=3.0\\times10^{8}\\,$m/s.", "choices": ["$1.6\\times10^{-7}$", "$2.4\\times10^{-7}$", "$3.2\\times10^{-7}$", "$4.8\\times10^{-7}$", "$6.4\\times10^{-7}$", "$7.2\\times10^{-7}$"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "$4.8\\times10^{-7}$", "en": "$4.8\\times10^{-7}$" },
+      "explanation": { "en": "$E_4=-\\dfrac{2.2\\times10^{-18}}{16}=-1.375\\times10^{-19}$, $E_2=-\\dfrac{2.2\\times10^{-18}}{4}=-5.5\\times10^{-19}\\,$J. Photon energy $=E_4-E_2=4.125\\times10^{-19}\\,$J. $\\lambda=\\dfrac{hc}{E}=\\dfrac{6.6\\times10^{-34}\\cdot3.0\\times10^{8}}{4.125\\times10^{-19}}=4.8\\times10^{-7}\\,$m.", "ja": "$E_4=-\\dfrac{2.2\\times10^{-18}}{16}=-1.375\\times10^{-19}$，$E_2=-5.5\\times10^{-19}\\,$J。光子のエネルギー $=E_4-E_2=4.125\\times10^{-19}\\,$J。$\\lambda=\\dfrac{hc}{E}=\\dfrac{6.6\\times10^{-34}\\cdot3.0\\times10^{8}}{4.125\\times10^{-19}}=4.8\\times10^{-7}\\,$m。" }
+    }
+  ],
+  "patterns": {
+    "blockSkeleton": "Physics is always 19 items in 5 blocks: I Mechanics ×6, II Thermodynamics ×3, III Waves ×3, IV Electricity & Magnetism ×6, V Atoms ×1. This 2015-2 paper follows it exactly.",
+    "newArchetypesVsPrevious": [
+      "Bent-rod equilibrium solved by 'centre of mass directly below the pivot' (torque balance) — a clean way to dodge force components.",
+      "Projectile launched off a right-isosceles prism apex, where the key geometric fact is 'altitude to the hypotenuse = half the hypotenuse'.",
+      "Circular-arc contact problem with a 120° arc: the critical (minimum-N) point is the highest point of the arc, giving v₀=√(7gr/2).",
+      "Two stacked capacitors in SERIES with one dielectric — equal charge, fields in ratio 1:1/ε_r (contrast with the more common parallel version)."
+    ],
+    "recurringWithPrevious": [
+      "Uniform acceleration from rest using s=½at² then v=at (appears nearly every paper).",
+      "Spring SHM with amplitude from the release point and energy/ω√(A²−x²) for speed at a given displacement.",
+      "Max-compression collision = common-velocity momentum conservation (equal masses → v/2).",
+      "Calorimetry: extract two specific heats, then combine masses for a mixed heating (plug-in-numbers).",
+      "Kinetic theory: free conducting partition ⇒ equal P and T ⇒ V∝N and v²∝1/m.",
+      "p–V cycle net heat via first law + Mayer's relation C_p−C_V=R.",
+      "Refraction (wavefront-to-boundary angle = incidence angle) and double-slit a∝1/d.",
+      "Two-source destructive interference: path difference =(n+½)λ, first frequency above a threshold.",
+      "Potential superposition from point charges on a rectangle; motional EMF polarity via qv×B / Lenz."
+    ],
+    "examTacticNotes": [
+      "For a hung rigid body, place the combined centre of mass directly under the support — converts torque balance into a one-line horizontal-moment equation.",
+      "On the inside of a vertical circular arc, the danger point (smallest normal force) is the highest point; impose N≥0 there.",
+      "Series vs parallel capacitors decides everything: series ⇒ same Q; parallel ⇒ same V. Read the figure carefully (here A is stacked on B ⇒ series).",
+      "Force on any current-carrying path in a UNIFORM field depends only on the straight line between its endpoints — replace a bent wire by its chord.",
+      "Motional EMF polarity: apply F=qv×B to a positive carrier; the end it is pushed toward is the + terminal, and current inside the bar runs toward that end.",
+      "Hydrogen line: compute E_n at both levels, take the difference, then λ=hc/ΔE — watch the powers of ten."
+    ],
+    "difficulty": "Standard EJU level. The bent-rod (Q1), the 120°-arc critical speed (Q6) and the series-capacitor reading (Q14) are the most error-prone; the rest are direct applications of core formulas."
+  }
+}

@@ -1,0 +1,269 @@
+{
+  "id": "2012-1-chemistry",
+  "year": 2012,
+  "session": 1,
+  "subject": "chemistry",
+  "title": "EJU 2012 · Session 1 · Chemistry",
+  "source": "平成24年度（2012年度）日本留学試験（第1回）理科〈化学〉 © Japan Student Services Organization (JASSO)",
+  "attribution": "EJU past questions © JASSO. Question text transcribed from the official past paper; figures described in text; correct answers taken from the official JASSO answer key and independently re-solved for verification.",
+  "languages": ["ja", "en"],
+  "answerKeyVerified": true,
+  "structure": {
+    "format": "flat",
+    "totalQuestions": 20,
+    "note": "Chemistry is a flat list of 20 single-best-answer items (問1–問20, answer rows 1–20) — no Roman-numeral blocks. Order ≈ structure & bonding → states/energetics/electrochemistry/equilibria → inorganic → organic.",
+    "givens": {
+      "ja": "標準状態 $0\\,$°C・$1.0\\times10^5\\,$Pa，気体 $1\\,$mol の体積 $22.4\\,$L，ファラデー定数 $F=9.65\\times10^4\\,$C/mol。原子量：H 1.0, C 12, N 14, O 16, Na 23, Mg 24, S 32, Ca 40, Fe 56, Zn 65, Pb 207。",
+      "en": "STP $0\\,$°C, $1.0\\times10^5\\,$Pa; molar volume $22.4\\,$L; Faraday $F=9.65\\times10^4\\,$C/mol. Atomic weights: H 1.0, C 12, N 14, O 16, Na 23, Mg 24, S 32, Ca 40, Fe 56, Zn 65, Pb 207."
+    }
+  },
+  "questions": [
+    {
+      "id": "2012-1-chem-1", "answerRow": 1, "topicId": "matter-structure",
+      "subtopic": "Set of three elements all in the same group",
+      "patternTags": ["electron-config-periodic", "periodic-groups", "odd-one-out"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の①〜⑤のそれぞれに示した三つの元素すべてが周期表の同じ族に属するものを，一つ選びなさい。", "choices": ["Al, B, S", "Be, Ca, Mg", "Br, O, S", "Ca, K, Li", "Cl, F, Ne"] },
+      "en": { "prompt": "Choose the set in which all three elements belong to the same group of the periodic table.", "choices": ["Al, B, S", "Be, Ca, Mg", "Br, O, S", "Ca, K, Li", "Cl, F, Ne"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "Be, Ca, Mg（すべて 2 族）", "en": "Be, Ca, Mg (all group 2)" },
+      "explanation": { "en": "Be, Mg, Ca are all group-2 (alkaline-earth) elements. The others mix groups: Al/B are 13 but S is 16; Br is 17 vs O/S 16; Ca is 2 vs K/Li 1; Cl/F are 17 vs Ne 18.", "ja": "Be・Mg・Ca はすべて 2 族（アルカリ土類）。他は族が混ざる：Al/B は 13 族だが S は 16，Br は 17 で O/S は 16，Ca は 2 で K/Li は 1，Cl/F は 17 で Ne は 18。" }
+    },
+    {
+      "id": "2012-1-chem-2", "answerRow": 2, "topicId": "matter-structure",
+      "subtopic": "Molecule using the most valence electrons in covalent bonds",
+      "patternTags": ["chemical-bonds", "bonding-electrons", "lewis-structure"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の分子①〜⑤のうち，共有結合に使われている価電子の数が最も多いものを一つ選びなさい。", "choices": ["エタン（$\\mathrm{C_2H_6}$）", "エチレン（$\\mathrm{C_2H_4}$）", "窒素（$\\mathrm{N_2}$）", "二酸化炭素（$\\mathrm{CO_2}$）", "水（$\\mathrm{H_2O}$）"] },
+      "en": { "prompt": "Which molecule uses the largest number of valence electrons in its covalent bonds?", "choices": ["ethane ($\\mathrm{C_2H_6}$)", "ethylene ($\\mathrm{C_2H_4}$)", "nitrogen ($\\mathrm{N_2}$)", "carbon dioxide ($\\mathrm{CO_2}$)", "water ($\\mathrm{H_2O}$)"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "エタン（$\\mathrm{C_2H_6}$）", "en": "ethane ($\\mathrm{C_2H_6}$)" },
+      "explanation": { "en": "Count shared pairs (each = 2 valence electrons): ethane has 7 bonds (1 C–C + 6 C–H) = 14 electrons; ethylene 6 pairs = 12; $\\mathrm{CO_2}$ 4 pairs = 8; $\\mathrm{N_2}$ 3 pairs = 6; $\\mathrm{H_2O}$ 2 pairs = 4. Ethane uses the most.", "ja": "共有電子対（各 2 個）を数える：エタンは結合 7 本（C–C 1＋C–H 6）＝14 個，エチレン 6 対＝12，$\\mathrm{CO_2}$ 4 対＝8，$\\mathrm{N_2}$ 3 対＝6，$\\mathrm{H_2O}$ 2 対＝4。エタンが最多。" }
+    },
+    {
+      "id": "2012-1-chem-3", "answerRow": 3, "topicId": "matter-structure",
+      "subtopic": "Number of lone (unshared) pairs in CH₄, H₂O, NH₃",
+      "patternTags": ["chemical-bonds", "lone-pairs", "lewis-structure"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "$\\mathrm{CH_4}$，$\\mathrm{H_2O}$，$\\mathrm{NH_3}$ はそれぞれ何組の非共有電子対をもつか。正しい数の組み合わせを選びなさい。", "choices": ["0, 0, 2", "0, 1, 0", "0, 2, 1", "1, 0, 2", "1, 1, 0", "1, 2, 1"] },
+      "en": { "prompt": "How many lone (unshared) electron pairs do $\\mathrm{CH_4}$, $\\mathrm{H_2O}$, $\\mathrm{NH_3}$ each have?", "choices": ["0, 0, 2", "0, 1, 0", "0, 2, 1", "1, 0, 2", "1, 1, 0", "1, 2, 1"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "$\\mathrm{CH_4}$:0, $\\mathrm{H_2O}$:2, $\\mathrm{NH_3}$:1", "en": "$\\mathrm{CH_4}$:0, $\\mathrm{H_2O}$:2, $\\mathrm{NH_3}$:1" },
+      "explanation": { "en": "Carbon in $\\mathrm{CH_4}$ uses all 4 valence electrons in bonds → 0 lone pairs. Oxygen in $\\mathrm{H_2O}$ has 2 lone pairs; nitrogen in $\\mathrm{NH_3}$ has 1 lone pair.", "ja": "$\\mathrm{CH_4}$ の C は価電子をすべて結合に使う → 非共有電子対 0。$\\mathrm{H_2O}$ の O は 2 組，$\\mathrm{NH_3}$ の N は 1 組。" }
+    },
+    {
+      "id": "2012-1-chem-4", "answerRow": 4, "topicId": "matter-structure",
+      "subtopic": "Incorrect statement about the periodic table (H to Ar)",
+      "patternTags": ["electron-config-periodic", "ionization-energy", "pick-false-statement"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "周期表において，H から Ar までの元素に関する次の記述①〜⑤のうち，誤っているものを一つ選びなさい。", "choices": ["1 族元素は，1 価の陽イオンになりやすい。", "18 族元素のイオン化エネルギーは，同じ周期の他の元素より大きい。", "H から始まる周期を除き，同じ族の典型元素は互いによく似た化学的性質をもつ。", "H から始まる周期を除き，金属元素は周期表の左側に位置している。", "Na から始まる周期には，遷移元素も含まれる。"] },
+      "en": { "prompt": "For elements H through Ar, which statement about the periodic table is INCORRECT?", "choices": ["Group-1 elements readily form monovalent cations.", "Group-18 elements have the highest first ionization energy in their period.", "Apart from the period beginning with H, same-group main-group elements have similar chemical properties.", "Apart from the period beginning with H, metallic elements lie on the left side of the table.", "The period beginning with Na contains transition elements."] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "「Na から始まる周期に遷移元素が含まれる」は誤り（⑤）", "en": "\"the Na period contains transition elements\" is wrong (⑤)" },
+      "explanation": { "en": "Period 3 (Na–Ar) contains no transition elements — the transition metals first appear in period 4 (Sc onward). The other four statements are correct.", "ja": "第 3 周期（Na〜Ar）に遷移元素は含まれない — 遷移金属は第 4 周期（Sc 以降）で初めて現れる。他の 4 つは正しい。" }
+    },
+    {
+      "id": "2012-1-chem-5", "answerRow": 5, "topicId": "matter-structure",
+      "subtopic": "Atomic weight of X from mass of X in three compounds (GCD)",
+      "patternTags": ["mole-formulas", "atomic-weight", "gcd-reasoning"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "元素 X を含む三つの化合物 A，B，C の $1.0\\,$mol 中の元素 X の質量は，それぞれ $38\\,$g，$57\\,$g，$76\\,$g であった。元素 X の原子量として最も適当な値を選びなさい。", "choices": ["19", "38", "57", "76", "95", "114"] },
+      "en": { "prompt": "Compounds A, B, C each contain element X; per mole of compound the mass of X is $38\\,$g, $57\\,$g, $76\\,$g respectively. What is the most appropriate atomic weight of X?", "choices": ["19", "38", "57", "76", "95", "114"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "19", "en": "19" },
+      "explanation": { "en": "The mass of X per mole must be (atomic weight)×(integer atoms). $38=2\\times19$, $57=3\\times19$, $76=4\\times19$, so the greatest common divisor — and hence X's atomic weight — is 19.", "ja": "1 mol 中の X の質量は（原子量）×（整数個）。$38=2\\times19$，$57=3\\times19$，$76=4\\times19$ より最大公約数＝原子量は 19。" }
+    },
+    {
+      "id": "2012-1-chem-6", "answerRow": 6, "topicId": "states-and-change",
+      "subtopic": "Lowest pressure for equal masses (highest molar mass)",
+      "patternTags": ["gas-law", "molar-mass", "compare-cases"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の物質それぞれ $1.0\\,$g が同温・同体積の容器内で理想気体として存在しているとき，内部の圧力が最も低くなるものを一つ選びなさい。", "choices": ["$\\mathrm{CO_2}$", "$\\mathrm{O_2}$", "$\\mathrm{N_2}$", "$\\mathrm{CH_3CH{=}CH_2}$", "$\\mathrm{CH_3CH_2OH}$"] },
+      "en": { "prompt": "If $1.0\\,$g of each substance behaves as an ideal gas in identical-temperature, identical-volume containers, which gives the lowest pressure?", "choices": ["$\\mathrm{CO_2}$", "$\\mathrm{O_2}$", "$\\mathrm{N_2}$", "$\\mathrm{CH_3CH{=}CH_2}$", "$\\mathrm{CH_3CH_2OH}$"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "$\\mathrm{CH_3CH_2OH}$（$M=46$）", "en": "$\\mathrm{CH_3CH_2OH}$ ($M=46$)" },
+      "explanation": { "en": "At equal V and T, $P\\propto n=\\dfrac{1.0}{M}$, so the lowest pressure goes with the largest molar mass. $M$: ethanol 46 > $\\mathrm{CO_2}$ 44 > propene 42 > $\\mathrm{O_2}$ 32 > $\\mathrm{N_2}$ 28. Ethanol gives the fewest moles and the lowest pressure.", "ja": "同 V・同 T では $P\\propto n=\\dfrac{1.0}{M}$ なので，最も圧力が低いのは最大の $M$。$M$：エタノール 46 > $\\mathrm{CO_2}$ 44 > プロペン 42 > $\\mathrm{O_2}$ 32 > $\\mathrm{N_2}$ 28。エタノールが最少 mol で最低圧。" }
+    },
+    {
+      "id": "2012-1-chem-7", "answerRow": 7, "topicId": "states-and-change",
+      "subtopic": "Heat released forming a CO/CO₂ mixture (Hess)",
+      "patternTags": ["thermochemistry", "hess-law", "heat-of-combustion", "plug-in-numbers"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "炭素 C および一酸化炭素 CO の燃焼熱は，それぞれ $394\\,$kJ/mol，$283\\,$kJ/mol である。$1.00\\,$mol の炭素が燃焼して $0.500\\,$mol の CO と $0.500\\,$mol の $\\mathrm{CO_2}$ が生成した。発生する熱量は何 kJ か。", "choices": ["111", "253", "299", "323", "338", "677"] },
+      "en": { "prompt": "The heats of combustion of C and CO are $394\\,$kJ/mol and $283\\,$kJ/mol. When $1.00\\,$mol of C burns to give $0.500\\,$mol CO and $0.500\\,$mol $\\mathrm{CO_2}$, how much heat (kJ) is released?", "choices": ["111", "253", "299", "323", "338", "677"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "約 $253\\,$kJ", "en": "≈ 253 kJ" },
+      "explanation": { "en": "$\\mathrm{C\\to CO_2}$ releases $394\\,$kJ; $\\mathrm{C\\to CO}$ releases $394-283=111\\,$kJ. For $1.00\\,$mol C: $0.5\\times394+0.5\\times111=197+55.5=252.5\\approx253\\,$kJ.", "ja": "$\\mathrm{C\\to CO_2}$ は $394\\,$kJ，$\\mathrm{C\\to CO}$ は $394-283=111\\,$kJ。$1.00\\,$mol の C で $0.5\\times394+0.5\\times111=197+55.5=252.5\\approx253\\,$kJ。" }
+    },
+    {
+      "id": "2012-1-chem-8", "answerRow": 8, "topicId": "states-and-change",
+      "subtopic": "Order of ion concentrations in sodium acetate solution",
+      "patternTags": ["acids-bases", "salt-hydrolysis", "ion-concentration-order"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "$0.10\\,$mol/L の酢酸ナトリウム水溶液 $\\mathrm{CH_3COONa}$ aq に含まれる各イオンを，モル濃度の高いものから順に並べたものとして正しいものを選びなさい。", "choices": ["$\\mathrm{CH_3COO^- > Na^+ > OH^- > H^+}$", "$\\mathrm{CH_3COO^- > OH^- > Na^+ > H^+}$", "$\\mathrm{Na^+ > CH_3COO^- > OH^- > H^+}$", "$\\mathrm{Na^+ > OH^- > CH_3COO^- > H^+}$", "$\\mathrm{Na^+ > OH^- > H^+ > CH_3COO^-}$", "$\\mathrm{OH^- > H^+ > Na^+ > CH_3COO^-}$"] },
+      "en": { "prompt": "Order the ions in $0.10\\,$mol/L sodium acetate $\\mathrm{CH_3COONa}$ aq from highest to lowest molar concentration.", "choices": ["$\\mathrm{CH_3COO^- > Na^+ > OH^- > H^+}$", "$\\mathrm{CH_3COO^- > OH^- > Na^+ > H^+}$", "$\\mathrm{Na^+ > CH_3COO^- > OH^- > H^+}$", "$\\mathrm{Na^+ > OH^- > CH_3COO^- > H^+}$", "$\\mathrm{Na^+ > OH^- > H^+ > CH_3COO^-}$", "$\\mathrm{OH^- > H^+ > Na^+ > CH_3COO^-}$"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "$\\mathrm{Na^+ > CH_3COO^- > OH^- > H^+}$", "en": "$\\mathrm{Na^+ > CH_3COO^- > OH^- > H^+}$" },
+      "explanation": { "en": "$\\mathrm{Na^+}$ stays at $0.10\\,$mol/L; a little $\\mathrm{CH_3COO^-}$ hydrolyses ($\\mathrm{CH_3COO^-+H_2O\\rightleftharpoons CH_3COOH+OH^-}$), so it is slightly below $0.10$ and the solution is basic ($\\mathrm{OH^->H^+}$). Hence $\\mathrm{Na^+>CH_3COO^->OH^->H^+}$.", "ja": "$\\mathrm{Na^+}$ は $0.10\\,$mol/L のまま。$\\mathrm{CH_3COO^-}$ は一部加水分解（$\\mathrm{CH_3COO^-+H_2O\\rightleftharpoons CH_3COOH+OH^-}$）して $0.10$ よりやや少なく，溶液は塩基性（$\\mathrm{OH^->H^+}$）。よって $\\mathrm{Na^+>CH_3COO^->OH^->H^+}$。" }
+    },
+    {
+      "id": "2012-1-chem-9", "answerRow": 9, "topicId": "states-and-change",
+      "subtopic": "P–T graph of a gas at constant volume",
+      "patternTags": ["gas-law", "gay-lussac", "read-from-graph"], "hasFigure": true,
+      "figure": { "ja": "P–T グラフの選択肢：①反比例の曲線，②上に凹の曲線，③水平な直線，④右下がりの直線，⑤原点を通る右上がりの直線。", "en": "P–T graph options: ① inverse curve; ② concave-up curve; ③ horizontal line; ④ downward line; ⑤ straight line through the origin, rising." },
+      "ja": { "prompt": "体積が変わらない容器に封じこめた理想気体の温度 $T$〔K〕と圧力 $P$〔Pa〕の関係を表すグラフとして最も適当なものを選びなさい。", "choices": ["反比例の曲線", "上に凹の曲線", "水平な直線", "右下がりの直線", "原点を通る右上がりの直線"] },
+      "en": { "prompt": "For an ideal gas in a fixed-volume container, which graph shows pressure $P$〔Pa〕 vs temperature $T$〔K〕?", "choices": ["an inverse (1/T) curve", "a concave-up curve", "a horizontal line", "a downward-sloping line", "a straight line through the origin, rising"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "原点を通る右上がりの直線（⑤）", "en": "a straight line through the origin (⑤)" },
+      "explanation": { "en": "At constant V, $P=\\dfrac{nR}{V}T$, so $P$ is directly proportional to the absolute temperature $T$ — a straight line through the origin (Gay-Lussac's law).", "ja": "体積一定では $P=\\dfrac{nR}{V}T$ となり，$P$ は絶対温度 $T$ に比例 — 原点を通る直線（シャルル／ゲーリュサックの法則）。" }
+    },
+    {
+      "id": "2012-1-chem-10", "answerRow": 10, "topicId": "states-and-change",
+      "subtopic": "Lead storage battery: mass gain at each electrode",
+      "patternTags": ["cells-electrolysis", "faradays-law", "lead-acid", "plug-in-numbers"], "hasFigure": true,
+      "figure": { "ja": "鉛蓄電池の放電：負極 $\\mathrm{Pb+SO_4^{2-}\\to PbSO_4+2e^-}$，正極 $\\mathrm{PbO_2+SO_4^{2-}+4H^++2e^-\\to PbSO_4+2H_2O}$。$10.0\\,$A で $965\\,$s 放電。", "en": "Lead-acid discharge: anode $\\mathrm{Pb+SO_4^{2-}\\to PbSO_4+2e^-}$; cathode $\\mathrm{PbO_2+SO_4^{2-}+4H^++2e^-\\to PbSO_4+2H_2O}$. $10.0\\,$A for $965\\,$s." },
+      "ja": { "prompt": "鉛蓄電池を $10.0\\,$A で $965\\,$秒放電したとき，負極・正極の質量はそれぞれ何 g 増加するか。生成した $\\mathrm{PbSO_4}$ はすべて電極表面に析出するものとする。", "choices": ["負極 4.80 / 正極 3.20", "負極 4.80 / 正極 6.40", "負極 9.60 / 正極 6.40", "負極 9.60 / 正極 15.2", "負極 15.2 / 正極 3.20", "負極 15.2 / 正極 15.2"] },
+      "en": { "prompt": "Discharging the lead-acid cell at $10.0\\,$A for $965\\,$s, by how many grams do the anode (negative) and cathode (positive) gain mass? (All $\\mathrm{PbSO_4}$ deposits on the electrodes.)", "choices": ["anode 4.80 / cathode 3.20", "anode 4.80 / cathode 6.40", "anode 9.60 / cathode 6.40", "anode 9.60 / cathode 15.2", "anode 15.2 / cathode 3.20", "anode 15.2 / cathode 15.2"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "負極 $+4.80\\,$g，正極 $+3.20\\,$g", "en": "anode $+4.80\\,$g, cathode $+3.20\\,$g" },
+      "explanation": { "en": "Charge $=10.0\\times965=9650\\,$C → $0.10\\,$mol $e^-$. Anode: per $2e^-$, $\\mathrm{Pb}(207)\\to\\mathrm{PbSO_4}(303)$, gain $+96$; $0.05\\,$mol $\\Rightarrow +4.80\\,$g. Cathode: per $2e^-$, $\\mathrm{PbO_2}(239)\\to\\mathrm{PbSO_4}(303)$, gain $+64$; $0.05\\,$mol $\\Rightarrow +3.20\\,$g.", "ja": "電気量 $=10.0\\times965=9650\\,$C → $0.10\\,$mol $e^-$。負極：$2e^-$ あたり $\\mathrm{Pb}(207)\\to\\mathrm{PbSO_4}(303)$ で $+96$，$0.05\\,$mol で $+4.80\\,$g。正極：$2e^-$ あたり $\\mathrm{PbO_2}(239)\\to\\mathrm{PbSO_4}(303)$ で $+64$，$0.05\\,$mol で $+3.20\\,$g。" }
+    },
+    {
+      "id": "2012-1-chem-11", "answerRow": 11, "topicId": "states-and-change",
+      "subtopic": "Smallest oxidation number of nitrogen",
+      "patternTags": ["redox", "oxidation-number", "compare-cases"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の化合物①〜⑥のうち，窒素原子 N の酸化数が最も小さいものを一つ選びなさい。", "choices": ["$\\mathrm{HNO_2}$", "$\\mathrm{HNO_3}$", "$\\mathrm{NH_3}$", "$\\mathrm{NO}$", "$\\mathrm{NO_2}$", "$\\mathrm{N_2O_4}$"] },
+      "en": { "prompt": "In which compound is the oxidation number of nitrogen the smallest?", "choices": ["$\\mathrm{HNO_2}$", "$\\mathrm{HNO_3}$", "$\\mathrm{NH_3}$", "$\\mathrm{NO}$", "$\\mathrm{NO_2}$", "$\\mathrm{N_2O_4}$"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "$\\mathrm{NH_3}$（N は $-3$）", "en": "$\\mathrm{NH_3}$ (N is $-3$)" },
+      "explanation": { "en": "Oxidation numbers of N: $\\mathrm{HNO_2}$ +3, $\\mathrm{HNO_3}$ +5, $\\mathrm{NH_3}$ −3, $\\mathrm{NO}$ +2, $\\mathrm{NO_2}$ +4, $\\mathrm{N_2O_4}$ +4. The smallest is −3 in $\\mathrm{NH_3}$.", "ja": "N の酸化数：$\\mathrm{HNO_2}$ +3，$\\mathrm{HNO_3}$ +5，$\\mathrm{NH_3}$ −3，$\\mathrm{NO}$ +2，$\\mathrm{NO_2}$ +4，$\\mathrm{N_2O_4}$ +4。最小は $\\mathrm{NH_3}$ の −3。" }
+    },
+    {
+      "id": "2012-1-chem-12", "answerRow": 12, "topicId": "states-and-change",
+      "subtopic": "Which 1.0 g metal evolves the most H₂",
+      "patternTags": ["stoichiometry", "gas-volume", "metals-acids", "compare-cases"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の反応①〜⑤で，金属 $1.0\\,$g とじゅうぶんな量の水または塩酸を反応させたとき，発生する水素 $\\mathrm{H_2}$ の同温・同圧での体積が最も大きい反応はどれか。 ① $\\mathrm{Ca+2H_2O\\to Ca(OH)_2+H_2}$ ② $\\mathrm{Fe+2HCl\\to FeCl_2+H_2}$ ③ $\\mathrm{Mg+2HCl\\to MgCl_2+H_2}$ ④ $\\mathrm{2Na+2H_2O\\to2NaOH+H_2}$ ⑤ $\\mathrm{Zn+2HCl\\to ZnCl_2+H_2}$", "choices": ["①", "②", "③", "④", "⑤"] },
+      "en": { "prompt": "For $1.0\\,$g of each metal reacting fully with water or HCl, which evolves the largest volume of $\\mathrm{H_2}$ (same T, P)? ① $\\mathrm{Ca+2H_2O}$ ② $\\mathrm{Fe+2HCl}$ ③ $\\mathrm{Mg+2HCl}$ ④ $\\mathrm{2Na+2H_2O}$ ⑤ $\\mathrm{Zn+2HCl}$", "choices": ["①", "②", "③", "④", "⑤"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "③（Mg）", "en": "③ (Mg)" },
+      "explanation": { "en": "$\\mathrm{H_2}$ volume ∝ mol $\\mathrm{H_2}$ per $1.0\\,$g. Ca: $1/40\\times1=0.025$; Fe: $1/56=0.018$; Mg: $1/24=0.042$; Na: $1/23\\times\\tfrac12=0.022$; Zn: $1/65=0.015$. Mg gives the most ($0.042\\,$mol).", "ja": "$\\mathrm{H_2}$ の体積は $1.0\\,$g あたりの mol に比例。Ca：$1/40=0.025$，Fe：$1/56=0.018$，Mg：$1/24=0.042$，Na：$1/23\\times\\tfrac12=0.022$，Zn：$1/65=0.015$。Mg が最大（$0.042\\,$mol）。" }
+    },
+    {
+      "id": "2012-1-chem-13", "answerRow": 13, "topicId": "inorganic",
+      "subtopic": "Incorrect statement about hydrogen",
+      "patternTags": ["typical-elements", "hydrogen", "pick-false-statement", "electrolysis"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "水素に関する次の記述①〜⑤のうち，誤っているものを一つ選びなさい。", "choices": ["すべての気体の中で最も軽い。", "水に溶けにくい。", "高温で金属の酸化物に対して還元剤としてはたらく。", "水を電気分解すると，陽極から発生する。", "燃料電池に使用される。"] },
+      "en": { "prompt": "Which statement about hydrogen is INCORRECT?", "choices": ["It is the lightest of all gases.", "It is only slightly soluble in water.", "At high temperature it acts as a reducing agent toward metal oxides.", "In the electrolysis of water it is evolved at the anode.", "It is used in fuel cells."] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "「陽極から発生する」は誤り（④）", "en": "\"evolved at the anode\" is wrong (④)" },
+      "explanation": { "en": "In water electrolysis, $\\mathrm{H_2}$ is evolved at the cathode (reduction $\\mathrm{2H^++2e^-\\to H_2}$), while $\\mathrm{O_2}$ forms at the anode. The other statements are correct.", "ja": "水の電気分解では $\\mathrm{H_2}$ は陰極（還元 $\\mathrm{2H^++2e^-\\to H_2}$）から発生し，陽極からは $\\mathrm{O_2}$。他の記述は正しい。" }
+    },
+    {
+      "id": "2012-1-chem-14", "answerRow": 14, "topicId": "inorganic",
+      "subtopic": "Correct statement about alkali metals",
+      "patternTags": ["typical-elements", "alkali-metals", "pick-correct-statement"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "アルカリ金属に関する記述として最も適当なものを一つ選びなさい。", "choices": ["ナトリウム Na は塩化ナトリウム水溶液の電気分解によって得られる。", "ナトリウムはエタノールと反応しない。", "2 価の陽イオンになりやすい。", "アルカリ金属の原子は 1 個の価電子をもつ。", "原子番号が大きくなるにつれて，アルカリ金属のイオン化エネルギーは大きくなる。"] },
+      "en": { "prompt": "Which statement about alkali metals is correct?", "choices": ["Sodium is obtained by electrolysis of aqueous NaCl.", "Sodium does not react with ethanol.", "They readily form divalent (2+) cations.", "An alkali-metal atom has one valence electron.", "The ionization energy of alkali metals increases with atomic number."] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "「アルカリ金属の原子は 1 個の価電子をもつ」（④）", "en": "\"an alkali-metal atom has one valence electron\" (④)" },
+      "explanation": { "en": "④ is correct (group 1, one valence electron). The rest are false: Na comes from molten-salt (not aqueous) electrolysis; Na does react with ethanol ($\\mathrm{2Na+2C_2H_5OH\\to2C_2H_5ONa+H_2}$); alkali metals form 1+ ions; and ionization energy decreases down the group.", "ja": "④ が正しい（1 族，価電子 1 個）。他は誤り：Na は溶融塩電解で得る（水溶液ではない），Na はエタノールと反応する（$\\mathrm{2Na+2C_2H_5OH\\to2C_2H_5ONa+H_2}$），1 価の陽イオンになる，イオン化エネルギーは下にいくほど小さくなる。" }
+    },
+    {
+      "id": "2012-1-chem-15", "answerRow": 15, "topicId": "inorganic",
+      "subtopic": "Apparatus to prepare and dry chlorine gas",
+      "patternTags": ["gas-prep-industry", "drying-agents", "gas-collection"], "hasFigure": true,
+      "figure": { "ja": "化合物 A と濃塩酸から乾燥した $\\mathrm{Cl_2}$ をつくる装置：A を加熱→洗気びん B→洗気びん C→気体捕集。(i) 上方置換，(ii) 下方置換。", "en": "Apparatus to make dry $\\mathrm{Cl_2}$ from compound A + conc. HCl: heat A → wash bottle B → wash bottle C → collect. (i) upward delivery, (ii) downward delivery." },
+      "ja": { "prompt": "化合物 A と濃塩酸から乾燥した塩素 $\\mathrm{Cl_2}$ をつくりたい。化合物 A と図の B，C に入れる物質はそれぞれ何か。また発生気体を集める方法 (i)上方置換・(ii)下方置換 のどちらが適当か。", "choices": ["A:CuO B:conc.$\\mathrm{H_2SO_4}$ C:$\\mathrm{H_2O}$ 方法:i", "A:CuO B:conc.$\\mathrm{H_2SO_4}$ C:$\\mathrm{H_2O}$ 方法:ii", "A:CuO B:$\\mathrm{H_2O}$ C:conc.$\\mathrm{H_2SO_4}$ 方法:ii", "A:$\\mathrm{MnO_2}$ B:conc.$\\mathrm{H_2SO_4}$ C:$\\mathrm{H_2O}$ 方法:i", "A:$\\mathrm{MnO_2}$ B:$\\mathrm{H_2O}$ C:conc.$\\mathrm{H_2SO_4}$ 方法:i", "A:$\\mathrm{MnO_2}$ B:$\\mathrm{H_2O}$ C:conc.$\\mathrm{H_2SO_4}$ 方法:ii"] },
+      "en": { "prompt": "To make dry $\\mathrm{Cl_2}$ from compound A + conc. HCl, what are A and the contents of wash bottles B and C, and which collection method (i upward / ii downward) is suitable?", "choices": ["A:CuO B:conc.$\\mathrm{H_2SO_4}$ C:$\\mathrm{H_2O}$ method:i", "A:CuO B:conc.$\\mathrm{H_2SO_4}$ C:$\\mathrm{H_2O}$ method:ii", "A:CuO B:$\\mathrm{H_2O}$ C:conc.$\\mathrm{H_2SO_4}$ method:ii", "A:$\\mathrm{MnO_2}$ B:conc.$\\mathrm{H_2SO_4}$ C:$\\mathrm{H_2O}$ method:i", "A:$\\mathrm{MnO_2}$ B:$\\mathrm{H_2O}$ C:conc.$\\mathrm{H_2SO_4}$ method:i", "A:$\\mathrm{MnO_2}$ B:$\\mathrm{H_2O}$ C:conc.$\\mathrm{H_2SO_4}$ method:ii"] },
+      "answerIndex": 5, "answerOption": 6, "answer": { "ja": "A:$\\mathrm{MnO_2}$，B:$\\mathrm{H_2O}$，C:conc.$\\mathrm{H_2SO_4}$，方法:ii（下方置換）", "en": "A: $\\mathrm{MnO_2}$, B: $\\mathrm{H_2O}$, C: conc. $\\mathrm{H_2SO_4}$, method: ii (downward)" },
+      "explanation": { "en": "$\\mathrm{MnO_2}$ oxidizes conc. HCl on heating: $\\mathrm{MnO_2+4HCl\\to MnCl_2+2H_2O+Cl_2}$. The wet $\\mathrm{Cl_2}$ carries HCl, so it is first bubbled through water (B, removes HCl) then conc. $\\mathrm{H_2SO_4}$ (C, dries). $\\mathrm{Cl_2}$ is denser than air → collect by downward delivery (ii).", "ja": "$\\mathrm{MnO_2}$ は加熱で濃塩酸を酸化：$\\mathrm{MnO_2+4HCl\\to MnCl_2+2H_2O+Cl_2}$。生成 $\\mathrm{Cl_2}$ は HCl を含むので，まず水（B で HCl 除去）→ 濃硫酸（C で乾燥）。$\\mathrm{Cl_2}$ は空気より重く下方置換（ii）。" }
+    },
+    {
+      "id": "2012-1-chem-16", "answerRow": 16, "topicId": "organic",
+      "subtopic": "Incorrect statement about alkene reactions",
+      "patternTags": ["aliphatic-hydrocarbons", "alkene-reactions", "pick-false-statement"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "アルケンの反応に関する次の記述①〜⑤のうち，誤っているものを一つ選びなさい。", "choices": ["エチレンを臭素水に通じると，臭素水が脱色される。", "エチレンを触媒の存在下で水素と反応させると，エタンが生成する。", "エチレンを付加重合させると，ベンゼンが生成する。", "プロピレンとベンゼンから，クメン（イソプロピルベンゼン）が合成される。", "2-メチルプロペンと臭素の反応では，立体異性体は生成しない。"] },
+      "en": { "prompt": "Which statement about alkene reactions is INCORRECT?", "choices": ["Bubbling ethylene through bromine water decolorizes it.", "Ethylene + H₂ over a catalyst gives ethane.", "Addition polymerization of ethylene gives benzene.", "Propylene + benzene gives cumene (isopropylbenzene).", "Bromine addition to 2-methylpropene gives no stereoisomers."] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "「付加重合でベンゼンが生成する」は誤り（③）", "en": "\"addition polymerization gives benzene\" is wrong (③)" },
+      "explanation": { "en": "Addition polymerization of ethylene gives polyethylene, not benzene. The other statements are all correct (Br₂ addition decolorizes; hydrogenation gives ethane; the cumene process; and Br₂ addition to isobutylene makes 1,2-dibromo-2-methylpropane, which has no stereocenter).", "ja": "エチレンの付加重合はポリエチレンを生じ，ベンゼンではない。他は正しい（$\\mathrm{Br_2}$ 付加で脱色，水素化でエタン，クメン法，イソブチレンへの $\\mathrm{Br_2}$ 付加は不斉炭素をもたない 1,2-ジブロモ-2-メチルプロパン）。" }
+    },
+    {
+      "id": "2012-1-chem-17", "answerRow": 17, "topicId": "organic",
+      "subtopic": "Reaction distinguishing 1-propanol from 2-propanol",
+      "patternTags": ["functional-groups", "iodoform-reaction", "isomer-distinction"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の化学反応①〜⑤のうち，1-プロパノール（プロピルアルコール）と 2-プロパノール（イソプロピルアルコール）を区別できる反応を一つ選びなさい。", "choices": ["濃硫酸による脱水反応", "銀鏡反応", "塩化鉄(III) $\\mathrm{FeCl_3}$ による呈色反応", "フェーリング液の還元反応", "ヨードホルム反応"] },
+      "en": { "prompt": "Which reaction can distinguish 1-propanol from 2-propanol?", "choices": ["dehydration by conc. $\\mathrm{H_2SO_4}$", "silver mirror test", "$\\mathrm{FeCl_3}$ colour reaction", "reduction of Fehling's solution", "iodoform reaction"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "ヨードホルム反応（⑤）", "en": "the iodoform reaction (⑤)" },
+      "explanation": { "en": "Only the iodoform reaction distinguishes them: 2-propanol has the $\\mathrm{CH_3CH(OH)-}$ group and gives a positive iodoform test, whereas 1-propanol ($\\mathrm{CH_3CH_2CH_2OH}$) does not. Dehydration, silver-mirror, $\\mathrm{FeCl_3}$, and Fehling's give the same (mostly negative) result for both.", "ja": "区別できるのはヨードホルム反応のみ：2-プロパノールは $\\mathrm{CH_3CH(OH)-}$ をもち陽性，1-プロパノール（$\\mathrm{CH_3CH_2CH_2OH}$）は陰性。脱水・銀鏡・$\\mathrm{FeCl_3}$・フェーリングは両者とも同じ（多くは陰性）。" }
+    },
+    {
+      "id": "2012-1-chem-18", "answerRow": 18, "topicId": "states-and-change",
+      "subtopic": "O₂ volume to burn 2.3 g ethanol",
+      "patternTags": ["stoichiometry", "combustion", "gas-volume", "plug-in-numbers"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "エタノール（$\\mathrm{C_2H_5OH}$）$2.3\\,$g を完全燃焼させるために必要な酸素は，標準状態で何 L か。最も近い値を選びなさい。", "choices": ["1.1", "3.4", "6.8", "11", "34", "68"] },
+      "en": { "prompt": "What volume of $\\mathrm{O_2}$ at STP is needed to completely burn $2.3\\,$g of ethanol ($\\mathrm{C_2H_5OH}$)?", "choices": ["1.1", "3.4", "6.8", "11", "34", "68"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "約 $3.4\\,$L", "en": "≈ 3.4 L" },
+      "explanation": { "en": "$2.3\\,$g $/46=0.05\\,$mol ethanol. $\\mathrm{C_2H_5OH+3O_2\\to2CO_2+3H_2O}$ needs $3\\,$mol $\\mathrm{O_2}$ per mol, so $0.15\\,$mol $\\mathrm{O_2}=0.15\\times22.4=3.4\\,$L.", "ja": "$2.3\\,$g$/46=0.05\\,$mol。$\\mathrm{C_2H_5OH+3O_2\\to2CO_2+3H_2O}$ で 1 mol あたり $\\mathrm{O_2}$ 3 mol なので $0.15\\,$mol$=0.15\\times22.4=3.4\\,$L。" }
+    },
+    {
+      "id": "2012-1-chem-19", "answerRow": 19, "topicId": "organic",
+      "subtopic": "Order three aromatic products by acidity",
+      "patternTags": ["aromatic", "acidity-comparison", "reaction-products"], "hasFigure": true,
+      "figure": { "ja": "(a) ベンゼン + conc.$\\mathrm{HNO_3}$/conc.$\\mathrm{H_2SO_4}$ → X（ニトロベンゼン）。(b) トルエン + $\\mathrm{KMnO_4}$ → dil.$\\mathrm{H_2SO_4}$ → Y（安息香酸）。(c) ナトリウムフェノキシド + $\\mathrm{H_2O}$/$\\mathrm{CO_2}$ → Z（フェノール）。", "en": "(a) benzene + conc.$\\mathrm{HNO_3}$/conc.$\\mathrm{H_2SO_4}$ → X (nitrobenzene). (b) toluene + $\\mathrm{KMnO_4}$ then dil.$\\mathrm{H_2SO_4}$ → Y (benzoic acid). (c) sodium phenoxide + $\\mathrm{H_2O}$/$\\mathrm{CO_2}$ → Z (phenol)." },
+      "ja": { "prompt": "反応(a)〜(c)で生じた化合物 X，Y，Z を酸性の強いものから順に並べたものを選びなさい。 (a) ベンゼンに濃硝酸・濃硫酸 → X (b) トルエンに $\\mathrm{KMnO_4}$，希硫酸 → Y (c) ナトリウムフェノキシドに $\\mathrm{H_2O}$，$\\mathrm{CO_2}$ → Z", "choices": ["$X>Y>Z$", "$X>Z>Y$", "$Y>X>Z$", "$Y>Z>X$", "$Z>X>Y$", "$Z>Y>X$"] },
+      "en": { "prompt": "Order products X, Y, Z by acidity (strongest first). (a) benzene + conc. $\\mathrm{HNO_3}$/$\\mathrm{H_2SO_4}$ → X; (b) toluene + $\\mathrm{KMnO_4}$ then dil. $\\mathrm{H_2SO_4}$ → Y; (c) sodium phenoxide + $\\mathrm{H_2O}$/$\\mathrm{CO_2}$ → Z.", "choices": ["$X>Y>Z$", "$X>Z>Y$", "$Y>X>Z$", "$Y>Z>X$", "$Z>X>Y$", "$Z>Y>X$"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "$Y>Z>X$", "en": "$Y>Z>X$" },
+      "explanation": { "en": "X = nitrobenzene (essentially non-acidic). Y = benzoic acid (carboxylic acid, pKa ≈ 4). Z = phenol (pKa ≈ 10) — formed because carbonic acid is strong enough to liberate it from phenoxide. Acidity: $Y>Z>X$.", "ja": "X＝ニトロベンゼン（ほぼ非酸性）。Y＝安息香酸（カルボン酸，pKa≈4）。Z＝フェノール（pKa≈10，炭酸がフェノキシドからフェノールを遊離させる）。酸性は $Y>Z>X$。" }
+    },
+    {
+      "id": "2012-1-chem-20", "answerRow": 20, "topicId": "organic",
+      "subtopic": "Aromatic compounds giving an FeCl₃ colour (phenols)",
+      "patternTags": ["aromatic", "phenol-test", "fecl3-color", "true-false-combo"], "hasFigure": true,
+      "figure": { "ja": "芳香族化合物：(a) ベンジルアルコール $\\mathrm{C_6H_5CH_2OH}$，(b) 安息香酸 $\\mathrm{C_6H_5COOH}$，(c) フェノール $\\mathrm{C_6H_5OH}$，(d) アセチルサリチル酸（o-$\\mathrm{OCOCH_3}$, COOH），(e) サリチル酸メチル（o-OH, $\\mathrm{COOCH_3}$）。", "en": "Aromatics: (a) benzyl alcohol $\\mathrm{C_6H_5CH_2OH}$; (b) benzoic acid $\\mathrm{C_6H_5COOH}$; (c) phenol $\\mathrm{C_6H_5OH}$; (d) acetylsalicylic acid (o-$\\mathrm{OCOCH_3}$, COOH); (e) methyl salicylate (o-OH, $\\mathrm{COOCH_3}$)." },
+      "ja": { "prompt": "次の芳香族化合物(a)〜(e)の中に，塩化鉄(III)水溶液 $\\mathrm{FeCl_3}$ aq を加えると青〜紫色の呈色反応を示すものが二つある。その組み合わせを選びなさい。", "choices": ["a, c", "a, d", "b, c", "b, e", "c, d", "c, e"] },
+      "en": { "prompt": "Two of the aromatic compounds (a)–(e) give a blue-to-purple colour with $\\mathrm{FeCl_3}$ aq. Which pair?", "choices": ["a, c", "a, d", "b, c", "b, e", "c, d", "c, e"] },
+      "answerIndex": 5, "answerOption": 6, "answer": { "ja": "c（フェノール）と e（サリチル酸メチル）", "en": "c (phenol) and e (methyl salicylate)" },
+      "explanation": { "en": "The $\\mathrm{FeCl_3}$ colour test is positive only for a phenolic –OH (directly on the ring). Phenol (c) and methyl salicylate (e, free o-OH) qualify. Benzyl alcohol's OH is on a side chain; benzoic acid has no phenol; aspirin's phenol is acetylated (no free –OH).", "ja": "$\\mathrm{FeCl_3}$ 呈色はフェノール性 –OH（環に直接）にのみ陽性。フェノール(c)とサリチル酸メチル(e，遊離の o-OH)が該当。ベンジルアルコールの OH は側鎖，安息香酸はフェノールなし，アスピリンは –OH がアセチル化されている。" }
+    }
+  ],
+  "patterns": {
+    "archetypes": [
+      "Group membership across a set of three elements (period vs group placement).",
+      "Counting bonding electrons (shared pairs) and lone pairs from Lewis structures.",
+      "Periodic-table false-statement screen (ionization energy, metal placement, where transition elements begin).",
+      "Atomic weight of an element from the mass of that element across several compounds (GCD).",
+      "Lowest/highest pressure for equal-mass ideal gases (rank by molar mass).",
+      "Heat of a partial-combustion mixture via Hess's law (C→CO₂ vs C→CO).",
+      "Order ion concentrations in a hydrolysing salt solution (Na⁺ > anion > OH⁻ > H⁺).",
+      "P–T graph for a fixed-volume gas (line through the origin, Gay-Lussac).",
+      "Electrode mass change in the lead-acid battery (Faraday + ΔM per 2e⁻).",
+      "Smallest/most-negative oxidation number among nitrogen compounds.",
+      "Most H₂ from 1 g of metal (mol of H₂ per gram via the balanced equation).",
+      "Hydrogen / alkali-metal property screens (electrolysis product, valence electrons).",
+      "Gas-prep apparatus: oxidant for Cl₂, the wash-then-dry order (water then conc. H₂SO₄), and collection method.",
+      "Alkene-reaction false statement (addition polymerization gives a polymer, not benzene).",
+      "Iodoform test to distinguish CH₃CH(OH)– secondary alcohols.",
+      "Combustion O₂ volume for a given mass of an organic compound.",
+      "Acidity ranking of aromatic products (carboxylic acid > phenol > non-acidic nitro).",
+      "FeCl₃ colour test selects free phenolic –OH groups."
+    ],
+    "recurring": [
+      "Bonding/structure recall (groups, lone pairs, bonding electrons) opens most papers.",
+      "Mole↔mass↔volume and equal-mass molar-mass comparisons recur in gas items.",
+      "Redox appears as oxidation-number ranking and as battery/electrolysis Faraday calculations.",
+      "Salt-solution acidity and ion-ordering are standard acid–base items.",
+      "Gas preparation/collection and metal-property screens are guaranteed inorganic items.",
+      "Organic: alkene reactions, the iodoform/FeCl₃ qualitative tests, and aromatic acidity recur every paper."
+    ],
+    "examTacticNotes": [
+      "Same group = same number of valence electrons; watch the period-1 (H, He) exception.",
+      "Bonding electrons = 2 × (number of shared pairs); a single/double/triple bond = 1/2/3 pairs.",
+      "Lone pairs: C 0, N 1, O 2 in their simple hydrides.",
+      "Element's atomic weight = GCD of the per-mole masses of that element across compounds.",
+      "Equal mass, same V & T ⇒ P ∝ 1/M; the heaviest molecule gives the lowest pressure.",
+      "Partial combustion: split the moles between the two product channels and use C→CO = (C→CO₂) − (CO→CO₂).",
+      "Hydrolysing salt ordering: spectator cation first, then its conjugate anion, then the majority of OH⁻/H⁺.",
+      "Fixed-volume gas: P is proportional to absolute temperature (straight line through the origin).",
+      "Lead-acid: both electrodes gain mass (Pb→PbSO₄ +96 / PbO₂→PbSO₄ +64 per 2 e⁻).",
+      "Most H₂ per gram comes from the metal giving the most mol of H₂ = (valence/2)·(1/M) — Mg usually wins.",
+      "Water electrolysis: H₂ at the cathode, O₂ at the anode.",
+      "Cl₂ prep: MnO₂ + conc. HCl (heat); purify gas through water (remove HCl) then conc. H₂SO₄ (dry); collect downward.",
+      "Iodoform-positive = a CH₃CO– or CH₃CH(OH)– group; FeCl₃-colour-positive = a free phenolic –OH.",
+      "Aromatic acidity order: carboxylic acid > phenol > (neutral) nitro/alcohol."
+    ],
+    "difficulty": "Standard EJU chemistry — a full syllabus sweep of mostly one-step items. The more discriminating questions are the heat-of-partial-combustion (Q7), the lead-acid electrode mass change (Q10), the Cl₂-preparation apparatus order (Q15), and the iodoform-test distinction (Q17)."
+  }
+}

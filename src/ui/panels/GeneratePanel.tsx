@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import Panel, { SubjectChips } from '../Panel';
-import Markdown from '../Markdown';
+import QuestionCard from '../QuestionCard';
 import { Label, PrimaryButton, ErrorNote, errorMessage } from '../atoms';
 import {
   fetchTopics,
@@ -11,12 +11,8 @@ import {
 import { useUI } from '../../lib/ui';
 import { usePractice } from '../../lib/practice';
 import { usePinned } from '../../lib/pinned';
-import { useAnswers } from '../../lib/answers';
-import { explainQuestion } from '../../lib/ask';
 import { useProgress, summarize, focusFromSummary } from '../../lib/userdata';
 import { useT } from '../../i18n';
-
-const LETTERS = 'ABCDE';
 
 export default function GeneratePanel() {
   const t = useT();
@@ -25,12 +21,7 @@ export default function GeneratePanel() {
   const wantFocus = usePractice((s) => s.wantFocus);
   const setWantFocus = usePractice((s) => s.setWantFocus);
   const attempts = useProgress((s) => s.attempts);
-  const picked = useAnswers((s) => s.picked);
-  const answer = useAnswers((s) => s.answer);
-  const pin = usePinned((s) => s.pin);
   const pinMany = usePinned((s) => s.pinMany);
-  const unpin = usePinned((s) => s.unpin);
-  const pinnedItems = usePinned((s) => s.items);
 
   const [topics, setTopics] = useState<{ id: string; name: string }[]>([]);
   const [subtopics, setSubtopics] = useState<{ id: string; name: string; group: string }[]>([]);
@@ -39,7 +30,6 @@ export default function GeneratePanel() {
   const [count, setCount] = useState(3);
   const [focus, setFocus] = useState(false);
   const [questions, setQuestions] = useState<GenQuestion[]>([]);
-  const [revealed, setRevealed] = useState<Set<string>>(new Set());
   const [busy, setBusy] = useState(false);
   const [err, setErr] = useState<string | null>(null);
 
@@ -103,28 +93,12 @@ export default function GeneratePanel() {
         focus: focusPayload,
       });
       setQuestions(res.questions);
-      setRevealed(new Set());
     } catch (e) {
       setErr(errorMessage(e, t));
     } finally {
       setBusy(false);
     }
   };
-
-  const toggle = (id: string) =>
-    setRevealed((prev) => {
-      const n = new Set(prev);
-      n.has(id) ? n.delete(id) : n.add(id);
-      return n;
-    });
-
-  const pick = (q: GenQuestion, idx: number) => {
-    if (picked[q.id] !== undefined) return; // answer once
-    answer(subject, q, idx);
-    setRevealed((prev) => new Set(prev).add(q.id));
-  };
-
-  const isPinned = (id: string) => pinnedItems.some((p) => p.id === id);
 
   return (
     <Panel
@@ -225,91 +199,9 @@ export default function GeneratePanel() {
       ) : null}
 
       <div className="mt-3 space-y-3">
-        {questions.map((q, i) => {
-          const chosen = picked[q.id];
-          const answered = chosen !== undefined;
-          const mcq = (q.choices?.length ?? 0) > 0 && q.answerIndex >= 0;
-          return (
-            <div key={q.id} className="rounded-2xl border border-slate-200 p-3">
-              <div className="mb-1 text-xs font-semibold uppercase tracking-wide text-slate-400">
-                {i + 1}. {q.topic}
-              </div>
-              <Markdown text={q.prompt} />
-
-              {mcq ? (
-                <div className="mt-2 space-y-1.5">
-                  {q.choices!.map((c, idx) => {
-                    const isAnswer = idx === q.answerIndex;
-                    const isChosen = chosen === idx;
-                    let cls = 'border-slate-200 hover:bg-slate-50';
-                    if (answered && isAnswer) cls = 'border-emerald-300 bg-emerald-50';
-                    else if (answered && isChosen) cls = 'border-red-300 bg-red-50';
-                    return (
-                      <button
-                        key={idx}
-                        type="button"
-                        disabled={answered}
-                        onClick={() => pick(q, idx)}
-                        className={`flex w-full items-start gap-2 rounded-xl border px-3 py-2 text-left text-sm transition ${cls}`}
-                      >
-                        <span className="font-semibold text-slate-500">{LETTERS[idx]}</span>
-                        <span className="flex-1">{c}</span>
-                      </button>
-                    );
-                  })}
-                  {!answered ? (
-                    <p className="pt-1 text-xs italic text-slate-400">{t('selectAnswer')}</p>
-                  ) : (
-                    <p
-                      className={`pt-1 text-sm font-semibold ${chosen === q.answerIndex ? 'text-emerald-700' : 'text-red-600'}`}
-                    >
-                      {chosen === q.answerIndex ? t('correctMark') : t('incorrectMark')}
-                    </p>
-                  )}
-                </div>
-              ) : null}
-
-              <div className="mt-3 flex flex-wrap gap-2">
-                {!mcq ? (
-                  <button
-                    type="button"
-                    onClick={() => toggle(q.id)}
-                    className="rounded-lg bg-slate-100 px-3 py-1.5 text-xs font-semibold text-slate-700 hover:bg-slate-200"
-                  >
-                    {revealed.has(q.id) ? t('hideAnswer') : t('showAnswer')}
-                  </button>
-                ) : null}
-                <button
-                  type="button"
-                  onClick={() => (isPinned(q.id) ? unpin(q.id) : pin(subject, q))}
-                  className={`rounded-lg px-3 py-1.5 text-xs font-semibold ${
-                    isPinned(q.id)
-                      ? 'bg-emerald-100 text-emerald-700 hover:bg-emerald-200'
-                      : 'bg-slate-900 text-white hover:bg-slate-800'
-                  }`}
-                >
-                  {isPinned(q.id) ? `✓ ${t('unpin')}` : t('pinToBoard')}
-                </button>
-                <button
-                  type="button"
-                  onClick={() => explainQuestion(q.prompt, q.choices, q.answer)}
-                  className="rounded-lg bg-slate-100 px-3 py-1.5 text-xs font-semibold text-slate-700 hover:bg-slate-200"
-                >
-                  {t('explain')}
-                </button>
-              </div>
-
-              {revealed.has(q.id) ? (
-                <div className="mt-3 rounded-xl bg-slate-50 p-3 ring-1 ring-slate-100">
-                  <div className="mb-1 text-sm font-semibold text-emerald-800">
-                    {t('correctAnswerLabel')}: {q.answer}
-                  </div>
-                  <Markdown text={q.explanation} />
-                </div>
-              ) : null}
-            </div>
-          );
-        })}
+        {questions.map((q, i) => (
+          <QuestionCard key={q.id} subject={subject} q={q} label={i + 1} />
+        ))}
       </div>
     </Panel>
   );

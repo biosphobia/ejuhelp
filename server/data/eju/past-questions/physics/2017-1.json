@@ -1,0 +1,215 @@
+{
+  "id": "2017-1-physics",
+  "year": 2017,
+  "session": 1,
+  "subject": "physics",
+  "title": "EJU 2017 · Session 1 · Physics",
+  "source": "平成29年度（2017年度）日本留学試験（第1回）理科〈物理〉 © Japan Student Services Organization (JASSO)",
+  "attribution": "EJU past questions © JASSO. Question text paraphrased from the official past paper; figures described in text; correct answers taken from the official JASSO answer key and independently re-solved for verification.",
+  "languages": ["ja", "en"],
+  "answerKeyVerified": true,
+  "structure": {
+    "blocks": [
+      { "id": "I", "topicId": "mech", "name": { "ja": "力学", "en": "Mechanics" }, "questionCount": 6 },
+      { "id": "II", "topicId": "thermo", "name": { "ja": "熱力学", "en": "Thermodynamics" }, "questionCount": 3 },
+      { "id": "III", "topicId": "waves", "name": { "ja": "波動", "en": "Waves" }, "questionCount": 3 },
+      { "id": "IV", "topicId": "em", "name": { "ja": "電気と磁気", "en": "Electricity & Magnetism" }, "questionCount": 6 },
+      { "id": "V", "topicId": "atoms", "name": { "ja": "原子", "en": "Atoms" }, "questionCount": 1 }
+    ],
+    "totalQuestions": 19,
+    "note": "Standard 6/3/3/6/1 split. Within each Roman-numeral block the sub-problems are lettered A, B, C, … with continuous answer rows.",
+    "givens": { "ja": "重力加速度の大きさを g とし，空気の抵抗は無視できるものとする。", "en": "Take the magnitude of gravitational acceleration as g; air resistance is negligible." }
+  },
+  "questions": [
+    {
+      "id": "2017-1-phy-1", "answerRow": 1, "block": "I", "topicId": "mech",
+      "subtopic": "Ball resting in a right-angle V-groove of two inclines",
+      "patternTags": ["statics", "normal-force", "force-resolution", "plug-in-numbers"], "hasFigure": true,
+      "figure": { "ja": "水平と $60°$ の斜面 A と $30°$ の斜面 B が互いに $90°$ をなしてつながり，その谷間に質量 $M$ の一様な球が静止。$F_A$＝斜面 A からの垂直抗力，$F_B$＝斜面 B からの垂直抗力。摩擦なし。", "en": "Incline A (60° from horizontal) and incline B (30°) meet at 90°, forming a V-groove holding a uniform ball of mass $M$ at rest. $F_A$, $F_B$ are the normal forces from A and B. Frictionless." },
+      "ja": { "prompt": "$F_A$，$F_B$ はどのように表されるか。正しい組み合わせを選びなさい。", "choices": ["$F_A=\\tfrac{\\sqrt3}{3}Mg$, $F_B=Mg$", "$F_A=Mg$, $F_B=\\tfrac{\\sqrt3}{3}Mg$", "$F_A=\\tfrac{\\sqrt3}{2}Mg$, $F_B=\\tfrac12Mg$", "$F_A=\\tfrac12Mg$, $F_B=\\tfrac{\\sqrt3}{2}Mg$", "$F_A=\\sqrt3Mg$, $F_B=\\tfrac{\\sqrt3}{3}Mg$", "$F_A=\\tfrac{\\sqrt3}{3}Mg$, $F_B=\\sqrt3Mg$"] },
+      "en": { "prompt": "How are $F_A$ and $F_B$ expressed? Choose the correct pair.", "choices": ["$F_A=\\tfrac{\\sqrt3}{3}Mg$, $F_B=Mg$", "$F_A=Mg$, $F_B=\\tfrac{\\sqrt3}{3}Mg$", "$F_A=\\tfrac{\\sqrt3}{2}Mg$, $F_B=\\tfrac12Mg$", "$F_A=\\tfrac12Mg$, $F_B=\\tfrac{\\sqrt3}{2}Mg$", "$F_A=\\sqrt3Mg$, $F_B=\\tfrac{\\sqrt3}{3}Mg$", "$F_A=\\tfrac{\\sqrt3}{3}Mg$, $F_B=\\sqrt3Mg$"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "$F_A=\\tfrac12Mg$, $F_B=\\tfrac{\\sqrt3}{2}Mg$", "en": "$F_A=\\tfrac12Mg$, $F_B=\\tfrac{\\sqrt3}{2}Mg$" },
+      "explanation": { "en": "$F_A$ and $F_B$ are perpendicular (the inclines meet at 90°). $F_A$ makes 30° with the horizontal and $F_B$ 60°. Equilibrium: $F_A\\cos30°=F_B\\cos60°$ and $F_A\\sin30°+F_B\\sin60°=Mg$. Solving: $F_B=\\sqrt3F_A$ and $2F_A=Mg$, so $F_A=\\tfrac12Mg$, $F_B=\\tfrac{\\sqrt3}{2}Mg$.", "ja": "斜面が $90°$ で交わるので $F_A\\perp F_B$。$F_A$ は水平と $30°$，$F_B$ は $60°$。つり合い：$F_A\\cos30°=F_B\\cos60°$，$F_A\\sin30°+F_B\\sin60°=Mg$。解いて $F_B=\\sqrt3F_A$，$2F_A=Mg$ なので $F_A=\\tfrac12Mg$，$F_B=\\tfrac{\\sqrt3}{2}Mg$。" }
+    },
+    {
+      "id": "2017-1-phy-2", "answerRow": 2, "block": "I", "topicId": "mech",
+      "subtopic": "Stacked blocks: force to start them moving together",
+      "patternTags": ["statics", "friction", "stacked-blocks", "plug-in-numbers"], "hasFigure": true,
+      "figure": { "ja": "床の上に質量 $6\\,$kg の直方体 A，その上に質量 $4\\,$kg の B。B を左へ $10\\,$N で，A を右へ $F$ で引く。$F$ を増やすと $F>F_0$ で A と B が一体で動き始める。床–A，A–B の静止摩擦係数はともに $0.5$，$g=10\\,\\mathrm{m/s^2}$。", "en": "Block A (6 kg) on the floor, block B (4 kg) on A. B is pulled left with 10 N, A is pulled right with $F$. As $F$ increases, A and B start moving together when $F>F_0$. Floor–A and A–B static friction are both 0.5; $g=10\\,\\mathrm{m/s^2}$." },
+      "ja": { "prompt": "$F_0$ は何 N か。", "choices": ["20", "30", "40", "50", "60", "70"] },
+      "en": { "prompt": "What is $F_0$ (in N)?", "choices": ["20", "30", "40", "50", "60", "70"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "$60\\,$N", "en": "60 N" },
+      "explanation": { "en": "The floor supports both blocks: $N=(6+4)\\times10=100\\,$N, so the maximum floor friction is $0.5\\times100=50\\,$N. The pair starts moving when the net pull exceeds this: $F-10>50\\Rightarrow F_0=60\\,$N. The A–B interface holds (B needs only 10 N, below its max $0.5\\times40=20\\,$N), so they move together.", "ja": "床は両方を支える：$N=(6+4)\\times10=100\\,$N，最大床摩擦 $0.5\\times100=50\\,$N。正味の力がこれを超えると動く：$F-10>50\\Rightarrow F_0=60\\,$N。A–B 間は B に必要な $10\\,$N が最大 $0.5\\times40=20\\,$N 未満で保持され一体で動く。" }
+    },
+    {
+      "id": "2017-1-phy-3", "answerRow": 3, "block": "I", "topicId": "mech",
+      "subtopic": "Collision then projectile off a table (restitution)",
+      "patternTags": ["collision", "restitution", "projectile-motion", "plug-in-numbers"], "hasFigure": true,
+      "figure": { "ja": "台の上で等質量の A（初速あり）が静止した B に衝突。その後 A, B は台の端から水平に飛び出し床に落下。台の端から落下点までの水平距離は A が $x_A$，B が $x_B$。はね返り係数 $0.60$，摩擦なし。", "en": "On a table, equal-mass A (moving) hits stationary B. Both then fly horizontally off the table edge and land. Horizontal distances from the edge: $x_A$ for A, $x_B$ for B. Restitution 0.60, frictionless." },
+      "ja": { "prompt": "$\\dfrac{x_B}{x_A}$ はいくらか。最も適当な値を選びなさい。", "choices": ["1.7", "2.3", "2.7", "3.0", "4.0"] },
+      "en": { "prompt": "What is $\\dfrac{x_B}{x_A}$? Choose the closest value.", "choices": ["1.7", "2.3", "2.7", "3.0", "4.0"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "4.0", "en": "4.0" },
+      "explanation": { "en": "Equal masses, e=0.60: $v_A=\\tfrac{1-e}{2}v_0=0.2v_0$, $v_B=\\tfrac{1+e}{2}v_0=0.8v_0$. Both fall the same height (same flight time), so $x\\propto v$ and $\\dfrac{x_B}{x_A}=\\dfrac{0.8}{0.2}=4.0$.", "ja": "等質量・e=0.60：$v_A=\\tfrac{1-e}{2}v_0=0.2v_0$，$v_B=\\tfrac{1+e}{2}v_0=0.8v_0$。同じ高さを落ちる（滞空時間が同じ）ので $x\\propto v$，$\\dfrac{x_B}{x_A}=\\dfrac{0.8}{0.2}=4.0$。" }
+    },
+    {
+      "id": "2017-1-phy-4", "answerRow": 4, "block": "I", "topicId": "mech",
+      "subtopic": "Tension at the bottom of a swing started horizontally",
+      "patternTags": ["circular-motion", "energy-conservation", "tension", "express-formula"], "hasFigure": true,
+      "figure": { "ja": "長さ $\\ell$ の糸の一端を O に固定，他端に質量 $m$ の球。O と同じ高さで糸を張ったまま球を持ち，鉛直下向きに初速 $v_0$ を与える。球が O の真下に来たときの糸の張力が $T$。", "en": "A string of length $\\ell$ fixed at O, with a ball of mass $m$ at the other end. Held at O's height with the string taut, the ball is given speed $v_0$ vertically downward. The tension is $T$ when the ball is directly below O." },
+      "ja": { "prompt": "$T$ はどのように表されるか。正しいものを選びなさい。", "choices": ["$\\dfrac{mv_0^2}{\\ell}+mg$", "$\\dfrac{mv_0^2}{\\ell}+2mg$", "$\\dfrac{mv_0^2}{\\ell}+3mg$", "$\\dfrac{mv_0^2}{\\ell}-mg$", "$\\dfrac{mv_0^2}{\\ell}-2mg$", "$\\dfrac{mv_0^2}{\\ell}-3mg$"] },
+      "en": { "prompt": "How is $T$ expressed? Choose the correct one.", "choices": ["$\\dfrac{mv_0^2}{\\ell}+mg$", "$\\dfrac{mv_0^2}{\\ell}+2mg$", "$\\dfrac{mv_0^2}{\\ell}+3mg$", "$\\dfrac{mv_0^2}{\\ell}-mg$", "$\\dfrac{mv_0^2}{\\ell}-2mg$", "$\\dfrac{mv_0^2}{\\ell}-3mg$"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "$\\dfrac{mv_0^2}{\\ell}+3mg$", "en": "$\\dfrac{mv_0^2}{\\ell}+3mg$" },
+      "explanation": { "en": "From O's height to the bottom the ball drops $\\ell$: $v^2=v_0^2+2g\\ell$. At the bottom $T-mg=\\dfrac{mv^2}{\\ell}$, so $T=mg+\\dfrac{m(v_0^2+2g\\ell)}{\\ell}=\\dfrac{mv_0^2}{\\ell}+3mg$.", "ja": "O の高さから最下点まで $\\ell$ 落下：$v^2=v_0^2+2g\\ell$。最下点で $T-mg=\\dfrac{mv^2}{\\ell}$ なので $T=mg+\\dfrac{m(v_0^2+2g\\ell)}{\\ell}=\\dfrac{mv_0^2}{\\ell}+3mg$。" }
+    },
+    {
+      "id": "2017-1-phy-5", "answerRow": 5, "block": "I", "topicId": "mech",
+      "subtopic": "Spring pushing apart two unequal masses",
+      "patternTags": ["momentum-conservation", "energy", "spring", "express-formula"], "hasFigure": true,
+      "figure": { "ja": "なめらかな床。ばね定数 $k$ の軽いばねの両端に質量 $m$ の A と質量 $2m$ の B が接する。ばねを自然長から $x$ 縮めて同時に手を離すと，A は左，B は右に動き，ばねから離れる。A が離れた後の速さが $v$。", "en": "Frictionless floor. A light spring (constant $k$) has mass $m$ (A) and mass $2m$ (B) touching its ends. The spring is compressed by $x$ and both are released simultaneously; A moves left, B right, and they leave the spring. A's speed after leaving is $v$." },
+      "ja": { "prompt": "$v$ はどのように表されるか。正しいものを選びなさい。", "choices": ["$\\sqrt{\\dfrac{k}{6m}}\\,x$", "$\\sqrt{\\dfrac{k}{3m}}\\,x$", "$\\sqrt{\\dfrac{k}{2m}}\\,x$", "$\\sqrt{\\dfrac{2k}{3m}}\\,x$", "$2\\sqrt{\\dfrac{k}{3m}}\\,x$", "$\\sqrt{\\dfrac{3k}{2m}}\\,x$"] },
+      "en": { "prompt": "How is $v$ expressed? Choose the correct one.", "choices": ["$\\sqrt{\\dfrac{k}{6m}}\\,x$", "$\\sqrt{\\dfrac{k}{3m}}\\,x$", "$\\sqrt{\\dfrac{k}{2m}}\\,x$", "$\\sqrt{\\dfrac{2k}{3m}}\\,x$", "$2\\sqrt{\\dfrac{k}{3m}}\\,x$", "$\\sqrt{\\dfrac{3k}{2m}}\\,x$"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "$\\sqrt{\\dfrac{2k}{3m}}\\,x$", "en": "$\\sqrt{\\dfrac{2k}{3m}}\\,x$" },
+      "explanation": { "en": "Momentum is zero: $m v=2m v_B$, so $v_B=v/2$. Energy: $\\tfrac12kx^2=\\tfrac12mv^2+\\tfrac12(2m)(v/2)^2=\\tfrac34mv^2$. Hence $v^2=\\dfrac{2kx^2}{3m}$, i.e. $v=\\sqrt{\\dfrac{2k}{3m}}\\,x$.", "ja": "運動量 0：$m v=2m v_B$ より $v_B=v/2$。エネルギー：$\\tfrac12kx^2=\\tfrac12mv^2+\\tfrac12(2m)(v/2)^2=\\tfrac34mv^2$。よって $v^2=\\dfrac{2kx^2}{3m}$，$v=\\sqrt{\\dfrac{2k}{3m}}\\,x$。" }
+    },
+    {
+      "id": "2017-1-phy-6", "answerRow": 6, "block": "I", "topicId": "mech",
+      "subtopic": "Kinetic-energy ratio of two satellites",
+      "patternTags": ["gravitation", "circular-orbit", "kinetic-energy", "express-formula"], "hasFigure": true,
+      "figure": { "ja": "地球の周りを等速円運動する衛星 A（質量 $m$，軌道半径 $r$）と B（質量 $\\tfrac12m$，軌道半径 $2r$）。$K_A$, $K_B$ は運動エネルギー。", "en": "Satellites A (mass $m$, radius $r$) and B (mass $\\tfrac12m$, radius $2r$) in circular orbits around Earth. $K_A$, $K_B$ are their kinetic energies." },
+      "ja": { "prompt": "$\\dfrac{K_B}{K_A}$ はいくらか。", "choices": ["$\\dfrac14$", "$\\dfrac12$", "$\\dfrac{\\sqrt2}{2}$", "$1$", "$\\sqrt2$", "$2$", "$4$"] },
+      "en": { "prompt": "What is $\\dfrac{K_B}{K_A}$?", "choices": ["$\\dfrac14$", "$\\dfrac12$", "$\\dfrac{\\sqrt2}{2}$", "$1$", "$\\sqrt2$", "$2$", "$4$"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "$\\dfrac14$", "en": "$\\dfrac14$" },
+      "explanation": { "en": "For a circular orbit $v^2=GM/R$, so $K=\\tfrac12 m_\\text{sat}v^2=\\dfrac{GM\\,m_\\text{sat}}{2R}$. $K_A=\\dfrac{GM\\,m}{2r}$, $K_B=\\dfrac{GM(m/2)}{2(2r)}=\\dfrac{GM\\,m}{8r}$. Ratio $=\\dfrac{1/8}{1/2}=\\dfrac14$.", "ja": "円軌道で $v^2=GM/R$ なので $K=\\tfrac12 m_\\text{衛}v^2=\\dfrac{GM\\,m_\\text{衛}}{2R}$。$K_A=\\dfrac{GM\\,m}{2r}$，$K_B=\\dfrac{GM(m/2)}{2(2r)}=\\dfrac{GM\\,m}{8r}$。比 $=\\dfrac{1/8}{1/2}=\\dfrac14$。" }
+    },
+    {
+      "id": "2017-1-phy-7", "answerRow": 7, "block": "II", "topicId": "thermo",
+      "subtopic": "Ice remaining after mixing with warm water",
+      "patternTags": ["calorimetry", "latent-heat", "phase-change", "plug-in-numbers"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "$20\\,$°C の水 $200\\,$g に $-10\\,$°C の氷 $100\\,$g を入れたところ，じゅうぶん時間後に $0\\,$°C の水と氷になった。水の比熱 $4.2\\,\\mathrm{J/(g\\cdot K)}$，氷の比熱 $2.1\\,\\mathrm{J/(g\\cdot K)}$，氷の融解熱 $3.3\\times10^2\\,$J/g，外部との熱の出入りなし。残った氷は何 g か。", "choices": ["35", "40", "45", "50", "55", "60", "65"] },
+      "en": { "prompt": "Adding $100\\,$g of $-10\\,$°C ice to $200\\,$g of $20\\,$°C water gives a $0\\,$°C ice-water mixture. Water specific heat $4.2$, ice $2.1\\,\\mathrm{J/(g\\cdot K)}$, ice heat of fusion $3.3\\times10^2\\,$J/g, no heat loss. How many grams of ice remain?", "choices": ["35", "40", "45", "50", "55", "60", "65"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "約 $55\\,$g", "en": "≈ 55 g" },
+      "explanation": { "en": "Water cooling $20\\to0$ °C releases $200\\times4.2\\times20=16800\\,$J. Ice warming $-10\\to0$ °C absorbs $100\\times2.1\\times10=2100\\,$J. Heat left to melt ice $=16800-2100=14700\\,$J, melting $14700/330=44.5\\,$g. Remaining ice $=100-44.5\\approx55\\,$g.", "ja": "水が $20\\to0$°C で $200\\times4.2\\times20=16800\\,$J 放出。氷が $-10\\to0$°C で $100\\times2.1\\times10=2100\\,$J 吸収。融解に使える熱 $=16800-2100=14700\\,$J で $14700/330=44.5\\,$g 融解。残る氷 $=100-44.5\\approx55\\,$g。" }
+    },
+    {
+      "id": "2017-1-phy-8", "answerRow": 8, "block": "II", "topicId": "thermo",
+      "subtopic": "Internal energy change at constant pressure",
+      "patternTags": ["thermodynamics", "first-law", "constant-pressure", "plug-in-numbers"], "hasFigure": true,
+      "figure": { "ja": "水平シリンダー，ピストン断面積 $1.0\\times10^{-1}\\,\\mathrm{m^2}$。気体の圧力＝大気圧 $1.0\\times10^5\\,$Pa。ヒーターで $2.5\\times10^3\\,$J 加えるとピストンが $1.0\\times10^{-1}\\,$m 右に移動。", "en": "Horizontal cylinder, piston area $1.0\\times10^{-1}\\,\\mathrm{m^2}$. Gas pressure = atmospheric $1.0\\times10^5\\,$Pa. Adding $2.5\\times10^3\\,$J of heat moves the piston $1.0\\times10^{-1}\\,$m to the right." },
+      "ja": { "prompt": "熱を加えることにより，気体の内部エネルギーは何 J 増加したか。", "choices": ["$1.0\\times10^3$", "$1.5\\times10^3$", "$2.0\\times10^3$", "$2.5\\times10^3$", "$3.0\\times10^3$", "$3.5\\times10^3$"] },
+      "en": { "prompt": "By how many joules did the gas's internal energy increase?", "choices": ["$1.0\\times10^3$", "$1.5\\times10^3$", "$2.0\\times10^3$", "$2.5\\times10^3$", "$3.0\\times10^3$", "$3.5\\times10^3$"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "$1.5\\times10^3\\,$J", "en": "$1.5\\times10^3$ J" },
+      "explanation": { "en": "Work by gas $W=P\\Delta V=P\\times(\\text{area}\\times\\text{displacement})=1.0\\times10^5\\times(0.10\\times0.10)=1.0\\times10^3\\,$J. First law: $\\Delta U=Q-W=2.5\\times10^3-1.0\\times10^3=1.5\\times10^3\\,$J.", "ja": "気体のした仕事 $W=P\\Delta V=P\\times(\\text{断面積}\\times\\text{変位})=1.0\\times10^5\\times(0.10\\times0.10)=1.0\\times10^3\\,$J。第一法則：$\\Delta U=Q-W=2.5\\times10^3-1.0\\times10^3=1.5\\times10^3\\,$J。" }
+    },
+    {
+      "id": "2017-1-phy-9", "answerRow": 9, "block": "II", "topicId": "thermo",
+      "subtopic": "W, ΔU, Q for a monatomic gas on a PV line",
+      "patternTags": ["thermodynamics", "first-law", "internal-energy", "pv-diagram", "formula-selection"], "hasFigure": true,
+      "figure": { "ja": "単原子分子理想気体を $p$–$V$ 図で A$=(V_0,p_0)$ から B$=(3V_0,2p_0)$ へ直線変化。$W$＝気体が外部にした仕事，$Q$＝吸収熱，$\\Delta U$＝内部エネルギー変化。表は $W$/$\\Delta U$/$Q$ の組み合わせ①〜⑧。", "en": "A monatomic ideal gas goes along a straight line on the $p$–$V$ diagram from A$=(V_0,p_0)$ to B$=(3V_0,2p_0)$. $W$ = work done by the gas, $Q$ = heat absorbed, $\\Delta U$ = internal-energy change. The table gives $W$/$\\Delta U$/$Q$ combinations ①–⑧." },
+      "ja": { "prompt": "$W,\\Delta U,Q$ はどのように表されるか。正しいものを選びなさい。", "choices": ["$W{=}p_0V_0,\\ \\Delta U{=}\\tfrac{15}{2}p_0V_0,\\ Q{=}\\tfrac{13}{2}p_0V_0$", "$W{=}p_0V_0,\\ \\Delta U{=}\\tfrac{15}{2}p_0V_0,\\ Q{=}\\tfrac{17}{2}p_0V_0$", "$W{=}p_0V_0,\\ \\Delta U{=}9p_0V_0,\\ Q{=}8p_0V_0$", "$W{=}p_0V_0,\\ \\Delta U{=}9p_0V_0,\\ Q{=}10p_0V_0$", "$W{=}3p_0V_0,\\ \\Delta U{=}\\tfrac{15}{2}p_0V_0,\\ Q{=}\\tfrac{9}{2}p_0V_0$", "$W{=}3p_0V_0,\\ \\Delta U{=}\\tfrac{15}{2}p_0V_0,\\ Q{=}\\tfrac{21}{2}p_0V_0$", "$W{=}3p_0V_0,\\ \\Delta U{=}9p_0V_0,\\ Q{=}6p_0V_0$", "$W{=}3p_0V_0,\\ \\Delta U{=}9p_0V_0,\\ Q{=}12p_0V_0$"] },
+      "en": { "prompt": "How are $W,\\Delta U,Q$ expressed? Choose the correct one.", "choices": ["$W{=}p_0V_0,\\ \\Delta U{=}\\tfrac{15}{2}p_0V_0,\\ Q{=}\\tfrac{13}{2}p_0V_0$", "$W{=}p_0V_0,\\ \\Delta U{=}\\tfrac{15}{2}p_0V_0,\\ Q{=}\\tfrac{17}{2}p_0V_0$", "$W{=}p_0V_0,\\ \\Delta U{=}9p_0V_0,\\ Q{=}8p_0V_0$", "$W{=}p_0V_0,\\ \\Delta U{=}9p_0V_0,\\ Q{=}10p_0V_0$", "$W{=}3p_0V_0,\\ \\Delta U{=}\\tfrac{15}{2}p_0V_0,\\ Q{=}\\tfrac{9}{2}p_0V_0$", "$W{=}3p_0V_0,\\ \\Delta U{=}\\tfrac{15}{2}p_0V_0,\\ Q{=}\\tfrac{21}{2}p_0V_0$", "$W{=}3p_0V_0,\\ \\Delta U{=}9p_0V_0,\\ Q{=}6p_0V_0$", "$W{=}3p_0V_0,\\ \\Delta U{=}9p_0V_0,\\ Q{=}12p_0V_0$"] },
+      "answerIndex": 5, "answerOption": 6, "answer": { "ja": "⑥ $W{=}3p_0V_0,\\ \\Delta U{=}\\tfrac{15}{2}p_0V_0,\\ Q{=}\\tfrac{21}{2}p_0V_0$", "en": "⑥ $W{=}3p_0V_0,\\ \\Delta U{=}\\tfrac{15}{2}p_0V_0,\\ Q{=}\\tfrac{21}{2}p_0V_0$" },
+      "explanation": { "en": "$W$ = area under the line $=\\tfrac12(p_0+2p_0)(3V_0-V_0)=3p_0V_0$. Monatomic $\\Delta U=\\tfrac32(p_BV_B-p_AV_A)=\\tfrac32(6-1)p_0V_0=\\tfrac{15}{2}p_0V_0$. $Q=\\Delta U+W=\\tfrac{15}{2}p_0V_0+3p_0V_0=\\tfrac{21}{2}p_0V_0$.", "ja": "$W$＝直線下の面積 $=\\tfrac12(p_0+2p_0)(3V_0-V_0)=3p_0V_0$。単原子 $\\Delta U=\\tfrac32(p_BV_B-p_AV_A)=\\tfrac32(6-1)p_0V_0=\\tfrac{15}{2}p_0V_0$。$Q=\\Delta U+W=\\tfrac{15}{2}p_0V_0+3p_0V_0=\\tfrac{21}{2}p_0V_0$。" }
+    },
+    {
+      "id": "2017-1-phy-10", "answerRow": 10, "block": "III", "topicId": "waves",
+      "subtopic": "Displacement from a longitudinal-wave density graph",
+      "patternTags": ["waves", "longitudinal-wave", "density-displacement", "graph-reading"], "hasFigure": true,
+      "figure": { "ja": "$x$ 軸の正の向きに伝わる縦波。密度変化 $\\Delta\\rho$ と位置 $x$ のグラフ。B は密（$\\Delta\\rho$ 最大），D は疎（$\\Delta\\rho$ 最小）。位置 A, B, C, D が $x$ 軸上に並ぶ。", "en": "A longitudinal wave traveling in $+x$. Graph of density change $\\Delta\\rho$ vs $x$. B is a compression ($\\Delta\\rho$ maximum), D a rarefaction ($\\Delta\\rho$ minimum). Positions A, B, C, D lie along the x-axis." },
+      "ja": { "prompt": "位置 A, B, C, D のうち，媒質が $x$ 軸の正の方向へ最も大きく変位している位置はどれか。", "choices": ["A", "B", "C", "D"] },
+      "en": { "prompt": "Among A, B, C, D, which position has the medium displaced most in the $+x$ direction?", "choices": ["A", "B", "C", "D"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "A", "en": "A" },
+      "explanation": { "en": "For a longitudinal wave the density change satisfies $\\Delta\\rho\\propto-\\dfrac{\\partial\\xi}{\\partial x}$. The displacement $\\xi$ is extremal where $\\Delta\\rho=0$; at A, $\\Delta\\rho$ crosses zero from negative to positive, so $\\partial\\xi/\\partial x$ goes from $+$ to $-$ — a maximum of $\\xi$. Hence the medium is displaced most in $+x$ at A.", "ja": "縦波では密度変化が $\\Delta\\rho\\propto-\\dfrac{\\partial\\xi}{\\partial x}$。変位 $\\xi$ は $\\Delta\\rho=0$ で極値をとり，A では $\\Delta\\rho$ が負→正に変わるので $\\partial\\xi/\\partial x$ が $+$→$-$ となり $\\xi$ の極大。よって A で媒質が $+x$ に最大変位。" }
+    },
+    {
+      "id": "2017-1-phy-11", "answerRow": 11, "block": "III", "topicId": "waves",
+      "subtopic": "Mass ratio for one vs two loops on a string",
+      "patternTags": ["waves", "standing-waves", "wave-speed-tension", "express-formula"], "hasFigure": true,
+      "figure": { "ja": "弦の一端を固定し他端に質量 $m$ のおもりを滑車で下げて 2 つのこまの間に張る。ある振動数で 2 つの腹の定常波。おもりを $m'$ に変えると同じ振動数で 1 つの腹の定常波。波の速さは張力の $\\tfrac12$ 乗に比例。", "en": "A string between two bridges, tensioned by a hanging mass $m$ over a pulley. At some frequency, a standing wave with 2 antinodes forms; changing the mass to $m'$ gives 1 antinode at the same frequency. The wave speed is proportional to the square root of the tension." },
+      "ja": { "prompt": "$\\dfrac{m'}{m}$ はいくらか。正しいものを選びなさい。", "choices": ["$\\dfrac14$", "$\\dfrac12$", "$\\dfrac{\\sqrt2}{2}$", "$\\sqrt2$", "$2$", "$4$"] },
+      "en": { "prompt": "What is $\\dfrac{m'}{m}$? Choose the correct one.", "choices": ["$\\dfrac14$", "$\\dfrac12$", "$\\dfrac{\\sqrt2}{2}$", "$\\sqrt2$", "$2$", "$4$"] },
+      "answerIndex": 5, "answerOption": 6, "answer": { "ja": "$4$", "en": "$4$" },
+      "explanation": { "en": "With $n$ loops on a fixed length at fixed frequency, $v=2Lf/n$, so going from 2 loops to 1 loop doubles the speed ($v_2/v_1=2$). Since $v\\propto\\sqrt T\\propto\\sqrt m$, $\\dfrac{m'}{m}=\\left(\\dfrac{v_2}{v_1}\\right)^2=4$.", "ja": "固定長・固定振動数で腹 $n$ 個なら $v=2Lf/n$。腹 2→1 で速さ 2 倍（$v_2/v_1=2$）。$v\\propto\\sqrt T\\propto\\sqrt m$ なので $\\dfrac{m'}{m}=\\left(\\dfrac{v_2}{v_1}\\right)^2=4$。" }
+    },
+    {
+      "id": "2017-1-phy-12", "answerRow": 12, "block": "III", "topicId": "waves",
+      "subtopic": "Total internal reflection hiding a weight under a disk",
+      "patternTags": ["waves", "refraction", "total-internal-reflection", "critical-angle", "express-formula"], "hasFigure": true,
+      "figure": { "ja": "半径 $r$ の薄い円板を水面に浮かべ，中心からひもで小さなおもりを水中に長さ $\\ell$ で下げる。$\\ell$ が小さいと空気中のどこからもおもりが見えないが，$\\ell>\\ell_0$ で見えるようになる。水の空気に対する相対屈折率 $n$。", "en": "A thin disk (radius $r$) floats on water with a small weight hung from its centre at depth $\\ell$. For small $\\ell$ the weight is invisible from the air; for $\\ell>\\ell_0$ it becomes visible. Water's refractive index relative to air is $n$." },
+      "ja": { "prompt": "$\\dfrac{\\ell_0}{r}$ はどのように表されるか。正しいものを選びなさい。", "choices": ["$\\dfrac{n}{\\sqrt{n^2-1}}$", "$n$", "$\\sqrt{n^2-1}$", "$\\dfrac{\\sqrt{n^2-1}}{n}$", "$\\dfrac{1}{n}$", "$\\dfrac{1}{\\sqrt{n^2-1}}$"] },
+      "en": { "prompt": "How is $\\dfrac{\\ell_0}{r}$ expressed? Choose the correct one.", "choices": ["$\\dfrac{n}{\\sqrt{n^2-1}}$", "$n$", "$\\sqrt{n^2-1}$", "$\\dfrac{\\sqrt{n^2-1}}{n}$", "$\\dfrac{1}{n}$", "$\\dfrac{1}{\\sqrt{n^2-1}}$"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "$\\sqrt{n^2-1}$", "en": "$\\sqrt{n^2-1}$" },
+      "explanation": { "en": "The weight is invisible while the ray grazing the disk edge undergoes total internal reflection. At threshold $\\ell_0$ this edge ray is exactly at the critical angle $\\theta_c$: $\\tan\\theta_c=\\dfrac{r}{\\ell_0}$. Since $\\sin\\theta_c=\\dfrac1n$, $\\tan\\theta_c=\\dfrac{1}{\\sqrt{n^2-1}}$, so $\\dfrac{\\ell_0}{r}=\\sqrt{n^2-1}$.", "ja": "円板の縁をかすめる光が全反射する間はおもりが見えない。境界 $\\ell_0$ でこの光が臨界角 $\\theta_c$：$\\tan\\theta_c=\\dfrac{r}{\\ell_0}$。$\\sin\\theta_c=\\dfrac1n$ より $\\tan\\theta_c=\\dfrac{1}{\\sqrt{n^2-1}}$ なので $\\dfrac{\\ell_0}{r}=\\sqrt{n^2-1}$。" }
+    },
+    {
+      "id": "2017-1-phy-13", "answerRow": 13, "block": "IV", "topicId": "em",
+      "subtopic": "Field at the centroid of a charged equilateral triangle",
+      "patternTags": ["electrostatics", "coulomb-field", "superposition", "express-formula"], "hasFigure": true,
+      "figure": { "ja": "一辺 $a$ の正三角形 ABC。頂点 A に $-Q$，B に $+Q$，C に $+Q$（$Q>0$）。B の電荷が A の位置につくる電場の大きさが $E_0$。O は重心。", "en": "Equilateral triangle ABC (side $a$). Charge $-Q$ at A, $+Q$ at B, $+Q$ at C ($Q>0$). The field that B's charge makes at A has magnitude $E_0$. O is the centroid." },
+      "ja": { "prompt": "重心 O における電場の大きさはどのように表されるか。", "choices": ["$E_0$", "$2E_0$", "$3E_0$", "$4E_0$", "$5E_0$", "$6E_0$"] },
+      "en": { "prompt": "What is the magnitude of the electric field at the centroid O?", "choices": ["$E_0$", "$2E_0$", "$3E_0$", "$4E_0$", "$5E_0$", "$6E_0$"] },
+      "answerIndex": 5, "answerOption": 6, "answer": { "ja": "$6E_0$", "en": "$6E_0$" },
+      "explanation": { "en": "$E_0=\\dfrac{kQ}{a^2}$. The centroid is at distance $a/\\sqrt3$ from each vertex, so each charge makes a field $\\dfrac{kQ}{a^2/3}=3E_0$ at O. The $-Q$ at A points toward A (up); the two $+Q$ point away from B and C. All three have equal upward components and the horizontal parts cancel, giving $3E_0\\times2=6E_0$ upward.", "ja": "$E_0=\\dfrac{kQ}{a^2}$。重心は各頂点から $a/\\sqrt3$ なので各電荷は O に $\\dfrac{kQ}{a^2/3}=3E_0$ の電場をつくる。A の $-Q$ は A 向き（上），B・C の $+Q$ は外向き。3 つとも上向き成分が等しく水平成分は打ち消し合い，$3E_0\\times2=6E_0$（上向き）。" }
+    },
+    {
+      "id": "2017-1-phy-14", "answerRow": 14, "block": "IV", "topicId": "em",
+      "subtopic": "Capacitance change from inserting a partial conducting plate",
+      "patternTags": ["electrostatics", "capacitor", "dielectric-conductor", "parallel-series", "express-formula"], "hasFigure": true,
+      "figure": { "ja": "極板面積 $S$，間隔 $d$ の平行板コンデンサー（容量 $C$）。極板間に面積 $\\tfrac{S}{3}$，厚さ $\\tfrac{d}{2}$ の導体板を極板に平行に入れる。新しい容量 $C'$。", "en": "Parallel-plate capacitor (area $S$, gap $d$, capacitance $C$). A conducting plate of area $\\tfrac{S}{3}$ and thickness $\\tfrac{d}{2}$ is inserted parallel to the plates. New capacitance $C'$." },
+      "ja": { "prompt": "$\\dfrac{C'}{C}$ はいくらか。最も適当なものを選びなさい。", "choices": ["$\\dfrac{3}{10}$", "$\\dfrac13$", "$\\dfrac25$", "$\\dfrac37$", "$\\dfrac54$", "$\\dfrac43$", "$\\dfrac53$", "$\\dfrac74$"] },
+      "en": { "prompt": "What is $\\dfrac{C'}{C}$? Choose the closest.", "choices": ["$\\dfrac{3}{10}$", "$\\dfrac13$", "$\\dfrac25$", "$\\dfrac37$", "$\\dfrac54$", "$\\dfrac43$", "$\\dfrac53$", "$\\dfrac74$"] },
+      "answerIndex": 5, "answerOption": 6, "answer": { "ja": "$\\dfrac43$", "en": "$\\dfrac43$" },
+      "explanation": { "en": "Split into two parallel regions. Region without the conductor (area $\\tfrac{2S}{3}$, gap $d$): $C_2=\\tfrac23C$. Region with the conductor (area $\\tfrac{S}{3}$): the plate removes $d/2$ of gap, leaving effective gap $d/2$, so $C_1=\\dfrac{\\varepsilon_0(S/3)}{d/2}=\\tfrac23C$. Total $C'=C_1+C_2=\\tfrac43C$.", "ja": "並列 2 領域に分ける。導体なし（面積 $\\tfrac{2S}{3}$，間隔 $d$）：$C_2=\\tfrac23C$。導体あり（面積 $\\tfrac{S}{3}$）：厚さ $d/2$ の導体が間隔を減らし実効間隔 $d/2$ なので $C_1=\\dfrac{\\varepsilon_0(S/3)}{d/2}=\\tfrac23C$。合計 $C'=C_1+C_2=\\tfrac43C$。" }
+    },
+    {
+      "id": "2017-1-phy-15", "answerRow": 15, "block": "IV", "topicId": "em",
+      "subtopic": "External resistance for a given power output",
+      "patternTags": ["circuits", "internal-resistance", "power", "quadratic", "plug-in-numbers"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "起電力 $6.0\\,$V，内部抵抗 $1.0\\,\\Omega$ の電池に外部抵抗を接続したところ，外部抵抗での消費電力が $5.0\\,$W であった。外部抵抗の抵抗値は内部抵抗より大きいとする。外部抵抗の抵抗値は何 $\\Omega$ か。", "choices": ["5.0", "6.0", "6.2", "7.2"] },
+      "en": { "prompt": "A battery (EMF $6.0\\,$V, internal resistance $1.0\\,\\Omega$) drives an external resistor that dissipates $5.0\\,$W. The external resistance exceeds the internal resistance. What is its value (Ω)?", "choices": ["5.0", "6.0", "6.2", "7.2"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "$5.0\\,\\Omega$", "en": "5.0 Ω" },
+      "explanation": { "en": "$P=I^2R=\\dfrac{36R}{(R+1)^2}=5.0$, so $5R^2-26R+5=0$, giving $R=5.0$ or $0.2$. Since $R>1.0$, $R=5.0\\,\\Omega$.", "ja": "$P=I^2R=\\dfrac{36R}{(R+1)^2}=5.0$ より $5R^2-26R+5=0$，$R=5.0$ または $0.2$。$R>1.0$ なので $R=5.0\\,\\Omega$。" }
+    },
+    {
+      "id": "2017-1-phy-16", "answerRow": 16, "block": "IV", "topicId": "em",
+      "subtopic": "Current in a second wire for a specified field direction",
+      "patternTags": ["magnetism", "field-of-wire", "superposition", "geometry", "plug-in-numbers"], "hasFigure": true,
+      "figure": { "ja": "紙面に垂直な 2 本の長い導線が，直角二等辺三角形 OAB（直角 90° は O）の頂点 O と A を通る。O の導線は紙面の裏から表へ大きさ $I$。A の導線に電流を流すと，頂点 B での磁場が O から B に向かう向きになった。", "en": "Two long wires perpendicular to the page pass through vertices O and A of a right isosceles triangle OAB (right angle at O). The wire at O carries current $I$ out of the page. With a current in the wire at A, the field at vertex B points from O to B." },
+      "ja": { "prompt": "A を通る導線に流した電流の向きと大きさはどうなるか。正しい組み合わせを選びなさい。", "choices": ["紙面表から裏 / $\\sqrt2\\,I$", "紙面表から裏 / $2I$", "紙面表から裏 / $4I$", "紙面裏から表 / $\\sqrt2\\,I$", "紙面裏から表 / $2I$", "紙面裏から表 / $4I$"] },
+      "en": { "prompt": "What are the direction and magnitude of the current in the wire at A? Choose the correct pair.", "choices": ["front-to-back (into page) / $\\sqrt2\\,I$", "front-to-back (into page) / $2I$", "front-to-back (into page) / $4I$", "back-to-front (out of page) / $\\sqrt2\\,I$", "back-to-front (out of page) / $2I$", "back-to-front (out of page) / $4I$"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "② 紙面表から裏 / $2I$", "en": "② into the page / $2I$" },
+      "explanation": { "en": "With $OB=L$ (a leg) and $AB=\\sqrt2L$ (hypotenuse), the field at B from O (out of page) has magnitude $\\dfrac{kI}{L}$ pointing up-right. For the total to point along O→B, the wire at A must add a field of magnitude $\\sqrt2\\cdot\\dfrac{kI}{L}$ pointing down; that requires its current into the page with $\\dfrac{kI_A}{\\sqrt2L}=\\sqrt2\\dfrac{kI}{L}$, i.e. $I_A=2I$.", "ja": "$OB=L$（直角をはさむ辺），$AB=\\sqrt2L$（斜辺）。O（裏→表）が B につくる磁場は $\\dfrac{kI}{L}$ で右上向き。合成を O→B 向きにするには A の導線が下向きに $\\sqrt2\\cdot\\dfrac{kI}{L}$ の磁場を加える必要があり，電流は紙面表から裏で $\\dfrac{kI_A}{\\sqrt2L}=\\sqrt2\\dfrac{kI}{L}$，すなわち $I_A=2I$。" }
+    },
+    {
+      "id": "2017-1-phy-17", "answerRow": 17, "block": "IV", "topicId": "em",
+      "subtopic": "Torque on a current loop tilted in a field",
+      "patternTags": ["magnetism", "force-on-current", "torque-loop", "plug-in-numbers"], "hasFigure": true,
+      "figure": { "ja": "長方形コイル abcd に $5.0\\,$A。ab$=0.30\\,$m，bc$=0.20\\,$m。磁束密度 $4.0\\,$T の一様磁場中で，ab と cd が磁場に垂直，da と bc が磁場と $60°$。", "en": "Rectangular coil abcd carrying $5.0\\,$A. ab$=0.30\\,$m, bc$=0.20\\,$m. In a uniform field $4.0\\,$T, ab and cd are perpendicular to the field, da and bc make $60°$ with it." },
+      "ja": { "prompt": "コイルに流れる電流に磁場からはたらく偶力のモーメントの大きさは何 N·m か。", "choices": ["0.40", "0.60", "0.90", "1.0", "1.5"] },
+      "en": { "prompt": "What is the magnitude of the torque (couple) on the coil's current from the field (N·m)?", "choices": ["0.40", "0.60", "0.90", "1.0", "1.5"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "$0.60\\,$N·m", "en": "0.60 N·m" },
+      "explanation": { "en": "Forces on ab and cd (length $0.30$, $\\perp B$): $F=BIL=4.0\\times5.0\\times0.30=6.0\\,$N. They form a couple; the moment arm is the component of bc perpendicular to the force, $0.20\\cos60°=0.10\\,$m. Torque $=6.0\\times0.10=0.60\\,$N·m (equivalently $BIA\\sin\\theta=4.0\\times5.0\\times0.060\\times\\tfrac12$).", "ja": "ab, cd（長さ $0.30$，$\\perp B$）にはたらく力 $F=BIL=4.0\\times5.0\\times0.30=6.0\\,$N。偶力をなし，腕の長さは bc の力に垂直な成分 $0.20\\cos60°=0.10\\,$m。モーメント $=6.0\\times0.10=0.60\\,$N·m（＝$BIA\\sin\\theta=4.0\\times5.0\\times0.060\\times\\tfrac12$）。" }
+    },
+    {
+      "id": "2017-1-phy-18", "answerRow": 18, "block": "IV", "topicId": "em",
+      "subtopic": "Induced current direction as a magnet falls through a solenoid",
+      "patternTags": ["electromagnetic-induction", "lenz-law", "solenoid", "compare-cases"], "hasFigure": true,
+      "figure": { "ja": "鉛直なソレノイドに抵抗を接続。N 極を下にした棒磁石を上から中心軸に沿って落下させ通過させる。導線上の向きの矢印 a, b。", "en": "A vertical solenoid is connected to a resistor. A bar magnet (N pole down) is dropped along the axis from above and passes through. The wire shows direction arrows a and b." },
+      "ja": { "prompt": "棒磁石の N 極がソレノイドの上端を通過する直前に抵抗を流れる電流の向きは a, b のどちらか。また，S 極がソレノイドの下端を通過した直後に抵抗を流れる電流の向きは a, b のどちらか。正しい組み合わせを選びなさい。", "choices": ["上端直前:a / 下端直後:a", "上端直前:a / 下端直後:b", "上端直前:b / 下端直後:a", "上端直前:b / 下端直後:b"] },
+      "en": { "prompt": "What is the current direction (a or b) just before the N pole passes the top of the solenoid, and just after the S pole passes the bottom? Choose the correct pair.", "choices": ["top-before:a / bottom-after:a", "top-before:a / bottom-after:b", "top-before:b / bottom-after:a", "top-before:b / bottom-after:b"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "② 上端直前:a / 下端直後:b", "en": "② top-before:a / bottom-after:b" },
+      "explanation": { "en": "As the falling N pole (pointing down) approaches the top, the downward flux through the solenoid increases, and by Lenz's law the induced current opposes it (one direction, a). After the S pole leaves the bottom, the magnet recedes and the downward flux decreases, so the induced current reverses (b). The two cases give opposite directions → (a, b).", "ja": "落ちてくる N 極（下向き）が上端に近づくと下向きの磁束が増え，レンツの法則で誘導電流はこれを妨げる（向き a）。S 極が下端を出た直後は磁石が遠ざかり下向き磁束が減るので電流は逆向き（b）。2 つは逆向きになり (a, b)。" }
+    },
+    {
+      "id": "2017-1-phy-19", "answerRow": 19, "block": "V", "topicId": "atoms",
+      "subtopic": "Number of alpha decays from Nh to Md",
+      "patternTags": ["atomic-physics", "alpha-decay", "atomic-number", "plug-in-numbers"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "原子番号 113 のニホニウム Nh の原子核が，α 崩壊のみを複数回くり返して原子番号 101 のメンデレビウム Md の原子核に変わる。Nh の原子核 1 個が Md の原子核に変わるまでに，全部で何個の α 粒子が放出されるか。", "choices": ["2", "3", "4", "5", "6", "7", "8"] },
+      "en": { "prompt": "A nihonium Nh nucleus (atomic number 113) becomes a mendelevium Md nucleus (atomic number 101) through repeated α decays only. How many α particles are emitted in total?", "choices": ["2", "3", "4", "5", "6", "7", "8"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "6 個", "en": "6" },
+      "explanation": { "en": "Each α decay lowers the atomic number by 2. $113-101=12$, so the number of α particles is $12/2=6$.", "ja": "α 崩壊 1 回で原子番号は 2 減る。$113-101=12$ なので α 粒子は $12/2=6$ 個。" }
+    }
+  ]
+}

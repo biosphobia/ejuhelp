@@ -1,9 +1,16 @@
 import { create } from 'zustand';
+import type { GenQuestion } from './api';
+import type { Subject } from './ui';
+
+/** A question the student is actively working on, rich enough to grade. */
+export type ActiveItem = GenQuestion & { subject: Subject };
 
 interface PracticeState {
-  /** The question the user is currently working on (used by "Check my work"). */
+  /** The question the user is currently working on, as text (used by "Check my work"). */
   activeQuestion: string | null;
-  setActiveQuestion: (q: string | null) => void;
+  /** The same question as a gradable object, when it came from a generated/pinned question. */
+  activeItem: ActiveItem | null;
+  setActiveQuestion: (q: string | null, item?: ActiveItem | null) => void;
   /** Set when the user taps "practice my weak points" so the generator opens in focus mode. */
   wantFocus: boolean;
   setWantFocus: (b: boolean) => void;
@@ -11,7 +18,8 @@ interface PracticeState {
 
 export const usePractice = create<PracticeState>((set) => ({
   activeQuestion: null,
-  setActiveQuestion: (activeQuestion) => set({ activeQuestion }),
+  activeItem: null,
+  setActiveQuestion: (activeQuestion, activeItem = null) => set({ activeQuestion, activeItem }),
   wantFocus: false,
   setWantFocus: (wantFocus) => set({ wantFocus }),
 }));

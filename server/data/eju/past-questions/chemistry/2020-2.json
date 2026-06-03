@@ -1,0 +1,276 @@
+{
+  "id": "2020-2-chemistry",
+  "year": 2020,
+  "session": 2,
+  "subject": "chemistry",
+  "title": "EJU 2020 · Session 2 · Chemistry",
+  "source": "2020年度（令和2年度）日本留学試験（第2回）理科〈化学〉 © Japan Student Services Organization (JASSO)",
+  "attribution": "EJU past questions © JASSO. Question text paraphrased from the official past paper; figures described in text; correct answers taken from the official JASSO answer key and independently re-solved for verification.",
+  "languages": ["ja", "en"],
+  "answerKeyVerified": true,
+  "structure": {
+    "format": "flat",
+    "totalQuestions": 20,
+    "note": "Chemistry is a flat list of 20 single-best-answer items (問1–問20, answer rows 1–20) — no Roman-numeral blocks. Order ≈ structure & bonding → states/energetics/electrochemistry/equilibria → inorganic → organic. This paper uses the traditional thermochemical convention where a heat of formation (生成熱) for an exothermic formation is reported as a positive value.",
+    "givens": {
+      "ja": "標準状態 $0\\,$°C・$1.0\\times10^5\\,$Pa，気体 $1\\,$mol の体積 $22.4\\,$L，アボガドロ定数 $N_A=6.02\\times10^{23}\\,$/mol，ファラデー定数 $F=9.65\\times10^4\\,$C/mol。原子量：H 1.0, C 12, N 14, O 16, Na 23, Al 27, Cl 35.5, K 39。族・周期は周期表の通り。",
+      "en": "STP $0\\,$°C, $1.0\\times10^5\\,$Pa; molar volume $22.4\\,$L; $N_A=6.02\\times10^{23}\\,$/mol; $F=9.65\\times10^4\\,$C/mol. Atomic weights: H 1.0, C 12, N 14, O 16, Na 23, Al 27, Cl 35.5, K 39. Groups/periods per the periodic table."
+    }
+  },
+  "questions": [
+    {
+      "id": "2020-2-chem-1", "answerRow": 1, "topicId": "matter-structure",
+      "subtopic": "Two correct statements about atomic structure",
+      "patternTags": ["atomic-structure", "protons", "neutrons", "valence-electrons", "true-false-combo"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "原子構造と電子配置に関する記述(a)〜(d)のうち，正しいものが二つある。その組み合わせを選びなさい。 (a) Na 原子と K 原子では，陽子の数が異なる。 (b) $^{12}\\mathrm{C}$ 原子と $^{13}\\mathrm{C}$ 原子では，中性子の数が異なる。 (c) Ne 原子と $\\mathrm{Mg^{2+}}$ では，電子の数が異なる。 (d) O 原子と S 原子では，価電子の数が異なる。", "choices": ["a, b", "a, c", "a, d", "b, c", "b, d", "c, d"] },
+      "en": { "prompt": "Two of these statements about atomic structure are correct. Which pair? (a) Na and K atoms differ in proton number. (b) $^{12}\\mathrm{C}$ and $^{13}\\mathrm{C}$ differ in neutron number. (c) Ne and $\\mathrm{Mg^{2+}}$ differ in electron number. (d) O and S atoms differ in valence-electron number.", "choices": ["a, b", "a, c", "a, d", "b, c", "b, d", "c, d"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "a と b", "en": "a and b" },
+      "explanation": { "en": "(a) True — Na has 11 protons, K has 19. (b) True — $^{12}\\mathrm{C}$ has 6 neutrons, $^{13}\\mathrm{C}$ has 7. (c) False — Ne and $\\mathrm{Mg^{2+}}$ both have 10 electrons. (d) False — O and S are both group 16, each with 6 valence electrons.", "ja": "(a) 正 — Na は陽子 11，K は 19。(b) 正 — $^{12}\\mathrm{C}$ は中性子 6，$^{13}\\mathrm{C}$ は 7。(c) 誤 — Ne も $\\mathrm{Mg^{2+}}$ も電子 10。(d) 誤 — O も S も 16 族で価電子は 6。" }
+    },
+    {
+      "id": "2020-2-chem-2", "answerRow": 2, "topicId": "matter-structure",
+      "subtopic": "Compound with the most lone pairs",
+      "patternTags": ["chemical-bonds", "lone-pairs", "compare-cases"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の化合物①〜⑥のうち，非共有電子対を最も多くもつものを選びなさい。 ① $\\mathrm{H_2O}$ ② HCl ③ $\\mathrm{CH_4}$ ④ $\\mathrm{NH_3}$ ⑤ $\\mathrm{N_2}$ ⑥ $\\mathrm{CO_2}$", "choices": ["$\\mathrm{H_2O}$", "HCl", "$\\mathrm{CH_4}$", "$\\mathrm{NH_3}$", "$\\mathrm{N_2}$", "$\\mathrm{CO_2}$"] },
+      "en": { "prompt": "Which compound has the MOST lone (unshared) electron pairs? ① $\\mathrm{H_2O}$ ② HCl ③ $\\mathrm{CH_4}$ ④ $\\mathrm{NH_3}$ ⑤ $\\mathrm{N_2}$ ⑥ $\\mathrm{CO_2}$", "choices": ["$\\mathrm{H_2O}$", "HCl", "$\\mathrm{CH_4}$", "$\\mathrm{NH_3}$", "$\\mathrm{N_2}$", "$\\mathrm{CO_2}$"] },
+      "answerIndex": 5, "answerOption": 6, "answer": { "ja": "⑥ $\\mathrm{CO_2}$（4 対）", "en": "⑥ $\\mathrm{CO_2}$ (4 pairs)" },
+      "explanation": { "en": "Lone pairs: $\\mathrm{H_2O}$ 2, HCl 3, $\\mathrm{CH_4}$ 0, $\\mathrm{NH_3}$ 1, $\\mathrm{N_2}$ 2, $\\mathrm{CO_2}$ 4 (two on each O). $\\mathrm{CO_2}$ has the most.", "ja": "非共有電子対：$\\mathrm{H_2O}$ 2，HCl 3，$\\mathrm{CH_4}$ 0，$\\mathrm{NH_3}$ 1，$\\mathrm{N_2}$ 2，$\\mathrm{CO_2}$ 4（各 O に 2 対）。$\\mathrm{CO_2}$ が最多。" }
+    },
+    {
+      "id": "2020-2-chem-3", "answerRow": 3, "topicId": "states-and-change",
+      "subtopic": "Atomic weight of a metal from carbonate decomposition",
+      "patternTags": ["stoichiometry", "mole-mass", "decomposition", "plug-in-numbers"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "金属 M の炭酸塩 $\\mathrm{MCO_3}\\ 37\\,$g を加熱すると $\\mathrm{MCO_3\\to MO+CO_2}$ と分解して $11\\,$g の $\\mathrm{CO_2}$ が発生した。金属 M の原子量に最も近い値を選びなさい。", "choices": ["24", "36", "40", "55", "88", "140"] },
+      "en": { "prompt": "Heating $37\\,$g of the carbonate $\\mathrm{MCO_3}$ decomposes it ($\\mathrm{MCO_3\\to MO+CO_2}$), releasing $11\\,$g of $\\mathrm{CO_2}$. What is the atomic weight of metal M?", "choices": ["24", "36", "40", "55", "88", "140"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "約 88", "en": "≈ 88" },
+      "explanation": { "en": "$\\mathrm{CO_2}=11/44=0.25\\,$mol $=$ mol $\\mathrm{MCO_3}$. So $M(\\mathrm{MCO_3})=37/0.25=148=M+60$, giving $M=88$.", "ja": "$\\mathrm{CO_2}=11/44=0.25\\,$mol $=\\mathrm{MCO_3}$ の mol。$M(\\mathrm{MCO_3})=37/0.25=148=M+60$ より $M=88$。" }
+    },
+    {
+      "id": "2020-2-chem-4", "answerRow": 4, "topicId": "states-and-change",
+      "subtopic": "Aluminium mass to make a given amount of alumina",
+      "patternTags": ["stoichiometry", "combustion", "mole-mass", "plug-in-numbers"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "アルミニウム Al が燃焼して $\\mathrm{Al_2O_3}$ を生じる反応は $x\\mathrm{Al}+y\\mathrm{O_2}\\to z\\mathrm{Al_2O_3}$ で表される。$\\mathrm{Al_2O_3}\\ 5.1\\,$g を得るために必要なアルミニウムの質量 [g] に最も近い値を選びなさい。", "choices": ["1.8", "2.3", "2.7", "3.2", "4.8", "5.4"] },
+      "en": { "prompt": "Aluminium burns to alumina by $x\\mathrm{Al}+y\\mathrm{O_2}\\to z\\mathrm{Al_2O_3}$. What mass of aluminium (g) is needed to make $5.1\\,$g of $\\mathrm{Al_2O_3}$?", "choices": ["1.8", "2.3", "2.7", "3.2", "4.8", "5.4"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "$2.7\\,$g", "en": "2.7 g" },
+      "explanation": { "en": "$4\\mathrm{Al}+3\\mathrm{O_2}\\to2\\mathrm{Al_2O_3}$. $\\mathrm{Al_2O_3}=5.1/102=0.050\\,$mol → Al $=2\\times0.050=0.10\\,$mol $\\times27=2.7\\,$g.", "ja": "$4\\mathrm{Al}+3\\mathrm{O_2}\\to2\\mathrm{Al_2O_3}$。$\\mathrm{Al_2O_3}=5.1/102=0.050\\,$mol → Al $=2\\times0.050=0.10\\,$mol$\\times27=2.7\\,$g。" }
+    },
+    {
+      "id": "2020-2-chem-5", "answerRow": 5, "topicId": "matter-structure",
+      "subtopic": "Density of a body-centred cubic crystal",
+      "patternTags": ["crystal-structure", "bcc", "density", "formula-selection"], "hasFigure": true,
+      "figure": { "ja": "カリウム K の結晶の単位格子（体心立方格子 BCC：立方体の 8 頂点＋中心に原子）。原子量 $M$，一辺 $a\\,$cm，アボガドロ定数 $N_A$。", "en": "Unit cell of potassium K (body-centred cubic, BCC: atoms at the 8 corners and the centre of the cube). Atomic weight $M$, edge $a\\,$cm, Avogadro's number $N_A$." },
+      "ja": { "prompt": "カリウム K の結晶（体心立方格子）の密度 [g/cm³] を表す式として正しいものを選びなさい。原子量 $M$，一辺 $a\\,$cm，アボガドロ定数 $N_A$。", "choices": ["$\\dfrac{M}{a^3N_A}$", "$\\dfrac{2M}{a^3N_A}$", "$\\dfrac{4M}{a^3N_A}$", "$\\dfrac{N_AM}{a^3}$", "$\\dfrac{2N_AM}{a^3}$", "$\\dfrac{4N_AM}{a^3}$"] },
+      "en": { "prompt": "Which expression gives the density [g/cm³] of the potassium crystal (BCC)? Atomic weight $M$, edge $a\\,$cm, Avogadro's number $N_A$.", "choices": ["$\\dfrac{M}{a^3N_A}$", "$\\dfrac{2M}{a^3N_A}$", "$\\dfrac{4M}{a^3N_A}$", "$\\dfrac{N_AM}{a^3}$", "$\\dfrac{2N_AM}{a^3}$", "$\\dfrac{4N_AM}{a^3}$"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "② $\\dfrac{2M}{a^3N_A}$", "en": "② $\\dfrac{2M}{a^3N_A}$" },
+      "explanation": { "en": "BCC has $8\\times\\tfrac18+1=2$ atoms per cell. Mass $=2M/N_A$, volume $=a^3$, so density $=\\dfrac{2M}{a^3N_A}$.", "ja": "BCC は $8\\times\\tfrac18+1=2$ 個/格子。質量 $=2M/N_A$，体積 $=a^3$ なので密度 $=\\dfrac{2M}{a^3N_A}$。" }
+    },
+    {
+      "id": "2020-2-chem-6", "answerRow": 6, "topicId": "states-and-change",
+      "subtopic": "Heat of formation of water from calorimetry",
+      "patternTags": ["thermochemistry", "calorimetry", "heat-of-formation", "enthalpy-sign", "plug-in-numbers"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "$4.2\\,$g の水素 $\\mathrm{H_2}$ を燃焼させ，発生した熱で $15\\,$kg の水を加熱したところ水温が $10\\,$°C 上がった。水の生成熱は何 kJ/mol か。最も近い値を選びなさい。水の比熱を $4.2\\,\\mathrm{J/(g\\cdot K)}$，発生熱はすべて水の温度上昇に使われたとする。", "choices": ["$-600$", "$-300$", "$-150$", "150", "300", "600"] },
+      "en": { "prompt": "Combusting $4.2\\,$g of hydrogen $\\mathrm{H_2}$ heats $15\\,$kg of water, raising its temperature by $10\\,$°C. What is the heat of formation of water (kJ/mol)? Specific heat of water $=4.2\\,\\mathrm{J/(g\\cdot K)}$; all heat goes into the water.", "choices": ["$-600$", "$-300$", "$-150$", "150", "300", "600"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "⑤ $300\\,$kJ/mol", "en": "⑤ 300 kJ/mol" },
+      "explanation": { "en": "Heat to the water $=15000\\times4.2\\times10=6.3\\times10^5\\,$J $=630\\,$kJ. $\\mathrm{H_2}=4.2/2=2.1\\,$mol, and $\\mathrm{2H_2+O_2\\to2H_2O}$ makes $2.1\\,$mol water. Heat per mole of water $=630/2.1=300\\,$kJ. In the thermochemical (生成熱) convention an exothermic formation is reported as a positive heat, so the heat of formation is $+300\\,$kJ/mol.", "ja": "水へ与えた熱 $=15000\\times4.2\\times10=6.3\\times10^5\\,$J$=630\\,$kJ。$\\mathrm{H_2}=4.2/2=2.1\\,$mol，$\\mathrm{2H_2+O_2\\to2H_2O}$ で水 $2.1\\,$mol 生成。水 1 mol あたり $630/2.1=300\\,$kJ。生成熱の慣習では発熱の生成を正の値で表すので生成熱は $+300\\,$kJ/mol。" }
+    },
+    {
+      "id": "2020-2-chem-7", "answerRow": 7, "topicId": "states-and-change",
+      "subtopic": "Two correct equilibrium/rate statements",
+      "patternTags": ["equilibrium", "le-chatelier", "catalyst", "rate-law", "true-false-combo"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "反応 $\\mathrm{H_2+I_2\\rightleftharpoons 2HI}+9.0\\,$kJ が平衡状態にあるときの記述(a)〜(d)のうち，正しいものが二つある。その組み合わせを選びなさい。 (a) この反応では，温度を高くすると平衡定数は小さくなる。 (b) 触媒を加えると反応速度が大きくなるので，平衡定数は大きくなる。 (c) 触媒を加えると反応の経路は変わらないが，活性化エネルギーが小さくなる。 (d) 化学反応式から，反応速度と反応物の濃度との関係式を直接導くことはできない。", "choices": ["a, b", "a, c", "a, d", "b, c", "b, d", "c, d"] },
+      "en": { "prompt": "For $\\mathrm{H_2+I_2\\rightleftharpoons 2HI}+9.0\\,$kJ at equilibrium, two statements are correct. Which pair? (a) Raising the temperature decreases the equilibrium constant. (b) Adding a catalyst raises the rate, so the equilibrium constant increases. (c) A catalyst leaves the reaction path unchanged but lowers the activation energy. (d) The rate law (rate vs reactant concentration) cannot be derived directly from the chemical equation.", "choices": ["a, b", "a, c", "a, d", "b, c", "b, d", "c, d"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "a と d", "en": "a and d" },
+      "explanation": { "en": "(a) True — the forward reaction is exothermic, so heating shifts it back and lowers $K$. (d) True — rate laws must be found experimentally, not from stoichiometry. (b) False — a catalyst does not change $K$. (c) False — a catalyst provides a NEW pathway (which is how it lowers the activation energy).", "ja": "(a) 正 — 正反応は発熱なので加熱で逆方向へ移動し $K$ は小さくなる。(d) 正 — 速度式は実験で決め，化学反応式から直接は導けない。(b) 誤 — 触媒は $K$ を変えない。(c) 誤 — 触媒は別の経路を与える（それで活性化エネルギーが下がる）。" }
+    },
+    {
+      "id": "2020-2-chem-8", "answerRow": 8, "topicId": "states-and-change",
+      "subtopic": "Compare strong vs weak acid at the same pH",
+      "patternTags": ["acids-bases", "ph", "strong-weak", "neutralization", "compare-cases"], "hasFigure": true,
+      "figure": { "ja": "表は ($c_1$ と $c_2$) と ($n_1$ と $n_2$) の大小関係の組み合わせ①〜⑨。(a) $c_1$＝pH=3 の HCl 中の $\\mathrm{Cl^-}$ 濃度，$c_2$＝pH=3 の $\\mathrm{CH_3COOH}$ 中の $\\mathrm{CH_3COO^-}$ 濃度。(b) $n_1$＝pH=3 の HCl $10\\,$mL の中和に必要な NaOH の物質量，$n_2$＝pH=3 の $\\mathrm{CH_3COOH}\\ 10\\,$mL の中和に必要な NaOH の物質量。", "en": "Table of ($c_1$ vs $c_2$) and ($n_1$ vs $n_2$) relations, options ①–⑨. (a) $c_1$ = $\\mathrm{Cl^-}$ concentration in pH-3 HCl; $c_2$ = $\\mathrm{CH_3COO^-}$ concentration in pH-3 $\\mathrm{CH_3COOH}$. (b) $n_1$ = mol NaOH to neutralize $10\\,$mL of pH-3 HCl; $n_2$ = mol NaOH to neutralize $10\\,$mL of pH-3 $\\mathrm{CH_3COOH}$." },
+      "ja": { "prompt": "モル濃度 $c_1,c_2$ と物質量 $n_1,n_2$ の大小関係の正しい組み合わせを選びなさい。 (a) $c_1$:pH=3 の HCl 中の $\\mathrm{Cl^-}$ のモル濃度，$c_2$:pH=3 の $\\mathrm{CH_3COOH}$ 中の $\\mathrm{CH_3COO^-}$ のモル濃度。 (b) $n_1$:pH=3 の HCl $10\\,$mL を中和する NaOH の物質量，$n_2$:pH=3 の $\\mathrm{CH_3COOH}\\ 10\\,$mL を中和する NaOH の物質量。", "choices": ["$c_1>c_2$ / $n_1>n_2$", "$c_1>c_2$ / $n_1=n_2$", "$c_1>c_2$ / $n_1<n_2$", "$c_1=c_2$ / $n_1>n_2$", "$c_1=c_2$ / $n_1=n_2$", "$c_1=c_2$ / $n_1<n_2$", "$c_1<c_2$ / $n_1>n_2$", "$c_1<c_2$ / $n_1=n_2$", "$c_1<c_2$ / $n_1<n_2$"] },
+      "en": { "prompt": "Choose the correct size relations for $c_1,c_2$ and $n_1,n_2$. (a) $c_1$: $\\mathrm{Cl^-}$ concentration in pH-3 HCl; $c_2$: $\\mathrm{CH_3COO^-}$ concentration in pH-3 $\\mathrm{CH_3COOH}$. (b) $n_1$: mol NaOH to neutralize $10\\,$mL of pH-3 HCl; $n_2$: mol NaOH to neutralize $10\\,$mL of pH-3 $\\mathrm{CH_3COOH}$.", "choices": ["$c_1>c_2$ / $n_1>n_2$", "$c_1>c_2$ / $n_1=n_2$", "$c_1>c_2$ / $n_1<n_2$", "$c_1=c_2$ / $n_1>n_2$", "$c_1=c_2$ / $n_1=n_2$", "$c_1=c_2$ / $n_1<n_2$", "$c_1<c_2$ / $n_1>n_2$", "$c_1<c_2$ / $n_1=n_2$", "$c_1<c_2$ / $n_1<n_2$"] },
+      "answerIndex": 5, "answerOption": 6, "answer": { "ja": "⑥ $c_1=c_2$ / $n_1<n_2$", "en": "⑥ $c_1=c_2$ / $n_1<n_2$" },
+      "explanation": { "en": "At pH 3, $[\\mathrm{H^+}]=10^{-3}$. For HCl, $[\\mathrm{Cl^-}]=[\\mathrm{H^+}]=10^{-3}$; for acetic acid, charge balance gives $[\\mathrm{CH_3COO^-}]\\approx[\\mathrm{H^+}]=10^{-3}$, so $c_1=c_2$. But neutralization needs ALL the acid: HCl's total concentration is $10^{-3}$, while weak acetic acid is only partly ionised, so its total concentration (and hence $n_2$) is much larger — $n_1<n_2$.", "ja": "pH=3 で $[\\mathrm{H^+}]=10^{-3}$。HCl は $[\\mathrm{Cl^-}]=[\\mathrm{H^+}]=10^{-3}$，酢酸は電荷収支から $[\\mathrm{CH_3COO^-}]\\approx10^{-3}$ で $c_1=c_2$。中和は酸の全量が必要で，HCl の全濃度は $10^{-3}$ だが弱酸の酢酸は一部しか電離せず全濃度（＝$n_2$）がはるかに大きいので $n_1<n_2$。" }
+    },
+    {
+      "id": "2020-2-chem-9", "answerRow": 9, "topicId": "states-and-change",
+      "subtopic": "Reaction where the species is an oxidizing agent",
+      "patternTags": ["redox", "oxidizing-agent", "oxidation-number", "pick-statement"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の反応式①〜⑤のうち，下線部の物質が酸化剤としてはたらいているものを選びなさい。 ① $\\underline{\\mathrm{SO_2}}+\\mathrm{Br_2}+2\\mathrm{H_2O}\\to\\mathrm{H_2SO_4}+2\\mathrm{HBr}$ ② $\\underline{\\mathrm{CaO}}+2\\mathrm{HCl}\\to\\mathrm{CaCl_2}+\\mathrm{H_2O}$ ③ $\\underline{\\mathrm{Zn}}+\\mathrm{H_2SO_4}\\to\\mathrm{ZnSO_4}+\\mathrm{H_2}$ ④ $\\underline{\\mathrm{HCl}}+\\mathrm{NaOH}\\to\\mathrm{NaCl}+\\mathrm{H_2O}$ ⑤ $\\underline{\\mathrm{H_2O_2}}+\\mathrm{SO_2}\\to\\mathrm{H_2SO_4}$", "choices": ["①", "②", "③", "④", "⑤"] },
+      "en": { "prompt": "In which reaction does the underlined substance act as an OXIDIZING agent? ① $\\underline{\\mathrm{SO_2}}+\\mathrm{Br_2}+2\\mathrm{H_2O}\\to\\mathrm{H_2SO_4}+2\\mathrm{HBr}$ ② $\\underline{\\mathrm{CaO}}+2\\mathrm{HCl}\\to\\mathrm{CaCl_2}+\\mathrm{H_2O}$ ③ $\\underline{\\mathrm{Zn}}+\\mathrm{H_2SO_4}\\to\\mathrm{ZnSO_4}+\\mathrm{H_2}$ ④ $\\underline{\\mathrm{HCl}}+\\mathrm{NaOH}\\to\\mathrm{NaCl}+\\mathrm{H_2O}$ ⑤ $\\underline{\\mathrm{H_2O_2}}+\\mathrm{SO_2}\\to\\mathrm{H_2SO_4}$", "choices": ["①", "②", "③", "④", "⑤"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "⑤（$\\mathrm{H_2O_2}$ は還元され酸化剤）", "en": "⑤ ($\\mathrm{H_2O_2}$ is reduced — an oxidizing agent)" },
+      "explanation": { "en": "An oxidizing agent is itself reduced. In ⑤, oxygen in $\\mathrm{H_2O_2}$ goes $-1\\to-2$ (reduced) while $\\mathrm{SO_2}$ is oxidised — so $\\mathrm{H_2O_2}$ is the oxidising agent. ① $\\mathrm{SO_2}$ is oxidised (reducing agent); ③ Zn is oxidised; ② and ④ are acid-base (no redox).", "ja": "酸化剤は自身が還元される。⑤ では $\\mathrm{H_2O_2}$ の O が $-1\\to-2$（還元）で $\\mathrm{SO_2}$ が酸化されるので $\\mathrm{H_2O_2}$ が酸化剤。① $\\mathrm{SO_2}$ は酸化（還元剤）；③ Zn は酸化；②④ は酸塩基（非酸化還元）。" }
+    },
+    {
+      "id": "2020-2-chem-10", "answerRow": 10, "topicId": "states-and-change",
+      "subtopic": "Cathode product in molten NaCl electrolysis",
+      "patternTags": ["electrochemistry", "electrolysis", "molten-salt", "faraday", "plug-in-numbers"], "hasFigure": true,
+      "figure": { "ja": "じゅうぶんな量の NaCl をるつぼで融解し，炭素電極で $10.0\\,$A を $1930\\,$秒流して電気分解。表は陰極に生じる物質とその質量 [g] の組み合わせ①〜⑧（塩素 $\\mathrm{Cl_2}$ または ナトリウム Na と各質量）。", "en": "Enough NaCl is melted in a crucible and electrolysed with carbon electrodes at $10.0\\,$A for $1930\\,$s. The table gives the cathode product and its mass [g], options ①–⑧ (chlorine $\\mathrm{Cl_2}$ or sodium Na with various masses)." },
+      "ja": { "prompt": "じゅうぶんな量の NaCl を融解し炭素電極で $10.0\\,$A を $1930\\,$秒流して電気分解した。陰極に生じる物質とその質量の正しい組み合わせを選びなさい。", "choices": ["$\\mathrm{Cl_2}$ / 0.36", "$\\mathrm{Cl_2}$ / 0.71", "$\\mathrm{Cl_2}$ / 3.6", "$\\mathrm{Cl_2}$ / 7.1", "Na / 0.23", "Na / 0.46", "Na / 2.3", "Na / 4.6"] },
+      "en": { "prompt": "Electrolysing molten NaCl with carbon electrodes at $10.0\\,$A for $1930\\,$s, what is the cathode product and its mass?", "choices": ["$\\mathrm{Cl_2}$ / 0.36", "$\\mathrm{Cl_2}$ / 0.71", "$\\mathrm{Cl_2}$ / 3.6", "$\\mathrm{Cl_2}$ / 7.1", "Na / 0.23", "Na / 0.46", "Na / 2.3", "Na / 4.6"] },
+      "answerIndex": 7, "answerOption": 8, "answer": { "ja": "⑧ Na / $4.6\\,$g", "en": "⑧ Na / 4.6 g" },
+      "explanation": { "en": "In MOLTEN NaCl (no water), the cathode gives sodium: $\\mathrm{Na^++e^-\\to Na}$. Charge $=10.0\\times1930=19300\\,$C → $0.20\\,$mol e⁻ → $0.20\\,$mol Na $\\times23=4.6\\,$g.", "ja": "融解 NaCl（水なし）では陰極でナトリウムが生じる：$\\mathrm{Na^++e^-\\to Na}$。電気量 $=10.0\\times1930=19300\\,$C → $0.20\\,$mol e⁻ → Na $0.20\\,$mol$\\times23=4.6\\,$g。" }
+    },
+    {
+      "id": "2020-2-chem-11", "answerRow": 11, "topicId": "inorganic",
+      "subtopic": "Correct statement about group-2 elements",
+      "patternTags": ["inorganic", "alkaline-earth-metals", "solubility", "pick-statement"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "2 族元素の性質に関する記述①〜⑤のうち，正しいものを選びなさい。 ① 炎色反応で Mg は黄色，Ca は橙赤色，Ba は黄緑色を示す。 ② 金属の Mg, Ca, Ba はいずれも常温で水と反応し $\\mathrm{H_2}$ を発生する。 ③ $\\mathrm{Mg(OH)_2},\\mathrm{Ca(OH)_2},\\mathrm{Ba(OH)_2}$ はいずれも水によく溶け強い塩基性を示す。 ④ $\\mathrm{MgCl_2},\\mathrm{CaCl_2},\\mathrm{BaCl_2}$ はいずれも水によく溶ける。 ⑤ $\\mathrm{MgSO_4},\\mathrm{CaSO_4},\\mathrm{BaSO_4}$ はいずれも水に難溶である。", "choices": ["①", "②", "③", "④", "⑤"] },
+      "en": { "prompt": "Which statement about group-2 elements is correct? ① Flame colours: Mg yellow, Ca orange-red, Ba yellow-green. ② Mg, Ca, Ba all react with water at room temperature to give $\\mathrm{H_2}$. ③ $\\mathrm{Mg(OH)_2},\\mathrm{Ca(OH)_2},\\mathrm{Ba(OH)_2}$ all dissolve well and are strongly basic. ④ $\\mathrm{MgCl_2},\\mathrm{CaCl_2},\\mathrm{BaCl_2}$ all dissolve well in water. ⑤ $\\mathrm{MgSO_4},\\mathrm{CaSO_4},\\mathrm{BaSO_4}$ are all poorly soluble in water.", "choices": ["①", "②", "③", "④", "⑤"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "④（塩化物はいずれも水に可溶）", "en": "④ (the chlorides are all water-soluble)" },
+      "explanation": { "en": "The group-2 chlorides $\\mathrm{MgCl_2,CaCl_2,BaCl_2}$ are all water-soluble — ④ correct. ① Mg gives no flame colour; ② Mg does not react with cold water; ③ $\\mathrm{Mg(OH)_2}$ is only slightly soluble; ⑤ $\\mathrm{MgSO_4}$ is soluble (only $\\mathrm{CaSO_4}$/$\\mathrm{BaSO_4}$ are poorly soluble).", "ja": "2 族の塩化物 $\\mathrm{MgCl_2,CaCl_2,BaCl_2}$ はいずれも水に溶ける — ④が正。① Mg は炎色を示さない；② Mg は冷水と反応しない；③ $\\mathrm{Mg(OH)_2}$ は難溶；⑤ $\\mathrm{MgSO_4}$ は可溶（難溶は $\\mathrm{CaSO_4}$/$\\mathrm{BaSO_4}$）。" }
+    },
+    {
+      "id": "2020-2-chem-12", "answerRow": 12, "topicId": "inorganic",
+      "subtopic": "Two incorrect statements about halogens",
+      "patternTags": ["inorganic", "halogens", "acid-strength", "boiling-point", "true-false-combo"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "ハロゲン F, Cl, Br, I についての記述(a)〜(f)のうち，誤っているものが二つある。その組み合わせを選びなさい。 (a) $\\mathrm{F_2}$ は $\\mathrm{H_2O}$ と反応して $\\mathrm{O_2}$ を生成する。 (b) KI 水溶液に臭素水を加えると $\\mathrm{I_2}$ が遊離する。 (c) HF, HCl, HBr, HI はいずれも強酸である。 (d) $\\mathrm{CaF_2}$ に濃硫酸を加えて加熱すると HF が生成する。 (e) HClO は強い酸化作用を有する。 (f) HF は HCl より沸点が低い。", "choices": ["a, d", "a, e", "b, d", "b, f", "c, e", "c, f"] },
+      "en": { "prompt": "Two of these statements about the halogens F, Cl, Br, I are INCORRECT. Which pair? (a) $\\mathrm{F_2}$ reacts with $\\mathrm{H_2O}$ to give $\\mathrm{O_2}$. (b) Adding bromine water to KI solution releases $\\mathrm{I_2}$. (c) HF, HCl, HBr, HI are all strong acids. (d) Heating $\\mathrm{CaF_2}$ with conc. $\\mathrm{H_2SO_4}$ gives HF. (e) HClO is strongly oxidising. (f) HF has a lower boiling point than HCl.", "choices": ["a, d", "a, e", "b, d", "b, f", "c, e", "c, f"] },
+      "answerIndex": 5, "answerOption": 6, "answer": { "ja": "c と f", "en": "c and f" },
+      "explanation": { "en": "(c) False — HF is a WEAK acid (the others are strong). (f) False — HF has a HIGHER boiling point than HCl (hydrogen bonding). The rest are correct: $\\mathrm{F_2}$ oxidises water to $\\mathrm{O_2}$, $\\mathrm{Br_2}$ frees $\\mathrm{I_2}$ from KI, $\\mathrm{CaF_2}$+conc. $\\mathrm{H_2SO_4}$ gives HF, and HClO is oxidising.", "ja": "(c) 誤 — HF は弱酸（他は強酸）。(f) 誤 — HF は水素結合で HCl より沸点が高い。他は正：$\\mathrm{F_2}$ は水を酸化し $\\mathrm{O_2}$，$\\mathrm{Br_2}$ は KI から $\\mathrm{I_2}$ を遊離，$\\mathrm{CaF_2}$＋濃硫酸で HF，HClO は酸化作用あり。" }
+    },
+    {
+      "id": "2020-2-chem-13", "answerRow": 13, "topicId": "inorganic",
+      "subtopic": "Operations producing a reducing gas",
+      "patternTags": ["inorganic", "gas-preparation", "reducing-gas", "true-false-combo"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の操作(a)〜(d)で発生する気体のうち，還元作用を示すものが二つある。その組み合わせを選びなさい。 (a) Al に NaOH aq を加える。 (b) NaCl に濃硫酸を加え加熱する。 (c) $\\mathrm{MnO_2}$ に濃塩酸を加え加熱する。 (d) FeS に希硫酸を加える。", "choices": ["a, b", "a, c", "a, d", "b, c", "b, d", "c, d"] },
+      "en": { "prompt": "Among the gases produced by operations (a)–(d), two are reducing. Which pair? (a) Add NaOH aq to Al. (b) Heat NaCl with conc. $\\mathrm{H_2SO_4}$. (c) Heat $\\mathrm{MnO_2}$ with conc. HCl. (d) Add dilute $\\mathrm{H_2SO_4}$ to FeS.", "choices": ["a, b", "a, c", "a, d", "b, c", "b, d", "c, d"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "a と d（$\\mathrm{H_2}$ と $\\mathrm{H_2S}$）", "en": "a and d ($\\mathrm{H_2}$ and $\\mathrm{H_2S}$)" },
+      "explanation": { "en": "(a) Al + NaOH → $\\mathrm{H_2}$ (reducing). (d) FeS + dilute $\\mathrm{H_2SO_4}$ → $\\mathrm{H_2S}$ (reducing). (b) gives HCl gas and (c) gives $\\mathrm{Cl_2}$, which is an oxidising gas, not reducing.", "ja": "(a) Al＋NaOH → $\\mathrm{H_2}$（還元作用）。(d) FeS＋希硫酸 → $\\mathrm{H_2S}$（還元作用）。(b) は HCl，(c) は $\\mathrm{Cl_2}$（酸化作用の気体）で還元性ではない。" }
+    },
+    {
+      "id": "2020-2-chem-14", "answerRow": 14, "topicId": "inorganic",
+      "subtopic": "Correct statement about copper compounds",
+      "patternTags": ["inorganic", "copper", "precipitates", "pick-statement"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "銅 Cu の化合物に関する記述①〜⑤のうち，正しいものを選びなさい。 ① 銅を空気中で加熱すると黒色の酸化銅(II) CuO が生じる。 ② $\\mathrm{CuSO_4}$ を熱水から再結晶すると無色の結晶が得られ，これを加熱すると青色に変化する。 ③ 青色の $\\mathrm{CuSO_4}$ 水溶液に少量の $\\mathrm{H_2SO_4}$ aq を加えると青白色の沈殿が生じる。 ④ $\\mathrm{CuCl_2}$ aq に NaOH aq を室温で加えると赤褐色の $\\mathrm{Cu_2O}$ の沈殿が生じる。 ⑤ $\\mathrm{Cu^{2+}}$ を含む水溶液に $\\mathrm{H_2S}$ を通じると黄色の CuS の沈殿が生じる。", "choices": ["①", "②", "③", "④", "⑤"] },
+      "en": { "prompt": "Which statement about copper compounds is correct? ① Heating copper in air gives black copper(II) oxide CuO. ② Recrystallizing $\\mathrm{CuSO_4}$ from hot water gives colourless crystals that turn blue on heating. ③ Adding a little $\\mathrm{H_2SO_4}$ to blue $\\mathrm{CuSO_4}$ solution gives a blue-white precipitate. ④ Adding NaOH to $\\mathrm{CuCl_2}$ at room temperature gives a red-brown $\\mathrm{Cu_2O}$ precipitate. ⑤ Passing $\\mathrm{H_2S}$ into a $\\mathrm{Cu^{2+}}$ solution gives a yellow CuS precipitate.", "choices": ["①", "②", "③", "④", "⑤"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "①（空気中で加熱すると黒色 CuO）", "en": "① (heating in air gives black CuO)" },
+      "explanation": { "en": "Heating copper in air gives black CuO — ① correct. ② is reversed (hydrated $\\mathrm{CuSO_4\\cdot5H_2O}$ is blue; heating gives white anhydrous); ③ adding acid gives no precipitate; ④ NaOH gives blue $\\mathrm{Cu(OH)_2}$, not $\\mathrm{Cu_2O}$; ⑤ CuS is black, not yellow.", "ja": "銅を空気中で加熱すると黒色 CuO — ①が正。② は逆（水和 $\\mathrm{CuSO_4\\cdot5H_2O}$ は青色，加熱で白色無水物）；③ 酸を加えても沈殿しない；④ NaOH では青色 $\\mathrm{Cu(OH)_2}$ で $\\mathrm{Cu_2O}$ ではない；⑤ CuS は黒色で黄色ではない。" }
+    },
+    {
+      "id": "2020-2-chem-15", "answerRow": 15, "topicId": "inorganic",
+      "subtopic": "Change for Ag+ but not Pb2+",
+      "patternTags": ["inorganic", "qualitative-analysis", "ammine-complex", "compare-cases"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の記述①〜⑤のうち，$\\mathrm{Ag^+}$ を含む水溶液では起こるが $\\mathrm{Pb^{2+}}$ を含む水溶液では起こらない変化を選びなさい。 ① 亜鉛 Zn を加えると金属が析出する。 ② 塩酸を加えると沈殿を生じる。 ③ $\\mathrm{K_2CrO_4}$ aq を加えると沈殿を生じる。 ④ アンモニア水を加えると沈殿を生じるが，過剰に加えるとその沈殿が溶ける。 ⑤ NaOH aq を加えると沈殿を生じるが，過剰に加えるとその沈殿が溶ける。", "choices": ["①", "②", "③", "④", "⑤"] },
+      "en": { "prompt": "Which change occurs with $\\mathrm{Ag^+}$ but NOT with $\\mathrm{Pb^{2+}}$? ① Adding Zn deposits the metal. ② Adding HCl gives a precipitate. ③ Adding $\\mathrm{K_2CrO_4}$ gives a precipitate. ④ Adding ammonia gives a precipitate that dissolves in excess. ⑤ Adding NaOH gives a precipitate that dissolves in excess.", "choices": ["①", "②", "③", "④", "⑤"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "④（過剰の $\\mathrm{NH_3}$ で Ag の沈殿は溶けるが Pb は溶けない）", "en": "④ (excess $\\mathrm{NH_3}$ dissolves the Ag precipitate, not the Pb one)" },
+      "explanation": { "en": "With excess ammonia, $\\mathrm{Ag_2O}$ dissolves as $\\mathrm{[Ag(NH_3)_2]^+}$, but $\\mathrm{Pb(OH)_2}$ does not form an ammine complex (stays as precipitate). ①②③ happen with both; ⑤ is the opposite — $\\mathrm{Pb(OH)_2}$ (amphoteric) dissolves in excess NaOH while $\\mathrm{Ag_2O}$ does not.", "ja": "過剰のアンモニアで $\\mathrm{Ag_2O}$ は $\\mathrm{[Ag(NH_3)_2]^+}$ として溶けるが，$\\mathrm{Pb(OH)_2}$ はアンミン錯体を作らず溶けない。①②③ は両方で起こる；⑤ は逆で，両性の $\\mathrm{Pb(OH)_2}$ が過剰 NaOH に溶け $\\mathrm{Ag_2O}$ は溶けない。" }
+    },
+    {
+      "id": "2020-2-chem-16", "answerRow": 16, "topicId": "organic",
+      "subtopic": "Identify the alcohol from ester hydrolysis",
+      "patternTags": ["organic", "ester-hydrolysis", "silver-mirror", "iodoform", "structure-selection"], "hasFigure": true,
+      "figure": { "ja": "分子式 $\\mathrm{C_5H_{10}O_2}$ のエステルを加水分解 → カルボン酸（銀鏡反応陽性＝ギ酸 HCOOH）＋アルコール（ヨードホルム反応陽性）。アルコールは $\\mathrm{C_4H_9OH}$。選択肢：① 1-ブタノール，② 2-ブタノール（$\\mathrm{CH_3CH_2CH(OH)CH_3}$），③ 2-メチル-1-プロパノール，④ 1-プロパノール，⑤ 2-プロパノール。", "en": "An ester $\\mathrm{C_5H_{10}O_2}$ hydrolyses to a carboxylic acid (silver-mirror positive = formic acid HCOOH) + an alcohol (iodoform positive). The alcohol is $\\mathrm{C_4H_9OH}$. Options: ① 1-butanol, ② 2-butanol ($\\mathrm{CH_3CH_2CH(OH)CH_3}$), ③ 2-methyl-1-propanol, ④ 1-propanol, ⑤ 2-propanol." },
+      "ja": { "prompt": "分子式 $\\mathrm{C_5H_{10}O_2}$ のエステルを加水分解したところ，カルボン酸とアルコールが得られた。カルボン酸は銀鏡反応を示し，アルコールはヨードホルム反応を示した。このアルコールの構造式として正しいものを選びなさい。", "choices": ["$\\mathrm{CH_3CH_2CH_2CH_2OH}$", "$\\mathrm{CH_3CH_2CH(OH)CH_3}$", "$\\mathrm{(CH_3)_2CHCH_2OH}$", "$\\mathrm{CH_3CH_2CH_2OH}$", "$\\mathrm{(CH_3)_2CHOH}$"] },
+      "en": { "prompt": "An ester of formula $\\mathrm{C_5H_{10}O_2}$ is hydrolysed to a carboxylic acid and an alcohol. The acid gives a silver-mirror reaction and the alcohol gives an iodoform reaction. Which is the alcohol?", "choices": ["$\\mathrm{CH_3CH_2CH_2CH_2OH}$", "$\\mathrm{CH_3CH_2CH(OH)CH_3}$", "$\\mathrm{(CH_3)_2CHCH_2OH}$", "$\\mathrm{CH_3CH_2CH_2OH}$", "$\\mathrm{(CH_3)_2CHOH}$"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "② 2-ブタノール $\\mathrm{CH_3CH_2CH(OH)CH_3}$", "en": "② 2-butanol $\\mathrm{CH_3CH_2CH(OH)CH_3}$" },
+      "explanation": { "en": "Silver-mirror acid = formic acid (HCOOH), so the ester is $\\mathrm{HCOOC_4H_9}$ and the alcohol is a butanol ($\\mathrm{C_4H_9OH}$). For a positive iodoform reaction the alcohol needs a $\\mathrm{CH_3CH(OH)-}$ group → 2-butanol. (1-butanol and 2-methyl-1-propanol are C4 but iodoform-negative; the C3 alcohols don't fit $\\mathrm{C_5H_{10}O_2}$.)", "ja": "銀鏡反応の酸はギ酸（HCOOH）なのでエステルは $\\mathrm{HCOOC_4H_9}$ でアルコールはブタノール（$\\mathrm{C_4H_9OH}$）。ヨードホルム陽性には $\\mathrm{CH_3CH(OH)-}$ が必要 → 2-ブタノール。（1-ブタノールや 2-メチル-1-プロパノールは C4 だがヨードホルム陰性，C3 のアルコールは $\\mathrm{C_5H_{10}O_2}$ に合わない。）" }
+    },
+    {
+      "id": "2020-2-chem-17", "answerRow": 17, "topicId": "organic",
+      "subtopic": "Organic products of three preparations",
+      "patternTags": ["organic", "synthesis", "decarboxylation", "dry-distillation", "carbide", "compare-cases"], "hasFigure": true,
+      "figure": { "ja": "表は a/b/c の生成物の組み合わせ①〜⑥（メタン・アセトン・アセチレン）。(a) $\\mathrm{CH_3COONa}$ を NaOH とともに加熱；(b) $\\mathrm{(CH_3COO)_2Ca}$ を乾留；(c) $\\mathrm{CaC_2}$ に水を加える。", "en": "Table of product combinations ①–⑥ for a/b/c (methane, acetone, acetylene). (a) heat $\\mathrm{CH_3COONa}$ with NaOH; (b) dry-distil $\\mathrm{(CH_3COO)_2Ca}$; (c) add water to $\\mathrm{CaC_2}$." },
+      "ja": { "prompt": "次の操作で生成する有機化合物の組み合わせを選びなさい。 (a) 酢酸ナトリウム $\\mathrm{CH_3COONa}$ を NaOH とともに加熱する。 (b) 酢酸カルシウム $\\mathrm{(CH_3COO)_2Ca}$ を乾留する。 (c) 炭化カルシウム $\\mathrm{CaC_2}$ に水を加える。", "choices": ["a:メタン b:アセチレン c:アセトン", "a:メタン b:アセトン c:アセチレン", "a:アセチレン b:メタン c:アセトン", "a:アセチレン b:アセトン c:メタン", "a:アセトン b:メタン c:アセチレン", "a:アセトン b:アセチレン c:メタン"] },
+      "en": { "prompt": "Choose the organic products of these operations. (a) Heat sodium acetate $\\mathrm{CH_3COONa}$ with NaOH. (b) Dry-distil calcium acetate $\\mathrm{(CH_3COO)_2Ca}$. (c) Add water to calcium carbide $\\mathrm{CaC_2}$.", "choices": ["a:methane b:acetylene c:acetone", "a:methane b:acetone c:acetylene", "a:acetylene b:methane c:acetone", "a:acetylene b:acetone c:methane", "a:acetone b:methane c:acetylene", "a:acetone b:acetylene c:methane"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "② a:メタン b:アセトン c:アセチレン", "en": "② a:methane b:acetone c:acetylene" },
+      "explanation": { "en": "(a) $\\mathrm{CH_3COONa+NaOH\\to CH_4+Na_2CO_3}$ → methane. (b) Dry distillation of calcium acetate → acetone (+ $\\mathrm{CaCO_3}$). (c) $\\mathrm{CaC_2+2H_2O\\to Ca(OH)_2+C_2H_2}$ → acetylene.", "ja": "(a) $\\mathrm{CH_3COONa+NaOH\\to CH_4+Na_2CO_3}$ → メタン。(b) 酢酸カルシウムの乾留 → アセトン（＋$\\mathrm{CaCO_3}$）。(c) $\\mathrm{CaC_2+2H_2O\\to Ca(OH)_2+C_2H_2}$ → アセチレン。" }
+    },
+    {
+      "id": "2020-2-chem-18", "answerRow": 18, "topicId": "organic",
+      "subtopic": "Separating nitrobenzene, benzoic acid, aniline",
+      "patternTags": ["organic", "separation", "extraction", "acid-base", "compare-cases"], "hasFigure": true,
+      "figure": { "ja": "ニトロベンゼン・安息香酸・アニリンのジエチルエーテル溶液を分液。希塩酸を加える → アニリンが塩酸塩となり水層(a)へ。残ったエーテル層に NaOH aq → 安息香酸がナトリウム塩となり水層(b)へ，ニトロベンゼンはエーテル層(c)に残る。表は a/b/c の物質の組み合わせ①〜⑥。", "en": "A diethyl-ether solution of nitrobenzene, benzoic acid, and aniline is separated. Add dilute HCl → aniline becomes its hydrochloride in the aqueous layer (a). To the remaining ether, add NaOH aq → benzoic acid becomes its sodium salt in the aqueous layer (b); nitrobenzene stays in the ether (c). Table gives a/b/c combinations ①–⑥." },
+      "ja": { "prompt": "ニトロベンゼン・安息香酸・アニリンを含むジエチルエーテル溶液を，希塩酸(a)・水酸化ナトリウム水溶液(b)・ジエチルエーテル溶液(c) に分離した。a/b/c に含まれる物質の組み合わせを選びなさい。", "choices": ["a:ニトロベンゼン b:安息香酸ナトリウム c:アニリン", "a:ニトロベンゼン b:アニリン c:安息香酸", "a:安息香酸 b:ニトロベンゼン c:アニリン", "a:安息香酸 b:アニリン c:ニトロベンゼン", "a:アニリン塩酸塩 b:ニトロベンゼン c:安息香酸", "a:アニリン塩酸塩 b:安息香酸ナトリウム c:ニトロベンゼン"] },
+      "en": { "prompt": "A diethyl-ether solution of nitrobenzene, benzoic acid, and aniline is separated into the dilute-HCl layer (a), the NaOH layer (b), and the ether layer (c). Choose the substances in a/b/c.", "choices": ["a:nitrobenzene b:sodium benzoate c:aniline", "a:nitrobenzene b:aniline c:benzoic acid", "a:benzoic acid b:nitrobenzene c:aniline", "a:benzoic acid b:aniline c:nitrobenzene", "a:aniline hydrochloride b:nitrobenzene c:benzoic acid", "a:aniline hydrochloride b:sodium benzoate c:nitrobenzene"] },
+      "answerIndex": 5, "answerOption": 6, "answer": { "ja": "⑥ a:アニリン塩酸塩 b:安息香酸ナトリウム c:ニトロベンゼン", "en": "⑥ a:aniline hydrochloride b:sodium benzoate c:nitrobenzene" },
+      "explanation": { "en": "Dilute HCl extracts the base aniline as aniline hydrochloride (a). Then NaOH extracts the acid benzoic acid as sodium benzoate (b). Neutral nitrobenzene remains in the ether layer (c).", "ja": "希塩酸は塩基のアニリンをアニリン塩酸塩として抽出（a）。次に NaOH が酸の安息香酸を安息香酸ナトリウムとして抽出（b）。中性のニトロベンゼンはエーテル層に残る（c）。" }
+    },
+    {
+      "id": "2020-2-chem-19", "answerRow": 19, "topicId": "organic",
+      "subtopic": "Correct polymer / polymerization / elements row",
+      "patternTags": ["organic", "polymers", "polymerization-type", "elements", "pick-statement"], "hasFigure": true,
+      "figure": { "ja": "表（高分子 / 重合反応の種類 / 構成元素）：① ナイロン 66 / 縮合重合 / C,H,O ② PET / 付加重合 / C,H,O ③ ブタジエンゴム / 付加縮合 / C,H ④ ポリアクリロニトリル / 付加重合 / C,H,N ⑤ フェノール樹脂 / 付加縮合 / C,H,N。", "en": "Table (polymer / polymerization type / constituent elements): ① nylon 6,6 / condensation / C,H,O ② PET / addition / C,H,O ③ butadiene rubber / addition condensation / C,H ④ polyacrylonitrile / addition / C,H,N ⑤ phenol resin / addition condensation / C,H,N." },
+      "ja": { "prompt": "高分子化合物について，重合反応の種類と構成元素の組み合わせが正しいものを選びなさい。 ① ナイロン 66 / 縮合重合 / C,H,O ② PET / 付加重合 / C,H,O ③ ブタジエンゴム / 付加縮合 / C,H ④ ポリアクリロニトリル / 付加重合 / C,H,N ⑤ フェノール樹脂 / 付加縮合 / C,H,N", "choices": ["ナイロン66 / 縮合重合 / C,H,O", "PET / 付加重合 / C,H,O", "ブタジエンゴム / 付加縮合 / C,H", "ポリアクリロニトリル / 付加重合 / C,H,N", "フェノール樹脂 / 付加縮合 / C,H,N"] },
+      "en": { "prompt": "Which polymer / polymerization-type / constituent-elements row is correct? ① nylon 6,6 / condensation / C,H,O ② PET / addition / C,H,O ③ butadiene rubber / addition condensation / C,H ④ polyacrylonitrile / addition / C,H,N ⑤ phenol resin / addition condensation / C,H,N", "choices": ["nylon 6,6 / condensation / C,H,O", "PET / addition / C,H,O", "butadiene rubber / addition condensation / C,H", "polyacrylonitrile / addition / C,H,N", "phenol resin / addition condensation / C,H,N"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "④ ポリアクリロニトリル / 付加重合 / C,H,N", "en": "④ polyacrylonitrile / addition / C,H,N" },
+      "explanation": { "en": "Polyacrylonitrile forms by addition polymerization of acrylonitrile and contains C, H, N (the nitrile group) — ④ correct. ① nylon also contains N (so not just C,H,O); ② PET is condensation, not addition; ③ butadiene rubber is addition polymerization, not addition condensation; ⑤ phenol resin contains C, H, O, not N.", "ja": "ポリアクリロニトリルはアクリロニトリルの付加重合で C,H,N（ニトリル基）を含む — ④が正。① ナイロンは N も含む（C,H,O だけではない）；② PET は縮合重合で付加重合でない；③ ブタジエンゴムは付加重合で付加縮合でない；⑤ フェノール樹脂は C,H,O で N を含まない。" }
+    },
+    {
+      "id": "2020-2-chem-20", "answerRow": 20, "topicId": "organic",
+      "subtopic": "Incorrect statement about proteins",
+      "patternTags": ["organic", "protein", "color-reactions", "pick-false-statement"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "タンパク質に関する記述①〜⑤のうち，下線部が誤っているものを選びなさい。 ① タンパク質は α-アミノ酸が縮合してできており，ポリペプチドともよばれる。 ② タンパク質は分子内の C=O 基と N–H 基の間の水素結合により，α ヘリックスや β シートなどの二次構造をもつ。 ③ タンパク質を加熱すると変性する。 ④ タンパク質の水溶液に濃硫酸を加えて加熱すると，溶液は黄色に変化する。 ⑤ 毛髪をつくるタンパク質はシステインを含み，ジスルフィド結合（-S-S-）を形成することで構造が安定する。", "choices": ["①", "②", "③", "④", "⑤"] },
+      "en": { "prompt": "Which underlined part about proteins is INCORRECT? ① Proteins form by condensation of α-amino acids and are also called polypeptides. ② Proteins have secondary structures (α-helix, β-sheet) from hydrogen bonds between C=O and N–H groups. ③ Heating a protein denatures it. ④ Adding concentrated sulfuric acid to a protein solution and heating turns it yellow. ⑤ Hair protein contains cysteine and is stabilised by disulfide bonds (-S-S-).", "choices": ["①", "②", "③", "④", "⑤"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "④（黄色になるのは濃硝酸＝キサントプロテイン反応）", "en": "④ (the yellow xanthoprotein reaction uses conc. NITRIC acid)" },
+      "explanation": { "en": "The yellow colour (xanthoprotein reaction) is given by concentrated NITRIC acid ($\\mathrm{HNO_3}$), not sulfuric acid, so ④ is wrong. The other statements are correct.", "ja": "黄色になるのは濃硝酸（$\\mathrm{HNO_3}$）によるキサントプロテイン反応で濃硫酸ではないので④が誤り。他の記述は正しい。" }
+    }
+  ],
+  "patterns": {
+    "archetypes": [
+      "Two correct atomic-structure statements (protons, neutrons, electrons, valence).",
+      "Compound with the most lone pairs (CO₂).",
+      "Atomic weight from carbonate decomposition (CO₂ mass).",
+      "Aluminium mass to make a target mass of alumina.",
+      "Density of a BCC crystal (2 atoms per cell).",
+      "Heat of formation of water by calorimetry (300 kJ/mol, positive convention).",
+      "Two correct equilibrium/rate statements (exothermic K↓ with heat; rate law not from stoichiometry).",
+      "Strong vs weak acid at equal pH (same anion conc., weak acid needs more base).",
+      "Reaction where the species is an oxidizing agent (H₂O₂).",
+      "Cathode product in MOLTEN NaCl electrolysis (sodium metal).",
+      "Correct group-2 statement (chlorides all soluble).",
+      "Two incorrect halogen statements (HF weak acid; HF bp higher than HCl).",
+      "Operations producing a reducing gas (H₂, H₂S).",
+      "Correct copper-compound statement (black CuO on heating).",
+      "Change for Ag⁺ but not Pb²⁺ (ammine redissolution).",
+      "Identify the alcohol from ester hydrolysis (silver mirror + iodoform).",
+      "Organic products of decarboxylation / dry distillation / carbide hydrolysis.",
+      "Solvent-extraction separation of nitrobenzene/benzoic acid/aniline.",
+      "Correct polymer / polymerization-type / elements row.",
+      "Incorrect protein statement (xanthoprotein needs nitric acid)."
+    ],
+    "recurring": [
+      "Atomic-structure / bonding screens open the paper.",
+      "Quantitative core: carbonate/oxide stoichiometry, BCC density, calorimetry, equilibrium, electrolysis.",
+      "A strong-vs-weak-acid comparison and a redox-agent identification sit mid-paper.",
+      "Qualitative inorganic: group-2 trends, halogens, gas reducing/oxidizing properties, copper, Ag⁺/Pb²⁺ tests.",
+      "Organic: ester hydrolysis with qualitative tests, classic preparations, solvent extraction, polymers, proteins."
+    ],
+    "examTacticNotes": [
+      "Ne and Mg²⁺ are isoelectronic; O and S share 6 valence electrons.",
+      "Lone-pair count: CO₂ has 4 (two per O), the most among the options.",
+      "Carbonate: mol CO₂ = 11/44 = 0.25; M(MCO₃)=148 ⇒ M=88.",
+      "4Al+3O₂→2Al₂O₃: 0.050 mol Al₂O₃ needs 0.10 mol Al = 2.7 g.",
+      "BCC density = 2M/(a³·Nₐ).",
+      "Calorimetry: Q=mcΔT=630 kJ for 2.1 mol water → 300 kJ/mol; heat of formation reported as +300 kJ/mol (生成熱 positive convention).",
+      "Exothermic forward: heating lowers K; rate laws are experimental, not from the equation.",
+      "Equal pH: strong and weak acid give the same anion conc., but the weak acid (more total acid) needs more base.",
+      "Oxidizing agent is reduced: H₂O₂ (O −1→−2) oxidises SO₂.",
+      "Molten NaCl cathode → Na metal: mol e⁻ = It/F = 0.20 → 4.6 g Na.",
+      "Group-2 chlorides are all soluble; MgSO₄ is soluble but CaSO₄/BaSO₄ are not; Mg gives no flame colour.",
+      "HF is a weak acid and has a higher boiling point than HCl (hydrogen bonding).",
+      "Reducing gases: H₂ (Al+NaOH) and H₂S (FeS+acid); Cl₂ is oxidising.",
+      "Heating Cu in air gives black CuO; CuS is black; Cu(OH)₂ is blue.",
+      "Excess NH₃ dissolves Ag₂O as [Ag(NH₃)₂]⁺ but not Pb(OH)₂; excess NaOH does the reverse.",
+      "Formic-acid ester + iodoform-positive alcohol ⇒ 2-butanol (HCOOC₄H₉).",
+      "CH₃COONa+NaOH→CH₄; calcium acetate dry distillation→acetone; CaC₂+H₂O→acetylene.",
+      "Extraction: dilute HCl removes aniline (as salt), then NaOH removes benzoic acid (as salt), leaving nitrobenzene.",
+      "Polyacrylonitrile: addition polymer, C/H/N; nylon has N; PET is condensation; phenol resin has O not N.",
+      "Xanthoprotein (yellow) reaction uses concentrated nitric acid, not sulfuric."
+    ],
+    "difficulty": "Standard EJU chemistry — a full-syllabus sweep with a strong quantitative core. The more discriminating items are the calorimetry heat-of-formation (Q6), the equal-pH strong/weak-acid comparison (Q8), the molten-salt electrolysis product (Q10), and the ester-hydrolysis alcohol identification (Q16)."
+  }
+}

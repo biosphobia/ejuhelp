@@ -1,0 +1,275 @@
+{
+  "id": "2015-2-chemistry",
+  "year": 2015,
+  "session": 2,
+  "subject": "chemistry",
+  "title": "EJU 2015 · Session 2 · Chemistry",
+  "source": "平成27年度（2015年度）日本留学試験（第2回）理科〈化学〉 © Japan Student Services Organization (JASSO)",
+  "attribution": "EJU past questions © JASSO. Question text paraphrased from the official past paper; figures described in text; correct answers taken from the official JASSO answer key and independently re-solved for verification.",
+  "languages": ["ja", "en"],
+  "answerKeyVerified": true,
+  "structure": {
+    "format": "flat",
+    "totalQuestions": 20,
+    "note": "Chemistry is a flat list of 20 single-best-answer items (問1–問20, answer rows 1–20) — no Roman-numeral blocks. Order ≈ structure & bonding → states/energetics/electrochemistry/equilibria → inorganic → organic.",
+    "givens": {
+      "ja": "標準状態 $0\\,$°C・$1.0\\times10^5\\,$Pa，気体 $1\\,$mol の体積 $22.4\\,$L，アボガドロ定数 $N_A=6.02\\times10^{23}\\,$/mol，ファラデー定数 $F=9.65\\times10^4\\,$C/mol。原子量：H 1.0, C 12, N 14, O 16, Na 23, Al 27, S 32, Fe 56。族・周期は周期表の通り。",
+      "en": "STP $0\\,$°C, $1.0\\times10^5\\,$Pa; molar volume $22.4\\,$L; $N_A=6.02\\times10^{23}\\,$/mol; $F=9.65\\times10^4\\,$C/mol. Atomic weights: H 1.0, C 12, N 14, O 16, Na 23, Al 27, S 32, Fe 56. Groups/periods per the periodic table."
+    }
+  },
+  "questions": [
+    {
+      "id": "2015-2-chem-1", "answerRow": 1, "topicId": "matter-structure",
+      "subtopic": "Two molecules with the same total electron count",
+      "patternTags": ["atomic-structure", "electron-count", "compare-cases"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の分子(a)〜(e)のうち，含まれる電子の総数が互いに等しいものの組み合わせを選びなさい。 (a) $\\mathrm{CO_2}$ (b) $\\mathrm{HF}$ (c) $\\mathrm{N_2}$ (d) $\\mathrm{NH_3}$ (e) $\\mathrm{O_2}$", "choices": ["a, b", "a, c", "b, d", "b, e", "c, d", "d, e"] },
+      "en": { "prompt": "Among these molecules, which pair has the same total number of electrons? (a) $\\mathrm{CO_2}$ (b) $\\mathrm{HF}$ (c) $\\mathrm{N_2}$ (d) $\\mathrm{NH_3}$ (e) $\\mathrm{O_2}$", "choices": ["a, b", "a, c", "b, d", "b, e", "c, d", "d, e"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "b と d（ともに 10 個）", "en": "b and d (both 10)" },
+      "explanation": { "en": "Electron totals: CO₂ $=6+8\\times2=22$; HF $=1+9=10$; N₂ $=14$; NH₃ $=7+3=10$; O₂ $=16$. HF and NH₃ both have 10 electrons.", "ja": "電子の総数：CO₂ $=6+8\\times2=22$，HF $=1+9=10$，N₂ $=14$，NH₃ $=7+3=10$，O₂ $=16$。HF と NH₃ がともに 10 個。" }
+    },
+    {
+      "id": "2015-2-chem-2", "answerRow": 2, "topicId": "matter-structure",
+      "subtopic": "Two incorrect statements about atomic structure",
+      "patternTags": ["atomic-structure", "ionization-energy", "electronegativity", "valence-electrons", "true-false-combo"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "原子の構造・性質に関する記述(a)〜(f)のうち，誤っているものが二つある。その組み合わせを選びなさい。 (a) ハロゲンでは原子番号が大きくなると電気陰性度が小さくなる。 (b) イオン化エネルギーの小さい原子ほど陽イオンになりやすい。 (c) 貴ガス原子は 2 個または 8 個の価電子をもつ。 (d) 陽子の数が同じで中性子の数が異なる原子どうしを同位体という。 (e) 周期表の第 2 周期の元素では，原子番号が大きいほどイオン化エネルギーが大きい。 (f) K 殻と L 殻に収容できる電子の数の合計は 10 である。", "choices": ["a, b", "a, c", "b, d", "b, e", "c, d", "c, e", "d, f", "e, f"] },
+      "en": { "prompt": "Two of these statements about atomic structure/properties are INCORRECT. Which pair? (a) For halogens, electronegativity decreases as atomic number increases. (b) Atoms with smaller ionization energy more easily become cations. (c) Noble-gas atoms have 2 or 8 valence electrons. (d) Atoms with the same proton number but different neutron number are isotopes. (e) Among period-2 elements, ionization energy increases with atomic number. (f) The K and L shells together hold a total of 10 electrons.", "choices": ["a, b", "a, c", "b, d", "b, e", "c, d", "c, e", "d, f", "e, f"] },
+      "answerIndex": 5, "answerOption": 6, "answer": { "ja": "c と e", "en": "c and e" },
+      "explanation": { "en": "(c) False — by the convention used in this curriculum, noble gases are assigned 0 valence electrons (they are inert), not 2 or 8. (e) False — across period 2 ionization energy does not rise monotonically (Be > B and N > O are dips). The others are true: (a) electronegativity falls down a group; (b) low IE → easily oxidised; (d) definition of isotopes; (f) K(2)+L(8)=10.", "ja": "(c) 誤 — この課程の約束では貴ガスの価電子は 0 個（不活性）とし，2 や 8 ではない。(e) 誤 — 第 2 周期では Be>B，N>O のくぼみがあり単調増加しない。他は正：(a) 同族で下に行くほど電気陰性度は小，(b) イオン化エネルギー小→陽イオンになりやすい，(d) 同位体の定義，(f) K(2)+L(8)=10。" }
+    },
+    {
+      "id": "2015-2-chem-3", "answerRow": 3, "topicId": "matter-structure",
+      "subtopic": "Isotopic abundance from atomic weight",
+      "patternTags": ["atomic-structure", "isotopes", "weighted-average", "plug-in-numbers"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "天然のホウ素は $^{10}\\mathrm{B}$（相対原子質量 10.0）と $^{11}\\mathrm{B}$（相対原子質量 11.0）からなり，原子量は 10.8 である。$^{10}\\mathrm{B}$ の存在比 [%] に最も近い値を選びなさい。", "choices": ["10", "20", "30", "40", "80", "90"] },
+      "en": { "prompt": "Natural boron consists of $^{10}\\mathrm{B}$ (relative atomic mass 10.0) and $^{11}\\mathrm{B}$ (11.0), with atomic weight 10.8. What is the abundance of $^{10}\\mathrm{B}$ [%]?", "choices": ["10", "20", "30", "40", "80", "90"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "約 20%", "en": "≈ 20%" },
+      "explanation": { "en": "Let $x$ be the fraction of $^{10}\\mathrm{B}$: $10.0x+11.0(1-x)=10.8 \\Rightarrow 11.0-x=10.8 \\Rightarrow x=0.20$, i.e. 20%.", "ja": "$^{10}\\mathrm{B}$ の割合を $x$ とすると $10.0x+11.0(1-x)=10.8 \\Rightarrow 11.0-x=10.8 \\Rightarrow x=0.20$，すなわち 20%。" }
+    },
+    {
+      "id": "2015-2-chem-4", "answerRow": 4, "topicId": "matter-structure",
+      "subtopic": "Identify the two pure substances",
+      "patternTags": ["pure-substance-vs-mixture", "classification", "compare-cases"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の物質(a)〜(f)のうち，純物質が二つある。その組み合わせを選びなさい。 (a) 黄銅 (b) 塩酸 (c) ガソリン (d) 塩化ナトリウム (e) 液体空気 (f) 水", "choices": ["a, b", "a, c", "b, d", "b, e", "c, d", "c, e", "d, f", "e, f"] },
+      "en": { "prompt": "Among these, two are pure substances. Which pair? (a) brass (b) hydrochloric acid (c) gasoline (d) sodium chloride (e) liquid air (f) water", "choices": ["a, b", "a, c", "b, d", "b, e", "c, d", "c, e", "d, f", "e, f"] },
+      "answerIndex": 6, "answerOption": 7, "answer": { "ja": "d と f", "en": "d and f" },
+      "explanation": { "en": "Pure substances: sodium chloride (d) and water (f). The rest are mixtures — brass (Cu–Zn alloy), hydrochloric acid (HCl in water), gasoline (hydrocarbon mix), and liquid air (N₂/O₂/Ar mix).", "ja": "純物質は塩化ナトリウム(d)と水(f)。他は混合物 — 黄銅（Cu–Zn 合金），塩酸（HCl 水溶液），ガソリン（炭化水素の混合），液体空気（N₂/O₂/Ar の混合）。" }
+    },
+    {
+      "id": "2015-2-chem-5", "answerRow": 5, "topicId": "states-and-change",
+      "subtopic": "Mass of iron(III) oxide needed to make iron",
+      "patternTags": ["stoichiometry", "mole-mass", "plug-in-numbers"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "鉄の精錬では，$\\mathrm{Fe_2O_3+3CO\\to 2Fe+3CO_2}$ により酸化鉄(III)が還元される。$8.4\\,$t の鉄をつくるのに必要な $\\mathrm{Fe_2O_3}$ は何 t か，最も近い値を選びなさい。", "choices": ["10", "12", "14", "16", "18"] },
+      "en": { "prompt": "In iron smelting, $\\mathrm{Fe_2O_3+3CO\\to 2Fe+3CO_2}$ reduces iron(III) oxide. How many tonnes of $\\mathrm{Fe_2O_3}$ are needed to make $8.4\\,$t of iron?", "choices": ["10", "12", "14", "16", "18"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "約 $12\\,$t", "en": "≈ 12 t" },
+      "explanation": { "en": "$M(\\mathrm{Fe_2O_3})=160$, and 1 mol $\\mathrm{Fe_2O_3}$ gives 2 Fe ($=112$). So $\\mathrm{Fe_2O_3}=8.4\\times\\dfrac{160}{112}=12\\,$t.", "ja": "$M(\\mathrm{Fe_2O_3})=160$，$\\mathrm{Fe_2O_3}$ 1 mol から Fe 2 個（$=112$）。よって $\\mathrm{Fe_2O_3}=8.4\\times\\dfrac{160}{112}=12\\,$t。" }
+    },
+    {
+      "id": "2015-2-chem-6", "answerRow": 6, "topicId": "states-and-change",
+      "subtopic": "Reading the water phase diagram",
+      "patternTags": ["states-of-matter", "phase-diagram", "graph-reading"], "hasFigure": true,
+      "figure": { "ja": "水の状態図（縦軸 圧力 [Pa]，横軸 温度 [°C]）。三重点（$6.08\\times10^2\\,$Pa, $0.01\\,$°C）から 3 本の境界線が出る。状態 I は左上（低温・高圧），状態 II は右上（高温・高圧），状態 III は右下（高温・低圧）。", "en": "Water phase diagram (y-axis pressure [Pa], x-axis temperature [°C]). Three boundary lines meet at the triple point ($6.08\\times10^2\\,$Pa, $0.01\\,$°C). State I is upper-left (low T, high P); State II is upper-right (high T, high P); State III is lower-right (high T, low P)." },
+      "ja": { "prompt": "図は温度と圧力に応じて水がとる状態 I〜III（固体・液体・気体のいずれか）を示す。I・II・III の正しい組み合わせを選びなさい。", "choices": ["I=気体, II=液体, III=固体", "I=固体, II=液体, III=気体", "I=液体, II=固体, III=気体", "I=気体, II=固体, III=液体", "I=固体, II=気体, III=液体", "I=液体, II=気体, III=固体"] },
+      "en": { "prompt": "The figure shows the states I–III of water (solid, liquid, or gas) versus temperature and pressure. Which assignment is correct?", "choices": ["I=gas, II=liquid, III=solid", "I=solid, II=liquid, III=gas", "I=liquid, II=solid, III=gas", "I=gas, II=solid, III=liquid", "I=solid, II=gas, III=liquid", "I=liquid, II=gas, III=solid"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "I=固体, II=液体, III=気体", "en": "I=solid, II=liquid, III=gas" },
+      "explanation": { "en": "Low temperature → solid (upper-left, I). High pressure with higher temperature → liquid (upper-right, II). Low pressure, high temperature → gas (lower-right, III).", "ja": "低温は固体（左上 I）。高圧で温度が上がると液体（右上 II）。低圧・高温は気体（右下 III）。" }
+    },
+    {
+      "id": "2015-2-chem-7", "answerRow": 7, "topicId": "states-and-change",
+      "subtopic": "Two correct statements about colloids",
+      "patternTags": ["colloids", "coagulation", "gel-sol", "true-false-combo"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "コロイドに関する記述(a)〜(d)のうち，正しいものが二つある。その組み合わせを選びなさい。 (a) コロイド粒子は半透膜を通過する。 (b) 疎水コロイドに少量の電解質を加えると凝析する。 (c) コロイド溶液が流動性を失い固化した状態をゲルという。 (d) 水酸化鉄(III)のコロイドを凝析させやすいのは $\\mathrm{Na_2SO_4}$ より KCl である。", "choices": ["a, b", "a, c", "a, d", "b, c", "b, d", "c, d"] },
+      "en": { "prompt": "Two of these statements about colloids are correct. Which pair? (a) Colloidal particles pass through a semipermeable membrane. (b) Adding a little electrolyte to a hydrophobic colloid causes coagulation. (c) A colloidal solution that loses fluidity and solidifies is called a gel. (d) For an iron(III) hydroxide colloid, KCl coagulates it more easily than $\\mathrm{Na_2SO_4}$.", "choices": ["a, b", "a, c", "a, d", "b, c", "b, d", "c, d"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "b と c", "en": "b and c" },
+      "explanation": { "en": "(b) True — a small amount of electrolyte coagulates a hydrophobic colloid. (c) True — the solidified, non-fluid state is a gel. (a) False — colloidal particles are too large to pass a semipermeable membrane. (d) False — Fe(OH)₃ is a positive colloid, so the more highly charged anion coagulates it best; $\\mathrm{SO_4^{2-}}$ (Na₂SO₄) beats Cl⁻ (KCl).", "ja": "(b) 正 — 疎水コロイドは少量の電解質で凝析。(c) 正 — 固化して流動性を失った状態がゲル。(a) 誤 — コロイド粒子は大きく半透膜を通れない。(d) 誤 — 水酸化鉄(III)は正コロイドで，価数の大きい陰イオンほど凝析しやすく，$\\mathrm{SO_4^{2-}}$（Na₂SO₄）が Cl⁻（KCl）より有効。" }
+    },
+    {
+      "id": "2015-2-chem-8", "answerRow": 8, "topicId": "states-and-change",
+      "subtopic": "Heat of dissolution of NaOH by calorimetry",
+      "patternTags": ["thermochemistry", "calorimetry", "plug-in-numbers"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "断熱容器に入った水 $980\\,$g に水酸化ナトリウム $20\\,$g を加えて完全に溶かすと，水溶液の温度が $5.2\\,$°C 上昇した。NaOH の溶解熱は何 kJ/mol か，最も近い値を選びなさい。ただし水溶液の比熱を $4.2\\,\\mathrm{J/(g\\cdot K)}$ とする。", "choices": ["11", "22", "44", "66", "88"] },
+      "en": { "prompt": "In an insulated container, $20\\,$g of NaOH is fully dissolved in $980\\,$g of water, raising the solution temperature by $5.2\\,$°C. What is the heat of dissolution of NaOH (kJ/mol)? Take the solution's specific heat as $4.2\\,\\mathrm{J/(g\\cdot K)}$.", "choices": ["11", "22", "44", "66", "88"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "約 $44\\,$kJ/mol", "en": "≈ 44 kJ/mol" },
+      "explanation": { "en": "Heat released $Q=mc\\Delta T=(980+20)\\times4.2\\times5.2=2.18\\times10^4\\,$J $=21.8\\,$kJ. Moles NaOH $=20/40=0.50$. Per mole: $21.8/0.50\\approx44\\,$kJ/mol.", "ja": "発熱 $Q=mc\\Delta T=(980+20)\\times4.2\\times5.2=2.18\\times10^4\\,$J$=21.8\\,$kJ。NaOH は $20/40=0.50\\,$mol。1 mol あたり $21.8/0.50\\approx44\\,$kJ/mol。" }
+    },
+    {
+      "id": "2015-2-chem-9", "answerRow": 9, "topicId": "states-and-change",
+      "subtopic": "Largest and smallest pH among 0.01 mol/L solutions",
+      "patternTags": ["acids-bases", "ph", "strong-weak", "compare-cases"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の(a)〜(f)の $0.01\\,$mol/L 水溶液のうち，pH が最も大きいものと最も小さいものの組み合わせを選びなさい。 (a) $\\mathrm{Ca(OH)_2}$ (b) $\\mathrm{(COOH)_2}$（シュウ酸） (c) KOH (d) HCl (e) $\\mathrm{H_2SO_4}$ (f) $\\mathrm{NH_3}$", "choices": ["a, b", "a, e", "b, d", "c, e", "c, f", "d, f"] },
+      "en": { "prompt": "Among these $0.01\\,$mol/L solutions, which pair has the largest and the smallest pH? (a) $\\mathrm{Ca(OH)_2}$ (b) $\\mathrm{(COOH)_2}$ oxalic acid (c) KOH (d) HCl (e) $\\mathrm{H_2SO_4}$ (f) $\\mathrm{NH_3}$", "choices": ["a, b", "a, e", "b, d", "c, e", "c, f", "d, f"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "最大 a，最小 e", "en": "largest a, smallest e" },
+      "explanation": { "en": "Largest pH: $\\mathrm{Ca(OH)_2}$ — a strong base giving $[\\mathrm{OH^-}]\\approx0.02$ (pH ≈ 12.3), above KOH (pH 12). Smallest pH: $\\mathrm{H_2SO_4}$ — a strong diprotic acid giving $[\\mathrm{H^+}]\\approx0.02$ (pH ≈ 1.7), below HCl (pH 2) and weak oxalic acid. So the pair is a and e.", "ja": "最大 pH：$\\mathrm{Ca(OH)_2}$ — 強塩基で $[\\mathrm{OH^-}]\\approx0.02$（pH≈12.3），KOH（pH12）より上。最小 pH：$\\mathrm{H_2SO_4}$ — 2 価の強酸で $[\\mathrm{H^+}]\\approx0.02$（pH≈1.7），HCl（pH2）や弱酸のシュウ酸より下。よって a と e。" }
+    },
+    {
+      "id": "2015-2-chem-10", "answerRow": 10, "topicId": "states-and-change",
+      "subtopic": "Electrolysis gas volumes at the two electrodes",
+      "patternTags": ["electrochemistry", "electrolysis", "faraday", "gas-volume", "plug-in-numbers"], "hasFigure": true,
+      "figure": { "ja": "表：陰極で生じた気体の体積 [mL] と陽極で生じた気体の体積 [mL] の組み合わせ ①56.0/56.0 ②112/56.0 ③112/112 ④112/224 ⑤224/112 ⑥224/224。", "en": "Table of (cathode gas volume [mL], anode gas volume [mL]): ① 56.0/56.0 ② 112/56.0 ③ 112/112 ④ 112/224 ⑤ 224/112 ⑥ 224/224." },
+      "ja": { "prompt": "白金電極を用いて水酸化カリウム水溶液を $1.00\\,$A で $965\\,$秒間電気分解した。陰極と陽極で発生する気体は標準状態でそれぞれ何 mL か，最も適当な組み合わせを選びなさい。", "choices": ["陰 56.0 / 陽 56.0", "陰 112 / 陽 56.0", "陰 112 / 陽 112", "陰 112 / 陽 224", "陰 224 / 陽 112", "陰 224 / 陽 224"] },
+      "en": { "prompt": "Using platinum electrodes, a KOH solution is electrolysed at $1.00\\,$A for $965\\,$s. What are the gas volumes (at STP) at the cathode and anode?", "choices": ["cathode 56.0 / anode 56.0", "cathode 112 / anode 56.0", "cathode 112 / anode 112", "cathode 112 / anode 224", "cathode 224 / anode 112", "cathode 224 / anode 224"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "陰極 $112\\,$mL，陽極 $56.0\\,$mL", "en": "cathode 112 mL, anode 56.0 mL" },
+      "explanation": { "en": "Charge $=1.00\\times965=965\\,$C → $965/96500=0.0100\\,$mol e⁻. Cathode $\\mathrm{2H_2O+2e^-\\to H_2+2OH^-}$: H₂ $=0.0050\\,$mol $=112\\,$mL. Anode $\\mathrm{4OH^-\\to O_2+2H_2O+4e^-}$: O₂ $=0.0025\\,$mol $=56.0\\,$mL.", "ja": "電気量 $=1.00\\times965=965\\,$C → $965/96500=0.0100\\,$mol e⁻。陰極 $\\mathrm{2H_2O+2e^-\\to H_2+2OH^-}$：H₂ $=0.0050\\,$mol$=112\\,$mL。陽極 $\\mathrm{4OH^-\\to O_2+2H_2O+4e^-}$：O₂ $=0.0025\\,$mol$=56.0\\,$mL。" }
+    },
+    {
+      "id": "2015-2-chem-11", "answerRow": 11, "topicId": "inorganic",
+      "subtopic": "Gas from copper and dilute nitric acid: colour and collection",
+      "patternTags": ["inorganic", "gas-preparation", "redox", "gas-collection", "compare-cases"], "hasFigure": true,
+      "figure": { "ja": "気体の集め方 3 種：(i) 上方置換，(ii) 下方置換，(iii) 水上置換。表で「気体の色」と「集める方法」を組み合わせる。①無色/i ②無色/ii ③無色/iii ④赤褐色/i ⑤赤褐色/ii ⑥赤褐色/iii。", "en": "Three collection methods: (i) upward delivery, (ii) downward delivery, (iii) displacement of water. The table pairs gas colour with method: ① colourless/i ② colourless/ii ③ colourless/iii ④ reddish-brown/i ⑤ reddish-brown/ii ⑥ reddish-brown/iii." },
+      "ja": { "prompt": "銅 Cu と希硝酸を反応させたとき発生する気体は何色か。また，この気体を集める方法は (i) 上方置換，(ii) 下方置換，(iii) 水上置換 のどれか。最も適当な組み合わせを選びなさい。", "choices": ["無色 / i", "無色 / ii", "無色 / iii", "赤褐色 / i", "赤褐色 / ii", "赤褐色 / iii"] },
+      "en": { "prompt": "When copper reacts with dilute nitric acid, what colour is the gas produced, and how is it collected — (i) upward delivery, (ii) downward delivery, or (iii) displacement of water? Choose the best pair.", "choices": ["colourless / i", "colourless / ii", "colourless / iii", "reddish-brown / i", "reddish-brown / ii", "reddish-brown / iii"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "無色 / iii（水上置換）", "en": "colourless / iii (displacement of water)" },
+      "explanation": { "en": "Dilute nitric acid gives $\\mathrm{3Cu+8HNO_3\\to3Cu(NO_3)_2+2NO+4H_2O}$. NO is colourless and only slightly soluble in water, but reacts with air's O₂ (→ brown NO₂), so it must be collected over water (iii).", "ja": "希硝酸では $\\mathrm{3Cu+8HNO_3\\to3Cu(NO_3)_2+2NO+4H_2O}$。NO は無色で水に溶けにくいが，空気中の O₂ と反応する（→ 赤褐色 NO₂）ため水上置換(iii)で集める。" }
+    },
+    {
+      "id": "2015-2-chem-12", "answerRow": 12, "topicId": "inorganic",
+      "subtopic": "Incorrect precipitate colour",
+      "patternTags": ["inorganic", "precipitates", "ion-tests", "pick-false-statement"], "hasFigure": true,
+      "figure": { "ja": "表（A 欄イオン / B 欄操作 / C 欄沈殿の色）：① Ag⁺ / HCl aq を加える / 白色 ② Cu²⁺ / NaOH aq を加える / 青白色 ③ Fe³⁺ / NaOH aq を加える / 緑白色 ④ Pb²⁺ / $\\mathrm{K_2CrO_4}$ aq を加える / 黄色 ⑤ Zn²⁺ / 塩基性で $\\mathrm{H_2S}$ を通じる / 白色。", "en": "Table (column A ion / column B operation / column C precipitate colour): ① Ag⁺ / add HCl aq / white ② Cu²⁺ / add NaOH aq / bluish-white ③ Fe³⁺ / add NaOH aq / greenish-white ④ Pb²⁺ / add $\\mathrm{K_2CrO_4}$ aq / yellow ⑤ Zn²⁺ / pass $\\mathrm{H_2S}$ under basic conditions / white." },
+      "ja": { "prompt": "表の A 欄のイオンを含む水溶液に B 欄の操作を行うと沈殿が生じた。C 欄に示す沈殿の色が誤っているものを①〜⑤から選びなさい。", "choices": ["① Ag⁺ + HCl → 白色", "② Cu²⁺ + NaOH → 青白色", "③ Fe³⁺ + NaOH → 緑白色", "④ Pb²⁺ + $\\mathrm{K_2CrO_4}$ → 黄色", "⑤ Zn²⁺ + $\\mathrm{H_2S}$（塩基性）→ 白色"] },
+      "en": { "prompt": "Adding the column-B operation to a solution of the column-A ion gives a precipitate. Which precipitate colour in column C is INCORRECT?", "choices": ["① Ag⁺ + HCl → white", "② Cu²⁺ + NaOH → bluish-white", "③ Fe³⁺ + NaOH → greenish-white", "④ Pb²⁺ + $\\mathrm{K_2CrO_4}$ → yellow", "⑤ Zn²⁺ + $\\mathrm{H_2S}$ (basic) → white"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "③（$\\mathrm{Fe(OH)_3}$ は赤褐色）", "en": "③ ($\\mathrm{Fe(OH)_3}$ is reddish-brown)" },
+      "explanation": { "en": "Fe³⁺ + NaOH gives $\\mathrm{Fe(OH)_3}$, which is reddish-brown — not greenish-white (that is $\\mathrm{Fe(OH)_2}$). The others are correct: AgCl white, $\\mathrm{Cu(OH)_2}$ blue, $\\mathrm{PbCrO_4}$ yellow, ZnS white.", "ja": "Fe³⁺ + NaOH は $\\mathrm{Fe(OH)_3}$（赤褐色）で，緑白色（$\\mathrm{Fe(OH)_2}$）ではない。他は正：AgCl 白，$\\mathrm{Cu(OH)_2}$ 青，$\\mathrm{PbCrO_4}$ 黄，ZnS 白。" }
+    },
+    {
+      "id": "2015-2-chem-13", "answerRow": 13, "topicId": "states-and-change",
+      "subtopic": "Reaction in which sulfur is reduced",
+      "patternTags": ["redox", "oxidation-number", "sulfur", "pick-statement"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の化学反応①〜⑤のうち，下線を引いた硫黄原子 S が還元されているものを選びなさい。 ① $\\mathrm{Na_2\\underline{S}O_3+H_2SO_4\\to Na_2SO_4+H_2O+SO_2}$ ② $\\mathrm{Fe\\underline{S}+H_2SO_4\\to FeSO_4+H_2S}$ ③ $\\mathrm{\\underline{S}O_3+H_2O\\to H_2SO_4}$ ④ $\\mathrm{I_2+\\underline{S}O_2+2H_2O\\to2HI+H_2SO_4}$ ⑤ $\\mathrm{2H_2S+\\underline{S}O_2\\to2H_2O+3S}$", "choices": ["①", "②", "③", "④", "⑤"] },
+      "en": { "prompt": "In which reaction is the underlined sulfur atom S reduced? ① $\\mathrm{Na_2\\underline{S}O_3+H_2SO_4\\to Na_2SO_4+H_2O+SO_2}$ ② $\\mathrm{Fe\\underline{S}+H_2SO_4\\to FeSO_4+H_2S}$ ③ $\\mathrm{\\underline{S}O_3+H_2O\\to H_2SO_4}$ ④ $\\mathrm{I_2+\\underline{S}O_2+2H_2O\\to2HI+H_2SO_4}$ ⑤ $\\mathrm{2H_2S+\\underline{S}O_2\\to2H_2O+3S}$", "choices": ["①", "②", "③", "④", "⑤"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "⑤（S：$+4\\to0$）", "en": "⑤ (S: $+4\\to0$)" },
+      "explanation": { "en": "In ⑤ the S of $\\mathrm{SO_2}$ goes from $+4$ to $0$ (elemental S) — reduced. ① $+4\\to+4$, ② $-2\\to-2$, ③ $+6\\to+6$ (no change), ④ $+4\\to+6$ (oxidised).", "ja": "⑤ では $\\mathrm{SO_2}$ の S が $+4\\to0$（単体 S）で還元。① $+4\\to+4$，② $-2\\to-2$，③ $+6\\to+6$（変化なし），④ $+4\\to+6$（酸化）。" }
+    },
+    {
+      "id": "2015-2-chem-14", "answerRow": 14, "topicId": "inorganic",
+      "subtopic": "Which reaction actually occurs",
+      "patternTags": ["inorganic", "halogen-displacement", "metal-reactivity", "pick-statement"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の記述①〜⑤のうち，正しいものを選びなさい。 ① NaF aq に $\\mathrm{Cl_2}$ を通じると $\\mathrm{F_2}$ が生じる。 ② NaCl aq に $\\mathrm{Br_2}$ を加えると塩素が生じる。 ③ NaI aq に塩素を通じると $\\mathrm{I_2}$ が生じる。 ④ 室温でマグネシウムに水を加えると $\\mathrm{H_2}$ が生じる。 ⑤ 銅に希硫酸を加えると水素が生じる。", "choices": ["①", "②", "③", "④", "⑤"] },
+      "en": { "prompt": "Which statement is correct? ① Passing $\\mathrm{Cl_2}$ into NaF aq gives $\\mathrm{F_2}$. ② Adding $\\mathrm{Br_2}$ to NaCl aq gives chlorine. ③ Passing chlorine into NaI aq gives $\\mathrm{I_2}$. ④ Adding water to magnesium at room temperature gives $\\mathrm{H_2}$. ⑤ Adding dilute sulfuric acid to copper gives hydrogen.", "choices": ["①", "②", "③", "④", "⑤"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "③（$\\mathrm{Cl_2}$ が I⁻ を酸化して $\\mathrm{I_2}$）", "en": "③ ($\\mathrm{Cl_2}$ oxidises I⁻ to $\\mathrm{I_2}$)" },
+      "explanation": { "en": "A halogen displaces those below it. Cl₂ oxidises I⁻ → I₂ (③ true). ① false (Cl₂ can't free F₂), ② false (Br₂ can't free Cl₂), ④ false (Mg barely reacts with cold water; needs hot water/steam), ⑤ false (Cu is below H, no reaction with dilute H₂SO₄).", "ja": "ハロゲンは自分より下のものを遊離させる。Cl₂ は I⁻ を酸化し I₂（③正）。① 誤（Cl₂ は F₂ を遊離できない），② 誤（Br₂ は Cl₂ を遊離できない），④ 誤（Mg は冷水とほぼ反応せず熱水・水蒸気が必要），⑤ 誤（Cu は H より下，希硫酸と反応しない）。" }
+    },
+    {
+      "id": "2015-2-chem-15", "answerRow": 15, "topicId": "states-and-change",
+      "subtopic": "Correct statement about Al electrolytic reduction",
+      "patternTags": ["electrochemistry", "electrolysis", "redox", "molten-salt", "pick-statement"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "アルミニウムは電気分解を利用して $\\mathrm{Al^{3+}+3e^-\\to Al}$ でつくられる。この反応に関する記述として正しいものを①〜⑤から選びなさい。 ① この反応は水溶液中では起こらない。 ② この反応でアルミニウムイオンは酸化されている。 ③ この反応は陽極で起こる。 ④ この反応でアルミニウムの酸化数は 3 増加する。 ⑤ この反応で $3.0\\,$mol のアルミニウムをつくるには $1.0\\,$mol の電子が必要である。", "choices": ["①", "②", "③", "④", "⑤"] },
+      "en": { "prompt": "Aluminium is made by electrolysis via $\\mathrm{Al^{3+}+3e^-\\to Al}$. Which statement is correct? ① This reaction does not occur in aqueous solution. ② In this reaction the aluminium ion is oxidised. ③ This reaction occurs at the anode. ④ Aluminium's oxidation number increases by 3. ⑤ Making $3.0\\,$mol of aluminium needs $1.0\\,$mol of electrons.", "choices": ["①", "②", "③", "④", "⑤"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "①（水溶液では起こらず溶融塩電解が必要）", "en": "① (does not occur in water; needs molten-salt electrolysis)" },
+      "explanation": { "en": "Al³⁺ cannot be reduced in aqueous solution (water is reduced first), so molten-salt electrolysis is used — ① is correct. ② wrong (it gains e⁻, reduced), ③ wrong (reduction is at the cathode), ④ wrong (oxidation number drops $+3\\to0$), ⑤ wrong (3 mol Al needs 9 mol e⁻).", "ja": "Al³⁺ は水溶液では還元されず（水が先に還元される）溶融塩電解を用いる — ①が正。② 誤（電子を受け取り還元），③ 誤（還元は陰極），④ 誤（酸化数は $+3\\to0$ で減少），⑤ 誤（Al 3 mol には電子 9 mol）。" }
+    },
+    {
+      "id": "2015-2-chem-16", "answerRow": 16, "topicId": "organic",
+      "subtopic": "Correct reaction of a CH3-X compound",
+      "patternTags": ["organic", "functional-groups", "iodoform", "qualitative-tests", "pick-statement"], "hasFigure": true,
+      "figure": { "ja": "表（−X / A 欄の反応）：① −OH（メタノール）/ 酸化されてアセトアルデヒドを生じる。② −CHO（アセトアルデヒド）/ ヨードホルム反応を示す。③ −COOH（酢酸）/ 銀鏡反応を示す。④ −OCH₃（ジメチルエーテル）/ 脱水反応してアルケンを生じる。⑤ −C₆H₅（トルエン）/ 酸化されてフェノールを生じる。", "en": "Table (−X / column-A claim): ① −OH (methanol) / oxidises to acetaldehyde. ② −CHO (acetaldehyde) / gives the iodoform reaction. ③ −COOH (acetic acid) / gives the silver-mirror test. ④ −OCH₃ (dimethyl ether) / dehydrates to an alkene. ⑤ −C₆H₅ (toluene) / oxidises to phenol." },
+      "ja": { "prompt": "構造式 $\\mathrm{CH_3{-}X}$ の −X を表に示す。A 欄にはこれらの有機化合物の反応が示されている。A 欄の記述が正しいものを①〜⑤から選びなさい。", "choices": ["① −OH：酸化でアセトアルデヒド", "② −CHO：ヨードホルム反応を示す", "③ −COOH：銀鏡反応を示す", "④ −OCH₃：脱水してアルケン", "⑤ −C₆H₅：酸化でフェノール"] },
+      "en": { "prompt": "For $\\mathrm{CH_3{-}X}$ with the −X groups in the table, which column-A statement about the compound's reaction is correct?", "choices": ["① −OH: oxidation → acetaldehyde", "② −CHO: gives the iodoform reaction", "③ −COOH: gives the silver-mirror test", "④ −OCH₃: dehydrates to an alkene", "⑤ −C₆H₅: oxidation → phenol"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "②（アセトアルデヒドはヨードホルム反応陽性）", "en": "② (acetaldehyde gives a positive iodoform test)" },
+      "explanation": { "en": "$\\mathrm{CH_3CHO}$ (acetaldehyde) gives a positive iodoform reaction — ② is correct. ① wrong (methanol → formaldehyde, not acetaldehyde), ③ wrong (acetic acid gives no silver mirror), ④ wrong (dimethyl ether does not dehydrate to an alkene), ⑤ wrong (toluene oxidises to benzoic acid, not phenol).", "ja": "$\\mathrm{CH_3CHO}$（アセトアルデヒド）はヨードホルム反応陽性 — ②が正。① 誤（メタノール→ホルムアルデヒド），③ 誤（酢酸は銀鏡反応なし），④ 誤（ジメチルエーテルは脱水してアルケンにならない），⑤ 誤（トルエンは酸化で安息香酸，フェノールではない）。" }
+    },
+    {
+      "id": "2015-2-chem-17", "answerRow": 17, "topicId": "organic",
+      "subtopic": "Nitrobenzene needed for a given aniline yield",
+      "patternTags": ["organic", "aniline", "yield", "stoichiometry", "plug-in-numbers"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "ニトロベンゼンを適当な試薬で還元してアニリンを合成した。用いたニトロベンゼンの 82% が反応し，$18.6\\,$g のアニリンを得た。はじめに用いたニトロベンゼンは何 g か，最も近い値を選びなさい。", "choices": ["20", "25", "30", "35", "40", "45"] },
+      "en": { "prompt": "Nitrobenzene was reduced to aniline. 82% of the nitrobenzene reacted, giving $18.6\\,$g of aniline. What mass of nitrobenzene was used initially (g)?", "choices": ["20", "25", "30", "35", "40", "45"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "約 $30\\,$g", "en": "≈ 30 g" },
+      "explanation": { "en": "Aniline $M=93$: $18.6/93=0.20\\,$mol, so $0.20\\,$mol of nitrobenzene reacted ($M=123$) $=24.6\\,$g. That is 82% of the initial amount: $24.6/0.82=30.0\\,$g.", "ja": "アニリン $M=93$：$18.6/93=0.20\\,$mol。これは反応したニトロベンゼン $0.20\\,$mol（$M=123$）$=24.6\\,$g。これが初めの 82% なので $24.6/0.82=30.0\\,$g。" }
+    },
+    {
+      "id": "2015-2-chem-18", "answerRow": 18, "topicId": "organic",
+      "subtopic": "Two properties shared by ethanol and phenol",
+      "patternTags": ["organic", "alcohols", "phenols", "functional-groups", "true-false-combo"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "記述(a)〜(e)のうち，エタノールとフェノールに共通するものが二つある。その組み合わせを選びなさい。 (a) 金属ナトリウム Na と反応して $\\mathrm{H_2}$ を発生する。 (b) 無水酢酸と反応してエステルを生成する。 (c) 酸化によりアルデヒドを生じる。 (d) 水に溶かすと弱い酸性の水溶液を生じる。 (e) $\\mathrm{FeCl_3}$ aq を加えると紫色を示す。", "choices": ["a, b", "a, d", "a, e", "b, c", "b, d", "c, d", "c, e", "d, e"] },
+      "en": { "prompt": "Two of these properties are shared by BOTH ethanol and phenol. Which pair? (a) Reacts with metallic Na to release $\\mathrm{H_2}$. (b) Reacts with acetic anhydride to form an ester. (c) Oxidation gives an aldehyde. (d) Dissolving in water gives a weakly acidic solution. (e) Adding $\\mathrm{FeCl_3}$ aq gives a purple colour.", "choices": ["a, b", "a, d", "a, e", "b, c", "b, d", "c, d", "c, e", "d, e"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "a と b", "en": "a and b" },
+      "explanation": { "en": "Both have an −OH: (a) both react with Na to give H₂; (b) both are acetylated (esterified) by acetic anhydride. The others are not shared: (c) only ethanol → acetaldehyde; (d) only phenol is weakly acidic; (e) only phenol gives the FeCl₃ purple colour.", "ja": "どちらも −OH をもつ：(a) ともに Na と反応し H₂，(b) ともに無水酢酸でアセチル化（エステル化）。他は共通でない：(c) エタノールのみ→アセトアルデヒド，(d) フェノールのみ弱酸性，(e) フェノールのみ FeCl₃ で紫。" }
+    },
+    {
+      "id": "2015-2-chem-19", "answerRow": 19, "topicId": "organic",
+      "subtopic": "Polymer matched with a bond it contains",
+      "patternTags": ["organic", "polymers", "bonds", "compare-cases"], "hasFigure": true,
+      "figure": { "ja": "表（高分子化合物 / 含まれる結合）：① ポリエチレン / C=C ② ナイロン / C=N ③ ポリスチレン / C=O ④ 生ゴム（天然ゴム）/ C=C ⑤ セルロース / C=O。", "en": "Table (polymer / bond it contains): ① polyethylene / C=C ② nylon / C=N ③ polystyrene / C=O ④ raw (natural) rubber / C=C ⑤ cellulose / C=O." },
+      "ja": { "prompt": "表の高分子化合物とそれに含まれる結合の組み合わせとして正しいものを①〜⑤から選びなさい。", "choices": ["① ポリエチレン / C=C", "② ナイロン / C=N", "③ ポリスチレン / C=O", "④ 生ゴム（天然ゴム）/ C=C", "⑤ セルロース / C=O"] },
+      "en": { "prompt": "Which polymer-and-bond pairing is correct?", "choices": ["① polyethylene / C=C", "② nylon / C=N", "③ polystyrene / C=O", "④ raw (natural) rubber / C=C", "⑤ cellulose / C=O"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "④（天然ゴムは主鎖に C=C をもつ）", "en": "④ (natural rubber has C=C in its chain)" },
+      "explanation": { "en": "Natural rubber (polyisoprene) retains C=C double bonds in its main chain — ④ correct. ① wrong (polyethylene is saturated), ② wrong (nylon has amide C(=O)−N, not C=N), ③ wrong (polystyrene has no C=O), ⑤ wrong (cellulose has ether/−OH, no C=O).", "ja": "天然ゴム（ポリイソプレン）は主鎖に C=C をもつ — ④が正。① 誤（ポリエチレンは飽和），② 誤（ナイロンはアミド結合 C(=O)−N で C=N ではない），③ 誤（ポリスチレンに C=O なし），⑤ 誤（セルロースはエーテル・−OH で C=O なし）。" }
+    },
+    {
+      "id": "2015-2-chem-20", "answerRow": 20, "topicId": "organic",
+      "subtopic": "Correct statement about DNA and RNA",
+      "patternTags": ["organic", "biomolecules", "nucleic-acids", "pick-statement"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "DNA と RNA に関する記述①〜④のうち，正しいものを選びなさい。 ① DNA および RNA に含まれる塩基は，いずれもアデニン，グアニン，シトシン，チミンの 4 種類である。 ② アデニン–チミン間にも，グアニン–シトシン間にも，2 本の水素結合がある。 ③ 通常，DNA は 2 本鎖であり，RNA は 1 本鎖である。 ④ DNA はヌクレオシドの重合によりできる。", "choices": ["①", "②", "③", "④"] },
+      "en": { "prompt": "Which statement about DNA and RNA is correct? ① The bases in both DNA and RNA are the same four: adenine, guanine, cytosine, thymine. ② Both adenine–thymine and guanine–cytosine pairs have two hydrogen bonds. ③ DNA is usually double-stranded and RNA single-stranded. ④ DNA is formed by polymerization of nucleosides.", "choices": ["①", "②", "③", "④"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "③（DNA は 2 本鎖，RNA は 1 本鎖）", "en": "③ (DNA double-stranded, RNA single-stranded)" },
+      "explanation": { "en": "③ is correct. ① wrong — RNA uses uracil instead of thymine. ② wrong — A–T has 2 H-bonds but G–C has 3. ④ wrong — DNA is a polymer of nucleotides (nucleoside + phosphate), not nucleosides.", "ja": "③が正。① 誤 — RNA はチミンでなくウラシルを用いる。② 誤 — A–T は 2 本だが G–C は 3 本の水素結合。④ 誤 — DNA はヌクレオチド（ヌクレオシド＋リン酸）の重合体で，ヌクレオシドではない。" }
+    }
+  ],
+  "patterns": {
+    "archetypes": [
+      "Two-molecules-equal-electron-count screen (isoelectronic species).",
+      "Two-incorrect-statement atomic-structure screen (noble-gas valence-electron convention = 0; period-2 IE is non-monotonic).",
+      "Isotopic abundance from a weighted-average atomic weight.",
+      "Pure-substance vs mixture classification.",
+      "Mass of ore needed for a target metal mass (Fe₂O₃ → Fe).",
+      "Reading the water phase diagram (assign solid/liquid/gas regions).",
+      "Two-correct colloid statements (coagulation, gel, charge-sign coagulation rule).",
+      "Heat of dissolution by calorimetry ($Q=mc\\Delta T$, total solution mass).",
+      "Largest/smallest pH among equimolar acids and bases (count ions/strength).",
+      "Electrolysis gas volumes at cathode vs anode (Faraday + 22.4 L/mol).",
+      "Gas colour + collection method (Cu + dilute HNO₃ → colourless NO, over water).",
+      "Incorrect precipitate colour (Fe(OH)₃ is reddish-brown, not greenish-white).",
+      "Reaction in which a marked S atom is reduced (track oxidation number).",
+      "Which reaction actually occurs (halogen displacement order, metal reactivity).",
+      "Correct statement about Al electrowinning (molten-salt, cathode reduction).",
+      "Correct reaction of a CH₃–X compound (iodoform-positive acetaldehyde).",
+      "Reactant mass from a percentage yield (nitrobenzene → aniline).",
+      "Two properties shared by ethanol and phenol (both −OH: Na, acetylation).",
+      "Polymer matched with the bond it contains (natural rubber keeps C=C).",
+      "Correct DNA/RNA statement (double vs single strand)."
+    ],
+    "recurring": [
+      "Atomic structure / isoelectronic / isotope screens open the paper.",
+      "Stoichiometry (ore→metal, calorimetry, electrolysis) and physical chemistry (phase diagram, pH, colloids) form the core.",
+      "Qualitative inorganic (gas prep + collection, precipitate colours, halogen/metal reactivity, redox oxidation-number tracking) is a guaranteed block.",
+      "Organic: functional-group reactions, qualitative tests (iodoform, silver mirror, FeCl₃), yield calculations, polymers, and biomolecules (DNA/RNA) recur."
+    ],
+    "examTacticNotes": [
+      "Isoelectronic: count total electrons; HF and NH₃ both have 10.",
+      "By this curriculum's convention, noble gases have 0 valence electrons; period-2 IE dips at B and O.",
+      "Weighted average: $10x+11(1-x)=10.8 \\Rightarrow x=0.20$.",
+      "Pure substances have a fixed composition — NaCl and water; alloys/acids/gasoline/air are mixtures.",
+      "Ore→metal: scale by molar-mass ratio, $\\mathrm{Fe_2O_3}=160$, $2\\mathrm{Fe}=112$.",
+      "Water phase diagram: low T = solid, high P high T = liquid, low P high T = gas.",
+      "Coagulating ion is the counter-charge to the colloid; for the positive Fe(OH)₃ colloid, $\\mathrm{SO_4^{2-}}$ beats Cl⁻.",
+      "Calorimetry uses the TOTAL solution mass (water + solute): $Q=mc\\Delta T$, then divide by moles.",
+      "Ca(OH)₂ gives the highest pH (2 OH⁻); H₂SO₄ the lowest (2 H⁺) among 0.01 mol/L solutions.",
+      "Electrolysis: mol e⁻ = It/F; H₂ at cathode (÷2), O₂ at anode (÷4); ×22400 mL/mol.",
+      "Cu + dilute HNO₃ → NO (colourless), collect over water because it reacts with air.",
+      "Fe(OH)₃ is reddish-brown; Fe(OH)₂ is greenish-white.",
+      "Reduction = oxidation number falls; SO₂'s S goes +4→0 in $\\mathrm{2H_2S+SO_2}$.",
+      "Halogen displacement follows F>Cl>Br>I; Cl₂ frees I₂ but not F₂ or Cl₂ from below.",
+      "Al is won by molten-salt electrolysis (cathode reduction); not from aqueous solution.",
+      "Acetaldehyde (CH₃CHO) is iodoform-positive; toluene oxidises to benzoic acid, not phenol.",
+      "Percentage-yield back-calc: reacted mass / fraction = initial mass (aniline M=93, nitrobenzene M=123).",
+      "Ethanol and phenol share −OH chemistry: react with Na (→H₂) and with acetic anhydride (→ester).",
+      "Natural rubber (polyisoprene) retains main-chain C=C; polyethylene is saturated.",
+      "DNA is double-stranded with A–T (2 H-bonds) and G–C (3 H-bonds); RNA is single-stranded with uracil."
+    ],
+    "difficulty": "Standard EJU chemistry — a full-syllabus sweep. The more discriminating items are the noble-gas valence-electron convention (Q2), the calorimetry heat of dissolution (Q8), the electrolysis gas-volume pairing (Q10), and the percentage-yield back-calculation (Q17)."
+  }
+}

@@ -8,7 +8,16 @@ const USE_THINKING = process.env.ANTHROPIC_THINKING !== 'off';
 const GEMINI_MODEL = process.env.GEMINI_MODEL || 'gemini-3.1-flash-lite';
 const OPENAI_MODEL = process.env.OPENAI_MODEL || 'gpt-4o';
 
-type Lang = 'en' | 'ja';
+type Lang = 'en' | 'ja' | 'zh' | 'tr';
+
+// Name used both to tell the model which language to reply in and inside
+// "Write everything in {…}" directives.
+const LANG_NAME: Record<Lang, string> = {
+  en: 'English',
+  ja: 'Japanese (日本語)',
+  zh: 'Simplified Chinese (简体中文)',
+  tr: 'Turkish (Türkçe)',
+};
 type ChatMessage = { role: 'user' | 'assistant'; content: string };
 
 export interface KeyPointDTO {
@@ -31,12 +40,15 @@ export function hasApiKey(): boolean {
 const GLOBAL_INSTRUCTIONS =
   'You are an expert tutor and question-writer for the EJU (Examination for Japanese University ' +
   'Admission for International Students). You help students study efficiently and accurately. Be ' +
-  'concise and exam-focused. Render math/science notation in clear plain text (e.g. x^2, sqrt(x), ' +
-  '1/2, H2O, ->, Δ) so it reads well in a simple notes view — do not use LaTeX or `$` unless asked. ' +
+  'concise and exam-focused. Write ALL mathematical expressions, equations and formulas as LaTeX: ' +
+  'use $...$ for inline math and $$...$$ for displayed equations (e.g. $v=u+at$, ' +
+  '$$x=\\frac{-b\\pm\\sqrt{b^2-4ac}}{2a}$$). Use \\frac, \\sqrt, ^{} , _{}, \\vec{} and Greek-letter ' +
+  'commands; for chemistry use math mode with subscripts/superscripts (e.g. $\\mathrm{H_2O}$, ' +
+  '$\\mathrm{SO_4^{2-}}$). Do not put ordinary prose inside math delimiters. When your reply is JSON, ' +
+  'it MUST be valid: escape every backslash as \\\\ and every newline as \\n inside string values. ' +
   'Never invent claims about the EJU format; rely on the knowledge base provided below.';
 
-const langLine = (lang: Lang) =>
-  lang === 'ja' ? 'Always respond in Japanese (日本語).' : 'Always respond in English.';
+const langLine = (lang: Lang) => `Always respond in ${LANG_NAME[lang]}.`;
 
 function systemBlocks(subject: Subject, lang: Lang, extra?: string) {
   const blocks: any[] = [
@@ -143,16 +155,66 @@ async function executeModelCall(
   }
 }
 
+// LLMs routinely return JSON whose string values contain raw newlines (invalid)
+// and single-backslash LaTeX like \frac or \sqrt (invalid escapes). Both make
+// JSON.parse throw, which previously leaked the raw JSON to the user. This walks
+// the text and repairs string contents: raw control chars are escaped, and any
+// backslash that isn't a valid JSON escape (\" \\ \/ \uXXXX) is doubled — which
+// is exactly what an unescaped LaTeX command needs.
+function repairJson(s: string): string {
+  let out = '';
+  let inStr = false;
+  for (let i = 0; i < s.length; i++) {
+    const c = s[i];
+    if (!inStr) {
+      out += c;
+      if (c === '"') inStr = true;
+      continue;
+    }
+    if (c === '"') {
+      inStr = false;
+      out += c;
+    } else if (c === '\\') {
+      const next = s[i + 1];
+      if (next === '"' || next === '\\' || next === '/') {
+        out += c + next; // already a valid escape
+        i++;
+      } else if (next === 'u' && /^[0-9a-fA-F]{4}$/.test(s.slice(i + 2, i + 6))) {
+        out += s.slice(i, i + 6); // \uXXXX
+        i += 5;
+      } else {
+        out += '\\\\'; // lone backslash (e.g. a LaTeX command) -> escape it
+      }
+    } else if (c === '\n') out += '\\n';
+    else if (c === '\r') out += '\\r';
+    else if (c === '\t') out += '\\t';
+    else out += c;
+  }
+  return out;
+}
+
+function tryParse<T>(s: string): T | null {
+  try {
+    return JSON.parse(s) as T;
+  } catch {
+    /* try to repair */
+  }
+  try {
+    return JSON.parse(repairJson(s)) as T;
+  } catch {
+    return null;
+  }
+}
+
 function extractJson<T>(raw: string, fallback: T): T {
   if (!raw) return fallback;
   let s = raw.trim();
   const fence = /\`\`\`(?:json)?\s*([\s\S]*?)\`\`\`/i.exec(s);
   if (fence) s = fence[1].trim();
-  try {
-    return JSON.parse(s) as T;
-  } catch {
-    /* fall through */
-  }
+
+  const direct = tryParse<T>(s);
+  if (direct !== null) return direct;
+
   const startObj = s.indexOf('{');
   const startArr = s.indexOf('[');
   let start = -1;
@@ -161,16 +223,13 @@ function extractJson<T>(raw: string, fallback: T): T {
   else start = Math.min(startObj, startArr);
   const end = Math.max(s.lastIndexOf('}'), s.lastIndexOf(']'));
   if (start !== -1 && end > start) {
-    try {
-      return JSON.parse(s.slice(start, end + 1)) as T;
-    } catch {
-      /* fall through */
-    }
+    const sliced = tryParse<T>(s.slice(start, end + 1));
+    if (sliced !== null) return sliced;
   }
   return fallback;
 }
 
-const writeLang = (lang: Lang) => (lang === 'ja' ? 'Japanese' : 'English');
+const writeLang = (lang: Lang) => LANG_NAME[lang];
 
 function cleanKeyPoints(arr: any): KeyPointDTO[] {
   if (!Array.isArray(arr)) return [];
@@ -185,15 +244,51 @@ function cleanKeyPoints(arr: any): KeyPointDTO[] {
 }
 
 // ─── Ask ───
+// The reply is plain Markdown (so LaTeX/backslashes pass through untouched — never
+// JSON-encoded), followed by an optional delimited key-points block we strip off.
+const KEYPOINTS_MARK = '###KEYPOINTS###';
 const ASK_DIRECTIVE =
-  'Respond with ONLY a single JSON object and no other text or code fences: ' +
-  '{"answer": "<your full tutoring reply, markdown allowed>", "keyPoints": [{"kind":"formula"|"fact","text":"...","topic":"..."}]}. ' +
-  'Put 0-4 genuinely memorize-worthy formulas/key facts from your reply in "keyPoints" (empty array if none).';
+  // Teaching style: beginner-friendly, then exam-ready.
+  'Teach as a patient tutor whose student may be new to the topic and is sitting the EJU exam very soon. ' +
+  'Explain in plain, everyday language a beginner can follow: avoid jargon, and whenever a technical term is ' +
+  'unavoidable, define it in simple words the first time you use it. Build intuition first — a short analogy ' +
+  'or a concrete example with real numbers — then walk through the reasoning step by step instead of just ' +
+  'stating the result. Keep sentences short. For these coaching replies, favour a clear, complete explanation ' +
+  'over terseness (this overrides the general "be concise" instruction), but stay on point and do not ramble. ' +
+  'Because the exam is near, make the must-know parts impossible to miss: bold the key terms and results, and ' +
+  'finish with a short "**Exam essentials**" section — a few bullets giving the formula(s) to memorise, the ' +
+  'common traps/mistakes, and what EJU typically asks on this topic. ' +
+  // Formatting.
+  'Write your reply directly as GitHub-flavored Markdown with LaTeX math ($...$ inline, $$...$$ display). ' +
+  'Do NOT wrap the reply in JSON and do NOT put it in a code fence. ' +
+  // Key points (machine-parsed; separate from the human-facing "Exam essentials" bullets above).
+  'After the reply, ONLY if it contains genuinely memorize-worthy formulas or key facts, add a final ' +
+  `line that is exactly "${KEYPOINTS_MARK}" and then 1-4 lines, one point per line, each formatted as ` +
+  '`kind | text | topic` (kind is the word formula or fact; topic may be left blank). Write nothing after those lines.';
+
+function parseKeyPointLines(block: string): KeyPointDTO[] {
+  return block
+    .split('\n')
+    .map((l) => l.replace(/^[-*\s]+/, '').trim())
+    .filter(Boolean)
+    .map((l) => {
+      const [kind, text, topic] = l.split('|').map((s) => s.trim());
+      return {
+        kind: /fact/i.test(kind ?? '') ? 'fact' : 'formula',
+        text: (text ?? '').trim(),
+        topic: topic || undefined,
+      } as KeyPointDTO;
+    })
+    .filter((k) => k.text)
+    .slice(0, 6);
+}
 
 export async function ask(args: {
   subject: Subject;
   lang: Lang;
   messages: ChatMessage[];
+  /** The question the student is currently looking at, so "this question" resolves. */
+  context?: string;
   model?: string;
   userKey?: string;
 }): Promise<{ text: string; keyPoints: KeyPointDTO[] }> {
@@ -202,13 +297,19 @@ export async function ask(args: {
     .map((m) => ({ role: m.role === 'assistant' ? 'assistant' : 'user', content: m.content }));
   if (!messages.length) return { text: '', keyPoints: [] };
 
-  const raw = await executeModelCall(
-    args.model, args.userKey, args.subject, args.lang, ASK_DIRECTIVE, messages, 8000
-  );
-  
-  const parsed = extractJson<{ answer?: string; keyPoints?: any } | null>(raw, null);
-  if (!parsed) return { text: raw, keyPoints: [] };
-  return { text: String(parsed.answer ?? raw), keyPoints: cleanKeyPoints(parsed.keyPoints) };
+  const ctx = args.context?.trim()
+    ? `The student is currently looking at this specific question:\n"""\n${args.context.trim()}\n"""\n` +
+      'When the student says "this", "this question", "this problem", "これ", "この問題" or similar, they are ' +
+      'referring to the question above — answer about it directly. Do not ask which question they mean.'
+    : undefined;
+  const extra = [ctx, ASK_DIRECTIVE].filter(Boolean).join('\n\n');
+
+  const raw = await executeModelCall(args.model, args.userKey, args.subject, args.lang, extra, messages, 8000);
+
+  const i = raw.indexOf(KEYPOINTS_MARK);
+  const text = (i >= 0 ? raw.slice(0, i) : raw).trim();
+  const keyPoints = i >= 0 ? parseKeyPointLines(raw.slice(i + KEYPOINTS_MARK.length)) : [];
+  return { text: text || raw.trim(), keyPoints };
 }
 
 // ─── Generate Questions ───
@@ -278,12 +379,16 @@ export async function generate(args: {
 
 // ─── Check Work ───
 const ERROR_TAGS = ['units', 'sign', 'arithmetic', 'algebra', 'concept', 'formula', 'misread', 'incomplete', 'none'];
+const CHECK_META_MARK = '###META###';
 
 export interface CheckResult {
   feedback: string;
   correct: 'yes' | 'no' | 'partial' | 'unknown';
   topic: string;
   errorTags: string[];
+  /** If the attached question is multiple-choice and the work clearly concludes one
+   *  option, the 0-based index of that choice (counting the listed options in order); else -1. */
+  studentAnswerIndex: number;
 }
 
 export async function check(args: {
@@ -300,15 +405,17 @@ export async function check(args: {
 
   const instructions = [
     args.question
-      ? `The student is working on this EJU practice question:\n"""\n${args.question}\n"""\n`
-      : 'The student has written some work below (no specific question attached).\n',
-    "The image is the student's handwritten work captured from a whiteboard.",
-    'Respond with ONLY a single JSON object, no other text or code fences:',
-    '{"feedback":"<markdown with short headings: transcribe the key readable steps; say whether it is correct; pinpoint the FIRST error precisely; give a short hint to fix it without revealing the full answer unless already complete; end with a one-line encouraging summary>",',
-    `"correct":"yes"|"no"|"partial"|"unknown" (partial = on the right track but incomplete/with a fixable slip${args.question ? '' : '; often "unknown" with no question attached'}),`,
-    '"topic":"<the specific EJU sub-topic>",',
-    `"errorTags":[ subset of ${JSON.stringify(ERROR_TAGS)} ; use ["none"] if correct ]}.`,
-    `Write "feedback" in ${writeLang(args.lang)}.`,
+      ? `The student is attempting this EJU question:\n"""\n${args.question}\n"""\n`
+      : 'No specific question is attached.\n',
+    "The image is a capture of the student's OWN handwritten work on a whiteboard.",
+    'Grade ONLY what is actually written in the image. Do NOT solve the problem yourself, and never report an answer or conclusion that is not physically written on the page.',
+    'CRITICAL: If the page is blank, almost blank, or shows no genuine solution attempt (only the question text, doodles, or a few stray marks), do NOT grade it — set correct to "unknown", and in the feedback say there is nothing to check yet and invite the student to write their working. An empty or missing solution is never "correct".',
+    '',
+    'First write the FEEDBACK as Markdown with LaTeX math ($...$ inline, $$...$$ display), in plain beginner-friendly language (define any jargon): briefly transcribe the key readable steps; state whether the written work is correct; pinpoint the FIRST error precisely and explain in simple terms WHY it is wrong; give a short hint to fix it (reveal the full answer only if the work is already complete and correct); finish with a one-line encouraging summary.',
+    `Write the feedback in ${writeLang(args.lang)}.`,
+    `Then, on a new line, write exactly ${CHECK_META_MARK} and, on the next line, a single-line JSON object (and nothing after it):`,
+    `{"correct":"yes"|"no"|"partial"|"unknown","topic":"<specific EJU sub-topic in English>","errorTags":[subset of ${JSON.stringify(ERROR_TAGS)}; use ["none"] when correct and [] when unknown],"studentAnswerIndex":<for a multiple-choice question, the 0-based index of the option the WRITTEN work clearly concludes, counting the listed choices in order; use -1 if it is not multiple-choice or no final choice is written>}`,
+    '("partial" = on the right track but incomplete or with a fixable slip.)',
   ].join('\n');
 
   const raw = await executeModelCall(
@@ -322,17 +429,31 @@ export async function check(args: {
       },
     ], 4000
   );
-  
-  const p = extractJson<Partial<CheckResult>>(raw, {});
+
+  // Feedback is plain markdown before the marker; the small meta JSON follows it.
+  const mi = raw.indexOf(CHECK_META_MARK);
+  let feedback: string;
+  let p: Partial<CheckResult>;
+  if (mi >= 0) {
+    feedback = raw.slice(0, mi).trim();
+    p = extractJson<Partial<CheckResult>>(raw.slice(mi + CHECK_META_MARK.length), {});
+  } else {
+    // Model didn't follow the format — fall back to whatever we can recover.
+    p = extractJson<Partial<CheckResult>>(raw, {});
+    feedback = typeof p.feedback === 'string' && p.feedback.trim() ? p.feedback.trim() : raw.trim();
+  }
+
   const correct = (['yes', 'no', 'partial', 'unknown'] as const).includes(p.correct as any)
     ? (p.correct as CheckResult['correct'])
     : 'unknown';
   const errorTags = Array.isArray(p.errorTags) ? p.errorTags.filter((t) => ERROR_TAGS.includes(t)) : [];
+  const studentAnswerIndex = Number.isInteger(p.studentAnswerIndex) ? Number(p.studentAnswerIndex) : -1;
   return {
-    feedback: String(p.feedback ?? raw ?? ''),
+    feedback: feedback || String(raw ?? ''),
     correct,
     topic: String(p.topic ?? ''),
     errorTags,
+    studentAnswerIndex,
   };
 }
 

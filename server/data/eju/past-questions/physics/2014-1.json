@@ -1,0 +1,247 @@
+{
+  "id": "2014-1-physics",
+  "year": 2014,
+  "session": 1,
+  "subject": "physics",
+  "title": "EJU 2014 · Session 1 · Physics",
+  "source": "平成26年度（2014年度）日本留学試験（第1回）理科〈物理〉 © Japan Student Services Organization (JASSO)",
+  "attribution": "EJU past questions © JASSO. Question text transcribed from the official past paper; figures described in text; correct answers taken from the official JASSO answer key and independently re-solved for verification.",
+  "languages": ["ja", "en"],
+  "answerKeyVerified": true,
+  "structure": {
+    "blocks": [
+      { "id": "I", "topicId": "mech", "name": { "ja": "力学", "en": "Mechanics" }, "questionCount": 7 },
+      { "id": "II", "topicId": "thermo", "name": { "ja": "熱力学", "en": "Thermodynamics" }, "questionCount": 3 },
+      { "id": "III", "topicId": "waves", "name": { "ja": "波動", "en": "Waves" }, "questionCount": 3 },
+      { "id": "IV", "topicId": "em", "name": { "ja": "電気と磁気", "en": "Electricity & Magnetism" }, "questionCount": 6 }
+    ],
+    "totalQuestions": 19,
+    "note": "Older 7/3/3/6 split (Mechanics has 7 items), no Atoms (V) block.",
+    "givens": { "ja": "重力加速度の大きさを g とし，空気の抵抗は無視できるものとする。", "en": "Take the magnitude of gravitational acceleration as g; air resistance is negligible." }
+  },
+  "questions": [
+    {
+      "id": "2014-1-phy-1", "answerRow": 1, "block": "I", "topicId": "mech",
+      "subtopic": "Toppling of a tilted rectangular block",
+      "patternTags": ["express-formula", "statics", "toppling"], "hasFigure": true,
+      "figure": { "ja": "一様な直方体の 1 辺を粗い床に接触させて指で支え傾ける。傾き角 θ を大きくし，θ が θ0 を超えると直方体は指を離れて回転（転倒）した。2 辺の長さは a, b。床に接した辺は滑らない。", "en": "A uniform rectangular block is tipped about one bottom edge on a rough floor (held by a finger). As the tilt θ exceeds θ0 the block topples. The two side lengths are a and b; the contact edge does not slip." },
+      "ja": { "prompt": "一様な直方体を，1 辺を粗い床に接触させたまま指で支えて傾ける。傾き角 $\\theta$ を大きくしていくと，$\\theta$ が $\\theta_0$ より大きくなったとき直方体は転倒した。直方体の 2 辺の長さを $a,b$ とする（図参照，床に接した辺は滑らない）。$\\tan\\theta_0$ はどのように表されるか。", "choices": ["$\\dfrac{b}{a}$", "$\\dfrac{a}{\\sqrt{a^2+b^2}}$", "$\\dfrac{b}{\\sqrt{a^2+b^2}}$", "$\\dfrac{a}{b}$", "$\\dfrac{\\sqrt{a^2+b^2}}{a}$", "$\\dfrac{\\sqrt{a^2+b^2}}{b}$"] },
+      "en": { "prompt": "A uniform rectangular block is tipped about a bottom edge (held by a finger) on a rough floor. When the tilt $\\theta$ exceeds $\\theta_0$ the block topples. The two side lengths are $a$ and $b$ (contact edge does not slip). Express $\\tan\\theta_0$.", "choices": ["$\\dfrac{b}{a}$", "$\\dfrac{a}{\\sqrt{a^2+b^2}}$", "$\\dfrac{b}{\\sqrt{a^2+b^2}}$", "$\\dfrac{a}{b}$", "$\\dfrac{\\sqrt{a^2+b^2}}{a}$", "$\\dfrac{\\sqrt{a^2+b^2}}{b}$"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "$\\dfrac{a}{b}$", "en": "$\\dfrac{a}{b}$" },
+      "explanation": { "en": "The block topples when its centre of mass passes over the pivot edge. The COM is offset $a/2$ along the base and $b/2$ in height from the pivot. Setting the COM's horizontal coordinate to zero: $(a/2)\\cos\\theta_0=(b/2)\\sin\\theta_0$, so $\\tan\\theta_0=\\dfrac{a}{b}$.", "ja": "重心が支点（回転する辺）の真上を越えると転倒する。支点から重心までは底辺方向に $a/2$，高さ方向に $b/2$。重心の水平座標を 0 とおくと $(a/2)\\cos\\theta_0=(b/2)\\sin\\theta_0$ より $\\tan\\theta_0=\\dfrac{a}{b}$。" }
+    },
+    {
+      "id": "2014-1-phy-2", "answerRow": 2, "block": "I", "topicId": "mech",
+      "subtopic": "Vertical throw then horizontal throw (range ratio)",
+      "patternTags": ["express-formula", "projectile-motion", "ratio"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "小球を初速 $v_0$ で地面から鉛直に投げ上げると最高点の高さは $h$ であった。次に，その最高点（高さ $h$）から同じ初速 $v_0$ で水平に投げ出したところ，水平距離 $d$ で地面に達した。$\\dfrac{d}{h}$ はいくらか。", "choices": ["$\\dfrac{1}{4}$", "$\\dfrac{1}{2}$", "$1$", "$2$", "$4$"] },
+      "en": { "prompt": "A ball thrown straight up with speed $v_0$ reaches height $h$. Then, from that height $h$, it is thrown horizontally with the same $v_0$ and lands a horizontal distance $d$ away. Find $\\dfrac{d}{h}$.", "choices": ["$\\dfrac{1}{4}$", "$\\dfrac{1}{2}$", "$1$", "$2$", "$4$"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "$2$", "en": "$2$" },
+      "explanation": { "en": "Vertical throw: $h=\\dfrac{v_0^2}{2g}$, so $v_0^2=2gh$. Horizontal throw from height $h$: fall time $t=\\sqrt{2h/g}$, range $d=v_0t$. Then $\\dfrac{d}{h}=\\dfrac{v_0\\sqrt{2h/g}}{h}=\\sqrt{\\dfrac{2v_0^2}{gh}}=\\sqrt{\\dfrac{2\\cdot2gh}{gh}}=2$.", "ja": "鉛直投げ上げで $h=\\dfrac{v_0^2}{2g}$ なので $v_0^2=2gh$。高さ $h$ からの水平投射は落下時間 $t=\\sqrt{2h/g}$，距離 $d=v_0t$。$\\dfrac{d}{h}=\\sqrt{\\dfrac{2v_0^2}{gh}}=\\sqrt{\\dfrac{2\\cdot2gh}{gh}}=2$。" }
+    },
+    {
+      "id": "2014-1-phy-3", "answerRow": 3, "block": "I", "topicId": "mech",
+      "subtopic": "Terminal velocity with drag and buoyancy",
+      "patternTags": ["plug-in-numbers", "terminal-velocity", "buoyancy"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "金属小球を油中で鉛直に落下させると，速さ $v$ に比例する抵抗力 $kv$ を受ける。じゅうぶん時間後の終端速度は $1.0\\,$m/s で一定だった。油の密度 $1.0\\times10^3\\,$kg/m³，小球の質量 $1.4\\times10^{-2}\\,$kg，小球の体積 $4.0\\times10^{-6}\\,$m³，$g=10\\,$m/s²。$k$ はいくらか。", "choices": ["$0.10$", "$0.20$", "$0.30$", "$0.40$"] },
+      "en": { "prompt": "A metal ball falls in oil with drag $kv$. Its terminal speed is $1.0\\,$m/s. Oil density $1.0\\times10^3\\,$kg/m³, ball mass $1.4\\times10^{-2}\\,$kg, ball volume $4.0\\times10^{-6}\\,$m³, $g=10\\,$m/s². Find $k$ (kg/s).", "choices": ["$0.10$", "$0.20$", "$0.30$", "$0.40$"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "$0.10$", "en": "$0.10$" },
+      "explanation": { "en": "At terminal velocity the net force is zero: $mg=\\rho_{oil}Vg+kv_t$. $mg=1.4\\times10^{-2}\\cdot10=0.14\\,$N; buoyancy $\\rho Vg=10^3\\cdot4.0\\times10^{-6}\\cdot10=0.04\\,$N. So $k\\cdot1.0=0.14-0.04=0.10$, i.e. $k=0.10\\,$kg/s.", "ja": "終端速度で合力 0：$mg=\\rho_{油}Vg+kv_t$。$mg=0.14\\,$N，浮力 $\\rho Vg=10^3\\cdot4.0\\times10^{-6}\\cdot10=0.04\\,$N。よって $k\\cdot1.0=0.10$，$k=0.10\\,$kg/s。" }
+    },
+    {
+      "id": "2014-1-phy-4", "answerRow": 4, "block": "I", "topicId": "mech",
+      "subtopic": "Impulse in a bounce (coefficient of restitution)",
+      "patternTags": ["plug-in-numbers", "impulse", "restitution"], "hasFigure": true,
+      "figure": { "ja": "質量 0.20 kg の小球を高さ 2.5 m から初速 0 で落とすと床で跳ね返る。はね返り係数 0.50，g=9.8。", "en": "A 0.20 kg ball dropped from rest at 2.5 m bounces off the floor; coefficient of restitution 0.50, g=9.8." },
+      "ja": { "prompt": "質量 $0.20\\,$kg の小球を床から高さ $2.5\\,$m の位置から初速 $0$ で落とすと，床で鉛直上方に跳ね返った。小球と床のはね返り係数は $0.50$，$g=9.8\\,$m/s²。衝突の直前から直後の間に，小球が床から受けた力積の大きさはいくらか。", "choices": ["$0.70$", "$1.4$", "$2.1$", "$2.8$"] },
+      "en": { "prompt": "A $0.20\\,$kg ball dropped from rest at $2.5\\,$m bounces vertically off the floor. Restitution coefficient $0.50$, $g=9.8\\,$m/s². Find the magnitude of the impulse the floor gives the ball during the bounce (kg·m/s).", "choices": ["$0.70$", "$1.4$", "$2.1$", "$2.8$"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "$2.1$", "en": "$2.1$" },
+      "explanation": { "en": "Just before: $v=\\sqrt{2\\cdot9.8\\cdot2.5}=7.0\\,$m/s (down). Just after: $v'=0.50\\cdot7.0=3.5\\,$m/s (up). Impulse $=m(v'+v)=0.20(3.5+7.0)=0.20\\cdot10.5=2.1\\,$kg·m/s.", "ja": "直前 $v=\\sqrt{2\\cdot9.8\\cdot2.5}=7.0\\,$m/s（下向き），直後 $v'=0.50\\cdot7.0=3.5\\,$m/s（上向き）。力積 $=m(v'+v)=0.20(3.5+7.0)=2.1\\,$kg·m/s。" }
+    },
+    {
+      "id": "2014-1-phy-5", "answerRow": 5, "block": "I", "topicId": "mech",
+      "subtopic": "Pendulum: height for a given bottom tension",
+      "patternTags": ["express-formula", "circular-motion", "energy-conservation"], "hasFigure": true,
+      "figure": { "ja": "長さ ℓ の軽い糸で質量 m の小球を天井からつるす。糸をたるませずに最下点から高さ h まで持ち上げ静かに離す。", "en": "A mass m hangs on a light string of length ℓ; raised (string taut) to height h above the lowest point and released." },
+      "ja": { "prompt": "長さ $\\ell$ の軽い糸で質量 $m$ の小球を天井からつるす。糸をたるませずに最下点からの高さ $h$ まで持ち上げ，静かに手を離す。最下点での糸の張力が $2mg$ となるような $h$ はどのように表されるか。", "choices": ["$\\dfrac{1}{4}\\ell$", "$\\dfrac{1}{2}\\ell$", "$\\dfrac{3}{4}\\ell$", "$\\ell$"] },
+      "en": { "prompt": "A mass $m$ on a light string of length $\\ell$ is raised (string taut) to height $h$ above the lowest point and released. For the tension at the lowest point to be $2mg$, express $h$.", "choices": ["$\\dfrac{1}{4}\\ell$", "$\\dfrac{1}{2}\\ell$", "$\\dfrac{3}{4}\\ell$", "$\\ell$"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "$\\dfrac{1}{2}\\ell$", "en": "$\\dfrac{1}{2}\\ell$" },
+      "explanation": { "en": "At the bottom: $T-mg=\\dfrac{mv^2}{\\ell}$ and energy gives $v^2=2gh$. So $T=mg+\\dfrac{2mgh}{\\ell}$. Setting $T=2mg$: $mg=\\dfrac{2mgh}{\\ell}$, hence $h=\\dfrac{\\ell}{2}$.", "ja": "最下点で $T-mg=\\dfrac{mv^2}{\\ell}$，$v^2=2gh$。よって $T=mg+\\dfrac{2mgh}{\\ell}$。$T=2mg$ より $mg=\\dfrac{2mgh}{\\ell}$，$h=\\dfrac{\\ell}{2}$。" }
+    },
+    {
+      "id": "2014-1-phy-6", "answerRow": 6, "block": "I", "topicId": "mech",
+      "subtopic": "SHM with a mass between two springs",
+      "patternTags": ["express-formula", "simple-harmonic-motion", "springs"], "hasFigure": true,
+      "figure": { "ja": "自然長 ℓ・ばね定数 k のばね（先に質量 m/2 の物体）を 2 組。2 物体を接着して一体（質量 m）にし，なめらかな床に置き，両ばねの外端を自然長で固定。右へずらして離すと単振動。", "en": "Two identical springs (constant k, natural length ℓ), each carrying a mass m/2, with the two masses glued together (total m) on a smooth floor; both outer ends fixed at natural length. Displaced and released → SHM." },
+      "ja": { "prompt": "自然長 $\\ell$，ばね定数 $k$ の軽いばねの一端に質量 $\\frac{m}{2}$ の物体を付けたものを 2 組用意し，2 つの物体を接着して一体（質量 $m$）にして，なめらかな水平面に置き，両ばねの外端を自然長で固定した。一体を右へずらして離すと単振動した。この単振動の周期はどれか。", "choices": ["$2\\pi\\sqrt{\\dfrac{m}{4k}}$", "$2\\pi\\sqrt{\\dfrac{m}{2k}}$", "$2\\pi\\sqrt{\\dfrac{m}{k}}$", "$2\\pi\\sqrt{\\dfrac{2m}{k}}$", "$2\\pi\\sqrt{\\dfrac{4m}{k}}$"] },
+      "en": { "prompt": "Two identical springs (constant $k$), each with a mass $\\frac{m}{2}$, are glued together into one body (mass $m$) on a smooth floor, with both outer ends fixed at natural length. Displaced and released, it undergoes SHM. Find the period.", "choices": ["$2\\pi\\sqrt{\\dfrac{m}{4k}}$", "$2\\pi\\sqrt{\\dfrac{m}{2k}}$", "$2\\pi\\sqrt{\\dfrac{m}{k}}$", "$2\\pi\\sqrt{\\dfrac{2m}{k}}$", "$2\\pi\\sqrt{\\dfrac{4m}{k}}$"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "$2\\pi\\sqrt{\\dfrac{m}{2k}}$", "en": "$2\\pi\\sqrt{\\dfrac{m}{2k}}$" },
+      "explanation": { "en": "When the combined mass (total $m$) moves, both springs push back, so the effective constant is $k+k=2k$ (springs act in parallel). Period $T=2\\pi\\sqrt{\\dfrac{m}{2k}}$.", "ja": "一体（質量 $m$）が動くと両ばねが復元力を与えるので有効ばね定数は $k+k=2k$（並列）。周期 $T=2\\pi\\sqrt{\\dfrac{m}{2k}}$。" }
+    },
+    {
+      "id": "2014-1-phy-7", "answerRow": 7, "block": "I", "topicId": "mech",
+      "subtopic": "Inertial force on a rider during SHM",
+      "patternTags": ["read-from-graph", "simple-harmonic-motion", "inertial-force"], "hasFigure": true,
+      "figure": { "ja": "ばねに付けた台（人が乗る）がなめらかな床で周期 T の単振動。右向きを正として，台の変位 x の x–t グラフ（図2）が与えられる。慣性力 f の f–t グラフを選ぶ。", "en": "A spring-mounted platform (with a rider) oscillates with period T on a smooth floor; the platform displacement x–t graph (figure 2) is given. Choose the rider's inertial-force f–t graph." },
+      "ja": { "prompt": "ばねに付けた台の上に人が立ち，台はなめらかな床で周期 $T$ の単振動をする。右向きを正として台の変位 $x$ の時間変化が図2 のグラフで与えられる。台の上に滑らずに立つ人が受ける慣性力 $f$（右向きを正）の $f$–$t$ グラフはどれか。", "choices": ["図2 と同じ形（$x$ と同位相）", "図2 と上下反転（$x$ と逆位相）", "図2 を $T/4$ 右にずらした形", "$f$ は常に 0（一定）"] },
+      "en": { "prompt": "A rider stands on a spring-mounted platform oscillating with period $T$. With rightward positive, the platform displacement $x$ varies as in figure 2. Which $f$–$t$ graph shows the inertial (pseudo) force $f$ on the rider (rightward positive)?", "choices": ["same shape as figure 2 (in phase with $x$)", "vertically flipped figure 2 (out of phase with $x$)", "figure 2 shifted right by $T/4$", "$f$ is always 0"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "図2 と同じ形（$x$ と同位相）", "en": "same shape as figure 2 (in phase with $x$)" },
+      "explanation": { "en": "The inertial (pseudo) force on the rider is $f=-m\\,a$, and for SHM $a=-\\omega^2x$, so $f=+m\\omega^2x$ — it is proportional to and in phase with the displacement $x$. Hence the $f$–$t$ graph has the same shape as the given $x$–$t$ graph (figure 2).", "ja": "人が受ける慣性力は $f=-m\\,a$。単振動では $a=-\\omega^2x$ なので $f=+m\\omega^2x$，すなわち変位 $x$ に比例し同位相。よって $f$–$t$ グラフは図2（$x$–$t$）と同じ形。" }
+    },
+    {
+      "id": "2014-1-phy-8", "answerRow": 8, "block": "II", "topicId": "thermo",
+      "subtopic": "Equal heat to water and to air at constant volume",
+      "patternTags": ["plug-in-numbers", "specific-heat", "density"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "$10\\,$℃ の水 $2.4\\times10^2\\,$g にある熱量を与えると $15\\,$℃ になった。ある体積の $10\\,$℃ の空気に，体積を保ったまま同じ熱量を与えるとやはり $15\\,$℃ になった。水の比熱 $4.2\\,$J/(g·K)，空気の定積比熱 $0.72\\,$J/(g·K)，空気の密度 $1.2\\times10^{-3}\\,$g/cm³。この空気の体積はいくらか。", "choices": ["$1.7$", "$1.4\\times10^3$", "$1.2\\times10^6$", "$1.0\\times10^9$"] },
+      "en": { "prompt": "$2.4\\times10^2\\,$g of $10\\,$℃ water receives some heat and reaches $15\\,$℃. The same heat given (at constant volume) to some $10\\,$℃ air also brings it to $15\\,$℃. $c_{water}=4.2$, $c_{V,air}=0.72\\,$J/(g·K), air density $1.2\\times10^{-3}\\,$g/cm³. Find the air's volume (cm³).", "choices": ["$1.7$", "$1.4\\times10^3$", "$1.2\\times10^6$", "$1.0\\times10^9$"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "$1.2\\times10^6$", "en": "$1.2\\times10^6$" },
+      "explanation": { "en": "Heat to water $Q=240\\cdot4.2\\cdot5=5040\\,$J. For the air $Q=m\\cdot0.72\\cdot5=3.6m$, so $m=5040/3.6=1400\\,$g. Volume $=\\dfrac{1400}{1.2\\times10^{-3}}\\approx1.2\\times10^6\\,$cm³.", "ja": "水への熱量 $Q=240\\cdot4.2\\cdot5=5040\\,$J。空気は $Q=m\\cdot0.72\\cdot5=3.6m$ より $m=1400\\,$g。体積 $=\\dfrac{1400}{1.2\\times10^{-3}}\\approx1.2\\times10^6\\,$cm³。" }
+    },
+    {
+      "id": "2014-1-phy-9", "answerRow": 9, "block": "II", "topicId": "thermo",
+      "subtopic": "Isothermal compression — applied force on a piston",
+      "patternTags": ["express-formula", "isothermal", "boyle"], "hasFigure": true,
+      "figure": { "ja": "なめらかなピストン（断面積 S）で理想気体を水平シリンダーに封入。最初の長さ ℓ，圧力＝大気圧 p0。ゆっくり等温で押し込み，長さ ℓ−d で加えた力は F。", "en": "A smooth piston (area S) seals ideal gas in a horizontal cylinder; initial length ℓ, pressure = atmospheric p0. Pushed in isothermally to length ℓ−d with applied force F." },
+      "ja": { "prompt": "なめらかに動く断面積 $S$ のピストンで理想気体を水平シリンダーに閉じ込めた。最初，気体の長さは $\\ell$，圧力は大気圧 $p_0$ に等しかった。等温を保ってゆっくり押し込み，長さが $\\ell-d$ になったとき，加えている力の大きさは $F$ であった。$F$ はどのように表されるか。", "choices": ["$\\dfrac{p_0Sd}{\\ell}$", "$\\dfrac{p_0Sd}{\\ell-d}$", "$\\dfrac{p_0S(\\ell-d)}{\\ell}$", "$\\dfrac{p_0S\\ell}{\\ell-d}$"] },
+      "en": { "prompt": "A smooth piston (area $S$) seals ideal gas in a horizontal cylinder; initial length $\\ell$, pressure $=p_0$ (atmospheric). Pushed in isothermally to length $\\ell-d$ with applied force $F$. Express $F$.", "choices": ["$\\dfrac{p_0Sd}{\\ell}$", "$\\dfrac{p_0Sd}{\\ell-d}$", "$\\dfrac{p_0S(\\ell-d)}{\\ell}$", "$\\dfrac{p_0S\\ell}{\\ell-d}$"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "$\\dfrac{p_0Sd}{\\ell-d}$", "en": "$\\dfrac{p_0Sd}{\\ell-d}$" },
+      "explanation": { "en": "Isothermal (Boyle): $p_0(S\\ell)=p\\,S(\\ell-d)$, so $p=\\dfrac{p_0\\ell}{\\ell-d}$. Piston balance: $pS=p_0S+F$, hence $F=S(p-p_0)=p_0S\\left(\\dfrac{\\ell}{\\ell-d}-1\\right)=\\dfrac{p_0Sd}{\\ell-d}$.", "ja": "等温（ボイル）$p_0(S\\ell)=pS(\\ell-d)$ より $p=\\dfrac{p_0\\ell}{\\ell-d}$。ピストンのつり合い $pS=p_0S+F$ から $F=S(p-p_0)=p_0S\\left(\\dfrac{\\ell}{\\ell-d}-1\\right)=\\dfrac{p_0Sd}{\\ell-d}$。" }
+    },
+    {
+      "id": "2014-1-phy-10", "answerRow": 10, "block": "II", "topicId": "thermo",
+      "subtopic": "Work done on gas over an adiabatic leg",
+      "patternTags": ["express-formula", "first-law", "adiabatic", "monatomic"], "hasFigure": true,
+      "figure": { "ja": "単原子分子理想気体の p–V サイクル A→B→C→A。A→B 定積（A:(V0,p0)→B:(V0,3p0)），B→C 断熱（膨張），C→A 等温。", "en": "Monatomic ideal-gas p–V cycle A→B→C→A: A→B isochoric (A:(V0,p0)→B:(V0,3p0)), B→C adiabatic expansion, C→A isothermal." },
+      "ja": { "prompt": "一定量の単原子分子理想気体を A→B→C→A と変化させた。A→B は定積，B→C は断熱，C→A は等温変化である。状態 A は $(V_0,p_0)$，状態 B は $(V_0,3p_0)$ である。過程 B→C で気体がされた仕事はどのように表されるか。", "choices": ["$\\dfrac{3}{2}p_0V_0$", "$\\dfrac{5}{2}p_0V_0$", "$3p_0V_0$", "$5p_0V_0$", "$-\\dfrac{3}{2}p_0V_0$", "$-\\dfrac{5}{2}p_0V_0$", "$-3p_0V_0$", "$-5p_0V_0$"] },
+      "en": { "prompt": "A monatomic ideal gas runs A→B→C→A: A→B isochoric, B→C adiabatic, C→A isothermal. A$=(V_0,p_0)$, B$=(V_0,3p_0)$. Find the work done ON the gas during B→C.", "choices": ["$\\dfrac{3}{2}p_0V_0$", "$\\dfrac{5}{2}p_0V_0$", "$3p_0V_0$", "$5p_0V_0$", "$-\\dfrac{3}{2}p_0V_0$", "$-\\dfrac{5}{2}p_0V_0$", "$-3p_0V_0$", "$-5p_0V_0$"] },
+      "answerIndex": 6, "answerOption": 7, "answer": { "ja": "$-3p_0V_0$", "en": "$-3p_0V_0$" },
+      "explanation": { "en": "B→C is adiabatic ($Q=0$), so the work done on the gas equals $\\Delta U=\\tfrac32(p_CV_C-p_BV_B)$. Since C→A is isothermal, $T_C=T_A$ so $p_CV_C=p_AV_A=p_0V_0$; also $p_BV_B=3p_0V_0$. Thus $\\Delta U=\\tfrac32(p_0V_0-3p_0V_0)=-3p_0V_0$ (negative: the gas expands and does work on the surroundings).", "ja": "B→C は断熱（$Q=0$）なので気体がされた仕事 $=\\Delta U=\\tfrac32(p_CV_C-p_BV_B)$。C→A が等温なので $T_C=T_A$，$p_CV_C=p_AV_A=p_0V_0$。また $p_BV_B=3p_0V_0$。よって $\\Delta U=\\tfrac32(p_0V_0-3p_0V_0)=-3p_0V_0$（負：気体は膨張して外部に仕事をする）。" }
+    },
+    {
+      "id": "2014-1-phy-11", "answerRow": 11, "block": "III", "topicId": "waves",
+      "subtopic": "Free-end reflection — composite waveform after a time",
+      "patternTags": ["read-from-graph", "wave-reflection", "superposition"], "hasFigure": true,
+      "figure": { "ja": "速さ 10 cm/s で +x に進む波長 20 cm の正弦波。x=0 cm の壁で自由端反射。3.5 s 後の入射波と反射波の合成波形を選ぶ。", "en": "A 20 cm sine wave moving +x at 10 cm/s, free-end reflection at the wall x=0. Choose the incident+reflected composite waveform 3.5 s later." },
+      "ja": { "prompt": "速さ $10\\,$cm/s で $x$ 軸正の向きに進む波長 $20\\,$cm の正弦波がある（図はある瞬間の波形）。波は $x=0\\,$cm の壁で自由端反射する。この瞬間から $3.5\\,$s 後の入射波と反射波の合成波の波形はどれか。", "choices": ["壁の左に山，$x=-20$ 付近に谷をもつ合成波形（②）", "$x=-20$ 付近に谷，壁の手前（$-10$〜$0$）で山となる合成波形", "壁付近で振幅が消えた直線", "②を上下反転した波形", "壁付近のみ大きく振動する波形"] },
+      "en": { "prompt": "A $20\\,$cm sine wave moves $+x$ at $10\\,$cm/s and reflects (free end) at the wall $x=0\\,$cm. Which is the incident+reflected composite waveform $3.5\\,$s later?", "choices": ["a composite with a crest just left of the wall and a trough near $x=-20$ (②)", "a composite with a trough near $x=-20$ and a crest near the wall ($-10$ to $0$)", "a flat line (amplitude cancelled near the wall)", "the vertical flip of ②", "large oscillation only near the wall"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "②（$3.5\\,$s で自由端反射の合成波形）", "en": "② (the free-end reflection composite after 3.5 s)" },
+      "explanation": { "en": "Period $T=\\lambda/v=20/10=2\\,$s, so $3.5\\,$s $=1.75\\,T$ and the wave advances $35\\,$cm $=1.75\\lambda$. Free-end reflection gives a reflected wave with no phase inversion; advancing the incident wave and superposing it with its non-inverted reflection about $x=0$ produces waveform ②.", "ja": "周期 $T=\\lambda/v=2\\,$s なので $3.5\\,$s $=1.75T$，波は $35\\,$cm$=1.75\\lambda$ 進む。自由端反射では反射波は位相が反転しない。入射波を進め，$x=0$ で位相反転なしに折り返した反射波と重ね合わせると②の波形になる。" }
+    },
+    {
+      "id": "2014-1-phy-12", "answerRow": 12, "block": "III", "topicId": "waves",
+      "subtopic": "Closed-pipe resonance vs temperature",
+      "patternTags": ["read-from-graph", "resonance", "closed-pipe"], "hasFigure": true,
+      "figure": { "ja": "音速 V=331.5+0.6t（t は℃）。一端を閉じた管の開口にスピーカー。振動数を 0 から上げ，最初の共鳴の振動数 f，そのときの波長 λ。管の熱膨張・開口端補正は無視。グラフ (a)一定 (b)増加 (c)減少。", "en": "Sound speed V=331.5+0.6t (t in ℃). Speaker at the open end of a closed pipe; raising the frequency, first resonance at f with wavelength λ. Ignore thermal expansion / end correction. Graphs: (a) constant, (b) increasing, (c) decreasing." },
+      "ja": { "prompt": "音速は $V=331.5+0.6t\\,$m/s（$t$ は気温℃）。一端が閉じた管の開口にスピーカーを置き，振動数を $0$ から上げると振動数 $f$ で最初の共鳴が起き，そのときの波長は $\\lambda$ であった。管の熱膨張・開口端補正は無視する。$f$ と $\\lambda$ の気温 $t$ に対する変化を表すグラフ（(a)一定，(b)増加，(c)減少）の組み合わせはどれか。", "choices": ["$f$:(a), $\\lambda$:(b)", "$f$:(a), $\\lambda$:(c)", "$f$:(b), $\\lambda$:(a)", "$f$:(b), $\\lambda$:(c)", "$f$:(c), $\\lambda$:(a)", "$f$:(c), $\\lambda$:(b)"] },
+      "en": { "prompt": "Sound speed $V=331.5+0.6t$ (℃). A speaker at the open end of a closed pipe is swept up in frequency; first resonance at $f$ with wavelength $\\lambda$. Ignore thermal expansion / end correction. Which combination shows $f$ and $\\lambda$ versus temperature $t$ ((a) constant, (b) increasing, (c) decreasing)?", "choices": ["$f$:(a), $\\lambda$:(b)", "$f$:(a), $\\lambda$:(c)", "$f$:(b), $\\lambda$:(a)", "$f$:(b), $\\lambda$:(c)", "$f$:(c), $\\lambda$:(a)", "$f$:(c), $\\lambda$:(b)"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "$f$:(b), $\\lambda$:(a)", "en": "$f$:(b), $\\lambda$:(a)" },
+      "explanation": { "en": "First resonance of a closed pipe: $\\lambda=4L$ with $L$ fixed (no thermal expansion), so $\\lambda$ is constant — graph (a). $f=V/\\lambda=(331.5+0.6t)/(4L)$ increases linearly with $t$ — graph (b).", "ja": "閉管の最初の共鳴は $\\lambda=4L$，$L$ は一定なので $\\lambda$ は一定（(a)）。$f=V/\\lambda=(331.5+0.6t)/(4L)$ は $t$ とともに直線的に増加（(b)）。" }
+    },
+    {
+      "id": "2014-1-phy-13", "answerRow": 13, "block": "III", "topicId": "waves",
+      "subtopic": "Diffraction-grating spectrum colours",
+      "patternTags": ["conceptual", "diffraction-grating", "dispersion"], "hasFigure": true,
+      "figure": { "ja": "回折格子に白色光を垂直入射。スクリーン中心の上側に A,B,C（A 最遠，C 中心寄り），下側に D,E,F（D 中心寄り，F 最遠）の連続スペクトル。各位置の色を選ぶ。", "en": "White light normally on a grating; on the screen, above centre A,B,C (A farthest, C nearest centre) and below D,E,F (D nearest, F farthest) form continuous spectra. Identify the colours." },
+      "ja": { "prompt": "回折格子に白色光を垂直に当てると，スクリーン中心付近の位置 A〜C（上側，A が最遠で C が中心寄り）と D〜F（下側，D が中心寄りで F が最遠）に連続スペクトルが見えた。位置 A〜F で観測される色の組み合わせはどれか。", "choices": ["A緑 B青 C赤 / D緑 E青 F赤", "A赤 B青 C緑 / D赤 E青 F緑（など他の並び）", "A緑 B青 C赤 / D赤 E青 F緑", "A青 B緑 C赤 / D赤 E緑 F青", "A赤 B青 C緑 / D緑 E青 F赤", "A赤 B緑 C青 / D青 E緑 F赤"] },
+      "en": { "prompt": "White light normally incident on a grating gives spectra at A–C (above centre, A farthest, C nearest) and D–F (below, D nearest, F farthest). Which colour set is observed at A–F?", "choices": ["A green B blue C red / D green E blue F red", "A red B blue C green / D red E blue F green", "A green B blue C red / D red E blue F green", "A blue B green C red / D red E green F blue", "A red B blue C green / D green E blue F red", "A red B green C blue / D blue E green F red"] },
+      "answerIndex": 5, "answerOption": 6, "answer": { "ja": "A赤 B緑 C青 / D青 E緑 F赤", "en": "A red, B green, C blue / D blue, E green, F red" },
+      "explanation": { "en": "In a grating spectrum the diffraction angle grows with wavelength ($d\\sin\\theta=m\\lambda$), so red bends most and blue least. In each first-order band the colour nearest the centre (small angle) is blue and the farthest is red. Upper band A(far)→C(near): A red, B green, C blue. Lower band D(near)→F(far): D blue, E green, F red.", "ja": "回折格子では波長が長いほど回折角が大きい（$d\\sin\\theta=m\\lambda$）ので赤が最も大きく曲がり青が最も小さい。各 1 次スペクトルで中心寄り（小角）が青，最遠（大角）が赤。上側 A(遠)→C(近)：A赤 B緑 C青。下側 D(近)→F(遠)：D青 E緑 F赤。" }
+    },
+    {
+      "id": "2014-1-phy-14", "answerRow": 14, "block": "IV", "topicId": "em",
+      "subtopic": "Zero-potential point between two charges",
+      "patternTags": ["express-formula", "electric-potential", "superposition"], "hasFigure": true,
+      "figure": { "ja": "x 軸上：原点に −q（q>0），x=a に +4q。無限遠の電位を 0。", "en": "On the x-axis: −q (q>0) at the origin and +4q at x=a; potential zero at infinity." },
+      "ja": { "prompt": "$x$ 軸上の原点に電気量 $-q\\,(q>0)$，$x=a$ に $+4q$ の点電荷を置く。無限遠の電位を $0$ とする。$0<x<a$ の範囲で電位が $0$ になる点の $x$ 座標はどれか。", "choices": ["$\\dfrac{1}{5}a$", "$\\dfrac{1}{3}a$", "$\\dfrac{2}{3}a$", "$\\dfrac{4}{5}a$"] },
+      "en": { "prompt": "On the $x$-axis, $-q\\,(q>0)$ is at the origin and $+4q$ at $x=a$ (potential zero at infinity). At which $x$ in $0<x<a$ is the potential zero?", "choices": ["$\\dfrac{1}{5}a$", "$\\dfrac{1}{3}a$", "$\\dfrac{2}{3}a$", "$\\dfrac{4}{5}a$"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "$\\dfrac{1}{5}a$", "en": "$\\dfrac{1}{5}a$" },
+      "explanation": { "en": "$V(x)=\\dfrac{k(-q)}{x}+\\dfrac{k(4q)}{a-x}=0$ gives $\\dfrac{4}{a-x}=\\dfrac{1}{x}$, i.e. $4x=a-x$, so $x=\\dfrac{a}{5}$.", "ja": "$V(x)=\\dfrac{k(-q)}{x}+\\dfrac{k(4q)}{a-x}=0$ より $\\dfrac{4}{a-x}=\\dfrac{1}{x}$，$4x=a-x$，よって $x=\\dfrac{a}{5}$。" }
+    },
+    {
+      "id": "2014-1-phy-15", "answerRow": 15, "block": "IV", "topicId": "em",
+      "subtopic": "Capacitor energy: isolated dielectric vs reconnected",
+      "patternTags": ["express-formula", "capacitors", "dielectric", "energy"], "hasFigure": true,
+      "figure": { "ja": "電池＋スイッチ＋真空平行板コンデンサー。スイッチを閉じて充電後に開く（電荷一定）。誘電率 ε の誘電体で満たすとエネルギー U1（図3）。その後スイッチを閉じる（電圧一定 V）とエネルギー U2（図4）。真空の誘電率 ε0。", "en": "Battery + switch + vacuum parallel-plate capacitor. Close to charge, then open (charge fixed). Fill with dielectric ε → energy U1 (fig 3). Then close again (voltage V fixed) → U2 (fig 4). Vacuum permittivity ε0." },
+      "ja": { "prompt": "電池・スイッチ・真空の平行板コンデンサーからなる回路で，スイッチを閉じて充電し，じゅうぶん時間後に開いた。この状態で極板間を誘電率 $\\varepsilon$ の誘電体で満たすと静電エネルギーは $U_1$ となった。その後，誘電体を入れたまま再びスイッチを閉じると静電エネルギーは $U_2$ となった。真空の誘電率を $\\varepsilon_0$ とする。$\\dfrac{U_1}{U_2}$ はどれか。", "choices": ["$1$", "$\\dfrac{\\varepsilon_0}{\\varepsilon}$", "$\\dfrac{\\varepsilon}{\\varepsilon_0}$", "$\\left(\\dfrac{\\varepsilon_0}{\\varepsilon}\\right)^2$", "$\\left(\\dfrac{\\varepsilon}{\\varepsilon_0}\\right)^2$"] },
+      "en": { "prompt": "Battery, switch, vacuum capacitor: close to charge, then open. Filling with dielectric $\\varepsilon$ gives energy $U_1$; then reclosing the switch gives $U_2$. With vacuum permittivity $\\varepsilon_0$, find $\\dfrac{U_1}{U_2}$.", "choices": ["$1$", "$\\dfrac{\\varepsilon_0}{\\varepsilon}$", "$\\dfrac{\\varepsilon}{\\varepsilon_0}$", "$\\left(\\dfrac{\\varepsilon_0}{\\varepsilon}\\right)^2$", "$\\left(\\dfrac{\\varepsilon}{\\varepsilon_0}\\right)^2$"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "$\\left(\\dfrac{\\varepsilon_0}{\\varepsilon}\\right)^2$", "en": "$\\left(\\dfrac{\\varepsilon_0}{\\varepsilon}\\right)^2$" },
+      "explanation": { "en": "Let $C_0=\\varepsilon_0S/d$ and battery voltage $V$. Charged then isolated: $Q=C_0V$ fixed. With dielectric, $C=\\tfrac{\\varepsilon}{\\varepsilon_0}C_0$; isolated energy $U_1=\\dfrac{Q^2}{2C}=\\dfrac{\\varepsilon_0}{\\varepsilon}\\cdot\\dfrac{C_0V^2}{2}$. Reconnected (voltage $V$): $U_2=\\tfrac12CV^2=\\dfrac{\\varepsilon}{\\varepsilon_0}\\cdot\\dfrac{C_0V^2}{2}$. So $\\dfrac{U_1}{U_2}=\\left(\\dfrac{\\varepsilon_0}{\\varepsilon}\\right)^2$.", "ja": "$C_0=\\varepsilon_0S/d$，電池電圧 $V$ とする。充電後に孤立させると $Q=C_0V$ 一定。誘電体で $C=\\tfrac{\\varepsilon}{\\varepsilon_0}C_0$，孤立時 $U_1=\\dfrac{Q^2}{2C}=\\dfrac{\\varepsilon_0}{\\varepsilon}\\cdot\\dfrac{C_0V^2}{2}$。再接続（電圧 $V$）で $U_2=\\tfrac12CV^2=\\dfrac{\\varepsilon}{\\varepsilon_0}\\cdot\\dfrac{C_0V^2}{2}$。よって $\\dfrac{U_1}{U_2}=\\left(\\dfrac{\\varepsilon_0}{\\varepsilon}\\right)^2$。" }
+    },
+    {
+      "id": "2014-1-phy-16", "answerRow": 16, "block": "IV", "topicId": "em",
+      "subtopic": "Node potentials with a switch (open vs closed)",
+      "patternTags": ["plug-in-numbers", "dc-circuit", "potential"], "hasFigure": true,
+      "figure": { "ja": "10 V 電池，2.0 kΩ（左上）と 3.0 kΩ（右上）を直列にした上枝（途中が点 Q），下枝に電池と点 P，スイッチを経て点 O（0 V 基準・接地）。", "en": "10 V battery; top branch 2.0 kΩ (left) and 3.0 kΩ (right) in series with node Q between; bottom branch has the battery, node P, a switch, to node O (0 V reference, grounded)." },
+      "ja": { "prompt": "$10\\,$V の電池と $2.0\\,$kΩ・$3.0\\,$kΩ の抵抗をつなぐ。点 O を電位の基準（$0\\,$V）とする。スイッチを開いた状態での点 P の電位 $V_P$ と，スイッチを閉じた状態での点 Q の電位 $V_Q$ の組み合わせはどれか（内部抵抗無視）。", "choices": ["$V_P=0$, $V_Q=4.0$", "$V_P=0$, $V_Q=5.0$", "$V_P=0$, $V_Q=6.0$", "$V_P=-10$, $V_Q=4.0$", "$V_P=-10$, $V_Q=5.0$", "$V_P=-10$, $V_Q=6.0$"] },
+      "en": { "prompt": "A $10\\,$V battery is connected with $2.0\\,$kΩ and $3.0\\,$kΩ resistors; O is the $0\\,$V reference. Give the potential $V_P$ (switch open) and $V_Q$ (switch closed). Internal resistance negligible.", "choices": ["$V_P=0$, $V_Q=4.0$", "$V_P=0$, $V_Q=5.0$", "$V_P=0$, $V_Q=6.0$", "$V_P=-10$, $V_Q=4.0$", "$V_P=-10$, $V_Q=5.0$", "$V_P=-10$, $V_Q=6.0$"] },
+      "answerIndex": 5, "answerOption": 6, "answer": { "ja": "$V_P=-10\\,$V, $V_Q=6.0\\,$V", "en": "$V_P=-10\\,$V, $V_Q=6.0\\,$V" },
+      "explanation": { "en": "Switch open: no current flows, so there is no drop across the top resistors and the left node sits at $V_O=0$; the battery then puts P at $-10\\,$V. Switch closed: P is tied to O ($0\\,$V), the left node is at $+10\\,$V, and $I=\\dfrac{10\\,V}{5\\,k\\Omega}=2\\,$mA. Then $V_Q=0+I\\cdot3\\,k\\Omega=6.0\\,$V.", "ja": "スイッチ開：電流が流れず上の抵抗で電圧降下がないので左ノードは $V_O=0$，電池により P は $-10\\,$V。スイッチ閉：P は O（$0\\,$V）につながり左ノードは $+10\\,$V，$I=\\dfrac{10}{5\\,\\mathrm{k}\\Omega}=2\\,$mA。$V_Q=0+I\\cdot3\\,$kΩ$=6.0\\,$V。" }
+    },
+    {
+      "id": "2014-1-phy-17", "answerRow": 17, "block": "IV", "topicId": "em",
+      "subtopic": "Bridge with a capacitor (steady-state charge)",
+      "patternTags": ["express-formula", "dc-circuit", "capacitor", "bridge"], "hasFigure": true,
+      "figure": { "ja": "電池 V。左枝 R(上)+4R(下)，右枝 3R(上)+2R(下)，両枝の中点をコンデンサー C で橋渡し。", "en": "Battery V. Left branch R(top)+4R(bottom), right branch 3R(top)+2R(bottom); capacitor C bridges the two midpoints." },
+      "ja": { "prompt": "起電力 $V$ の電池，抵抗 $R,2R,3R,4R$，電気容量 $C$ のコンデンサーを図のように接続した（左枝 $R$ 上・$4R$ 下，右枝 $3R$ 上・$2R$ 下，中点間に $C$）。内部抵抗は無視する。じゅうぶん時間後にコンデンサーに蓄えられる電荷はどれか。", "choices": ["$0$", "$\\dfrac{1}{5}CV$", "$\\dfrac{2}{5}CV$", "$\\dfrac{3}{5}CV$", "$\\dfrac{4}{5}CV$", "$CV$"] },
+      "en": { "prompt": "Battery $V$, resistors $R,2R,3R,4R$, and capacitor $C$ are connected as shown (left branch $R$ top/$4R$ bottom; right branch $3R$ top/$2R$ bottom; $C$ between the midpoints). Find the steady-state charge on $C$.", "choices": ["$0$", "$\\dfrac{1}{5}CV$", "$\\dfrac{2}{5}CV$", "$\\dfrac{3}{5}CV$", "$\\dfrac{4}{5}CV$", "$CV$"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "$\\dfrac{2}{5}CV$", "en": "$\\dfrac{2}{5}CV$" },
+      "explanation": { "en": "At steady state no current flows through $C$, so each branch is a simple divider. Taking the bottom rail as 0 and top as $V$: left midpoint $=V\\cdot\\dfrac{4R}{R+4R}=\\dfrac{4V}{5}$; right midpoint $=V\\cdot\\dfrac{2R}{3R+2R}=\\dfrac{2V}{5}$. The capacitor voltage is $\\dfrac{4V}{5}-\\dfrac{2V}{5}=\\dfrac{2V}{5}$, so $Q=\\dfrac{2}{5}CV$.", "ja": "定常では $C$ に電流が流れず，各枝は単純な分圧。下を 0，上を $V$ とすると左中点 $=V\\cdot\\dfrac{4R}{5R}=\\dfrac{4V}{5}$，右中点 $=V\\cdot\\dfrac{2R}{5R}=\\dfrac{2V}{5}$。コンデンサー電圧は $\\dfrac{4V}{5}-\\dfrac{2V}{5}=\\dfrac{2V}{5}$，よって $Q=\\dfrac{2}{5}CV$。" }
+    },
+    {
+      "id": "2014-1-phy-18", "answerRow": 18, "block": "IV", "topicId": "em",
+      "subtopic": "Compass deflection by a current wire (distance ratio)",
+      "patternTags": ["express-formula", "magnetic-field", "tangent-law"], "hasFigure": true,
+      "figure": { "ja": "方位磁針の真上 距離 d に南北方向の直線導線。電流を流すと N 極が東へ 60° 振れる。電流一定のまま導線を上げ距離 D にすると 45° 振れる。", "en": "A N–S wire is at height d above a compass; with current on, the N pole deflects 60° east. Keeping the current, raising the wire to height D gives a 45° deflection." },
+      "ja": { "prompt": "方位磁針の真上，距離 $d$ に南北方向（磁針と平行）の直線導線がある。電流を流すと磁針の N 極が東へ $60°$ 振れた。電流を保ったまま導線を鉛直上方に移動し距離を $D$ にすると，N 極は東へ $45°$ 振れた。$\\dfrac{D}{d}$ はいくらか。", "choices": ["$\\dfrac{2\\sqrt3}{3}$", "$\\dfrac{\\sqrt6}{2}$", "$\\sqrt2$", "$\\sqrt3$", "$\\sqrt6$"] },
+      "en": { "prompt": "A N–S wire at height $d$ above a compass deflects the N pole $60°$ east when current flows. Keeping the current, raising the wire to height $D$ gives a $45°$ deflection. Find $\\dfrac{D}{d}$.", "choices": ["$\\dfrac{2\\sqrt3}{3}$", "$\\dfrac{\\sqrt6}{2}$", "$\\sqrt2$", "$\\sqrt3$", "$\\sqrt6$"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "$\\sqrt3$", "en": "$\\sqrt3$" },
+      "explanation": { "en": "The needle aligns with the resultant of the Earth's field $B_E$ (north) and the wire's field $B_w=\\dfrac{\\mu_0 I}{2\\pi r}$ (east–west), so $\\tan\\theta=\\dfrac{B_w}{B_E}\\propto\\dfrac1r$. Then $\\dfrac{\\tan60°}{\\tan45°}=\\dfrac{1/d}{1/D}=\\dfrac{D}{d}$, giving $\\dfrac{D}{d}=\\dfrac{\\sqrt3}{1}=\\sqrt3$.", "ja": "磁針は地磁気 $B_E$（北）と導線の磁場 $B_w=\\dfrac{\\mu_0 I}{2\\pi r}$（東西）の合成方向を向くので $\\tan\\theta=\\dfrac{B_w}{B_E}\\propto\\dfrac1r$。$\\dfrac{\\tan60°}{\\tan45°}=\\dfrac{1/d}{1/D}=\\dfrac{D}{d}$ より $\\dfrac{D}{d}=\\sqrt3$。" }
+    },
+    {
+      "id": "2014-1-phy-19", "answerRow": 19, "block": "IV", "topicId": "em",
+      "subtopic": "Force on a current at angle θ to a uniform field",
+      "patternTags": ["express-formula", "magnetic-force", "cross-product"], "hasFigure": true,
+      "figure": { "ja": "一様磁場 B が +y 向き（紙面内）。直線導線（電流 I）が xy 平面内で +x 軸と角 θ をなす。z 軸は紙面の裏から表（紙面手前）が正。長さ ℓ の部分が受ける力の大きさと向きを問う。", "en": "Uniform field B along +y (in plane). A wire (current I) lies in the xy-plane at angle θ to +x. The +z axis points out of the page. Find the force on a length ℓ." },
+      "ja": { "prompt": "一様な磁束密度 $B$ の磁場が $+y$ 向き（紙面内）にある。直線導線に大きさ $I$ の電流が流れ，電流の向きは $xy$ 平面内で $x$ 軸の正の向きと角 $\\theta$（$0<\\theta<\\tfrac{\\pi}{2}$）をなす。$z$ 軸の正の向きは紙面の裏から表へ向かう向きである。導線の長さ $\\ell$ の部分が受ける力の大きさと向きはどれか。", "choices": ["$IB\\ell$, $z$ 軸の正の向き", "$IB\\ell$, $z$ 軸の負の向き", "$IB\\ell\\sin\\theta$, $z$ 軸の正の向き", "$IB\\ell\\sin\\theta$, $z$ 軸の負の向き", "$IB\\ell\\cos\\theta$, $z$ 軸の正の向き", "$IB\\ell\\cos\\theta$, $z$ 軸の負の向き"] },
+      "en": { "prompt": "A uniform field $B$ points along $+y$ (in the plane). A wire carries current $I$ at angle $\\theta$ to $+x$ in the $xy$-plane; $+z$ points out of the page. Give the magnitude and direction of the force on a length $\\ell$.", "choices": ["$IB\\ell$, $+z$", "$IB\\ell$, $-z$", "$IB\\ell\\sin\\theta$, $+z$", "$IB\\ell\\sin\\theta$, $-z$", "$IB\\ell\\cos\\theta$, $+z$", "$IB\\ell\\cos\\theta$, $-z$"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "$IB\\ell\\cos\\theta$, $z$ 軸の正の向き", "en": "$IB\\ell\\cos\\theta$, $+z$" },
+      "explanation": { "en": "$\\vec F=I\\vec L\\times\\vec B$ with $\\vec L=\\ell(\\cos\\theta,\\sin\\theta,0)$ and $\\vec B=B(0,1,0)$. The cross product is $(0,0,\\cos\\theta)$, so $\\vec F=IB\\ell\\cos\\theta\\,\\hat z$: magnitude $IB\\ell\\cos\\theta$, direction $+z$ (the angle between current and $B$ is $90°-\\theta$, and $\\sin(90°-\\theta)=\\cos\\theta$).", "ja": "$\\vec F=I\\vec L\\times\\vec B$，$\\vec L=\\ell(\\cos\\theta,\\sin\\theta,0)$，$\\vec B=B(0,1,0)$。外積は $(0,0,\\cos\\theta)$ なので $\\vec F=IB\\ell\\cos\\theta\\,\\hat z$：大きさ $IB\\ell\\cos\\theta$，向き $+z$（電流と $B$ のなす角は $90°-\\theta$ で $\\sin(90°-\\theta)=\\cos\\theta$）。" }
+    }
+  ],
+  "patterns": {
+    "blockSkeleton": "Older 7/3/3/6 format: Mechanics ×7, Thermodynamics ×3, Waves ×3, Electricity & Magnetism ×6, no Atoms block (19 items).",
+    "newArchetypesVsPrevious": [
+      "Toppling of a tilted block: tan θ0 = (base)/(height) from the centre of mass passing over the pivot edge.",
+      "Two-throw projectile: vertical throw fixes v0²=2gh, then a horizontal throw from the same height gives d/h=2.",
+      "Terminal velocity in a fluid WITH buoyancy: mg = (buoyancy) + kv_t.",
+      "Bounce impulse = m(v_after + v_before) with v_after = e·v_before.",
+      "Inertial (pseudo) force on a rider in SHM is in phase with displacement: f=mω²x.",
+      "Closed-pipe resonance frequency rises with temperature (V increases) while λ=4L stays fixed.",
+      "Grating spectrum colour order: red diffracts most, blue least.",
+      "Capacitor energy contrast: isolated-with-dielectric vs reconnected gives U1/U2=(ε0/ε)².",
+      "Tangent law for a compass: tanθ ∝ 1/r, so the deflection-angle tangents give the distance ratio."
+    ],
+    "recurringWithPrevious": [
+      "Pendulum tension at the bottom T−mg=mv²/ℓ with v²=2gh.",
+      "Two-spring SHM with effective constant 2k (springs in parallel).",
+      "Calorimetry Q=mcΔT and converting mass↔volume via density.",
+      "Isothermal (Boyle) compression and piston force balance pS=p0S+F.",
+      "First law on an adiabatic leg: work on gas = ΔU = (3/2)Δ(pV) for a monatomic gas.",
+      "Zero-potential point between two unlike charges; capacitor-bridge steady-state charge.",
+      "Force on a current F=BIℓsin(angle) and the right-hand rule for direction."
+    ],
+    "examTacticNotes": [
+      "Toppling: the object tips when the vertical through its centre of mass crosses the pivot edge — set the COM's horizontal offset to zero.",
+      "Fluid fall with buoyancy: always include the buoyant force ρ_fluid·V·g in the terminal-velocity balance, not just gravity and drag.",
+      "Bounce impulse adds the speeds: |J| = m(v_before + v_after) because the velocity reverses direction.",
+      "Pseudo-force in an oscillating frame: f = −m·a = +mω²x, so it tracks the displacement graph exactly.",
+      "Closed/open pipe resonance: the resonant wavelength is fixed by the geometry (4L or 2L); temperature changes the speed and hence the frequency only.",
+      "Isolated capacitor ⇒ Q fixed (use U=Q²/2C); battery-connected ⇒ V fixed (use U=½CV²). Watch which is held constant.",
+      "Tangent law (compass + wire): tanθ = B_wire/B_Earth ∝ 1/r."
+    ],
+    "difficulty": "Standard EJU level with a 7-item Mechanics section. The toppling block (Q1), the adiabatic work sign (Q10), the isolated-vs-reconnected capacitor energy ratio (Q15) and the open/closed switch potentials (Q16) are the most discriminating."
+  }
+}

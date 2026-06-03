@@ -1,0 +1,235 @@
+{
+  "id": "2017-2-physics",
+  "year": 2017,
+  "session": 2,
+  "subject": "physics",
+  "title": "EJU 2017 · Session 2 · Physics",
+  "source": "平成29年度（2017年度）日本留学試験（第2回）理科〈物理〉 © Japan Student Services Organization (JASSO)",
+  "attribution": "EJU past questions © JASSO. The question paper for this session is a scanned image-only PDF; question text was transcribed from the page images, figures described in text, and correct answers read from the official JASSO answer table (image) and independently re-solved for verification.",
+  "languages": ["ja", "en"],
+  "answerKeyVerified": true,
+  "extractionNote": "Source question PDF had no text layer (scanned); transcribed via image OCR by hand. Answer-key text export was corrupted, so the key was read from the answer-table image.",
+  "structure": {
+    "blocks": [
+      { "id": "I", "topicId": "mech", "name": { "ja": "力学", "en": "Mechanics" }, "questionCount": 6 },
+      { "id": "II", "topicId": "thermo", "name": { "ja": "熱力学", "en": "Thermodynamics" }, "questionCount": 3 },
+      { "id": "III", "topicId": "waves", "name": { "ja": "波動", "en": "Waves" }, "questionCount": 3 },
+      { "id": "IV", "topicId": "em", "name": { "ja": "電気と磁気", "en": "Electricity & Magnetism" }, "questionCount": 6 },
+      { "id": "V", "topicId": "atoms", "name": { "ja": "原子", "en": "Atoms" }, "questionCount": 1 }
+    ],
+    "totalQuestions": 19,
+    "givens": { "ja": "重力加速度の大きさを g とし，空気の抵抗は無視できるものとする。", "en": "Take the magnitude of gravitational acceleration as g; air resistance is negligible." }
+  },
+  "questions": [
+    {
+      "id": "2017-2-phy-1", "answerRow": 1, "block": "I", "topicId": "mech",
+      "subtopic": "Equilibrium at a junction of three strings",
+      "patternTags": ["express-formula", "force-resolution", "equilibrium"], "hasFigure": true,
+      "figure": { "ja": "天井から 3 本の軽い糸 a,b,c の結び目で質量 m の小球をつるす。糸 c は鉛直下向きに小球へ。糸 a は鉛直と 60°（左上），糸 b は鉛直と 30°（右上）。a の張力 Ta，b の張力 Tb。", "en": "A mass m hangs at the knot of three light strings a, b, c from the ceiling. String c goes straight down to the ball; string a makes 60° with vertical (upper-left), string b makes 30° with vertical (upper-right). Tension in a is Ta, in b is Tb." },
+      "ja": { "prompt": "3 本の軽い糸 a, b, c をつなぎ，質量 $m$ の小球を天井からつるした。a が鉛直方向となす角は $60^\\circ$，b が鉛直方向となす角は $30^\\circ$ である。a の張力を $T_a$ とする。$T_a$ はどのように表されるか。", "choices": ["$\\dfrac{1}{2}mg$", "$\\dfrac{\\sqrt3}{3}mg$", "$\\dfrac{\\sqrt3}{2}mg$", "$mg$", "$\\sqrt3\\,mg$"] },
+      "en": { "prompt": "A mass $m$ hangs from the ceiling at the knot of three light strings a, b, c. String a makes $60^\\circ$ with the vertical and string b makes $30^\\circ$. Let $T_a$ be the tension in a. Express $T_a$.", "choices": ["$\\dfrac{1}{2}mg$", "$\\dfrac{\\sqrt3}{3}mg$", "$\\dfrac{\\sqrt3}{2}mg$", "$mg$", "$\\sqrt3\\,mg$"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "$\\dfrac{1}{2}mg$", "en": "$\\dfrac{1}{2}mg$" },
+      "explanation": { "en": "At the knot, the downward string c carries $mg$. Horizontal: $T_a\\sin60^\\circ=T_b\\sin30^\\circ\\Rightarrow T_b=\\sqrt3\\,T_a$. Vertical: $T_a\\cos60^\\circ+T_b\\cos30^\\circ=mg\\Rightarrow \\tfrac12T_a+\\tfrac32T_a=mg\\Rightarrow T_a=\\tfrac12mg$.", "ja": "結び目で糸 c は $mg$。水平 $T_a\\sin60^\\circ=T_b\\sin30^\\circ$ より $T_b=\\sqrt3 T_a$，鉛直 $\\tfrac12T_a+\\tfrac32T_a=mg$ より $T_a=\\tfrac12mg$。" }
+    },
+    {
+      "id": "2017-2-phy-2", "answerRow": 2, "block": "I", "topicId": "mech",
+      "subtopic": "Friction on an incline (minimum force to prevent sliding)",
+      "patternTags": ["express-formula", "static-friction", "inclined-plane"], "hasFigure": true,
+      "figure": { "ja": "傾角 θ の粗い斜面上の質量 m の小物体に，斜面に沿って上向きの力 F を加えて静止。F を小さくして F0 を下回ると下方へ滑り出す。静止摩擦係数 μ。", "en": "On a rough incline (angle θ), a block (mass m) is held by an up-slope force F. Reducing F below F0 makes it slide down. Static-friction coefficient μ." },
+      "ja": { "prompt": "傾角 $\\theta$ の粗い斜面上の質量 $m$ の小物体に，斜面に沿って上向きの大きさ $F$ の力を加えると静止した。$F$ を小さくし $F_0$ より小さくなったとき下方へ滑り始めた。静止摩擦係数を $\\mu$ とする。$F_0$ はどのように表されるか。", "choices": ["$mg(\\cos\\theta-\\mu\\sin\\theta)$", "$mg(\\sin\\theta-\\mu\\cos\\theta)$", "$mg\\left(\\dfrac1\\mu\\cos\\theta-\\sin\\theta\\right)$", "$mg\\left(\\dfrac1\\mu\\sin\\theta-\\cos\\theta\\right)$"] },
+      "en": { "prompt": "On a rough incline of angle $\\theta$, a block (mass $m$) is held by an up-slope force $F$; reducing $F$ below $F_0$ makes it slide down. With static-friction coefficient $\\mu$, express $F_0$.", "choices": ["$mg(\\cos\\theta-\\mu\\sin\\theta)$", "$mg(\\sin\\theta-\\mu\\cos\\theta)$", "$mg\\left(\\dfrac1\\mu\\cos\\theta-\\sin\\theta\\right)$", "$mg\\left(\\dfrac1\\mu\\sin\\theta-\\cos\\theta\\right)$"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "$mg(\\sin\\theta-\\mu\\cos\\theta)$", "en": "$mg(\\sin\\theta-\\mu\\cos\\theta)$" },
+      "explanation": { "en": "About to slide down, friction acts up at its maximum: $F_0+\\mu mg\\cos\\theta=mg\\sin\\theta$, so $F_0=mg(\\sin\\theta-\\mu\\cos\\theta)$.", "ja": "下方に滑る直前は摩擦が上向き最大：$F_0+\\mu mg\\cos\\theta=mg\\sin\\theta$ より $F_0=mg(\\sin\\theta-\\mu\\cos\\theta)$。" }
+    },
+    {
+      "id": "2017-2-phy-3", "answerRow": 3, "block": "I", "topicId": "mech",
+      "subtopic": "Atwood machine over a pulley (energy → drop height)",
+      "patternTags": ["plug-in-numbers", "energy-conservation", "pulley-system"], "hasFigure": true,
+      "figure": { "ja": "定滑車に軽い糸でA(m, 床上)とB(2m)をかける。B は床より h 高く支えられ、静かにはなすと B が降下、A が上昇。B が床に衝突直前の速さ v。滑車は質量無視・摩擦なし。", "en": "Over a pulley, a light string connects A(m, on the floor) and B(2m). B is held h above the floor; released, B descends and A rises. B's speed just before hitting the floor is v. Massless frictionless pulley." },
+      "ja": { "prompt": "定滑車に軽い糸でA($m$)とB($2m$)をかけ，A を床に置き B を床より $h$ 高い位置で支える。静かにはなすと B は降下し，床に衝突する直前の速さは $v$ であった。$h$ はどのように表されるか。", "choices": ["$\\dfrac{v^2}{3g}$", "$\\dfrac{v^2}{2g}$", "$\\dfrac{2v^2}{3g}$", "$\\dfrac{v^2}{g}$", "$\\dfrac{3v^2}{2g}$", "$\\dfrac{2v^2}{g}$", "$\\dfrac{3v^2}{g}$"] },
+      "en": { "prompt": "Over a pulley, A($m$) on the floor and B($2m$) are connected by a light string; B is held $h$ above the floor. Released, B falls and its speed just before hitting the floor is $v$. Express $h$.", "choices": ["$\\dfrac{v^2}{3g}$", "$\\dfrac{v^2}{2g}$", "$\\dfrac{2v^2}{3g}$", "$\\dfrac{v^2}{g}$", "$\\dfrac{3v^2}{2g}$", "$\\dfrac{2v^2}{g}$", "$\\dfrac{3v^2}{g}$"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "$\\dfrac{3v^2}{2g}$", "en": "$\\dfrac{3v^2}{2g}$" },
+      "explanation": { "en": "Energy: B drops $h$, A rises $h$: $(2m-m)gh=\\tfrac12(2m+m)v^2\\Rightarrow mgh=\\tfrac32mv^2$, so $h=\\dfrac{3v^2}{2g}$.", "ja": "エネルギー保存：$(2m-m)gh=\\tfrac12(3m)v^2$ より $h=\\dfrac{3v^2}{2g}$。" }
+    },
+    {
+      "id": "2017-2-phy-4", "answerRow": 4, "block": "I", "topicId": "mech",
+      "subtopic": "Explosion into two pieces (speed and kinetic-energy ratios)",
+      "patternTags": ["express-formula", "momentum-conservation", "kinetic-energy", "ratio"], "hasFigure": true,
+      "figure": { "ja": "静止物体が反対向きの 2 物体 A(mA,vA,KA), B(mB,vB,KB) に分裂。", "en": "A body at rest splits into two pieces moving in opposite directions: A(mA,vA,KA) and B(mB,vB,KB)." },
+      "ja": { "prompt": "静止していた物体が反対方向に運動する 2 つの物体 A，B に分裂した。A は質量 $m_A$，速さ $v_A$，運動エネルギー $K_A$，B は質量 $m_B$，速さ $v_B$，運動エネルギー $K_B$ とする。$\\dfrac{v_A}{v_B}$ と $\\dfrac{K_A}{K_B}$ の正しい組み合わせはどれか。", "choices": ["$\\dfrac{m_A}{m_B},\\ \\dfrac{m_A}{m_B}$", "$\\dfrac{m_A}{m_B},\\ \\dfrac{m_B}{m_A}$", "$\\dfrac{m_B}{m_A},\\ \\dfrac{m_A}{m_B}$", "$\\dfrac{m_B}{m_A},\\ \\dfrac{m_B}{m_A}$"] },
+      "en": { "prompt": "A body at rest splits into two pieces A and B moving oppositely: A has mass $m_A$, speed $v_A$, KE $K_A$; B has $m_B$, $v_B$, $K_B$. Which combination of $\\dfrac{v_A}{v_B}$ and $\\dfrac{K_A}{K_B}$ is correct?", "choices": ["$\\dfrac{m_A}{m_B},\\ \\dfrac{m_A}{m_B}$", "$\\dfrac{m_A}{m_B},\\ \\dfrac{m_B}{m_A}$", "$\\dfrac{m_B}{m_A},\\ \\dfrac{m_A}{m_B}$", "$\\dfrac{m_B}{m_A},\\ \\dfrac{m_B}{m_A}$"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "$\\dfrac{m_B}{m_A},\\ \\dfrac{m_B}{m_A}$", "en": "$\\dfrac{m_B}{m_A},\\ \\dfrac{m_B}{m_A}$" },
+      "explanation": { "en": "Momentum: $m_Av_A=m_Bv_B\\Rightarrow\\dfrac{v_A}{v_B}=\\dfrac{m_B}{m_A}$. KE: $\\dfrac{K_A}{K_B}=\\dfrac{m_A v_A^2}{m_B v_B^2}=\\dfrac{m_A}{m_B}\\Big(\\dfrac{m_B}{m_A}\\Big)^2=\\dfrac{m_B}{m_A}$ (equivalently $K=p^2/2m$ with equal $p$).", "ja": "運動量 $m_Av_A=m_Bv_B$ より $v_A/v_B=m_B/m_A$。$K=p^2/2m$ で運動量が等しいので $K_A/K_B=m_B/m_A$。" }
+    },
+    {
+      "id": "2017-2-phy-5", "answerRow": 5, "block": "I", "topicId": "mech",
+      "subtopic": "SHM energy (displacement when speed is half the maximum)",
+      "patternTags": ["plug-in-numbers", "simple-harmonic-motion", "energy-conservation"], "hasFigure": true,
+      "figure": { "ja": "なめらかな水平面上のばね振り子。自然長位置を中心に振幅 d で単振動。中心通過時の速さ v0。速さが v0/2 のとき中心から距離 x。", "en": "A horizontal spring oscillator with amplitude d about the natural-length position; speed at the center is v0. When the speed is v0/2 the displacement from the center is x." },
+      "ja": { "prompt": "なめらかな水平面上で，小球をばねの自然長位置から距離 $d$ 引いてはなすと，自然長位置を中心とする振幅 $d$ の単振動をした。中心を通過する時の速さは $v_0$。速さが $\\dfrac{v_0}{2}$ の時，中心から距離 $x$ 離れていた。$x$ はどのように表されるか。", "choices": ["$\\dfrac{d}{4}$", "$\\dfrac{d}{2}$", "$\\dfrac{\\sqrt6\\,d}{4}$", "$\\dfrac{\\sqrt2\\,d}{2}$", "$\\dfrac{3d}{4}$", "$\\dfrac{\\sqrt3\\,d}{2}$"] },
+      "en": { "prompt": "On a smooth surface, a ball pulled $d$ from the spring's natural length oscillates with amplitude $d$; its speed at the center is $v_0$. When its speed is $\\dfrac{v_0}{2}$, it is a distance $x$ from the center. Express $x$.", "choices": ["$\\dfrac{d}{4}$", "$\\dfrac{d}{2}$", "$\\dfrac{\\sqrt6\\,d}{4}$", "$\\dfrac{\\sqrt2\\,d}{2}$", "$\\dfrac{3d}{4}$", "$\\dfrac{\\sqrt3\\,d}{2}$"] },
+      "answerIndex": 5, "answerOption": 6, "answer": { "ja": "$\\dfrac{\\sqrt3\\,d}{2}$", "en": "$\\dfrac{\\sqrt3\\,d}{2}$" },
+      "explanation": { "en": "Energy: $\\tfrac12mv_0^2=\\tfrac12mv^2+\\tfrac12kx^2$ and $\\tfrac12mv_0^2=\\tfrac12kd^2$. With $v=v_0/2$: $\\tfrac34(\\tfrac12mv_0^2)=\\tfrac12kx^2\\Rightarrow x^2=\\tfrac34d^2\\Rightarrow x=\\dfrac{\\sqrt3}{2}d$.", "ja": "エネルギー保存と $\\tfrac12mv_0^2=\\tfrac12kd^2$。$v=v_0/2$ で $x^2=\\tfrac34d^2$，$x=\\dfrac{\\sqrt3}{2}d$。" }
+    },
+    {
+      "id": "2017-2-phy-6", "answerRow": 6, "block": "I", "topicId": "mech",
+      "subtopic": "Elliptical orbit (speed ratio via vis-viva / angular momentum)",
+      "patternTags": ["plug-in-numbers", "universal-gravitation", "elliptical-orbit", "ratio"], "hasFigure": true,
+      "figure": { "ja": "地球を焦点の一つとする楕円軌道。長軸 10r，短軸 6r。近地点距離 r（速さ v0）。短軸上の点での速さ v1（その点の焦点距離は半長軸 5r）。", "en": "An elliptical orbit with Earth at one focus; major axis 10r, minor axis 6r. Perigee distance r (speed v0). At the end of the minor axis the speed is v1 (its focal distance equals the semi-major axis 5r)." },
+      "ja": { "prompt": "地球を焦点の一つとする楕円軌道（長軸 $10r$，短軸 $6r$）を周回する人工衛星がある。近地点（地球の中心との距離 $r$）での速さを $v_0$，短軸上の位置を通過するときの速さを $v_1$ とする。$\\dfrac{v_1}{v_0}$ はいくらか。", "choices": ["$1$", "$\\dfrac12$", "$\\dfrac13$", "$\\dfrac14$", "$\\dfrac15$", "$\\dfrac16$"] },
+      "en": { "prompt": "A satellite orbits an ellipse (major axis $10r$, minor axis $6r$) with Earth at one focus. Its speed at perigee (focal distance $r$) is $v_0$ and at the minor-axis point is $v_1$. Find $\\dfrac{v_1}{v_0}$.", "choices": ["$1$", "$\\dfrac12$", "$\\dfrac13$", "$\\dfrac14$", "$\\dfrac15$", "$\\dfrac16$"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "$\\dfrac13$", "en": "$\\dfrac13$" },
+      "explanation": { "en": "Vis-viva $v^2=GM(2/d-1/a)$ with $a=5r$. Perigee $d=r$: $v_0^2=GM(2/r-1/5r)=\\tfrac{9GM}{5r}$. Minor-axis $d=5r$: $v_1^2=GM(2/5r-1/5r)=\\tfrac{GM}{5r}$. So $v_1/v_0=\\sqrt{1/9}=\\tfrac13$.", "ja": "$v^2=GM(2/d-1/a)$，$a=5r$。近地点 $v_0^2=\\tfrac{9GM}{5r}$，短軸上 $v_1^2=\\tfrac{GM}{5r}$。$v_1/v_0=\\tfrac13$。" }
+    },
+    {
+      "id": "2017-2-phy-7", "answerRow": 7, "block": "II", "topicId": "thermo",
+      "subtopic": "Calorimetry with melting ice (final temperature)",
+      "patternTags": ["plug-in-numbers", "calorimetry", "heat-of-fusion"], "hasFigure": false,
+      "ja": { "prompt": "断熱容器に入った $30\\,^\\circ$C の水 $1000\\,$g に，$0\\,^\\circ$C の氷 $200\\,$g を入れる。氷の融解熱を $330\\,$J/g，水の比熱を $4.2\\,$J/(g·K)，容器の熱容量は無視する。じゅうぶん時間後の容器内の温度は何 $^\\circ$C か。", "choices": ["10", "12", "14", "16", "18", "20"] },
+      "en": { "prompt": "Into $1000\\,$g of $30\\,^\\circ$C water in an insulated container, $200\\,$g of $0\\,^\\circ$C ice is added. Heat of fusion $330\\,$J/g, water specific heat $4.2\\,$J/(g·K), container heat capacity negligible. What is the final temperature ($^\\circ$C)?", "choices": ["10", "12", "14", "16", "18", "20"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "12 $^\\circ$C", "en": "12 $^\\circ$C" },
+      "explanation": { "en": "All ice melts. Heat balance: $1000\\cdot4.2\\cdot(30-T)=200\\cdot330+200\\cdot4.2\\cdot T$. $126000-4200T=66000+840T\\Rightarrow 60000=5040T\\Rightarrow T\\approx12\\,^\\circ$C.", "ja": "氷は全融解。$1000\\cdot4.2\\cdot(30-T)=200\\cdot330+200\\cdot4.2\\cdot T$ より $T\\approx12$。" }
+    },
+    {
+      "id": "2017-2-phy-8", "answerRow": 8, "block": "II", "topicId": "thermo",
+      "subtopic": "Coupled cylinders, unequal moles (temperature ratio)",
+      "patternTags": ["plug-in-numbers", "ideal-gas", "isobaric", "ratio"], "hasFigure": true,
+      "figure": { "ja": "向かい合う同形シリンダー A,B、共通の軸でつないだ等断面ピストン。A に 0.20 mol，B に 0.60 mol の理想気体。初め同温・同圧。A をヒーターで加熱し A の体積が初めの 1.5 倍に。断熱材製。", "en": "Two identical facing cylinders A and B with equal-area pistons joined by a common rod. A holds 0.20 mol, B holds 0.60 mol of ideal gas; initially same T and p. Heating A expands it to 1.5× its initial volume. Insulating walls." },
+      "ja": { "prompt": "向かい合う 2 つの同形シリンダー A,B のピストンを共通の軸でつなぐ。A 内に $0.20\\,$mol，B 内に $0.60\\,$mol の理想気体を入れ，初め同温・同圧であった。ヒーターで A を加熱すると A の体積が初めの $1.5$ 倍になった。A の温度を $T_A$，B を $T_B$ とする。$\\dfrac{T_A}{T_B}$ はいくらか。", "choices": ["0.50", "0.80", "1.0", "1.3", "1.8", "2.0"] },
+      "en": { "prompt": "Two identical facing cylinders A, B have pistons joined by a common rod. A holds $0.20\\,$mol, B holds $0.60\\,$mol of ideal gas, initially at the same T and p. Heating A expands it to $1.5\\times$ its initial volume. With temperatures $T_A$, $T_B$, find $\\dfrac{T_A}{T_B}$.", "choices": ["0.50", "0.80", "1.0", "1.3", "1.8", "2.0"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "1.8", "en": "1.8" },
+      "explanation": { "en": "Initially $V\\propto n$: $V_{A0}:V_{B0}=1:3$. Total length fixed: $V_A=1.5V_{A0}$, so $V_B=V_{B0}-0.5V_{A0}=2.5V_{A0}$. Pressures stay equal, so $\\dfrac{T_A}{T_B}=\\dfrac{V_A/n_A}{V_B/n_B}=\\dfrac{1.5/0.20}{2.5/0.60}=\\dfrac{7.5}{4.17}=1.8$.", "ja": "初め $V\\propto n$ で $V_{A0}:V_{B0}=1:3$。全長一定より $V_A=1.5V_{A0}$，$V_B=2.5V_{A0}$。圧力等しく $\\dfrac{T_A}{T_B}=\\dfrac{1.5/0.20}{2.5/0.60}=1.8$。" }
+    },
+    {
+      "id": "2017-2-phy-9", "answerRow": 9, "block": "II", "topicId": "thermo",
+      "subtopic": "Mapping a V–T cycle to a p–V diagram",
+      "patternTags": ["identify", "pv-diagram", "vt-diagram", "ideal-gas"], "hasFigure": true,
+      "figure": { "ja": "図1 は V–T 図で A→B→C→D→A のサイクル（A 下，B 右，C 上，D 左）。図2 の p–V 図には点 a,b,c,d（a 左下，b 右下，c 右上，d 左上）。対応する p–V 経路を選ぶ。", "en": "Fig 1 is a V–T diagram with cycle A→B→C→D→A (A bottom, B right, C top, D left). Fig 2 is a p–V diagram with points a,b,c,d (a lower-left, b lower-right, c upper-right, d upper-left). Choose the matching p–V path." },
+      "ja": { "prompt": "一定量の理想気体の状態を，図1 の $V$–$T$ 図のように A→B→C→D→A と変化させた。この変化は図2 の $p$–$V$ 図ではどのように表されるか。正しいものを選びなさい。", "choices": ["a→b→c→d→a", "a→d→c→b→a", "b→c→d→a→b", "b→a→d→c→b", "c→d→a→b→c", "c→b→a→d→c", "d→a→b→c→d", "d→c→b→a→d"] },
+      "en": { "prompt": "A fixed amount of ideal gas is cycled A→B→C→D→A as in the $V$–$T$ diagram (Fig 1). How is this represented on the $p$–$V$ diagram (Fig 2)?", "choices": ["a→b→c→d→a", "a→d→c→b→a", "b→c→d→a→b", "b→a→d→c→b", "c→d→a→b→c", "c→b→a→d→c", "d→a→b→c→d", "d→c→b→a→d"] },
+      "answerIndex": 7, "answerOption": 8, "answer": { "ja": "d→c→b→a→d", "en": "d→c→b→a→d" },
+      "explanation": { "en": "Using $p=nRT/V$, convert each V–T state to its (p,V) location: the A,B,C,D sequence maps to d,c,b,a on the p–V diagram, giving the path d→c→b→a→d.", "ja": "$p=nRT/V$ で各状態の $(p,V)$ を求めると，A,B,C,D は p–V 図の d,c,b,a に対応し，経路は d→c→b→a→d。" }
+    },
+    {
+      "id": "2017-2-phy-10", "answerRow": 10, "block": "III", "topicId": "waves",
+      "subtopic": "Transverse wave (where medium velocity is maximally in −y)",
+      "patternTags": ["read-from-graph", "travelling-wave", "transverse-velocity"], "hasFigure": true,
+      "figure": { "ja": "x 軸正方向に進む横波の，ある時刻の y–x グラフ。O から下って谷（A 付近），上昇ゼロ交差 B，山 C，下降 D。", "en": "Snapshot y–x of a transverse wave moving in +x: from O it dips to a trough (near A), rises through zero at B, peaks at C, descends at D." },
+      "ja": { "prompt": "$x$ 軸の正の向きに伝わる横波の，ある時刻の媒質の変位 $y$ と位置 $x$ のグラフがある。位置 O, A, B, C, D のうち，媒質の速度が $y$ 軸の負の向きに最大である位置をすべて挙げるとどれか。", "choices": ["A", "B", "C", "A, C", "O, D"] },
+      "en": { "prompt": "For a transverse wave moving in $+x$, given a snapshot of $y$ vs $x$, at which of O, A, B, C, D is the medium's velocity maximal in the $-y$ direction?", "choices": ["A", "B", "C", "A, C", "O, D"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "B", "en": "B" },
+      "explanation": { "en": "For a $+x$ wave, $\\partial y/\\partial t=-v\\,\\partial y/\\partial x$. It is most negative where the slope is steepest positive — the ascending zero-crossing B.", "ja": "$+x$ の波で $\\partial y/\\partial t=-v\\,\\partial y/\\partial x$。最も負になるのは傾きが最大正の上昇ゼロ交差 B。" }
+    },
+    {
+      "id": "2017-2-phy-11", "answerRow": 11, "block": "III", "topicId": "waves",
+      "subtopic": "Ultrasonic Doppler (double shift, find object speed)",
+      "patternTags": ["express-formula", "doppler-effect", "reflection"], "hasFigure": false,
+      "ja": { "prompt": "静止した装置に向かって速さ $v$ で近づく物体がある。装置が振動数 $f_0$ の超音波を発し，物体で反射して戻ってきた超音波の振動数を測ると $f$ であった。超音波の速さを $V$ とする。$v$ はどのように表されるか。", "choices": ["$\\dfrac{f-f_0}{f}V$", "$\\dfrac{f_0-f}{f}V$", "$\\dfrac{f-f_0}{f_0}V$", "$\\dfrac{f_0-f}{f_0}V$", "$\\dfrac{f-f_0}{f+f_0}V$", "$\\dfrac{f_0-f}{f+f_0}V$"] },
+      "en": { "prompt": "An object approaches a stationary device at speed $v$. The device emits ultrasound of frequency $f_0$; the reflection received back has frequency $f$. With ultrasound speed $V$, express $v$.", "choices": ["$\\dfrac{f-f_0}{f}V$", "$\\dfrac{f_0-f}{f}V$", "$\\dfrac{f-f_0}{f_0}V$", "$\\dfrac{f_0-f}{f_0}V$", "$\\dfrac{f-f_0}{f+f_0}V$", "$\\dfrac{f_0-f}{f+f_0}V$"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "$\\dfrac{f-f_0}{f+f_0}V$", "en": "$\\dfrac{f-f_0}{f+f_0}V$" },
+      "explanation": { "en": "Object receives $f_0\\dfrac{V+v}{V}$ then re-emits it; the stationary device receives $f=f_0\\dfrac{V+v}{V-v}$. Solving: $v=\\dfrac{f-f_0}{f+f_0}V$.", "ja": "物体が受ける $f_0\\dfrac{V+v}{V}$ を反射し，装置が受ける $f=f_0\\dfrac{V+v}{V-v}$。解いて $v=\\dfrac{f-f_0}{f+f_0}V$。" }
+    },
+    {
+      "id": "2017-2-phy-12", "answerRow": 12, "block": "III", "topicId": "waves",
+      "subtopic": "Air-wedge interference (dark-fringe spacing)",
+      "patternTags": ["plug-in-numbers", "interference", "air-wedge"], "hasFigure": true,
+      "figure": { "ja": "一辺 300 mm の平面ガラス 2 枚を重ね、片端に 0.030 mm のすきまをあけ空気くさびをつくる。波長 600 nm の単色光を真上から当て、上から見ると明暗の縞。", "en": "Two flat glass plates (length 300 mm) overlap with a 0.030 mm gap at one end, forming an air wedge. Monochromatic light (600 nm) shines from straight above; viewed from above, bright/dark fringes appear." },
+      "ja": { "prompt": "空気中で一辺 $300\\,$mm の平面ガラス 2 枚を重ね，片側に $0.030\\,$mm のすきまをあけ，波長 $600\\,$nm の単色光を真上から当てると明暗の縞が見えた。空気の屈折率を $1.0$ とする。暗線の間隔は何 mm か。", "choices": ["1.0", "2.0", "3.0", "4.0", "5.0", "6.0"] },
+      "en": { "prompt": "Two flat glass plates (length $300\\,$mm) overlap with a $0.030\\,$mm gap at one end (air wedge). Monochromatic light ($600\\,$nm) shines from above, giving fringes (air index $1.0$). What is the dark-fringe spacing (mm)?", "choices": ["1.0", "2.0", "3.0", "4.0", "5.0", "6.0"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "3.0 mm", "en": "3.0 mm" },
+      "explanation": { "en": "Wedge angle $\\theta=D/L=0.030/300$. Dark-fringe spacing $\\Delta x=\\dfrac{\\lambda}{2\\theta}=\\dfrac{\\lambda L}{2D}=\\dfrac{(6\\times10^{-4}\\,\\text{mm})(300)}{2(0.030)}=3.0$ mm.", "ja": "くさび角 $\\theta=D/L$，暗線間隔 $\\Delta x=\\dfrac{\\lambda L}{2D}=\\dfrac{6\\times10^{-4}\\times300}{2\\times0.030}=3.0$ mm。" }
+    },
+    {
+      "id": "2017-2-phy-13", "answerRow": 13, "block": "IV", "topicId": "em",
+      "subtopic": "Two suspended charges (find Q/q from equal deflection)",
+      "patternTags": ["express-formula", "coulombs-law", "equilibrium", "ratio"], "hasFigure": true,
+      "figure": { "ja": "天井の 2 点（水平に 3a 離れる）から同じ長さの絶縁糸で同質量の小球 A,B をつるす。図1：A(q),B(−q) → 引力で間隔 a（各々内へ a）。図2：A(Q),B(Q) → 斥力で間隔 5a（各々外へ a）。", "en": "From two ceiling points 3a apart, equal-mass balls A and B hang on equal insulating strings. Fig 1: A(q), B(−q) attract to separation a (each moves inward by a). Fig 2: A(Q), B(Q) repel to separation 5a (each moves outward by a)." },
+      "ja": { "prompt": "天井の水平に $3a$ 離れた 2 点から，同じ長さの絶縁糸で同質量の小球 A,B をつるす。A に $q\\,(>0)$，B に $-q$ を与えると間隔 $a$ で静止した（図1）。次に A,B にともに $Q\\,(>0)$ を与えると間隔 $5a$ で静止した（図2）。$\\dfrac{Q}{q}$ はいくらか。", "choices": ["$\\sqrt3$", "$\\sqrt5$", "$3$", "$5$", "$9$", "$25$"] },
+      "en": { "prompt": "From two ceiling points $3a$ apart, equal-mass balls A, B hang on equal strings. With A($q>0$), B($-q$) they attract to separation $a$ (Fig 1); with A($Q>0$), B($Q$) they repel to separation $5a$ (Fig 2). Find $\\dfrac{Q}{q}$.", "choices": ["$\\sqrt3$", "$\\sqrt5$", "$3$", "$5$", "$9$", "$25$"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "$5$", "en": "$5$" },
+      "explanation": { "en": "Each ball's horizontal shift is $a$ in both cases (inward in Fig 1, outward in Fig 2), so the deflection angle — and hence the required horizontal Coulomb force $mg\\tan\\theta$ — is equal. Thus $\\dfrac{kq^2}{a^2}=\\dfrac{kQ^2}{(5a)^2}\\Rightarrow Q^2=25q^2\\Rightarrow Q/q=5$.", "ja": "各球の水平変位はどちらも $a$（内へ／外へ）で角度が等しく，必要なクーロン力 $mg\\tan\\theta$ も等しい。$\\dfrac{kq^2}{a^2}=\\dfrac{kQ^2}{(5a)^2}$ より $Q/q=5$。" }
+    },
+    {
+      "id": "2017-2-phy-14", "answerRow": 14, "block": "IV", "topicId": "em",
+      "subtopic": "Work by the electric force (zero along equipotential paths)",
+      "patternTags": ["identify", "conservative-field", "equipotential", "work"], "hasFigure": true,
+      "figure": { "ja": "xy 平面、原点対称の (−d,0),(d,0) に +Q を固定。電荷 q を経路(a),(b),(c)に沿って始点→終点へ動かす。(a) 左の Q を回る半円，(b) 原点付近を回る半円，(c) 右の Q を回る半円。", "en": "On the xy-plane, +Q charges at symmetric points (−d,0) and (d,0). A charge q is moved start→end along paths (a),(b),(c): (a) a semicircle around the left Q, (b) a semicircle near the origin, (c) a semicircle around the right Q." },
+      "ja": { "prompt": "原点対称の 2 点 $(-d,0),(d,0)$ に電気量 $Q\\,(>0)$ を固定する。電荷 $q\\,(>0)$ を図中の経路 (a),(b),(c) に沿って始点から終点まで動かす。Pにはたらく静電気力がする仕事が $0$ となる移動をすべて挙げるとどれか。", "choices": ["(a)", "(b)", "(c)", "(a),(b)", "(a),(c)", "(b),(c)", "(a),(b),(c)"] },
+      "en": { "prompt": "Charges $Q\\,(>0)$ are fixed at the symmetric points $(-d,0)$ and $(d,0)$. A charge $q$ is moved start→end along paths (a),(b),(c). For which paths is the work done by the electric force zero?", "choices": ["(a)", "(b)", "(c)", "(a),(b)", "(a),(c)", "(b),(c)", "(a),(b),(c)"] },
+      "answerIndex": 5, "answerOption": 6, "answer": { "ja": "(b),(c)", "en": "(b),(c)" },
+      "explanation": { "en": "The electric force is conservative, so the work is zero exactly when start and end are at the same potential. Paths (b) and (c) connect points that are equipotential (related by the configuration's symmetry), whereas (a)'s endpoints differ in potential.", "ja": "静電気力は保存力なので，始点と終点が同電位のとき仕事 0。(b),(c) は対称性から同電位の点を結ぶが，(a) は電位が異なる。" }
+    },
+    {
+      "id": "2017-2-phy-15", "answerRow": 15, "block": "IV", "topicId": "em",
+      "subtopic": "Capacitor energy (isolated then doubled gap, vs battery)",
+      "patternTags": ["express-formula", "capacitors", "energy-method"], "hasFigure": true,
+      "figure": { "ja": "平行板コンデンサー・電池・抵抗・スイッチ S。まず S を閉じ充電→S を開いて極板間隔を 2 倍に（電荷一定）→静電エネルギー U1。次に間隔 2 倍のまま S を閉じ充電→U2。", "en": "Parallel-plate capacitor, battery, resistor, switch S. First close S to charge, then open S and double the plate gap (charge fixed) → energy U1. Then with the gap doubled, close S and charge → U2." },
+      "ja": { "prompt": "平行板コンデンサー，電池，抵抗，スイッチ S を接続する。まず S を閉じて充電し，S を開いてから極板間隔を 2 倍にした。このときの静電エネルギーを $U_1$。次に間隔を 2 倍に保ったまま S を閉じて充電した。このときの静電エネルギーを $U_2$。$\\dfrac{U_2}{U_1}$ はいくらか。", "choices": ["$\\dfrac14$", "$\\dfrac12$", "$1$", "$2$", "$4$"] },
+      "en": { "prompt": "A parallel-plate capacitor, battery, resistor and switch S are connected. First close S to charge, then open S and double the plate gap → energy $U_1$. Then, keeping the gap doubled, close S and charge → $U_2$. Find $\\dfrac{U_2}{U_1}$.", "choices": ["$\\dfrac14$", "$\\dfrac12$", "$1$", "$2$", "$4$"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "$\\dfrac14$", "en": "$\\dfrac14$" },
+      "explanation": { "en": "Initial charge $Q=CV$. After isolating and doubling the gap, $C\\to C/2$ with $Q$ fixed: $U_1=\\dfrac{Q^2}{2(C/2)}=\\dfrac{Q^2}{C}=CV^2$. Re-charging at gap $2d$ (capacitance $C/2$) to $V$: $U_2=\\tfrac12\\tfrac{C}{2}V^2=\\tfrac{CV^2}{4}$. So $U_2/U_1=\\tfrac14$.", "ja": "初め $Q=CV$。孤立して間隔 2 倍で $C\\to C/2$，$U_1=\\dfrac{Q^2}{2(C/2)}=CV^2$。間隔 2 倍で再充電 $U_2=\\tfrac12\\tfrac{C}{2}V^2=\\tfrac{CV^2}{4}$。よって $\\tfrac14$。" }
+    },
+    {
+      "id": "2017-2-phy-16", "answerRow": 16, "block": "IV", "topicId": "em",
+      "subtopic": "Wheatstone-type bridge (output V/E)",
+      "patternTags": ["express-formula", "bridge-circuit", "voltage-divider"], "hasFigure": true,
+      "figure": { "ja": "菱形ブリッジ：頂点 A(上)・B(下)、左右の節点。R1=A-左，R3=A-右，R2=左-B，R4=右-B。起電力 E は左右の節点間（水平対角）に接続。V は B を基準とした A の電位（上下対角の出力）。内部抵抗無視。", "en": "A diamond bridge with corners A(top), B(bottom), and left/right nodes. R1=A-left, R3=A-right, R2=left-B, R4=right-B. The EMF E drives the left–right (horizontal) diagonal; V is the potential of A relative to B (top–bottom output). Internal resistance neglected." },
+      "ja": { "prompt": "抵抗 $R_1,R_2,R_3,R_4$ と起電力 $E$ の電池を図のようなブリッジに接続する（$R_1$=A-左，$R_3$=A-右，$R_2$=左-B，$R_4$=右-B，$E$ は左右節点間）。B を基準とした A の電位を $V$ とする。内部抵抗は無視できる。$\\dfrac{V}{E}$ はどのように表されるか。", "choices": ["$\\dfrac{R_1R_3-R_2R_4}{(R_1+R_2)(R_3+R_4)}$", "$\\dfrac{R_2R_4-R_1R_3}{(R_1+R_2)(R_3+R_4)}$", "$\\dfrac{R_1R_4-R_2R_3}{(R_1+R_3)(R_2+R_4)}$", "$\\dfrac{R_2R_3-R_1R_4}{(R_1+R_3)(R_2+R_4)}$"] },
+      "en": { "prompt": "Resistors $R_1,R_2,R_3,R_4$ and an EMF $E$ form a bridge ($R_1$=A-left, $R_3$=A-right, $R_2$=left-B, $R_4$=right-B; $E$ across the left–right nodes). Let $V$ be the potential of A relative to B (negligible internal resistance). Express $\\dfrac{V}{E}$.", "choices": ["$\\dfrac{R_1R_3-R_2R_4}{(R_1+R_2)(R_3+R_4)}$", "$\\dfrac{R_2R_4-R_1R_3}{(R_1+R_2)(R_3+R_4)}$", "$\\dfrac{R_1R_4-R_2R_3}{(R_1+R_3)(R_2+R_4)}$", "$\\dfrac{R_2R_3-R_1R_4}{(R_1+R_3)(R_2+R_4)}$"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "$\\dfrac{R_2R_3-R_1R_4}{(R_1+R_3)(R_2+R_4)}$", "en": "$\\dfrac{R_2R_3-R_1R_4}{(R_1+R_3)(R_2+R_4)}$" },
+      "explanation": { "en": "With E across the left(=E)–right(=0) nodes, A and B are voltage-divider outputs: $V_A=E\\dfrac{R_3}{R_1+R_3}$, $V_B=E\\dfrac{R_4}{R_2+R_4}$. So $\\dfrac{V}{E}=\\dfrac{R_3}{R_1+R_3}-\\dfrac{R_4}{R_2+R_4}=\\dfrac{R_2R_3-R_1R_4}{(R_1+R_3)(R_2+R_4)}$.", "ja": "左=E,右=0 として A,B は分圧出力：$V_A=E\\dfrac{R_3}{R_1+R_3}$，$V_B=E\\dfrac{R_4}{R_2+R_4}$。よって $\\dfrac{V}{E}=\\dfrac{R_2R_3-R_1R_4}{(R_1+R_3)(R_2+R_4)}$。" }
+    },
+    {
+      "id": "2017-2-phy-17", "answerRow": 17, "block": "IV", "topicId": "em",
+      "subtopic": "Magnetic field at a point from three wires (vector sum)",
+      "patternTags": ["plug-in-numbers", "magnetic-field-of-current", "vector-sum", "ratio"], "hasFigure": true,
+      "figure": { "ja": "xy 平面に垂直な 3 本の導線 A(a,0),B(0,a),C(−2a,0)。図2：A のみ裏→表に電流 I → O での磁場 H0。図3：3 本すべて裏→表に I → O での磁場 H1。", "en": "Three wires perpendicular to the xy-plane at A(a,0), B(0,a), C(−2a,0). Fig 2: only A carries I out of page → field at O is H0. Fig 3: all three carry I out of page → field at O is H1." },
+      "ja": { "prompt": "$xy$ 平面上の点 A$(a,0)$，B$(0,a)$，C$(-2a,0)$ を紙面に垂直に 3 本の導線が通る。図2 のように A だけに裏から表へ電流 $I$ を流すと O での磁場は $H_0$。図3 のように 3 本すべてに裏から表へ $I$ を流すと O での磁場は $H_1$。$\\dfrac{H_1}{H_0}$ はいくらか。", "choices": ["$\\dfrac12$", "$\\dfrac{\\sqrt3}{2}$", "$1$", "$\\dfrac{\\sqrt5}{2}$", "$\\dfrac{\\sqrt6}{2}$", "$2$"] },
+      "en": { "prompt": "Wires pass perpendicular to the $xy$-plane through A$(a,0)$, B$(0,a)$, C$(-2a,0)$. Fig 2: only A carries $I$ out of the page → field at O is $H_0$. Fig 3: all three carry $I$ out of the page → field at O is $H_1$. Find $\\dfrac{H_1}{H_0}$.", "choices": ["$\\dfrac12$", "$\\dfrac{\\sqrt3}{2}$", "$1$", "$\\dfrac{\\sqrt5}{2}$", "$\\dfrac{\\sqrt6}{2}$", "$2$"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "$\\dfrac{\\sqrt5}{2}$", "en": "$\\dfrac{\\sqrt5}{2}$" },
+      "explanation": { "en": "Each wire gives $H=I/(2\\pi r)$ perpendicular to its radius. At O: from A ($r=a$) $\\to -y$ with $I/2\\pi a$; from B ($r=a$) $\\to +x$ with $I/2\\pi a$; from C ($r=2a$) $\\to +y$ with $I/4\\pi a$. Sum $=(I/2\\pi a,\\,-I/4\\pi a)$, magnitude $\\tfrac{\\sqrt5 I}{4\\pi a}$. $H_0=I/2\\pi a$, so $H_1/H_0=\\sqrt5/2$.", "ja": "各線 $H=I/2\\pi r$。O で A→$-y$($I/2\\pi a$)，B→$+x$($I/2\\pi a$)，C→$+y$($I/4\\pi a$)。合成 $(I/2\\pi a,-I/4\\pi a)$，大きさ $\\tfrac{\\sqrt5 I}{4\\pi a}$。$H_0=I/2\\pi a$ より $\\sqrt5/2$。" }
+    },
+    {
+      "id": "2017-2-phy-18", "answerRow": 18, "block": "IV", "topicId": "em",
+      "subtopic": "Three parallel currents (deduce L3 current and force)",
+      "patternTags": ["identify", "force-between-currents", "direction"], "hasFigure": true,
+      "figure": { "ja": "同一平面に等間隔 a で平行な L1,L2,L3。L1,L2 は上向きの等しい電流。L1 は単位長あたり F の力を右向き，L2 は 2F の力を左向きに受ける。L3 の電流の向き・受ける力の向き・大きさを問う。", "en": "Three parallel wires L1,L2,L3 in a plane, spacing a. L1,L2 carry equal upward currents. L1 feels force F per unit length to the right, L2 feels 2F to the left. Asked: L3's current direction, the force on L3, and its magnitude." },
+      "ja": { "prompt": "同一平面内に等間隔 $a$ で平行な 3 本の導線 $L_1,L_2,L_3$ がある。$L_1,L_2$ には上向きの同じ大きさの電流が流れる。$L_3$ にもある電流が流れ，$L_1$ は単位長さあたり $F$ の力を右向きに，$L_2$ は $2F$ の力を左向きに受けた。$L_3$ の電流の向き，$L_3$ が受ける力の向き，単位長さあたりの力の大きさの正しい組み合わせはどれか。", "choices": ["上向き，右向き，$F$", "上向き，右向き，$3F$", "上向き，左向き，$F$", "上向き，左向き，$3F$", "下向き，右向き，$F$", "下向き，右向き，$3F$", "下向き，左向き，$F$", "下向き，左向き，$3F$"] },
+      "en": { "prompt": "Three coplanar parallel wires $L_1,L_2,L_3$ (spacing $a$). $L_1,L_2$ carry equal upward currents. $L_3$ carries some current; $L_1$ feels $F$ per length to the right and $L_2$ feels $2F$ to the left. Give $L_3$'s current direction, the direction of the force on $L_3$, and its magnitude per length.", "choices": ["up, right, $F$", "up, right, $3F$", "up, left, $F$", "up, left, $3F$", "down, right, $F$", "down, right, $3F$", "down, left, $F$", "down, left, $3F$"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "下向き，右向き，$F$", "en": "down, right, $F$" },
+      "explanation": { "en": "Let L1,L2 = I (up) at x=0,a and L3 at x=2a. Solving the two force conditions gives L3 current downward with $|I_3|=I/2$. Then L3 is repelled by both L1 and L2 (opposite directions), so the force on L3 is to the right with magnitude $\\tfrac{p}{4}+\\tfrac{p}{2}=\\tfrac{3p}{4}$, where $p=\\mu_0I^2/2\\pi a$; since $F=\\tfrac{3p}{4}$, the force on L3 equals $F$.", "ja": "L1,L2=I(上)を x=0,a，L3 を x=2a とすると，2 つの力の条件より L3 は下向き電流で $|I_3|=I/2$。L3 は L1,L2 から斥力を受け右向き，大きさ $\\tfrac{3p}{4}$（$p=\\mu_0I^2/2\\pi a$）。$F=\\tfrac{3p}{4}$ なので力は $F$。" }
+    },
+    {
+      "id": "2017-2-phy-19", "answerRow": 19, "block": "V", "topicId": "atoms",
+      "subtopic": "Radioactive decay series (count α and β decays)",
+      "patternTags": ["plug-in-numbers", "radioactive-decay", "conservation-laws"], "hasFigure": false,
+      "ja": { "prompt": "不安定な原子核 $^{230}_{90}\\text{Th}$ が $\\alpha$ 崩壊を $a$ 回，$\\beta$ 崩壊を $b$ 回起こして，安定な原子核 $^{206}_{82}\\text{Pb}$ になった。$a$ と $b$ の値の組 $(a,b)$ はどれか。", "choices": ["$(5,3)$", "$(5,4)$", "$(5,5)$", "$(6,3)$", "$(6,4)$", "$(6,5)$"] },
+      "en": { "prompt": "An unstable nucleus $^{230}_{90}\\text{Th}$ undergoes $a$ α-decays and $b$ β-decays to become the stable nucleus $^{206}_{82}\\text{Pb}$. Which pair $(a,b)$ is correct?", "choices": ["$(5,3)$", "$(5,4)$", "$(5,5)$", "$(6,3)$", "$(6,4)$", "$(6,5)$"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "$(6,4)$", "en": "$(6,4)$" },
+      "explanation": { "en": "Mass number: $230-4a=206\\Rightarrow a=6$. Atomic number: $90-2a+b=82\\Rightarrow 90-12+b=82\\Rightarrow b=4$.", "ja": "質量数 $230-4a=206$ より $a=6$。原子番号 $90-2a+b=82$ より $b=4$。" }
+    }
+  ],
+  "patterns": {
+    "blockSkeleton": "Same 5-block skeleton (I Mechanics ×6, II Thermo ×3, III Waves ×3, IV E&M ×6, V Atoms ×1).",
+    "newArchetypesVsPrevious": [
+      "Three-string junction equilibrium with 30/60° (Q1).",
+      "Explosion/fission speed & KE ratios via K=p²/2m (Q4).",
+      "Elliptical-orbit speed ratio using vis-viva (Q6).",
+      "V–T diagram ↔ p–V diagram mapping (Q9) — a representation-translation question.",
+      "Ultrasonic/radar Doppler with a double shift (Q11).",
+      "Air-wedge interference fringe spacing (Q12).",
+      "Wheatstone-bridge output voltage V/E (Q16).",
+      "Deduce an unknown current from two given force conditions (Q18).",
+      "α/β decay-series counting via conservation (Q19)."
+    ],
+    "recurringWithPrevious": ["incline friction threshold (Q2)", "Atwood energy (Q3)", "SHM energy at a given speed (Q5)", "calorimetry with melting (Q7, cf 2021-1 Q7)", "coupled-cylinder gas (Q8, recurring every year)", "transverse-wave medium velocity (Q10, cf 2018-2 Q10)", "two-charge work/equipotential (Q14)", "capacitor energy isolated-vs-battery (Q15)", "field from straight currents / force between currents (Q17,Q18, every year)"],
+    "examTacticNotes": [
+      "Radar/ultrasonic Doppler is a DOUBLE shift (object receives, then re-emits): f = f₀(V+v)/(V−v).",
+      "Air-wedge / Newton's-rings fringe spacing = λL/(2D) where D is the gap and L the length.",
+      "Explosion from rest: momenta are equal and opposite, so K = p²/2m gives K_A/K_B = m_B/m_A directly.",
+      "Decay series: α changes (A,Z) by (−4,−2), β by (0,+1); set up two conservation equations.",
+      "Vis-viva v² = GM(2/d − 1/a) handles any orbital-speed-ratio question cleanly."
+    ],
+    "difficulty": "Standard 'Basic + Advanced Physics'; conceptual with light computation."
+  }
+}

@@ -1,27 +1,56 @@
 import { Fragment, type ReactNode } from 'react';
+import katex from 'katex';
 
-// Minimal, safe Markdown -> React (headings, bold, inline code, lists, paragraphs).
-// No raw HTML injection. Good enough for tutoring answers; LaTeX is shown as-is.
+// Minimal, safe Markdown -> React (headings, bold, inline code, lists, paragraphs)
+// with LaTeX math via KaTeX. Math is delimited by $…$ / \(…\) (inline) and
+// $$…$$ / \[…\] (display). No raw HTML from the model is injected — only KaTeX's
+// own rendered output, which it escapes.
+
+function renderMath(expr: string, display: boolean, key: string): ReactNode {
+  try {
+    const html = katex.renderToString(expr.trim(), { throwOnError: false, displayMode: display });
+    return (
+      <span
+        key={key}
+        className={display ? 'my-1 block overflow-x-auto' : ''}
+        dangerouslySetInnerHTML={{ __html: html }}
+      />
+    );
+  } catch {
+    return <Fragment key={key}>{expr}</Fragment>;
+  }
+}
+
+// Order matters: display math ($$ / \[ \]) must be tried before inline ($ / \( \)).
+const TOKEN =
+  /(\$\$[\s\S]+?\$\$|\\\[[\s\S]+?\\\]|\\\([\s\S]+?\\\)|\$[^$\n]+?\$|\*\*[^*]+\*\*|`[^`]+`)/g;
 
 function inline(text: string, keyBase: string): ReactNode[] {
   const nodes: ReactNode[] = [];
-  // Split on **bold** and `code`
-  const re = /(\*\*[^*]+\*\*|`[^`]+`)/g;
   let last = 0;
   let m: RegExpExecArray | null;
   let i = 0;
-  while ((m = re.exec(text))) {
+  while ((m = TOKEN.exec(text))) {
     if (m.index > last) nodes.push(<Fragment key={`${keyBase}-t${i}`}>{text.slice(last, m.index)}</Fragment>);
     const tok = m[0];
-    if (tok.startsWith('**')) {
+    const key = `${keyBase}-x${i}`;
+    if (tok.startsWith('$$')) {
+      nodes.push(renderMath(tok.slice(2, -2), true, key));
+    } else if (tok.startsWith('\\[')) {
+      nodes.push(renderMath(tok.slice(2, -2), true, key));
+    } else if (tok.startsWith('\\(')) {
+      nodes.push(renderMath(tok.slice(2, -2), false, key));
+    } else if (tok.startsWith('$')) {
+      nodes.push(renderMath(tok.slice(1, -1), false, key));
+    } else if (tok.startsWith('**')) {
       nodes.push(
-        <strong key={`${keyBase}-b${i}`} className="font-semibold">
+        <strong key={key} className="font-semibold">
           {tok.slice(2, -2)}
         </strong>
       );
     } else {
       nodes.push(
-        <code key={`${keyBase}-c${i}`} className="rounded bg-slate-100 px-1 py-0.5 font-mono text-[0.85em]">
+        <code key={key} className="rounded bg-slate-100 px-1 py-0.5 font-mono text-[0.85em]">
           {tok.slice(1, -1)}
         </code>
       );
@@ -31,6 +60,11 @@ function inline(text: string, keyBase: string): ReactNode[] {
   }
   if (last < text.length) nodes.push(<Fragment key={`${keyBase}-tend`}>{text.slice(last)}</Fragment>);
   return nodes;
+}
+
+/** Inline-only rendering (bold / code / math) for short strings like choices or key points. */
+export function Inline({ text }: { text: string }) {
+  return <>{inline(text, 'inl')}</>;
 }
 
 export default function Markdown({ text }: { text: string }) {

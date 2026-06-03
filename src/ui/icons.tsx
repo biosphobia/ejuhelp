@@ -89,6 +89,28 @@ export const SelectIcon = (p: SVGProps<SVGSVGElement>) => (
     <rect x="4" y="4" width="16" height="16" rx="1.5" />
   </svg>
 );
+export const ShapesIcon = (p: SVGProps<SVGSVGElement>) => (
+  <svg {...base(p)}>
+    <circle cx="7.5" cy="7.5" r="3.5" />
+    <rect x="13" y="4" width="7" height="7" rx="1" />
+    <path d="M8 13l-4 7h8z" />
+  </svg>
+);
+export const TriangleIcon = (p: SVGProps<SVGSVGElement>) => (
+  <svg {...base(p)}>
+    <path d="M12 5l7 13H5z" />
+  </svg>
+);
+export const SquareIcon = (p: SVGProps<SVGSVGElement>) => (
+  <svg {...base(p)}>
+    <rect x="5" y="5" width="14" height="14" rx="1" />
+  </svg>
+);
+export const CircleIcon = (p: SVGProps<SVGSVGElement>) => (
+  <svg {...base(p)}>
+    <circle cx="12" cy="12" r="8" />
+  </svg>
+);
 export const PinIcon = (p: SVGProps<SVGSVGElement>) => (
   <svg {...base(p)}>
     <path d="M9 4h6l-1 5 3 3v2H7v-2l3-3-1-5z" />
@@ -141,5 +163,31 @@ export const GlobeIcon = (p: SVGProps<SVGSVGElement>) => (
 export const SpinnerIcon = (p: SVGProps<SVGSVGElement>) => (
   <svg {...base(p)} className={`animate-spin ${p.className ?? ''}`}>
     <path d="M12 3a9 9 0 1 0 9 9" />
+  </svg>
+);
+export const TimerIcon = (p: SVGProps<SVGSVGElement>) => (
+  <svg {...base(p)}>
+    <circle cx="12" cy="14" r="7" />
+    <path d="M12 14V10.5" />
+    <path d="M9 3h6" />
+    <path d="M12 3v2" />
+  </svg>
+);
+export const PlayIcon = (p: SVGProps<SVGSVGElement>) => (
+  <svg {...base(p)}>
+    <path d="M8 5l11 7-11 7z" fill="currentColor" stroke="none" />
+  </svg>
+);
+export const PauseIcon = (p: SVGProps<SVGSVGElement>) => (
+  <svg {...base(p)}>
+    <path d="M9 5v14M15 5v14" />
+  </svg>
+);
+export const ExamIcon = (p: SVGProps<SVGSVGElement>) => (
+  <svg {...base(p)}>
+    <rect x="5" y="3" width="14" height="18" rx="2" />
+    <path d="M9 3v2h6V3" />
+    <path d="M8.5 11l1.5 1.5L13 9.5" />
+    <path d="M9 16h6" />
   </svg>
 );
