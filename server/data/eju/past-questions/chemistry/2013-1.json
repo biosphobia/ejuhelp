@@ -1,0 +1,272 @@
+{
+  "id": "2013-1-chemistry",
+  "year": 2013,
+  "session": 1,
+  "subject": "chemistry",
+  "title": "EJU 2013 · Session 1 · Chemistry",
+  "source": "平成25年度（2013年度）日本留学試験（第1回）理科〈化学〉 © Japan Student Services Organization (JASSO)",
+  "attribution": "EJU past questions © JASSO. Question text transcribed from the official past paper; figures described in text; correct answers taken from the official JASSO answer key and independently re-solved for verification.",
+  "languages": ["ja", "en"],
+  "answerKeyVerified": true,
+  "structure": {
+    "format": "flat",
+    "totalQuestions": 20,
+    "note": "Chemistry is a flat list of 20 single-best-answer items (問1–問20, answer rows 1–20) — no Roman-numeral blocks. Order ≈ structure & bonding → states/energetics/electrochemistry/equilibria → inorganic → organic.",
+    "givens": {
+      "ja": "標準状態 $0\\,$°C・$1.0\\times10^5\\,$Pa，気体 $1\\,$mol の体積 $22.4\\,$L，気体定数 $R=8.31\\times10^3\\,$Pa·L/(K·mol)，アボガドロ定数 $N_A=6.0\\times10^{23}\\,$/mol，ファラデー定数 $F=9.65\\times10^4\\,$C/mol。原子量：H 1.0, C 12, N 14, O 16, F 19, Fe 56, Br 80。",
+      "en": "STP $0\\,$°C, $1.0\\times10^5\\,$Pa; molar volume $22.4\\,$L; $R=8.31\\times10^3\\,$Pa·L/(K·mol); $N_A=6.0\\times10^{23}\\,$/mol; $F=9.65\\times10^4\\,$C/mol. Atomic weights: H 1.0, C 12, N 14, O 16, F 19, Fe 56, Br 80."
+    }
+  },
+  "questions": [
+    {
+      "id": "2013-1-chem-1", "answerRow": 1, "topicId": "matter-structure",
+      "subtopic": "Pair with the same electron configuration",
+      "patternTags": ["atomic-structure", "isoelectronic", "compare-cases"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の原子またはイオンの組み合わせ①〜⑥のうち，電子配置が互いに同じであるものを一つ選びなさい。", "choices": ["Ar, $\\mathrm{Mg^{2+}}$", "F, $\\mathrm{Mg^{2+}}$", "He, $\\mathrm{Na^+}$", "$\\mathrm{K^+}$, $\\mathrm{S^{2-}}$", "$\\mathrm{Li^+}$, $\\mathrm{F^-}$", "$\\mathrm{Na^+}$, $\\mathrm{Cl^-}$"] },
+      "en": { "prompt": "Which pair of atoms/ions has the same electron configuration?", "choices": ["Ar, $\\mathrm{Mg^{2+}}$", "F, $\\mathrm{Mg^{2+}}$", "He, $\\mathrm{Na^+}$", "$\\mathrm{K^+}$, $\\mathrm{S^{2-}}$", "$\\mathrm{Li^+}$, $\\mathrm{F^-}$", "$\\mathrm{Na^+}$, $\\mathrm{Cl^-}$"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "$\\mathrm{K^+}$ と $\\mathrm{S^{2-}}$（ともに 18 個，Ar 型）", "en": "$\\mathrm{K^+}$ and $\\mathrm{S^{2-}}$ (both 18 e⁻, Ar)" },
+      "explanation": { "en": "$\\mathrm{K^+}$ ($19-1=18$) and $\\mathrm{S^{2-}}$ ($16+2=18$) both have the argon configuration. The other pairs differ (e.g. Ar 18 vs $\\mathrm{Mg^{2+}}$ 10; He 2 vs $\\mathrm{Na^+}$ 10).", "ja": "$\\mathrm{K^+}$（$19-1=18$）と $\\mathrm{S^{2-}}$（$16+2=18$）はともに Ar 型。他は異なる（例：Ar 18 と $\\mathrm{Mg^{2+}}$ 10，He 2 と $\\mathrm{Na^+}$ 10）。" }
+    },
+    {
+      "id": "2013-1-chem-2", "answerRow": 2, "topicId": "matter-structure",
+      "subtopic": "Element with the smallest electronegativity",
+      "patternTags": ["electron-config-periodic", "electronegativity", "periodic-trends"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の元素①〜⑥のうち，電気陰性度が最も小さいものを一つ選びなさい。", "choices": ["C", "F", "H", "N", "Na", "O"] },
+      "en": { "prompt": "Which element has the smallest electronegativity?", "choices": ["C", "F", "H", "N", "Na", "O"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "Na", "en": "Na" },
+      "explanation": { "en": "Electronegativity decreases toward the lower-left of the periodic table. Among C, F, H, N, Na, O, the metal sodium (Na, far left) has by far the smallest electronegativity.", "ja": "電気陰性度は周期表の左下ほど小さい。C, F, H, N, Na, O の中では，最も左にある金属ナトリウム Na が最小。" }
+    },
+    {
+      "id": "2013-1-chem-3", "answerRow": 3, "topicId": "matter-structure",
+      "subtopic": "Substance with the most hydrogen atoms in 10 g",
+      "patternTags": ["mole-formulas", "atom-count", "compare-cases"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の物質①〜⑤のうち，$10\\,$g に含まれる水素原子の数が最も多いものを一つ選びなさい。", "choices": ["$\\mathrm{NH_3}$", "$\\mathrm{HF}$", "$\\mathrm{CH_4}$", "$\\mathrm{CH_3OH}$", "$\\mathrm{H_2O}$"] },
+      "en": { "prompt": "Which substance contains the most hydrogen atoms in $10\\,$g?", "choices": ["$\\mathrm{NH_3}$", "$\\mathrm{HF}$", "$\\mathrm{CH_4}$", "$\\mathrm{CH_3OH}$", "$\\mathrm{H_2O}$"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "$\\mathrm{CH_4}$", "en": "$\\mathrm{CH_4}$" },
+      "explanation": { "en": "H atoms $\\propto \\dfrac{10}{M}\\times(\\text{H per molecule})$: $\\mathrm{NH_3}$ $\\tfrac{10}{17}\\times3=1.76$; $\\mathrm{HF}$ $0.5$; $\\mathrm{CH_4}$ $\\tfrac{10}{16}\\times4=2.5$; $\\mathrm{CH_3OH}$ $\\tfrac{10}{32}\\times4=1.25$; $\\mathrm{H_2O}$ $\\tfrac{10}{18}\\times2=1.11$. $\\mathrm{CH_4}$ has the most.", "ja": "H 原子は $\\dfrac{10}{M}\\times(\\text{1 分子中の H 数})$ に比例：$\\mathrm{NH_3}$ $\\tfrac{10}{17}\\times3=1.76$，$\\mathrm{HF}$ $0.5$，$\\mathrm{CH_4}$ $\\tfrac{10}{16}\\times4=2.5$，$\\mathrm{CH_3OH}$ $1.25$，$\\mathrm{H_2O}$ $1.11$。$\\mathrm{CH_4}$ が最多。" }
+    },
+    {
+      "id": "2013-1-chem-4", "answerRow": 4, "topicId": "matter-structure",
+      "subtopic": "Which two substances are non-polar",
+      "patternTags": ["chemical-bonds", "polarity", "molecular-geometry", "true-false-combo"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の物質(a)〜(e)のうち，極性をもたないものが二つある。それらの組み合わせを選びなさい。 (a) $\\mathrm{CO_2}$ (b) CO (c) メタノール (d) $\\mathrm{O_2}$ (e) 水", "choices": ["a, b", "a, d", "b, c", "b, e", "c, d", "c, e", "d, e"] },
+      "en": { "prompt": "Two of these are non-polar. Which pair? (a) $\\mathrm{CO_2}$ (b) CO (c) methanol (d) $\\mathrm{O_2}$ (e) water", "choices": ["a, b", "a, d", "b, c", "b, e", "c, d", "c, e", "d, e"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "a（$\\mathrm{CO_2}$）と d（$\\mathrm{O_2}$）", "en": "a ($\\mathrm{CO_2}$) and d ($\\mathrm{O_2}$)" },
+      "explanation": { "en": "$\\mathrm{CO_2}$ is linear and symmetric (bond dipoles cancel) and $\\mathrm{O_2}$ is a homonuclear diatomic — both non-polar. CO, methanol, and water are polar.", "ja": "$\\mathrm{CO_2}$ は直線で対称（結合の極性が打ち消し合う），$\\mathrm{O_2}$ は等核二原子分子 — どちらも無極性。CO，メタノール，水は極性。" }
+    },
+    {
+      "id": "2013-1-chem-5", "answerRow": 5, "topicId": "matter-structure",
+      "subtopic": "Number of iron atoms in a 1 cm³ cube",
+      "patternTags": ["mole-formulas", "avogadro", "density", "plug-in-numbers"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "一辺の長さが $1.0\\,$cm の立方体の鉄 Fe 中に含まれる鉄原子の数として最も近い値を選びなさい。ただし，鉄の密度は $7.9\\,$g/cm³ とする。", "choices": ["$4.2\\times10^{22}$", "$4.2\\times10^{23}$", "$4.2\\times10^{24}$", "$8.5\\times10^{22}$", "$8.5\\times10^{23}$", "$8.5\\times10^{24}$"] },
+      "en": { "prompt": "How many iron atoms are in a $1.0\\,$cm cube of Fe (density $7.9\\,$g/cm³)?", "choices": ["$4.2\\times10^{22}$", "$4.2\\times10^{23}$", "$4.2\\times10^{24}$", "$8.5\\times10^{22}$", "$8.5\\times10^{23}$", "$8.5\\times10^{24}$"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "約 $8.5\\times10^{22}$ 個", "en": "≈ 8.5×10²² atoms" },
+      "explanation": { "en": "Mass $=7.9\\,$g (1 cm³); moles $=7.9/56=0.141\\,$mol; atoms $=0.141\\times6.0\\times10^{23}\\approx8.5\\times10^{22}$.", "ja": "質量 $=7.9\\,$g（1 cm³），mol $=7.9/56=0.141\\,$mol，原子数 $=0.141\\times6.0\\times10^{23}\\approx8.5\\times10^{22}$。" }
+    },
+    {
+      "id": "2013-1-chem-6", "answerRow": 6, "topicId": "states-and-change",
+      "subtopic": "Pressure after connecting two gas containers",
+      "patternTags": ["gas-law", "boyles-law", "mixing", "plug-in-numbers"], "hasFigure": true,
+      "figure": { "ja": "容器 A（0.500 L，$\\mathrm{N_2}$ 1.00 atm）と容器 B（1.50 L，$\\mathrm{N_2}$ 2.00 atm）を活栓で連結。温度一定で活栓を開く。", "en": "Container A (0.500 L, $\\mathrm{N_2}$ at 1.00 atm) and container B (1.50 L, $\\mathrm{N_2}$ at 2.00 atm) joined by a stopcock; opened at constant temperature." },
+      "ja": { "prompt": "容積 $0.500\\,$L の容器 A（$\\mathrm{N_2}$ $1.00\\,$atm）と容積 $1.50\\,$L の容器 B（$\\mathrm{N_2}$ $2.00\\,$atm）を活栓で連結した。温度を一定に保ったまま活栓を開くと，容器内の圧力は何 atm になるか。", "choices": ["1.00", "1.25", "1.50", "1.75", "2.00"] },
+      "en": { "prompt": "Container A (0.500 L, $\\mathrm{N_2}$ at 1.00 atm) and B (1.50 L, $\\mathrm{N_2}$ at 2.00 atm) are connected by a stopcock. At constant T, what is the pressure after opening it?", "choices": ["1.00", "1.25", "1.50", "1.75", "2.00"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "$1.75\\,$atm", "en": "1.75 atm" },
+      "explanation": { "en": "Total $PV$ is conserved at constant T: $P=\\dfrac{(1.00)(0.500)+(2.00)(1.50)}{0.500+1.50}=\\dfrac{0.500+3.00}{2.00}=1.75\\,$atm.", "ja": "温度一定で全 $PV$ が保存：$P=\\dfrac{(1.00)(0.500)+(2.00)(1.50)}{0.500+1.50}=\\dfrac{0.500+3.00}{2.00}=1.75\\,$atm。" }
+    },
+    {
+      "id": "2013-1-chem-7", "answerRow": 7, "topicId": "states-and-change",
+      "subtopic": "Heat released hydrogenating acetylene to a C₂H₄/C₂H₆ mix",
+      "patternTags": ["thermochemistry", "hess-law", "heat-of-formation", "plug-in-numbers"], "hasFigure": false,
+      "figure": { "ja": "生成熱：$\\mathrm{2C+H_2=C_2H_2}-228$，$\\mathrm{2C+2H_2=C_2H_4}-52$，$\\mathrm{2C+3H_2=C_2H_6}+84$（kJ）。", "en": "Heats of formation: $\\mathrm{2C+H_2=C_2H_2}-228$, $\\mathrm{2C+2H_2=C_2H_4}-52$, $\\mathrm{2C+3H_2=C_2H_6}+84$ (kJ)." },
+      "ja": { "prompt": "$\\mathrm{C_2H_2}$，$\\mathrm{C_2H_4}$，$\\mathrm{C_2H_6}$ の生成熱はそれぞれ $-228$，$-52$，$+84\\,$kJ/mol である。$1.00\\,$mol のアセチレンを水素化して $0.500\\,$mol のエチレンと $0.500\\,$mol のエタンを得たときの発熱量は何 kJ か。", "choices": ["88", "156", "176", "244", "312", "488"] },
+      "en": { "prompt": "Heats of formation of $\\mathrm{C_2H_2}$, $\\mathrm{C_2H_4}$, $\\mathrm{C_2H_6}$ are $-228$, $-52$, $+84\\,$kJ/mol. Hydrogenating $1.00\\,$mol acetylene to $0.500\\,$mol ethylene and $0.500\\,$mol ethane releases how many kJ?", "choices": ["88", "156", "176", "244", "312", "488"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "$244\\,$kJ", "en": "244 kJ" },
+      "explanation": { "en": "$\\mathrm{C_2H_2\\to C_2H_4}$ releases $Q_f(\\mathrm{C_2H_4})-Q_f(\\mathrm{C_2H_2})=-52-(-228)=176\\,$kJ/mol; $\\mathrm{C_2H_2\\to C_2H_6}$ releases $84-(-228)=312\\,$kJ/mol. For $0.5$ mol each: $0.5\\times176+0.5\\times312=88+156=244\\,$kJ.", "ja": "$\\mathrm{C_2H_2\\to C_2H_4}$ は $Q_f(\\mathrm{C_2H_4})-Q_f(\\mathrm{C_2H_2})=-52-(-228)=176\\,$kJ/mol，$\\mathrm{C_2H_2\\to C_2H_6}$ は $84-(-228)=312\\,$kJ/mol。各 $0.5$ mol で $0.5\\times176+0.5\\times312=88+156=244\\,$kJ。" }
+    },
+    {
+      "id": "2013-1-chem-8", "answerRow": 8, "topicId": "states-and-change",
+      "subtopic": "Incorrect equilibrium-shift prediction",
+      "patternTags": ["chemical-equilibrium", "le-chatelier", "dilution", "pick-false-statement"], "hasFigure": true,
+      "figure": { "ja": "平衡と操作と移動方向：① $\\mathrm{CH_3COOH\\rightleftharpoons CH_3COO^-+H^+}$／pH を大きく→右。② $\\mathrm{NH_3+H_2O\\rightleftharpoons NH_4^++OH^-}$／水を加える→左。③ 同／NaOH を加える→左。④ $\\mathrm{N_2+3H_2\\rightleftharpoons 2NH_3}$／加圧→右。⑤ $\\mathrm{H^++OH^-\\rightleftharpoons H_2O}$／加熱→左。", "en": "Equilibrium / operation / predicted shift: ① $\\mathrm{CH_3COOH\\rightleftharpoons CH_3COO^-+H^+}$ / raise pH → right. ② $\\mathrm{NH_3+H_2O\\rightleftharpoons NH_4^++OH^-}$ / add water → left. ③ same / add NaOH → left. ④ $\\mathrm{N_2+3H_2\\rightleftharpoons 2NH_3}$ / raise pressure → right. ⑤ $\\mathrm{H^++OH^-\\rightleftharpoons H_2O}$ / heat → left." },
+      "ja": { "prompt": "表の A 欄の反応が平衡状態にある。B 欄の操作で平衡はどちらに移動するか。C 欄の移動の向きが誤っているものを選びなさい。 ① 酢酸の電離／pH を大きくする／右 ② アンモニアの電離／水を加える／左 ③ アンモニアの電離／NaOH を加える／左 ④ $\\mathrm{N_2+3H_2\\rightleftharpoons 2NH_3}$／圧力を高くする／右 ⑤ $\\mathrm{H^++OH^-\\rightleftharpoons H_2O}$／加熱する／左", "choices": ["①", "②", "③", "④", "⑤"] },
+      "en": { "prompt": "Which predicted equilibrium shift (column C) is INCORRECT? ① acetic-acid ionization / raise pH / right ② ammonia ionization / add water / left ③ ammonia ionization / add NaOH / left ④ $\\mathrm{N_2+3H_2\\rightleftharpoons 2NH_3}$ / raise pressure / right ⑤ $\\mathrm{H^++OH^-\\rightleftharpoons H_2O}$ / heat / left", "choices": ["①", "②", "③", "④", "⑤"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "②（水を加えると右へ移動する）", "en": "② (adding water shifts it right)" },
+      "explanation": { "en": "Diluting $\\mathrm{NH_3+H_2O\\rightleftharpoons NH_4^++OH^-}$ favours the side with more dissolved particles (the right, $\\mathrm{NH_4^++OH^-}$), increasing dissociation — it shifts RIGHT, not left. The other predictions are correct.", "ja": "$\\mathrm{NH_3+H_2O\\rightleftharpoons NH_4^++OH^-}$ を希釈すると，溶質粒子の多い側（右，$\\mathrm{NH_4^++OH^-}$）へ移動して電離度が増す — 右へ移動で，左は誤り。他は正しい。" }
+    },
+    {
+      "id": "2013-1-chem-9", "answerRow": 9, "topicId": "states-and-change",
+      "subtopic": "Total moles of gas from electrolysis of dilute H₂SO₄",
+      "patternTags": ["electrolysis", "faradays-law", "electrode-products", "plug-in-numbers"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "白金電極を用いて希硫酸 $\\mathrm{H_2SO_4}$ を電気分解した。$19300\\,$C の電気量を流したとき，陽極と陰極で発生した気体の量の和は何 mol か。", "choices": ["0.050", "0.10", "0.15", "0.20", "0.25", "0.30"] },
+      "en": { "prompt": "Dilute $\\mathrm{H_2SO_4}$ is electrolysed with platinum electrodes. After $19300\\,$C, what is the total moles of gas evolved at the anode and cathode combined?", "choices": ["0.050", "0.10", "0.15", "0.20", "0.25", "0.30"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "$0.15\\,$mol", "en": "0.15 mol" },
+      "explanation": { "en": "$19300/96500=0.20\\,$mol $e^-$. Cathode $\\mathrm{2H^++2e^-\\to H_2}$: $0.10\\,$mol $\\mathrm{H_2}$. Anode $\\mathrm{2H_2O\\to O_2+4H^++4e^-}$: $0.05\\,$mol $\\mathrm{O_2}$. Total $=0.10+0.05=0.15\\,$mol.", "ja": "$19300/96500=0.20\\,$mol $e^-$。陰極 $\\mathrm{2H^++2e^-\\to H_2}$：$\\mathrm{H_2}$ $0.10\\,$mol。陽極 $\\mathrm{2H_2O\\to O_2+4H^++4e^-}$：$\\mathrm{O_2}$ $0.05\\,$mol。合計 $0.15\\,$mol。" }
+    },
+    {
+      "id": "2013-1-chem-10", "answerRow": 10, "topicId": "states-and-change",
+      "subtopic": "pH of a nearly-neutralized mixture",
+      "patternTags": ["acids-bases", "ph-calculation", "excess-reagent", "plug-in-numbers"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "$10.1\\,$mL の $0.200\\,$mol/L 水酸化ナトリウム水溶液に，$10.0\\,$mL の $0.200\\,$mol/L 塩酸を加えた。この混合水溶液の pH として最も近い値を選びなさい。", "choices": ["8", "9", "10", "11", "12", "13"] },
+      "en": { "prompt": "To $10.1\\,$mL of $0.200\\,$mol/L NaOH is added $10.0\\,$mL of $0.200\\,$mol/L HCl. What is the pH of the mixture?", "choices": ["8", "9", "10", "11", "12", "13"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "約 11", "en": "≈ 11" },
+      "explanation": { "en": "NaOH $=0.200\\times0.0101=2.02\\times10^{-3}\\,$mol; HCl $=2.00\\times10^{-3}\\,$mol. Excess $\\mathrm{OH^-}=2\\times10^{-5}\\,$mol in $0.0201\\,$L → $[\\mathrm{OH^-}]\\approx1.0\\times10^{-3}$, pOH $=3$, pH $=11$.", "ja": "NaOH $=0.200\\times0.0101=2.02\\times10^{-3}\\,$mol，HCl $=2.00\\times10^{-3}\\,$mol。過剰 $\\mathrm{OH^-}=2\\times10^{-5}\\,$mol を $0.0201\\,$L で割ると $[\\mathrm{OH^-}]\\approx1.0\\times10^{-3}$，pOH $=3$，pH $=11$。" }
+    },
+    {
+      "id": "2013-1-chem-11", "answerRow": 11, "topicId": "states-and-change",
+      "subtopic": "Identify the redox reaction",
+      "patternTags": ["redox", "oxidation-number", "reaction-classification"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の反応①〜⑥のうち，酸化還元反応であるものを一つ選びなさい。 ① $\\mathrm{BaCO_3+2HCl\\to BaCl_2+H_2O+CO_2}$ ② $\\mathrm{CuSO_4+5H_2O\\to CuSO_4{\\cdot}5H_2O}$ ③ $\\mathrm{HCl+NaOH\\to NaCl+H_2O}$ ④ $\\mathrm{2K_2CrO_4+H_2SO_4\\to K_2Cr_2O_7+K_2SO_4+H_2O}$ ⑤ $\\mathrm{MnO_2+4HCl\\to MnCl_2+2H_2O+Cl_2}$ ⑥ $\\mathrm{SO_3+H_2O\\to H_2SO_4}$", "choices": ["①", "②", "③", "④", "⑤", "⑥"] },
+      "en": { "prompt": "Which reaction is a redox reaction? ① $\\mathrm{BaCO_3+2HCl}$ ② $\\mathrm{CuSO_4+5H_2O}$ ③ $\\mathrm{HCl+NaOH}$ ④ $\\mathrm{2K_2CrO_4+H_2SO_4}$ ⑤ $\\mathrm{MnO_2+4HCl\\to MnCl_2+2H_2O+Cl_2}$ ⑥ $\\mathrm{SO_3+H_2O}$", "choices": ["①", "②", "③", "④", "⑤", "⑥"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "⑤", "en": "⑤" },
+      "explanation": { "en": "In ⑤ Mn goes $+4\\to+2$ (reduced) and $\\mathrm{Cl^-}$ goes $-1\\to0$ in $\\mathrm{Cl_2}$ (oxidized) — a redox reaction. ①–④ and ⑥ are acid–base, hydration, or condensation with no oxidation-number change.", "ja": "⑤ では Mn が $+4\\to+2$（還元），$\\mathrm{Cl^-}$ が $\\mathrm{Cl_2}$ で $-1\\to0$（酸化）— 酸化還元。①〜④・⑥ は酸塩基・水和・縮合で酸化数不変。" }
+    },
+    {
+      "id": "2013-1-chem-12", "answerRow": 12, "topicId": "inorganic",
+      "subtopic": "Incorrect statement about CO₂/H₂/HCl/He/NH₃",
+      "patternTags": ["typical-elements", "gas-properties", "pick-false-statement"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "気体 $\\mathrm{CO_2}$，$\\mathrm{H_2}$，HCl，He，$\\mathrm{NH_3}$ に関する記述として誤っているものを一つ選びなさい。", "choices": ["どの気体も無色である。", "$\\mathrm{CO_2}$ は水に溶けて弱酸になる。", "HCl は水に溶けて強酸になる。", "$\\mathrm{NH_3}$ は水に溶けて強塩基になる。", "これらの気体の中で He の反応性が最も低い。"] },
+      "en": { "prompt": "Which statement about the gases $\\mathrm{CO_2}$, $\\mathrm{H_2}$, HCl, He, $\\mathrm{NH_3}$ is INCORRECT?", "choices": ["All of them are colourless.", "$\\mathrm{CO_2}$ dissolves to give a weak acid.", "HCl dissolves to give a strong acid.", "$\\mathrm{NH_3}$ dissolves to give a strong base.", "He has the lowest reactivity of these gases."] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "「$\\mathrm{NH_3}$ は強塩基になる」は誤り（④）", "en": "\"$\\mathrm{NH_3}$ gives a strong base\" is wrong (④)" },
+      "explanation": { "en": "Aqueous ammonia is a WEAK base (only partially ionized), not a strong base. The other statements are correct.", "ja": "アンモニア水は弱塩基（一部しか電離しない）で，強塩基ではない。他の記述は正しい。" }
+    },
+    {
+      "id": "2013-1-chem-13", "answerRow": 13, "topicId": "matter-structure",
+      "subtopic": "True/false statements about sodium chloride",
+      "patternTags": ["chemical-bonds", "ionic-crystal", "flame-test", "true-false-combo"], "hasFigure": true,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "塩化ナトリウム NaCl に関する記述(a)〜(e)の正誤の組み合わせを選びなさい。 (a) 結晶では $\\mathrm{Na^+}$ と $\\mathrm{Cl^-}$ が交互に規則正しく配列している。 (b) Na と Cl は周期表の異なる周期に属する。 (c) Na と Cl は共有結合で結ばれている。 (d) 白金線につけて炎の中に入れると炎は黄色を示す。 (e) 固体は電気伝導性を示さないが，水溶液にすると電気伝導性を示す。", "choices": ["正 正 正 正 誤", "正 誤 正 正 正", "正 誤 誤 正 正", "誤 正 正 正 誤", "誤 正 正 誤 誤", "誤 誤 正 正 正"] },
+      "en": { "prompt": "Give the true/false combination for NaCl: (a) in the crystal $\\mathrm{Na^+}$ and $\\mathrm{Cl^-}$ alternate regularly; (b) Na and Cl are in different periods; (c) Na and Cl are joined by a covalent bond; (d) on a platinum wire in a flame it gives a yellow colour; (e) the solid does not conduct, but its solution does.", "choices": ["T T T T F", "T F T T T", "T F F T T", "F T T T F", "F T T F F", "F F T T T"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "(a)正 (b)誤 (c)誤 (d)正 (e)正", "en": "(a) T (b) F (c) F (d) T (e) T" },
+      "explanation": { "en": "(a) True (rock-salt lattice). (b) False — both Na and Cl are in period 3. (c) False — NaCl is ionic, not covalent. (d) True (sodium gives a yellow flame). (e) True (ionic solid conducts only when molten or dissolved).", "ja": "(a) 正（岩塩型格子）。(b) 誤 — Na も Cl も第 3 周期。(c) 誤 — NaCl はイオン結合で共有結合ではない。(d) 正（Na は黄色の炎色）。(e) 正（イオン結晶は融解か溶解で導電）。" }
+    },
+    {
+      "id": "2013-1-chem-14", "answerRow": 14, "topicId": "inorganic",
+      "subtopic": "Cation giving a hydroxide precipitate with both excess NH₃ and NaOH",
+      "patternTags": ["ion-analysis", "amphoteric-hydroxide", "complex-ions"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "1 種類の陽イオンを含む水溶液を 2 本の試験管にとり，一方に過剰のアンモニア水 $\\mathrm{NH_3}$ aq，他方に過剰の水酸化ナトリウム水溶液 NaOH aq を加えたとき，どちらの試験管でも水酸化物の沈殿を生じるものを一つ選びなさい。", "choices": ["$\\mathrm{Ag^+}$", "$\\mathrm{Al^{3+}}$", "$\\mathrm{Cu^{2+}}$", "$\\mathrm{Fe^{3+}}$", "$\\mathrm{K^+}$"] },
+      "en": { "prompt": "A solution of one cation is split into two test tubes; excess $\\mathrm{NH_3}$ aq is added to one and excess NaOH aq to the other. Which cation gives a hydroxide precipitate in BOTH?", "choices": ["$\\mathrm{Ag^+}$", "$\\mathrm{Al^{3+}}$", "$\\mathrm{Cu^{2+}}$", "$\\mathrm{Fe^{3+}}$", "$\\mathrm{K^+}$"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "$\\mathrm{Fe^{3+}}$", "en": "$\\mathrm{Fe^{3+}}$" },
+      "explanation": { "en": "$\\mathrm{Fe(OH)_3}$ is neither amphoteric nor an ammine-former, so it precipitates and stays in both excess NaOH and excess NH₃. $\\mathrm{Al^{3+}}$ redissolves in excess NaOH; $\\mathrm{Ag^+}$ and $\\mathrm{Cu^{2+}}$ form soluble ammine complexes in excess NH₃; $\\mathrm{K^+}$ never precipitates.", "ja": "$\\mathrm{Fe(OH)_3}$ は両性でもアンミン錯体も作らないので，過剰の NaOH でも $\\mathrm{NH_3}$ でも沈殿が残る。$\\mathrm{Al^{3+}}$ は過剰 NaOH で再溶解，$\\mathrm{Ag^+}$・$\\mathrm{Cu^{2+}}$ は過剰 $\\mathrm{NH_3}$ で錯イオン，$\\mathrm{K^+}$ は沈殿しない。" }
+    },
+    {
+      "id": "2013-1-chem-15", "answerRow": 15, "topicId": "states-and-change",
+      "subtopic": "Glassware and technique for accurate dilution",
+      "patternTags": ["acids-bases", "lab-technique", "titration-glassware"], "hasFigure": true,
+      "figure": { "ja": "メスフラスコと器具 A（ホールピペットまたはビュレット）で食酢を正確に 1/10 に薄める。器具 A は蒸留水で洗ってぬれている。", "en": "Dilute vinegar exactly 1/10 using a volumetric flask and tool A (pipet or buret); tool A is wet with distilled water." },
+      "ja": { "prompt": "メスフラスコと器具 A（ホールピペットまたはビュレット）で食酢を正確に $\\dfrac{1}{10}$ に薄めたい。器具 A は蒸留水で洗いぬれている。使用する器具 A の名称と使用方法の組み合わせとして最も適当なものを選びなさい。", "choices": ["ホールピペット／そのまま使用する", "ホールピペット／加熱して乾燥して使用する", "ホールピペット／はかりとる食酢で中を数回すすいで使用する", "ビュレット／そのまま使用する", "ビュレット／加熱して乾燥して使用する", "ビュレット／はかりとる食酢で中を数回すすいで使用する"] },
+      "en": { "prompt": "To dilute vinegar exactly $\\dfrac{1}{10}$ with a volumetric flask and tool A (wet with distilled water), which tool A and method?", "choices": ["pipet / use as is", "pipet / heat-dry first", "pipet / rinse it several times with the vinegar to be measured", "buret / use as is", "buret / heat-dry first", "buret / rinse it several times with the vinegar to be measured"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "ホールピペット／はかりとる食酢で共洗いして使用する（③）", "en": "pipet / rinse it with the vinegar (③)" },
+      "explanation": { "en": "A pipet delivers a precise fixed volume of the vinegar. Because it is wet with water, residual water would dilute the sample, so you must 'rinse' it (共洗い) with the vinegar to be measured before drawing the sample. (Heat-drying glass volumetric ware is not done.)", "ja": "ホールピペットは食酢の一定体積を正確にはかりとる。蒸留水でぬれているので残った水が試料を薄めてしまうため，はかりとる食酢で共洗いしてから使う。（体積計を加熱乾燥してはいけない。）" }
+    },
+    {
+      "id": "2013-1-chem-16", "answerRow": 16, "topicId": "organic",
+      "subtopic": "Number of structural isomers of C₃H₆BrCl",
+      "patternTags": ["aliphatic-hydrocarbons", "structural-isomers", "halogenated", "count-how-many"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "分子式 $\\mathrm{C_3H_6BrCl}$ で表される化合物の構造異性体の数として正しいものを選びなさい。", "choices": ["1", "2", "3", "4", "5", "6"] },
+      "en": { "prompt": "How many structural isomers does $\\mathrm{C_3H_6BrCl}$ have?", "choices": ["1", "2", "3", "4", "5", "6"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "5 個", "en": "5" },
+      "explanation": { "en": "Place one Br and one Cl on propane. Both on C1; both on C2; on C1+C2 (two ways, Br/Cl swapped); on C1+C3 (one way): $1+1+2+1=5$ isomers.", "ja": "プロパンに Br 1 個と Cl 1 個を置く：両方 C1，両方 C2，C1+C2（Br/Cl の入れ替えで 2 通り），C1+C3（1 通り）で $1+1+2+1=5$ 個。" }
+    },
+    {
+      "id": "2013-1-chem-17", "answerRow": 17, "topicId": "organic",
+      "subtopic": "Two incorrect statements about alcohols",
+      "patternTags": ["functional-groups", "alcohol-reactions", "true-false-combo"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の(a)〜(e)のうち，アルコールに関する記述として誤っているものが二つある。それらの組み合わせを選びなさい。 (a) エタノールは Na と反応してエチレンを生成する。 (b) アセトアルデヒドを還元するとメタノールが生成する。 (c) サリチル酸メチルを加水分解するとサリチル酸とメタノールが生成する。 (d) エチレンに触媒の存在下で水蒸気を反応させるとエタノールが生成する。 (e) CO と $\\mathrm{H_2}$ を触媒の存在下で反応させるとメタノールが生成する。", "choices": ["a, b", "a, d", "b, c", "b, e", "c, d", "d, e"] },
+      "en": { "prompt": "Two of these statements about alcohols are INCORRECT. Which pair? (a) ethanol + Na gives ethylene; (b) reducing acetaldehyde gives methanol; (c) hydrolysing methyl salicylate gives salicylic acid + methanol; (d) ethylene + steam (catalyst) gives ethanol; (e) CO + $\\mathrm{H_2}$ (catalyst) gives methanol.", "choices": ["a, b", "a, d", "b, c", "b, e", "c, d", "d, e"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "a と b", "en": "a and b" },
+      "explanation": { "en": "(a) is wrong — ethanol + Na gives sodium ethoxide and $\\mathrm{H_2}$, not ethylene (which comes from dehydration). (b) is wrong — reducing acetaldehyde ($\\mathrm{CH_3CHO}$) gives ethanol, not methanol. (c), (d), (e) are all correct.", "ja": "(a) 誤 — エタノール + Na はナトリウムエトキシドと $\\mathrm{H_2}$ を生じ，エチレン（脱水で得る）ではない。(b) 誤 — アセトアルデヒド（$\\mathrm{CH_3CHO}$）の還元はエタノールでメタノールではない。(c)(d)(e) は正しい。" }
+    },
+    {
+      "id": "2013-1-chem-18", "answerRow": 18, "topicId": "organic",
+      "subtopic": "Molecular formula of an unsaturated hydrocarbon from Br₂ addition",
+      "patternTags": ["aliphatic-hydrocarbons", "bromine-addition", "empirical-formula", "plug-in-numbers"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "炭素 C と水素 H の質量比が $6:1$ の不飽和炭化水素 $21\\,$g に臭素 $\\mathrm{Br_2}$ を反応させたところ，$61\\,$g の生成物が得られた。この不飽和炭化水素の分子式として最も適当なものを選びなさい。", "choices": ["$\\mathrm{C_4H_6}$", "$\\mathrm{C_4H_8}$", "$\\mathrm{C_5H_8}$", "$\\mathrm{C_5H_{10}}$", "$\\mathrm{C_6H_{10}}$", "$\\mathrm{C_6H_{12}}$", "$\\mathrm{C_7H_{12}}$", "$\\mathrm{C_7H_{14}}$"] },
+      "en": { "prompt": "An unsaturated hydrocarbon with C:H mass ratio $6:1$ ($21\\,$g) reacts with $\\mathrm{Br_2}$ to give $61\\,$g of product. What is its molecular formula?", "choices": ["$\\mathrm{C_4H_6}$", "$\\mathrm{C_4H_8}$", "$\\mathrm{C_5H_8}$", "$\\mathrm{C_5H_{10}}$", "$\\mathrm{C_6H_{10}}$", "$\\mathrm{C_6H_{12}}$", "$\\mathrm{C_7H_{12}}$", "$\\mathrm{C_7H_{14}}$"] },
+      "answerIndex": 5, "answerOption": 6, "answer": { "ja": "$\\mathrm{C_6H_{12}}$", "en": "$\\mathrm{C_6H_{12}}$" },
+      "explanation": { "en": "C:H mass $6:1$ → mole ratio $\\tfrac{6}{12}:\\tfrac{1}{1}=1:2$, empirical $\\mathrm{CH_2}$, so $\\mathrm{C_nH_{2n}}$ (one C=C). $\\mathrm{Br_2}$ added $=61-21=40\\,$g $=0.25\\,$mol, so $0.25\\,$mol hydrocarbon: $21/(14n)=0.25\\Rightarrow 14n=84\\Rightarrow n=6$, giving $\\mathrm{C_6H_{12}}$.", "ja": "C:H 質量比 $6:1$ → mol 比 $\\tfrac{6}{12}:\\tfrac{1}{1}=1:2$，組成式 $\\mathrm{CH_2}$ で $\\mathrm{C_nH_{2n}}$（C=C 1 個）。加わった $\\mathrm{Br_2}=61-21=40\\,$g$=0.25\\,$mol，炭化水素も $0.25\\,$mol：$21/(14n)=0.25\\Rightarrow 14n=84\\Rightarrow n=6$，$\\mathrm{C_6H_{12}}$。" }
+    },
+    {
+      "id": "2013-1-chem-19", "answerRow": 19, "topicId": "organic",
+      "subtopic": "Cumene process: masses of phenol and acetone",
+      "patternTags": ["aromatic", "cumene-process", "stoichiometry", "plug-in-numbers"], "hasFigure": true,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "ベンゼンとプロピレンからクメン法でフェノールとアセトン（2-プロパノン）が工業的に合成される。$39\\,$kg のベンゼンからフェノールとアセトンはそれぞれ何 kg 合成されるか。", "choices": ["フェノール 29 / アセトン 58", "フェノール 47 / アセトン 29", "フェノール 94 / アセトン 47", "フェノール 29 / アセトン 29", "フェノール 47 / アセトン 58", "フェノール 94 / アセトン 29"] },
+      "en": { "prompt": "Phenol and acetone are made industrially from benzene and propylene by the cumene process. From $39\\,$kg of benzene, how many kg of phenol and acetone are produced?", "choices": ["phenol 29 / acetone 58", "phenol 47 / acetone 29", "phenol 94 / acetone 47", "phenol 29 / acetone 29", "phenol 47 / acetone 58", "phenol 94 / acetone 29"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "フェノール $47\\,$kg，アセトン $29\\,$kg", "en": "phenol 47 kg, acetone 29 kg" },
+      "explanation": { "en": "$39\\,$kg benzene (M = 78) $=500\\,$mol. The cumene process gives 1 phenol + 1 acetone per benzene, so $500\\,$mol each: phenol (M = 94) $=47\\,$kg, acetone (M = 58) $=29\\,$kg.", "ja": "$39\\,$kg のベンゼン（M=78）$=500\\,$mol。クメン法はベンゼン 1 個あたりフェノール 1＋アセトン 1 なので各 $500\\,$mol：フェノール（M=94）$=47\\,$kg，アセトン（M=58）$=29\\,$kg。" }
+    },
+    {
+      "id": "2013-1-chem-20", "answerRow": 20, "topicId": "organic",
+      "subtopic": "Which compounds are classed as phenols",
+      "patternTags": ["aromatic", "phenols-class", "functional-groups", "true-false-combo"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の化合物(a)〜(f)のうち，フェノール類に分類されるものが二つある。それらの組み合わせを選びなさい。 (a) アニリン (b) ベンジルアルコール (c) クレゾール (d) フタル酸 (e) サリチル酸 (f) トルエン", "choices": ["a, b", "a, d", "b, c", "c, e", "d, f", "e, f"] },
+      "en": { "prompt": "Two of these are classed as phenols. Which pair? (a) aniline (b) benzyl alcohol (c) cresol (d) phthalic acid (e) salicylic acid (f) toluene", "choices": ["a, b", "a, d", "b, c", "c, e", "d, f", "e, f"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "c（クレゾール）と e（サリチル酸）", "en": "c (cresol) and e (salicylic acid)" },
+      "explanation": { "en": "Phenols have an –OH attached directly to the benzene ring. Cresol (methylphenol) and salicylic acid (o-hydroxybenzoic acid) both have a ring –OH. Aniline (–NH₂), benzyl alcohol (–CH₂OH side chain), phthalic acid (–COOH only), and toluene (–CH₃) do not.", "ja": "フェノール類はベンゼン環に直接 –OH が結合。クレゾール（メチルフェノール）とサリチル酸（o-ヒドロキシ安息香酸）は環に –OH をもつ。アニリン（–NH₂），ベンジルアルコール（側鎖 –CH₂OH），フタル酸（–COOH のみ），トルエン（–CH₃）は該当しない。" }
+    }
+  ],
+  "patterns": {
+    "archetypes": [
+      "Isoelectronic pair selection (Ar-type 18 e⁻: K⁺, S²⁻).",
+      "Periodic trend: smallest electronegativity (the most metallic element).",
+      "Most atoms of an element in a fixed mass (compare (mass/M)×count).",
+      "Polarity sorting (linear CO₂ and homonuclear O₂ are non-polar).",
+      "Atom count in a metal cube from density and N_A.",
+      "Pressure after joining two gas bulbs (conserve total PV at constant T).",
+      "Hess's-law heat for hydrogenating acetylene to an ethylene/ethane mix.",
+      "Le Chatelier screen including the dilution subtlety (weak-base ionization increases on dilution).",
+      "Electrolysis of dilute H₂SO₄: H₂ + O₂ total moles from charge.",
+      "pH of a nearly-neutralized strong acid/strong base mixture (tiny excess).",
+      "Identify the redox reaction (MnO₂ + HCl → Cl₂).",
+      "Gas property false-statement (NH₃ is a weak, not strong, base).",
+      "NaCl property true/false (ionic crystal, same period, flame colour, conductivity).",
+      "Cation that precipitates a hydroxide in both excess NH₃ and excess NaOH (Fe³⁺).",
+      "Volumetric glassware technique (rinse the pipet with the solution; don't heat-dry).",
+      "Counting structural isomers of a dihalogenated propane (C₃H₆BrCl → 5).",
+      "Alcohol-reaction false statements (Na gives H₂ not ethylene; aldehyde reduction gives the matching alcohol).",
+      "Molecular formula of an unsaturated hydrocarbon from a Br₂-addition mass gain.",
+      "Cumene-process mass yield (1:1 benzene→phenol+acetone).",
+      "Classify aromatics as phenols (ring –OH only: cresol, salicylic acid)."
+    ],
+    "recurring": [
+      "Mole/atom counting and isoelectronic/periodic-trend recall open the paper.",
+      "Gas laws (PV mixing, electrolysis Faraday) and thermochemistry (Hess) recur.",
+      "Le Chatelier, pH of mixtures, and redox identification are standard.",
+      "Qualitative inorganic (gas properties, cation precipitation, glassware) is a guaranteed block.",
+      "Organic: isomer counting, alcohol/phenol chemistry, addition stoichiometry, and named aromatic syntheses recur."
+    ],
+    "examTacticNotes": [
+      "Isoelectronic: K⁺ and S²⁻ are both Ar-type (18 e⁻).",
+      "Electronegativity is smallest for the lower-left (most metallic) element.",
+      "Joining gas bulbs at constant T: P_final = Σ(PᵢVᵢ)/ΣVᵢ.",
+      "Hydrogenation heat = Qf(product) − Qf(reactant); sum over the product split.",
+      "Diluting a weak acid/base shifts ionization toward MORE dissociation (the many-particle side).",
+      "Electrolysis of dilute H₂SO₄: cathode H₂ (n/2 per e⁻ pair), anode O₂ (n/4); add the moles.",
+      "Near the equivalence point, compute the tiny mol excess and divide by the total volume for [H⁺] or [OH⁻].",
+      "Redox ⇔ an oxidation number changes; MnO₂ + conc. HCl → Cl₂ is the classic case.",
+      "Aqueous NH₃ is a weak base.",
+      "Fe(OH)₃ is neither amphoteric nor ammine-forming — it stays precipitated in both excess NaOH and NH₃.",
+      "Volumetric pipets/burets are rinsed ('共洗い') with the solution they will hold; never heat-dried.",
+      "Count dihalide isomers by placing the two halogens on the carbon skeleton, distinguishing the two different halogens.",
+      "Ethanol + Na → H₂ (not ethylene); reducing an aldehyde gives the alcohol with the same carbon count.",
+      "CₙH₂ₙ adds 1 Br₂; use the mass of Br₂ taken up (ΔM/160 mol) to get the moles and hence n.",
+      "Cumene process: each benzene yields one phenol (M 94) and one acetone (M 58).",
+      "Phenols = –OH directly on the aromatic ring (cresol, salicylic acid); side-chain –OH (benzyl alcohol) does not count."
+    ],
+    "difficulty": "Standard EJU chemistry — a full-syllabus sweep. The more discriminating items are the dilution equilibrium subtlety (Q8), the C₃H₆BrCl isomer count (Q16), the two-wrong-statements alcohol screen (Q17), and the Br₂-addition formula determination (Q18)."
+  }
+}
