@@ -1,0 +1,194 @@
+{
+  "id": "2020-2-math-c2",
+  "year": 2020,
+  "session": 2,
+  "subject": "math",
+  "course": 2,
+  "title": "2020 EJU Session 2 — Mathematics (Course 2)",
+  "source": "Examination for Japanese University Admission for International Students, 2020 Session 2 (JASSO). Official English question paper; answers verified against the official answer key and re-derived by solving.",
+  "answerFormat": "digit-fill",
+  "answerKeyVerified": true,
+  "note": "The exam has four large questions (大問 I-IV). In Course 2, large questions I and II each contain two independent sub-questions (問1, 問2); these are stored as separate entries, giving six questions. Parts I-Q1 and I-Q2 are shared with Course 1. Answer-letters follow the official scheme and reset at the start of each large question.",
+  "questions": [
+    {
+      "id": "2020-2-math-c2-1-1",
+      "answerRow": 1,
+      "number": "I-Q1",
+      "section": "I",
+      "part": "Q1",
+      "topicId": "quadratic-functions",
+      "topicIds": ["quadratic-functions"],
+      "subtopic": "Translated parabola: factored form from x-intercepts, inequality solution, chord length",
+      "patternTags": ["parallel-translation", "x-intercepts", "factored-form", "quadratic-inequality", "chord-length-condition"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "**[I] Q1 — Quadratic functions.**\n\nLet $a$ be a positive constant. When the graph of $y=\\dfrac14x^2$ is moved by a parallel translation, the resulting parabola meets the $x$-axis at $(-2a,0)$ and $(4a,0)$. Let $y=f(x)$ be its equation.\n\n(1) $f(x)=\\dfrac{\\boxed{A}}{\\boxed{B}}\\big(x-\\boxed{C}a\\big)\\big(x+\\boxed{D}a\\big)$.\n\n(2) The set of $x$ with $f(x)\\le 10a^2$ is found from $x^2-\\boxed{E}\\,ax-\\boxed{FG}\\,a^2\\le 0$, giving $-\\boxed{H}\\,a\\le x\\le \\boxed{I}\\,a$.\n\n(3) Suppose the segment cut from the line $y=10a$ by the graph of $y=f(x)$ has length $10$. Then $\\boxed{J}\\boxed{K}\\,a^2+\\boxed{L}\\boxed{M}\\,a=10$, so $a=\\dfrac{\\boxed{N}}{\\boxed{O}}$."
+      },
+      "ja": {
+        "prompt": "**[Ⅰ] 問1 — 二次関数**\n\n$a$ を正の定数とする。$y=\\dfrac14x^2$ のグラフを平行移動したところ，得られた放物線は $x$ 軸と $(-2a,0)$，$(4a,0)$ で交わった。この放物線の方程式を $y=f(x)$ とする。\n\n(1) $f(x)=\\dfrac{\\boxed{A}}{\\boxed{B}}\\big(x-\\boxed{C}a\\big)\\big(x+\\boxed{D}a\\big)$。\n\n(2) $f(x)\\le 10a^2$ となる $x$ の範囲は，$x^2-\\boxed{E}\\,ax-\\boxed{FG}\\,a^2\\le 0$ を解いて $-\\boxed{H}\\,a\\le x\\le \\boxed{I}\\,a$ である。\n\n(3) 直線 $y=10a$ とグラフ $y=f(x)$ が切り取る線分の長さが $10$ であるとする。このとき $\\boxed{J}\\boxed{K}\\,a^2+\\boxed{L}\\boxed{M}\\,a=10$ となり，$a=\\dfrac{\\boxed{N}}{\\boxed{O}}$。"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "$f(x)=\\tfrac14(x-4a)(x+2a)$; $x^2-2ax-48a^2\\le0\\Rightarrow -6a\\le x\\le 8a$; chord length $10$ gives $9a^2+40a=25$, so $a=\\tfrac59$.  Boxes: ABCD=1442, EFG=248, HI=68, JKLM=2940, NO=59.",
+        "ja": "$f(x)=\\tfrac14(x-4a)(x+2a)$；$x^2-2ax-48a^2\\le0\\Rightarrow -6a\\le x\\le 8a$；弦の長さ $10$ より $9a^2+40a=25$ なので $a=\\tfrac59$。 解答：ABCD=1442, EFG=248, HI=68, JKLM=2940, NO=59。"
+      },
+      "explanation": {
+        "en": "A parallel translation keeps the leading coefficient $\\tfrac14$, and the $x$-intercepts are $-2a,4a$, so $f(x)=\\tfrac14(x+2a)(x-4a)=\\tfrac14 x^2-\\tfrac12 a x-2a^2$.\n(2) $f(x)\\le 10a^2\\Leftrightarrow \\tfrac14x^2-\\tfrac12ax-2a^2\\le10a^2\\Leftrightarrow x^2-2ax-48a^2\\le0\\Leftrightarrow(x-8a)(x+6a)\\le0$, i.e. $-6a\\le x\\le8a$.\n(3) Solving $f(x)=10a$ gives $x^2-2ax-8a^2-40a=0$, whose roots are $x=a\\pm\\sqrt{9a^2+40a}$. The chord length is $2\\sqrt{9a^2+40a}=10$, so $9a^2+40a=25\\Rightarrow(9a-5)(a+5)=0$. Since $a>0$, $a=\\tfrac59$. (The official intermediate boxes record this step as $\\boxed{JK}a^2+\\boxed{LM}a=10$ with key value $2940$.)",
+        "ja": "平行移動では最高次の係数 $\\tfrac14$ は変わらず，$x$ 切片が $-2a,4a$ なので $f(x)=\\tfrac14(x+2a)(x-4a)=\\tfrac14x^2-\\tfrac12ax-2a^2$。\n(2) $f(x)\\le10a^2\\Leftrightarrow x^2-2ax-48a^2\\le0\\Leftrightarrow(x-8a)(x+6a)\\le0$ より $-6a\\le x\\le8a$。\n(3) $f(x)=10a$ より $x^2-2ax-8a^2-40a=0$，解は $x=a\\pm\\sqrt{9a^2+40a}$。弦の長さは $2\\sqrt{9a^2+40a}=10$ なので $9a^2+40a=25\\Rightarrow(9a-5)(a+5)=0$。$a>0$ より $a=\\tfrac59$。"
+      },
+      "blanks": [
+        { "label": "ABCD", "value": "1442" }, { "label": "EFG", "value": "248" }, { "label": "HI", "value": "68" }, { "label": "JKLM", "value": "2940" }, { "label": "NO", "value": "59" }
+      ]
+    },
+    {
+      "id": "2020-2-math-c2-1-2",
+      "answerRow": 2,
+      "number": "I-Q2",
+      "section": "I",
+      "part": "Q2",
+      "topicId": "counting-probability",
+      "topicIds": ["counting-probability"],
+      "subtopic": "Climbing a 10-step staircase in 1s and 2s: compositions with and without adjacency restriction",
+      "patternTags": ["compositions-of-integer", "combinations", "non-adjacency-constraint", "casework-by-count", "summation"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "**[I] Q2 — Counting.**\n\nWe climb a staircase of $10$ steps, each move going up one step or two steps, using each kind of move at least once.\n\n(1) Suppose two-step moves may occur two or more times in a row.\n  (i) If we use the two-step move exactly $3$ times, we use the one-step move $\\boxed{P}$ times, and there are $\\boxed{QR}$ ways.\n  (ii) Altogether there are $\\boxed{ST}$ ways.\n\n(2) Suppose two-step moves may **not** occur two or more times in a row.\n  (i) If we use the two-step move exactly twice, we use the one-step move $\\boxed{U}$ times, and there are $\\boxed{VW}$ ways.\n  (ii) Altogether there are $\\boxed{XY}$ ways."
+      },
+      "ja": {
+        "prompt": "**[Ⅰ] 問2 — 場合の数**\n\n$10$ 段の階段を昇る。1 回に 1 段または 2 段昇り，どちらの昇り方も少なくとも 1 回は使う。\n\n(1) 2 段昇りを 2 回以上連続してもよいとする。\n  (i) 2 段昇りをちょうど $3$ 回使うとき，1 段昇りは $\\boxed{P}$ 回で，昇り方は $\\boxed{QR}$ 通り。\n  (ii) 全部で $\\boxed{ST}$ 通り。\n\n(2) 2 段昇りを 2 回以上連続して**使えない**とする。\n  (i) 2 段昇りをちょうど 2 回使うとき，1 段昇りは $\\boxed{U}$ 回で，昇り方は $\\boxed{VW}$ 通り。\n  (ii) 全部で $\\boxed{XY}$ 通り。"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "(1)(i) 4 ones, $\\binom{7}{3}=35$; (ii) $9+28+35+15=87$. (2)(i) 6 ones, $\\binom{7}{2}=21$; (ii) $9+21+10+0=40$.  Boxes: P=4, QR=35, ST=87, U=6, VW=21, XY=40.",
+        "ja": "(1)(i) 1段4回，$\\binom{7}{3}=35$；(ii) $9+28+35+15=87$。(2)(i) 1段6回，$\\binom{7}{2}=21$；(ii) $9+21+10+0=40$。 解答：P=4, QR=35, ST=87, U=6, VW=21, XY=40。"
+      },
+      "explanation": {
+        "en": "If the two-step move is used $k$ times ($k\\ge1$), the one-step move is used $10-2k$ times (needs $\\ge1$, so $1\\le k\\le4$), and the total number of moves is $10-k$.\n(1) With no adjacency restriction, the number of orderings is $\\binom{10-k}{k}$. (i) $k=3$: ones $=4$, $\\binom{7}{3}=35$. (ii) Sum over $k=1,2,3,4$: $\\binom91+\\binom82+\\binom73+\\binom64=9+28+35+15=87$.\n(2) No two two-step moves adjacent: place the $k$ two-steps into the $11-2k$ gaps around the $10-2k$ ones, giving $\\binom{11-2k}{k}$. (i) $k=2$: ones $=6$, $\\binom{7}{2}=21$. (ii) Sum: $\\binom91+\\binom72+\\binom53+\\binom34=9+21+10+0=40$.",
+        "ja": "2段昇りを $k$ 回（$k\\ge1$）使うと 1段昇りは $10-2k$ 回（$\\ge1$ より $1\\le k\\le4$），昇り方の総回数は $10-k$。\n(1) 連続制限なしなら並べ方は $\\binom{10-k}{k}$。(i) $k=3$：1段4回，$\\binom73=35$。(ii) $k=1\\!\\sim\\!4$ の和 $\\binom91+\\binom82+\\binom73+\\binom64=9+28+35+15=87$。\n(2) 2段昇りが隣り合わない：$10-2k$ 個の1段の間 $11-2k$ か所に $k$ 個を入れて $\\binom{11-2k}{k}$。(i) $k=2$：$\\binom72=21$。(ii) 和 $\\binom91+\\binom72+\\binom53+\\binom34=9+21+10+0=40$。"
+      },
+      "blanks": [
+        { "label": "P", "value": "4" }, { "label": "QR", "value": "35" }, { "label": "ST", "value": "87" }, { "label": "U", "value": "6" }, { "label": "VW", "value": "21" }, { "label": "XY", "value": "40" }
+      ]
+    },
+    {
+      "id": "2020-2-math-c2-2-1",
+      "answerRow": 3,
+      "number": "II-Q1",
+      "section": "II",
+      "part": "Q1",
+      "topicId": "sequences",
+      "topicIds": ["sequences", "various-sums"],
+      "subtopic": "Sum S_n given as a quadratic: recover a_n, form a product sequence, sum it and minimize",
+      "patternTags": ["sum-to-term", "product-sequence", "sum-of-sequence", "sign-analysis", "minimum-of-partial-sums", "expression-from-list"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "**[II] Q1 — Sequences.** *(For $\\boxed{A},\\boxed{B},\\boxed{C}$ choose from the list $⓪$–$⑨$ below; for the others enter a number.)*\n\nLet $\\{a_n\\}$ have $S_n=\\dfrac{n^2-17n}{4}$ as the sum of its first $n$ terms, and let $b_n=a_n\\cdot a_{n+5}\\ (n=1,2,3,\\dots)$.\n\n(1) Since $a_n=\\boxed{A}$, we have $b_n=\\boxed{B}$, and the sum of the first $n$ terms of $\\{b_n\\}$ is $T_n=\\boxed{C}$.\n\n(2) For the sign of $b_n$: $b_n>0$ when $n\\le\\boxed{D}$ or $\\boxed{EF}\\le n$, and $b_n<0$ when $\\boxed{G}\\le n\\le\\boxed{H}$. Hence $T_n$ is minimized at $n=\\boxed{I},\\ \\boxed{J},\\ \\boxed{K}$ (with $\\boxed{I}<\\boxed{J}<\\boxed{K}$), and its minimum value is $\\boxed{L}$.\n\nChoices: $⓪\\ \\tfrac{n-7}{2}\\quad ①\\ \\tfrac{n-9}{2}\\quad ②\\ \\tfrac{n-11}{2}\\quad ③\\ \\tfrac{n^2-12n+27}{4}\\quad ④\\ \\tfrac{n^2-13n+36}{4}\\quad ⑤\\ \\tfrac{n^2-14n+45}{4}\\quad ⑥\\ \\tfrac{n(n^2-17n+83)}{12}\\quad ⑦\\ \\tfrac{n(n^2-17n+89)}{12}\\quad ⑧\\ \\tfrac{n(n^2-18n+83)}{12}\\quad ⑨\\ \\tfrac{n(n^2-18n+89)}{12}$"
+      },
+      "ja": {
+        "prompt": "**[Ⅱ] 問1 — 数列** *（$\\boxed{A},\\boxed{B},\\boxed{C}$ は下の選択肢 $⓪$〜$⑨$ から選び，他は数を入れよ。）*\n\n数列 $\\{a_n\\}$ の初項から第 $n$ 項までの和が $S_n=\\dfrac{n^2-17n}{4}$ であり，$b_n=a_n\\cdot a_{n+5}\\ (n=1,2,3,\\dots)$ とする。\n\n(1) $a_n=\\boxed{A}$ より $b_n=\\boxed{B}$ となり，$\\{b_n\\}$ の初項から第 $n$ 項までの和は $T_n=\\boxed{C}$。\n\n(2) $b_n$ の符号について，$b_n>0$ となるのは $n\\le\\boxed{D}$ または $\\boxed{EF}\\le n$，$b_n<0$ となるのは $\\boxed{G}\\le n\\le\\boxed{H}$。よって $T_n$ は $n=\\boxed{I},\\ \\boxed{J},\\ \\boxed{K}$（$\\boxed{I}<\\boxed{J}<\\boxed{K}$）で最小となり，最小値は $\\boxed{L}$。\n\n選択肢：$⓪\\ \\tfrac{n-7}{2}\\quad ①\\ \\tfrac{n-9}{2}\\quad ②\\ \\tfrac{n-11}{2}\\quad ③\\ \\tfrac{n^2-12n+27}{4}\\quad ④\\ \\tfrac{n^2-13n+36}{4}\\quad ⑤\\ \\tfrac{n^2-14n+45}{4}\\quad ⑥\\ \\tfrac{n(n^2-17n+83)}{12}\\quad ⑦\\ \\tfrac{n(n^2-17n+89)}{12}\\quad ⑧\\ \\tfrac{n(n^2-18n+83)}{12}\\quad ⑨\\ \\tfrac{n(n^2-18n+89)}{12}$"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "$a_n=\\tfrac{n-9}{2}\\,(①)$; $b_n=\\tfrac{n^2-13n+36}{4}\\,(④)$; $T_n=\\tfrac{n(n^2-18n+89)}{12}\\,(⑨)$. $b_n>0$ for $n\\le3$ or $n\\ge10$, $b_n<0$ for $5\\le n\\le8$; $T_n$ minimized at $n=1,8,9$ with value $6$.  Boxes: A=1, B=4, C=9, D=3, EF=10, G=5, H=8, I=1, J=8, K=9, L=6.",
+        "ja": "$a_n=\\tfrac{n-9}{2}\\,(①)$；$b_n=\\tfrac{n^2-13n+36}{4}\\,(④)$；$T_n=\\tfrac{n(n^2-18n+89)}{12}\\,(⑨)$。$b_n>0$ は $n\\le3,\\ n\\ge10$，$b_n<0$ は $5\\le n\\le8$；$T_n$ は $n=1,8,9$ で最小値 $6$。 解答：A=1, B=4, C=9, D=3, EF=10, G=5, H=8, I=1, J=8, K=9, L=6。"
+      },
+      "explanation": {
+        "en": "$a_n=S_n-S_{n-1}=\\tfrac{(n^2-17n)-((n-1)^2-17(n-1))}{4}=\\tfrac{2n-18}{4}=\\tfrac{n-9}{2}$ (also valid at $n=1$). Then $b_n=\\tfrac{n-9}{2}\\cdot\\tfrac{n-4}{2}=\\tfrac{(n-9)(n-4)}{4}=\\tfrac{n^2-13n+36}{4}$. Summing, $T_n=\\tfrac1{12}\\,n(n^2-18n+89)$.\n(2) $b_n=\\tfrac{(n-4)(n-9)}{4}$ is positive for $n\\le3$ or $n\\ge10$ and negative for $5\\le n\\le8$ (with $b_4=b_9=0$). So $T_n$ decreases exactly across $n=5,\\dots,8$. Computing: $T_1=6$, then $T_n$ rises to $T_3$, stays ($b_4=0$) to $T_4$, falls to $T_8=6$, stays ($b_9=0$) to $T_9=6$, then rises. The minimum value $6$ is attained at $n=1,8,9$.",
+        "ja": "$a_n=S_n-S_{n-1}=\\tfrac{2n-18}{4}=\\tfrac{n-9}{2}$（$n=1$ でも成立）。$b_n=\\tfrac{n-9}{2}\\cdot\\tfrac{n-4}{2}=\\tfrac{n^2-13n+36}{4}$。和は $T_n=\\tfrac1{12}n(n^2-18n+89)$。\n(2) $b_n=\\tfrac{(n-4)(n-9)}{4}$ は $n\\le3,\\ n\\ge10$ で正，$5\\le n\\le8$ で負（$b_4=b_9=0$）。よって $T_n$ は $n=5\\!\\sim\\!8$ でのみ減少。$T_1=6$，$T_8=T_9=6$ が最小で，$n=1,8,9$ で最小値 $6$。"
+      },
+      "blanks": [
+        { "label": "A", "value": "1" }, { "label": "B", "value": "4" }, { "label": "C", "value": "9" }, { "label": "D", "value": "3" }, { "label": "EF", "value": "10" }, { "label": "G", "value": "5" }, { "label": "H", "value": "8" }, { "label": "I", "value": "1" }, { "label": "J", "value": "8" }, { "label": "K", "value": "9" }, { "label": "L", "value": "6" }
+      ]
+    },
+    {
+      "id": "2020-2-math-c2-2-2",
+      "answerRow": 4,
+      "number": "II-Q2",
+      "section": "II",
+      "part": "Q2",
+      "topicId": "complex-plane-polar",
+      "topicIds": ["complex-plane-polar", "de-moivre"],
+      "subtopic": "Polar form, fourth roots by De Moivre, and a related degree-8 equation",
+      "patternTags": ["polar-form", "de-moivre", "nth-roots", "argument-sum", "ordering-by-argument", "products-of-roots"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "**[II] Q2 — Complex numbers.** (Take $0\\le\\arg<2\\pi$.)\n\n(1) In polar form, $8+8\\sqrt3\\,i=\\boxed{MN}\\left(\\cos\\dfrac{\\pi}{\\boxed{O}}+i\\sin\\dfrac{\\pi}{\\boxed{P}}\\right)$.\n\n(2) Consider the $z$ with $z^4=8+8\\sqrt3\\,i$. Then $|z|=\\boxed{Q}$. Writing the four solutions as $z_1,z_2,z_3,z_4$ in increasing order of argument, $\\arg\\dfrac{z_1z_2z_3}{z_4}=\\dfrac{\\pi}{\\boxed{R}}$.\n\n(3) Consider the $w$ with $w^8-16w^4+256=0$. There are $8$ of them; label $w_1,\\dots,w_8$ in increasing order of argument. Four coincide with the $z_i$: $w_{\\boxed{S}}=z_1,\\ w_{\\boxed{T}}=z_2,\\ w_{\\boxed{U}}=z_3,\\ w_{\\boxed{V}}=z_4$. Also $w_1w_8=\\boxed{W}$ and $w_3w_4=\\boxed{XY}\\,i$."
+      },
+      "ja": {
+        "prompt": "**[Ⅱ] 問2 — 複素数** （$0\\le\\arg<2\\pi$ とする。）\n\n(1) 極形式で $8+8\\sqrt3\\,i=\\boxed{MN}\\left(\\cos\\dfrac{\\pi}{\\boxed{O}}+i\\sin\\dfrac{\\pi}{\\boxed{P}}\\right)$。\n\n(2) $z^4=8+8\\sqrt3\\,i$ を満たす $z$ を考える。$|z|=\\boxed{Q}$。4 つの解を偏角の小さい順に $z_1,z_2,z_3,z_4$ とすると，$\\arg\\dfrac{z_1z_2z_3}{z_4}=\\dfrac{\\pi}{\\boxed{R}}$。\n\n(3) $w^8-16w^4+256=0$ を満たす $w$ を考える。8 つあり，偏角の小さい順に $w_1,\\dots,w_8$ とする。そのうち 4 つは $z_i$ に一致し，$w_{\\boxed{S}}=z_1,\\ w_{\\boxed{T}}=z_2,\\ w_{\\boxed{U}}=z_3,\\ w_{\\boxed{V}}=z_4$。また $w_1w_8=\\boxed{W}$，$w_3w_4=\\boxed{XY}\\,i$。"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "$8+8\\sqrt3 i=16(\\cos\\tfrac\\pi3+i\\sin\\tfrac\\pi3)$; $|z|=2$, $\\arg\\tfrac{z_1z_2z_3}{z_4}=\\tfrac\\pi6$; $z_1=w_1,z_2=w_3,z_3=w_5,z_4=w_7$; $w_1w_8=4$, $w_3w_4=-4i$.  Boxes: MN=16, OP=33, Q=2, R=6, STUV=1357, W=4, XY=-4.",
+        "ja": "$8+8\\sqrt3 i=16(\\cos\\tfrac\\pi3+i\\sin\\tfrac\\pi3)$；$|z|=2$，$\\arg\\tfrac{z_1z_2z_3}{z_4}=\\tfrac\\pi6$；$z_1=w_1,z_2=w_3,z_3=w_5,z_4=w_7$；$w_1w_8=4$，$w_3w_4=-4i$。 解答：MN=16, OP=33, Q=2, R=6, STUV=1357, W=4, XY=-4。"
+      },
+      "explanation": {
+        "en": "(1) $|8+8\\sqrt3 i|=\\sqrt{64+192}=16$ and $\\arg=\\tfrac\\pi3$, so $8+8\\sqrt3 i=16(\\cos\\tfrac\\pi3+i\\sin\\tfrac\\pi3)$.\n(2) $|z|=16^{1/4}=2$; $\\arg z=\\tfrac{\\pi/3+2k\\pi}{4}=\\tfrac\\pi{12}+\\tfrac{k\\pi}{2}$, giving arguments $\\tfrac\\pi{12},\\tfrac{7\\pi}{12},\\tfrac{13\\pi}{12},\\tfrac{19\\pi}{12}$. Then $\\arg\\tfrac{z_1z_2z_3}{z_4}=\\tfrac{(1+7+13-19)\\pi}{12}=\\tfrac{2\\pi}{12}=\\tfrac\\pi6$.\n(3) With $t=w^4$, $t^2-16t+256=0\\Rightarrow t=8\\pm8\\sqrt3 i$ (arguments $\\tfrac\\pi3,\\tfrac{5\\pi}3$). All eight $w$ have $|w|=2$ and arguments $\\tfrac{\\pi}{12},\\tfrac{5\\pi}{12},\\tfrac{7\\pi}{12},\\dots,\\tfrac{23\\pi}{12}$ (step $\\tfrac\\pi6$). The ones from $t=8+8\\sqrt3 i$ are $z_1,z_2,z_3,z_4$, sitting at positions $w_1,w_3,w_5,w_7$. Finally $w_1w_8=2\\cdot2\\,\\mathrm{cis}(\\tfrac\\pi{12}+\\tfrac{23\\pi}{12})=4\\,\\mathrm{cis}(2\\pi)=4$, and $w_3w_4=4\\,\\mathrm{cis}(\\tfrac{7\\pi}{12}+\\tfrac{11\\pi}{12})=4\\,\\mathrm{cis}(\\tfrac{3\\pi}2)=-4i$.",
+        "ja": "(1) $|8+8\\sqrt3 i|=16$，$\\arg=\\tfrac\\pi3$。\n(2) $|z|=16^{1/4}=2$；$\\arg z=\\tfrac\\pi{12}+\\tfrac{k\\pi}2$ で偏角は $\\tfrac\\pi{12},\\tfrac{7\\pi}{12},\\tfrac{13\\pi}{12},\\tfrac{19\\pi}{12}$。$\\arg\\tfrac{z_1z_2z_3}{z_4}=\\tfrac{(1+7+13-19)\\pi}{12}=\\tfrac\\pi6$。\n(3) $t=w^4$ とすると $t^2-16t+256=0\\Rightarrow t=8\\pm8\\sqrt3 i$。8 個の $w$ は $|w|=2$，偏角 $\\tfrac\\pi{12},\\tfrac{5\\pi}{12},\\dots,\\tfrac{23\\pi}{12}$（$\\tfrac\\pi6$ 刻み）。$t=8+8\\sqrt3 i$ 由来が $z_1,z_2,z_3,z_4$ で位置は $w_1,w_3,w_5,w_7$。$w_1w_8=4\\,\\mathrm{cis}(2\\pi)=4$，$w_3w_4=4\\,\\mathrm{cis}(\\tfrac{3\\pi}2)=-4i$。"
+      },
+      "blanks": [
+        { "label": "MN", "value": "16" }, { "label": "OP", "value": "33" }, { "label": "Q", "value": "2" }, { "label": "R", "value": "6" }, { "label": "STUV", "value": "1357" }, { "label": "W", "value": "4" }, { "label": "XY", "value": "-4" }
+      ]
+    },
+    {
+      "id": "2020-2-math-c2-3",
+      "answerRow": 5,
+      "number": "III",
+      "section": "III",
+      "part": null,
+      "topicId": "derivative-applications",
+      "topicIds": ["derivative-applications", "differentiation"],
+      "subtopic": "Tangent at a point and tangent from an external point to a cubic; angle between the two lines",
+      "patternTags": ["tangent-line", "tangent-from-external-point", "intersection-of-lines", "angle-between-lines", "tangent-subtraction-formula"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "Let $f(x)=x^3-4x+4$. Let $\\ell$ be the tangent to $y=f(x)$ at $A(-1,7)$, and let $m$ be the tangent to $y=f(x)$ passing through $B(0,-12)$. Let $C$ be the intersection of $\\ell$ and $m$, and let $\\theta\\ (0<\\theta<\\tfrac\\pi2)$ be the angle between $\\ell$ and $m$ at $C$. Find $\\tan\\theta$.\n\n(1) $f'(x)=\\boxed{A}x^{\\boxed{B}}-\\boxed{C}$. The slope of $\\ell$ is $\\boxed{DE}$, and $\\ell:\\ y=\\boxed{DE}\\,x+\\boxed{F}$.\n\n(2) If the tangent point of $m$ has $x$-coordinate $a$, then $m:\\ y=\\big(\\boxed{G}a^{\\boxed{H}}-\\boxed{I}\\big)x-\\boxed{J}a^{\\boxed{K}}+\\boxed{L}$. Since $m$ passes through $B(0,-12)$, $a=\\boxed{M}$ and $m:\\ y=\\boxed{N}x-\\boxed{OP}$. Hence $C=\\big(\\boxed{Q},\\boxed{R}\\big)$.\n\n(3) With $\\alpha,\\beta$ the angles $\\ell,m$ make with the positive $x$-axis, $\\tan\\alpha=\\boxed{ST}$, $\\tan\\beta=\\boxed{U}$, so $\\tan\\theta=\\dfrac{\\boxed{V}}{\\boxed{W}}$."
+      },
+      "ja": {
+        "prompt": "$f(x)=x^3-4x+4$ とする。$\\ell$ を $y=f(x)$ の点 $A(-1,7)$ における接線，$m$ を点 $B(0,-12)$ を通る $y=f(x)$ の接線とする。$\\ell$ と $m$ の交点を $C$，$C$ で $\\ell$ と $m$ のなす角を $\\theta\\ (0<\\theta<\\tfrac\\pi2)$ とする。$\\tan\\theta$ を求めよ。\n\n(1) $f'(x)=\\boxed{A}x^{\\boxed{B}}-\\boxed{C}$。$\\ell$ の傾きは $\\boxed{DE}$ で，$\\ell:\\ y=\\boxed{DE}\\,x+\\boxed{F}$。\n\n(2) $m$ の接点の $x$ 座標を $a$ とすると $m:\\ y=\\big(\\boxed{G}a^{\\boxed{H}}-\\boxed{I}\\big)x-\\boxed{J}a^{\\boxed{K}}+\\boxed{L}$。$m$ は $B(0,-12)$ を通るので $a=\\boxed{M}$，$m:\\ y=\\boxed{N}x-\\boxed{OP}$。よって $C=\\big(\\boxed{Q},\\boxed{R}\\big)$。\n\n(3) $\\ell,m$ が $x$ 軸の正の向きとなす角を $\\alpha,\\beta$ とすると $\\tan\\alpha=\\boxed{ST}$，$\\tan\\beta=\\boxed{U}$，よって $\\tan\\theta=\\dfrac{\\boxed{V}}{\\boxed{W}}$。"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "$f'(x)=3x^2-4$; $\\ell:y=-x+6$; $m:y=(3a^2-4)x-2a^3+4$, $a=2$, $m:y=8x-12$; $C=(2,4)$; $\\tan\\alpha=-1,\\tan\\beta=8$, $\\tan\\theta=\\tfrac97$.  Boxes: ABC=324, DE=-1, F=6, GHI=324, JKL=234, M=2, NOP=812, QR=24, ST=-1, U=8, VW=97.",
+        "ja": "$f'(x)=3x^2-4$；$\\ell:y=-x+6$；$m:y=(3a^2-4)x-2a^3+4$，$a=2$，$m:y=8x-12$；$C=(2,4)$；$\\tan\\alpha=-1,\\tan\\beta=8$，$\\tan\\theta=\\tfrac97$。 解答：ABC=324, DE=-1, F=6, GHI=324, JKL=234, M=2, NOP=812, QR=24, ST=-1, U=8, VW=97。"
+      },
+      "explanation": {
+        "en": "(1) $f'(x)=3x^2-4$, so the slope of $\\ell$ is $f'(-1)=-1$ and $\\ell:y=-1(x+1)+7=-x+6$.\n(2) The tangent at $x=a$ is $y=(3a^2-4)(x-a)+(a^3-4a+4)=(3a^2-4)x-2a^3+4$. Passing through $(0,-12)$: $-2a^3+4=-12\\Rightarrow a^3=8\\Rightarrow a=2$. Then slope $=3\\cdot4-4=8$ and $m:y=8x-16+4=8x-12$. Intersection: $-x+6=8x-12\\Rightarrow x=2,\\ y=4$, so $C=(2,4)$.\n(3) $\\tan\\alpha=-1$ (slope of $\\ell$), $\\tan\\beta=8$ (slope of $m$). $\\tan\\theta=\\left|\\dfrac{\\tan\\beta-\\tan\\alpha}{1+\\tan\\alpha\\tan\\beta}\\right|=\\left|\\dfrac{8-(-1)}{1+(-1)(8)}\\right|=\\left|\\dfrac{9}{-7}\\right|=\\dfrac97$.",
+        "ja": "(1) $f'(x)=3x^2-4$，$\\ell$ の傾き $f'(-1)=-1$，$\\ell:y=-x+6$。\n(2) $x=a$ での接線 $y=(3a^2-4)(x-a)+(a^3-4a+4)=(3a^2-4)x-2a^3+4$。$(0,-12)$ を通り $-2a^3+4=-12\\Rightarrow a=2$。傾き $8$，$m:y=8x-12$。交点 $-x+6=8x-12\\Rightarrow x=2,y=4$，$C=(2,4)$。\n(3) $\\tan\\alpha=-1,\\ \\tan\\beta=8$。$\\tan\\theta=\\left|\\dfrac{8-(-1)}{1+(-1)(8)}\\right|=\\dfrac97$。"
+      },
+      "blanks": [
+        { "label": "ABC", "value": "324" }, { "label": "DE", "value": "-1" }, { "label": "F", "value": "6" }, { "label": "GHI", "value": "324" }, { "label": "JKL", "value": "234" }, { "label": "M", "value": "2" }, { "label": "NOP", "value": "812" }, { "label": "QR", "value": "24" }, { "label": "ST", "value": "-1" }, { "label": "U", "value": "8" }, { "label": "VW", "value": "97" }
+      ]
+    },
+    {
+      "id": "2020-2-math-c2-4",
+      "answerRow": 6,
+      "number": "IV",
+      "section": "IV",
+      "part": null,
+      "topicId": "integral-applications",
+      "topicIds": ["integral-applications", "trig-functions", "integration"],
+      "subtopic": "Trigonometric-sum function: critical points, sign, monotonicity, and enclosed area",
+      "patternTags": ["derivative-as-polynomial-in-cos", "critical-points", "increase-decrease-table", "positivity-proof", "area-under-curve", "definite-integral"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "Let $f(x)=\\sin x+\\dfrac{\\sin 2x}{2}+\\dfrac{\\sin 3x}{3}$ on $0\\le x\\le\\pi$. Show $f(x)>0$ on $0<x<\\pi$ and find the area $S$ between $y=f(x)$ and the $x$-axis.\n\n(1) *(For $\\boxed{K},\\boxed{N},\\boxed{Q},\\boxed{R}$ choose $⓪$ increasing or $①$ decreasing; for the others enter a number.)* Differentiating, $f'(x)=\\big(\\boxed{A}\\cos x+\\boxed{B}\\big)\\big(\\boxed{C}\\cos^2 x-\\boxed{D}\\big)$. On $0\\le x\\le\\pi$ the equation $f'(x)=0$ has three roots: $x=\\dfrac{\\pi}{\\boxed{E}},\\ \\dfrac{\\boxed{F}}{\\boxed{G}}\\pi,\\ \\dfrac{\\boxed{H}}{\\boxed{I}}\\pi$.\n\nThen $f$ is $\\boxed{K}$ on $0\\le x\\le\\dfrac\\pi{\\boxed{J}}$; $\\boxed{N}$ on $\\dfrac\\pi{\\boxed{J}}\\le x\\le\\dfrac{\\boxed{L}}{\\boxed{M}}\\pi$; $\\boxed{Q}$ on $\\dfrac{\\boxed{L}}{\\boxed{M}}\\pi\\le x\\le\\dfrac{\\boxed{O}}{\\boxed{P}}\\pi$; $\\boxed{R}$ on $\\dfrac{\\boxed{O}}{\\boxed{P}}\\pi\\le x\\le\\pi$. With $f(0)=f(\\pi)=0$ and $f\\!\\left(\\dfrac{\\boxed{L}}{\\boxed{M}}\\pi\\right)=\\dfrac{\\sqrt{\\boxed{S}}}{\\boxed{T}}>0$, we get $f(x)>0$ on $0<x<\\pi$.\n\n(2) $S=\\dfrac{\\boxed{UV}}{\\boxed{W}}$."
+      },
+      "ja": {
+        "prompt": "$0\\le x\\le\\pi$ で $f(x)=\\sin x+\\dfrac{\\sin 2x}{2}+\\dfrac{\\sin 3x}{3}$ とする。$0<x<\\pi$ で $f(x)>0$ を示し，$y=f(x)$ と $x$ 軸が囲む面積 $S$ を求めよ。\n\n(1) *（$\\boxed{K},\\boxed{N},\\boxed{Q},\\boxed{R}$ は $⓪$ 増加・$①$ 減少から選び，他は数を入れよ。）* 微分すると $f'(x)=\\big(\\boxed{A}\\cos x+\\boxed{B}\\big)\\big(\\boxed{C}\\cos^2 x-\\boxed{D}\\big)$。$0\\le x\\le\\pi$ で $f'(x)=0$ は 3 つの解 $x=\\dfrac{\\pi}{\\boxed{E}},\\ \\dfrac{\\boxed{F}}{\\boxed{G}}\\pi,\\ \\dfrac{\\boxed{H}}{\\boxed{I}}\\pi$ をもつ。\n\nそして $f$ は $0\\le x\\le\\dfrac\\pi{\\boxed{J}}$ で $\\boxed{K}$，$\\dfrac\\pi{\\boxed{J}}\\le x\\le\\dfrac{\\boxed{L}}{\\boxed{M}}\\pi$ で $\\boxed{N}$，$\\dfrac{\\boxed{L}}{\\boxed{M}}\\pi\\le x\\le\\dfrac{\\boxed{O}}{\\boxed{P}}\\pi$ で $\\boxed{Q}$，$\\dfrac{\\boxed{O}}{\\boxed{P}}\\pi\\le x\\le\\pi$ で $\\boxed{R}$。$f(0)=f(\\pi)=0$ かつ $f\\!\\left(\\dfrac{\\boxed{L}}{\\boxed{M}}\\pi\\right)=\\dfrac{\\sqrt{\\boxed{S}}}{\\boxed{T}}>0$ より $0<x<\\pi$ で $f(x)>0$。\n\n(2) $S=\\dfrac{\\boxed{UV}}{\\boxed{W}}$。"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "$f'(x)=(2\\cos x+1)(2\\cos^2x-1)$; roots $x=\\tfrac\\pi4,\\tfrac{2\\pi}3,\\tfrac{3\\pi}4$; increasing, decreasing, increasing, decreasing on the four sub-intervals; $f(\\tfrac{2\\pi}3)=\\tfrac{\\sqrt3}4$; area $S=\\tfrac{20}{9}$.  Boxes: ABCD=2121, E=4, FG=23, HI=34, J=4, K=0, LM=23, N=1, OP=34, Q=0, R=1, ST=34, UVW=209.",
+        "ja": "$f'(x)=(2\\cos x+1)(2\\cos^2x-1)$；解 $x=\\tfrac\\pi4,\\tfrac{2\\pi}3,\\tfrac{3\\pi}4$；4 区間で 増加・減少・増加・減少；$f(\\tfrac{2\\pi}3)=\\tfrac{\\sqrt3}4$；面積 $S=\\tfrac{20}{9}$。 解答：ABCD=2121, E=4, FG=23, HI=34, J=4, K=0, LM=23, N=1, OP=34, Q=0, R=1, ST=34, UVW=209。"
+      },
+      "explanation": {
+        "en": "$f'(x)=\\cos x+\\cos2x+\\cos3x$. Using $\\cos2x=2\\cos^2x-1,\\ \\cos3x=4\\cos^3x-3\\cos x$, $f'(x)=4\\cos^3x+2\\cos^2x-2\\cos x-1=(2\\cos x+1)(2\\cos^2x-1)$. Zeros: $\\cos x=-\\tfrac12\\,(x=\\tfrac{2\\pi}3)$ and $\\cos x=\\pm\\tfrac1{\\sqrt2}\\,(x=\\tfrac\\pi4,\\tfrac{3\\pi}4)$; in order $\\tfrac\\pi4<\\tfrac{2\\pi}3<\\tfrac{3\\pi}4$. Sign of $f'$: $+$ on $(0,\\tfrac\\pi4)$, $-$ on $(\\tfrac\\pi4,\\tfrac{2\\pi}3)$, $+$ on $(\\tfrac{2\\pi}3,\\tfrac{3\\pi}4)$, $-$ on $(\\tfrac{3\\pi}4,\\pi)$ — increasing/decreasing/increasing/decreasing. Since $f(0)=f(\\pi)=0$ and the interior local minimum $f(\\tfrac{2\\pi}3)=\\tfrac{\\sqrt3}2-\\tfrac{\\sqrt3}4=\\tfrac{\\sqrt3}4>0$, $f>0$ on $(0,\\pi)$.\n(2) $S=\\int_0^\\pi f\\,dx=\\int_0^\\pi\\sin x\\,dx+\\tfrac12\\int_0^\\pi\\sin2x\\,dx+\\tfrac13\\int_0^\\pi\\sin3x\\,dx=2+\\tfrac12(0)+\\tfrac13\\cdot\\tfrac23=2+\\tfrac29=\\tfrac{20}9$.",
+        "ja": "$f'(x)=\\cos x+\\cos2x+\\cos3x$。$\\cos2x=2\\cos^2x-1,\\ \\cos3x=4\\cos^3x-3\\cos x$ より $f'(x)=4\\cos^3x+2\\cos^2x-2\\cos x-1=(2\\cos x+1)(2\\cos^2x-1)$。零点は $\\cos x=-\\tfrac12\\,(x=\\tfrac{2\\pi}3)$，$\\cos x=\\pm\\tfrac1{\\sqrt2}\\,(x=\\tfrac\\pi4,\\tfrac{3\\pi}4)$，順に $\\tfrac\\pi4<\\tfrac{2\\pi}3<\\tfrac{3\\pi}4$。$f'$ の符号は $+,-,+,-$（増・減・増・減）。$f(0)=f(\\pi)=0$，極小 $f(\\tfrac{2\\pi}3)=\\tfrac{\\sqrt3}4>0$ より $0<x<\\pi$ で $f>0$。\n(2) $S=\\int_0^\\pi f\\,dx=2+\\tfrac12\\cdot0+\\tfrac13\\cdot\\tfrac23=2+\\tfrac29=\\tfrac{20}9$。"
+      },
+      "blanks": [
+        { "label": "ABCD", "value": "2121" }, { "label": "E", "value": "4" }, { "label": "FG", "value": "23" }, { "label": "HI", "value": "34" }, { "label": "J", "value": "4" }, { "label": "K", "value": "0" }, { "label": "LM", "value": "23" }, { "label": "N", "value": "1" }, { "label": "OP", "value": "34" }, { "label": "Q", "value": "0" }, { "label": "R", "value": "1" }, { "label": "ST", "value": "34" }, { "label": "UVW", "value": "209" }
+      ]
+    }
+  ]
+}
