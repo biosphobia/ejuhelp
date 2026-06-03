@@ -1,0 +1,276 @@
+{
+  "id": "2019-1-chemistry",
+  "year": 2019,
+  "session": 1,
+  "subject": "chemistry",
+  "title": "EJU 2019 · Session 1 · Chemistry",
+  "source": "2019年度（令和元年度）日本留学試験（第1回）理科〈化学〉 © Japan Student Services Organization (JASSO)",
+  "attribution": "EJU past questions © JASSO. Question text paraphrased from the official past paper; figures described in text; correct answers taken from the official JASSO answer key and independently re-solved for verification.",
+  "languages": ["ja", "en"],
+  "answerKeyVerified": true,
+  "structure": {
+    "format": "flat",
+    "totalQuestions": 20,
+    "note": "Chemistry is a flat list of 20 single-best-answer items (問1–問20, answer rows 1–20) — no Roman-numeral blocks. Order ≈ structure & bonding → states/energetics/electrochemistry/equilibria → inorganic → organic.",
+    "givens": {
+      "ja": "標準状態 $0\\,$°C・$1.0\\times10^5\\,$Pa，気体 $1\\,$mol の体積 $22.4\\,$L，アボガドロ定数 $N_A=6.02\\times10^{23}\\,$/mol，ファラデー定数 $F=9.65\\times10^4\\,$C/mol。原子量：H 1.0, C 12, N 14, O 16, Na 23, S 32, Cl 35.5, K 39, Ca 40。族・周期は周期表の通り。",
+      "en": "STP $0\\,$°C, $1.0\\times10^5\\,$Pa; molar volume $22.4\\,$L; $N_A=6.02\\times10^{23}\\,$/mol; $F=9.65\\times10^4\\,$C/mol. Atomic weights: H 1.0, C 12, N 14, O 16, Na 23, S 32, Cl 35.5, K 39, Ca 40. Groups/periods per the periodic table."
+    }
+  },
+  "questions": [
+    {
+      "id": "2019-1-chem-1", "answerRow": 1, "topicId": "matter-structure",
+      "subtopic": "Incorrect statement about isoelectronic species",
+      "patternTags": ["atomic-structure", "ions", "ionization-energy", "pick-false-statement"], "hasFigure": true,
+      "figure": { "ja": "電子配置の図 a〜d（核の数字は陽子数，黒丸は電子）：a は核 9＋・電子 2,8（＝$\\mathrm{F^-}$）；b は核 10＋・電子 2,8（＝Ne）；c は核 11＋・電子 2,8,1（＝Na 原子）；d は核 12＋・電子 2,8（＝$\\mathrm{Mg^{2+}}$）。", "en": "Electron-shell diagrams a–d (nucleus number = protons, dots = electrons): a is 9+ with 2,8 (= $\\mathrm{F^-}$); b is 10+ with 2,8 (= Ne); c is 11+ with 2,8,1 (= Na atom); d is 12+ with 2,8 (= $\\mathrm{Mg^{2+}}$)." },
+      "ja": { "prompt": "図の電子配置をもつ原子またはイオン a〜d に関する記述①〜⑤のうち，誤っているものを選びなさい。 ① a は原子番号 9 の原子を表す。 ② 原子 a は 1 価の陰イオンになりやすい。 ③ 原子 b は原子 a よりもイオン化エネルギーが小さい。 ④ 原子 c は 1 価の陽イオンになりやすい。 ⑤ d は 2 価の陽イオンを表す。", "choices": ["①", "②", "③", "④", "⑤"] },
+      "en": { "prompt": "Which statement about atoms/ions a–d is INCORRECT? ① a represents the element of atomic number 9. ② Atom a readily becomes a monovalent anion. ③ Atom b has a smaller ionization energy than atom a. ④ Atom c readily becomes a monovalent cation. ⑤ d represents a divalent cation.", "choices": ["①", "②", "③", "④", "⑤"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "③（b の方がイオン化エネルギーは大きい）", "en": "③ (b has the larger ionization energy)" },
+      "explanation": { "en": "a is based on a fluorine nucleus ($Z=9$), b on neon ($Z=10$). Neon (a noble gas) has a larger ionization energy than fluorine, so 'b smaller than a' is wrong. The other statements are correct: fluorine forms F⁻, sodium forms Na⁺, and d ($\\mathrm{Mg^{2+}}$) is a divalent cation.", "ja": "a はフッ素核（$Z=9$），b はネオン（$Z=10$）。希ガスの Ne はフッ素よりイオン化エネルギーが大きいので「b は a より小さい」は誤り。他は正：フッ素は F⁻，ナトリウムは Na⁺，d（$\\mathrm{Mg^{2+}}$）は 2 価の陽イオン。" }
+    },
+    {
+      "id": "2019-1-chem-2", "answerRow": 2, "topicId": "matter-structure",
+      "subtopic": "Correct statement about ionization energy and electron affinity",
+      "patternTags": ["atomic-structure", "ionization-energy", "electron-affinity", "pick-statement"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の記述①〜⑤のうち，正しいものを選びなさい。 ① 最外殻電子 1 個を取り去るのに必要なエネルギーをイオン化エネルギーといい，同一周期では希ガスのイオン化エネルギーが最も小さい。 ② イオン化エネルギーの大きい原子ほど陽イオンになりやすい。 ③ 原子が電子を 1 個取り込んで 1 価の陰イオンになるのに必要なエネルギーを電子親和力という。 ④ ハロゲンの電子親和力は小さく，陰イオンになりやすい。 ⑤ 1 価の陰イオンから電子 1 個を取り去って原子にするのに必要なエネルギーは，電子親和力に等しい。", "choices": ["①", "②", "③", "④", "⑤"] },
+      "en": { "prompt": "Which statement is correct? ① The energy to remove one outermost electron is the ionization energy; in a period the noble gas has the smallest ionization energy. ② Atoms with larger ionization energy more easily become cations. ③ Electron affinity is the energy NEEDED for an atom to gain one electron to become a monovalent anion. ④ Halogens have small electron affinity and readily become anions. ⑤ The energy needed to remove one electron from a monovalent anion (back to the atom) equals the electron affinity.", "choices": ["①", "②", "③", "④", "⑤"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "⑤（陰イオンから電子を取り去る所要エネルギー＝電子親和力）", "en": "⑤ (removing the electron from the anion costs the electron affinity)" },
+      "explanation": { "en": "Removing an electron from $\\mathrm{X^-}$ to give X is the reverse of electron attachment, so its energy equals X's electron affinity — ⑤ correct. ① wrong (noble gases have the LARGEST IE); ② wrong (small IE → easily cation); ③ wrong (electron affinity is energy RELEASED on gaining an electron); ④ wrong (halogens have LARGE electron affinity).", "ja": "$\\mathrm{X^-}$ から電子を取り去って X にするのは電子付加の逆で，所要エネルギーは X の電子親和力に等しい — ⑤が正。① 誤（希ガスは IE 最大）；② 誤（IE 小ほど陽イオンになりやすい）；③ 誤（電子親和力は電子を得るとき放出されるエネルギー）；④ 誤（ハロゲンは電子親和力が大きい）。" }
+    },
+    {
+      "id": "2019-1-chem-3", "answerRow": 3, "topicId": "matter-structure",
+      "subtopic": "Molecule with both a double bond and a lone pair",
+      "patternTags": ["chemical-bonds", "double-bond", "lone-pair", "compare-cases"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の分子①〜⑤のうち，二重結合と非共有電子対の両方をもつものを選びなさい。 ① $\\mathrm{C_2H_4}$ ② $\\mathrm{CO_2}$ ③ $\\mathrm{N_2}$ ④ $\\mathrm{NH_3}$ ⑤ HCN", "choices": ["$\\mathrm{C_2H_4}$", "$\\mathrm{CO_2}$", "$\\mathrm{N_2}$", "$\\mathrm{NH_3}$", "HCN"] },
+      "en": { "prompt": "Which molecule has BOTH a double bond and an unshared (lone) electron pair? ① $\\mathrm{C_2H_4}$ ② $\\mathrm{CO_2}$ ③ $\\mathrm{N_2}$ ④ $\\mathrm{NH_3}$ ⑤ HCN", "choices": ["$\\mathrm{C_2H_4}$", "$\\mathrm{CO_2}$", "$\\mathrm{N_2}$", "$\\mathrm{NH_3}$", "HCN"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "② $\\mathrm{CO_2}$", "en": "② $\\mathrm{CO_2}$" },
+      "explanation": { "en": "$\\mathrm{CO_2}$ (O=C=O) has C=O double bonds and lone pairs on the oxygens. $\\mathrm{C_2H_4}$ has a double bond but no lone pair; $\\mathrm{N_2}$ and HCN have triple bonds (not double); $\\mathrm{NH_3}$ has a lone pair but no double bond.", "ja": "$\\mathrm{CO_2}$（O=C=O）は C=O 二重結合と O 上の非共有電子対をもつ。$\\mathrm{C_2H_4}$ は二重結合はあるが非共有電子対なし；$\\mathrm{N_2}$ と HCN は三重結合（二重でない）；$\\mathrm{NH_3}$ は非共有電子対はあるが二重結合なし。" }
+    },
+    {
+      "id": "2019-1-chem-4", "answerRow": 4, "topicId": "states-and-change",
+      "subtopic": "Atomic weight of a metal from oxide-to-nitrate mass",
+      "patternTags": ["stoichiometry", "mole-mass", "plug-in-numbers"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "金属 M の酸化物 MO $45\\,$g に硝酸 $\\mathrm{HNO_3}$ aq を加えて完全に反応させたところ，$110\\,$g の硝酸塩 $\\mathrm{M(NO_3)_2}$ が得られた。金属 M の原子量に最も近い値を選びなさい。", "choices": ["27", "40", "59", "68", "89", "110"] },
+      "en": { "prompt": "Reacting $45\\,$g of the oxide MO with nitric acid gives $110\\,$g of the nitrate $\\mathrm{M(NO_3)_2}$. What is the atomic weight of metal M?", "choices": ["27", "40", "59", "68", "89", "110"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "約 59", "en": "≈ 59" },
+      "explanation": { "en": "Same moles of M: $\\dfrac{45}{x+16}=\\dfrac{110}{x+124}$ (atomic weight $x$; $\\mathrm{NO_3}=62$, so $\\mathrm{M(NO_3)_2}=x+124$). Solving: $45(x+124)=110(x+16)\\Rightarrow 65x=3820\\Rightarrow x\\approx59$.", "ja": "M の物質量は等しいので $\\dfrac{45}{x+16}=\\dfrac{110}{x+124}$（原子量 $x$，$\\mathrm{NO_3}=62$ で $\\mathrm{M(NO_3)_2}=x+124$）。$45(x+124)=110(x+16)\\Rightarrow 65x=3820\\Rightarrow x\\approx59$。" }
+    },
+    {
+      "id": "2019-1-chem-5", "answerRow": 5, "topicId": "states-and-change",
+      "subtopic": "CO2 mass from limiting reagent in two cases",
+      "patternTags": ["stoichiometry", "limiting-reagent", "gas-mass", "plug-in-numbers"], "hasFigure": true,
+      "figure": { "ja": "反応 $\\mathrm{CaCO_3+2HCl\\to CaCl_2+H_2O+CO_2}$。$2.0\\,$mol/L 塩酸 $25\\,$mL（HCl $=0.050\\,$mol）に $\\mathrm{CaCO_3}$ を加える。X：$2.0\\,$g 加えたときの $\\mathrm{CO_2}$ 質量。Y：$3.0\\,$g 加えたときの $\\mathrm{CO_2}$ 質量。表は (X, Y) の組み合わせ①〜⑧。", "en": "Reaction $\\mathrm{CaCO_3+2HCl\\to CaCl_2+H_2O+CO_2}$. To $25\\,$mL of $2.0\\,$mol/L HCl (HCl $=0.050\\,$mol), add $\\mathrm{CaCO_3}$. X: $\\mathrm{CO_2}$ mass when $2.0\\,$g added; Y: when $3.0\\,$g added. Table gives (X, Y) pairs ①–⑧." },
+      "ja": { "prompt": "$\\mathrm{CaCO_3}$ と塩酸の反応 $a\\mathrm{CaCO_3}+b\\mathrm{HCl}\\to c\\mathrm{CaCl_2}+d\\mathrm{H_2O}+e\\mathrm{CO_2}$ について，$2.0\\,$mol/L 塩酸 $25\\,$mL に $\\mathrm{CaCO_3}$ を $2.0\\,$g 加えたとき発生する $\\mathrm{CO_2}$ を $X\\,$g，$3.0\\,$g 加えたとき発生する $\\mathrm{CO_2}$ を $Y\\,$g とする。$X$ と $Y$ の正しい組み合わせを選びなさい。", "choices": ["X:0.44 Y:0.44", "X:0.44 Y:0.66", "X:0.88 Y:0.88", "X:0.88 Y:1.1", "X:0.88 Y:1.3", "X:1.1 Y:1.1", "X:1.1 Y:1.3", "X:1.1 Y:1.7"] },
+      "en": { "prompt": "For $\\mathrm{CaCO_3}+$ HCl: to $25\\,$mL of $2.0\\,$mol/L HCl, adding $2.0\\,$g $\\mathrm{CaCO_3}$ gives $X\\,$g $\\mathrm{CO_2}$; adding $3.0\\,$g gives $Y\\,$g $\\mathrm{CO_2}$. Which pair (X, Y) is correct?", "choices": ["X:0.44 Y:0.44", "X:0.44 Y:0.66", "X:0.88 Y:0.88", "X:0.88 Y:1.1", "X:0.88 Y:1.3", "X:1.1 Y:1.1", "X:1.1 Y:1.3", "X:1.1 Y:1.7"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "④ X:0.88 / Y:1.1", "en": "④ X:0.88 / Y:1.1" },
+      "explanation": { "en": "HCl $=2.0\\times0.025=0.050\\,$mol; $\\mathrm{CaCO_3+2HCl\\to\\dots+CO_2}$. X: $2.0\\,$g $=0.020\\,$mol $\\mathrm{CaCO_3}$ needs $0.040\\,$mol HCl (available) → limiting $\\mathrm{CaCO_3}$, $\\mathrm{CO_2}=0.020\\times44=0.88\\,$g. Y: $3.0\\,$g $=0.030\\,$mol needs $0.060\\,$mol HCl but only $0.050$ available → HCl limiting, $\\mathrm{CO_2}=0.050/2\\times44=1.1\\,$g.", "ja": "HCl $=2.0\\times0.025=0.050\\,$mol。X：$2.0\\,$g$=0.020\\,$mol の $\\mathrm{CaCO_3}$ は HCl $0.040\\,$mol で足り $\\mathrm{CaCO_3}$ が不足，$\\mathrm{CO_2}=0.020\\times44=0.88\\,$g。Y：$3.0\\,$g$=0.030\\,$mol は HCl $0.060\\,$mol 必要だが $0.050$ しかなく HCl が不足，$\\mathrm{CO_2}=0.050/2\\times44=1.1\\,$g。" }
+    },
+    {
+      "id": "2019-1-chem-6", "answerRow": 6, "topicId": "states-and-change",
+      "subtopic": "Temperature rise from combustion heat",
+      "patternTags": ["thermochemistry", "calorimetry", "heat-of-combustion", "plug-in-numbers"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "メタン $\\mathrm{CH_4}\\ 32\\,$g を完全燃焼させて $15\\,$°C の水 $1000\\,$g を加熱する。発生する熱の 10% が水の温度上昇に使われたとすると，燃焼後の水の温度は何 °C か。メタンの燃焼熱は $890\\,$kJ/mol，水の比熱は $4.2\\,\\mathrm{J/(g\\cdot K)}$ とする。", "choices": ["21", "27", "36", "42", "57"] },
+      "en": { "prompt": "Completely combusting $32\\,$g of methane $\\mathrm{CH_4}$ heats $1000\\,$g of water at $15\\,$°C. If 10% of the heat raises the water's temperature, what is the final water temperature (°C)? Heat of combustion of methane $=890\\,$kJ/mol; specific heat of water $=4.2\\,\\mathrm{J/(g\\cdot K)}$.", "choices": ["21", "27", "36", "42", "57"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "約 $57\\,$°C", "en": "≈ 57 °C" },
+      "explanation": { "en": "$\\mathrm{CH_4}=32/16=2.0\\,$mol → heat $=2.0\\times890=1780\\,$kJ; 10% $=178\\,$kJ $=1.78\\times10^5\\,$J. $\\Delta T=1.78\\times10^5/(1000\\times4.2)=42.4\\,$K, so final $\\approx15+42=57\\,$°C.", "ja": "$\\mathrm{CH_4}=32/16=2.0\\,$mol → 熱 $=2.0\\times890=1780\\,$kJ，10% $=178\\,$kJ$=1.78\\times10^5\\,$J。$\\Delta T=1.78\\times10^5/(1000\\times4.2)=42.4\\,$K なので $15+42\\approx57\\,$°C。" }
+    },
+    {
+      "id": "2019-1-chem-7", "answerRow": 7, "topicId": "states-and-change",
+      "subtopic": "Pressure equilibrium constant for N2O4 dissociation",
+      "patternTags": ["equilibrium", "equilibrium-constant", "partial-pressure", "plug-in-numbers"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "容積一定の容器に $1.0\\,$mol の $\\mathrm{N_2O_4}$ を入れ一定温度に保つと，その 60% が解離して $\\mathrm{NO_2}$ になり，圧力は $1.0\\times10^5\\,$Pa となった。$\\mathrm{N_2O_4\\rightleftharpoons 2NO_2}$ の圧平衡定数は何 Pa か，最も近い値を選びなさい。", "choices": ["$1.3\\times10^5$", "$2.3\\times10^5$", "$3.0\\times10^5$", "$3.6\\times10^5$", "$4.8\\times10^5$"] },
+      "en": { "prompt": "In a fixed-volume vessel, $1.0\\,$mol of $\\mathrm{N_2O_4}$ at constant temperature has 60% dissociated to $\\mathrm{NO_2}$, with a pressure of $1.0\\times10^5\\,$Pa. What is the pressure equilibrium constant of $\\mathrm{N_2O_4\\rightleftharpoons 2NO_2}$ (Pa)?", "choices": ["$1.3\\times10^5$", "$2.3\\times10^5$", "$3.0\\times10^5$", "$3.6\\times10^5$", "$4.8\\times10^5$"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "約 $2.3\\times10^5\\,$Pa", "en": "≈ $2.3\\times10^5$ Pa" },
+      "explanation": { "en": "After 60% dissociation: $\\mathrm{N_2O_4}=0.4$, $\\mathrm{NO_2}=1.2$, total $=1.6\\,$mol at $1.0\\times10^5\\,$Pa. Partial pressures: $P_{\\mathrm{N_2O_4}}=\\tfrac{0.4}{1.6}\\times10^5=2.5\\times10^4$, $P_{\\mathrm{NO_2}}=\\tfrac{1.2}{1.6}\\times10^5=7.5\\times10^4$. $K_p=\\dfrac{(7.5\\times10^4)^2}{2.5\\times10^4}=2.25\\times10^5\\approx2.3\\times10^5\\,$Pa.", "ja": "60% 解離で $\\mathrm{N_2O_4}=0.4$，$\\mathrm{NO_2}=1.2$，総 $1.6\\,$mol が $1.0\\times10^5\\,$Pa。分圧 $P_{\\mathrm{N_2O_4}}=\\tfrac{0.4}{1.6}\\times10^5=2.5\\times10^4$，$P_{\\mathrm{NO_2}}=\\tfrac{1.2}{1.6}\\times10^5=7.5\\times10^4$。$K_p=\\dfrac{(7.5\\times10^4)^2}{2.5\\times10^4}=2.25\\times10^5\\approx2.3\\times10^5\\,$Pa。" }
+    },
+    {
+      "id": "2019-1-chem-8", "answerRow": 8, "topicId": "states-and-change",
+      "subtopic": "Mass of KNO3 deposited on cooling after evaporation",
+      "patternTags": ["solubility", "recrystallization", "plug-in-numbers"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "$60\\,$°C における硝酸カリウム $\\mathrm{KNO_3}$ の飽和水溶液 $200\\,$g を加熱し，水 $20\\,$g を蒸発させた後，$20\\,$°C に冷却した。析出した $\\mathrm{KNO_3}$ は何 g か。ただし $\\mathrm{KNO_3}$ の溶解度（水 $100\\,$g に対して）は $20\\,$°C で 32，$60\\,$°C で 109 とする。", "choices": ["24", "34", "70", "76", "80"] },
+      "en": { "prompt": "$200\\,$g of a $60\\,$°C saturated $\\mathrm{KNO_3}$ solution is heated, $20\\,$g of water evaporated, then cooled to $20\\,$°C. How many grams of $\\mathrm{KNO_3}$ deposit? Solubility (per $100\\,$g water): 32 at $20\\,$°C, 109 at $60\\,$°C.", "choices": ["24", "34", "70", "76", "80"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "約 $80\\,$g", "en": "≈ 80 g" },
+      "explanation": { "en": "At $60\\,$°C, $209\\,$g of solution = $109$ KNO₃ + $100$ water, so $200\\,$g contains KNO₃ $=200\\times109/209\\approx104\\,$g and water $\\approx96\\,$g. After evaporating $20\\,$g water → $76\\,$g water. At $20\\,$°C dissolved KNO₃ $=32\\times76/100\\approx24\\,$g. Deposited $\\approx104-24=80\\,$g.", "ja": "$60\\,$°C では溶液 $209\\,$g に KNO₃ $109$＋水 $100$。$200\\,$g 中 KNO₃ $=200\\times109/209\\approx104\\,$g，水 $\\approx96\\,$g。水 $20\\,$g 蒸発で水 $76\\,$g。$20\\,$°C で溶ける KNO₃ $=32\\times76/100\\approx24\\,$g。析出 $\\approx104-24=80\\,$g。" }
+    },
+    {
+      "id": "2019-1-chem-9", "answerRow": 9, "topicId": "states-and-change",
+      "subtopic": "True/false grid for acid pH statements",
+      "patternTags": ["acids-bases", "ph", "strong-weak", "true-false-grid"], "hasFigure": true,
+      "figure": { "ja": "表は (a)/(b)/(c) の 正/誤 の組み合わせ①〜⑧。正解⑤は a=正, b=誤, c=誤。", "en": "Table of true(正)/false(誤) combinations ①–⑧ for (a)/(b)/(c). The correct row (⑤) is a=true, b=false, c=false." },
+      "ja": { "prompt": "酸と塩基に関する記述(a)〜(c)の正誤の組み合わせを選びなさい。 (a) $0.20\\,$mol/L 塩酸 HCl の pH は，$0.10\\,$mol/L 硫酸 $\\mathrm{H_2SO_4}$ の pH よりも小さい。 (b) $10^{-8}\\,$mol/L 塩酸の pH は 7.0 よりも大きい。 (c) 酢酸水溶液 $\\mathrm{CH_3COOH}$ aq の pH は，酢酸の濃度が高いほど大きい。", "choices": ["a正 b正 c正", "a正 b正 c誤", "a正 b誤 c正", "a誤 b正 c正", "a正 b誤 c誤", "a誤 b正 c誤", "a誤 b誤 c正", "a誤 b誤 c誤"] },
+      "en": { "prompt": "Choose the true/false combination. (a) The pH of $0.20\\,$mol/L HCl is smaller than that of $0.10\\,$mol/L $\\mathrm{H_2SO_4}$. (b) The pH of $10^{-8}\\,$mol/L HCl is greater than 7.0. (c) For acetic acid solution, the pH is larger when the acetic-acid concentration is higher.", "choices": ["a-T b-T c-T", "a-T b-T c-F", "a-T b-F c-T", "a-F b-T c-T", "a-T b-F c-F", "a-F b-T c-F", "a-F b-F c-T", "a-F b-F c-F"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "⑤ a正 b誤 c誤", "en": "⑤ a-T b-F c-F" },
+      "explanation": { "en": "(a) True — $0.20\\,$M HCl gives $[\\mathrm{H^+}]=0.20$, whereas $0.10\\,$M $\\mathrm{H_2SO_4}$ does not fully release its second proton, so its $[\\mathrm{H^+}]<0.20$ and its pH is higher; HCl is more acidic. (b) False — an acid solution always has pH $<7$ (water autoionization keeps it just below 7). (c) False — higher acid concentration gives more $\\mathrm{H^+}$ and thus a LOWER pH.", "ja": "(a) 正 — $0.20\\,$M HCl は $[\\mathrm{H^+}]=0.20$ だが $0.10\\,$M $\\mathrm{H_2SO_4}$ は第二段の電離が完全でなく $[\\mathrm{H^+}]<0.20$ で pH が高く，HCl の方が酸性が強い。(b) 誤 — 酸の水溶液は常に pH$<7$（水の電離で 7 よりわずかに下）。(c) 誤 — 濃度が高いほど $\\mathrm{H^+}$ が増え pH は小さくなる。" }
+    },
+    {
+      "id": "2019-1-chem-10", "answerRow": 10, "topicId": "states-and-change",
+      "subtopic": "Hydrogen-oxygen fuel cell species",
+      "patternTags": ["electrochemistry", "fuel-cell", "redox", "compare-cases"], "hasFigure": true,
+      "figure": { "ja": "$\\mathrm{H_2}$ を用いた燃料電池の模式図：負極（陽極）で物質 A が酸化され，正極（陰極）で物質 B が還元されて物質 C が生成する。表は A/B/C の組み合わせ①〜⑥。", "en": "Schematic of an $\\mathrm{H_2}$ fuel cell: at the negative electrode (anode) substance A is oxidised; at the positive electrode (cathode) substance B is reduced to form substance C. Table gives A/B/C combinations ①–⑥." },
+      "ja": { "prompt": "水素 $\\mathrm{H_2}$ を用いた燃料電池で，物質 A〜C の正しい組み合わせを選びなさい。（負極で A が酸化され，正極で B が還元されて C が生成する）", "choices": ["A:$\\mathrm{H_2}$ B:$\\mathrm{O_2}$ C:$\\mathrm{H_2O}$", "A:$\\mathrm{H_2}$ B:$\\mathrm{H_2O}$ C:$\\mathrm{O_2}$", "A:$\\mathrm{O_2}$ B:$\\mathrm{H_2}$ C:$\\mathrm{H_2O}$", "A:$\\mathrm{O_2}$ B:$\\mathrm{H_2O}$ C:$\\mathrm{H_2}$", "A:$\\mathrm{H_2O}$ B:$\\mathrm{H_2}$ C:$\\mathrm{O_2}$", "A:$\\mathrm{H_2O}$ B:$\\mathrm{O_2}$ C:$\\mathrm{H_2}$"] },
+      "en": { "prompt": "For an $\\mathrm{H_2}$ fuel cell, choose the correct A, B, C (A is oxidised at the negative electrode; B is reduced at the positive electrode to form C).", "choices": ["A:$\\mathrm{H_2}$ B:$\\mathrm{O_2}$ C:$\\mathrm{H_2O}$", "A:$\\mathrm{H_2}$ B:$\\mathrm{H_2O}$ C:$\\mathrm{O_2}$", "A:$\\mathrm{O_2}$ B:$\\mathrm{H_2}$ C:$\\mathrm{H_2O}$", "A:$\\mathrm{O_2}$ B:$\\mathrm{H_2O}$ C:$\\mathrm{H_2}$", "A:$\\mathrm{H_2O}$ B:$\\mathrm{H_2}$ C:$\\mathrm{O_2}$", "A:$\\mathrm{H_2O}$ B:$\\mathrm{O_2}$ C:$\\mathrm{H_2}$"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "① A:$\\mathrm{H_2}$ B:$\\mathrm{O_2}$ C:$\\mathrm{H_2O}$", "en": "① A:$\\mathrm{H_2}$ B:$\\mathrm{O_2}$ C:$\\mathrm{H_2O}$" },
+      "explanation": { "en": "At the anode $\\mathrm{H_2}$ is oxidised (A = $\\mathrm{H_2}$). At the cathode $\\mathrm{O_2}$ is reduced (B = $\\mathrm{O_2}$), forming water (C = $\\mathrm{H_2O}$).", "ja": "負極では $\\mathrm{H_2}$ が酸化（A=$\\mathrm{H_2}$）。正極では $\\mathrm{O_2}$ が還元（B=$\\mathrm{O_2}$）され水（C=$\\mathrm{H_2O}$）が生成する。" }
+    },
+    {
+      "id": "2019-1-chem-11", "answerRow": 11, "topicId": "inorganic",
+      "subtopic": "Property shared by all group-2 elements",
+      "patternTags": ["inorganic", "alkaline-earth-metals", "ionic-radius", "pick-statement"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "2 族元素 Mg, Ca, Sr, Ba のすべてにあてはまるものを選びなさい。 ① 炎色反応を示す。 ② 常温で水と反応する。 ③ 硫酸塩は水によく溶ける。 ④ 酸素と 1:1 の酸化物をつくり，その水溶液は酸性を示す。 ⑤ 2 価の陽イオンの電子配置は同じ周期の 18 族元素と同じである。 ⑥ 2 価の陽イオンは同じ周期の 1 族元素の 1 価の陽イオンよりもイオン半径が小さい。", "choices": ["①", "②", "③", "④", "⑤", "⑥"] },
+      "en": { "prompt": "Which property holds for ALL of the group-2 elements Mg, Ca, Sr, Ba? ① They give a flame colour. ② They react with water at room temperature. ③ Their sulfates dissolve well in water. ④ They form 1:1 oxides whose aqueous solutions are acidic. ⑤ Their 2+ cations have the configuration of the group-18 element of the same period. ⑥ Their 2+ cations have a smaller ionic radius than the 1+ cation of the group-1 element of the same period.", "choices": ["①", "②", "③", "④", "⑤", "⑥"] },
+      "answerIndex": 5, "answerOption": 6, "answer": { "ja": "⑥（2 価陽イオンは同周期 1 族の 1 価陽イオンより小さい）", "en": "⑥ (the 2+ cation is smaller than the same-period 1+ cation)" },
+      "explanation": { "en": "Each $\\mathrm{M^{2+}}$ is isoelectronic with the group-1 $\\mathrm{M'^+}$ of the same period but has one more proton, so it is smaller (e.g. $\\mathrm{Mg^{2+}}<\\mathrm{Na^+}$) — ⑥ holds for all. ① Mg gives no flame colour; ② Mg doesn't react with cold water; ③ $\\mathrm{CaSO_4}$/$\\mathrm{BaSO_4}$ are insoluble; ④ the oxides are basic; ⑤ the 2+ config matches the PREVIOUS period's noble gas.", "ja": "各 $\\mathrm{M^{2+}}$ は同周期の 1 族 $\\mathrm{M'^+}$ と等電子だが陽子が 1 個多く小さい（例 $\\mathrm{Mg^{2+}}<\\mathrm{Na^+}$）— ⑥ はすべてに成立。① Mg は炎色を示さない；② Mg は冷水と反応しない；③ $\\mathrm{CaSO_4}$/$\\mathrm{BaSO_4}$ は不溶；④ 酸化物は塩基性；⑤ 2 価陽イオンの配置は一つ前の周期の希ガスと同じ。" }
+    },
+    {
+      "id": "2019-1-chem-12", "answerRow": 12, "topicId": "inorganic",
+      "subtopic": "Two correct statements about phosphorus",
+      "patternTags": ["inorganic", "phosphorus", "oxides", "true-false-combo"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "リン P とその化合物に関する記述(a)〜(d)のうち，正しいものが二つある。その組み合わせを選びなさい。 (a) 黄リン $\\mathrm{P_4}$ は空気中で自然に発火するので水中に保存する。 (b) 十酸化四リン $\\mathrm{P_4O_{10}}$ は風解性を示す。 (c) 十酸化四リンを水に溶かして加熱するとリン酸 $\\mathrm{H_3PO_4}$ ができる。 (d) リン酸カリウム $\\mathrm{K_3PO_4}$ は骨や歯の主な成分である。", "choices": ["a, b", "a, c", "a, d", "b, c", "b, d", "c, d"] },
+      "en": { "prompt": "Two statements about phosphorus and its compounds are correct. Which pair? (a) White phosphorus $\\mathrm{P_4}$ ignites spontaneously in air, so it is stored under water. (b) $\\mathrm{P_4O_{10}}$ is efflorescent. (c) Dissolving $\\mathrm{P_4O_{10}}$ in water and heating gives phosphoric acid $\\mathrm{H_3PO_4}$. (d) Potassium phosphate $\\mathrm{K_3PO_4}$ is the main component of bones and teeth.", "choices": ["a, b", "a, c", "a, d", "b, c", "b, d", "c, d"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "a と c", "en": "a and c" },
+      "explanation": { "en": "(a) True — white phosphorus is pyrophoric and kept under water. (c) True — $\\mathrm{P_4O_{10}}+6\\mathrm{H_2O}\\to4\\mathrm{H_3PO_4}$. (b) False — $\\mathrm{P_4O_{10}}$ is deliquescent (a drying agent), not efflorescent. (d) False — bone/teeth are mainly calcium phosphate, not potassium phosphate.", "ja": "(a) 正 — 黄リンは自然発火性で水中保存。(c) 正 — $\\mathrm{P_4O_{10}}+6\\mathrm{H_2O}\\to4\\mathrm{H_3PO_4}$。(b) 誤 — $\\mathrm{P_4O_{10}}$ は潮解性（乾燥剤）で風解性ではない。(d) 誤 — 骨・歯の主成分はリン酸カルシウムでリン酸カリウムではない。" }
+    },
+    {
+      "id": "2019-1-chem-13", "answerRow": 13, "topicId": "inorganic",
+      "subtopic": "Which solution gives no precipitate with each reagent",
+      "patternTags": ["inorganic", "qualitative-analysis", "amphoteric", "complex-ion", "compare-cases"], "hasFigure": true,
+      "figure": { "ja": "溶液 (a) $\\mathrm{Ag^+,Cu^{2+}}$；(b) $\\mathrm{Fe^{3+},Pb^{2+}}$；(c) $\\mathrm{Zn^{2+},Al^{3+}}$。過剰の HCl・$\\mathrm{NH_3}$・NaOH を加えたとき沈殿を生じない溶液を各試薬について選ぶ。表は (HCl, $\\mathrm{NH_3}$, NaOH) に対応する溶液 a/b/c の組み合わせ①〜⑧。", "en": "Solutions (a) $\\mathrm{Ag^+,Cu^{2+}}$; (b) $\\mathrm{Fe^{3+},Pb^{2+}}$; (c) $\\mathrm{Zn^{2+},Al^{3+}}$. For each reagent (excess HCl / $\\mathrm{NH_3}$ / NaOH), pick the solution that gives NO precipitate. Table gives a/b/c assignments ①–⑧ for (HCl, $\\mathrm{NH_3}$, NaOH)." },
+      "ja": { "prompt": "溶液(a)$\\mathrm{Ag^+,Cu^{2+}}$，(b)$\\mathrm{Fe^{3+},Pb^{2+}}$，(c)$\\mathrm{Zn^{2+},Al^{3+}}$ に，過剰の塩酸・アンモニア水・水酸化ナトリウム水溶液をそれぞれ加えたとき，沈殿を生じないものはどれか。（HCl / $\\mathrm{NH_3}$ / NaOH）の正しい組み合わせを選びなさい。", "choices": ["a / b / c", "a / c / b", "b / a / b", "b / a / c", "b / c / a", "c / a / b", "c / a / c", "c / b / a"] },
+      "en": { "prompt": "For solutions (a) $\\mathrm{Ag^+,Cu^{2+}}$, (b) $\\mathrm{Fe^{3+},Pb^{2+}}$, (c) $\\mathrm{Zn^{2+},Al^{3+}}$, which gives NO precipitate with excess HCl / $\\mathrm{NH_3}$ / NaOH respectively?", "choices": ["a / b / c", "a / c / b", "b / a / b", "b / a / c", "b / c / a", "c / a / b", "c / a / c", "c / b / a"] },
+      "answerIndex": 6, "answerOption": 7, "answer": { "ja": "⑦ HCl:c / $\\mathrm{NH_3}$:a / NaOH:c", "en": "⑦ HCl:c / $\\mathrm{NH_3}$:a / NaOH:c" },
+      "explanation": { "en": "HCl: only (c) gives no precipitate (ZnCl₂, AlCl₃ soluble; AgCl/PbCl₂ would precipitate). Excess $\\mathrm{NH_3}$: only (a) dissolves fully as $\\mathrm{[Ag(NH_3)_2]^+}$ and $\\mathrm{[Cu(NH_3)_4]^{2+}}$ (Fe(OH)₃/Al(OH)₃ stay). Excess NaOH: only (c) dissolves (amphoteric $\\mathrm{[Zn(OH)_4]^{2-}}$, $\\mathrm{[Al(OH)_4]^-}$). So (c, a, c).", "ja": "HCl：(c) のみ沈殿なし（$\\mathrm{ZnCl_2,AlCl_3}$ 可溶；AgCl/PbCl₂ は沈殿）。過剰 $\\mathrm{NH_3}$：(a) のみ $\\mathrm{[Ag(NH_3)_2]^+}$・$\\mathrm{[Cu(NH_3)_4]^{2+}}$ として溶ける（Fe(OH)₃/Al(OH)₃ は残る）。過剰 NaOH：(c) のみ両性で溶ける（$\\mathrm{[Zn(OH)_4]^{2-}}$，$\\mathrm{[Al(OH)_4]^-}$）。よって (c, a, c)。" }
+    },
+    {
+      "id": "2019-1-chem-14", "answerRow": 14, "topicId": "inorganic",
+      "subtopic": "Identify a salt from acidity and irritating gas",
+      "patternTags": ["inorganic", "salt-hydrolysis", "ammonia", "identification"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "ある粉末状の試薬について，実験 1：水にすみやかに溶けて水溶液は酸性であった。実験 2：その水溶液に NaOH aq を加えると刺激臭が確認された。この試薬として最も適当なものを選びなさい。 ① $\\mathrm{NH_4Cl}$ ② $\\mathrm{CaCl_2}$ ③ $\\mathrm{C_6H_{12}O_6}$ ④ $\\mathrm{NaHCO_3}$ ⑤ $\\mathrm{NaHSO_4}$", "choices": ["$\\mathrm{NH_4Cl}$", "$\\mathrm{CaCl_2}$", "$\\mathrm{C_6H_{12}O_6}$", "$\\mathrm{NaHCO_3}$", "$\\mathrm{NaHSO_4}$"] },
+      "en": { "prompt": "A powdered reagent: Exp 1 — it dissolves readily and the solution is acidic. Exp 2 — adding NaOH to the solution produces an irritating smell. Which reagent is it? ① $\\mathrm{NH_4Cl}$ ② $\\mathrm{CaCl_2}$ ③ $\\mathrm{C_6H_{12}O_6}$ ④ $\\mathrm{NaHCO_3}$ ⑤ $\\mathrm{NaHSO_4}$", "choices": ["$\\mathrm{NH_4Cl}$", "$\\mathrm{CaCl_2}$", "$\\mathrm{C_6H_{12}O_6}$", "$\\mathrm{NaHCO_3}$", "$\\mathrm{NaHSO_4}$"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "① $\\mathrm{NH_4Cl}$", "en": "① $\\mathrm{NH_4Cl}$" },
+      "explanation": { "en": "$\\mathrm{NH_4Cl}$ dissolves to give a weakly acidic solution ($\\mathrm{NH_4^+}$); adding NaOH releases $\\mathrm{NH_3}$ ($\\mathrm{NH_4^++OH^-\\to NH_3+H_2O}$), which has an irritating smell. The others are neutral/basic or give no pungent gas.", "ja": "$\\mathrm{NH_4Cl}$ は溶けて弱酸性（$\\mathrm{NH_4^+}$）。NaOH を加えると $\\mathrm{NH_3}$ が発生（$\\mathrm{NH_4^++OH^-\\to NH_3+H_2O}$）し刺激臭。他は中性・塩基性か刺激臭の気体を出さない。" }
+    },
+    {
+      "id": "2019-1-chem-15", "answerRow": 15, "topicId": "inorganic",
+      "subtopic": "Identify four metals from their reactions",
+      "patternTags": ["inorganic", "ionization-tendency", "passivation", "metal-identification"], "hasFigure": true,
+      "figure": { "ja": "金属 Ag, Cu, Fe, Zn を A〜D に同定。表は A/B/C/D の組み合わせ①〜⑧。手がかり：(a) A・B は希硫酸に溶け $\\mathrm{H_2}$ を発生，C・D は溶けない；(b) C の塩水溶液に D を浸すと D 表面に C が析出；(d) B は希硝酸に溶けるが濃硝酸では不動態；(e) C・D は硝酸に溶けて窒素酸化物を発生。", "en": "Identify metals Ag, Cu, Fe, Zn as A–D. Table gives A/B/C/D combinations ①–⑧. Clues: (a) A, B dissolve in dilute $\\mathrm{H_2SO_4}$ releasing $\\mathrm{H_2}$, C, D do not; (b) dipping D into a solution of C's salt deposits C on D; (d) B dissolves in dilute $\\mathrm{HNO_3}$ but is passive in conc. $\\mathrm{HNO_3}$; (e) C and D dissolve in nitric acid releasing nitrogen oxides." },
+      "ja": { "prompt": "金属 Ag, Cu, Fe, Zn について A〜D を同定する。正しい組み合わせを選びなさい。 (a) A・B は希硫酸に溶けて $\\mathrm{H_2}$ を発生するが C・D は溶けない。 (b) C の塩の水溶液に D を浸すと D の表面に C が析出する。 (d) B は希硝酸に溶けるが濃硝酸には不動態となる。 (e) C・D はいずれも硝酸に溶けて窒素酸化物を発生する。", "choices": ["A:Ag B:Cu C:Fe D:Zn", "A:Ag B:Fe C:Zn D:Cu", "A:Cu B:Ag C:Zn D:Fe", "A:Cu B:Zn C:Fe D:Ag", "A:Fe B:Zn C:Cu D:Ag", "A:Zn B:Cu C:Ag D:Fe", "A:Zn B:Fe C:Ag D:Cu", "A:Zn B:Fe C:Cu D:Ag"] },
+      "en": { "prompt": "Identify metals Ag, Cu, Fe, Zn as A–D. (a) A, B dissolve in dilute $\\mathrm{H_2SO_4}$ releasing $\\mathrm{H_2}$ but C, D do not. (b) Dipping D into a solution of C's salt deposits C on D. (d) B dissolves in dilute $\\mathrm{HNO_3}$ but is passive in conc. $\\mathrm{HNO_3}$. (e) C and D both dissolve in nitric acid releasing nitrogen oxides.", "choices": ["A:Ag B:Cu C:Fe D:Zn", "A:Ag B:Fe C:Zn D:Cu", "A:Cu B:Ag C:Zn D:Fe", "A:Cu B:Zn C:Fe D:Ag", "A:Fe B:Zn C:Cu D:Ag", "A:Zn B:Cu C:Ag D:Fe", "A:Zn B:Fe C:Ag D:Cu", "A:Zn B:Fe C:Cu D:Ag"] },
+      "answerIndex": 6, "answerOption": 7, "answer": { "ja": "⑦ A:Zn B:Fe C:Ag D:Cu", "en": "⑦ A:Zn B:Fe C:Ag D:Cu" },
+      "explanation": { "en": "(a) A, B are above hydrogen (Fe, Zn); C, D below (Ag, Cu). (d) B is passive in conc. $\\mathrm{HNO_3}$ → Fe, so A = Zn. (b) D displaces C from C's salt, so D is more reactive: Cu displaces Ag, giving D = Cu, C = Ag. (e) Both Ag and Cu dissolve in $\\mathrm{HNO_3}$ giving $\\mathrm{NO_x}$. So A:Zn, B:Fe, C:Ag, D:Cu.", "ja": "(a) A・B は水素より上（Fe, Zn），C・D は下（Ag, Cu）。(d) B は濃硝酸で不動態 → Fe なので A=Zn。(b) D が C の塩から C を析出 → D の方が反応性大：Cu が Ag を析出させるので D=Cu，C=Ag。(e) Ag も Cu も硝酸に溶け $\\mathrm{NO_x}$ を出す。よって A:Zn, B:Fe, C:Ag, D:Cu。" }
+    },
+    {
+      "id": "2019-1-chem-16", "answerRow": 16, "topicId": "organic",
+      "subtopic": "Incorrect statement about ethanol and acetic acid",
+      "patternTags": ["organic", "alcohols", "carboxylic-acids", "pick-false-statement"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "エタノール $\\mathrm{C_2H_5OH}$ と酢酸 $\\mathrm{CH_3COOH}$ に関する記述①〜⑤のうち，誤っているものを選びなさい。 ① エタノールより酢酸の方が融点・沸点ともに高い。 ② エタノールは $\\mathrm{I_2}$ と NaOH aq を加えると黄色の沈殿を生じるが，酢酸は生じない。 ③ 酢酸は $\\mathrm{P_4O_{10}}$ で，エタノールは濃硫酸で，それぞれ脱水縮合をおこす。 ④ どちらも金属ナトリウム Na と反応して $\\mathrm{H_2}$ を発生する。 ⑤ どちらも $\\mathrm{NaHCO_3}$ aq を加えると $\\mathrm{CO_2}$ を発生する。", "choices": ["①", "②", "③", "④", "⑤"] },
+      "en": { "prompt": "Which statement about ethanol $\\mathrm{C_2H_5OH}$ and acetic acid $\\mathrm{CH_3COOH}$ is INCORRECT? ① Acetic acid has higher melting and boiling points than ethanol. ② Ethanol gives a yellow precipitate with $\\mathrm{I_2}$ + NaOH but acetic acid does not. ③ Acetic acid (with $\\mathrm{P_4O_{10}}$) and ethanol (with conc. $\\mathrm{H_2SO_4}$) each undergo dehydration condensation. ④ Both react with sodium to release $\\mathrm{H_2}$. ⑤ Both release $\\mathrm{CO_2}$ when $\\mathrm{NaHCO_3}$ is added.", "choices": ["①", "②", "③", "④", "⑤"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "⑤（エタノールは $\\mathrm{NaHCO_3}$ と反応しない）", "en": "⑤ (ethanol does not react with $\\mathrm{NaHCO_3}$)" },
+      "explanation": { "en": "Only the carboxylic acid (acetic acid) reacts with $\\mathrm{NaHCO_3}$ to give $\\mathrm{CO_2}$; ethanol does not, so ⑤ is wrong. The others are correct: acetic acid has higher mp/bp, ethanol is iodoform-positive, both dehydrate (to anhydride / ether) and both react with Na to give $\\mathrm{H_2}$.", "ja": "$\\mathrm{NaHCO_3}$ と反応して $\\mathrm{CO_2}$ を出すのはカルボン酸（酢酸）だけでエタノールは反応しないので⑤が誤り。他は正：酢酸は融点・沸点が高い，エタノールはヨードホルム陽性，両者とも脱水（無水物／エーテル）し Na と反応し $\\mathrm{H_2}$ を出す。" }
+    },
+    {
+      "id": "2019-1-chem-17", "answerRow": 17, "topicId": "organic",
+      "subtopic": "Correct statement about ethanol",
+      "patternTags": ["organic", "ethanol", "boiling-point", "pick-statement"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "エタノール $\\mathrm{C_2H_5OH}$ に関する記述①〜⑤のうち，正しいものを選びなさい。 ① 2 個の C 原子と 1 個の O 原子は同一直線上にある。 ② アセチレン $\\mathrm{HC{\\equiv}CH}$ に水 $\\mathrm{H_2O}$ を付加してつくられる。 ③ 異性体の関係にあるジメチルエーテル $\\mathrm{CH_3OCH_3}$ より沸点が高い。 ④ 金属ナトリウム Na と反応して $\\mathrm{CO_2}$ を発生する。 ⑤ 硫酸酸性の二クロム酸カリウム $\\mathrm{K_2Cr_2O_7}$ aq で酸化すると $\\mathrm{CH_3CH_2CHO}$ ができる。", "choices": ["①", "②", "③", "④", "⑤"] },
+      "en": { "prompt": "Which statement about ethanol $\\mathrm{C_2H_5OH}$ is correct? ① Its two C atoms and one O atom lie on a straight line. ② It is made by adding water to acetylene $\\mathrm{HC{\\equiv}CH}$. ③ It has a higher boiling point than its isomer dimethyl ether $\\mathrm{CH_3OCH_3}$. ④ It reacts with sodium to release $\\mathrm{CO_2}$. ⑤ Oxidation with acidified $\\mathrm{K_2Cr_2O_7}$ gives $\\mathrm{CH_3CH_2CHO}$.", "choices": ["①", "②", "③", "④", "⑤"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "③（ジメチルエーテルより沸点が高い）", "en": "③ (higher boiling point than dimethyl ether)" },
+      "explanation": { "en": "Ethanol's –OH hydrogen-bonds, so its boiling point (78 °C) far exceeds its isomer dimethyl ether (−24 °C) — ③ correct. ① wrong (C–C–O is bent); ② wrong (acetylene + water gives acetaldehyde); ④ wrong (Na gives $\\mathrm{H_2}$); ⑤ wrong (ethanol oxidises to $\\mathrm{CH_3CHO}$, a two-carbon aldehyde).", "ja": "エタノールの –OH は水素結合するので沸点（78 °C）は異性体のジメチルエーテル（−24 °C）よりはるかに高い — ③が正。① 誤（C–C–O は折れ線）；② 誤（アセチレン＋水はアセトアルデヒド）；④ 誤（Na では $\\mathrm{H_2}$）；⑤ 誤（エタノールの酸化は 2 炭素の $\\mathrm{CH_3CHO}$）。" }
+    },
+    {
+      "id": "2019-1-chem-18", "answerRow": 18, "topicId": "organic",
+      "subtopic": "Two correct lab syntheses",
+      "patternTags": ["organic", "synthesis", "esterification", "oxidation", "true-false-combo"], "hasFigure": true,
+      "figure": { "ja": "表（A 化合物 / B 操作）：a $\\mathrm{CH_4}$ / 酢酸ナトリウムと NaOH の混合物を加熱；b $\\mathrm{CH_3COCH_3}$ / 1-プロパノール $\\mathrm{CH_3(CH_2)_2OH}$ を $\\mathrm{K_2Cr_2O_7}$ で酸化；c $\\mathrm{CH_3COOC_2H_5}$ / 酢酸とエタノールに濃硫酸を加えて加熱；d アセチルサリチル酸（$o$-OCOCH₃, COOH）/ サリチル酸とメタノールに濃硫酸を加える。", "en": "Table (A compound / B operation): a $\\mathrm{CH_4}$ / heat a mixture of sodium acetate and NaOH; b $\\mathrm{CH_3COCH_3}$ / oxidise 1-propanol $\\mathrm{CH_3(CH_2)_2OH}$ with $\\mathrm{K_2Cr_2O_7}$; c $\\mathrm{CH_3COOC_2H_5}$ / heat acetic acid and ethanol with conc. $\\mathrm{H_2SO_4}$; d acetylsalicylic acid ($o$-OCOCH₃, COOH) / add conc. $\\mathrm{H_2SO_4}$ to salicylic acid and methanol." },
+      "ja": { "prompt": "A 欄の化合物を B 欄の操作で実験室で合成したい。B 欄の記述が正しいものが二つある。その組み合わせを選びなさい。 a) $\\mathrm{CH_4}$ ← 酢酸ナトリウムと NaOH の混合物を加熱 b) $\\mathrm{CH_3COCH_3}$ ← 1-プロパノールを $\\mathrm{K_2Cr_2O_7}$ で酸化 c) $\\mathrm{CH_3COOC_2H_5}$ ← 酢酸とエタノールに濃硫酸を加えて加熱 d) アセチルサリチル酸 ← サリチル酸とメタノールに濃硫酸を加える", "choices": ["a, b", "a, c", "a, d", "b, c", "b, d", "c, d"] },
+      "en": { "prompt": "To synthesise compound A by operation B, two B-descriptions are correct. Which pair? a) $\\mathrm{CH_4}$ ← heat sodium acetate + NaOH. b) $\\mathrm{CH_3COCH_3}$ ← oxidise 1-propanol with $\\mathrm{K_2Cr_2O_7}$. c) $\\mathrm{CH_3COOC_2H_5}$ ← heat acetic acid + ethanol with conc. $\\mathrm{H_2SO_4}$. d) acetylsalicylic acid ← add conc. $\\mathrm{H_2SO_4}$ to salicylic acid + methanol.", "choices": ["a, b", "a, c", "a, d", "b, c", "b, d", "c, d"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "a と c", "en": "a and c" },
+      "explanation": { "en": "(a) $\\mathrm{CH_3COONa+NaOH\\to CH_4+Na_2CO_3}$ — correct. (c) Acetic acid + ethanol + conc. $\\mathrm{H_2SO_4}$ → ethyl acetate (esterification) — correct. (b) Oxidising 1-propanol gives propanoic acid, not acetone (which needs 2-propanol). (d) Salicylic acid + methanol gives methyl salicylate, not acetylsalicylic acid (which needs acetic anhydride).", "ja": "(a) $\\mathrm{CH_3COONa+NaOH\\to CH_4+Na_2CO_3}$ — 正。(c) 酢酸＋エタノール＋濃硫酸 → 酢酸エチル（エステル化）— 正。(b) 1-プロパノールの酸化はプロパン酸でアセトンではない（アセトンは 2-プロパノールから）。(d) サリチル酸＋メタノールはサリチル酸メチルで，アセチルサリチル酸（無水酢酸が必要）ではない。" }
+    },
+    {
+      "id": "2019-1-chem-19", "answerRow": 19, "topicId": "organic",
+      "subtopic": "Correct statement about benzene derivatives",
+      "patternTags": ["organic", "aromatics", "reduction", "pick-statement"], "hasFigure": true,
+      "figure": { "ja": "ベンゼン誘導体 A〜F：A フェノール（OH），B ベンゼンスルホン酸（$\\mathrm{SO_3H}$），C トルエン（$\\mathrm{CH_3}$），D ニトロベンゼン（$\\mathrm{NO_2}$），E アニリン（$\\mathrm{NH_2}$），F 安息香酸（COOH）。", "en": "Benzene derivatives A–F: A phenol (OH), B benzenesulfonic acid ($\\mathrm{SO_3H}$), C toluene ($\\mathrm{CH_3}$), D nitrobenzene ($\\mathrm{NO_2}$), E aniline ($\\mathrm{NH_2}$), F benzoic acid (COOH)." },
+      "ja": { "prompt": "構造式 A〜F の化合物に関する記述①〜⑤のうち，正しいものを選びなさい。 ① A の水溶液は中性である。 ② B の水溶液は弱酸性を示す。 ③ C は水にも有機溶媒にもよく溶ける。 ④ D は還元されると E になる。 ⑤ F はさらし粉（主成分 $\\mathrm{CaCl(ClO)}$）の水溶液で赤紫色に変化する。", "choices": ["①", "②", "③", "④", "⑤"] },
+      "en": { "prompt": "Which statement about compounds A–F is correct? ① A's solution is neutral. ② B's solution is weakly acidic. ③ C dissolves well in both water and organic solvents. ④ D, when reduced, becomes E. ⑤ F turns red-purple with bleaching-powder ($\\mathrm{CaCl(ClO)}$) solution.", "choices": ["①", "②", "③", "④", "⑤"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "④（ニトロベンゼンを還元するとアニリン）", "en": "④ (reducing nitrobenzene gives aniline)" },
+      "explanation": { "en": "Nitrobenzene (D) is reduced to aniline (E) — ④ correct. ① phenol is weakly acidic, not neutral; ② benzenesulfonic acid is a STRONG acid; ③ toluene is insoluble in water; ⑤ the bleaching-powder red-purple test is for aniline, not benzoic acid.", "ja": "ニトロベンゼン（D）を還元するとアニリン（E）— ④が正。① フェノールは弱酸性で中性でない；② ベンゼンスルホン酸は強酸；③ トルエンは水に溶けない；⑤ さらし粉で赤紫色になるのはアニリンで安息香酸ではない。" }
+    },
+    {
+      "id": "2019-1-chem-20", "answerRow": 20, "topicId": "organic",
+      "subtopic": "Polymer that contains no nitrogen",
+      "patternTags": ["organic", "polymers", "elements", "odd-one-out"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の高分子①〜⑤のうち，窒素 N を含まないものを選びなさい。 ① アルブミン ② デオキシリボ核酸 (DNA) ③ ナイロン 66 ④ ポリエチレンテレフタラート ⑤ ポリアクリロニトリル", "choices": ["アルブミン", "DNA", "ナイロン 66", "ポリエチレンテレフタラート", "ポリアクリロニトリル"] },
+      "en": { "prompt": "Which polymer contains NO nitrogen? ① albumin ② DNA ③ nylon 6,6 ④ poly(ethylene terephthalate) ⑤ polyacrylonitrile", "choices": ["albumin", "DNA", "nylon 6,6", "poly(ethylene terephthalate)", "polyacrylonitrile"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "④ ポリエチレンテレフタラート（PET）", "en": "④ poly(ethylene terephthalate) (PET)" },
+      "explanation": { "en": "PET is a polyester containing only C, H, O. The others contain nitrogen: albumin (protein) and DNA (bases) have N, nylon 6,6 has amide N, and polyacrylonitrile has nitrile (–C≡N) groups.", "ja": "PET はポリエステルで C, H, O のみ。他は窒素を含む：アルブミン（タンパク質）と DNA（塩基）は N，ナイロン 66 はアミドの N，ポリアクリロニトリルはニトリル（–C≡N）。" }
+    }
+  ],
+  "patterns": {
+    "archetypes": [
+      "Isoelectronic species from shell diagrams; spot the false statement (Ne vs F ionization energy).",
+      "Correct ionization-energy / electron-affinity statement.",
+      "Molecule with both a double bond and a lone pair (CO₂).",
+      "Atomic weight of a metal from oxide→nitrate mass.",
+      "CO₂ mass from a limiting reagent in two dosing cases.",
+      "Temperature rise from a fraction of combustion heat.",
+      "Pressure equilibrium constant for N₂O₄ ⇌ 2NO₂.",
+      "Recrystallization mass on cooling after evaporation.",
+      "True/false grid on acid pH (diprotic H₂SO₄, very-dilute acid, concentration vs pH).",
+      "Hydrogen-oxygen fuel-cell species (H₂ oxidised, O₂ reduced → H₂O).",
+      "Property common to all group-2 metals (2+ cation smaller than same-period 1+).",
+      "Two correct phosphorus statements (white P stored under water; P₄O₁₀→H₃PO₄).",
+      "Which two-ion solution gives no precipitate with HCl / NH₃ / NaOH.",
+      "Identify a salt from acidity + irritating gas (NH₄Cl).",
+      "Identify four metals from acid/displacement/passivation behaviour.",
+      "Incorrect ethanol/acetic-acid statement (NaHCO₃ only with the acid).",
+      "Correct ethanol statement (H-bonding raises bp above its ether isomer).",
+      "Two correct lab syntheses (decarboxylation; esterification).",
+      "Correct benzene-derivative statement (nitrobenzene → aniline by reduction).",
+      "Polymer that contains no nitrogen (PET)."
+    ],
+    "recurring": [
+      "Atomic-structure / bonding / periodic-property screens open the paper.",
+      "Quantitative core: oxide-mass formulas, limiting-reagent gas mass, calorimetry, Kp, solubility/recrystallization.",
+      "Electrochemistry (fuel cell) and a pH true/false grid sit mid-paper.",
+      "Qualitative inorganic: group-2 trends, phosphorus, multi-ion precipitation, salt identification, metal identification.",
+      "Organic: alcohol/acid comparisons, ethanol properties, lab syntheses, aromatic derivatives, polymers."
+    ],
+    "examTacticNotes": [
+      "Isoelectronic 10-electron set: F⁻, Ne, Na⁺, Mg²⁺; Ne's IE exceeds F's.",
+      "Electron affinity is energy released on gaining an electron; removing it from X⁻ costs that energy.",
+      "Both double bond and lone pair: CO₂ (O=C=O with O lone pairs).",
+      "Oxide→nitrate same mol: 45/(x+16) = 110/(x+124) ⇒ x ≈ 59.",
+      "Limiting reagent: CaCO₃ limits at 2.0 g (0.88 g CO₂); HCl limits at 3.0 g (1.1 g CO₂).",
+      "ΔT = (fraction × heat)/(m·c); 10% of 1780 kJ heats 1000 g water by ~42 K.",
+      "Kp: partial pressures from mole fractions × total pressure; Kp = P(NO₂)²/P(N₂O₄).",
+      "Recrystallization: track KNO₃ and water through evaporation, then dissolved amount at the lower T.",
+      "0.20 M HCl is more acidic than 0.10 M H₂SO₄ (second proton not fully released); acids always have pH < 7.",
+      "Fuel cell: H₂ oxidised at anode, O₂ reduced at cathode to water.",
+      "Group-2 M²⁺ is smaller than the same-period group-1 M⁺ (more protons, same electrons).",
+      "White phosphorus is pyrophoric (store under water); P₄O₁₀ is deliquescent and gives H₃PO₄.",
+      "No precipitate: HCl with Zn²⁺/Al³⁺, excess NH₃ with Ag⁺/Cu²⁺ (ammines), excess NaOH with Zn²⁺/Al³⁺.",
+      "Acidic salt + NaOH giving a pungent gas ⇒ NH₄Cl (releases NH₃).",
+      "Metal ID: passive-in-conc-HNO₃ = Fe; Cu displaces Ag; both Cu/Ag dissolve in HNO₃ as NOₓ.",
+      "Only carboxylic acids react with NaHCO₃ (CO₂); alcohols do not.",
+      "Ethanol's H-bonding gives a much higher bp than dimethyl ether.",
+      "Sodium acetate + NaOH → CH₄; acetic acid + ethanol + H₂SO₄ → ethyl acetate.",
+      "Reduction of nitrobenzene gives aniline; bleaching-powder red-purple test is for aniline.",
+      "PET (polyester) has no nitrogen; proteins/DNA/nylon/polyacrylonitrile do."
+    ],
+    "difficulty": "Standard EJU chemistry — a full-syllabus sweep with a strong quantitative core and a large qualitative-inorganic block. The more discriminating items are the acid-pH true/false grid (Q9), the multi-reagent precipitation table (Q13), the four-metal identification (Q15), and the lab-synthesis judgement (Q18)."
+  }
+}
