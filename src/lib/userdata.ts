@@ -4,6 +4,7 @@ import type { Subject } from './ui';
 import type { KeyPointDTO } from './api';
 import { useAuth } from './auth';
 import { db } from './firebase';
+import { useGenerated } from './generated';
 
 const newId = () => Math.random().toString(36).slice(2, 10);
 
@@ -220,5 +221,12 @@ export function initUserData() {
     'keypoints',
     (s) => ({ items: s.items }),
     (s, data) => s.load(data?.items ?? [])
+  );
+  attachSync(
+    useGenerated,
+    'eju-generated-v2',
+    'generated',
+    (s) => ({ questions: s.questions, selected: s.selected }),
+    (s, data) => s.load(data ?? {})
   );
 }

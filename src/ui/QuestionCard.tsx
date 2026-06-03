@@ -6,6 +6,7 @@ import { explainQuestion } from '../lib/ask';
 import type { GenQuestion } from '../lib/api';
 import type { Subject } from '../lib/ui';
 import { useT } from '../i18n';
+import { TrashIcon } from './icons';
 
 const LETTERS = 'ABCDE';
 
@@ -15,10 +16,13 @@ export default function QuestionCard({
   subject,
   q,
   label,
+  onRemove,
 }: {
   subject: Subject;
   q: GenQuestion;
   label?: string | number;
+  /** When provided, shows a small button to delete this saved question. */
+  onRemove?: () => void;
 }) {
   const t = useT();
   const picked = useAnswers((s) => s.picked);
@@ -110,6 +114,17 @@ export default function QuestionCard({
         >
           {t('explain')}
         </button>
+        {onRemove ? (
+          <button
+            type="button"
+            onClick={onRemove}
+            aria-label={t('removeQuestion')}
+            title={t('removeQuestion')}
+            className="ml-auto inline-flex items-center gap-1 rounded-lg px-2 py-1.5 text-xs font-semibold text-slate-400 hover:text-red-600"
+          >
+            <TrashIcon className="h-3.5 w-3.5" />
+          </button>
+        ) : null}
       </div>
 
       {revealed ? (

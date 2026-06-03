@@ -11,7 +11,7 @@ import { useT } from '../../i18n';
 export default function ExamsPanel() {
   const t = useT();
   const lang = useUI((s) => s.lang);
-  const pinMany = usePinned((s) => s.pinMany);
+  const pinManyTagged = usePinned((s) => s.pinManyTagged);
 
   const [exams, setExams] = useState<ExamMeta[]>([]);
   const [exam, setExam] = useState<Exam | null>(null);
@@ -56,7 +56,7 @@ export default function ExamsPanel() {
           </button>
           <button
             type="button"
-            onClick={() => pinMany(exam.subject, exam.questions)}
+            onClick={() => pinManyTagged(exam.questions.map((q) => ({ ...q, subject: exam.subject })))}
             className="inline-flex items-center gap-1 rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-semibold text-slate-700 hover:bg-slate-50"
           >
             📌 {t('pinAll')}

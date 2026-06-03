@@ -6,7 +6,7 @@ import { fetchTopics, generateQuestions, type Difficulty } from '../../lib/api';
 import { useUI } from '../../lib/ui';
 import { usePractice } from '../../lib/practice';
 import { usePinned } from '../../lib/pinned';
-import { useGenerated } from '../../lib/generated';
+import { useGenerated, MAX_SAVED } from '../../lib/generated';
 import { overviewTopics } from '../../lib/ask';
 import { useProgress, summarize, focusFromSummary } from '../../lib/userdata';
 import { useT } from '../../i18n';
@@ -19,15 +19,15 @@ export default function GeneratePanel() {
   const wantFocus = usePractice((s) => s.wantFocus);
   const setWantFocus = usePractice((s) => s.setWantFocus);
   const attempts = useProgress((s) => s.attempts);
-  const pinMany = usePinned((s) => s.pinMany);
 
-  // Persisted across panel open/close and reloads.
-  const genSubject = useGenerated((s) => s.subject);
+  // Saved pool — retained across sets, capped, and synced to the account.
   const questions = useGenerated((s) => s.questions);
-  const setResult = useGenerated((s) => s.setResult);
+  const addResult = useGenerated((s) => s.addResult);
+  const removeQuestion = useGenerated((s) => s.removeQuestion);
   const clearQuestions = useGenerated((s) => s.clearQuestions);
   const selectedMap = useGenerated((s) => s.selected);
   const setSelected = useGenerated((s) => s.setSelected);
+  const pinManyTagged = usePinned((s) => s.pinManyTagged);
 
   const [topics, setTopics] = useState<{ id: string; name: string }[]>([]);
   const [subtopics, setSubtopics] = useState<{ id: string; name: string; group: string }[]>([]);
@@ -42,7 +42,6 @@ export default function GeneratePanel() {
 
   const selectedIds = useMemo(() => selectedMap[subject] ?? [], [selectedMap, subject]);
   const selectedSet = useMemo(() => new Set(selectedIds), [selectedIds]);
-  const cardSubject = questions.length && genSubject ? genSubject : subject;
 
   // Honor "practice my weak points" coming from the Progress panel.
   useEffect(() => {
@@ -120,7 +119,7 @@ export default function GeneratePanel() {
         count,
         focus: focusPayload,
       });
-      setResult(subject, res.questions);
+      addResult(subject, res.questions);
     } catch (e) {
       setErr(errorMessage(e, t));
     } finally {
@@ -273,27 +272,36 @@ export default function GeneratePanel() {
       {err ? <ErrorNote>{err}</ErrorNote> : null}
 
       {questions.length ? (
-        <div className="mt-4 flex items-center justify-end gap-2">
-          <button
-            type="button"
-            onClick={() => pinMany(cardSubject, questions)}
-            className="inline-flex items-center gap-1 rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-semibold text-slate-700 hover:bg-slate-50"
-          >
-            📌 {t('pinAll')}
-          </button>
-          <button
-            type="button"
-            onClick={clearQuestions}
-            className="inline-flex items-center gap-1 rounded-lg px-3 py-1.5 text-xs font-semibold text-slate-400 hover:text-red-600"
-          >
-            <TrashIcon className="h-3.5 w-3.5" /> {t('clearQuestions')}
-          </button>
+        <div className="mt-4 flex items-center justify-between gap-2">
+          <span className="text-xs text-slate-500">{t('savedCount', { n: questions.length, max: MAX_SAVED })}</span>
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={() => pinManyTagged(questions)}
+              className="inline-flex items-center gap-1 rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-semibold text-slate-700 hover:bg-slate-50"
+            >
+              📌 {t('pinAll')}
+            </button>
+            <button
+              type="button"
+              onClick={clearQuestions}
+              className="inline-flex items-center gap-1 rounded-lg px-3 py-1.5 text-xs font-semibold text-slate-400 hover:text-red-600"
+            >
+              <TrashIcon className="h-3.5 w-3.5" /> {t('clearQuestions')}
+            </button>
+          </div>
         </div>
       ) : null}
 
       <div className="mt-3 space-y-3">
         {questions.map((q, i) => (
-          <QuestionCard key={q.id} subject={cardSubject} q={q} label={i + 1} />
+          <QuestionCard
+            key={q.id}
+            subject={q.subject}
+            q={q}
+            label={i + 1}
+            onRemove={() => removeQuestion(q.id)}
+          />
         ))}
       </div>
     </Panel>

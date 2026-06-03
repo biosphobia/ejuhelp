@@ -14,7 +14,8 @@ interface PinnedState {
   collapsed: boolean;
   pos: { x: number; y: number } | null;
   pin: (subject: Subject, q: GenQuestion) => void;
-  pinMany: (subject: Subject, qs: GenQuestion[]) => void;
+  /** Pin several questions that already carry their own subject (mixed-subject safe). */
+  pinManyTagged: (items: (GenQuestion & { subject: Subject })[]) => void;
   unpin: (id: string) => void;
   clear: () => void;
   setIndex: (i: number) => void;
@@ -36,13 +37,15 @@ export const usePinned = create<PinnedState>()(
           const items = [...s.items, { ...q, subject, pinnedAt: Date.now() }];
           return { items, index: items.length - 1, collapsed: false };
         }),
-      pinMany: (subject, qs) =>
+      pinManyTagged: (items) =>
         set((s) => {
           const have = new Set(s.items.map((i) => i.id));
-          const add = qs.filter((q) => !have.has(q.id)).map((q) => ({ ...q, subject, pinnedAt: Date.now() }));
+          const add = items
+            .filter((q) => !have.has(q.id))
+            .map((q) => ({ ...q, pinnedAt: Date.now() }));
           if (!add.length) return s;
-          const items = [...s.items, ...add];
-          return { items, index: s.items.length, collapsed: false };
+          const merged = [...s.items, ...add];
+          return { items: merged, index: s.items.length, collapsed: false };
         }),
       unpin: (id) =>
         set((s) => {

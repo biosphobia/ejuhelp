@@ -19,6 +19,8 @@ export const strings = {
   chemistry: { en: 'Chemistry', ja: '化学', zh: '化学', tr: 'Kimya' },
   biology: { en: 'Biology', ja: '生物', zh: '生物', tr: 'Biyoloji' },
   math: { en: 'Mathematics', ja: '数学', zh: '数学', tr: 'Matematik' },
+  general: { en: 'General', ja: '全般', zh: '通用', tr: 'Genel' },
+  notebook: { en: 'Notebook', ja: 'ノート', zh: '笔记本', tr: 'Defter' },
   subject: { en: 'Subject', ja: '科目', zh: '科目', tr: 'Ders' },
 
   // Toolbar
@@ -137,6 +139,8 @@ export const strings = {
     tr: 'Bu ders için konu listesi henüz yok — sorular karışık olur.',
   },
   clearQuestions: { en: 'Clear questions', ja: '問題を消去', zh: '清空题目', tr: 'Soruları temizle' },
+  removeQuestion: { en: 'Remove question', ja: 'この問題を削除', zh: '删除此题', tr: 'Soruyu kaldır' },
+  savedCount: { en: '{n}/{max} saved', ja: '{n}/{max} 件保存', zh: '已保存 {n}/{max}', tr: '{n}/{max} kayıtlı' },
   difficulty: { en: 'Difficulty', ja: '難易度', zh: '难度', tr: 'Zorluk' },
   diffEasy: { en: 'Easy', ja: 'やさしい', zh: '简单', tr: 'Kolay' },
   diffMedium: { en: 'Exam level', ja: '本番レベル', zh: '考试难度', tr: 'Sınav seviyesi' },
