@@ -1,0 +1,194 @@
+{
+  "id": "2016-2-math-c2",
+  "year": 2016,
+  "session": 2,
+  "subject": "math",
+  "course": 2,
+  "title": "2016 EJU Session 2 — Mathematics (Course 2)",
+  "source": "Examination for Japanese University Admission for International Students, 2016 Session 2 (JASSO). Official English question paper (Course 2, pages 15-27); answers verified against the official answer key and re-derived by solving.",
+  "answerFormat": "digit-fill",
+  "answerKeyVerified": true,
+  "note": "The exam has four large questions (大問 I-IV). In Course 2, large questions I and IV each contain two independent sub-questions (問1, 問2); these are stored as separate entries, giving six questions. Large questions II and III are single questions. Parts I-Q1 and I-Q2 are shared with Course 1. Answer-letters follow the official scheme and reset at the start of each large question. Every box was re-solved and matched to the Course 2 column of the official key. One box-group, IV-Q2 part (1) (NOPQ), is corrupt/garbled in the answer-key OCR (it reads as a stray '325'); its value 2121 is fixed by exact integration and is unambiguous.",
+  "questions": [
+    {
+      "id": "2016-2-math-c2-1-1",
+      "answerRow": 1,
+      "number": "I-Q1",
+      "section": "I",
+      "part": "Q1",
+      "topicId": "quadratic-functions",
+      "topicIds": ["quadratic-functions"],
+      "subtopic": "Quadratic with given maximum and fixed chord length on the x-axis: recover a, b, c",
+      "patternTags": ["vertex-form", "maximum-value-condition", "x-intercepts", "chord-length-condition", "coefficient-recovery"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "**[I] Q1 — Quadratic functions.**\n\nConsider the quadratic function in $x$\n$$y=ax^2+bx+c.\\qquad ①$$\nThe function $①$ takes its maximum value $16$ at $x=1$, its graph intersects the $x$-axis at two points, and the length of the segment connecting those two points is $8$. We are to find the values of $a$, $b$ and $c$.\n\nFrom the conditions, $①$ can be represented as $y=a\\big(x-\\boxed{A}\\big)^2+\\boxed{BC}$, and the coordinates of the two points at which the graph of $①$ meets the $x$-axis are $\\big(-\\boxed{D},0\\big)$ and $\\big(\\boxed{E},0\\big)$.\n\nThus we obtain $a=\\boxed{FG}$. Hence $b=\\boxed{H}$ and $c=\\boxed{IJ}$."
+      },
+      "ja": {
+        "prompt": "**[Ⅰ] 問1 — 二次関数**\n\n$x$ の二次関数\n$$y=ax^2+bx+c\\qquad ①$$\nを考える。関数 $①$ は $x=1$ で最大値 $16$ をとり，そのグラフは $x$ 軸と 2 点で交わり，その 2 点を結ぶ線分の長さは $8$ である。$a$，$b$，$c$ の値を求める。\n\n条件より $①$ は $y=a\\big(x-\\boxed{A}\\big)^2+\\boxed{BC}$ と表せ，$①$ のグラフが $x$ 軸と交わる 2 点の座標は $\\big(-\\boxed{D},0\\big)$，$\\big(\\boxed{E},0\\big)$ である。\n\nよって $a=\\boxed{FG}$ となり，$b=\\boxed{H}$，$c=\\boxed{IJ}$ である。"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "Vertex form $y=a(x-1)^2+16$; intercepts $(-3,0),(5,0)$; $a=-1$, so $b=2$, $c=15$.  Boxes: A=1, BC=16, D=3, E=5, FG=-1, H=2, IJ=15.",
+        "ja": "頂点形 $y=a(x-1)^2+16$；交点 $(-3,0),(5,0)$；$a=-1$ より $b=2$，$c=15$。 解答：A=1, BC=16, D=3, E=5, FG=-1, H=2, IJ=15。"
+      },
+      "explanation": {
+        "en": "Since the maximum value $16$ is attained at $x=1$, the vertex is $(1,16)$ and $y=a(x-1)^2+16$ with $a<0$. The two $x$-intercepts are symmetric about $x=1$ and are a distance $8$ apart, so they are at $x=1\\pm4$, i.e. $x=-3$ and $x=5$; the points are $(-3,0)$ and $(5,0)$. Substituting $x=5,\\,y=0$: $0=a(4)^2+16=16a+16\\Rightarrow a=-1$. Expanding, $y=-(x-1)^2+16=-x^2+2x+15$, so $a=-1,\\ b=2,\\ c=15$.",
+        "ja": "$x=1$ で最大値 $16$ をとるので頂点は $(1,16)$，$y=a(x-1)^2+16$（$a<0$）。2 つの $x$ 切片は $x=1$ について対称で間隔 $8$ なので $x=1\\pm4$，すなわち $x=-3,5$。点は $(-3,0),(5,0)$。$x=5,y=0$ を代入して $16a+16=0\\Rightarrow a=-1$。展開して $y=-(x-1)^2+16=-x^2+2x+15$ より $a=-1,\\ b=2,\\ c=15$。"
+      },
+      "blanks": [
+        { "label": "A", "value": "1" }, { "label": "BC", "value": "16" }, { "label": "D", "value": "3" }, { "label": "E", "value": "5" }, { "label": "FG", "value": "-1" }, { "label": "H", "value": "2" }, { "label": "IJ", "value": "15" }
+      ]
+    },
+    {
+      "id": "2016-2-math-c2-1-2",
+      "answerRow": 2,
+      "number": "I-Q2",
+      "section": "I",
+      "part": "Q2",
+      "topicId": "counting-probability",
+      "topicIds": ["counting-probability"],
+      "subtopic": "Drawing three cards from 0-9: probabilities by combinations and by repeated independent draws",
+      "patternTags": ["combinations", "complementary-counting", "min-max-conditions", "repeated-independent-trials", "probability"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "**[I] Q2 — Probability.**\n\nIn a box there are ten cards on which the numbers from $0$ to $9$ have been written. We take three cards out of the box using two methods and consider the probabilities.\n\n(1) We take out three cards simultaneously.\n  (i) The probability that each number on the three cards is $2$ or more and $6$ or less is $\\dfrac{\\boxed{K}}{\\boxed{LM}}$.\n  (ii) The probability that the smallest number is $2$ or less and the greatest number is $8$ or more is $\\dfrac{\\boxed{NO}}{\\boxed{PQ}}$.\n\n(2) Three times we take out one card from the box, check its number, and then return it to the box. The probability that the smallest number is $2$ or more and the greatest number is $6$ or less is $\\dfrac{\\boxed{R}}{\\boxed{S}}$."
+      },
+      "ja": {
+        "prompt": "**[Ⅰ] 問2 — 確率**\n\n箱の中に $0$ から $9$ までの数字が書かれた 10 枚のカードがある。2 通りの方法で 3 枚のカードを取り出し，確率を考える。\n\n(1) 3 枚同時に取り出す。\n  (i) 3 枚の番号がいずれも $2$ 以上 $6$ 以下である確率は $\\dfrac{\\boxed{K}}{\\boxed{LM}}$。\n  (ii) 最小の番号が $2$ 以下かつ最大の番号が $8$ 以上である確率は $\\dfrac{\\boxed{NO}}{\\boxed{PQ}}$。\n\n(2) 箱から 1 枚取り出して番号を確認し，箱に戻す，という操作を 3 回行う。最小の番号が $2$ 以上かつ最大の番号が $6$ 以下である確率は $\\dfrac{\\boxed{R}}{\\boxed{S}}$。"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "(1)(i) $\\binom{5}{3}/\\binom{10}{3}=10/120=\\tfrac1{12}$; (ii) $39/120=\\tfrac{13}{40}$; (2) $(5/10)^3=\\tfrac18$.  Boxes: K=1, LM=12, NO=13, PQ=40, R=1, S=8.",
+        "ja": "(1)(i) $\\binom{5}{3}/\\binom{10}{3}=10/120=\\tfrac1{12}$；(ii) $39/120=\\tfrac{13}{40}$；(2) $(5/10)^3=\\tfrac18$。 解答：K=1, LM=12, NO=13, PQ=40, R=1, S=8。"
+      },
+      "explanation": {
+        "en": "(1) Choosing $3$ of the $10$ cards: total $\\binom{10}{3}=120$.\n(i) All three numbers in $\\{2,3,4,5,6\\}$ (five values): $\\binom{5}{3}=10$, so $P=\\tfrac{10}{120}=\\tfrac1{12}$.\n(ii) Need $\\min\\le2$ and $\\max\\ge8$. Count by inclusion–exclusion on the complements. Let $A$ = (no number $\\le2$, i.e. all in $\\{3,\\dots,9\\}$): $\\binom73=35$; $B$ = (no number $\\ge8$, i.e. all in $\\{0,\\dots,7\\}$): $\\binom83=56$; $A\\cap B$ = (all in $\\{3,\\dots,7\\}$): $\\binom53=10$. So the count failing the condition is $|A\\cup B|=35+56-10=81$, and the favorable count is $120-81=39$. Hence $P=\\tfrac{39}{120}=\\tfrac{13}{40}$.\n(2) With replacement, each draw is independent and uniform. \"Smallest $\\ge2$ and greatest $\\le6$\" means every one of the three draws lies in $\\{2,3,4,5,6\\}$, probability $\\big(\\tfrac{5}{10}\\big)^3=\\tfrac18$.",
+        "ja": "(1) 10 枚から 3 枚を選ぶ総数は $\\binom{10}{3}=120$。\n(i) 3 つの番号がすべて $\\{2,3,4,5,6\\}$（5 個）に入る場合は $\\binom53=10$，よって $P=\\tfrac{10}{120}=\\tfrac1{12}$。\n(ii) $\\min\\le2$ かつ $\\max\\ge8$ が必要。余事象で数える。$A$=（$2$ 以下が 1 つもない＝すべて $\\{3,\\dots,9\\}$）$\\binom73=35$，$B$=（$8$ 以上が 1 つもない＝すべて $\\{0,\\dots,7\\}$）$\\binom83=56$，$A\\cap B$=（すべて $\\{3,\\dots,7\\}$）$\\binom53=10$。条件を満たさない場合の数は $|A\\cup B|=35+56-10=81$，よって満たす場合の数は $120-81=39$。$P=\\tfrac{39}{120}=\\tfrac{13}{40}$。\n(2) 戻すので各回は独立かつ一様。「最小 $\\ge2$ かつ最大 $\\le6$」は 3 回とも $\\{2,3,4,5,6\\}$ に入ること，確率は $\\big(\\tfrac{5}{10}\\big)^3=\\tfrac18$。"
+      },
+      "blanks": [
+        { "label": "K", "value": "1" }, { "label": "LM", "value": "12" }, { "label": "NO", "value": "13" }, { "label": "PQ", "value": "40" }, { "label": "R", "value": "1" }, { "label": "S", "value": "8" }
+      ]
+    },
+    {
+      "id": "2016-2-math-c2-2",
+      "answerRow": 3,
+      "number": "II",
+      "section": "II",
+      "part": null,
+      "topicId": "sequences",
+      "topicIds": ["sequences", "recurrence-induction", "exp-log"],
+      "subtopic": "Multiplicative recurrence linearized by logarithms; geometric difference sequence; limit",
+      "patternTags": ["common-logarithm", "linear-recurrence", "geometric-difference-sequence", "telescoping-sum", "sequence-limit"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "**[II] Sequences / limit.**\n\nConsider a sequence of positive numbers $a_1,a_2,a_3,\\dots$ which satisfies\n$$a_1=1,\\qquad a_2=10,$$\n$$(a_n)^2 a_{n-2}=(a_{n-1})^3\\quad (n=3,4,\\dots).\\qquad ①$$\nWe are to find $\\displaystyle\\lim_{n\\to\\infty}a_n$.\n\nTaking the common logarithm of both sides of $①$, we obtain $\\boxed{A}\\log_{10}a_n+\\log_{10}a_{n-2}=\\boxed{B}\\log_{10}a_{n-1}$. Setting $b_n=\\log_{10}a_n\\ (n=1,2,\\dots)$, this becomes $\\boxed{A}\\,b_n+b_{n-2}=\\boxed{B}\\,b_{n-1}.\\ ②$\n\nTransforming $②$, $b_n-b_{n-1}=\\dfrac{1}{\\boxed{C}}\\,(b_{n-1}-b_{n-2})\\ (n=3,4,\\dots)$, which gives $b_n-b_{n-1}=\\Big(\\dfrac{1}{\\boxed{C}}\\Big)^{\\,n-\\boxed{D}}(b_2-b_1)\\ (n=2,3,\\dots).\\ ③$\n\nSince $b_1=\\boxed{E}$ and $b_2=\\boxed{F}$, from $③$ we get $b_n=\\displaystyle\\sum_{k=2}^{n}\\Big(\\dfrac{1}{\\boxed{C}}\\Big)^{\\,k-\\boxed{G}}$, and hence $b_n=\\boxed{H}-\\Big(\\dfrac{1}{\\boxed{C}}\\Big)^{\\,n-\\boxed{I}}$.\n\nFinally, we obtain $\\displaystyle\\lim_{n\\to\\infty}a_n=\\boxed{JKL}$."
+      },
+      "ja": {
+        "prompt": "**[Ⅱ] 数列・極限**\n\n正の数列 $a_1,a_2,a_3,\\dots$ が\n$$a_1=1,\\qquad a_2=10,$$\n$$(a_n)^2 a_{n-2}=(a_{n-1})^3\\quad (n=3,4,\\dots)\\qquad ①$$\nを満たすとする。$\\displaystyle\\lim_{n\\to\\infty}a_n$ を求める。\n\n$①$ の両辺の常用対数をとると $\\boxed{A}\\log_{10}a_n+\\log_{10}a_{n-2}=\\boxed{B}\\log_{10}a_{n-1}$。$b_n=\\log_{10}a_n\\ (n=1,2,\\dots)$ とおくと $\\boxed{A}\\,b_n+b_{n-2}=\\boxed{B}\\,b_{n-1}.\\ ②$\n\n$②$ を変形すると $b_n-b_{n-1}=\\dfrac{1}{\\boxed{C}}\\,(b_{n-1}-b_{n-2})\\ (n=3,4,\\dots)$ となり，$b_n-b_{n-1}=\\Big(\\dfrac{1}{\\boxed{C}}\\Big)^{\\,n-\\boxed{D}}(b_2-b_1)\\ (n=2,3,\\dots).\\ ③$\n\n$b_1=\\boxed{E}$，$b_2=\\boxed{F}$ なので，$③$ より $b_n=\\displaystyle\\sum_{k=2}^{n}\\Big(\\dfrac{1}{\\boxed{C}}\\Big)^{\\,k-\\boxed{G}}$，したがって $b_n=\\boxed{H}-\\Big(\\dfrac{1}{\\boxed{C}}\\Big)^{\\,n-\\boxed{I}}$。\n\n最終的に $\\displaystyle\\lim_{n\\to\\infty}a_n=\\boxed{JKL}$。"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "$2\\log a_n+\\log a_{n-2}=3\\log a_{n-1}$; $C=2$, $D=2$; $b_1=0$, $b_2=1$; $b_n=2-(1/2)^{n-2}\\to2$, so $\\lim a_n=10^2=100$.  Boxes: A=2, B=3, C=2, D=2, E=0, F=1, G=2, H=2, I=2, JKL=100.",
+        "ja": "$2\\log a_n+\\log a_{n-2}=3\\log a_{n-1}$；$C=2$，$D=2$；$b_1=0$，$b_2=1$；$b_n=2-(1/2)^{n-2}\\to2$ なので $\\lim a_n=10^2=100$。 解答：A=2, B=3, C=2, D=2, E=0, F=1, G=2, H=2, I=2, JKL=100。"
+      },
+      "explanation": {
+        "en": "Taking $\\log_{10}$ of $(a_n)^2 a_{n-2}=(a_{n-1})^3$ gives $2\\log a_n+\\log a_{n-2}=3\\log a_{n-1}$, so $A=2,\\ B=3$. With $b_n=\\log_{10}a_n$: $2b_n+b_{n-2}=3b_{n-1}$, i.e. $2(b_n-b_{n-1})=b_{n-1}-b_{n-2}$, hence $b_n-b_{n-1}=\\tfrac12(b_{n-1}-b_{n-2})$, so $C=2$. The differences form a geometric sequence with ratio $\\tfrac12$: $b_n-b_{n-1}=\\big(\\tfrac12\\big)^{n-2}(b_2-b_1)$, so $D=2$. Here $b_1=\\log_{10}1=0$ and $b_2=\\log_{10}10=1$, so $b_2-b_1=1$. Telescoping, $b_n=b_1+\\sum_{k=2}^{n}(b_k-b_{k-1})=\\sum_{k=2}^{n}\\big(\\tfrac12\\big)^{k-2}$ (so $G=2$), a geometric sum $=\\dfrac{1-(1/2)^{n-1}}{1-1/2}=2-\\big(\\tfrac12\\big)^{n-2}$, so $H=2,\\ I=2$. As $n\\to\\infty$, $b_n\\to2$, hence $a_n=10^{b_n}\\to10^2=100$.",
+        "ja": "$(a_n)^2 a_{n-2}=(a_{n-1})^3$ の両辺の $\\log_{10}$ をとると $2\\log a_n+\\log a_{n-2}=3\\log a_{n-1}$，$A=2,\\ B=3$。$b_n=\\log_{10}a_n$ とすると $2b_n+b_{n-2}=3b_{n-1}$，すなわち $2(b_n-b_{n-1})=b_{n-1}-b_{n-2}$，よって $b_n-b_{n-1}=\\tfrac12(b_{n-1}-b_{n-2})$，$C=2$。差は公比 $\\tfrac12$ の等比数列で $b_n-b_{n-1}=\\big(\\tfrac12\\big)^{n-2}(b_2-b_1)$，$D=2$。$b_1=\\log_{10}1=0$，$b_2=\\log_{10}10=1$ で $b_2-b_1=1$。和をとると $b_n=\\sum_{k=2}^{n}\\big(\\tfrac12\\big)^{k-2}$（$G=2$）$=\\dfrac{1-(1/2)^{n-1}}{1-1/2}=2-\\big(\\tfrac12\\big)^{n-2}$，$H=2,\\ I=2$。$n\\to\\infty$ で $b_n\\to2$，よって $a_n=10^{b_n}\\to100$。"
+      },
+      "blanks": [
+        { "label": "A", "value": "2" }, { "label": "B", "value": "3" }, { "label": "C", "value": "2" }, { "label": "D", "value": "2" }, { "label": "E", "value": "0" }, { "label": "F", "value": "1" }, { "label": "G", "value": "2" }, { "label": "H", "value": "2" }, { "label": "I", "value": "2" }, { "label": "JKL", "value": "100" }
+      ]
+    },
+    {
+      "id": "2016-2-math-c2-3",
+      "answerRow": 4,
+      "number": "III",
+      "section": "III",
+      "part": null,
+      "topicId": "complex-plane",
+      "topicIds": ["complex-plane", "complex-figures", "complex-plane-polar"],
+      "subtopic": "Locus on the complex plane: a circle (constant inscribed angle) meets a line; count common solutions and find the range of a parameter",
+      "patternTags": ["roots-of-quadratic", "argument", "inscribed-angle-locus", "circle-line-intersection", "tangency-condition", "parameter-range"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "**[III] Complex plane.** *(For $\\boxed{E}$–$\\boxed{Q}$ choose the correct answer from the list $⓪$–$⑨$ below.)*\n\nLet $\\alpha$ and $\\beta$ be the two solutions of the quadratic equation $x^2+\\sqrt3\\,x+1=0$, where $0<\\arg\\alpha<\\arg\\beta<2\\pi$. Consider the complex numbers $z$ satisfying the three conditions\n$$\\arg\\dfrac{\\alpha-z}{\\beta-z}=\\dfrac{\\pi}{2}\\ \\ ①,\\qquad (1+i)z+(1-i)\\bar z+k=0\\ \\ ②,\\qquad \\dfrac{\\pi}{2}<\\arg z<\\pi\\ \\ ③,$$\nwhere $k$ is a real number. Denote by $A,B,P$ the points expressing $\\alpha,\\beta,z$.\n\n(1) The arguments of $\\alpha$ and $\\beta$ are $\\arg\\alpha=\\dfrac{\\boxed{A}}{\\boxed{B}}\\pi$ and $\\arg\\beta=\\dfrac{\\boxed{C}}{\\boxed{D}}\\pi$.\n\n(2) Since $\\boxed{E}=\\dfrac{\\pi}{2}$, from $①$ the point $P$ lies on the circle with center $-\\dfrac{\\sqrt{\\boxed{F}}}{\\boxed{G}}$ and radius $\\dfrac{\\boxed{H}}{\\boxed{I}}$. From $②$, $P$ lies on the line of slope $\\boxed{J}$ meeting the imaginary axis at $\\dfrac{\\boxed{K}}{\\boxed{L}}k\\,i$. Hence the maximum number $n$ of $z$ that simultaneously satisfy $①,②,③$ is $\\boxed{M}$, and in that case the range of $k$ is $\\boxed{N}+\\sqrt{\\boxed{O}}<k<\\sqrt{\\boxed{P}}+\\sqrt{\\boxed{Q}}$ (with $\\boxed{P}<\\boxed{Q}$).\n\nChoices: $⓪\\ 0\\quad ①\\ 1\\quad ②\\ 2\\quad ③\\ 3\\quad ④\\ 4\\quad ⑤\\ 5\\quad ⑥\\ 6\\quad ⑦\\ \\angle PAB\\quad ⑧\\ \\angle PBA\\quad ⑨\\ \\angle APB$"
+      },
+      "ja": {
+        "prompt": "**[Ⅲ] 複素数平面** *（$\\boxed{E}$〜$\\boxed{Q}$ は下の選択肢 $⓪$〜$⑨$ から選べ。）*\n\n$\\alpha,\\beta$ を二次方程式 $x^2+\\sqrt3\\,x+1=0$ の 2 解とし，$0<\\arg\\alpha<\\arg\\beta<2\\pi$ とする。次の 3 条件を満たす複素数 $z$ を考える。\n$$\\arg\\dfrac{\\alpha-z}{\\beta-z}=\\dfrac{\\pi}{2}\\ \\ ①,\\qquad (1+i)z+(1-i)\\bar z+k=0\\ \\ ②,\\qquad \\dfrac{\\pi}{2}<\\arg z<\\pi\\ \\ ③,$$\nここで $k$ は実数。$\\alpha,\\beta,z$ を表す点を $A,B,P$ とする。\n\n(1) $\\alpha,\\beta$ の偏角は $\\arg\\alpha=\\dfrac{\\boxed{A}}{\\boxed{B}}\\pi$，$\\arg\\beta=\\dfrac{\\boxed{C}}{\\boxed{D}}\\pi$。\n\n(2) $\\boxed{E}=\\dfrac{\\pi}{2}$ であることから，$①$ より点 $P$ は中心 $-\\dfrac{\\sqrt{\\boxed{F}}}{\\boxed{G}}$，半径 $\\dfrac{\\boxed{H}}{\\boxed{I}}$ の円周上にある。$②$ より $P$ は傾き $\\boxed{J}$，虚軸との交点 $\\dfrac{\\boxed{K}}{\\boxed{L}}k\\,i$ の直線上にある。よって $①,②,③$ を同時に満たす $z$ の個数 $n$ の最大値は $\\boxed{M}$ であり，そのときの $k$ の範囲は $\\boxed{N}+\\sqrt{\\boxed{O}}<k<\\sqrt{\\boxed{P}}+\\sqrt{\\boxed{Q}}$（$\\boxed{P}<\\boxed{Q}$）である。\n\n選択肢：$⓪\\ 0\\quad ①\\ 1\\quad ②\\ 2\\quad ③\\ 3\\quad ④\\ 4\\quad ⑤\\ 5\\quad ⑥\\ 6\\quad ⑦\\ \\angle PAB\\quad ⑧\\ \\angle PBA\\quad ⑨\\ \\angle APB$"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "$\\arg\\alpha=\\tfrac56\\pi,\\ \\arg\\beta=\\tfrac76\\pi$; $\\boxed{E}=\\angle APB\\,(⑨)$; circle center $-\\tfrac{\\sqrt3}{2}$, radius $\\tfrac12$; line slope $1$, intercept $\\tfrac12 k\\,i$; max $n=2$ for $1+\\sqrt3<k<\\sqrt2+\\sqrt3$.  Boxes: AB=56, CD=76, E=9, FG=32, HI=12, J=1, KL=12, M=2, NO=13, PQ=23.",
+        "ja": "$\\arg\\alpha=\\tfrac56\\pi,\\ \\arg\\beta=\\tfrac76\\pi$；$\\boxed{E}=\\angle APB\\,(⑨)$；円は中心 $-\\tfrac{\\sqrt3}{2}$，半径 $\\tfrac12$；直線は傾き $1$，切片 $\\tfrac12 k\\,i$；$1+\\sqrt3<k<\\sqrt2+\\sqrt3$ のとき最大 $n=2$。 解答：AB=56, CD=76, E=9, FG=32, HI=12, J=1, KL=12, M=2, NO=13, PQ=23。"
+      },
+      "explanation": {
+        "en": "Roots of $x^2+\\sqrt3 x+1=0$ are $x=\\dfrac{-\\sqrt3\\pm i}{2}$, each of modulus $1$ with arguments $\\pm\\tfrac56\\pi$. In $0<\\arg\\alpha<\\arg\\beta<2\\pi$ these are $\\arg\\alpha=\\tfrac56\\pi$ and $\\arg\\beta=\\tfrac76\\pi$, so $A=(-\\tfrac{\\sqrt3}{2},\\tfrac12)$ and $B=(-\\tfrac{\\sqrt3}{2},-\\tfrac12)$.\n(2) $\\arg\\dfrac{\\alpha-z}{\\beta-z}=\\arg\\dfrac{A-P}{B-P}$ is the directed angle $\\angle APB$, so $\\boxed{E}=\\angle APB$ (choice ⑨). Setting it $=\\tfrac\\pi2$ means $P$ sees the segment $AB$ at a right angle, so $P$ is on the circle with diameter $AB$: center $=\\tfrac{A+B}{2}=-\\tfrac{\\sqrt3}{2}$, radius $=\\tfrac{|A-B|}{2}=\\tfrac12$ (the $+\\tfrac\\pi2$ sign picks the left semicircle). Writing $z=X+iY$, condition $②$ gives $2X-2Y+k=0$, i.e. $Y=X+\\tfrac{k}{2}$: a line of slope $1$ meeting the imaginary axis ($X=0$) at $Y=\\tfrac{k}{2}$, i.e. at $\\tfrac12 k\\,i$. The valid locus from $①\\&③$ is the upper-left quarter-arc (the part of the left semicircle with $\\tfrac\\pi2<\\arg z<\\pi$). As $k$ varies the line $Y=X+\\tfrac{k}{2}$ can meet this quarter-arc in at most $2$ points, so $n_{\\max}=2$. The line passes through the endpoint $A$ when $k=2\\big(\\tfrac12+\\tfrac{\\sqrt3}{2}\\big)=1+\\sqrt3$, and is tangent to the circle when distance from center equals the radius: $\\dfrac{|\\sqrt3-k|}{2\\sqrt2}=\\tfrac12\\Rightarrow k=\\sqrt3\\pm\\sqrt2$, the relevant (upper) value being $\\sqrt3+\\sqrt2=\\sqrt2+\\sqrt3$. Hence two intersection points occur exactly for $1+\\sqrt3<k<\\sqrt2+\\sqrt3$.",
+        "ja": "$x^2+\\sqrt3 x+1=0$ の解は $x=\\dfrac{-\\sqrt3\\pm i}{2}$ で，絶対値 $1$，偏角 $\\pm\\tfrac56\\pi$。$0<\\arg\\alpha<\\arg\\beta<2\\pi$ では $\\arg\\alpha=\\tfrac56\\pi$，$\\arg\\beta=\\tfrac76\\pi$，よって $A=(-\\tfrac{\\sqrt3}{2},\\tfrac12)$，$B=(-\\tfrac{\\sqrt3}{2},-\\tfrac12)$。\n(2) $\\arg\\dfrac{\\alpha-z}{\\beta-z}=\\arg\\dfrac{A-P}{B-P}$ は有向角 $\\angle APB$ なので $\\boxed{E}=\\angle APB$（選択肢⑨）。これを $\\tfrac\\pi2$ とすると $P$ は線分 $AB$ を直角に見るので，$AB$ を直径とする円周上：中心 $=\\tfrac{A+B}{2}=-\\tfrac{\\sqrt3}{2}$，半径 $=\\tfrac{|A-B|}{2}=\\tfrac12$（$+\\tfrac\\pi2$ の符号で左半円）。$z=X+iY$ とおくと $②$ は $2X-2Y+k=0$，すなわち $Y=X+\\tfrac{k}{2}$：傾き $1$ で虚軸（$X=0$）と $Y=\\tfrac{k}{2}$，つまり $\\tfrac12 k\\,i$ で交わる直線。$①,③$ による有効な軌跡は左上 1/4 の弧（左半円で $\\tfrac\\pi2<\\arg z<\\pi$ の部分）。$k$ を動かすと直線 $Y=X+\\tfrac{k}{2}$ はこの弧と高々 2 点で交わり，$n_{\\max}=2$。直線が端点 $A$ を通るのは $k=2\\big(\\tfrac12+\\tfrac{\\sqrt3}{2}\\big)=1+\\sqrt3$，円に接するのは中心からの距離が半径に等しいとき $\\dfrac{|\\sqrt3-k|}{2\\sqrt2}=\\tfrac12\\Rightarrow k=\\sqrt3\\pm\\sqrt2$ で，該当する上側は $\\sqrt2+\\sqrt3$。よって 2 点で交わるのは $1+\\sqrt3<k<\\sqrt2+\\sqrt3$。"
+      },
+      "blanks": [
+        { "label": "AB", "value": "56" }, { "label": "CD", "value": "76" }, { "label": "E", "value": "9" }, { "label": "FG", "value": "32" }, { "label": "HI", "value": "12" }, { "label": "J", "value": "1" }, { "label": "KL", "value": "12" }, { "label": "M", "value": "2" }, { "label": "NO", "value": "13" }, { "label": "PQ", "value": "23" }
+      ]
+    },
+    {
+      "id": "2016-2-math-c2-4-1",
+      "answerRow": 5,
+      "number": "IV-Q1",
+      "section": "IV",
+      "part": "Q1",
+      "topicId": "exp-log",
+      "topicIds": ["exp-log", "differentiation"],
+      "subtopic": "Logarithmic inequality fixing a domain, then maximizing a product of logs via a cubic in t=log_3 x",
+      "patternTags": ["logarithmic-inequality", "substitution", "cubic-in-t", "derivative", "max-on-interval"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "**[IV] Q1 — Logarithms.** Let $x$ satisfy the inequality\n$$2\\big(\\log_{1/3}x\\big)^2+9\\log_{1/3}x+9\\le0.\\qquad ①$$\nWe are to find the maximum value of the function\n$$f(x)=\\big(\\log_3 x\\big)\\Big(\\log_3\\tfrac{x}{3}\\Big)\\Big(\\log_3\\tfrac{x}{9}\\Big).\\qquad ②$$\n\nThe range of values of $x$ satisfying $①$ is $\\boxed{A}\\sqrt{\\boxed{B}}\\le x\\le\\boxed{CD}$. Setting $t=\\log_3 x$, the range of $t$ is $\\dfrac{\\boxed{E}}{\\boxed{F}}\\le t\\le\\boxed{G}$.\n\nExpressing the right side of $②$ in terms of $t$ as a function $g(t)$, its derivative is $g'(t)=\\boxed{H}\\,t^2-\\boxed{I}\\,t+\\boxed{J}$. Hence $f(x)$ is maximized at $x=\\boxed{KL}$, and its maximum value is $\\boxed{M}$."
+      },
+      "ja": {
+        "prompt": "**[Ⅳ] 問1 — 対数** $x$ が不等式\n$$2\\big(\\log_{1/3}x\\big)^2+9\\log_{1/3}x+9\\le0\\qquad ①$$\nを満たすとする。関数\n$$f(x)=\\big(\\log_3 x\\big)\\Big(\\log_3\\tfrac{x}{3}\\Big)\\Big(\\log_3\\tfrac{x}{9}\\Big)\\qquad ②$$\nの最大値を求める。\n\n$①$ を満たす $x$ の範囲は $\\boxed{A}\\sqrt{\\boxed{B}}\\le x\\le\\boxed{CD}$。$t=\\log_3 x$ とおくと $t$ の範囲は $\\dfrac{\\boxed{E}}{\\boxed{F}}\\le t\\le\\boxed{G}$。\n\n$②$ の右辺を $t$ で表し関数 $g(t)$ とすると，その導関数は $g'(t)=\\boxed{H}\\,t^2-\\boxed{I}\\,t+\\boxed{J}$。よって $f(x)$ は $x=\\boxed{KL}$ で最大となり，最大値は $\\boxed{M}$。"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "$①\\Rightarrow 3\\sqrt3\\le x\\le27$, i.e. $\\tfrac32\\le t\\le3$; $g(t)=t(t-1)(t-2)$, $g'(t)=3t^2-6t+2$; max at $x=27$ with value $6$.  Boxes: A=3, B=3, CD=27, EF=32, G=3, HIJ=362, KL=27, M=6.",
+        "ja": "$①\\Rightarrow 3\\sqrt3\\le x\\le27$，すなわち $\\tfrac32\\le t\\le3$；$g(t)=t(t-1)(t-2)$，$g'(t)=3t^2-6t+2$；$x=27$ で最大値 $6$。 解答：A=3, B=3, CD=27, EF=32, G=3, HIJ=362, KL=27, M=6。"
+      },
+      "explanation": {
+        "en": "Let $u=\\log_3 x$; then $\\log_{1/3}x=-u$, so $①$ becomes $2u^2-9u+9\\le0$, i.e. $(2u-3)(u-3)\\le0$, giving $\\tfrac32\\le u\\le3$. Thus $3^{3/2}\\le x\\le3^3$, i.e. $3\\sqrt3\\le x\\le27$, and with $t=\\log_3 x$ the range is $\\tfrac32\\le t\\le3$. Since $\\log_3\\tfrac{x}{3}=t-1$ and $\\log_3\\tfrac{x}{9}=t-2$, $g(t)=t(t-1)(t-2)=t^3-3t^2+2t$, so $g'(t)=3t^2-6t+2$. The zeros of $g'$ are $t=1\\pm\\tfrac{\\sqrt3}{3}\\approx0.42,1.58$; on $[\\tfrac32,3]$ only $t\\approx1.58$ lies inside and it is a local minimum, so $g$ increases toward $t=3$. Comparing endpoints, $g(\\tfrac32)=-\\tfrac38<g(3)=3\\cdot2\\cdot1=6$, so the maximum is at $t=3$, i.e. $x=3^3=27$, with maximum value $6$.",
+        "ja": "$u=\\log_3 x$ とおくと $\\log_{1/3}x=-u$ なので $①$ は $2u^2-9u+9\\le0$，すなわち $(2u-3)(u-3)\\le0$ より $\\tfrac32\\le u\\le3$。よって $3^{3/2}\\le x\\le3^3$，すなわち $3\\sqrt3\\le x\\le27$，$t=\\log_3 x$ の範囲は $\\tfrac32\\le t\\le3$。$\\log_3\\tfrac{x}{3}=t-1$，$\\log_3\\tfrac{x}{9}=t-2$ より $g(t)=t(t-1)(t-2)=t^3-3t^2+2t$，$g'(t)=3t^2-6t+2$。$g'=0$ は $t=1\\pm\\tfrac{\\sqrt3}{3}\\approx0.42,1.58$ で，$[\\tfrac32,3]$ 内は $t\\approx1.58$（極小）のみなので $g$ は $t=3$ に向け増加。端点比較 $g(\\tfrac32)=-\\tfrac38<g(3)=6$ より $t=3$ で最大，$x=3^3=27$，最大値 $6$。"
+      },
+      "blanks": [
+        { "label": "A", "value": "3" }, { "label": "B", "value": "3" }, { "label": "CD", "value": "27" }, { "label": "EF", "value": "32" }, { "label": "G", "value": "3" }, { "label": "HIJ", "value": "362" }, { "label": "KL", "value": "27" }, { "label": "M", "value": "6" }
+      ]
+    },
+    {
+      "id": "2016-2-math-c2-4-2",
+      "answerRow": 6,
+      "number": "IV-Q2",
+      "section": "IV",
+      "part": "Q2",
+      "topicId": "integration",
+      "topicIds": ["integration", "integral-applications", "differentiation"],
+      "subtopic": "Volume of revolution of y=sqrt(x)e^{-x}; rate of change as a moving boundary, and its maximum",
+      "patternTags": ["volume-of-revolution", "integration-by-parts", "related-rates", "chain-rule", "max-of-rate"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "**[IV] Q2 — Volume of revolution.** Let $a>0$. Consider the region of the plane bounded by the curve $y=\\sqrt{x}\\,e^{-x}$, the $x$-axis, and the line $x=a$ through the point $A(a,0)$, and let $V$ be the volume of the solid obtained by rotating this region once about the $x$-axis.\n\n(1) $V$ is expressed as a function of $a$ by $V=-\\dfrac{\\pi}{4}\\Big\\{\\big(\\boxed{N}a+\\boxed{O}\\big)e^{-\\boxed{P}a}-\\boxed{Q}\\Big\\}$.\n\n(2) Suppose the point $A$ starts at the origin and moves along the $x$-axis in the positive direction with speed $4t$ at $t$ seconds. Then the rate of change of $V$ at $t$ seconds is $\\dfrac{dV}{dt}=\\boxed{R}\\,\\pi t^{\\boxed{S}}e^{-\\boxed{T}t^{\\boxed{U}}}$.\n\nThis rate of change is maximized at $t=\\dfrac{\\sqrt{\\boxed{V}}}{4}$, and the value of $V$ at this time is $V=-\\dfrac{\\pi}{8}\\Big(\\boxed{W}e^{-\\frac{\\boxed{X}}{\\boxed{Y}}}-\\boxed{Z}\\Big)$."
+      },
+      "ja": {
+        "prompt": "**[Ⅳ] 問2 — 回転体の体積** $a>0$ とする。曲線 $y=\\sqrt{x}\\,e^{-x}$，$x$ 軸，および点 $A(a,0)$ を通る直線 $x=a$ で囲まれた部分を，$x$ 軸のまわりに 1 回転してできる立体の体積を $V$ とする。\n\n(1) $V$ を $a$ の関数で表すと $V=-\\dfrac{\\pi}{4}\\Big\\{\\big(\\boxed{N}a+\\boxed{O}\\big)e^{-\\boxed{P}a}-\\boxed{Q}\\Big\\}$。\n\n(2) 点 $A$ が原点を出発し，$x$ 軸上を正の向きに $t$ 秒で速さ $4t$ で動くとする。このとき $t$ 秒における $V$ の変化率は $\\dfrac{dV}{dt}=\\boxed{R}\\,\\pi t^{\\boxed{S}}e^{-\\boxed{T}t^{\\boxed{U}}}$。\n\nこの変化率は $t=\\dfrac{\\sqrt{\\boxed{V}}}{4}$ で最大となり，そのときの $V$ の値は $V=-\\dfrac{\\pi}{8}\\Big(\\boxed{W}e^{-\\frac{\\boxed{X}}{\\boxed{Y}}}-\\boxed{Z}\\Big)$。"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "$V=-\\tfrac\\pi4\\{(2a+1)e^{-2a}-1\\}$; with $a=2t^2$, $\\tfrac{dV}{dt}=8\\pi t^3 e^{-4t^2}$, maximized at $t=\\tfrac{\\sqrt6}{4}$ (then $a=\\tfrac34$); $V=-\\tfrac\\pi8(5e^{-3/2}-2)$.  Boxes: NOPQ=2121, RSTU=8342, V=6, WXYZ=5322.",
+        "ja": "$V=-\\tfrac\\pi4\\{(2a+1)e^{-2a}-1\\}$；$a=2t^2$ で $\\tfrac{dV}{dt}=8\\pi t^3 e^{-4t^2}$，$t=\\tfrac{\\sqrt6}{4}$ で最大（このとき $a=\\tfrac34$）；$V=-\\tfrac\\pi8(5e^{-3/2}-2)$。 解答：NOPQ=2121, RSTU=8342, V=6, WXYZ=5322。"
+      },
+      "explanation": {
+        "en": "(1) $V=\\pi\\displaystyle\\int_0^a y^2\\,dx=\\pi\\int_0^a x e^{-2x}\\,dx$. By parts, $\\int x e^{-2x}\\,dx=-\\tfrac12 x e^{-2x}-\\tfrac14 e^{-2x}$, so $\\int_0^a=\\big[-\\tfrac12 x e^{-2x}-\\tfrac14 e^{-2x}\\big]_0^a=-\\tfrac12 a e^{-2a}-\\tfrac14 e^{-2a}+\\tfrac14$. Hence $V=\\pi\\big(-\\tfrac{2a+1}{4}e^{-2a}+\\tfrac14\\big)=-\\tfrac\\pi4\\{(2a+1)e^{-2a}-1\\}$, so $N=2,O=1,P=2,Q=1$.\n(2) Speed $\\tfrac{da}{dt}=4t$ with $a(0)=0$ gives $a=2t^2$. Also $\\tfrac{dV}{da}=\\pi a e^{-2a}$ (the integrand at the upper limit). By the chain rule $\\tfrac{dV}{dt}=\\pi a e^{-2a}\\cdot4t=\\pi(2t^2)e^{-4t^2}\\cdot4t=8\\pi t^3 e^{-4t^2}$, so $R=8,S=3,T=4,U=2$. Setting $\\tfrac{d}{dt}\\big(t^3 e^{-4t^2}\\big)=t^2 e^{-4t^2}(3-8t^2)=0$ gives $t^2=\\tfrac38$, i.e. $t=\\sqrt{\\tfrac38}=\\tfrac{\\sqrt6}{4}$ ($V=6$). Then $a=2\\cdot\\tfrac38=\\tfrac34$, and $V=-\\tfrac\\pi4\\{(2\\cdot\\tfrac34+1)e^{-3/2}-1\\}=-\\tfrac\\pi4\\{\\tfrac52 e^{-3/2}-1\\}=-\\tfrac\\pi8(5e^{-3/2}-2)$, so $W=5,X=3,Y=2,Z=2$.",
+        "ja": "(1) $V=\\pi\\displaystyle\\int_0^a y^2\\,dx=\\pi\\int_0^a x e^{-2x}\\,dx$。部分積分で $\\int x e^{-2x}\\,dx=-\\tfrac12 x e^{-2x}-\\tfrac14 e^{-2x}$ なので $\\int_0^a=-\\tfrac12 a e^{-2a}-\\tfrac14 e^{-2a}+\\tfrac14$。よって $V=-\\tfrac\\pi4\\{(2a+1)e^{-2a}-1\\}$，$N=2,O=1,P=2,Q=1$。\n(2) 速さ $\\tfrac{da}{dt}=4t$，$a(0)=0$ より $a=2t^2$。また $\\tfrac{dV}{da}=\\pi a e^{-2a}$（上端での被積分関数）。連鎖律で $\\tfrac{dV}{dt}=\\pi a e^{-2a}\\cdot4t=8\\pi t^3 e^{-4t^2}$，$R=8,S=3,T=4,U=2$。$\\tfrac{d}{dt}\\big(t^3 e^{-4t^2}\\big)=t^2 e^{-4t^2}(3-8t^2)=0$ より $t^2=\\tfrac38$，$t=\\sqrt{\\tfrac38}=\\tfrac{\\sqrt6}{4}$（$V=6$）。このとき $a=\\tfrac34$，$V=-\\tfrac\\pi4\\{\\tfrac52 e^{-3/2}-1\\}=-\\tfrac\\pi8(5e^{-3/2}-2)$，$W=5,X=3,Y=2,Z=2$。"
+      },
+      "blanks": [
+        { "label": "NOPQ", "value": "2121" }, { "label": "RSTU", "value": "8342" }, { "label": "V", "value": "6" }, { "label": "WXYZ", "value": "5322" }
+      ]
+    }
+  ]
+}
