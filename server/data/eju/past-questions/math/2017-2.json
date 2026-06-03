@@ -1,0 +1,194 @@
+{
+  "id": "2017-2-math-c2",
+  "year": 2017,
+  "session": 2,
+  "subject": "math",
+  "course": 2,
+  "title": "2017 EJU Session 2 — Mathematics (Course 2)",
+  "source": "Examination for Japanese University Admission for International Students, 2017 Session 2 (JASSO). Official English question paper. The official answer-key PDF for this session is image-only and its Mathematics table does not extract as machine-readable text (the Course 1 / Course 2 columns are jumbled OCR fragments), so every box here was determined by rigorous solving and numerically verified; answerKeyVerified is set to false.",
+  "answerFormat": "digit-fill",
+  "answerKeyVerified": false,
+  "note": "The exam has four large questions (大問 I-IV). In Course 2, large questions I and II each contain two independent sub-questions (問1, 問2); these are stored as separate entries, giving six questions. Parts I-Q1 and I-Q2 are identical to Course 1. Answer-letters follow the official scheme and reset at the start of each large question. The official answer key for this paper is image-only and did not extract; all box values were obtained by solving and verified numerically (solve-only).",
+  "questions": [
+    {
+      "id": "2017-2-math-c2-1-1",
+      "answerRow": 1,
+      "number": "I-Q1",
+      "section": "I",
+      "part": "Q1",
+      "topicId": "quadratic-functions",
+      "topicIds": ["quadratic-functions", "quadratic-max-min"],
+      "subtopic": "Minimum value of a quadratic as a function of a parameter, then max/min of that minimum over a parameter range",
+      "patternTags": ["minimum-of-quadratic", "parameter-condition", "range-of-parameter", "max-of-minimum", "min-of-minimum"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "**[I] Q1 — Quadratic functions.**\n\nThe quadratic function $f(x)=2x^2+ax-1$ satisfies\n$$f(-1)\\ge -3,\\qquad f(2)\\ge 3.\\qquad\\cdots\\text{(1)}$$\nLet $m$ be the minimum value of $f(x)$.\n\n(1) $m$ can be expressed in terms of $a$ as $m=-\\dfrac{\\boxed{A}}{\\boxed{B}}\\,a^2-\\boxed{C}$.\n\n(2) The range of values of $a$ for which $f(x)$ satisfies condition (1) is $\\boxed{DE}\\le a\\le\\boxed{F}$.\n\n(3) The value of $m$ is maximized when the axis of symmetry of $y=f(x)$ is the line $x=\\boxed{G}$, and then $m=\\boxed{HI}$.\n\n(4) The value of $m$ is minimized when the axis of symmetry of $y=f(x)$ is the line $x=\\boxed{JK}$, and then $m=\\boxed{LM}$."
+      },
+      "ja": {
+        "prompt": "**[Ⅰ] 問1 — 二次関数**\n\n二次関数 $f(x)=2x^2+ax-1$ は次を満たす：\n$$f(-1)\\ge -3,\\qquad f(2)\\ge 3.\\qquad\\cdots\\text{(1)}$$\n$f(x)$ の最小値を $m$ とする。\n\n(1) $m$ を $a$ で表すと $m=-\\dfrac{\\boxed{A}}{\\boxed{B}}\\,a^2-\\boxed{C}$。\n\n(2) $f(x)$ が条件 (1) を満たす $a$ の範囲は $\\boxed{DE}\\le a\\le\\boxed{F}$。\n\n(3) $m$ は $y=f(x)$ のグラフの対称軸が直線 $x=\\boxed{G}$ のとき最大となり，そのとき $m=\\boxed{HI}$。\n\n(4) $m$ は対称軸が直線 $x=\\boxed{JK}$ のとき最小となり，そのとき $m=\\boxed{LM}$。"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "$m=-\\tfrac18 a^2-1$; condition gives $-2\\le a\\le 4$; $m$ is largest at $a=0$ (axis $x=0$) with $m=-1$, and smallest at $a=4$ (axis $x=-1$) with $m=-3$.  Boxes: AB=18, C=1, DE=-2, F=4, G=0, HI=-1, JK=-1, LM=-3.",
+        "ja": "$m=-\\tfrac18 a^2-1$；条件より $-2\\le a\\le 4$；$m$ は $a=0$（軸 $x=0$）で最大 $-1$，$a=4$（軸 $x=-1$）で最小 $-3$。 解答：AB=18, C=1, DE=-2, F=4, G=0, HI=-1, JK=-1, LM=-3。"
+      },
+      "explanation": {
+        "en": "(1) For $f(x)=2x^2+ax-1$, the minimum is at $x=-\\tfrac{a}{4}$ and equals $m=f(-\\tfrac a4)=-1-\\tfrac{a^2}{8}=-\\tfrac18 a^2-1$.\n(2) $f(-1)=2-a-1=1-a\\ge-3\\Rightarrow a\\le4$; $f(2)=8+2a-1=7+2a\\ge3\\Rightarrow a\\ge-2$. Hence $-2\\le a\\le4$.\n(3) $m=-\\tfrac18 a^2-1$ is largest when $a^2$ is smallest, i.e. $a=0$; then the axis $x=-\\tfrac a4=0$ and $m=-1$.\n(4) $m$ is smallest when $a^2$ is largest on $[-2,4]$, i.e. $a=4$ (since $|4|>|-2|$); then the axis $x=-\\tfrac44=-1$ and $m=-1-\\tfrac{16}{8}=-3$.",
+        "ja": "(1) $f(x)=2x^2+ax-1$ の最小は $x=-\\tfrac a4$ で，$m=-1-\\tfrac{a^2}{8}=-\\tfrac18a^2-1$。\n(2) $f(-1)=1-a\\ge-3\\Rightarrow a\\le4$，$f(2)=7+2a\\ge3\\Rightarrow a\\ge-2$。よって $-2\\le a\\le4$。\n(3) $m=-\\tfrac18a^2-1$ は $a^2$ 最小すなわち $a=0$ で最大。軸 $x=0$，$m=-1$。\n(4) $m$ は $[-2,4]$ で $a^2$ 最大すなわち $a=4$（$|4|>|-2|$）で最小。軸 $x=-1$，$m=-3$。"
+      },
+      "blanks": [
+        { "label": "AB", "value": "18" }, { "label": "C", "value": "1" }, { "label": "DE", "value": "-2" }, { "label": "F", "value": "4" }, { "label": "G", "value": "0" }, { "label": "HI", "value": "-1" }, { "label": "JK", "value": "-1" }, { "label": "LM", "value": "-3" }
+      ]
+    },
+    {
+      "id": "2017-2-math-c2-1-2",
+      "answerRow": 2,
+      "number": "I-Q2",
+      "section": "I",
+      "part": "Q2",
+      "topicId": "counting-probability",
+      "topicIds": ["counting-probability", "independent-trials"],
+      "subtopic": "Markov-style movement of a ball A→B→C by dice rolls: probability of reaching C within 4 rolls",
+      "patternTags": ["state-transition", "repeated-trials", "exactly-on-nth-trial", "sum-of-probabilities", "complementary-counting"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "**[I] Q2 — Probability.**\n\nA triangle $ABC$ is drawn, and a ball is placed on vertex $A$. A die is rolled repeatedly and the ball moves by the rules:\n(i) when on $A$, if the die shows $1$ the ball moves to $B$, otherwise it stays on $A$;\n(ii) when on $B$, if the die shows $4$ or less the ball moves to $C$, otherwise it stays on $B$.\nOnce the ball reaches $C$, the trials stop. We find the probability that the ball reaches $C$ within $4$ rolls.\n\n(1) The probability that the ball reaches $C$ on the 2nd roll is $\\dfrac{1}{\\boxed{N}}$.\n\n(2) The probability that the ball reaches $C$ on the 3rd roll is $\\dfrac{\\boxed{O}}{\\boxed{PQ}}$.\n\n(3) The probability that the ball reaches $C$ on the 4th roll is $\\dfrac{\\boxed{RS}}{\\boxed{TUV}}$. Therefore the probability that the ball reaches $C$ within $4$ rolls is $\\dfrac{\\boxed{WX}}{\\boxed{YZ}}$."
+      },
+      "ja": {
+        "prompt": "**[Ⅰ] 問2 — 確率**\n\n平面上に三角形 $ABC$ を描き，頂点 $A$ に球を置く。さいころを繰り返し振り，次の規則で球を動かす：\n(i) 球が $A$ にあるとき，出た目が $1$ なら $B$ へ動かし，そうでなければ $A$ にとどまる；\n(ii) 球が $B$ にあるとき，出た目が $4$ 以下なら $C$ へ動かし，そうでなければ $B$ にとどまる。\n球が $C$ に達したら試行を止める。$4$ 回以内に球が $C$ に達する確率を求める。\n\n(1) 球が $2$ 回目で $C$ に達する確率は $\\dfrac{1}{\\boxed{N}}$。\n\n(2) 球が $3$ 回目で $C$ に達する確率は $\\dfrac{\\boxed{O}}{\\boxed{PQ}}$。\n\n(3) 球が $4$ 回目で $C$ に達する確率は $\\dfrac{\\boxed{RS}}{\\boxed{TUV}}$。よって $4$ 回以内に $C$ に達する確率は $\\dfrac{\\boxed{WX}}{\\boxed{YZ}}$。"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "$P(A\\to B)=\\tfrac16$, $P(B\\to C)=\\tfrac23$. On 2nd roll $\\tfrac19$; on 3rd roll $\\tfrac{7}{54}$; on 4th roll $\\tfrac{13}{108}$; within 4 rolls $\\tfrac{13}{36}$.  Boxes: N=9, OPQ=754, RSTUV=13108, WXYZ=1336.",
+        "ja": "$P(A\\to B)=\\tfrac16$，$P(B\\to C)=\\tfrac23$。2回目 $\\tfrac19$；3回目 $\\tfrac{7}{54}$；4回目 $\\tfrac{13}{108}$；4回以内 $\\tfrac{13}{36}$。 解答：N=9, OPQ=754, RSTUV=13108, WXYZ=1336。"
+      },
+      "explanation": {
+        "en": "Per roll, $A\\to B$ with probability $\\tfrac16$ (die $=1$) and stays on $A$ with $\\tfrac56$; $B\\to C$ with probability $\\tfrac46=\\tfrac23$ (die $\\le4$) and stays on $B$ with $\\tfrac13$. Reaching $C$ needs one $A\\to B$ then one $B\\to C$, so at least 2 rolls.\n(1) On 2nd roll: $A\\to B$ then $B\\to C$: $\\tfrac16\\cdot\\tfrac23=\\tfrac19$.\n(2) On 3rd roll: either (stay $A$, $A\\to B$, $B\\to C$) $=\\tfrac56\\cdot\\tfrac16\\cdot\\tfrac23$ or ($A\\to B$, stay $B$, $B\\to C$) $=\\tfrac16\\cdot\\tfrac13\\cdot\\tfrac23$. Sum $=\\tfrac{10}{108}+\\tfrac{4}{108}=\\tfrac{14}{108}=\\tfrac{7}{54}$.\n(3) On 4th roll: the $A\\to B$ step happens on roll $k\\in\\{1,2,3\\}$, with stays on $A$ before it, stays on $B$ after it, then $B\\to C$ on roll 4: $\\sum_{k=1}^{3}(\\tfrac56)^{k-1}\\tfrac16(\\tfrac13)^{3-k}\\tfrac23=\\tfrac{13}{108}$. Within 4 rolls: $\\tfrac19+\\tfrac{7}{54}+\\tfrac{13}{108}=\\tfrac{12}{108}+\\tfrac{14}{108}+\\tfrac{13}{108}=\\tfrac{39}{108}=\\tfrac{13}{36}$.",
+        "ja": "1回ごとに $A\\to B$ は確率 $\\tfrac16$（目 $=1$），$A$ にとどまるのは $\\tfrac56$；$B\\to C$ は $\\tfrac46=\\tfrac23$（目 $\\le4$），$B$ にとどまるのは $\\tfrac13$。$C$ に達するには $A\\to B$ と $B\\to C$ が各1回必要で最低2回。\n(1) 2回目：$\\tfrac16\\cdot\\tfrac23=\\tfrac19$。\n(2) 3回目：（$A$ 停留→$A\\to B$→$B\\to C$）$+$（$A\\to B$→$B$ 停留→$B\\to C$）$=\\tfrac56\\cdot\\tfrac16\\cdot\\tfrac23+\\tfrac16\\cdot\\tfrac13\\cdot\\tfrac23=\\tfrac{7}{54}$。\n(3) 4回目：$A\\to B$ を $k$ 回目（$k=1,2,3$）に行い，前は $A$ 停留・後は $B$ 停留，4回目で $B\\to C$：$\\sum_{k=1}^{3}(\\tfrac56)^{k-1}\\tfrac16(\\tfrac13)^{3-k}\\tfrac23=\\tfrac{13}{108}$。4回以内：$\\tfrac19+\\tfrac{7}{54}+\\tfrac{13}{108}=\\tfrac{13}{36}$。"
+      },
+      "blanks": [
+        { "label": "N", "value": "9" }, { "label": "OPQ", "value": "754" }, { "label": "RSTUV", "value": "13108" }, { "label": "WXYZ", "value": "1336" }
+      ]
+    },
+    {
+      "id": "2017-2-math-c2-2-1",
+      "answerRow": 3,
+      "number": "II-Q1",
+      "section": "II",
+      "part": "Q1",
+      "topicId": "recurrence-induction",
+      "topicIds": ["recurrence-induction", "sequences"],
+      "subtopic": "Linear recurrence with an exponential forcing term: substitution to a geometric-affine sequence, general term",
+      "patternTags": ["recurrence-formula", "substitution-sequence", "affine-recurrence", "fixed-point", "geometric-progression", "general-term"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "**[II] Q1 — Sequences.**\n\nWe find the general term $a_n$ of the sequence $\\{a_n\\}$ determined by\n$$a_1=18,\\qquad a_{n+1}-12a_n+3^{\\,n+2}=0\\quad(n=1,2,3,\\dots).$$\n\nDefine $\\{b_n\\}$ by $b_n=\\dfrac{a_n}{\\boxed{A}^{\\,n}}$. Then $\\{b_n\\}$ satisfies $b_1=\\boxed{B}$ and $b_{n+1}-\\boxed{C}\\,b_n+\\boxed{D}=0$.\n\nThis recurrence can be rewritten as $b_{n+1}-\\boxed{E}=\\boxed{F}\\big(b_n-\\boxed{E}\\big)$.\n\nDefining $\\{c_n\\}$ by $c_n=b_n-\\boxed{E}$, the sequence $\\{c_n\\}$ is geometric with first term $\\boxed{G}$ and common ratio $\\boxed{H}$.\n\nHence $a_n=\\boxed{I}^{\\,n}\\cdot\\boxed{J}\\cdot\\boxed{K}^{\\,n-1}+\\boxed{L}^{\\,n}\\quad(n=1,2,3,\\dots).$"
+      },
+      "ja": {
+        "prompt": "**[Ⅱ] 問1 — 数列**\n\n次で定まる数列 $\\{a_n\\}$ の一般項 $a_n$ を求める。\n$$a_1=18,\\qquad a_{n+1}-12a_n+3^{\\,n+2}=0\\quad(n=1,2,3,\\dots).$$\n\n$b_n=\\dfrac{a_n}{\\boxed{A}^{\\,n}}$ で数列 $\\{b_n\\}$ を定めると，$b_1=\\boxed{B}$，$b_{n+1}-\\boxed{C}\\,b_n+\\boxed{D}=0$ を満たす。\n\nこの漸化式は $b_{n+1}-\\boxed{E}=\\boxed{F}\\big(b_n-\\boxed{E}\\big)$ と変形できる。\n\n$c_n=b_n-\\boxed{E}$ で $\\{c_n\\}$ を定めると，$\\{c_n\\}$ は初項 $\\boxed{G}$，公比 $\\boxed{H}$ の等比数列である。\n\nよって $a_n=\\boxed{I}^{\\,n}\\cdot\\boxed{J}\\cdot\\boxed{K}^{\\,n-1}+\\boxed{L}^{\\,n}\\quad(n=1,2,3,\\dots)$。"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "$b_n=a_n/3^n$, $b_1=6$, $b_{n+1}-4b_n+3=0$; $b_{n+1}-1=4(b_n-1)$; $c_n=b_n-1$ is geometric with first term $5$, ratio $4$; $a_n=3^n\\cdot5\\cdot4^{\\,n-1}+3^n$.  Boxes: A=3, B=6, C=4, D=3, E=1, F=4, G=5, H=4, I=3, J=5, K=4, L=3.",
+        "ja": "$b_n=a_n/3^n$，$b_1=6$，$b_{n+1}-4b_n+3=0$；$b_{n+1}-1=4(b_n-1)$；$c_n=b_n-1$ は初項 $5$・公比 $4$；$a_n=3^n\\cdot5\\cdot4^{\\,n-1}+3^n$。 解答：A=3, B=6, C=4, D=3, E=1, F=4, G=5, H=4, I=3, J=5, K=4, L=3。"
+      },
+      "explanation": {
+        "en": "Set $b_n=a_n/3^n$ (so $\\boxed{A}=3$); then $b_1=18/3=6$. Dividing $a_{n+1}=12a_n-3^{n+2}$ by $3^{n+1}$ gives $b_{n+1}=4b_n-3$, i.e. $b_{n+1}-4b_n+3=0$ ($\\boxed{C}=4,\\boxed{D}=3$). The fixed point of $b\\mapsto4b-3$ is $b=1$, so $b_{n+1}-1=4(b_n-1)$ ($\\boxed{E}=1,\\boxed{F}=4$). Thus $c_n=b_n-1$ is geometric with $c_1=6-1=5$ ($\\boxed{G}=5$) and ratio $4$ ($\\boxed{H}=4$), so $c_n=5\\cdot4^{n-1}$ and $b_n=5\\cdot4^{n-1}+1$. Finally $a_n=3^n b_n=3^n(5\\cdot4^{n-1}+1)=3^n\\cdot5\\cdot4^{n-1}+3^n$ ($\\boxed{I}=3,\\boxed{J}=5,\\boxed{K}=4,\\boxed{L}=3$). Check: $a_1=18$, $a_2=189$, $a_3=2187$.",
+        "ja": "$b_n=a_n/3^n$（$\\boxed{A}=3$）とおくと $b_1=18/3=6$。$a_{n+1}=12a_n-3^{n+2}$ を $3^{n+1}$ で割ると $b_{n+1}=4b_n-3$，すなわち $b_{n+1}-4b_n+3=0$（$\\boxed{C}=4,\\boxed{D}=3$）。$b\\mapsto4b-3$ の不動点は $b=1$ なので $b_{n+1}-1=4(b_n-1)$（$\\boxed{E}=1,\\boxed{F}=4$）。よって $c_n=b_n-1$ は初項 $c_1=5$（$\\boxed{G}=5$），公比 $4$（$\\boxed{H}=4$）の等比数列で $c_n=5\\cdot4^{n-1}$，$b_n=5\\cdot4^{n-1}+1$。最後に $a_n=3^n b_n=3^n\\cdot5\\cdot4^{n-1}+3^n$（$\\boxed{I}=3,\\boxed{J}=5,\\boxed{K}=4,\\boxed{L}=3$）。検算：$a_1=18,a_2=189,a_3=2187$。"
+      },
+      "blanks": [
+        { "label": "A", "value": "3" }, { "label": "B", "value": "6" }, { "label": "C", "value": "4" }, { "label": "D", "value": "3" }, { "label": "E", "value": "1" }, { "label": "F", "value": "4" }, { "label": "G", "value": "5" }, { "label": "H", "value": "4" }, { "label": "I", "value": "3" }, { "label": "J", "value": "5" }, { "label": "K", "value": "4" }, { "label": "L", "value": "3" }
+      ]
+    },
+    {
+      "id": "2017-2-math-c2-2-2",
+      "answerRow": 4,
+      "number": "II-Q2",
+      "section": "II",
+      "part": "Q2",
+      "topicId": "points-lines",
+      "topicIds": ["points-lines", "circles-equations"],
+      "subtopic": "Isosceles triangle with sides through fixed points and base on the x-axis: inscribed-circle radius as a function of the slope, and the vertex when r is given",
+      "patternTags": ["lines-through-fixed-points", "isosceles-triangle", "incircle-radius", "distance-from-point-to-line", "solve-for-parameter"],
+      "hasFigure": true,
+      "en": {
+        "prompt": "**[II] Q2 — Coordinate geometry.**\n\nOn an $xy$-plane (origin $O$), consider an isosceles triangle $ABC$ with $AB=AC$, whose base $BC$ lies on the $x$-axis. Side $AB$ passes through $P(-1,5)$ and side $AC$ passes through $Q(3,3)$.\n\nLet $\\ell_1$ be the line through $A,B$ and $\\ell_2$ the line through $A,C$. Writing the slope of $\\ell_1$ as $a$ (and that of $\\ell_2$ as $-a$), the lines are\n$$\\ell_1:\\ y=ax+a+\\boxed{M},\\qquad \\ell_2:\\ y=-ax+\\boxed{N}a+\\boxed{O}.$$\n\nLet $I$ and $r$ be the center and radius of the inscribed circle. Then $I=\\Big(\\boxed{P}-\\dfrac{\\boxed{Q}}{a},\\ r\\Big)$, and\n$$r=\\dfrac{\\boxed{R}a+\\boxed{S}}{\\boxed{T}+\\sqrt{a^2+\\boxed{U}}}.$$\nIn particular, when $r=\\dfrac{5}{2}$, the coordinates of vertex $A$ are $\\Big(\\dfrac{\\boxed{V}}{\\boxed{W}},\\ \\dfrac{\\boxed{XY}}{\\boxed{Z}}\\Big)$."
+      },
+      "ja": {
+        "prompt": "**[Ⅱ] 問2 — 座標平面の図形**\n\n原点 $O$ の $xy$ 平面上で，$AB=AC$ をみたし底辺 $BC$ が $x$ 軸上にある二等辺三角形 $ABC$ を考える。辺 $AB$ は $P(-1,5)$ を，辺 $AC$ は $Q(3,3)$ を通る。\n\n$\\ell_1$ を $A,B$ を通る直線，$\\ell_2$ を $A,C$ を通る直線とする。$\\ell_1$ の傾きを $a$（$\\ell_2$ の傾きを $-a$）とすると\n$$\\ell_1:\\ y=ax+a+\\boxed{M},\\qquad \\ell_2:\\ y=-ax+\\boxed{N}a+\\boxed{O}.$$\n\n内接円の中心と半径を $I,r$ とする。このとき $I=\\Big(\\boxed{P}-\\dfrac{\\boxed{Q}}{a},\\ r\\Big)$ であり，\n$$r=\\dfrac{\\boxed{R}a+\\boxed{S}}{\\boxed{T}+\\sqrt{a^2+\\boxed{U}}}.$$\n特に $r=\\dfrac{5}{2}$ のとき，頂点 $A$ の座標は $\\Big(\\dfrac{\\boxed{V}}{\\boxed{W}},\\ \\dfrac{\\boxed{XY}}{\\boxed{Z}}\\Big)$。"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "$\\ell_1:y=ax+a+5$, $\\ell_2:y=-ax+3a+3$; $I=(1-\\tfrac1a,\\,r)$; $r=\\dfrac{2a+4}{1+\\sqrt{a^2+1}}$; $r=\\tfrac52$ at $a=\\tfrac43$, giving $A=\\big(\\tfrac14,\\tfrac{20}{3}\\big)$.  Boxes: M=5, N=3, O=3, P=1, Q=1, R=2, S=4, T=1, U=1, V=1, W=4, XY=20, Z=3.",
+        "ja": "$\\ell_1:y=ax+a+5$，$\\ell_2:y=-ax+3a+3$；$I=(1-\\tfrac1a,\\,r)$；$r=\\dfrac{2a+4}{1+\\sqrt{a^2+1}}$；$r=\\tfrac52$ は $a=\\tfrac43$ で，$A=\\big(\\tfrac14,\\tfrac{20}{3}\\big)$。 解答：M=5, N=3, O=3, P=1, Q=1, R=2, S=4, T=1, U=1, V=1, W=4, XY=20, Z=3。"
+      },
+      "explanation": {
+        "en": "$\\ell_1$ has slope $a$ through $P(-1,5)$: $y=a(x+1)+5=ax+a+5$, so $\\boxed{M}=5$. $\\ell_2$ has slope $-a$ through $Q(3,3)$: $y=-a(x-3)+3=-ax+3a+3$, so $\\boxed{N}=3,\\boxed{O}=3$. Apex $A=\\ell_1\\cap\\ell_2$: $ax+a+5=-ax+3a+3\\Rightarrow2ax=2a-2\\Rightarrow x=1-\\tfrac1a$, $y=2a+4$. The base vertices are $B=\\ell_1\\cap\\{y=0\\}=(-1-\\tfrac5a,0)$ and $C=\\ell_2\\cap\\{y=0\\}=(3+\\tfrac3a,0)$, whose midpoint is $1-\\tfrac1a=A_x$ (so the triangle is symmetric and $AB=AC$). Since $BC$ is on the $x$-axis, the incircle is tangent to it and $I_y=r$, while by symmetry $I_x=A_x=1-\\tfrac1a$, so $I=(1-\\tfrac1a,r)$ ($\\boxed{P}=1,\\boxed{Q}=1$). With $A_y=2(a+2)$, $BC=\\tfrac{4(a+2)}{a}$, and $AB=AC=\\tfrac{2(a+2)}{a}\\sqrt{1+a^2}$, the radius is $r=\\dfrac{\\text{area}}{s}=\\dfrac{2(a+2)}{1+\\sqrt{a^2+1}}=\\dfrac{2a+4}{1+\\sqrt{a^2+1}}$ ($\\boxed{R}=2,\\boxed{S}=4,\\boxed{T}=1,\\boxed{U}=1$). Setting $r=\\tfrac52$: at $a=\\tfrac43$, $a+2=\\tfrac{10}{3}$, $\\sqrt{a^2+1}=\\tfrac53$, $r=\\dfrac{20/3}{8/3}=\\tfrac52$. Then $A=\\big(1-\\tfrac34,\\,2\\cdot\\tfrac43+4\\big)=\\big(\\tfrac14,\\tfrac{20}{3}\\big)$.",
+        "ja": "$\\ell_1$ は傾き $a$ で $P(-1,5)$ を通り $y=a(x+1)+5=ax+a+5$，$\\boxed{M}=5$。$\\ell_2$ は傾き $-a$ で $Q(3,3)$ を通り $y=-a(x-3)+3=-ax+3a+3$，$\\boxed{N}=3,\\boxed{O}=3$。頂点 $A=\\ell_1\\cap\\ell_2$：$ax+a+5=-ax+3a+3\\Rightarrow x=1-\\tfrac1a$，$y=2a+4$。底辺の端点は $B=(-1-\\tfrac5a,0)$，$C=(3+\\tfrac3a,0)$ でその中点は $1-\\tfrac1a=A_x$（対称で $AB=AC$）。$BC$ は $x$ 軸上なので内接円はこれに接し $I_y=r$，対称性より $I_x=A_x=1-\\tfrac1a$，すなわち $I=(1-\\tfrac1a,r)$（$\\boxed{P}=1,\\boxed{Q}=1$）。$A_y=2(a+2)$，$BC=\\tfrac{4(a+2)}{a}$，$AB=AC=\\tfrac{2(a+2)}{a}\\sqrt{1+a^2}$ より $r=\\dfrac{\\text{面積}}{s}=\\dfrac{2a+4}{1+\\sqrt{a^2+1}}$（$\\boxed{R}=2,\\boxed{S}=4,\\boxed{T}=1,\\boxed{U}=1$）。$r=\\tfrac52$ とすると $a=\\tfrac43$（$a+2=\\tfrac{10}{3}$，$\\sqrt{a^2+1}=\\tfrac53$，$r=\\dfrac{20/3}{8/3}=\\tfrac52$）で，$A=\\big(\\tfrac14,\\tfrac{20}{3}\\big)$。"
+      },
+      "blanks": [
+        { "label": "M", "value": "5" }, { "label": "N", "value": "3" }, { "label": "O", "value": "3" }, { "label": "P", "value": "1" }, { "label": "Q", "value": "1" }, { "label": "R", "value": "2" }, { "label": "S", "value": "4" }, { "label": "T", "value": "1" }, { "label": "U", "value": "1" }, { "label": "VW", "value": "14" }, { "label": "XYZ", "value": "203" }
+      ]
+    },
+    {
+      "id": "2017-2-math-c2-3",
+      "answerRow": 5,
+      "number": "III",
+      "section": "III",
+      "part": null,
+      "topicId": "exp-log",
+      "topicIds": ["exp-log", "derivative-applications"],
+      "subtopic": "Range of a parameter so a logarithmic inequality holds for all x>0: isolate log k, find the maximum of a function",
+      "patternTags": ["logarithm-inequality", "isolate-parameter", "differentiation", "increase-decrease", "maximum-value", "expression-from-list"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "**[III] — Logarithmic inequality.** *(For $\\boxed{A},\\boxed{B}$ and $\\boxed{E},\\boxed{F},\\boxed{G}$ choose from the lists below; for the other boxes enter a number. $\\log$ is the natural logarithm.)*\n\nWe find the range of $k$ such that\n$$\\dfrac{\\log 3x}{4x+1}\\le \\log\\dfrac{2kx}{4x+1}\\qquad\\cdots\\text{(1)}$$\nholds for all positive real numbers $x$.\n\n(1) Transforming (1) gives $\\log k\\ge\\boxed{A}\\quad\\cdots\\text{(2)}$. Denoting the right side of (2) by $g(x)$ and differentiating, $g'(x)=\\boxed{B}$.\n\nChoices for $\\boxed{A}$: $⓪\\ \\dfrac{\\log 3x}{4x+1}-\\log(4x+1)-\\log 2x\\quad ①\\ \\dfrac{\\log 3x}{4x+1}-\\log(4x+1)+\\log 2x\\quad ②\\ \\dfrac{\\log 3x}{4x+1}+\\log(4x+1)+\\log 2x\\quad ③\\ \\dfrac{\\log 3x}{4x+1}+\\log(4x+1)-\\log 2x$\n\nChoices for $\\boxed{B}$: $④\\ \\dfrac{4\\log 3x}{(4x+1)^2}\\quad ⑤\\ \\dfrac{3x+2+\\log 3x}{(4x+1)^2}\\quad ⑥\\ -\\dfrac{4\\log 3x}{(4x+1)^2}\\quad ⑦\\ \\dfrac{3x-2-\\log 2x}{(4x+1)^2}\\quad ⑧\\ -\\dfrac{3\\log 2x}{(4x+1)^2}$\n\n(2) *(For $\\boxed{E},\\boxed{F}$ choose $⓪$ increasing or $①$ decreasing; for $\\boxed{G}$ choose $②$ maximized or $③$ minimized.)* On $0<x<\\dfrac{\\boxed{C}}{\\boxed{D}}$, $g(x)$ is $\\boxed{E}$, and on $\\dfrac{\\boxed{C}}{\\boxed{D}}<x$, $g(x)$ is $\\boxed{F}$. Hence at $x=\\dfrac{\\boxed{C}}{\\boxed{D}}$, $g(x)$ is $\\boxed{G}$.\n\nTherefore the range of $k$ for which (1) holds for all positive real $x$ is $k\\ge\\dfrac{\\boxed{H}}{\\boxed{I}}$."
+      },
+      "ja": {
+        "prompt": "**[Ⅲ] — 対数不等式** *（$\\boxed{A},\\boxed{B}$ および $\\boxed{E},\\boxed{F},\\boxed{G}$ は下の選択肢から選び，他の空欄には数を入れよ。$\\log$ は自然対数とする。）*\n\nすべての正の実数 $x$ について\n$$\\dfrac{\\log 3x}{4x+1}\\le \\log\\dfrac{2kx}{4x+1}\\qquad\\cdots\\text{(1)}$$\nが成り立つような $k$ の範囲を求める。\n\n(1) (1) を変形すると $\\log k\\ge\\boxed{A}\\quad\\cdots\\text{(2)}$。(2) の右辺を $g(x)$ とおいて微分すると $g'(x)=\\boxed{B}$。\n\n$\\boxed{A}$ の選択肢：$⓪\\ \\dfrac{\\log 3x}{4x+1}-\\log(4x+1)-\\log 2x\\quad ①\\ \\dfrac{\\log 3x}{4x+1}-\\log(4x+1)+\\log 2x\\quad ②\\ \\dfrac{\\log 3x}{4x+1}+\\log(4x+1)+\\log 2x\\quad ③\\ \\dfrac{\\log 3x}{4x+1}+\\log(4x+1)-\\log 2x$\n\n$\\boxed{B}$ の選択肢：$④\\ \\dfrac{4\\log 3x}{(4x+1)^2}\\quad ⑤\\ \\dfrac{3x+2+\\log 3x}{(4x+1)^2}\\quad ⑥\\ -\\dfrac{4\\log 3x}{(4x+1)^2}\\quad ⑦\\ \\dfrac{3x-2-\\log 2x}{(4x+1)^2}\\quad ⑧\\ -\\dfrac{3\\log 2x}{(4x+1)^2}$\n\n(2) *（$\\boxed{E},\\boxed{F}$ は $⓪$ 増加・$①$ 減少から，$\\boxed{G}$ は $②$ 極大・$③$ 極小から選べ。）* $0<x<\\dfrac{\\boxed{C}}{\\boxed{D}}$ で $g(x)$ は $\\boxed{E}$，$\\dfrac{\\boxed{C}}{\\boxed{D}}<x$ で $g(x)$ は $\\boxed{F}$。よって $x=\\dfrac{\\boxed{C}}{\\boxed{D}}$ で $g(x)$ は $\\boxed{G}$。\n\nしたがって (1) がすべての正の実数 $x$ で成り立つ $k$ の範囲は $k\\ge\\dfrac{\\boxed{H}}{\\boxed{I}}$。"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "$\\log k\\ge g(x)=\\tfrac{\\log 3x}{4x+1}+\\log(4x+1)-\\log 2x$ (③); $g'(x)=-\\tfrac{4\\log 3x}{(4x+1)^2}$ (⑥); $g$ increasing on $0<x<\\tfrac13$, decreasing on $x>\\tfrac13$, so maximized at $x=\\tfrac13$ with $g(\\tfrac13)=\\log\\tfrac72$; hence $k\\ge\\tfrac72$.  Boxes: A=3, B=6, CD=13, E=0, F=1, G=2, HI=72.",
+        "ja": "$\\log k\\ge g(x)=\\tfrac{\\log 3x}{4x+1}+\\log(4x+1)-\\log 2x$（③）；$g'(x)=-\\tfrac{4\\log 3x}{(4x+1)^2}$（⑥）；$g$ は $0<x<\\tfrac13$ で増加，$x>\\tfrac13$ で減少，$x=\\tfrac13$ で極大 $g(\\tfrac13)=\\log\\tfrac72$；よって $k\\ge\\tfrac72$。 解答：A=3, B=6, CD=13, E=0, F=1, G=2, HI=72。"
+      },
+      "explanation": {
+        "en": "Write (1) as $\\tfrac{\\log 3x}{4x+1}\\le\\log(2kx)-\\log(4x+1)$. Since $\\log(2kx)=\\log 2+\\log k+\\log x=\\log k+\\log 2x$, isolating $\\log k$ gives $\\log k\\ge\\tfrac{\\log 3x}{4x+1}+\\log(4x+1)-\\log 2x=g(x)$, choice ③ ($\\boxed{A}=3$). Differentiating, $\\tfrac{d}{dx}\\tfrac{\\log 3x}{4x+1}=\\tfrac{1}{x(4x+1)}-\\tfrac{4\\log 3x}{(4x+1)^2}$ and $\\tfrac{d}{dx}\\big(\\log(4x+1)-\\log 2x\\big)=\\tfrac{4}{4x+1}-\\tfrac1x=-\\tfrac{1}{x(4x+1)}$; these add to $g'(x)=-\\tfrac{4\\log 3x}{(4x+1)^2}$, choice ⑥ ($\\boxed{B}=6$). $g'(x)=0$ when $\\log 3x=0$, i.e. $x=\\tfrac13$ ($\\boxed{CD}=13$); for $0<x<\\tfrac13$, $\\log 3x<0$ so $g'>0$ (increasing, $\\boxed{E}=⓪$), and for $x>\\tfrac13$, $g'<0$ (decreasing, $\\boxed{F}=①$). Thus $g$ has its maximum at $x=\\tfrac13$ ($\\boxed{G}=②$), with $g(\\tfrac13)=0+\\log(4\\cdot\\tfrac13+1)-\\log(2\\cdot\\tfrac13)=\\log\\tfrac73-\\log\\tfrac23=\\log\\tfrac72$. The inequality holds for all $x>0$ iff $\\log k\\ge\\max g=\\log\\tfrac72$, i.e. $k\\ge\\tfrac72$ ($\\boxed{HI}=72$).",
+        "ja": "(1) を $\\tfrac{\\log 3x}{4x+1}\\le\\log(2kx)-\\log(4x+1)$ と書く。$\\log(2kx)=\\log k+\\log 2x$ なので $\\log k$ を分離して $\\log k\\ge\\tfrac{\\log 3x}{4x+1}+\\log(4x+1)-\\log 2x=g(x)$，選択肢③（$\\boxed{A}=3$）。微分すると $\\tfrac{d}{dx}\\tfrac{\\log 3x}{4x+1}=\\tfrac{1}{x(4x+1)}-\\tfrac{4\\log 3x}{(4x+1)^2}$，$\\tfrac{d}{dx}(\\log(4x+1)-\\log 2x)=\\tfrac{4}{4x+1}-\\tfrac1x=-\\tfrac{1}{x(4x+1)}$ より $g'(x)=-\\tfrac{4\\log 3x}{(4x+1)^2}$，選択肢⑥（$\\boxed{B}=6$）。$g'(x)=0$ は $\\log 3x=0$ すなわち $x=\\tfrac13$（$\\boxed{CD}=13$）。$0<x<\\tfrac13$ で $\\log 3x<0$ ゆえ $g'>0$（増加，$\\boxed{E}=⓪$），$x>\\tfrac13$ で $g'<0$（減少，$\\boxed{F}=①$）。よって $x=\\tfrac13$ で極大（$\\boxed{G}=②$），$g(\\tfrac13)=\\log\\tfrac73-\\log\\tfrac23=\\log\\tfrac72$。(1) がすべての $x>0$ で成り立つのは $\\log k\\ge\\max g=\\log\\tfrac72$，すなわち $k\\ge\\tfrac72$（$\\boxed{HI}=72$）。"
+      },
+      "blanks": [
+        { "label": "A", "value": "3" }, { "label": "B", "value": "6" }, { "label": "CD", "value": "13" }, { "label": "E", "value": "0" }, { "label": "F", "value": "1" }, { "label": "G", "value": "2" }, { "label": "HI", "value": "72" }
+      ]
+    },
+    {
+      "id": "2017-2-math-c2-4",
+      "answerRow": 6,
+      "number": "IV",
+      "section": "IV",
+      "part": null,
+      "topicId": "integral-applications",
+      "topicIds": ["integral-applications", "trig-functions", "integration"],
+      "subtopic": "Area between the unit circle and the hyperbola 4xy=1 in the first quadrant via a trigonometric substitution",
+      "patternTags": ["intersection-of-curves", "trig-substitution", "definite-integral", "area-between-curves", "double-angle"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "**[IV] — Area between two curves.** Consider the two curves\n$$x^2+y^2=1\\quad\\cdots\\text{(1)},\\qquad 4xy=1\\quad\\cdots\\text{(2)}$$\nwith $x>0,\\ y>0$. We find the area $S$ of the region bounded by (1) and (2).\n\n(1) Let $P,Q$ be the intersection points, with $x$-coordinates $p,q$ ($p<q$). On (1) write $x=\\cos\\theta,\\ y=\\sin\\theta\\ (0<\\theta<\\tfrac\\pi2)$. Then from (2), $\\sin\\boxed{A}\\theta=\\dfrac{\\boxed{B}}{\\boxed{C}}$, so $\\theta=\\dfrac{\\boxed{D}}{\\boxed{EF}}\\pi$ or $\\dfrac{\\boxed{G}}{\\boxed{HI}}\\pi$ (with $\\dfrac{\\boxed{D}}{\\boxed{EF}}<\\dfrac{\\boxed{G}}{\\boxed{HI}}$). Hence $p=\\cos\\dfrac{\\boxed{J}}{\\boxed{KL}}\\pi,\\ q=\\cos\\dfrac{\\boxed{M}}{\\boxed{NO}}\\pi$.\n\n(2) Since $S=\\displaystyle\\int_p^q\\Big(\\sqrt{1-x^2}-\\dfrac{1}{4x}\\Big)dx$, we evaluate $I=\\displaystyle\\int_p^q\\sqrt{1-x^2}\\,dx$ and $J=\\displaystyle\\int_p^q\\dfrac{1}{x}\\,dx$. Substituting $x=\\cos\\theta$ gives $I=\\dfrac{\\boxed{P}}{\\boxed{Q}}\\pi$, and $J=\\log\\big(\\boxed{R}+\\sqrt{\\boxed{S}}\\big)$. Therefore $S=\\dfrac{\\boxed{P}}{\\boxed{Q}}\\pi-\\dfrac{\\boxed{T}}{\\boxed{U}}\\log\\big(\\boxed{R}+\\sqrt{\\boxed{S}}\\big)$."
+      },
+      "ja": {
+        "prompt": "**[Ⅳ] — 2曲線で囲まれた面積** 2つの曲線\n$$x^2+y^2=1\\quad\\cdots\\text{(1)},\\qquad 4xy=1\\quad\\cdots\\text{(2)}$$\nを考える（$x>0,\\ y>0$）。(1) と (2) で囲まれた部分の面積 $S$ を求める。\n\n(1) 交点を $P,Q$，その $x$ 座標を $p,q$（$p<q$）とする。(1) 上で $x=\\cos\\theta,\\ y=\\sin\\theta\\ (0<\\theta<\\tfrac\\pi2)$ とおくと，(2) より $\\sin\\boxed{A}\\theta=\\dfrac{\\boxed{B}}{\\boxed{C}}$ なので，$\\theta=\\dfrac{\\boxed{D}}{\\boxed{EF}}\\pi$ または $\\dfrac{\\boxed{G}}{\\boxed{HI}}\\pi$（$\\dfrac{\\boxed{D}}{\\boxed{EF}}<\\dfrac{\\boxed{G}}{\\boxed{HI}}$）。よって $p=\\cos\\dfrac{\\boxed{J}}{\\boxed{KL}}\\pi,\\ q=\\cos\\dfrac{\\boxed{M}}{\\boxed{NO}}\\pi$。\n\n(2) $S=\\displaystyle\\int_p^q\\Big(\\sqrt{1-x^2}-\\dfrac{1}{4x}\\Big)dx$ なので，$I=\\displaystyle\\int_p^q\\sqrt{1-x^2}\\,dx$ と $J=\\displaystyle\\int_p^q\\dfrac{1}{x}\\,dx$ を求める。$x=\\cos\\theta$ と置換すると $I=\\dfrac{\\boxed{P}}{\\boxed{Q}}\\pi$，$J=\\log\\big(\\boxed{R}+\\sqrt{\\boxed{S}}\\big)$。よって $S=\\dfrac{\\boxed{P}}{\\boxed{Q}}\\pi-\\dfrac{\\boxed{T}}{\\boxed{U}}\\log\\big(\\boxed{R}+\\sqrt{\\boxed{S}}\\big)$。"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "$\\sin 2\\theta=\\tfrac12$, so $\\theta=\\tfrac{1}{12}\\pi$ or $\\tfrac{5}{12}\\pi$; $p=\\cos\\tfrac{5}{12}\\pi$, $q=\\cos\\tfrac{1}{12}\\pi$; $I=\\tfrac16\\pi$, $J=\\log(2+\\sqrt3)$; $S=\\tfrac16\\pi-\\tfrac14\\log(2+\\sqrt3)$.  Boxes: A=2, BC=12, DEF=112, GHI=512, JKL=512, MNO=112, PQ=16, R=2, S=3, TU=14.",
+        "ja": "$\\sin 2\\theta=\\tfrac12$ より $\\theta=\\tfrac{1}{12}\\pi$ または $\\tfrac{5}{12}\\pi$；$p=\\cos\\tfrac{5}{12}\\pi$，$q=\\cos\\tfrac{1}{12}\\pi$；$I=\\tfrac16\\pi$，$J=\\log(2+\\sqrt3)$；$S=\\tfrac16\\pi-\\tfrac14\\log(2+\\sqrt3)$。 解答：A=2, BC=12, DEF=112, GHI=512, JKL=512, MNO=112, PQ=16, R=2, S=3, TU=14。"
+      },
+      "explanation": {
+        "en": "On (1), $x=\\cos\\theta,y=\\sin\\theta$. Then (2) gives $4\\cos\\theta\\sin\\theta=2\\sin2\\theta=1$, i.e. $\\sin2\\theta=\\tfrac12$ ($\\boxed{A}=2,\\boxed{BC}=12$). For $0<\\theta<\\tfrac\\pi2$, $2\\theta\\in(0,\\pi)$ gives $2\\theta=\\tfrac\\pi6$ or $\\tfrac{5\\pi}6$, so $\\theta=\\tfrac{1}{12}\\pi$ or $\\tfrac{5}{12}\\pi$ ($\\boxed{DEF}=112,\\boxed{GHI}=512$). Since $\\cos$ decreases, the smaller $x$-coordinate $p=\\cos\\tfrac{5}{12}\\pi$ and the larger $q=\\cos\\tfrac{1}{12}\\pi$ ($\\boxed{JKL}=512,\\boxed{MNO}=112$).\n(2) $I=\\int_p^q\\sqrt{1-x^2}\\,dx$; with $x=\\cos\\theta$, $dx=-\\sin\\theta\\,d\\theta$ and $\\sqrt{1-x^2}=\\sin\\theta$, so $I=\\int_{\\pi/12}^{5\\pi/12}\\sin^2\\theta\\,d\\theta=\\big[\\tfrac\\theta2-\\tfrac{\\sin2\\theta}{4}\\big]_{\\pi/12}^{5\\pi/12}=\\tfrac{4}{24}\\pi=\\tfrac16\\pi$ ($\\boxed{PQ}=16$). For $J=\\int_p^q\\tfrac1x dx=\\log\\tfrac qp$: $q=\\cos\\tfrac{\\pi}{12}=\\tfrac{\\sqrt6+\\sqrt2}4$ and $p=\\cos\\tfrac{5\\pi}{12}=\\tfrac{\\sqrt6-\\sqrt2}4$, so $\\tfrac qp=\\tfrac{\\sqrt6+\\sqrt2}{\\sqrt6-\\sqrt2}=2+\\sqrt3$ and $J=\\log(2+\\sqrt3)$ ($\\boxed{R}=2,\\boxed{S}=3$). Finally $S=I-\\tfrac14 J=\\tfrac16\\pi-\\tfrac14\\log(2+\\sqrt3)$ ($\\boxed{TU}=14$); numerically $S\\approx0.1944$.",
+        "ja": "(1) 上で $x=\\cos\\theta,y=\\sin\\theta$。(2) より $4\\cos\\theta\\sin\\theta=2\\sin2\\theta=1$，すなわち $\\sin2\\theta=\\tfrac12$（$\\boxed{A}=2,\\boxed{BC}=12$）。$0<\\theta<\\tfrac\\pi2$ で $2\\theta\\in(0,\\pi)$ ゆえ $2\\theta=\\tfrac\\pi6,\\tfrac{5\\pi}6$，$\\theta=\\tfrac{1}{12}\\pi,\\tfrac{5}{12}\\pi$（$\\boxed{DEF}=112,\\boxed{GHI}=512$）。$\\cos$ は減少なので小さい方 $p=\\cos\\tfrac{5}{12}\\pi$，大きい方 $q=\\cos\\tfrac{1}{12}\\pi$（$\\boxed{JKL}=512,\\boxed{MNO}=112$）。\n(2) $I=\\int_p^q\\sqrt{1-x^2}dx$，$x=\\cos\\theta$ で $I=\\int_{\\pi/12}^{5\\pi/12}\\sin^2\\theta\\,d\\theta=\\big[\\tfrac\\theta2-\\tfrac{\\sin2\\theta}{4}\\big]_{\\pi/12}^{5\\pi/12}=\\tfrac16\\pi$（$\\boxed{PQ}=16$）。$J=\\int_p^q\\tfrac1x dx=\\log\\tfrac qp$，$q=\\cos\\tfrac{\\pi}{12}=\\tfrac{\\sqrt6+\\sqrt2}4$，$p=\\cos\\tfrac{5\\pi}{12}=\\tfrac{\\sqrt6-\\sqrt2}4$ で $\\tfrac qp=2+\\sqrt3$，$J=\\log(2+\\sqrt3)$（$\\boxed{R}=2,\\boxed{S}=3$）。よって $S=I-\\tfrac14 J=\\tfrac16\\pi-\\tfrac14\\log(2+\\sqrt3)$（$\\boxed{TU}=14$）。数値では $S\\approx0.1944$。"
+      },
+      "blanks": [
+        { "label": "A", "value": "2" }, { "label": "BC", "value": "12" }, { "label": "DEF", "value": "112" }, { "label": "GHI", "value": "512" }, { "label": "JKL", "value": "512" }, { "label": "MNO", "value": "112" }, { "label": "PQ", "value": "16" }, { "label": "R", "value": "2" }, { "label": "S", "value": "3" }, { "label": "TU", "value": "14" }
+      ]
+    }
+  ]
+}
