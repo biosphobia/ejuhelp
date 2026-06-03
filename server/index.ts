@@ -6,7 +6,7 @@ import { dirname, join } from 'node:path';
 import { existsSync } from 'node:fs';
 import { requireAuth } from './auth';
 import { topicsFor, subtopicsFor, mockExamList, mockExam, SUBJECTS, type Subject } from './eju';
-import { hasApiKey, ask, generate, check, keypoints } from './claude';
+import { hasApiKey, ask, generate, check, explainBoard, keypoints } from './claude';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const app = express();
@@ -111,16 +111,41 @@ app.post('/api/claude/generate', requireAuth, async (req: Request, res: Response
 
 app.post('/api/claude/check', requireAuth, async (req: Request, res: Response) => {
   try {
-    const { subject, lang, imageDataUrl, question } = req.body ?? {};
+    const { subject, lang, imageDataUrl, question, note, messages } = req.body ?? {};
     const { model, userKey } = getAiContext(req);
     if (!isSubject(subject)) return res.status(400).json({ error: 'bad_subject' });
     if (typeof imageDataUrl !== 'string') return res.status(400).json({ error: 'missing_image' });
-    
+
     const result = await check({
       subject,
       lang: toLang(lang),
       imageDataUrl,
       question: typeof question === 'string' ? question : undefined,
+      note: typeof note === 'string' ? note : undefined,
+      messages: Array.isArray(messages) ? messages : undefined,
+      model,
+      userKey
+    });
+    res.json(result);
+  } catch (e) {
+    handleErr(e, res);
+  }
+});
+
+app.post('/api/claude/explain', requireAuth, async (req: Request, res: Response) => {
+  try {
+    const { subject, lang, imageDataUrl, question, note, messages } = req.body ?? {};
+    const { model, userKey } = getAiContext(req);
+    if (!isSubject(subject)) return res.status(400).json({ error: 'bad_subject' });
+    if (typeof imageDataUrl !== 'string') return res.status(400).json({ error: 'missing_image' });
+
+    const result = await explainBoard({
+      subject,
+      lang: toLang(lang),
+      imageDataUrl,
+      question: typeof question === 'string' ? question : undefined,
+      note: typeof note === 'string' ? note : undefined,
+      messages: Array.isArray(messages) ? messages : undefined,
       model,
       userKey
     });

@@ -92,6 +92,8 @@ export const generateQuestions = (p: {
 export interface CheckResponse {
   feedback: string;
   correct: 'yes' | 'no' | 'partial' | 'unknown';
+  /** Subject the coach inferred the work belongs to (''/empty if unsure). */
+  subject: Subject | '';
   topic: string;
   errorTags: string[];
   /** 0-based choice the student concluded for an MCQ, or -1 if none/unclear. */
@@ -102,7 +104,19 @@ export const checkWork = (p: {
   lang: Lang;
   imageDataUrl: string;
   question?: string;
+  note?: string;
+  messages?: ChatMessage[];
 }) => call<CheckResponse>('claude/check', p);
+
+/** Analyse the whiteboard and HELP the student (explanation, not grading). */
+export const explainBoard = (p: {
+  subject: Subject;
+  lang: Lang;
+  imageDataUrl: string;
+  question?: string;
+  note?: string;
+  messages?: ChatMessage[];
+}) => call<AskResponse>('claude/explain', p);
 
 export interface KeyPointsResponse {
   keyPoints: KeyPointDTO[];

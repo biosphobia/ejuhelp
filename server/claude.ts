@@ -1,7 +1,7 @@
 import Anthropic from '@anthropic-ai/sdk';
 import OpenAI from 'openai';
 import { GoogleGenerativeAI } from '@google/generative-ai';
-import { systemContextFor, labelFor, type Subject } from './eju';
+import { systemContextFor, systemContextForAll, labelFor, SUBJECTS, type Subject } from './eju';
 
 const MODEL = process.env.ANTHROPIC_MODEL || 'claude-opus-4-8';
 const USE_THINKING = process.env.ANTHROPIC_THINKING !== 'off';
@@ -50,16 +50,28 @@ const GLOBAL_INSTRUCTIONS =
 
 const langLine = (lang: Lang) => `Always respond in ${LANG_NAME[lang]}.`;
 
-function systemBlocks(subject: Subject, lang: Lang, extra?: string) {
+function systemBlocks(subject: Subject, lang: Lang, extra?: string, allSubjects = false) {
+  // When the student has not chosen a subject (Ask Coach), give the coach every
+  // subject's knowledge base and let it infer; otherwise scope to one subject.
+  const context = allSubjects ? systemContextForAll() : systemContextFor(subject);
   const blocks: any[] = [
     { type: 'text', text: GLOBAL_INSTRUCTIONS },
     // CRITICAL: We restored the cache_control block for EJU Context
-    { type: 'text', text: systemContextFor(subject), cache_control: { type: 'ephemeral' } },
+    { type: 'text', text: context, cache_control: { type: 'ephemeral' } },
     { type: 'text', text: langLine(lang) },
   ];
   if (extra) blocks.push({ type: 'text', text: extra });
   return blocks;
 }
+
+// Tells the coach to figure out the subject itself (used by the Ask Coach flows,
+// where the student no longer picks one). `hint` is the subject the student was
+// most recently studying — a soft tie-breaker only.
+const inferSubjectDirective = (hint: Subject) =>
+  'The student has not told you which subject this is. Silently work out which EJU subject and topic ' +
+  'it concerns — from their message, any attached question, and any handwritten work — then answer using ' +
+  `that subject's EJU syllabus and past-paper patterns. Do not ask them to choose a subject. If it is ` +
+  `genuinely ambiguous, assume EJU ${hint}.`;
 
 // ─── UNIVERSAL ROUTER ───
 // Preserves perfect Claude caching while translating for Gemini/GPT
@@ -70,10 +82,11 @@ async function executeModelCall(
   lang: Lang,
   extraSystem: string | undefined,
   messages: any[],
-  maxTokens: number
+  maxTokens: number,
+  allSubjects = false
 ): Promise<string> {
   const targetModel = modelType || 'gemini';
-  const sysBlocks = systemBlocks(subject, lang, extraSystem);
+  const sysBlocks = systemBlocks(subject, lang, extraSystem, allSubjects);
 
   if (targetModel === 'gpt') {
     if (!userKey) throw Object.assign(new Error('Add your OpenAI API key in Settings to use GPT.'), { status: 400 });
@@ -283,6 +296,23 @@ function parseKeyPointLines(block: string): KeyPointDTO[] {
     .slice(0, 6);
 }
 
+// Normalize a short tail of prior conversation into model turns. Used by the
+// board flows (check / explain) so they keep the thread instead of starting cold
+// on every press — which is what made a second "Check my work" lose the question.
+function historyTurns(messages?: ChatMessage[]) {
+  const turns = (messages ?? [])
+    .filter((m) => m && typeof m.content === 'string' && m.content.trim())
+    .map((m) => ({ role: m.role === 'assistant' ? 'assistant' : 'user', content: m.content }));
+  // We append a user turn (the image) right after this history, so it must end on
+  // an assistant turn: drop a trailing unpaired user turn (e.g. from an earlier
+  // failed call) to keep clean user/assistant alternation for every provider.
+  if (turns.length && turns[turns.length - 1].role === 'user') turns.pop();
+  const tail = turns.slice(-6);
+  // The model APIs also expect the first turn to be the user's.
+  while (tail.length && tail[0].role === 'assistant') tail.shift();
+  return tail;
+}
+
 export async function ask(args: {
   subject: Subject;
   lang: Lang;
@@ -302,9 +332,9 @@ export async function ask(args: {
       'When the student says "this", "this question", "this problem", "これ", "この問題" or similar, they are ' +
       'referring to the question above — answer about it directly. Do not ask which question they mean.'
     : undefined;
-  const extra = [ctx, ASK_DIRECTIVE].filter(Boolean).join('\n\n');
+  const extra = [inferSubjectDirective(args.subject), ctx, ASK_DIRECTIVE].filter(Boolean).join('\n\n');
 
-  const raw = await executeModelCall(args.model, args.userKey, args.subject, args.lang, extra, messages, 8000);
+  const raw = await executeModelCall(args.model, args.userKey, args.subject, args.lang, extra, messages, 8000, true);
 
   const i = raw.indexOf(KEYPOINTS_MARK);
   const text = (i >= 0 ? raw.slice(0, i) : raw).trim();
@@ -384,6 +414,8 @@ const CHECK_META_MARK = '###META###';
 export interface CheckResult {
   feedback: string;
   correct: 'yes' | 'no' | 'partial' | 'unknown';
+  /** The EJU subject the coach inferred the work belongs to (for accurate stats). */
+  subject: Subject | '';
   topic: string;
   errorTags: string[];
   /** If the attached question is multiple-choice and the work clearly concludes one
@@ -396,6 +428,10 @@ export async function check(args: {
   lang: Lang;
   imageDataUrl: string;
   question?: string;
+  /** A note the student typed alongside the request, to steer the feedback. */
+  note?: string;
+  /** Recent conversation, so repeated checks stay anchored to the same question. */
+  messages?: ChatMessage[];
   model?: string;
   userKey?: string;
 }): Promise<CheckResult> {
@@ -403,10 +439,15 @@ export async function check(args: {
   if (!m) throw Object.assign(new Error('bad_image'), { status: 400 });
   const [, media_type, data] = m;
 
+  const note = args.note?.trim();
   const instructions = [
     args.question
-      ? `The student is attempting this EJU question:\n"""\n${args.question}\n"""\n`
-      : 'No specific question is attached.\n',
+      ? `The student is attempting this EJU question. ALWAYS grade against THIS question — even if you have already checked their work earlier in the conversation:\n"""\n${args.question}\n"""\n`
+      : 'No specific question is attached — work out from the page what is being solved.\n',
+    note
+      ? `The student also typed this note/request — take it into account and address it directly in your feedback:\n"""\n${note}\n"""\n`
+      : '',
+    inferSubjectDirective(args.subject),
     "The image is a capture of the student's OWN handwritten work on a whiteboard.",
     'Grade ONLY what is actually written in the image. Do NOT solve the problem yourself, and never report an answer or conclusion that is not physically written on the page.',
     'CRITICAL: If the page is blank, almost blank, or shows no genuine solution attempt (only the question text, doodles, or a few stray marks), do NOT grade it — set correct to "unknown", and in the feedback say there is nothing to check yet and invite the student to write their working. An empty or missing solution is never "correct".',
@@ -414,12 +455,13 @@ export async function check(args: {
     'First write the FEEDBACK as Markdown with LaTeX math ($...$ inline, $$...$$ display), in plain beginner-friendly language (define any jargon): briefly transcribe the key readable steps; state whether the written work is correct; pinpoint the FIRST error precisely and explain in simple terms WHY it is wrong; give a short hint to fix it (reveal the full answer only if the work is already complete and correct); finish with a one-line encouraging summary.',
     `Write the feedback in ${writeLang(args.lang)}.`,
     `Then, on a new line, write exactly ${CHECK_META_MARK} and, on the next line, a single-line JSON object (and nothing after it):`,
-    `{"correct":"yes"|"no"|"partial"|"unknown","topic":"<specific EJU sub-topic in English>","errorTags":[subset of ${JSON.stringify(ERROR_TAGS)}; use ["none"] when correct and [] when unknown],"studentAnswerIndex":<for a multiple-choice question, the 0-based index of the option the WRITTEN work clearly concludes, counting the listed choices in order; use -1 if it is not multiple-choice or no final choice is written>}`,
+    `{"correct":"yes"|"no"|"partial"|"unknown","subject":"physics"|"chemistry"|"biology"|"math" (whichever subject this work belongs to),"topic":"<specific EJU sub-topic in English>","errorTags":[subset of ${JSON.stringify(ERROR_TAGS)}; use ["none"] when correct and [] when unknown],"studentAnswerIndex":<for a multiple-choice question, the 0-based index of the option the WRITTEN work clearly concludes, counting the listed choices in order; use -1 if it is not multiple-choice or no final choice is written>}`,
     '("partial" = on the right track but incomplete or with a fixable slip.)',
   ].join('\n');
 
   const raw = await executeModelCall(
     args.model, args.userKey, args.subject, args.lang, undefined, [
+      ...historyTurns(args.messages),
       {
         role: 'user',
         content: [
@@ -427,7 +469,7 @@ export async function check(args: {
           { type: 'text', text: instructions },
         ],
       },
-    ], 4000
+    ], 4000, true
   );
 
   // Feedback is plain markdown before the marker; the small meta JSON follows it.
@@ -448,13 +490,66 @@ export async function check(args: {
     : 'unknown';
   const errorTags = Array.isArray(p.errorTags) ? p.errorTags.filter((t) => ERROR_TAGS.includes(t)) : [];
   const studentAnswerIndex = Number.isInteger(p.studentAnswerIndex) ? Number(p.studentAnswerIndex) : -1;
+  const subject = (SUBJECTS as readonly string[]).includes(p.subject as any) ? (p.subject as Subject) : '';
   return {
     feedback: feedback || String(raw ?? ''),
     correct,
+    subject,
     topic: String(p.topic ?? ''),
     errorTags,
     studentAnswerIndex,
   };
+}
+
+// ─── Explain board ───
+// Like "Check my work", but it HELPS the student with whatever is on the page
+// (explanation / teaching) instead of grading it. Returns markdown plus the same
+// optional machine-parsed key points the chat "ask" produces.
+export async function explainBoard(args: {
+  subject: Subject;
+  lang: Lang;
+  imageDataUrl: string;
+  question?: string;
+  note?: string;
+  messages?: ChatMessage[];
+  model?: string;
+  userKey?: string;
+}): Promise<{ text: string; keyPoints: KeyPointDTO[] }> {
+  const m = /^data:(image\/[a-zA-Z0-9.+-]+);base64,(.+)$/s.exec(args.imageDataUrl ?? '');
+  if (!m) throw Object.assign(new Error('bad_image'), { status: 400 });
+  const [, media_type, data] = m;
+
+  const note = args.note?.trim();
+  const instructions = [
+    args.question
+      ? `The student is working on this EJU question. Keep your help anchored to THIS question:\n"""\n${args.question}\n"""\n`
+      : 'No specific question is attached — infer from the page what they are working on.\n',
+    note
+      ? `The student typed this request — focus your help on exactly this:\n"""\n${note}\n"""\n`
+      : 'The student tapped "Explain" without typing a request, so work out from the page what they most likely need help with (a step they seem stuck on, a concept, or the next move).',
+    inferSubjectDirective(args.subject),
+    "The image is a capture of the student's OWN handwriting/work on a whiteboard.",
+    'Read what is on the page, then HELP them: explain the relevant concept and the method in simple terms, clarify wherever they seem stuck or confused, and show the correct approach step by step. This is teaching, NOT grading — be encouraging, do not reduce it to a verdict or score. Build on what they have already written when it is on the right track; if the page is essentially empty, teach the topic the question is about.',
+    ASK_DIRECTIVE,
+  ].join('\n\n');
+
+  const raw = await executeModelCall(
+    args.model, args.userKey, args.subject, args.lang, undefined, [
+      ...historyTurns(args.messages),
+      {
+        role: 'user',
+        content: [
+          { type: 'image', source: { type: 'base64', media_type, data } },
+          { type: 'text', text: instructions },
+        ],
+      },
+    ], 8000, true
+  );
+
+  const i = raw.indexOf(KEYPOINTS_MARK);
+  const text = (i >= 0 ? raw.slice(0, i) : raw).trim();
+  const keyPoints = i >= 0 ? parseKeyPointLines(raw.slice(i + KEYPOINTS_MARK.length)) : [];
+  return { text: text || raw.trim(), keyPoints };
 }
 
 // ─── Keypoints ───

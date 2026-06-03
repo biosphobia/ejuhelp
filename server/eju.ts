@@ -316,3 +316,21 @@ export function systemContextFor(subject: Subject): string {
   contextCache.set(subject, ctx);
   return ctx;
 }
+
+// The full knowledge base across every subject, for flows where the student has
+// NOT picked a subject (Ask Coach) and the coach must infer it. Built once and
+// kept byte-identical so it caches as a single stable prompt-cache block.
+let allContextCache: string | null = null;
+export function systemContextForAll(): string {
+  if (allContextCache) return allContextCache;
+  const header =
+    '# EJU multi-subject knowledge base\n\n' +
+    'The student has NOT pre-selected a subject. The knowledge bases for every EJU science and ' +
+    'mathematics subject are included below, separated by horizontal rules. Work out which subject ' +
+    "and topic the student's question, attached question, or handwritten work belongs to, then ground " +
+    "your answer in that subject's syllabus, question archetypes and past-paper patterns. Never ask the " +
+    'student to pick a subject. If a question genuinely spans subjects, draw on every part that applies.\n\n';
+  const body = SUBJECTS.map((s) => systemContextFor(s)).join('\n\n---\n\n');
+  allContextCache = header + body;
+  return allContextCache;
+}

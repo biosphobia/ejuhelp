@@ -9,6 +9,7 @@ export const strings = {
   generate: { en: 'Practice questions', ja: '練習問題', zh: '练习题', tr: 'Alıştırma soruları' },
   notes: { en: 'Key points', ja: '要点ノート', zh: '要点', tr: 'Önemli noktalar' },
   check: { en: 'Check my work', ja: '答案チェック', zh: '检查我的解答', tr: 'Çözümümü kontrol et' },
+  explainBoard: { en: 'Explain', ja: '解説', zh: '讲解', tr: 'Açıkla' },
   settings: { en: 'Settings', ja: '設定', zh: '设置', tr: 'Ayarlar' },
   account: { en: 'Account', ja: 'アカウント', zh: '账户', tr: 'Hesap' },
   menu: { en: 'Menu', ja: 'メニュー', zh: '菜单', tr: 'Menü' },
@@ -85,10 +86,10 @@ export const strings = {
   // Ask
   askTitle: { en: 'Ask Claude', ja: 'AIに質問', zh: '问 Claude', tr: 'Claude’a Sor' },
   askPlaceholder: {
-    en: 'Ask anything about this subject…',
-    ja: 'この科目について何でも質問…',
-    zh: '关于这个科目，随便问…',
-    tr: 'Bu ders hakkında her şeyi sor…',
+    en: 'Ask anything, or add a note for the buttons above…',
+    ja: '何でも質問、または上のボタン用のメモを入力…',
+    zh: '随便问，或为上方按钮添加备注…',
+    tr: 'Her şeyi sor ya da üstteki düğmeler için bir not ekle…',
   },
   askHint: {
     en: 'Answers are tuned to the EJU syllabus and past-paper style.',
@@ -97,10 +98,10 @@ export const strings = {
     tr: 'Yanıtlar EJU müfredatına ve geçmiş sınav tarzına göre ayarlanır.',
   },
   coachHint: {
-    en: 'Ask anything about this subject — or tap "Check my work" to grade your handwritten page. You can keep asking follow-ups afterwards.',
-    ja: 'この科目について何でも質問できます。「答案チェック」を押すと手書きの答案を採点します。その後も続けて質問できます。',
-    zh: '关于这个科目随便问 —— 或点击“检查我的解答”来批改你的手写页面。之后还可以继续追问。',
-    tr: 'Bu ders hakkında her şeyi sor — ya da el yazısı sayfanı değerlendirmek için "Çözümümü kontrol et"e dokun. Sonrasında soru sormaya devam edebilirsin.',
+    en: 'Coach works out the subject on its own. Ask anything, tap "Check my work" to grade your page, or "Explain" for help with what you wrote — type a note to steer either one.',
+    ja: 'コーチが科目を自動で判断します。何でも質問でき、「答案チェック」で採点、「解説」で書いた内容の解説が受けられます。メモを入力すると回答を調整できます。',
+    zh: '教练会自动判断科目。随便问，点“检查我的解答”批改你的页面，或点“讲解”帮你分析所写内容——输入备注可引导回答。',
+    tr: 'Koç dersi kendisi anlar. Her şeyi sor, sayfanı değerlendirmek için "Çözümümü kontrol et"e, yazdıklarına yardım için "Açıkla"ya dokun — ikisini de yönlendirmek için bir not yaz.',
   },
   autoAnswered: {
     en: 'Recorded your answer on the pinned question.',

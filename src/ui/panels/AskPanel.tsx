@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
-import Panel, { SubjectChips } from '../Panel';
+import Panel from '../Panel';
 import Markdown from '../Markdown';
 import { ErrorNote, errorMessage } from '../atoms';
-import { SpinnerIcon, CheckIcon, TrashIcon } from '../icons';
+import { SpinnerIcon, CheckIcon, AskIcon, TrashIcon } from '../icons';
 import { useAsk, type CheckMeta } from '../../lib/ask';
 import { usePractice } from '../../lib/practice';
 import { errorTagLabel } from '../../lib/labels';
@@ -35,12 +35,14 @@ export default function AskPanel() {
   const autoAnswered = useAsk((s) => s.lastAutoAnswered);
   const send = useAsk((s) => s.send);
   const check = useAsk((s) => s.check);
+  const explain = useAsk((s) => s.explain);
   const reset = useAsk((s) => s.reset);
   const activeQuestion = usePractice((s) => s.activeQuestion);
   const setActiveQuestion = usePractice((s) => s.setActiveQuestion);
 
   const [input, setInput] = useState('');
   const [checking, setChecking] = useState(false);
+  const [explaining, setExplaining] = useState(false);
   const bottomRef = useRef<HTMLDivElement>(null);
 
   // Keep the conversation pinned to the latest message — including on re-entry,
@@ -57,13 +59,20 @@ export default function AskPanel() {
     void send(text);
   };
 
-  const runCheck = async () => {
+  // "Check my work" and "Explain" both fold in whatever the student typed in the
+  // textbox (as a note that steers the answer) and clear it once it is consumed.
+  const runBoard = async (kind: 'check' | 'explain') => {
     if (busy) return;
-    setChecking(true);
+    const note = input.trim();
+    const setFlag = kind === 'check' ? setChecking : setExplaining;
+    setFlag(true);
     try {
-      await check();
+      if (kind === 'check') await check(note);
+      else await explain(note);
+      // Keep the note if nothing was sent (e.g. an empty-board error) so it isn't lost.
+      if (!useAsk.getState().error) setInput('');
     } finally {
-      setChecking(false);
+      setFlag(false);
     }
   };
 
@@ -72,15 +81,26 @@ export default function AskPanel() {
       title={t('askCoach')}
       footer={
         <div className="space-y-2">
-          <button
-            type="button"
-            onClick={() => void runCheck()}
-            disabled={busy}
-            className="flex w-full items-center justify-center gap-2 rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-50 disabled:opacity-40"
-          >
-            {checking ? <SpinnerIcon className="h-4 w-4" /> : <CheckIcon className="h-4 w-4" />}
-            {checking ? t('checking') : t('check')}
-          </button>
+          <div className="grid grid-cols-2 gap-2">
+            <button
+              type="button"
+              onClick={() => void runBoard('check')}
+              disabled={busy}
+              className="flex items-center justify-center gap-1.5 rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm font-semibold leading-tight text-slate-700 transition hover:bg-slate-50 disabled:opacity-40"
+            >
+              {checking ? <SpinnerIcon className="h-4 w-4 shrink-0" /> : <CheckIcon className="h-4 w-4 shrink-0" />}
+              {checking ? t('checking') : t('check')}
+            </button>
+            <button
+              type="button"
+              onClick={() => void runBoard('explain')}
+              disabled={busy}
+              className="flex items-center justify-center gap-1.5 rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm font-semibold leading-tight text-slate-700 transition hover:bg-slate-50 disabled:opacity-40"
+            >
+              {explaining ? <SpinnerIcon className="h-4 w-4 shrink-0" /> : <AskIcon className="h-4 w-4 shrink-0" />}
+              {explaining ? t('loading') : t('explainBoard')}
+            </button>
+          </div>
           <div className="flex items-end gap-2">
             <textarea
               value={input}
@@ -101,14 +121,14 @@ export default function AskPanel() {
               disabled={busy || !input.trim()}
               className="grid h-10 shrink-0 place-items-center rounded-xl bg-slate-900 px-4 text-sm font-semibold text-white disabled:opacity-40"
             >
-              {busy && !checking ? <SpinnerIcon className="h-4 w-4" /> : t('send')}
+              {busy && !checking && !explaining ? <SpinnerIcon className="h-4 w-4" /> : t('send')}
             </button>
           </div>
         </div>
       }
     >
-      <div className="mb-2 flex items-center justify-between">
-        <SubjectChips />
+      <div className="mb-2 flex items-start justify-between gap-2">
+        <p className="text-xs text-slate-500">{t('coachHint')}</p>
         {messages.length ? (
           <button
             type="button"
@@ -120,7 +140,6 @@ export default function AskPanel() {
           </button>
         ) : null}
       </div>
-      <p className="mb-3 text-xs text-slate-500">{t('coachHint')}</p>
 
       {activeQuestion ? (
         <div className="mb-3 rounded-2xl bg-amber-50 p-3 ring-1 ring-amber-100">

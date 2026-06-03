@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { askClaude, checkWork, EmptyBoardError, type ChatMessage } from './api';
+import { askClaude, checkWork, explainBoard, EmptyBoardError, type ChatMessage } from './api';
 import { useUI, type Lang } from './ui';
 import { usePractice } from './practice';
 import { useAnswers } from './answers';
@@ -31,6 +31,14 @@ const EXPLAIN_INTRO: Record<Lang, string> = {
   tr: 'Bu sorunun nasıl çözüleceğini, yeni başlayan birinin takip edebileceği basit ve net adımlarla açıkla.',
 };
 
+/** Default user bubble when "Explain" is pressed without a typed note. */
+const EXPLAIN_REQUEST: Record<Lang, string> = {
+  en: 'Help me with what I have on the whiteboard.',
+  ja: 'ホワイトボードに書いた内容について教えてください。',
+  zh: '请帮我看看白板上写的内容。',
+  tr: 'Beyaz tahtada yazdıklarımda bana yardım et.',
+};
+
 const CORRECT_ANSWER_NOTE: Record<Lang, (a: string) => string> = {
   en: (a) => `\n\n(Correct answer: ${a})`,
   ja: (a) => `\n\n（正解：${a}）`,
@@ -45,8 +53,11 @@ interface AskState {
   lastSaved: number; // key points auto-saved from the latest answer
   lastAutoAnswered: boolean; // the latest check read a final answer onto a pinned question
   send: (text: string) => Promise<void>;
-  /** Capture the current page and have the coach grade it, in-line with the chat. */
-  check: () => Promise<void>;
+  /** Capture the current page and have the coach grade it, in-line with the chat.
+   *  `note` is the student's optional textbox message, sent to steer the grading. */
+  check: (note?: string) => Promise<void>;
+  /** Capture the current page and have the coach explain / help with it (not grade). */
+  explain: (note?: string) => Promise<void>;
   reset: () => void;
 }
 
@@ -74,7 +85,7 @@ export const useAsk = create<AskState>((set, get) => ({
       set({ busy: false });
     }
   },
-  check: async () => {
+  check: async (note) => {
     if (get().busy) return;
     const { subject, lang } = useUI.getState();
     const img = exportPagePng(useBoard.getState().getCurrentPage());
@@ -83,10 +94,20 @@ export const useAsk = create<AskState>((set, get) => ({
       return;
     }
     const { activeQuestion, activeItem } = usePractice.getState();
-    const next: Message[] = [...get().messages, { role: 'user', content: CHECK_REQUEST[lang] }];
+    const trimmedNote = note?.trim() || '';
+    // Conversation so far, so a repeat check stays anchored to the same question.
+    const prior = get().messages;
+    const next: Message[] = [...prior, { role: 'user', content: trimmedNote || CHECK_REQUEST[lang] }];
     set({ messages: next, busy: true, error: null, lastSaved: 0, lastAutoAnswered: false });
     try {
-      const res = await checkWork({ subject, lang, imageDataUrl: img, question: activeQuestion ?? undefined });
+      const res = await checkWork({
+        subject,
+        lang,
+        imageDataUrl: img,
+        question: activeQuestion ?? undefined,
+        note: trimmedNote || undefined,
+        messages: prior,
+      });
       set({
         messages: [
           ...next,
@@ -94,9 +115,10 @@ export const useAsk = create<AskState>((set, get) => ({
         ],
       });
       if (res.correct !== 'unknown') {
+        const statSubject = res.subject || subject; // attribute to the inferred subject
         useProgress.getState().addAttempt({
-          subject,
-          topic: res.topic || subject,
+          subject: statSubject,
+          topic: res.topic || statSubject,
           correct: res.correct === 'yes',
           source: 'check',
           errorTags: res.errorTags,
@@ -113,6 +135,36 @@ export const useAsk = create<AskState>((set, get) => ({
         useAnswers.getState().mark(activeItem.id, res.studentAnswerIndex);
         set({ lastAutoAnswered: true });
       }
+    } catch (e) {
+      set({ error: e });
+    } finally {
+      set({ busy: false });
+    }
+  },
+  explain: async (note) => {
+    if (get().busy) return;
+    const { subject, lang } = useUI.getState();
+    const img = exportPagePng(useBoard.getState().getCurrentPage());
+    if (!img) {
+      set({ error: new EmptyBoardError() });
+      return;
+    }
+    const { activeQuestion } = usePractice.getState();
+    const trimmedNote = note?.trim() || '';
+    const prior = get().messages;
+    const next: Message[] = [...prior, { role: 'user', content: trimmedNote || EXPLAIN_REQUEST[lang] }];
+    set({ messages: next, busy: true, error: null, lastSaved: 0, lastAutoAnswered: false });
+    try {
+      const res = await explainBoard({
+        subject,
+        lang,
+        imageDataUrl: img,
+        question: activeQuestion ?? undefined,
+        note: trimmedNote || undefined,
+        messages: prior,
+      });
+      const added = useKeyPoints.getState().addMany(subject, res.keyPoints ?? []);
+      set({ messages: [...next, { role: 'assistant', content: res.text }], lastSaved: added });
     } catch (e) {
       set({ error: e });
     } finally {
