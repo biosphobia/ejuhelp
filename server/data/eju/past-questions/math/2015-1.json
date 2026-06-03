@@ -1,0 +1,194 @@
+{
+  "id": "2015-1-math-c2",
+  "year": 2015,
+  "session": 1,
+  "subject": "math",
+  "course": 2,
+  "title": "2015 EJU Session 1 — Mathematics (Course 2)",
+  "source": "Examination for Japanese University Admission for International Students, 2015 Session 1 (JASSO). Official English question paper; answers verified against the official answer key and re-derived by solving.",
+  "answerFormat": "digit-fill",
+  "answerKeyVerified": true,
+  "note": "This older paper has four large questions (大問 I-IV). Large question I contains two independent sub-questions (Q1, Q2); these are stored as separate entries, giving five questions. Answer-letters follow the official scheme and reset at the start of each large question (and at the start of each sub-question in I). The official answer-key text OCR is jumbled and interleaves the Course 1 and Course 2 columns; every box here was both re-solved and matched to the Course 2 column. The question paper itself is an image-only scan, so question text was transcribed by reading the rendered pages. Answer spaces left blank by the official paper (II: X-Z; III: L-Z; IV: R-Z; all of Part V) are Course-1-only and are not included here.",
+  "questions": [
+    {
+      "id": "2015-1-math-c2-1-1",
+      "answerRow": 1,
+      "number": "I-Q1",
+      "section": "I",
+      "part": "Q1",
+      "topicId": "quadratic-functions",
+      "topicIds": ["quadratic-functions"],
+      "subtopic": "Two parabolas sharing two points: common chord, symmetry, recovering coefficients",
+      "patternTags": ["two-parabolas", "common-points", "axis-of-symmetry", "symmetric-points", "expression-from-list"],
+      "hasFigure": true,
+      "en": {
+        "prompt": "**[I] Q1 — Quadratic functions.** Consider the two parabolas\n$$\\ell:\\ y=ax^2+2bx+c,\\qquad m:\\ y=(a+1)x^2+2(b+2)x+c+3.$$\nFour points $A,B,C,D$ are assumed to be in the relative positions shown in the figure: on the $x$-axis $A$ and $C$ lie to the left of the origin $O$ and $D$ to the right, while $B$ lies below the axis. One parabola passes through $A,B,C$ and the other passes through $B,C,D$.\n\n(1) The parabola passing through the three points $A,B$ and $C$ is $\\boxed{A}$. (Choose: $⓪$ parabola $\\ell$; $①$ parabola $m$.)\n\n(2) Since both parabolas pass through $B$ and $C$, the $x$-coordinates of $B$ and $C$ are the solutions of $x^2+\\boxed{B}\\,x+\\boxed{C}=0$. Hence the $x$-coordinate of $B$ is $\\boxed{DE}$ and the $x$-coordinate of $C$ is $\\boxed{FG}$.\n\n(3) Now find $a,b,c$ when $AB=BC$ and $CO=OD$. Since $C$ and $D$ are symmetric about the $y$-axis, $b=\\boxed{H}$. Since $AB=BC$, the line $x=\\boxed{IJ}$ is the axis of symmetry of parabola $m$. Hence $a=-\\dfrac{\\boxed{K}}{\\boxed{L}}$ and $c=\\dfrac{\\boxed{M}}{\\boxed{N}}$."
+      },
+      "ja": {
+        "prompt": "**[Ⅰ] 問1 — 二次関数** 2つの放物線\n$$\\ell:\\ y=ax^2+2bx+c,\\qquad m:\\ y=(a+1)x^2+2(b+2)x+c+3$$\nを考える。4点 $A,B,C,D$ は図のような位置にあるとする：$x$ 軸上で $A,C$ は原点 $O$ の左に，$D$ は右にあり，$B$ は軸の下にある。一方の放物線は $A,B,C$ を通り，他方は $B,C,D$ を通る。\n\n(1) 3点 $A,B,C$ を通る放物線は $\\boxed{A}$ である。（選択肢：$⓪$ 放物線 $\\ell$；$①$ 放物線 $m$。）\n\n(2) 2つの放物線はともに $B,C$ を通るので，$B,C$ の $x$ 座標は $x^2+\\boxed{B}\\,x+\\boxed{C}=0$ の解である。よって $B$ の $x$ 座標は $\\boxed{DE}$，$C$ の $x$ 座標は $\\boxed{FG}$ である。\n\n(3) $AB=BC$ かつ $CO=OD$ のときの $a,b,c$ を求める。$C$ と $D$ は $y$ 軸に関して対称なので $b=\\boxed{H}$。$AB=BC$ より，直線 $x=\\boxed{IJ}$ は放物線 $m$ の軸である。よって $a=-\\dfrac{\\boxed{K}}{\\boxed{L}}$，$c=\\dfrac{\\boxed{M}}{\\boxed{N}}$ である。"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "Parabola $m$ passes through $A,B,C$; common-point equation $x^2+4x+3=0$ gives $x=-3$ ($B$) and $x=-1$ ($C$); with $CO=OD$, $b=0$; $AB=BC$ makes $x=-3$ the axis of $m$, so $a=-\\tfrac13$, $c=\\tfrac13$.  Boxes: A=1, B=4, C=3, DE=-3, FG=-1, H=0, IJ=-3, K=1, L=3, M=1, N=3.",
+        "ja": "$A,B,C$ を通るのは放物線 $m$；共有点の方程式 $x^2+4x+3=0$ より $x=-3$（$B$），$x=-1$（$C$）；$CO=OD$ より $b=0$；$AB=BC$ より $x=-3$ が $m$ の軸となり，$a=-\\tfrac13$，$c=\\tfrac13$。 解答：A=1, B=4, C=3, DE=-3, FG=-1, H=0, IJ=-3, K=1, L=3, M=1, N=3。"
+      },
+      "explanation": {
+        "en": "(1) From the figure the parabola through $A,B,C$ is $m$, so $\\boxed{A}=①$.\n(2) $B,C$ are common to $\\ell$ and $m$. Subtracting the equations, $0=(a+1-a)x^2+(2(b+2)-2b)x+(c+3-c)=x^2+4x+3$, so $x^2+4x+3=0$ ($\\boxed{B}=4,\\boxed{C}=3$), giving $x=-3,-1$. By the figure $B$ (lower-left) has $x=-3$ ($\\boxed{DE}=-3$) and $C$ (nearer $O$) has $x=-1$ ($\\boxed{FG}=-1$).\n(3) Take $C,D$ on the $x$-axis. $CO=OD$ with $C=(-1,0)$ gives $D=(1,0)$. Both lie on $\\ell$: $\\ell(-1)=a-2b+c=0$ and $\\ell(1)=a+2b+c=0$; subtracting gives $4b=0$, so $b=0$ ($\\boxed{H}=0$) and $c=-a$. Then on $m=(a+1)x^2+4x+(3-a)$ the points $A,C$ are its $x$-intercepts; since $AB=BC$ and $B$ lies on the axis $x=-3$, the axis of $m$ is $x=\\boxed{IJ}=-3$. The axis of $m$ is $x=-\\dfrac{4}{2(a+1)}=-\\dfrac{2}{a+1}=-3$, so $a+1=\\tfrac23$, i.e. $a=-\\tfrac13$ ($\\boxed{K}=1,\\boxed{L}=3$) and $c=-a=\\tfrac13$ ($\\boxed{M}=1,\\boxed{N}=3$). (Check: $m=\\tfrac23x^2+4x+\\tfrac{10}{3}$ has roots $-5,-1$, so $A=(-5,0)$, confirming $A,C$ symmetric about $x=-3$ and $AB=CB$.)",
+        "ja": "(1) 図より $A,B,C$ を通るのは $m$，$\\boxed{A}=①$。\n(2) $B,C$ は $\\ell,m$ の共有点。2式を引くと $0=x^2+4x+3$（$\\boxed{B}=4,\\boxed{C}=3$）で $x=-3,-1$。図より $B$ は $x=-3$（$\\boxed{DE}=-3$），$C$ は $x=-1$（$\\boxed{FG}=-1$）。\n(3) $C,D$ を $x$ 軸上にとる。$CO=OD$，$C=(-1,0)$ より $D=(1,0)$。ともに $\\ell$ 上：$a-2b+c=0,\\ a+2b+c=0$ より $4b=0$ で $b=0$（$\\boxed{H}=0$），$c=-a$。$m=(a+1)x^2+4x+(3-a)$ で $A,C$ は $x$ 切片，$AB=BC$ かつ $B$ は軸上にあるので $m$ の軸は $x=\\boxed{IJ}=-3$。軸 $x=-\\dfrac{2}{a+1}=-3$ より $a+1=\\tfrac23$，$a=-\\tfrac13$（$\\boxed{K}=1,\\boxed{L}=3$），$c=-a=\\tfrac13$（$\\boxed{M}=1,\\boxed{N}=3$）。（検算：$m=\\tfrac23x^2+4x+\\tfrac{10}{3}$ の解は $-5,-1$ で $A=(-5,0)$，$A,C$ は $x=-3$ に対称で $AB=CB$。）"
+      },
+      "blanks": [
+        { "label": "A", "value": "1" }, { "label": "B", "value": "4" }, { "label": "C", "value": "3" }, { "label": "DE", "value": "-3" }, { "label": "FG", "value": "-1" }, { "label": "H", "value": "0" }, { "label": "IJ", "value": "-3" }, { "label": "K", "value": "1" }, { "label": "L", "value": "3" }, { "label": "M", "value": "1" }, { "label": "N", "value": "3" }
+      ]
+    },
+    {
+      "id": "2015-1-math-c2-1-2",
+      "answerRow": 2,
+      "number": "I-Q2",
+      "section": "I",
+      "part": "Q2",
+      "topicId": "counting-probability",
+      "topicIds": ["counting-probability"],
+      "subtopic": "Two bags, drawing two balls from each: joint probabilities of colour counts",
+      "patternTags": ["hypergeometric", "combinations", "joint-events", "complementary-event"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "**[I] Q2 — Probability.** There are two bags, $A$ and $B$. Bag $A$ contains four white balls and one red ball; bag $B$ contains two white balls and three red balls. Two balls are taken simultaneously out of bag $A$, then two balls are taken simultaneously out of bag $B$.\n\n(1) The probability that two white balls are taken out of $A$ and one white ball and one red ball are taken out of $B$ is $\\dfrac{\\boxed{O}}{\\boxed{PQ}}$.\n\n(2) The probability that the four balls taken out consist of three white balls and one red ball is $\\dfrac{\\boxed{R}}{\\boxed{S}}$.\n\n(3) The probability that the four balls taken out all have the same colour is $\\dfrac{\\boxed{T}}{\\boxed{UV}}$.\n\n(4) The probability that, of the four balls taken out, two or fewer are white balls is $\\dfrac{\\boxed{WX}}{\\boxed{YZ}}$."
+      },
+      "ja": {
+        "prompt": "**[Ⅰ] 問2 — 確率** 袋 $A,B$ がある。袋 $A$ には白球4個と赤球1個，袋 $B$ には白球2個と赤球3個が入っている。まず袋 $A$ から同時に2個を取り出し，次に袋 $B$ から同時に2個を取り出す。\n\n(1) $A$ から白球2個，$B$ から白球1個と赤球1個を取り出す確率は $\\dfrac{\\boxed{O}}{\\boxed{PQ}}$。\n\n(2) 取り出した4個が白球3個と赤球1個となる確率は $\\dfrac{\\boxed{R}}{\\boxed{S}}$。\n\n(3) 取り出した4個がすべて同じ色となる確率は $\\dfrac{\\boxed{T}}{\\boxed{UV}}$。\n\n(4) 取り出した4個のうち白球が2個以下となる確率は $\\dfrac{\\boxed{WX}}{\\boxed{YZ}}$。"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "(1) $\\tfrac{6}{10}\\cdot\\tfrac{6}{10}=\\tfrac{9}{25}$; (2) $\\tfrac{2}{5}$; (3) $\\tfrac{3}{50}$ (all white only); (4) $\\tfrac{27}{50}$.  Boxes: O=9, PQ=25, R=2, S=5, T=3, UV=50, WX=27, YZ=50.",
+        "ja": "(1) $\\tfrac{6}{10}\\cdot\\tfrac{6}{10}=\\tfrac{9}{25}$；(2) $\\tfrac{2}{5}$；(3) $\\tfrac{3}{50}$（全部白のみ）；(4) $\\tfrac{27}{50}$。 解答：O=9, PQ=25, R=2, S=5, T=3, UV=50, WX=27, YZ=50。"
+      },
+      "explanation": {
+        "en": "Each draw of $2$ from a bag of $5$ has $\\binom{5}{2}=10$ equally likely outcomes. From $A$: $P(2W)=\\tfrac{\\binom42}{10}=\\tfrac{6}{10}$, $P(1W1R)=\\tfrac{\\binom41\\binom11}{10}=\\tfrac{4}{10}$. From $B$: $P(2W)=\\tfrac{\\binom22}{10}=\\tfrac{1}{10}$, $P(1W1R)=\\tfrac{\\binom21\\binom31}{10}=\\tfrac{6}{10}$, $P(2R)=\\tfrac{\\binom32}{10}=\\tfrac{3}{10}$.\n(1) $\\tfrac{6}{10}\\cdot\\tfrac{6}{10}=\\tfrac{36}{100}=\\tfrac{9}{25}$ ($\\boxed{O}=9,\\boxed{PQ}=25$).\n(2) Three white, one red overall. Let $A$ give $w_A$ white, $B$ give $w_B$ white, $w_A+w_B=3$: $(2,1)$ or $(1,2)$. $P=\\tfrac{6}{10}\\cdot\\tfrac{6}{10}+\\tfrac{4}{10}\\cdot\\tfrac{1}{10}=\\tfrac{36+4}{100}=\\tfrac{40}{100}=\\tfrac{2}{5}$ ($\\boxed{R}=2,\\boxed{S}=5$).\n(3) Four of one colour: all white needs $A$ give $2W$ and $B$ give $2W$: $\\tfrac{6}{10}\\cdot\\tfrac{1}{10}=\\tfrac{6}{100}=\\tfrac{3}{50}$; all red is impossible since $A$ has only one red. So $\\tfrac{3}{50}$ ($\\boxed{T}=3,\\boxed{UV}=50$).\n(4) Two or fewer white $=1-P(3\\text{ white})-P(4\\text{ white})=1-\\tfrac{2}{5}-\\tfrac{3}{50}=\\tfrac{50-20-3}{50}=\\tfrac{27}{50}$ ($\\boxed{WX}=27,\\boxed{YZ}=50$).",
+        "ja": "5個から2個を取る場合の数は $\\binom52=10$ で各々同様に確からしい。$A$：$P(2W)=\\tfrac{6}{10}$，$P(1W1R)=\\tfrac{4}{10}$。$B$：$P(2W)=\\tfrac{1}{10}$，$P(1W1R)=\\tfrac{6}{10}$，$P(2R)=\\tfrac{3}{10}$。\n(1) $\\tfrac{6}{10}\\cdot\\tfrac{6}{10}=\\tfrac{9}{25}$（$\\boxed{O}=9,\\boxed{PQ}=25$）。\n(2) 白3赤1：$(w_A,w_B)=(2,1),(1,2)$。$\\tfrac{6}{10}\\cdot\\tfrac{6}{10}+\\tfrac{4}{10}\\cdot\\tfrac{1}{10}=\\tfrac{40}{100}=\\tfrac{2}{5}$（$\\boxed{R}=2,\\boxed{S}=5$）。\n(3) 同色4個：全白は $A$ で2白，$B$ で2白，$\\tfrac{6}{10}\\cdot\\tfrac{1}{10}=\\tfrac{3}{50}$。全赤は $A$ の赤が1個なので不可能。よって $\\tfrac{3}{50}$（$\\boxed{T}=3,\\boxed{UV}=50$）。\n(4) 白2個以下 $=1-P(\\text{白3})-P(\\text{白4})=1-\\tfrac{2}{5}-\\tfrac{3}{50}=\\tfrac{27}{50}$（$\\boxed{WX}=27,\\boxed{YZ}=50$）。"
+      },
+      "blanks": [
+        { "label": "O", "value": "9" }, { "label": "PQ", "value": "25" }, { "label": "R", "value": "2" }, { "label": "S", "value": "5" }, { "label": "T", "value": "3" }, { "label": "UV", "value": "50" }, { "label": "WX", "value": "27" }, { "label": "YZ", "value": "50" }
+      ]
+    },
+    {
+      "id": "2015-1-math-c2-2-1",
+      "answerRow": 3,
+      "number": "II-Q1",
+      "section": "II",
+      "part": "Q1",
+      "topicId": "plane-vectors",
+      "topicIds": ["plane-vectors", "dot-product"],
+      "subtopic": "Angle between linear combinations of two vectors; quartic in the parameter",
+      "patternTags": ["dot-product", "angle-condition", "magnitude-squared", "quartic-equation", "completing-the-square"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "**[II] Q1 — Vectors.** Let $\\vec a$ and $\\vec b$ be two vectors with $|\\vec a|=1$, $|\\vec b|=2$, and the angle between $\\vec a$ and $\\vec b$ equal to $60^\\circ$. Set $\\vec u=x\\vec a+\\vec b$ and $\\vec v=x\\vec a-\\vec b$ for a real number $x$. For $x>1$, find the value of $x$ for which the angle between $\\vec u$ and $\\vec v$ is $30^\\circ$. (Here $\\vec u\\cdot\\vec v$ denotes the inner product of $\\vec u$ and $\\vec v$, and $\\vec a\\cdot\\vec b$ the inner product of $\\vec a$ and $\\vec b$.)\n\nSince the angle between $\\vec u$ and $\\vec v$ is $30^\\circ$, $(\\vec u\\cdot\\vec v)^2=\\dfrac{\\boxed{A}}{\\boxed{B}}\\,|\\vec u|^2|\\vec v|^2$. Noting $\\vec a\\cdot\\vec b=\\boxed{C}$, this becomes\n$$x^4-\\boxed{DE}\\,x^2+\\boxed{FG}=0.$$\nTransforming, $\\left(x^2-\\boxed{H}\\right)^2=\\left(\\boxed{I}\\,x\\right)^2$, and solving with $x>1$ gives\n$$x=\\boxed{J}+\\sqrt{\\boxed{KL}}.$$"
+      },
+      "ja": {
+        "prompt": "**[Ⅱ] 問1 — ベクトル** 2つのベクトル $\\vec a,\\vec b$ が $|\\vec a|=1$，$|\\vec b|=2$，$\\vec a$ と $\\vec b$ のなす角 $60^\\circ$ を満たすとする。実数 $x$ に対し $\\vec u=x\\vec a+\\vec b$，$\\vec v=x\\vec a-\\vec b$ とおく。$x>1$ のとき，$\\vec u$ と $\\vec v$ のなす角が $30^\\circ$ となる $x$ の値を求める。（$\\vec u\\cdot\\vec v$ は $\\vec u,\\vec v$ の内積，$\\vec a\\cdot\\vec b$ は $\\vec a,\\vec b$ の内積を表す。）\n\n$\\vec u,\\vec v$ のなす角が $30^\\circ$ なので $(\\vec u\\cdot\\vec v)^2=\\dfrac{\\boxed{A}}{\\boxed{B}}\\,|\\vec u|^2|\\vec v|^2$。$\\vec a\\cdot\\vec b=\\boxed{C}$ に注意してこれを $x$ で表すと\n$$x^4-\\boxed{DE}\\,x^2+\\boxed{FG}=0。$$\n変形すると $\\left(x^2-\\boxed{H}\\right)^2=\\left(\\boxed{I}\\,x\\right)^2$ となり，$x>1$ のもとで解くと\n$$x=\\boxed{J}+\\sqrt{\\boxed{KL}}。$$"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "$\\cos^2 30^\\circ=\\tfrac34$; $\\vec a\\cdot\\vec b=1$; equation $x^4-44x^2+16=0$, i.e. $(x^2-4)^2=(6x)^2$; with $x>1$, $x=3+\\sqrt{13}$.  Boxes: A=3, B=4, C=1, DE=44, FG=16, H=4, I=6, J=3, KL=13.",
+        "ja": "$\\cos^2 30^\\circ=\\tfrac34$；$\\vec a\\cdot\\vec b=1$；方程式 $x^4-44x^2+16=0$，すなわち $(x^2-4)^2=(6x)^2$；$x>1$ より $x=3+\\sqrt{13}$。 解答：A=3, B=4, C=1, DE=44, FG=16, H=4, I=6, J=3, KL=13。"
+      },
+      "explanation": {
+        "en": "The angle being $30^\\circ$ gives $\\cos 30^\\circ=\\dfrac{\\vec u\\cdot\\vec v}{|\\vec u||\\vec v|}$, so $(\\vec u\\cdot\\vec v)^2=\\cos^2 30^\\circ\\,|\\vec u|^2|\\vec v|^2=\\dfrac34|\\vec u|^2|\\vec v|^2$ ($\\boxed{A}=3,\\boxed{B}=4$). Now $\\vec a\\cdot\\vec b=|\\vec a||\\vec b|\\cos 60^\\circ=1\\cdot2\\cdot\\tfrac12=1$ ($\\boxed{C}=1$). Then\n$\\vec u\\cdot\\vec v=(x\\vec a+\\vec b)\\cdot(x\\vec a-\\vec b)=x^2|\\vec a|^2-|\\vec b|^2=x^2-4$,\n$|\\vec u|^2=x^2|\\vec a|^2+2x(\\vec a\\cdot\\vec b)+|\\vec b|^2=x^2+2x+4$,\n$|\\vec v|^2=x^2-2x+4$.\nSubstituting, $(x^2-4)^2=\\tfrac34(x^2+2x+4)(x^2-2x+4)$. Multiplying by $4$: $4(x^2-4)^2=3(x^2+2x+4)(x^2-2x+4)$, which simplifies to $x^4-44x^2+16=0$ ($\\boxed{DE}=44,\\boxed{FG}=16$). Write it as a difference of squares: $x^4-44x^2+16=(x^2-4)^2-36x^2=(x^2-4)^2-(6x)^2$, so $(x^2-4)^2=(6x)^2$ ($\\boxed{H}=4,\\boxed{I}=6$). Thus $x^2-4=\\pm6x$; for $x>1$ the relevant root comes from $x^2-6x-4=0$, giving $x=3+\\sqrt{13}$ ($\\boxed{J}=3,\\boxed{KL}=13$). (The other roots $-3+\\sqrt{13}\\approx0.6$ and the negative ones fail $x>1$.)",
+        "ja": "なす角 $30^\\circ$ より $(\\vec u\\cdot\\vec v)^2=\\cos^2 30^\\circ\\,|\\vec u|^2|\\vec v|^2=\\dfrac34|\\vec u|^2|\\vec v|^2$（$\\boxed{A}=3,\\boxed{B}=4$）。$\\vec a\\cdot\\vec b=1\\cdot2\\cdot\\tfrac12=1$（$\\boxed{C}=1$）。\n$\\vec u\\cdot\\vec v=x^2|\\vec a|^2-|\\vec b|^2=x^2-4$，$|\\vec u|^2=x^2+2x+4$，$|\\vec v|^2=x^2-2x+4$。\n代入し $4$ 倍して整理すると $x^4-44x^2+16=0$（$\\boxed{DE}=44,\\boxed{FG}=16$）。$=(x^2-4)^2-(6x)^2$ と変形できるので $(x^2-4)^2=(6x)^2$（$\\boxed{H}=4,\\boxed{I}=6$）。よって $x^2-4=\\pm6x$，$x>1$ より $x^2-6x-4=0$ から $x=3+\\sqrt{13}$（$\\boxed{J}=3,\\boxed{KL}=13$）。"
+      },
+      "blanks": [
+        { "label": "A", "value": "3" }, { "label": "B", "value": "4" }, { "label": "C", "value": "1" }, { "label": "DE", "value": "44" }, { "label": "FG", "value": "16" }, { "label": "H", "value": "4" }, { "label": "I", "value": "6" }, { "label": "J", "value": "3" }, { "label": "KL", "value": "13" }
+      ]
+    },
+    {
+      "id": "2015-1-math-c2-2-2",
+      "answerRow": 4,
+      "number": "II-Q2",
+      "section": "II",
+      "part": "Q2",
+      "topicId": "complex-plane",
+      "topicIds": ["complex-plane", "complex-figures"],
+      "subtopic": "Set of z with z^3 real (three lines through the origin); tangency condition for a unique solution",
+      "patternTags": ["complex-plane", "argument-condition", "lines-through-origin", "distance-to-line", "tangency"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "**[II] Q2 — Complex plane.** In the complex plane, consider the complex numbers $z$ such that $z^3$ is a real number.\n\n(1) Let $C$ be the figure formed by the set of complex numbers $z=x+iy$ satisfying the above condition. Since the arguments of these $z$ satisfy $\\arg z=\\dfrac{\\pi}{\\boxed{M}}\\,k$ ($k$: integer), the figure $C$ consists of three straight lines given in terms of $x$ and $y$ by\n$$y=\\boxed{N},\\qquad y=\\sqrt{\\boxed{O}}\\,x,\\qquad y=-\\sqrt{\\boxed{P}}\\,x.$$\n\n(2) Suppose that on $C$ there exists only one complex number $z$ satisfying $|z-1-i|=r$. Then\n$$r=\\dfrac{\\sqrt{\\boxed{Q}}-\\boxed{R}}{\\boxed{S}},$$\nand the value of $z$ is\n$$z=\\dfrac{\\boxed{T}+\\sqrt{\\boxed{U}}}{\\boxed{V}}\\left(1+\\sqrt{\\boxed{W}}\\,i\\right)."
+      },
+      "ja": {
+        "prompt": "**[Ⅱ] 問2 — 複素数平面** 複素数平面上で，$z^3$ が実数となる複素数 $z$ を考える。\n\n(1) この条件を満たす複素数 $z=x+iy$ 全体のなす図形を $C$ とする。これらの $z$ の偏角は $\\arg z=\\dfrac{\\pi}{\\boxed{M}}\\,k$（$k$ は整数）を満たすので，図形 $C$ は $x,y$ を用いて\n$$y=\\boxed{N},\\qquad y=\\sqrt{\\boxed{O}}\\,x,\\qquad y=-\\sqrt{\\boxed{P}}\\,x$$\nで表される3直線からなる。\n\n(2) $C$ 上に $|z-1-i|=r$ を満たす複素数 $z$ がただ1つだけ存在するとする。このとき\n$$r=\\dfrac{\\sqrt{\\boxed{Q}}-\\boxed{R}}{\\boxed{S}}$$\nであり，$z$ の値は\n$$z=\\dfrac{\\boxed{T}+\\sqrt{\\boxed{U}}}{\\boxed{V}}\\left(1+\\sqrt{\\boxed{W}}\\,i\\right)。$$"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "$\\arg z=\\tfrac{\\pi}{3}k$; lines $y=0$, $y=\\sqrt3 x$, $y=-\\sqrt3 x$; the nearest line to $1+i$ is $y=\\sqrt3 x$ at distance $\\tfrac{\\sqrt3-1}{2}=r$; tangent point $z=\\tfrac{1+\\sqrt3}{4}(1+\\sqrt3 i)$.  Boxes: M=3, N=0, O=3, P=3, Q=3, R=1, S=2, T=1, U=3, V=4, W=3.",
+        "ja": "$\\arg z=\\tfrac{\\pi}{3}k$；直線 $y=0,\\ y=\\sqrt3 x,\\ y=-\\sqrt3 x$；$1+i$ に最も近い直線は $y=\\sqrt3 x$ で距離 $\\tfrac{\\sqrt3-1}{2}=r$；接点 $z=\\tfrac{1+\\sqrt3}{4}(1+\\sqrt3 i)$。 解答：M=3, N=0, O=3, P=3, Q=3, R=1, S=2, T=1, U=3, V=4, W=3。"
+      },
+      "explanation": {
+        "en": "$z^3$ real means $\\arg(z^3)=3\\arg z$ is a multiple of $\\pi$, so $\\arg z=\\dfrac{\\pi}{3}k$ ($\\boxed{M}=3$). The directions $k=0,1,2,\\dots$ give angles $0,\\tfrac\\pi3,\\tfrac{2\\pi}3,\\dots$, i.e. three lines through $O$ at $0^\\circ,60^\\circ,120^\\circ$: $y=0$ ($\\boxed{N}=0$), $y=\\tan60^\\circ\\,x=\\sqrt3\\,x$ ($\\boxed{O}=3$), and $y=\\tan120^\\circ\\,x=-\\sqrt3\\,x$ ($\\boxed{P}=3$).\n(2) $|z-(1+i)|=r$ is a circle of radius $r$ centred at $(1,1)$. It meets $C$ in exactly one point when it is tangent to the line nearest to $(1,1)$ and does not reach the others. Distances from $(1,1)$: to $y=0$ it is $1$; to $\\sqrt3x-y=0$ it is $\\dfrac{|\\sqrt3-1|}{2}=\\dfrac{\\sqrt3-1}{2}\\approx0.366$; to $\\sqrt3x+y=0$ it is $\\dfrac{\\sqrt3+1}{2}\\approx1.366$. The smallest is $\\dfrac{\\sqrt3-1}{2}$, so $r=\\dfrac{\\sqrt3-1}{2}$ ($\\boxed{Q}=3,\\boxed{R}=1,\\boxed{S}=2$); since $r<1<1.366$ the circle touches only $y=\\sqrt3x$. The point $z$ is the foot of the perpendicular from $(1,1)$ to $y=\\sqrt3x$: parametrising the line as $(t,\\sqrt3 t)$ and minimising the distance gives $t=\\dfrac{1+\\sqrt3}{4}$, so $z=t+\\sqrt3\\,t\\,i=\\dfrac{1+\\sqrt3}{4}(1+\\sqrt3\\,i)$ ($\\boxed{T}=1,\\boxed{U}=3,\\boxed{V}=4,\\boxed{W}=3$).",
+        "ja": "$z^3$ が実数 $\\Leftrightarrow 3\\arg z$ が $\\pi$ の整数倍，すなわち $\\arg z=\\dfrac{\\pi}{3}k$（$\\boxed{M}=3$）。方向は $0,\\tfrac\\pi3,\\tfrac{2\\pi}3,\\dots$ で，原点を通る $0^\\circ,60^\\circ,120^\\circ$ の3直線：$y=0$（$\\boxed{N}=0$），$y=\\sqrt3 x$（$\\boxed{O}=3$），$y=-\\sqrt3 x$（$\\boxed{P}=3$）。\n(2) $|z-(1+i)|=r$ は中心 $(1,1)$，半径 $r$ の円。$C$ とただ1点で交わるのは最も近い直線に接し他に届かないとき。$(1,1)$ からの距離：$y=0$ へ $1$，$\\sqrt3x-y=0$ へ $\\dfrac{\\sqrt3-1}{2}\\approx0.366$，$\\sqrt3x+y=0$ へ $\\dfrac{\\sqrt3+1}{2}\\approx1.366$。最小は $\\dfrac{\\sqrt3-1}{2}$ で $r=\\dfrac{\\sqrt3-1}{2}$（$\\boxed{Q}=3,\\boxed{R}=1,\\boxed{S}=2$）。$z$ は $(1,1)$ から $y=\\sqrt3x$ への垂線の足で，$(t,\\sqrt3 t)$ で距離最小化すると $t=\\dfrac{1+\\sqrt3}{4}$，$z=\\dfrac{1+\\sqrt3}{4}(1+\\sqrt3\\,i)$（$\\boxed{T}=1,\\boxed{U}=3,\\boxed{V}=4,\\boxed{W}=3$）。"
+      },
+      "blanks": [
+        { "label": "M", "value": "3" }, { "label": "N", "value": "0" }, { "label": "O", "value": "3" }, { "label": "P", "value": "3" }, { "label": "Q", "value": "3" }, { "label": "R", "value": "1" }, { "label": "S", "value": "2" }, { "label": "T", "value": "1" }, { "label": "U", "value": "3" }, { "label": "V", "value": "4" }, { "label": "W", "value": "3" }
+      ]
+    },
+    {
+      "id": "2015-1-math-c2-3",
+      "answerRow": 5,
+      "number": "III",
+      "section": "III",
+      "part": null,
+      "topicId": "derivative-applications",
+      "topicIds": ["derivative-applications", "differentiation"],
+      "subtopic": "Maximum of a parameterised cubic on a half-line; case analysis on the parameter",
+      "patternTags": ["cubic-function", "derivative-extrema", "max-on-interval", "case-analysis", "parameter-range"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "**[III] — Cubic function.** Find the range of values of a real number $t$ such that the maximum value of the cubic function\n$$f(x)=\\dfrac{1}{3}x^3-\\dfrac{t+2}{2}x^2+2tx+\\dfrac{2}{3}$$\nover the interval $x\\le 4$ is greater than $6$.\n\nFirst, the derivative is $f'(x)=(x-\\boxed{A})(x-t)$, so we split into cases.\n\n(i) When $t>\\boxed{A}$, $f(x)$ has a local maximum at $x=\\boxed{A}$ and a local minimum at $x=t$. Since $f(4)=\\boxed{B}$, we only need the range of $t$ with $f(\\boxed{A})>6$.\n\n(ii) When $t=\\boxed{A}$, the maximum of $f(x)$ over $x\\le 4$ is $f(\\boxed{C})=\\boxed{D}$, so the condition is not satisfied.\n\n(iii) When $t<\\boxed{A}$, $f(x)$ has a local maximum at $x=t$ and a local minimum at $x=\\boxed{A}$. Since $f(4)=\\boxed{B}$, we only need the range of $t$ with $f(t)>6$. Here $f(t)-6=-\\dfrac{1}{6}\\left(t+\\boxed{E}\\right)\\left(t-\\boxed{F}\\right)^2$.\n\nFrom the above, the range of $t$ is\n$$t>\\dfrac{\\boxed{GH}}{\\boxed{I}}\\quad\\text{or}\\quad t<\\boxed{JK}."
+      },
+      "ja": {
+        "prompt": "**[Ⅲ] — 三次関数** 区間 $x\\le 4$ における三次関数\n$$f(x)=\\dfrac{1}{3}x^3-\\dfrac{t+2}{2}x^2+2tx+\\dfrac{2}{3}$$\nの最大値が $6$ より大きくなるような実数 $t$ の値の範囲を求める。\n\nまず導関数は $f'(x)=(x-\\boxed{A})(x-t)$ なので，$t$ の値の範囲で場合分けする。\n\n(i) $t>\\boxed{A}$ のとき，$f(x)$ は $x=\\boxed{A}$ で極大，$x=t$ で極小となる。$f(4)=\\boxed{B}$ なので，$f(\\boxed{A})>6$ となる $t$ の範囲を求めればよい。\n\n(ii) $t=\\boxed{A}$ のとき，区間 $x\\le 4$ における $f(x)$ の最大値は $f(\\boxed{C})=\\boxed{D}$ なので，条件を満たさない。\n\n(iii) $t<\\boxed{A}$ のとき，$f(x)$ は $x=t$ で極大，$x=\\boxed{A}$ で極小となる。$f(4)=\\boxed{B}$ なので，$f(t)>6$ となる $t$ の範囲を求めればよい。ここで $f(t)-6=-\\dfrac{1}{6}\\left(t+\\boxed{E}\\right)\\left(t-\\boxed{F}\\right)^2$ である。\n\n以上より，$t$ の範囲は\n$$t>\\dfrac{\\boxed{GH}}{\\boxed{I}}\\quad\\text{または}\\quad t<\\boxed{JK}。$$"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "$f'(x)=(x-2)(x-t)$; $f(4)=6$; for $t=2$ max is $f(4)=6$; $f(t)-6=-\\tfrac16(t+2)(t-4)^2$; range $t>\\tfrac{10}{3}$ or $t<-2$.  Boxes: A=2, B=6, C=4, D=6, E=2, F=4, GH=10, I=3, JK=-2.",
+        "ja": "$f'(x)=(x-2)(x-t)$；$f(4)=6$；$t=2$ のとき最大は $f(4)=6$；$f(t)-6=-\\tfrac16(t+2)(t-4)^2$；範囲 $t>\\tfrac{10}{3}$ または $t<-2$。 解答：A=2, B=6, C=4, D=6, E=2, F=4, GH=10, I=3, JK=-2。"
+      },
+      "explanation": {
+        "en": "$f'(x)=x^2-(t+2)x+2t=(x-2)(x-t)$, so the critical points are $x=2$ and $x=t$ ($\\boxed{A}=2$). Also $f(4)=\\tfrac{64}{3}-\\tfrac{t+2}{2}\\cdot16+8t+\\tfrac23=\\tfrac{64}{3}-8t-16+8t+\\tfrac23=6$, independent of $t$ ($\\boxed{B}=6$).\n(i) $t>2$: local max at $x=2$, local min at $x=t$. On $x\\le4$ the maximum is $f(2)=2t-\\tfrac23$ (and $f(4)=6$); requiring $f(2)>6$ gives $2t-\\tfrac23>6$, i.e. $t>\\tfrac{10}{3}$.\n(ii) $t=2$: $f'(x)=(x-2)^2\\ge0$, so $f$ is increasing and the maximum on $x\\le4$ is $f(4)=6$ ($\\boxed{C}=4,\\boxed{D}=6$), not $>6$.\n(iii) $t<2$: local max at $x=t$, local min at $x=2$; the max on $x\\le4$ is $\\max(f(t),f(4))=\\max(f(t),6)$, so we need $f(t)>6$. Computing, $f(t)-6=-\\tfrac16(t+2)(t-4)^2$ ($\\boxed{E}=2,\\boxed{F}=4$); since $(t-4)^2\\ge0$, this is positive exactly when $t+2<0$, i.e. $t<-2$.\nCombining, $t>\\tfrac{10}{3}$ ($\\boxed{GH}=10,\\boxed{I}=3$) or $t<-2$ ($\\boxed{JK}=-2$).",
+        "ja": "$f'(x)=x^2-(t+2)x+2t=(x-2)(x-t)$ より臨界点は $x=2,t$（$\\boxed{A}=2$）。$f(4)=\\tfrac{64}{3}-8t-16+8t+\\tfrac23=6$ で $t$ によらない（$\\boxed{B}=6$）。\n(i) $t>2$：$x=2$ で極大，$x=t$ で極小。$x\\le4$ での最大は $f(2)=2t-\\tfrac23$，$f(2)>6$ より $t>\\tfrac{10}{3}$。\n(ii) $t=2$：$f'(x)=(x-2)^2\\ge0$ で増加，$x\\le4$ の最大は $f(4)=6$（$\\boxed{C}=4,\\boxed{D}=6$）で条件を満たさない。\n(iii) $t<2$：$x=t$ で極大，$x=2$ で極小。最大は $\\max(f(t),6)$ で $f(t)>6$ が必要。$f(t)-6=-\\tfrac16(t+2)(t-4)^2$（$\\boxed{E}=2,\\boxed{F}=4$），$(t-4)^2\\ge0$ より $t+2<0$ すなわち $t<-2$。\nまとめて $t>\\tfrac{10}{3}$（$\\boxed{GH}=10,\\boxed{I}=3$）または $t<-2$（$\\boxed{JK}=-2$）。"
+      },
+      "blanks": [
+        { "label": "A", "value": "2" }, { "label": "B", "value": "6" }, { "label": "C", "value": "4" }, { "label": "D", "value": "6" }, { "label": "E", "value": "2" }, { "label": "F", "value": "4" }, { "label": "GH", "value": "10" }, { "label": "I", "value": "3" }, { "label": "JK", "value": "-2" }
+      ]
+    },
+    {
+      "id": "2015-1-math-c2-4",
+      "answerRow": 6,
+      "number": "IV",
+      "section": "IV",
+      "part": null,
+      "topicId": "integral-applications",
+      "topicIds": ["integral-applications", "integration", "trig-functions"],
+      "subtopic": "Local extremum of sin x/(3-2cos x) and the two areas it splits with the x-axis",
+      "patternTags": ["quotient-derivative", "trig-extremum", "area-under-curve", "substitution-integral", "logarithmic-integral"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "**[IV] — Trigonometric function and area.** Consider the function\n$$f(x)=\\dfrac{\\sin x}{3-2\\cos x}\\qquad(0\\le x\\le\\pi).$$\n\n(1) The derivative is\n$$f'(x)=\\dfrac{\\boxed{A}\\cos x-\\boxed{B}}{\\left(\\boxed{C}-\\boxed{D}\\cos x\\right)^2}.$$\nLet $\\alpha$ be the value of $x$ at which $f(x)$ has a local extremum. Then $\\cos\\alpha=\\dfrac{\\boxed{E}}{\\boxed{F}}$.\n\n(2) The region bounded by the graph $y=f(x)$ and the $x$-axis is divided into two parts by the line $x=\\alpha$. Let $S_1$ be the area of the part on the left of the line. Then\n$$S_1=\\int_{\\boxed{GH}}^{\\boxed{I}}\\dfrac{dt}{\\boxed{J}-\\boxed{K}\\,t}=\\dfrac{\\boxed{L}}{\\boxed{M}}\\log\\dfrac{\\boxed{N}}{\\boxed{O}}.$$\nLet $S_2$ be the area of the part on the right side. Then\n$$S_2=\\dfrac{\\boxed{P}}{2}\\log\\boxed{Q}."
+      },
+      "ja": {
+        "prompt": "**[Ⅳ] — 三角関数と面積** 関数\n$$f(x)=\\dfrac{\\sin x}{3-2\\cos x}\\qquad(0\\le x\\le\\pi)$$\nを考える。\n\n(1) 導関数は\n$$f'(x)=\\dfrac{\\boxed{A}\\cos x-\\boxed{B}}{\\left(\\boxed{C}-\\boxed{D}\\cos x\\right)^2}$$\nである。$f(x)$ が極値をとる $x$ の値を $\\alpha$ とすると $\\cos\\alpha=\\dfrac{\\boxed{E}}{\\boxed{F}}$。\n\n(2) グラフ $y=f(x)$ と $x$ 軸で囲まれた部分を直線 $x=\\alpha$ で2つに分ける。左側の部分の面積を $S_1$ とすると\n$$S_1=\\int_{\\boxed{GH}}^{\\boxed{I}}\\dfrac{dt}{\\boxed{J}-\\boxed{K}\\,t}=\\dfrac{\\boxed{L}}{\\boxed{M}}\\log\\dfrac{\\boxed{N}}{\\boxed{O}}。$$\n右側の部分の面積を $S_2$ とすると\n$$S_2=\\dfrac{\\boxed{P}}{2}\\log\\boxed{Q}。$$"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "$f'(x)=\\dfrac{3\\cos x-2}{(3-2\\cos x)^2}$, so $\\cos\\alpha=\\tfrac23$; with $t=\\cos x$, $S_1=\\int_{2/3}^{1}\\dfrac{dt}{3-2t}=\\tfrac12\\log\\tfrac53$; $S_2=\\tfrac12\\log 3$.  Boxes: A=3, B=2, C=3, D=2, E=2, F=3, GH=23, I=1, J=3, K=2, L=1, M=2, N=5, O=3, P=1, Q=3.",
+        "ja": "$f'(x)=\\dfrac{3\\cos x-2}{(3-2\\cos x)^2}$ より $\\cos\\alpha=\\tfrac23$；$t=\\cos x$ とおくと $S_1=\\int_{2/3}^{1}\\dfrac{dt}{3-2t}=\\tfrac12\\log\\tfrac53$；$S_2=\\tfrac12\\log 3$。 解答：A=3, B=2, C=3, D=2, E=2, F=3, GH=23, I=1, J=3, K=2, L=1, M=2, N=5, O=3, P=1, Q=3。"
+      },
+      "explanation": {
+        "en": "(1) By the quotient rule, $f'(x)=\\dfrac{\\cos x(3-2\\cos x)-\\sin x(2\\sin x)}{(3-2\\cos x)^2}=\\dfrac{3\\cos x-2\\cos^2x-2\\sin^2x}{(3-2\\cos x)^2}=\\dfrac{3\\cos x-2}{(3-2\\cos x)^2}$ ($\\boxed{A}=3,\\boxed{B}=2,\\boxed{C}=3,\\boxed{D}=2$). The numerator vanishes when $\\cos\\alpha=\\tfrac23$ ($\\boxed{E}=2,\\boxed{F}=3$); $f'$ changes $+\\to-$ there, a maximum.\n(2) On $0\\le x\\le\\pi$, $f\\ge0$. Substitute $t=\\cos x$, $dt=-\\sin x\\,dx$, so $f(x)\\,dx=\\dfrac{\\sin x}{3-2\\cos x}dx=-\\dfrac{dt}{3-2t}$. As $x$ goes $0\\to\\alpha$, $t$ goes $1\\to\\tfrac23$, hence $S_1=\\int_0^{\\alpha}f\\,dx=\\int_{1}^{2/3}-\\dfrac{dt}{3-2t}=\\int_{2/3}^{1}\\dfrac{dt}{3-2t}$ ($\\boxed{GH}=23$ meaning lower limit $\\tfrac23$, $\\boxed{I}=1$, $\\boxed{J}=3,\\boxed{K}=2$). This equals $\\left[-\\tfrac12\\log(3-2t)\\right]_{2/3}^{1}=-\\tfrac12\\log1+\\tfrac12\\log\\tfrac53=\\tfrac12\\log\\tfrac53$ ($\\boxed{L}=1,\\boxed{M}=2,\\boxed{N}=5,\\boxed{O}=3$).\n$S_2=\\int_{\\alpha}^{\\pi}f\\,dx=\\left[\\tfrac12\\log(3-2\\cos x)\\right]_{\\alpha}^{\\pi}=\\tfrac12\\log5-\\tfrac12\\log\\tfrac53=\\tfrac12\\log3$ ($\\boxed{P}=1,\\boxed{Q}=3$), using $\\int f\\,dx=\\tfrac12\\log(3-2\\cos x)$.",
+        "ja": "(1) 商の微分より $f'(x)=\\dfrac{\\cos x(3-2\\cos x)-\\sin x\\cdot2\\sin x}{(3-2\\cos x)^2}=\\dfrac{3\\cos x-2}{(3-2\\cos x)^2}$（$\\boxed{A}=3,\\boxed{B}=2,\\boxed{C}=3,\\boxed{D}=2$）。分子が $0$ となるのは $\\cos\\alpha=\\tfrac23$（$\\boxed{E}=2,\\boxed{F}=3$）で，$f'$ は $+\\to-$ と変わり極大。\n(2) $0\\le x\\le\\pi$ で $f\\ge0$。$t=\\cos x,\\ dt=-\\sin x\\,dx$ とおくと $f\\,dx=-\\dfrac{dt}{3-2t}$。$x:0\\to\\alpha$ で $t:1\\to\\tfrac23$ なので $S_1=\\int_{2/3}^{1}\\dfrac{dt}{3-2t}$（$\\boxed{GH}=23$ は下端 $\\tfrac23$，$\\boxed{I}=1,\\boxed{J}=3,\\boxed{K}=2$）。これは $\\left[-\\tfrac12\\log(3-2t)\\right]_{2/3}^{1}=\\tfrac12\\log\\tfrac53$（$\\boxed{L}=1,\\boxed{M}=2,\\boxed{N}=5,\\boxed{O}=3$）。\n$S_2=\\int_{\\alpha}^{\\pi}f\\,dx=\\left[\\tfrac12\\log(3-2\\cos x)\\right]_{\\alpha}^{\\pi}=\\tfrac12\\log5-\\tfrac12\\log\\tfrac53=\\tfrac12\\log3$（$\\boxed{P}=1,\\boxed{Q}=3$）。"
+      },
+      "blanks": [
+        { "label": "A", "value": "3" }, { "label": "B", "value": "2" }, { "label": "C", "value": "3" }, { "label": "D", "value": "2" }, { "label": "E", "value": "2" }, { "label": "F", "value": "3" }, { "label": "GH", "value": "23" }, { "label": "I", "value": "1" }, { "label": "J", "value": "3" }, { "label": "K", "value": "2" }, { "label": "L", "value": "1" }, { "label": "M", "value": "2" }, { "label": "N", "value": "5" }, { "label": "O", "value": "3" }, { "label": "P", "value": "1" }, { "label": "Q", "value": "3" }
+      ]
+    }
+  ]
+}
