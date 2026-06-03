@@ -8,70 +8,135 @@
   "source": "Examination for Japanese University Admission for International Students, 2021 Session 1 (JASSO). Official English & Japanese papers; answers verified against the official answer key and re-derived by solving.",
   "answerFormat": "digit-fill",
   "answerKeyVerified": true,
+  "note": "The exam has four large questions (大問 I-IV). Large questions I and II each contain two independent sub-questions (問1, 問2); these are stored as separate entries here, giving six questions. Answer-letters follow the official scheme and reset at the start of each large question, so II-Q2 begins at N, etc.",
   "questions": [
     {
-      "id": "2021-1-math-c2-1",
+      "id": "2021-1-math-c2-1-1",
       "answerRow": 1,
-      "number": "I",
+      "number": "I-Q1",
+      "section": "I",
+      "part": "Q1",
       "topicId": "quadratic-functions",
-      "topicIds": ["quadratic-functions", "counting-probability"],
-      "subtopic": "Quadratics (vertex / intersection) + card-game probability",
-      "patternTags": ["vertex-condition", "intersection-of-curves", "max-min-on-interval", "binomial-probability", "symmetry-argument"],
+      "topicIds": ["quadratic-functions"],
+      "subtopic": "Two quadratics: vertex condition, intersection, max of the difference on an interval",
+      "patternTags": ["vertex-condition", "value-matching-condition", "intersection-of-curves", "max-min-on-interval"],
       "hasFigure": false,
       "en": {
-        "prompt": "**Q1 — Quadratic functions.**\n\nConsider the two quadratic functions $f(x)=-2x^2$ and $g(x)=x^2+ax+b$. The function $g(x)$ satisfies: (i) $g(x)$ is minimized at $x=3$; (ii) $g(4)=f(4)$.\n\n(1) From (i), $a=-\\boxed{A}$. From (ii), $b=-\\boxed{BC}$. Hence the minimum value of $g(x)$ is $-\\boxed{DE}$.\n\n(2) To find the value of $x$ with $f(x)=g(x)$ and $x\\neq 4$: since $x^2-\\boxed{F}\\,x-\\boxed{G}=0$, we obtain $x=-\\boxed{H}$.\n\n(3) On $-\\boxed{H}\\le x\\le 4$, the value of $f(x)-g(x)$ is maximized at $x=\\boxed{I}$, and its maximum value is $\\boxed{JK}$.\n\n**Q2 — Probability.**\n\nEach of two people, A and B, has a bag containing three cards numbered $1,2,3$. Each takes out one card and they compare: equal numbers give a draw; otherwise the person with the larger number wins.\n\n(1) For a single game, the probability of a draw is $\\dfrac{\\boxed{L}}{\\boxed{M}}$.\n\n(2) The game is played four times in a row, replacing the cards after each game.\n\n  (i) P(A wins three or more times) $=\\dfrac{\\boxed{N}}{\\boxed{O}}$.\n\n  (ii) P(A wins once, loses once, and the other two are draws) $=\\dfrac{\\boxed{P}}{\\boxed{QR}}$.\n\n  (iii) P(A and B win the same number of times) $=\\dfrac{\\boxed{ST}}{\\boxed{UV}}$. Hence P(the number of A's wins is greater than the number of B's wins) $=\\dfrac{\\boxed{WX}}{\\boxed{UV}}$."
+        "prompt": "**[I] Q1 — Quadratic functions.**\n\nConsider the two quadratic functions $f(x)=-2x^2$ and $g(x)=x^2+ax+b$. The function $g(x)$ satisfies: (i) $g(x)$ is minimized at $x=3$; (ii) $g(4)=f(4)$.\n\n(1) From (i), $a=-\\boxed{A}$. From (ii), $b=-\\boxed{BC}$. Hence the minimum value of $g(x)$ is $-\\boxed{DE}$.\n\n(2) To find the value of $x$ with $f(x)=g(x)$ and $x\\neq 4$: since $x^2-\\boxed{F}\\,x-\\boxed{G}=0$, we obtain $x=-\\boxed{H}$.\n\n(3) On $-\\boxed{H}\\le x\\le 4$, the value of $f(x)-g(x)$ is maximized at $x=\\boxed{I}$, and its maximum value is $\\boxed{JK}$."
       },
       "ja": {
-        "prompt": "**Q1 — 二次関数**\n\n2つの二次関数 $f(x)=-2x^2$，$g(x)=x^2+ax+b$ を考える。$g(x)$ は次の2条件を満たす：(i) $g(x)$ は $x=3$ で最小になる；(ii) $g(4)=f(4)$。\n\n(1) 条件 (i) より $a=-\\boxed{A}$。さらに条件 (ii) より $b=-\\boxed{BC}$。よって $g(x)$ の最小値は $-\\boxed{DE}$ である。\n\n(2) $f(x)=g(x)$ かつ $x\\neq 4$ となる $x$ を求める。$x$ は $x^2-\\boxed{F}\\,x-\\boxed{G}=0$ を満たすので，$x=-\\boxed{H}$ である。\n\n(3) $-\\boxed{H}\\le x\\le 4$ において，$f(x)-g(x)$ は $x=\\boxed{I}$ で最大となり，その最大値は $\\boxed{JK}$ である。\n\n**Q2 — 確率**\n\nA，B の2人はそれぞれ $1,2,3$ の数字が1つずつ書かれた3枚のカードの入った袋を持つ。各自が袋から1枚取り出して数を比べ，同じなら引き分け，異なれば大きい数の人の勝ちとする。\n\n(1) 1回の対戦で引き分けとなる確率は $\\dfrac{\\boxed{L}}{\\boxed{M}}$。\n\n(2) カードを毎回戻して4回続けて対戦するとき，\n\n  (i) A が3回以上勝つ確率は $\\dfrac{\\boxed{N}}{\\boxed{O}}$。\n\n  (ii) A が1勝1敗で残り2回が引き分けとなる確率は $\\dfrac{\\boxed{P}}{\\boxed{QR}}$。\n\n  (iii) A の勝った回数と B の勝った回数が等しい確率は $\\dfrac{\\boxed{ST}}{\\boxed{UV}}$。よって A の勝った回数が B の勝った回数より多い確率は $\\dfrac{\\boxed{WX}}{\\boxed{UV}}$。"
+        "prompt": "**[Ⅰ] 問1 — 二次関数**\n\n2つの二次関数 $f(x)=-2x^2$，$g(x)=x^2+ax+b$ を考える。$g(x)$ は次の2条件を満たす：(i) $g(x)$ は $x=3$ で最小になる；(ii) $g(4)=f(4)$。\n\n(1) 条件 (i) より $a=-\\boxed{A}$。さらに条件 (ii) より $b=-\\boxed{BC}$。よって $g(x)$ の最小値は $-\\boxed{DE}$ である。\n\n(2) $f(x)=g(x)$ かつ $x\\neq 4$ となる $x$ を求める。$x$ は $x^2-\\boxed{F}\\,x-\\boxed{G}=0$ を満たすので，$x=-\\boxed{H}$ である。\n\n(3) $-\\boxed{H}\\le x\\le 4$ において，$f(x)-g(x)$ は $x=\\boxed{I}$ で最大となり，その最大値は $\\boxed{JK}$ である。"
       },
       "answerIndex": -1,
       "answer": {
-        "en": "Q1: $a=-6,\\ b=-24$, min $g=-33$; $x^2-2x-8=0\\Rightarrow x=-2$; $f-g$ is maximized as $27$ at $x=1$.  Q2: draw $=\\tfrac13$; P(A wins $\\ge 3$) $=\\tfrac19$; P(1 win, 1 loss, 2 draws) $=\\tfrac{4}{27}$; P(equal wins) $=\\tfrac{19}{81}$; P(A$>$B) $=\\tfrac{31}{81}$.  Boxes: A=6, BC=24, DE=33, F=2, G=8, H=2, I=1, JK=27, LM=13, NO=19, PQR=427, STUV=1981, WX=31.",
-        "ja": "Q1：$a=-6,\\ b=-24$，$g$ の最小値 $-33$；$x^2-2x-8=0\\Rightarrow x=-2$；$f-g$ は $x=1$ で最大値 $27$。 Q2：引き分け $\\tfrac13$；A が3回以上勝つ $\\tfrac19$；1勝1敗2引分 $\\tfrac{4}{27}$；勝数が等しい $\\tfrac{19}{81}$；A の勝数が多い $\\tfrac{31}{81}$。 解答：A=6, BC=24, DE=33, F=2, G=8, H=2, I=1, JK=27, LM=13, NO=19, PQR=427, STUV=1981, WX=31。"
+        "en": "$a=-6,\\ b=-24$, min $g=-33$; $x^2-2x-8=0\\Rightarrow x=-2$; $f-g$ is maximized as $27$ at $x=1$.  Boxes: A=6, BC=24, DE=33, F=2, G=8, H=2, I=1, JK=27.",
+        "ja": "$a=-6,\\ b=-24$，$g$ の最小値 $-33$；$x^2-2x-8=0\\Rightarrow x=-2$；$f-g$ は $x=1$ で最大値 $27$。 解答：A=6, BC=24, DE=33, F=2, G=8, H=2, I=1, JK=27。"
       },
       "explanation": {
-        "en": "**Q1.** $g(x)=x^2+ax+b$ has its vertex at $x=-a/2$. Condition (i): $-a/2=3\\Rightarrow a=-6$. Condition (ii): $f(4)=-2\\cdot16=-32$ and $g(4)=16+4a+b=16-24+b=b-8$, so $b-8=-32\\Rightarrow b=-24$. Min of $g$ $=b-\\dfrac{a^2}{4}=-24-9=-33$.\n(2) $f=g:\\ -2x^2=x^2-6x-24\\Rightarrow 3x^2-6x-24=0\\Rightarrow x^2-2x-8=0\\Rightarrow (x-4)(x+2)=0$, so $x=-2$ (the root $\\ne 4$).\n(3) $f(x)-g(x)=-3x^2+6x+24$, a downward parabola with vertex at $x=1$ (inside $[-2,4]$); value $=-3+6+24=27$.\n\n**Q2.** Among the $9$ equally likely pairs, $3$ are draws and of the $6$ unequal pairs A is larger in $3$, so $P(\\text{draw})=P(\\text{A win})=P(\\text{B win})=\\tfrac13$.\n(i) $P=\\binom{4}{3}(\\tfrac13)^3(\\tfrac23)+(\\tfrac13)^4=\\tfrac{8}{81}+\\tfrac{1}{81}=\\tfrac{9}{81}=\\tfrac19$.\n(ii) Multinomial: $\\dfrac{4!}{1!\\,1!\\,2!}(\\tfrac13)^4=12\\cdot\\tfrac1{81}=\\tfrac{4}{27}$.\n(iii) Equal wins (0-0,1-1,2-2 with the rest draws): $\\tfrac{19}{81}$. By the A$\\leftrightarrow$B symmetry, $P(\\text{A}>\\text{B})=\\tfrac{1-19/81}{2}=\\tfrac{31}{81}$.",
-        "ja": "**Q1.** 頂点は $x=-a/2$。(i) より $-a/2=3\\Rightarrow a=-6$。(ii)：$f(4)=-32$，$g(4)=b-8$ なので $b=-24$。最小値 $=b-\\dfrac{a^2}{4}=-33$。(2) $-2x^2=x^2-6x-24\\Rightarrow x^2-2x-8=0\\Rightarrow (x-4)(x+2)=0$ より $x=-2$。(3) $f-g=-3x^2+6x+24$ は上に凸で頂点 $x=1$（区間内），値 $27$。\n**Q2.** 9通りのうち引き分け3通り，残り6通りで A が大きいのは3通り。よって各 $\\tfrac13$。(i) $\\binom{4}{3}(\\tfrac13)^3(\\tfrac23)+(\\tfrac13)^4=\\tfrac19$。(ii) $\\dfrac{4!}{1!1!2!}(\\tfrac13)^4=\\tfrac{4}{27}$。(iii) 勝数が等しい確率は $\\tfrac{19}{81}$，対称性より A の方が多い確率は $\\tfrac{31}{81}$。"
+        "en": "$g(x)=x^2+ax+b$ has its vertex at $x=-a/2$. Condition (i): $-a/2=3\\Rightarrow a=-6$. Condition (ii): $f(4)=-2\\cdot16=-32$ and $g(4)=16+4a+b=16-24+b=b-8$, so $b-8=-32\\Rightarrow b=-24$. Min of $g=b-\\dfrac{a^2}{4}=-24-9=-33$.\n(2) $f=g:\\ -2x^2=x^2-6x-24\\Rightarrow 3x^2-6x-24=0\\Rightarrow x^2-2x-8=0\\Rightarrow (x-4)(x+2)=0$, so $x=-2$ (the root $\\ne 4$).\n(3) $f(x)-g(x)=-3x^2+6x+24$, a downward parabola with vertex at $x=1$ (inside $[-2,4]$); value $=-3+6+24=27$.",
+        "ja": "頂点は $x=-a/2$。(i) より $-a/2=3\\Rightarrow a=-6$。(ii)：$f(4)=-32$，$g(4)=b-8$ なので $b=-24$。最小値 $=b-\\dfrac{a^2}{4}=-33$。(2) $-2x^2=x^2-6x-24\\Rightarrow x^2-2x-8=0\\Rightarrow (x-4)(x+2)=0$ より $x=-2$。(3) $f-g=-3x^2+6x+24$ は上に凸で頂点 $x=1$（区間内），値 $27$。"
       },
       "blanks": [
         { "label": "A", "value": "6" }, { "label": "BC", "value": "24" }, { "label": "DE", "value": "33" },
-        { "label": "FG", "value": "28" }, { "label": "H", "value": "2" }, { "label": "I", "value": "1" }, { "label": "JK", "value": "27" },
+        { "label": "FG", "value": "28" }, { "label": "H", "value": "2" }, { "label": "I", "value": "1" }, { "label": "JK", "value": "27" }
+      ]
+    },
+    {
+      "id": "2021-1-math-c2-1-2",
+      "answerRow": 2,
+      "number": "I-Q2",
+      "section": "I",
+      "part": "Q2",
+      "topicId": "counting-probability",
+      "topicIds": ["counting-probability"],
+      "subtopic": "Card-comparison game: single-trial and repeated-trial probabilities, symmetry argument",
+      "patternTags": ["sample-space-enumeration", "binomial-probability", "multinomial-probability", "symmetry-argument"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "**[I] Q2 — Probability.**\n\nEach of two people, A and B, has a bag containing three cards numbered $1,2,3$. Each takes out one card and they compare: equal numbers give a draw; otherwise the person with the larger number wins.\n\n(1) For a single game, the probability of a draw is $\\dfrac{\\boxed{L}}{\\boxed{M}}$.\n\n(2) The game is played four times in a row, replacing the cards after each game.\n\n  (i) P(A wins three or more times) $=\\dfrac{\\boxed{N}}{\\boxed{O}}$.\n\n  (ii) P(A wins once, loses once, and the other two are draws) $=\\dfrac{\\boxed{P}}{\\boxed{QR}}$.\n\n  (iii) P(A and B win the same number of times) $=\\dfrac{\\boxed{ST}}{\\boxed{UV}}$. Hence P(the number of A's wins is greater than the number of B's wins) $=\\dfrac{\\boxed{WX}}{\\boxed{UV}}$."
+      },
+      "ja": {
+        "prompt": "**[Ⅰ] 問2 — 確率**\n\nA，B の2人はそれぞれ $1,2,3$ の数字が1つずつ書かれた3枚のカードの入った袋を持つ。各自が袋から1枚取り出して数を比べ，同じなら引き分け，異なれば大きい数の人の勝ちとする。\n\n(1) 1回の対戦で引き分けとなる確率は $\\dfrac{\\boxed{L}}{\\boxed{M}}$。\n\n(2) カードを毎回戻して4回続けて対戦するとき，\n\n  (i) A が3回以上勝つ確率は $\\dfrac{\\boxed{N}}{\\boxed{O}}$。\n\n  (ii) A が1勝1敗で残り2回が引き分けとなる確率は $\\dfrac{\\boxed{P}}{\\boxed{QR}}$。\n\n  (iii) A の勝った回数と B の勝った回数が等しい確率は $\\dfrac{\\boxed{ST}}{\\boxed{UV}}$。よって A の勝った回数が B の勝った回数より多い確率は $\\dfrac{\\boxed{WX}}{\\boxed{UV}}$。"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "draw $=\\tfrac13$; P(A wins $\\ge 3$) $=\\tfrac19$; P(1 win, 1 loss, 2 draws) $=\\tfrac{4}{27}$; P(equal wins) $=\\tfrac{19}{81}$; P(A$>$B) $=\\tfrac{31}{81}$.  Boxes: LM=13, NO=19, PQR=427, STUV=1981, WX=31.",
+        "ja": "引き分け $\\tfrac13$；A が3回以上勝つ $\\tfrac19$；1勝1敗2引分 $\\tfrac{4}{27}$；勝数が等しい $\\tfrac{19}{81}$；A の勝数が多い $\\tfrac{31}{81}$。 解答：LM=13, NO=19, PQR=427, STUV=1981, WX=31。"
+      },
+      "explanation": {
+        "en": "Among the $9$ equally likely pairs, $3$ are draws and of the $6$ unequal pairs A is larger in $3$, so $P(\\text{draw})=P(\\text{A win})=P(\\text{B win})=\\tfrac13$.\n(i) $P=\\binom{4}{3}(\\tfrac13)^3(\\tfrac23)+(\\tfrac13)^4=\\tfrac{8}{81}+\\tfrac{1}{81}=\\tfrac{9}{81}=\\tfrac19$.\n(ii) Multinomial: $\\dfrac{4!}{1!\\,1!\\,2!}(\\tfrac13)^4=12\\cdot\\tfrac1{81}=\\tfrac{4}{27}$.\n(iii) Equal wins (0-0, 1-1, 2-2, with the rest draws) total $\\tfrac{19}{81}$. By the A$\\leftrightarrow$B symmetry, $P(\\text{A}>\\text{B})=\\tfrac{1-19/81}{2}=\\tfrac{31}{81}$.",
+        "ja": "9通りのうち引き分け3通り，残り6通りで A が大きいのは3通り。よって各 $\\tfrac13$。(i) $\\binom{4}{3}(\\tfrac13)^3(\\tfrac23)+(\\tfrac13)^4=\\tfrac19$。(ii) $\\dfrac{4!}{1!1!2!}(\\tfrac13)^4=\\tfrac{4}{27}$。(iii) 勝数が等しい確率は $\\tfrac{19}{81}$，対称性より A の方が多い確率は $\\tfrac{31}{81}$。"
+      },
+      "blanks": [
         { "label": "LM", "value": "13" }, { "label": "NO", "value": "19" }, { "label": "PQR", "value": "427" }, { "label": "STUV", "value": "1981" }, { "label": "WX", "value": "31" }
       ]
     },
     {
-      "id": "2021-1-math-c2-2",
-      "answerRow": 2,
-      "number": "II",
+      "id": "2021-1-math-c2-2-1",
+      "answerRow": 3,
+      "number": "II-Q1",
+      "section": "II",
+      "part": "Q1",
       "topicId": "space-vectors",
-      "topicIds": ["space-vectors", "complex-figures"],
-      "subtopic": "Regular-tetrahedron vectors + triangle on the complex plane",
-      "patternTags": ["regular-tetrahedron", "position-vectors", "dot-product", "range-of-cosine", "complex-plane", "rotation-similarity"],
+      "topicIds": ["space-vectors", "dot-product"],
+      "subtopic": "Regular tetrahedron: position vectors, dot product, range of cos of an angle",
+      "patternTags": ["regular-tetrahedron", "position-vectors", "dot-product", "range-of-cosine", "expression-from-list"],
       "hasFigure": false,
       "en": {
-        "prompt": "**Q1 — Vectors.** *(For $\\boxed{C},\\boxed{D},\\boxed{E},\\boxed{F},\\boxed{G}$ choose the correct expression from the list $⓪$–$⑨$ below; for the other boxes enter a number.)*\n\nConsider a regular tetrahedron $OABC$ with edges of length $1$. Let $0<x<1$, let $P$ divide $AB$ in the ratio $x:(1-x)$ and $Q$ divide $BC$ in the ratio $x:(1-x)$. Put $\\vec{a}=\\overrightarrow{OA},\\ \\vec{b}=\\overrightarrow{OB},\\ \\vec{c}=\\overrightarrow{OC}$. We find the range of $\\cos\\angle POQ$.\n\nThe vectors satisfy $\\vec a\\cdot\\vec b=\\vec b\\cdot\\vec c=\\vec c\\cdot\\vec a=\\dfrac{\\boxed{A}}{\\boxed{B}}$. We can write $\\overrightarrow{OP}=\\boxed{C}$ and $\\overrightarrow{OQ}=\\boxed{D}$, giving $|\\overrightarrow{OP}|^2=|\\overrightarrow{OQ}|^2=\\boxed{E}$ and $\\overrightarrow{OP}\\cdot\\overrightarrow{OQ}=\\boxed{F}$. Hence $\\cos\\angle POQ=\\dfrac{1}{\\boxed{G}}-\\dfrac{\\boxed{H}}{\\boxed{I}}$, and finally $\\dfrac{\\boxed{J}}{\\boxed{K}}<\\cos\\angle POQ\\le\\dfrac{\\boxed{L}}{\\boxed{M}}$.\n\nChoices: $⓪\\ (1-x)\\vec a+x\\vec b\\quad ①\\ x\\vec a+(1-x)\\vec b\\quad ②\\ (1-x)\\vec b+x\\vec c\\quad ③\\ x\\vec b+(1-x)\\vec c\\quad ④\\ x^2+x+1\\quad ⑤\\ x^2-x+1\\quad ⑥\\ x^2-x-1\\quad ⑦\\ \\tfrac12(-x^2+x+1)\\quad ⑧\\ \\tfrac12(-x^2-x+1)\\quad ⑨\\ \\tfrac12(-x^2+x-1)$\n\n**Q2 — Complex plane.** On the complex plane, triangle $ABC$ has vertices $A(\\alpha),B(\\beta),C(\\gamma)$ with $\\dfrac{\\gamma-\\alpha}{\\beta-\\alpha}=1-i$. (Take arguments in $0\\le\\theta<2\\pi$.)\n\n(1) In polar form $\\dfrac{\\gamma-\\alpha}{\\beta-\\alpha}=\\sqrt{\\boxed{N}}\\left(\\cos\\dfrac{\\boxed{O}}{\\boxed{P}}\\pi+i\\sin\\dfrac{\\boxed{O}}{\\boxed{P}}\\pi\\right)$. Thus $C$ is obtained from $B$ by rotating about $A$ through $\\dfrac{\\boxed{Q}}{\\boxed{R}}\\pi$ and scaling the distance from $A$ by $\\sqrt{\\boxed{S}}$. For $w=\\dfrac{\\gamma-\\beta}{\\alpha-\\beta}$ we have $|w|=\\boxed{T}$ and $\\arg w=\\dfrac{\\boxed{U}}{\\boxed{V}}\\pi$.\n\n(2) If $\\alpha+\\beta+\\gamma=0$, then $|\\alpha|:|\\beta|:|\\gamma|=\\sqrt{\\boxed{W}}:\\sqrt{\\boxed{X}}:\\sqrt{\\boxed{Y}}$."
+        "prompt": "**[II] Q1 — Vectors.** *(For $\\boxed{C},\\boxed{D},\\boxed{E},\\boxed{F},\\boxed{G}$ choose the correct expression from the list $⓪$–$⑨$ below; for the other boxes enter a number.)*\n\nConsider a regular tetrahedron $OABC$ with edges of length $1$. Let $0<x<1$, let $P$ divide $AB$ in the ratio $x:(1-x)$ and $Q$ divide $BC$ in the ratio $x:(1-x)$. Put $\\vec{a}=\\overrightarrow{OA},\\ \\vec{b}=\\overrightarrow{OB},\\ \\vec{c}=\\overrightarrow{OC}$. We find the range of $\\cos\\angle POQ$.\n\nThe vectors satisfy $\\vec a\\cdot\\vec b=\\vec b\\cdot\\vec c=\\vec c\\cdot\\vec a=\\dfrac{\\boxed{A}}{\\boxed{B}}$. We can write $\\overrightarrow{OP}=\\boxed{C}$ and $\\overrightarrow{OQ}=\\boxed{D}$, giving $|\\overrightarrow{OP}|^2=|\\overrightarrow{OQ}|^2=\\boxed{E}$ and $\\overrightarrow{OP}\\cdot\\overrightarrow{OQ}=\\boxed{F}$. Hence $\\cos\\angle POQ=\\dfrac{1}{\\boxed{G}}-\\dfrac{\\boxed{H}}{\\boxed{I}}$, and finally $\\dfrac{\\boxed{J}}{\\boxed{K}}<\\cos\\angle POQ\\le\\dfrac{\\boxed{L}}{\\boxed{M}}$.\n\nChoices: $⓪\\ (1-x)\\vec a+x\\vec b\\quad ①\\ x\\vec a+(1-x)\\vec b\\quad ②\\ (1-x)\\vec b+x\\vec c\\quad ③\\ x\\vec b+(1-x)\\vec c\\quad ④\\ x^2+x+1\\quad ⑤\\ x^2-x+1\\quad ⑥\\ x^2-x-1\\quad ⑦\\ \\tfrac12(-x^2+x+1)\\quad ⑧\\ \\tfrac12(-x^2-x+1)\\quad ⑨\\ \\tfrac12(-x^2+x-1)$"
       },
       "ja": {
-        "prompt": "**Q1 — ベクトル** *（$\\boxed{C},\\boxed{D},\\boxed{E},\\boxed{F},\\boxed{G}$ は下の選択肢 $⓪$〜$⑨$ から選び，他の空欄には数を入れよ。）*\n\n1辺の長さ $1$ の正四面体 $OABC$ を考える。$0<x<1$ とし，$P$ は辺 $AB$ を $x:(1-x)$ に，$Q$ は辺 $BC$ を $x:(1-x)$ に分ける点とする。$\\vec a=\\overrightarrow{OA},\\ \\vec b=\\overrightarrow{OB},\\ \\vec c=\\overrightarrow{OC}$ とおき，$\\cos\\angle POQ$ の値の範囲を求める。\n\n各ベクトルは $\\vec a\\cdot\\vec b=\\vec b\\cdot\\vec c=\\vec c\\cdot\\vec a=\\dfrac{\\boxed{A}}{\\boxed{B}}$ を満たす。$\\overrightarrow{OP}=\\boxed{C}$，$\\overrightarrow{OQ}=\\boxed{D}$ と表せ，$|\\overrightarrow{OP}|^2=|\\overrightarrow{OQ}|^2=\\boxed{E}$，$\\overrightarrow{OP}\\cdot\\overrightarrow{OQ}=\\boxed{F}$。よって $\\cos\\angle POQ=\\dfrac{1}{\\boxed{G}}-\\dfrac{\\boxed{H}}{\\boxed{I}}$，最終的に $\\dfrac{\\boxed{J}}{\\boxed{K}}<\\cos\\angle POQ\\le\\dfrac{\\boxed{L}}{\\boxed{M}}$。\n\n選択肢：$⓪\\ (1-x)\\vec a+x\\vec b\\quad ①\\ x\\vec a+(1-x)\\vec b\\quad ②\\ (1-x)\\vec b+x\\vec c\\quad ③\\ x\\vec b+(1-x)\\vec c\\quad ④\\ x^2+x+1\\quad ⑤\\ x^2-x+1\\quad ⑥\\ x^2-x-1\\quad ⑦\\ \\tfrac12(-x^2+x+1)\\quad ⑧\\ \\tfrac12(-x^2-x+1)\\quad ⑨\\ \\tfrac12(-x^2+x-1)$\n\n**Q2 — 複素数平面** 複素数平面上の三角形 $ABC$ の頂点 $A(\\alpha),B(\\beta),C(\\gamma)$ が $\\dfrac{\\gamma-\\alpha}{\\beta-\\alpha}=1-i$ を満たす。（偏角は $0\\le\\theta<2\\pi$ とする。）\n\n(1) 極形式で $\\dfrac{\\gamma-\\alpha}{\\beta-\\alpha}=\\sqrt{\\boxed{N}}\\left(\\cos\\dfrac{\\boxed{O}}{\\boxed{P}}\\pi+i\\sin\\dfrac{\\boxed{O}}{\\boxed{P}}\\pi\\right)$。よって $C$ は $B$ を $A$ のまわりに $\\dfrac{\\boxed{Q}}{\\boxed{R}}\\pi$ 回転し，$A$ からの距離を $\\sqrt{\\boxed{S}}$ 倍した点。$w=\\dfrac{\\gamma-\\beta}{\\alpha-\\beta}$ について $|w|=\\boxed{T}$，$\\arg w=\\dfrac{\\boxed{U}}{\\boxed{V}}\\pi$。\n\n(2) $\\alpha+\\beta+\\gamma=0$ ならば $|\\alpha|:|\\beta|:|\\gamma|=\\sqrt{\\boxed{W}}:\\sqrt{\\boxed{X}}:\\sqrt{\\boxed{Y}}$。"
+        "prompt": "**[Ⅱ] 問1 — ベクトル** *（$\\boxed{C},\\boxed{D},\\boxed{E},\\boxed{F},\\boxed{G}$ は下の選択肢 $⓪$〜$⑨$ から選び，他の空欄には数を入れよ。）*\n\n1辺の長さ $1$ の正四面体 $OABC$ を考える。$0<x<1$ とし，$P$ は辺 $AB$ を $x:(1-x)$ に，$Q$ は辺 $BC$ を $x:(1-x)$ に分ける点とする。$\\vec a=\\overrightarrow{OA},\\ \\vec b=\\overrightarrow{OB},\\ \\vec c=\\overrightarrow{OC}$ とおき，$\\cos\\angle POQ$ の値の範囲を求める。\n\n各ベクトルは $\\vec a\\cdot\\vec b=\\vec b\\cdot\\vec c=\\vec c\\cdot\\vec a=\\dfrac{\\boxed{A}}{\\boxed{B}}$ を満たす。$\\overrightarrow{OP}=\\boxed{C}$，$\\overrightarrow{OQ}=\\boxed{D}$ と表せ，$|\\overrightarrow{OP}|^2=|\\overrightarrow{OQ}|^2=\\boxed{E}$，$\\overrightarrow{OP}\\cdot\\overrightarrow{OQ}=\\boxed{F}$。よって $\\cos\\angle POQ=\\dfrac{1}{\\boxed{G}}-\\dfrac{\\boxed{H}}{\\boxed{I}}$，最終的に $\\dfrac{\\boxed{J}}{\\boxed{K}}<\\cos\\angle POQ\\le\\dfrac{\\boxed{L}}{\\boxed{M}}$。\n\n選択肢：$⓪\\ (1-x)\\vec a+x\\vec b\\quad ①\\ x\\vec a+(1-x)\\vec b\\quad ②\\ (1-x)\\vec b+x\\vec c\\quad ③\\ x\\vec b+(1-x)\\vec c\\quad ④\\ x^2+x+1\\quad ⑤\\ x^2-x+1\\quad ⑥\\ x^2-x-1\\quad ⑦\\ \\tfrac12(-x^2+x+1)\\quad ⑧\\ \\tfrac12(-x^2-x+1)\\quad ⑨\\ \\tfrac12(-x^2+x-1)$"
       },
       "answerIndex": -1,
       "answer": {
-        "en": "Q1: $\\vec a\\cdot\\vec b=\\tfrac12$; $\\overrightarrow{OP}=⓪,\\ \\overrightarrow{OQ}=②$; $|\\overrightarrow{OP}|^2=⑤\\ (x^2-x+1)$; $\\overrightarrow{OP}\\cdot\\overrightarrow{OQ}=⑦$; $\\cos\\angle POQ=\\dfrac1{x^2-x+1}-\\dfrac12$ (so G picks ⑤), and $\\tfrac12<\\cos\\angle POQ\\le\\tfrac56$.  Q2: $1-i=\\sqrt2(\\cos\\tfrac74\\pi+i\\sin\\tfrac74\\pi)$; rotation $\\tfrac74\\pi$, scale $\\sqrt2$; $w=i$ so $|w|=1,\\ \\arg w=\\tfrac12\\pi$; ratio $\\sqrt5:\\sqrt2:\\sqrt5$.  Boxes: AB=12, C=0, D=2, E=5, F=7, G=5, HI=12, JK=12, LM=56, N=2, OP=74, QR=74, S=2, T=1, UV=12, WXY=525.",
-        "ja": "Q1：$\\vec a\\cdot\\vec b=\\tfrac12$；$\\overrightarrow{OP}=⓪,\\ \\overrightarrow{OQ}=②$；$|\\overrightarrow{OP}|^2=⑤$；$\\overrightarrow{OP}\\cdot\\overrightarrow{OQ}=⑦$；$\\cos\\angle POQ=\\dfrac1{x^2-x+1}-\\dfrac12$，$\\tfrac12<\\cos\\angle POQ\\le\\tfrac56$。 Q2：$1-i=\\sqrt2(\\cos\\tfrac74\\pi+i\\sin\\tfrac74\\pi)$，回転 $\\tfrac74\\pi$・$\\sqrt2$ 倍；$w=i$ で $|w|=1,\\ \\arg w=\\tfrac12\\pi$；比 $\\sqrt5:\\sqrt2:\\sqrt5$。 解答：AB=12, C=0, D=2, E=5, F=7, G=5, HI=12, JK=12, LM=56, N=2, OP=74, QR=74, S=2, T=1, UV=12, WXY=525。"
+        "en": "$\\vec a\\cdot\\vec b=\\tfrac12$; $\\overrightarrow{OP}=⓪,\\ \\overrightarrow{OQ}=②$; $|\\overrightarrow{OP}|^2=⑤\\ (x^2-x+1)$; $\\overrightarrow{OP}\\cdot\\overrightarrow{OQ}=⑦$; $\\cos\\angle POQ=\\dfrac1{x^2-x+1}-\\dfrac12$ (G picks ⑤), and $\\tfrac12<\\cos\\angle POQ\\le\\tfrac56$.  Boxes: AB=12, C=0, D=2, E=5, F=7, G=5, HI=12, JK=12, LM=56.",
+        "ja": "$\\vec a\\cdot\\vec b=\\tfrac12$；$\\overrightarrow{OP}=⓪,\\ \\overrightarrow{OQ}=②$；$|\\overrightarrow{OP}|^2=⑤$；$\\overrightarrow{OP}\\cdot\\overrightarrow{OQ}=⑦$；$\\cos\\angle POQ=\\dfrac1{x^2-x+1}-\\dfrac12$，$\\tfrac12<\\cos\\angle POQ\\le\\tfrac56$。 解答：AB=12, C=0, D=2, E=5, F=7, G=5, HI=12, JK=12, LM=56。"
       },
       "explanation": {
-        "en": "**Q1.** Unit edges at $60^\\circ$ give $\\vec a\\cdot\\vec b=\\cos60^\\circ=\\tfrac12$. $P$ divides $AB$ as $AP:PB=x:(1-x)$, so $\\overrightarrow{OP}=(1-x)\\vec a+x\\vec b\\ (⓪)$; likewise $\\overrightarrow{OQ}=(1-x)\\vec b+x\\vec c\\ (②)$. Then $|\\overrightarrow{OP}|^2=(1-x)^2+x^2+2x(1-x)\\tfrac12=x^2-x+1\\ (⑤)$. And $\\overrightarrow{OP}\\cdot\\overrightarrow{OQ}=\\tfrac12(-x^2+x+1)\\ (⑦)$. So $\\cos\\angle POQ=\\dfrac{\\tfrac12(-x^2+x+1)}{x^2-x+1}=\\dfrac{1}{x^2-x+1}-\\dfrac12$ (here $\\boxed{G}$ is choice ⑤ $=x^2-x+1$). For $0<x<1$, $x^2-x+1\\in[\\tfrac34,1)$, so $\\dfrac1{x^2-x+1}\\in(1,\\tfrac43]$ and $\\cos\\angle POQ\\in(\\tfrac12,\\tfrac56]$.\n\n**Q2.** $1-i$ has modulus $\\sqrt2$ and argument $-\\tfrac\\pi4\\equiv\\tfrac74\\pi$, so $1-i=\\sqrt2(\\cos\\tfrac74\\pi+i\\sin\\tfrac74\\pi)$; multiplying by it rotates by $\\tfrac74\\pi$ and scales by $\\sqrt2$. Taking $A=0,B=1$ gives $C=1-i$, so $w=\\dfrac{\\gamma-\\beta}{\\alpha-\\beta}=\\dfrac{(1-i)-1}{0-1}=\\dfrac{-i}{-1}=i$, hence $|w|=1,\\ \\arg w=\\tfrac\\pi2$. (2) With $\\alpha+\\beta+\\gamma=0$ the points are measured from the centroid; for $A=0,B=1,C=1-i$ the centroid is $\\tfrac{2-i}{3}$ and the distances to $A,B,C$ are $\\tfrac{\\sqrt5}{3},\\tfrac{\\sqrt2}{3},\\tfrac{\\sqrt5}{3}$, so $|\\alpha|:|\\beta|:|\\gamma|=\\sqrt5:\\sqrt2:\\sqrt5$.",
-        "ja": "**Q1.** 1辺が単位・なす角 $60^\\circ$ なので $\\vec a\\cdot\\vec b=\\tfrac12$。$AP:PB=x:(1-x)$ より $\\overrightarrow{OP}=(1-x)\\vec a+x\\vec b\\,(⓪)$，同様に $\\overrightarrow{OQ}=(1-x)\\vec b+x\\vec c\\,(②)$。$|\\overrightarrow{OP}|^2=x^2-x+1\\,(⑤)$，$\\overrightarrow{OP}\\cdot\\overrightarrow{OQ}=\\tfrac12(-x^2+x+1)\\,(⑦)$。よって $\\cos\\angle POQ=\\dfrac1{x^2-x+1}-\\dfrac12$（$\\boxed{G}$ は選択肢⑤）。$0<x<1$ で $x^2-x+1\\in[\\tfrac34,1)$ より $\\tfrac12<\\cos\\angle POQ\\le\\tfrac56$。\n**Q2.** $1-i$ は絶対値 $\\sqrt2$，偏角 $\\tfrac74\\pi$。$A=0,B=1$ とすると $C=1-i$，$w=\\dfrac{-i}{-1}=i$ で $|w|=1,\\ \\arg w=\\tfrac\\pi2$。(2) 重心を原点とみなすと $A,B,C$ から重心までの距離は $\\tfrac{\\sqrt5}{3},\\tfrac{\\sqrt2}{3},\\tfrac{\\sqrt5}{3}$，よって $\\sqrt5:\\sqrt2:\\sqrt5$。"
+        "en": "Unit edges at $60^\\circ$ give $\\vec a\\cdot\\vec b=\\cos60^\\circ=\\tfrac12$. $P$ divides $AB$ as $AP:PB=x:(1-x)$, so $\\overrightarrow{OP}=(1-x)\\vec a+x\\vec b\\ (⓪)$; likewise $\\overrightarrow{OQ}=(1-x)\\vec b+x\\vec c\\ (②)$. Then $|\\overrightarrow{OP}|^2=(1-x)^2+x^2+2x(1-x)\\tfrac12=x^2-x+1\\ (⑤)$ and $\\overrightarrow{OP}\\cdot\\overrightarrow{OQ}=\\tfrac12(-x^2+x+1)\\ (⑦)$. So $\\cos\\angle POQ=\\dfrac{\\tfrac12(-x^2+x+1)}{x^2-x+1}=\\dfrac{1}{x^2-x+1}-\\dfrac12$ (here $\\boxed{G}$ is choice ⑤ $=x^2-x+1$). For $0<x<1$, $x^2-x+1\\in[\\tfrac34,1)$, so $\\dfrac1{x^2-x+1}\\in(1,\\tfrac43]$ and $\\cos\\angle POQ\\in(\\tfrac12,\\tfrac56]$.",
+        "ja": "1辺が単位・なす角 $60^\\circ$ なので $\\vec a\\cdot\\vec b=\\tfrac12$。$AP:PB=x:(1-x)$ より $\\overrightarrow{OP}=(1-x)\\vec a+x\\vec b\\,(⓪)$，同様に $\\overrightarrow{OQ}=(1-x)\\vec b+x\\vec c\\,(②)$。$|\\overrightarrow{OP}|^2=x^2-x+1\\,(⑤)$，$\\overrightarrow{OP}\\cdot\\overrightarrow{OQ}=\\tfrac12(-x^2+x+1)\\,(⑦)$。よって $\\cos\\angle POQ=\\dfrac1{x^2-x+1}-\\dfrac12$（$\\boxed{G}$ は選択肢⑤）。$0<x<1$ で $x^2-x+1\\in[\\tfrac34,1)$ より $\\tfrac12<\\cos\\angle POQ\\le\\tfrac56$。"
       },
       "blanks": [
-        { "label": "AB", "value": "12" }, { "label": "C", "value": "0" }, { "label": "D", "value": "2" }, { "label": "E", "value": "5" }, { "label": "F", "value": "7" }, { "label": "G", "value": "5" }, { "label": "HI", "value": "12" }, { "label": "JK", "value": "12" }, { "label": "LM", "value": "56" },
+        { "label": "AB", "value": "12" }, { "label": "C", "value": "0" }, { "label": "D", "value": "2" }, { "label": "E", "value": "5" }, { "label": "F", "value": "7" }, { "label": "G", "value": "5" }, { "label": "HI", "value": "12" }, { "label": "JK", "value": "12" }, { "label": "LM", "value": "56" }
+      ]
+    },
+    {
+      "id": "2021-1-math-c2-2-2",
+      "answerRow": 4,
+      "number": "II-Q2",
+      "section": "II",
+      "part": "Q2",
+      "topicId": "complex-figures",
+      "topicIds": ["complex-figures", "complex-plane-polar"],
+      "subtopic": "Triangle on the complex plane: polar form, rotation/similarity, side ratios under a constraint",
+      "patternTags": ["complex-plane", "polar-form", "rotation-similarity", "argument-modulus", "side-ratios", "centroid-constraint"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "**[II] Q2 — Complex plane.** On the complex plane, triangle $ABC$ has vertices $A(\\alpha),B(\\beta),C(\\gamma)$ with $\\dfrac{\\gamma-\\alpha}{\\beta-\\alpha}=1-i$. (Take arguments in $0\\le\\theta<2\\pi$.)\n\n(1) In polar form $\\dfrac{\\gamma-\\alpha}{\\beta-\\alpha}=\\sqrt{\\boxed{N}}\\left(\\cos\\dfrac{\\boxed{O}}{\\boxed{P}}\\pi+i\\sin\\dfrac{\\boxed{O}}{\\boxed{P}}\\pi\\right)$. Thus $C$ is obtained from $B$ by rotating about $A$ through $\\dfrac{\\boxed{Q}}{\\boxed{R}}\\pi$ and scaling the distance from $A$ by $\\sqrt{\\boxed{S}}$. For $w=\\dfrac{\\gamma-\\beta}{\\alpha-\\beta}$ we have $|w|=\\boxed{T}$ and $\\arg w=\\dfrac{\\boxed{U}}{\\boxed{V}}\\pi$.\n\n(2) If $\\alpha+\\beta+\\gamma=0$, then $|\\alpha|:|\\beta|:|\\gamma|=\\sqrt{\\boxed{W}}:\\sqrt{\\boxed{X}}:\\sqrt{\\boxed{Y}}$."
+      },
+      "ja": {
+        "prompt": "**[Ⅱ] 問2 — 複素数平面** 複素数平面上の三角形 $ABC$ の頂点 $A(\\alpha),B(\\beta),C(\\gamma)$ が $\\dfrac{\\gamma-\\alpha}{\\beta-\\alpha}=1-i$ を満たす。（偏角は $0\\le\\theta<2\\pi$ とする。）\n\n(1) 極形式で $\\dfrac{\\gamma-\\alpha}{\\beta-\\alpha}=\\sqrt{\\boxed{N}}\\left(\\cos\\dfrac{\\boxed{O}}{\\boxed{P}}\\pi+i\\sin\\dfrac{\\boxed{O}}{\\boxed{P}}\\pi\\right)$。よって $C$ は $B$ を $A$ のまわりに $\\dfrac{\\boxed{Q}}{\\boxed{R}}\\pi$ 回転し，$A$ からの距離を $\\sqrt{\\boxed{S}}$ 倍した点。$w=\\dfrac{\\gamma-\\beta}{\\alpha-\\beta}$ について $|w|=\\boxed{T}$，$\\arg w=\\dfrac{\\boxed{U}}{\\boxed{V}}\\pi$。\n\n(2) $\\alpha+\\beta+\\gamma=0$ ならば $|\\alpha|:|\\beta|:|\\gamma|=\\sqrt{\\boxed{W}}:\\sqrt{\\boxed{X}}:\\sqrt{\\boxed{Y}}$。"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "$1-i=\\sqrt2(\\cos\\tfrac74\\pi+i\\sin\\tfrac74\\pi)$; rotation $\\tfrac74\\pi$, scale $\\sqrt2$; $w=i$ so $|w|=1,\\ \\arg w=\\tfrac12\\pi$; ratio $\\sqrt5:\\sqrt2:\\sqrt5$.  Boxes: N=2, OP=74, QR=74, S=2, T=1, UV=12, WXY=525.",
+        "ja": "$1-i=\\sqrt2(\\cos\\tfrac74\\pi+i\\sin\\tfrac74\\pi)$，回転 $\\tfrac74\\pi$・$\\sqrt2$ 倍；$w=i$ で $|w|=1,\\ \\arg w=\\tfrac12\\pi$；比 $\\sqrt5:\\sqrt2:\\sqrt5$。 解答：N=2, OP=74, QR=74, S=2, T=1, UV=12, WXY=525。"
+      },
+      "explanation": {
+        "en": "$1-i$ has modulus $\\sqrt2$ and argument $-\\tfrac\\pi4\\equiv\\tfrac74\\pi$, so $1-i=\\sqrt2(\\cos\\tfrac74\\pi+i\\sin\\tfrac74\\pi)$; multiplying by it rotates by $\\tfrac74\\pi$ and scales by $\\sqrt2$. Taking $A=0,B=1$ gives $C=1-i$, so $w=\\dfrac{\\gamma-\\beta}{\\alpha-\\beta}=\\dfrac{(1-i)-1}{0-1}=\\dfrac{-i}{-1}=i$, hence $|w|=1,\\ \\arg w=\\tfrac\\pi2$. (2) With $\\alpha+\\beta+\\gamma=0$ the points are measured from the centroid; for $A=0,B=1,C=1-i$ the centroid is $\\tfrac{2-i}{3}$ and the distances to $A,B,C$ are $\\tfrac{\\sqrt5}{3},\\tfrac{\\sqrt2}{3},\\tfrac{\\sqrt5}{3}$, so $|\\alpha|:|\\beta|:|\\gamma|=\\sqrt5:\\sqrt2:\\sqrt5$.",
+        "ja": "$1-i$ は絶対値 $\\sqrt2$，偏角 $\\tfrac74\\pi$ なので $1-i=\\sqrt2(\\cos\\tfrac74\\pi+i\\sin\\tfrac74\\pi)$。$A=0,B=1$ とすると $C=1-i$，$w=\\dfrac{-i}{-1}=i$ で $|w|=1,\\ \\arg w=\\tfrac\\pi2$。(2) 重心を原点とみなすと $A,B,C$ から重心までの距離は $\\tfrac{\\sqrt5}{3},\\tfrac{\\sqrt2}{3},\\tfrac{\\sqrt5}{3}$，よって $\\sqrt5:\\sqrt2:\\sqrt5$。"
+      },
+      "blanks": [
         { "label": "N", "value": "2" }, { "label": "OP", "value": "74" }, { "label": "QR", "value": "74" }, { "label": "S", "value": "2" }, { "label": "T", "value": "1" }, { "label": "UV", "value": "12" }, { "label": "WXY", "value": "525" }
       ]
     },
     {
       "id": "2021-1-math-c2-3",
-      "answerRow": 3,
+      "answerRow": 5,
       "number": "III",
+      "section": "III",
+      "part": null,
       "topicId": "differentiation",
       "topicIds": ["differentiation", "exp-log"],
       "subtopic": "Minimizing a symmetric exponential expression via t = 2^x + 2^{-x}",
@@ -98,8 +163,10 @@
     },
     {
       "id": "2021-1-math-c2-4",
-      "answerRow": 4,
+      "answerRow": 6,
       "number": "IV",
+      "section": "IV",
+      "part": null,
       "topicId": "integration",
       "topicIds": ["integration", "trig-functions"],
       "subtopic": "Areas between y = sin^2 x and y = k cos 2x; difference independent of k",
