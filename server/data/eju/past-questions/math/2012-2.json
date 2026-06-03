@@ -1,0 +1,194 @@
+{
+  "id": "2012-2-math-c2",
+  "year": 2012,
+  "session": 2,
+  "subject": "math",
+  "course": 2,
+  "title": "2012 EJU Session 2 — Mathematics (Course 2)",
+  "source": "Examination for Japanese University Admission for International Students, 2012 Session 2 (JASSO). Official English question paper (image-only scan, rendered to page images); answers verified against the official answer key (machine-readable Course 2 column) and independently re-derived by solving.",
+  "answerFormat": "digit-fill",
+  "answerKeyVerified": true,
+  "note": "The Course 2 exam has four large questions (大問 I-IV). Large questions I and IV each contain two independent sub-questions (問1, 問2); these are stored as separate entries, giving six questions. Large questions II and III are single questions. Answer-letters follow the official scheme and reset at the start of each large question (and at the start of each sub-question within I and IV). Every box was re-solved and matched to the Course 2 column of the official answer key.",
+  "questions": [
+    {
+      "id": "2012-2-math-c2-1-1",
+      "answerRow": 1,
+      "number": "I-Q1",
+      "section": "I",
+      "part": "Q1",
+      "topicId": "quadratic-functions",
+      "topicIds": ["quadratic-functions"],
+      "subtopic": "Quadratic symmetric about the origin: vertex, choosing the reflected function, intersection points, max/min on an interval",
+      "patternTags": ["vertex-form", "symmetry-about-origin", "expression-selection", "intersection-of-curves", "max-min-on-interval"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "**[I] Q1 — Quadratic functions.**\n\nLet $a\\neq 0$. Let $G$ be the curve which is symmetric with respect to the origin $(0,0)$ to the graph of the quadratic function\n$$y=ax^2-4x-4a.\\qquad\\cdots\\cdots①$$\n\n(1) The coordinates of the vertex of the graph of $①$ are $\\left(\\dfrac{\\boxed{A}}{a},\\ -\\dfrac{\\boxed{B}}{a}-4a\\right)$.\n\n(2) Among the following choices, the quadratic function whose graph is $G$ is $\\boxed{C}$.\n\n  $⓪\\ y=ax^2+4x+4a\\quad ①\\ y=ax^2+4x-4a\\quad ②\\ y=ax^2-4x+4a$\n  $③\\ y=-ax^2+4x+4a\\quad ④\\ y=-ax^2-4x+4a\\quad ⑤\\ y=-ax^2-4x-4a$\n\n(3) The curve $G$ intersects the graph of $①$ at the two points $\\left(\\boxed{DE},\\ \\boxed{F}\\right)$ and $\\left(\\boxed{G},\\ \\boxed{HI}\\right)$.\n\n(4) Let $a=2$. Then over the interval $\\boxed{DE}\\le x\\le\\boxed{G}$, the maximum and the minimum values of the quadratic function whose graph is $G$ are $\\boxed{JK}$ and $\\boxed{LM}$, respectively."
+      },
+      "ja": {
+        "prompt": "**[Ⅰ] 問1 — 二次関数**\n\n$a\\neq 0$ とする。$G$ を，二次関数\n$$y=ax^2-4x-4a\\qquad\\cdots\\cdots①$$\nのグラフと原点 $(0,0)$ に関して対称な曲線とする。\n\n(1) $①$ のグラフの頂点の座標は $\\left(\\dfrac{\\boxed{A}}{a},\\ -\\dfrac{\\boxed{B}}{a}-4a\\right)$ である。\n\n(2) 次の選択肢のうち，グラフが $G$ となる二次関数は $\\boxed{C}$ である。\n\n  $⓪\\ y=ax^2+4x+4a\\quad ①\\ y=ax^2+4x-4a\\quad ②\\ y=ax^2-4x+4a$\n  $③\\ y=-ax^2+4x+4a\\quad ④\\ y=-ax^2-4x+4a\\quad ⑤\\ y=-ax^2-4x-4a$\n\n(3) 曲線 $G$ は $①$ のグラフと2点 $\\left(\\boxed{DE},\\ \\boxed{F}\\right)$，$\\left(\\boxed{G},\\ \\boxed{HI}\\right)$ で交わる。\n\n(4) $a=2$ とする。このとき，区間 $\\boxed{DE}\\le x\\le\\boxed{G}$ において，グラフが $G$ となる二次関数の最大値は $\\boxed{JK}$，最小値は $\\boxed{LM}$ である。"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "Vertex $\\left(\\tfrac2a,\\,-\\tfrac4a-4a\\right)$; $G$ is choice ④ $y=-ax^2-4x+4a$; intersections $(-2,8)$ and $(2,-8)$; for $a=2$ on $-2\\le x\\le 2$, max $=10$, min $=-8$.  Boxes: A=2, B=4, C=4, DE=-2, F=8, G=2, HI=-8, JK=10, LM=-8.",
+        "ja": "頂点 $\\left(\\tfrac2a,\\,-\\tfrac4a-4a\\right)$；$G$ は選択肢④ $y=-ax^2-4x+4a$；交点 $(-2,8),(2,-8)$；$a=2$ のとき $-2\\le x\\le 2$ で最大 $10$，最小 $-8$。 解答：A=2, B=4, C=4, DE=-2, F=8, G=2, HI=-8, JK=10, LM=-8。"
+      },
+      "explanation": {
+        "en": "(1) $y=ax^2-4x-4a=a\\left(x-\\tfrac2a\\right)^2-\\tfrac4a-4a$, so the vertex is $\\left(\\tfrac2a,\\,-\\tfrac4a-4a\\right)$; thus $A=2,\\ B=4$.\n(2) Reflecting the graph of $①$ through the origin sends $(x,y)\\mapsto(-x,-y)$: $-y=a x^2+4x-4a$, i.e. $y=-ax^2-4x+4a$, which is choice ④, so $C=4$.\n(3) Solve $ax^2-4x-4a=-ax^2-4x+4a\\Rightarrow 2ax^2=8a\\Rightarrow x^2=4\\Rightarrow x=\\pm2$. At $x=-2$, $y=8$; at $x=2$, $y=-8$. So the points are $(-2,8)$ and $(2,-8)$.\n(4) With $a=2$, $G:\\ y=-2x^2-4x+8$, a downward parabola with vertex at $x=-1$. On $[-2,2]$: max at $x=-1$ gives $-2-(-4)+8\\cdots=10$, and the minimum at $x=2$ gives $-8$.",
+        "ja": "(1) $y=a\\left(x-\\tfrac2a\\right)^2-\\tfrac4a-4a$ より頂点 $\\left(\\tfrac2a,\\,-\\tfrac4a-4a\\right)$，よって $A=2,\\ B=4$。\n(2) 原点対称は $(x,y)\\mapsto(-x,-y)$。$-y=ax^2+4x-4a$ すなわち $y=-ax^2-4x+4a$（選択肢④），$C=4$。\n(3) $ax^2-4x-4a=-ax^2-4x+4a\\Rightarrow x^2=4\\Rightarrow x=\\pm2$。$(-2,8),(2,-8)$。\n(4) $a=2$ で $G:\\ y=-2x^2-4x+8$（上に凸，頂点 $x=-1$）。$[-2,2]$ で $x=-1$ のとき最大 $10$，$x=2$ のとき最小 $-8$。"
+      },
+      "blanks": [
+        { "label": "A", "value": "2" }, { "label": "B", "value": "4" }, { "label": "C", "value": "4" }, { "label": "DE", "value": "-2" }, { "label": "F", "value": "8" }, { "label": "G", "value": "2" }, { "label": "HI", "value": "-8" }, { "label": "JK", "value": "10" }, { "label": "LM", "value": "-8" }
+      ]
+    },
+    {
+      "id": "2012-2-math-c2-1-2",
+      "answerRow": 2,
+      "number": "I-Q2",
+      "section": "I",
+      "part": "Q2",
+      "topicId": "absolute-value",
+      "topicIds": ["absolute-value"],
+      "subtopic": "Equation with an absolute value and a parameter: case split, an irrational case, and an integer-solution case",
+      "patternTags": ["absolute-value-equation", "case-split", "parameter", "domain-of-validity", "integer-solution"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "**[I] Q2 — Absolute-value equation.** Consider the following equation in $x$, where $a$ is a constant:\n$$|ax-11|=4x-10.\\qquad\\cdots\\cdots①$$\n\n(1) Equation $①$ can be rewritten without the absolute-value symbol as\n  when $ax\\ge 11$, then $\\left(a-\\boxed{N}\\right)x=\\boxed{O}$;\n  when $ax<11$, then $\\left(a+\\boxed{P}\\right)x=\\boxed{QR}$.\n\n(2) When $a=\\sqrt{7}$, the solution of equation $①$ is $x=\\dfrac{\\boxed{S}\\left(\\boxed{T}-\\sqrt{\\boxed{U}}\\right)}{\\boxed{V}}$.\n\n(3) Let $a$ be a positive integer. When equation $①$ has a positive integral solution, we have $a=\\boxed{W}$, and that solution is $x=\\boxed{X}$."
+      },
+      "ja": {
+        "prompt": "**[Ⅰ] 問2 — 絶対値を含む方程式** $a$ を定数とし，$x$ についての次の方程式を考える。\n$$|ax-11|=4x-10.\\qquad\\cdots\\cdots①$$\n\n(1) 方程式 $①$ は絶対値記号を用いずに次のように書き換えられる。\n  $ax\\ge 11$ のとき，$\\left(a-\\boxed{N}\\right)x=\\boxed{O}$；\n  $ax<11$ のとき，$\\left(a+\\boxed{P}\\right)x=\\boxed{QR}$。\n\n(2) $a=\\sqrt{7}$ のとき，方程式 $①$ の解は $x=\\dfrac{\\boxed{S}\\left(\\boxed{T}-\\sqrt{\\boxed{U}}\\right)}{\\boxed{V}}$ である。\n\n(3) $a$ を正の整数とする。方程式 $①$ が正の整数解をもつとき，$a=\\boxed{W}$ であり，その解は $x=\\boxed{X}$ である。"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "Cases: $(a-4)x=1$ and $(a+4)x=21$; for $a=\\sqrt7$ the valid solution is $x=\\dfrac{7(4-\\sqrt7)}{3}$; the only positive integer case is $a=3,\\ x=3$.  Boxes: N=4, O=1, P=4, QR=21, S=7, T=4, U=7, V=3, W=3, X=3.",
+        "ja": "場合分け：$(a-4)x=1$ と $(a+4)x=21$；$a=\\sqrt7$ のとき有効な解は $x=\\dfrac{7(4-\\sqrt7)}{3}$；正の整数解をもつのは $a=3,\\ x=3$ のみ。 解答：N=4, O=1, P=4, QR=21, S=7, T=4, U=7, V=3, W=3, X=3。"
+      },
+      "explanation": {
+        "en": "(1) When $ax\\ge11$, $|ax-11|=ax-11$, so $ax-11=4x-10\\Rightarrow(a-4)x=1$; when $ax<11$, $|ax-11|=11-ax$, so $11-ax=4x-10\\Rightarrow(a+4)x=21$. Thus $N=4,O=1,P=4,QR=21$.\n(2) The right side $4x-10\\ge0$ requires $x\\ge\\tfrac52$. With $a=\\sqrt7$, the branch $(a-4)x=1$ gives $x=\\tfrac1{\\sqrt7-4}<0$ (rejected). The branch $(a+4)x=21$ gives $x=\\tfrac{21}{\\sqrt7+4}=\\tfrac{21(4-\\sqrt7)}{9}=\\tfrac{7(4-\\sqrt7)}{3}\\approx3.16\\ (\\ge\\tfrac52)$, and $\\sqrt7\\,x\\approx8.36<11$ is consistent. So $x=\\tfrac{7(4-\\sqrt7)}{3}$, i.e. $S=7,T=4,U=7,V=3$.\n(3) For a positive integer $a$: branch $(a-4)x=1$ would need $x=\\tfrac1{a-4}$, only integral when $a=5,x=1$, but then $4x-10=-6<0$ (rejected). Branch $(a+4)x=21$ needs $a+4\\mid21$, i.e. $a+4\\in\\{7,21\\}$ giving $(a,x)=(3,3)$ or $(17,1)$; the case $x=1$ gives $4x-10<0$ (rejected). Only $a=3,x=3$ works (then $4x-10=2$ and $|3\\cdot3-11|=2$). So $W=3,X=3$.",
+        "ja": "(1) $ax\\ge11$ なら $ax-11=4x-10\\Rightarrow(a-4)x=1$；$ax<11$ なら $11-ax=4x-10\\Rightarrow(a+4)x=21$。よって $N=4,O=1,P=4,QR=21$。\n(2) 右辺 $4x-10\\ge0$ より $x\\ge\\tfrac52$。$a=\\sqrt7$ で $(a-4)x=1$ は $x<0$ で不適。$(a+4)x=21$ は $x=\\tfrac{21}{\\sqrt7+4}=\\tfrac{7(4-\\sqrt7)}{3}\\approx3.16$ で適合し，$\\sqrt7\\,x\\approx8.36<11$ も整合。$S=7,T=4,U=7,V=3$。\n(3) 正の整数 $a$：$(a-4)x=1$ は $a=5,x=1$ のみ整数だが $4x-10<0$ で不適。$(a+4)x=21$ は $a+4\\mid21$ より $(a,x)=(3,3),(17,1)$，$x=1$ は不適。よって $a=3,x=3$ のみ。$W=3,X=3$。"
+      },
+      "blanks": [
+        { "label": "N", "value": "4" }, { "label": "O", "value": "1" }, { "label": "P", "value": "4" }, { "label": "QR", "value": "21" }, { "label": "S", "value": "7" }, { "label": "T", "value": "4" }, { "label": "U", "value": "7" }, { "label": "V", "value": "3" }, { "label": "W", "value": "3" }, { "label": "X", "value": "3" }
+      ]
+    },
+    {
+      "id": "2012-2-math-c2-2",
+      "answerRow": 3,
+      "number": "II",
+      "section": "II",
+      "part": null,
+      "topicId": "vector-figures",
+      "topicIds": ["vector-figures", "dot-product"],
+      "subtopic": "Triangle inscribed in a circle with a weighted vector relation: cevian point by position vectors, dot product, and segment lengths",
+      "patternTags": ["position-vectors", "vector-relation", "point-on-segment", "dot-product", "segment-length"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "**[II] Vectors.** Suppose a triangle $ABC$ inscribed in a circle $O$ of radius $2$ satisfies\n$$3\\,\\overrightarrow{OA}+4\\,\\overrightarrow{OB}+2\\,\\overrightarrow{OC}=\\vec{0}.\\qquad\\cdots\\cdots①$$\nLet $D$ denote the point of intersection of the straight line $AO$ and the segment $BC$. We find the lengths of the segments $AD$ and $BD$.\n\n(1) When we set $\\overrightarrow{OD}=k\\,\\overrightarrow{OA}$ where $k$ is a real number, we have $\\overrightarrow{OD}=-\\dfrac{\\boxed{A}}{\\boxed{B}}\\,k\\,\\overrightarrow{OB}-\\dfrac{\\boxed{C}}{\\boxed{D}}\\,k\\,\\overrightarrow{OC}$. As the three points $B,C,D$ are collinear, we obtain $k=\\dfrac{\\boxed{EF}}{\\boxed{G}}$. From this $OD=\\boxed{H}$ and finally $AD=\\boxed{I}$.\n\n(2) From (1), $BD=\\dfrac{\\boxed{J}}{\\boxed{K}}\\,BC$. To find $BD$ we find $BC$. First, $BC^2=\\boxed{L}-\\boxed{M}\\,\\overrightarrow{OB}\\cdot\\overrightarrow{OC}$, where $\\overrightarrow{OB}\\cdot\\overrightarrow{OC}$ is the inner product. Since from $①$ we have $\\left|4\\,\\overrightarrow{OB}+2\\,\\overrightarrow{OC}\\right|^2=\\boxed{NO}$, we get $\\overrightarrow{OB}\\cdot\\overrightarrow{OC}=\\dfrac{\\boxed{PQR}}{\\boxed{S}}$. Hence $BC=\\dfrac{\\boxed{T}\\sqrt{\\boxed{U}}}{\\boxed{V}}$ and finally $BD=\\dfrac{\\sqrt{\\boxed{W}}}{\\boxed{X}}$."
+      },
+      "ja": {
+        "prompt": "**[Ⅱ] ベクトル** 半径 $2$ の円 $O$ に内接する三角形 $ABC$ が\n$$3\\,\\overrightarrow{OA}+4\\,\\overrightarrow{OB}+2\\,\\overrightarrow{OC}=\\vec{0}\\qquad\\cdots\\cdots①$$\nを満たすとする。直線 $AO$ と線分 $BC$ の交点を $D$ とする。線分 $AD$ と $BD$ の長さを求める。\n\n(1) $\\overrightarrow{OD}=k\\,\\overrightarrow{OA}$（$k$ は実数）とおくと，$\\overrightarrow{OD}=-\\dfrac{\\boxed{A}}{\\boxed{B}}\\,k\\,\\overrightarrow{OB}-\\dfrac{\\boxed{C}}{\\boxed{D}}\\,k\\,\\overrightarrow{OC}$。3点 $B,C,D$ が一直線上にあることから $k=\\dfrac{\\boxed{EF}}{\\boxed{G}}$。これより $OD=\\boxed{H}$，よって $AD=\\boxed{I}$。\n\n(2) (1) より $BD=\\dfrac{\\boxed{J}}{\\boxed{K}}\\,BC$。$BD$ を求めるため $BC$ を求める。まず $BC^2=\\boxed{L}-\\boxed{M}\\,\\overrightarrow{OB}\\cdot\\overrightarrow{OC}$（$\\overrightarrow{OB}\\cdot\\overrightarrow{OC}$ は内積）。$①$ より $\\left|4\\,\\overrightarrow{OB}+2\\,\\overrightarrow{OC}\\right|^2=\\boxed{NO}$ なので $\\overrightarrow{OB}\\cdot\\overrightarrow{OC}=\\dfrac{\\boxed{PQR}}{\\boxed{S}}$。ゆえに $BC=\\dfrac{\\boxed{T}\\sqrt{\\boxed{U}}}{\\boxed{V}}$，よって $BD=\\dfrac{\\sqrt{\\boxed{W}}}{\\boxed{X}}$。"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "$\\overrightarrow{OD}=-\\tfrac43 k\\,\\overrightarrow{OB}-\\tfrac23 k\\,\\overrightarrow{OC}$, $k=-\\tfrac12$, $OD=1$, $AD=3$; $BD=\\tfrac13 BC$, $BC^2=8-2\\,\\overrightarrow{OB}\\cdot\\overrightarrow{OC}$, $|4\\overrightarrow{OB}+2\\overrightarrow{OC}|^2=36$, $\\overrightarrow{OB}\\cdot\\overrightarrow{OC}=-\\tfrac{11}{4}$, $BC=\\tfrac{3\\sqrt6}{2}$, $BD=\\tfrac{\\sqrt6}{2}$.  Boxes: A=4, B=3, C=2, D=3, EF=-1, G=2, H=1, I=3, J=1, K=3, L=8, M=2, NO=36, PQR=-11, S=4, T=3, U=6, V=2, W=6, X=2.",
+        "ja": "$\\overrightarrow{OD}=-\\tfrac43 k\\,\\overrightarrow{OB}-\\tfrac23 k\\,\\overrightarrow{OC}$，$k=-\\tfrac12$，$OD=1$，$AD=3$；$BD=\\tfrac13 BC$，$BC^2=8-2\\,\\overrightarrow{OB}\\cdot\\overrightarrow{OC}$，$|4\\overrightarrow{OB}+2\\overrightarrow{OC}|^2=36$，$\\overrightarrow{OB}\\cdot\\overrightarrow{OC}=-\\tfrac{11}{4}$，$BC=\\tfrac{3\\sqrt6}{2}$，$BD=\\tfrac{\\sqrt6}{2}$。 解答：A=4, B=3, C=2, D=3, EF=-1, G=2, H=1, I=3, J=1, K=3, L=8, M=2, NO=36, PQR=-11, S=4, T=3, U=6, V=2, W=6, X=2。"
+      },
+      "explanation": {
+        "en": "(1) From $①$, $\\overrightarrow{OA}=-\\tfrac13(4\\overrightarrow{OB}+2\\overrightarrow{OC})$, so $\\overrightarrow{OD}=k\\,\\overrightarrow{OA}=-\\tfrac43 k\\,\\overrightarrow{OB}-\\tfrac23 k\\,\\overrightarrow{OC}$ ($A=4,B=3,C=2,D=3$). Since $D$ lies on line $BC$, the coefficients sum to $1$: $-\\tfrac43 k-\\tfrac23 k=1\\Rightarrow-2k=1\\Rightarrow k=-\\tfrac12$ ($EF=-1,G=2$). Then $OD=|k|\\,|OA|=\\tfrac12\\cdot2=1$ ($H=1$), and $\\overrightarrow{AD}=(k-1)\\overrightarrow{OA}$ so $AD=|k-1|\\cdot2=\\tfrac32\\cdot2=3$ ($I=3$).\n(2) With $k=-\\tfrac12$, $\\overrightarrow{OD}=\\tfrac23\\overrightarrow{OB}+\\tfrac13\\overrightarrow{OC}$, i.e. $D$ divides $BC$ with $BD=\\tfrac13 BC$ ($J=1,K=3$). $BC^2=|\\overrightarrow{OC}-\\overrightarrow{OB}|^2=|OB|^2-2\\,\\overrightarrow{OB}\\cdot\\overrightarrow{OC}+|OC|^2=8-2\\,\\overrightarrow{OB}\\cdot\\overrightarrow{OC}$ ($L=8,M=2$). From $①$, $4\\overrightarrow{OB}+2\\overrightarrow{OC}=-3\\overrightarrow{OA}$, so $|4\\overrightarrow{OB}+2\\overrightarrow{OC}|^2=9\\cdot4=36$ ($NO=36$). Expanding, $80+16\\,\\overrightarrow{OB}\\cdot\\overrightarrow{OC}=36\\Rightarrow\\overrightarrow{OB}\\cdot\\overrightarrow{OC}=-\\tfrac{11}{4}$ ($PQR=-11,S=4$). Then $BC^2=8+\\tfrac{11}{2}=\\tfrac{27}{2}$, so $BC=\\tfrac{3\\sqrt6}{2}$ ($T=3,U=6,V=2$) and $BD=\\tfrac13 BC=\\tfrac{\\sqrt6}{2}$ ($W=6,X=2$).",
+        "ja": "(1) $①$ より $\\overrightarrow{OA}=-\\tfrac13(4\\overrightarrow{OB}+2\\overrightarrow{OC})$ なので $\\overrightarrow{OD}=k\\,\\overrightarrow{OA}=-\\tfrac43 k\\,\\overrightarrow{OB}-\\tfrac23 k\\,\\overrightarrow{OC}$（$A=4,B=3,C=2,D=3$）。$D$ は直線 $BC$ 上なので係数の和が $1$：$-2k=1\\Rightarrow k=-\\tfrac12$（$EF=-1,G=2$）。$OD=|k|\\cdot2=1$（$H=1$），$AD=|k-1|\\cdot2=3$（$I=3$）。\n(2) $k=-\\tfrac12$ で $D$ は $BD=\\tfrac13 BC$ を与える（$J=1,K=3$）。$BC^2=8-2\\,\\overrightarrow{OB}\\cdot\\overrightarrow{OC}$（$L=8,M=2$）。$4\\overrightarrow{OB}+2\\overrightarrow{OC}=-3\\overrightarrow{OA}$ より $|4\\overrightarrow{OB}+2\\overrightarrow{OC}|^2=36$（$NO=36$）。展開して $80+16\\,\\overrightarrow{OB}\\cdot\\overrightarrow{OC}=36\\Rightarrow\\overrightarrow{OB}\\cdot\\overrightarrow{OC}=-\\tfrac{11}{4}$（$PQR=-11,S=4$）。よって $BC^2=\\tfrac{27}{2}$，$BC=\\tfrac{3\\sqrt6}{2}$（$T=3,U=6,V=2$），$BD=\\tfrac{\\sqrt6}{2}$（$W=6,X=2$）。"
+      },
+      "blanks": [
+        { "label": "A", "value": "4" }, { "label": "B", "value": "3" }, { "label": "C", "value": "2" }, { "label": "D", "value": "3" }, { "label": "EF", "value": "-1" }, { "label": "G", "value": "2" }, { "label": "H", "value": "1" }, { "label": "I", "value": "3" }, { "label": "J", "value": "1" }, { "label": "K", "value": "3" }, { "label": "L", "value": "8" }, { "label": "M", "value": "2" }, { "label": "NO", "value": "36" }, { "label": "PQR", "value": "-11" }, { "label": "S", "value": "4" }, { "label": "T", "value": "3" }, { "label": "U", "value": "6" }, { "label": "V", "value": "2" }, { "label": "W", "value": "6" }, { "label": "X", "value": "2" }
+      ]
+    },
+    {
+      "id": "2012-2-math-c2-3",
+      "answerRow": 4,
+      "number": "III",
+      "section": "III",
+      "part": null,
+      "topicId": "logarithmic-functions",
+      "topicIds": ["logarithmic-functions", "locus-region"],
+      "subtopic": "Maximizing xy^2 under a log constraint via the substitution X=log2 x, Y=log2 y: circle-and-tangent-line argument",
+      "patternTags": ["logarithm-laws", "substitution", "circle-equation", "tangent-line-condition", "maximization"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "**[III] Logarithms.** Let $x$ and $y$ be positive numbers which satisfy\n$$(\\log_2 x)^2+(\\log_2 y)^2=\\log_2\\dfrac{8x^2}{y^2}.\\qquad\\cdots\\cdots①$$\nWe find the maximum value of $xy^2$ and the values of $x$ and $y$ at that point.\n\n(1) The right side of $①$ can be transformed into $\\log_2\\dfrac{8x^2}{y^2}=\\boxed{A}\\log_2 x-\\boxed{B}\\log_2 y+\\boxed{C}$. Setting $X=\\log_2 x$ and $Y=\\log_2 y$, $①$ becomes\n$$\\left(X-\\boxed{D}\\right)^2+\\left(Y+\\boxed{E}\\right)^2=\\boxed{F}.\\qquad\\cdots\\cdots②$$\n\n(2) Set $k=\\log_2 xy^2$. Using $X$ and $Y$, this becomes\n$$X+\\boxed{G}\\,Y-k=0.\\qquad\\cdots\\cdots③$$\nGraphing $②$ and $③$ in the $(X,Y)$ plane, $②$ is a circle and $③$ is a straight line. When $k$ is maximized, line $③$ is tangent to circle $②$. Hence when $k=\\boxed{H}$, $xy^2$ takes the maximum value $\\boxed{IJ}$, and in this case $x=\\boxed{K}$ and $y=\\boxed{L}$."
+      },
+      "ja": {
+        "prompt": "**[Ⅲ] 対数** $x,y$ を正の数とし，\n$$(\\log_2 x)^2+(\\log_2 y)^2=\\log_2\\dfrac{8x^2}{y^2}\\qquad\\cdots\\cdots①$$\nを満たすとする。$xy^2$ の最大値と，そのときの $x,y$ の値を求める。\n\n(1) $①$ の右辺は $\\log_2\\dfrac{8x^2}{y^2}=\\boxed{A}\\log_2 x-\\boxed{B}\\log_2 y+\\boxed{C}$ と変形できる。$X=\\log_2 x$，$Y=\\log_2 y$ とおくと，$①$ は\n$$\\left(X-\\boxed{D}\\right)^2+\\left(Y+\\boxed{E}\\right)^2=\\boxed{F}\\qquad\\cdots\\cdots②$$\nとなる。\n\n(2) $k=\\log_2 xy^2$ とおくと，これは\n$$X+\\boxed{G}\\,Y-k=0\\qquad\\cdots\\cdots③$$\nとなる。$(X,Y)$ 平面で $②,③$ を描くと，$②$ は円，$③$ は直線である。$k$ が最大のとき直線 $③$ は円 $②$ に接する。よって $k=\\boxed{H}$ のとき $xy^2$ は最大値 $\\boxed{IJ}$ をとり，このとき $x=\\boxed{K}$，$y=\\boxed{L}$ である。"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "$\\log_2\\tfrac{8x^2}{y^2}=2\\log_2 x-2\\log_2 y+3$; $(X-1)^2+(Y+1)^2=5$; $X+2Y-k=0$; tangency gives $k_{\\max}=4$, so $xy^2=16$, with $x=4,\\ y=2$.  Boxes: A=2, B=2, C=3, D=1, E=1, F=5, G=2, H=4, IJ=16, K=4, L=2.",
+        "ja": "$\\log_2\\tfrac{8x^2}{y^2}=2\\log_2 x-2\\log_2 y+3$；$(X-1)^2+(Y+1)^2=5$；$X+2Y-k=0$；接条件より $k_{\\max}=4$，よって $xy^2=16$，$x=4,\\ y=2$。 解答：A=2, B=2, C=3, D=1, E=1, F=5, G=2, H=4, IJ=16, K=4, L=2。"
+      },
+      "explanation": {
+        "en": "(1) $\\log_2\\tfrac{8x^2}{y^2}=\\log_2 8+2\\log_2 x-2\\log_2 y=2\\log_2 x-2\\log_2 y+3$ ($A=2,B=2,C=3$). With $X=\\log_2 x,\\,Y=\\log_2 y$, $①$ is $X^2+Y^2=2X-2Y+3\\Rightarrow(X-1)^2+(Y+1)^2=5$ ($D=1,E=1,F=5$): a circle centered $(1,-1)$, radius $\\sqrt5$.\n(2) $k=\\log_2 xy^2=\\log_2 x+2\\log_2 y=X+2Y$, so $X+2Y-k=0$ ($G=2$). The line is tangent to the circle when its distance from $(1,-1)$ equals $\\sqrt5$: $\\tfrac{|1+2(-1)-k|}{\\sqrt5}=\\sqrt5\\Rightarrow|{-1-k}|=5\\Rightarrow k=4$ or $k=-6$. The maximum is $k=4$ ($H=4$), so $xy^2=2^4=16$ ($IJ=16$). The tangent (foot of perpendicular from $(1,-1)$ to $X+2Y=4$) is $(X,Y)=(2,1)$, giving $x=2^2=4$ ($K=4$) and $y=2^1=2$ ($L=2$).",
+        "ja": "(1) $\\log_2\\tfrac{8x^2}{y^2}=3+2\\log_2 x-2\\log_2 y$（$A=2,B=2,C=3$）。$X=\\log_2 x,\\,Y=\\log_2 y$ とおくと $X^2+Y^2=2X-2Y+3\\Rightarrow(X-1)^2+(Y+1)^2=5$（$D=1,E=1,F=5$）：中心 $(1,-1)$，半径 $\\sqrt5$ の円。\n(2) $k=X+2Y$ より $X+2Y-k=0$（$G=2$）。$(1,-1)$ からの距離が $\\sqrt5$ で接する：$|{-1-k}|=5\\Rightarrow k=4,-6$。最大は $k=4$（$H=4$），$xy^2=2^4=16$（$IJ=16$）。接点は $(X,Y)=(2,1)$ で $x=4$（$K=4$），$y=2$（$L=2$）。"
+      },
+      "blanks": [
+        { "label": "A", "value": "2" }, { "label": "B", "value": "2" }, { "label": "C", "value": "3" }, { "label": "D", "value": "1" }, { "label": "E", "value": "1" }, { "label": "F", "value": "5" }, { "label": "G", "value": "2" }, { "label": "H", "value": "4" }, { "label": "IJ", "value": "16" }, { "label": "K", "value": "4" }, { "label": "L", "value": "2" }
+      ]
+    },
+    {
+      "id": "2012-2-math-c2-4-1",
+      "answerRow": 5,
+      "number": "IV-Q1",
+      "section": "IV",
+      "part": "Q1",
+      "topicId": "derivative-applications",
+      "topicIds": ["derivative-applications", "trig-functions"],
+      "subtopic": "Trigonometric function with a parameter fixed by a local extremum: factored derivative and max/min on a closed interval",
+      "patternTags": ["parameter-from-extremum", "derivative", "factored-derivative", "max-min-on-interval", "expression-selection"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "**[IV] Q1 — Differentiation.** Let $a$ be a constant. Assume the function\n$$f(x)=2\\sin^3 x+a\\sin 2x+\\tfrac{9}{2}\\cos 2x-9\\cos x-2ax+6$$\ntakes a local extremum at $x=\\dfrac{\\pi}{3}$. We consider the maximum and minimum values of $f(x)$ over $0\\le x\\le\\dfrac{\\pi}{2}$.\n\n(1) Since $f(x)$ takes a local extremum at $x=\\dfrac{\\pi}{3}$, it follows that $a=\\dfrac{\\boxed{A}}{\\boxed{B}}$. Hence the derivative is\n$$f'(x)=\\boxed{C}\\sin x\\left(\\boxed{D}\\cos x-1\\right)\\left(\\sin x-\\boxed{E}\\right).$$\n\n(2) From (1), over $0\\le x\\le\\dfrac{\\pi}{2}$, $f(x)$ takes its maximum value at $x=\\boxed{F}$ and its minimum value at $x=\\boxed{G}$, where $\\boxed{F}$ and $\\boxed{G}$ are the appropriate expressions from among $⓪$–$④$ below.\n\n  $⓪\\ 0\\quad ①\\ \\dfrac{\\pi}{6}\\quad ②\\ \\dfrac{\\pi}{4}\\quad ③\\ \\dfrac{\\pi}{3}\\quad ④\\ \\dfrac{\\pi}{2}$"
+      },
+      "ja": {
+        "prompt": "**[Ⅳ] 問1 — 微分** $a$ を定数とする。関数\n$$f(x)=2\\sin^3 x+a\\sin 2x+\\tfrac{9}{2}\\cos 2x-9\\cos x-2ax+6$$\nが $x=\\dfrac{\\pi}{3}$ で極値をとるとする。区間 $0\\le x\\le\\dfrac{\\pi}{2}$ における $f(x)$ の最大値・最小値を考える。\n\n(1) $f(x)$ が $x=\\dfrac{\\pi}{3}$ で極値をとることから $a=\\dfrac{\\boxed{A}}{\\boxed{B}}$。よって導関数は\n$$f'(x)=\\boxed{C}\\sin x\\left(\\boxed{D}\\cos x-1\\right)\\left(\\sin x-\\boxed{E}\\right)$$\nと表せる。\n\n(2) (1) より，$0\\le x\\le\\dfrac{\\pi}{2}$ において $f(x)$ は $x=\\boxed{F}$ で最大，$x=\\boxed{G}$ で最小となる。ここで $\\boxed{F},\\boxed{G}$ は下の $⓪$〜$④$ から選ぶ。\n\n  $⓪\\ 0\\quad ①\\ \\dfrac{\\pi}{6}\\quad ②\\ \\dfrac{\\pi}{4}\\quad ③\\ \\dfrac{\\pi}{3}\\quad ④\\ \\dfrac{\\pi}{2}$"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "$a=\\tfrac34$; $f'(x)=3\\sin x(2\\cos x-1)(\\sin x-3)$; on $[0,\\tfrac\\pi2]$ the max is at $x=0$ (choice ⓪) and the min at $x=\\tfrac\\pi3$ (choice ③).  Boxes: A=3, B=4, C=3, D=2, E=3, F=0, G=3.",
+        "ja": "$a=\\tfrac34$；$f'(x)=3\\sin x(2\\cos x-1)(\\sin x-3)$；$[0,\\tfrac\\pi2]$ で最大は $x=0$（選択肢⓪），最小は $x=\\tfrac\\pi3$（選択肢③）。 解答：A=3, B=4, C=3, D=2, E=3, F=0, G=3。"
+      },
+      "explanation": {
+        "en": "(1) $f'(x)=6\\sin^2 x\\cos x+2a\\cos 2x-9\\sin 2x+9\\sin x-2a$. Setting $f'(\\tfrac\\pi3)=0$ gives $a=\\tfrac34$ ($A=3,B=4$). Substituting and factoring, $f'(x)=3\\sin x(2\\cos x-1)(\\sin x-3)$ ($C=3,D=2,E=3$).\n(2) On $[0,\\tfrac\\pi2]$, $\\sin x\\ge0$ and $\\sin x-3<0$, so the sign of $f'$ follows $-(2\\cos x-1)$: $f'<0$ on $(0,\\tfrac\\pi3)$ (where $\\cos x>\\tfrac12$) and $f'>0$ on $(\\tfrac\\pi3,\\tfrac\\pi2)$. Thus $f$ decreases then increases, with the only interior critical point a minimum at $x=\\tfrac\\pi3$. Comparing endpoints, $f(0)=\\tfrac32$ and $f(\\tfrac\\pi2)=\\tfrac72-\\tfrac{3\\pi}{4}\\approx1.14$, so the maximum is at $x=0$. Hence $F=⓪$ (max at $x=0$) and $G=③$ (min at $x=\\tfrac\\pi3$).",
+        "ja": "(1) $f'(\\tfrac\\pi3)=0$ より $a=\\tfrac34$（$A=3,B=4$）。代入・因数分解して $f'(x)=3\\sin x(2\\cos x-1)(\\sin x-3)$（$C=3,D=2,E=3$）。\n(2) $[0,\\tfrac\\pi2]$ で $\\sin x\\ge0$，$\\sin x-3<0$ なので $f'$ の符号は $-(2\\cos x-1)$ に従う：$(0,\\tfrac\\pi3)$ で $f'<0$，$(\\tfrac\\pi3,\\tfrac\\pi2)$ で $f'>0$。よって $f$ は減少後増加し，$x=\\tfrac\\pi3$ が極小（最小）。端点比較 $f(0)=\\tfrac32>f(\\tfrac\\pi2)=\\tfrac72-\\tfrac{3\\pi}{4}\\approx1.14$ より最大は $x=0$。ゆえに $F=⓪$，$G=③$。"
+      },
+      "blanks": [
+        { "label": "A", "value": "3" }, { "label": "B", "value": "4" }, { "label": "C", "value": "3" }, { "label": "D", "value": "2" }, { "label": "E", "value": "3" }, { "label": "F", "value": "0" }, { "label": "G", "value": "3" }
+      ]
+    },
+    {
+      "id": "2012-2-math-c2-4-2",
+      "answerRow": 6,
+      "number": "IV-Q2",
+      "section": "IV",
+      "part": "Q2",
+      "topicId": "integral-applications",
+      "topicIds": ["integral-applications", "sequence-limits"],
+      "subtopic": "Sequence of definite integrals: integration by parts recurrence, telescoping weighted sum, and limits via a squeeze",
+      "patternTags": ["definite-integral", "integration-by-parts", "recurrence", "geometric-sum", "squeeze-limit", "infinite-series"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "**[IV] Q2 — Integral sequence.** A sequence $\\{a_n\\}$ is defined by\n$$a_n=\\int_0^{\\frac14}x^n e^{-x}\\,dx\\qquad(n=1,2,3,\\dots).$$\n\nThen $a_1=-\\dfrac{\\boxed{H}}{\\boxed{I}}\\,e^{\\frac{\\boxed{JK}}{\\boxed{L}}}+1$. Also $a_{n+1}$ can be expressed in terms of $a_n$ as\n$$a_{n+1}=-\\left(\\dfrac{\\boxed{M}}{\\boxed{N}}\\right)^{n+1}e^{\\frac{\\boxed{JK}}{\\boxed{L}}}+\\left(n+\\boxed{O}\\right)a_n\\qquad(n=1,2,3,\\dots).$$\nTransforming into $n a_n=a_{n+1}-a_n+\\left(\\dfrac{\\boxed{M}}{\\boxed{N}}\\right)^{n+1}e^{\\frac{\\boxed{JK}}{\\boxed{L}}}$, we have\n$$\\sum_{k=1}^n k a_k=a_{n+1}-a_1+\\dfrac{\\boxed{P}}{\\boxed{QR}}\\,e^{\\frac{\\boxed{JK}}{\\boxed{L}}}\\left\\{1-\\left(\\dfrac{\\boxed{S}}{\\boxed{T}}\\right)^n\\right\\}.$$\n\nSince, for $0\\le x$, the range of $e^{-x}$ is $0<e^{-x}\\le\\boxed{U}$, it follows that\n$$0<a_n<\\int_0^{\\frac14}\\boxed{U}\\,x^n\\,dx=\\dfrac{1}{\\boxed{V}^{\\,n+1}(n+1)}.$$\nThus, since $\\displaystyle\\lim_{n\\to\\infty}a_n=\\boxed{W}$, we obtain $\\displaystyle\\lim_{n\\to\\infty}\\sum_{k=1}^n k a_k=\\dfrac{\\boxed{X}}{\\boxed{Y}}\\,e^{\\frac{\\boxed{JK}}{\\boxed{L}}}-1.$"
+      },
+      "ja": {
+        "prompt": "**[Ⅳ] 問2 — 積分と数列** 数列 $\\{a_n\\}$ を\n$$a_n=\\int_0^{\\frac14}x^n e^{-x}\\,dx\\qquad(n=1,2,3,\\dots)$$\nで定める。\n\nこのとき $a_1=-\\dfrac{\\boxed{H}}{\\boxed{I}}\\,e^{\\frac{\\boxed{JK}}{\\boxed{L}}}+1$。また $a_{n+1}$ は $a_n$ を用いて\n$$a_{n+1}=-\\left(\\dfrac{\\boxed{M}}{\\boxed{N}}\\right)^{n+1}e^{\\frac{\\boxed{JK}}{\\boxed{L}}}+\\left(n+\\boxed{O}\\right)a_n\\qquad(n=1,2,3,\\dots)$$\nと表せる。これを $n a_n=a_{n+1}-a_n+\\left(\\dfrac{\\boxed{M}}{\\boxed{N}}\\right)^{n+1}e^{\\frac{\\boxed{JK}}{\\boxed{L}}}$ と変形すると，\n$$\\sum_{k=1}^n k a_k=a_{n+1}-a_1+\\dfrac{\\boxed{P}}{\\boxed{QR}}\\,e^{\\frac{\\boxed{JK}}{\\boxed{L}}}\\left\\{1-\\left(\\dfrac{\\boxed{S}}{\\boxed{T}}\\right)^n\\right\\}.$$\n\n$0\\le x$ では $e^{-x}$ の値の範囲は $0<e^{-x}\\le\\boxed{U}$ なので，\n$$0<a_n<\\int_0^{\\frac14}\\boxed{U}\\,x^n\\,dx=\\dfrac{1}{\\boxed{V}^{\\,n+1}(n+1)}$$\nが成り立つ。したがって $\\displaystyle\\lim_{n\\to\\infty}a_n=\\boxed{W}$ なので，$\\displaystyle\\lim_{n\\to\\infty}\\sum_{k=1}^n k a_k=\\dfrac{\\boxed{X}}{\\boxed{Y}}\\,e^{\\frac{\\boxed{JK}}{\\boxed{L}}}-1$ を得る。"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "$a_1=-\\tfrac54 e^{-1/4}+1$; $a_{n+1}=-(\\tfrac14)^{n+1}e^{-1/4}+(n+1)a_n$; $\\sum_{k=1}^n k a_k=a_{n+1}-a_1+\\tfrac{1}{12}e^{-1/4}\\{1-(\\tfrac14)^n\\}$; $0<e^{-x}\\le1$, bound $\\tfrac{1}{4^{n+1}(n+1)}$, $\\lim a_n=0$; $\\lim\\sum k a_k=\\tfrac43 e^{-1/4}-1$.  Boxes: H=5, I=4, JK=-1, L=4, M=1, N=4, O=1, P=1, QR=12, S=1, T=4, U=1, V=4, W=0, X=4, Y=3.",
+        "ja": "$a_1=-\\tfrac54 e^{-1/4}+1$；$a_{n+1}=-(\\tfrac14)^{n+1}e^{-1/4}+(n+1)a_n$；$\\sum_{k=1}^n k a_k=a_{n+1}-a_1+\\tfrac{1}{12}e^{-1/4}\\{1-(\\tfrac14)^n\\}$；$0<e^{-x}\\le1$，上界 $\\tfrac{1}{4^{n+1}(n+1)}$，$\\lim a_n=0$；$\\lim\\sum k a_k=\\tfrac43 e^{-1/4}-1$。 解答：H=5, I=4, JK=-1, L=4, M=1, N=4, O=1, P=1, QR=12, S=1, T=4, U=1, V=4, W=0, X=4, Y=3。"
+      },
+      "explanation": {
+        "en": "$a_1=\\int_0^{1/4}x e^{-x}dx=[-(x+1)e^{-x}]_0^{1/4}=-\\tfrac54 e^{-1/4}+1$ ($H=5,I=4,JK=-1,L=4$). Integration by parts ($u=x^n,\\ dv=e^{-x}dx$) gives $a_n=-(\\tfrac14)^n e^{-1/4}+n\\,a_{n-1}$, i.e. $a_{n+1}=-(\\tfrac14)^{n+1}e^{-1/4}+(n+1)a_n$ ($M=1,N=4,O=1$). Then $n a_n=a_{n+1}-a_n+(\\tfrac14)^{n+1}e^{-1/4}$. Summing $k=1$ to $n$ telescopes the $a$-terms to $a_{n+1}-a_1$, and the geometric part is $\\sum_{k=1}^n(\\tfrac14)^{k+1}e^{-1/4}=\\tfrac1{12}e^{-1/4}\\{1-(\\tfrac14)^n\\}$ ($P=1,QR=12,S=1,T=4$). Since $0<e^{-x}\\le1$ on $[0,\\tfrac14]$ ($U=1$), $0<a_n<\\int_0^{1/4}x^n dx=\\tfrac{(1/4)^{n+1}}{n+1}=\\tfrac{1}{4^{n+1}(n+1)}$ ($V=4$), so $\\lim_{n\\to\\infty}a_n=0$ ($W=0$). Hence $\\lim\\sum_{k=1}^n k a_k=0-a_1+\\tfrac1{12}e^{-1/4}=\\tfrac54 e^{-1/4}-1+\\tfrac1{12}e^{-1/4}=\\tfrac43 e^{-1/4}-1$ ($X=4,Y=3$).",
+        "ja": "$a_1=\\int_0^{1/4}x e^{-x}dx=[-(x+1)e^{-x}]_0^{1/4}=-\\tfrac54 e^{-1/4}+1$（$H=5,I=4,JK=-1,L=4$）。部分積分（$u=x^n,\\ dv=e^{-x}dx$）より $a_n=-(\\tfrac14)^n e^{-1/4}+n\\,a_{n-1}$，すなわち $a_{n+1}=-(\\tfrac14)^{n+1}e^{-1/4}+(n+1)a_n$（$M=1,N=4,O=1$）。よって $n a_n=a_{n+1}-a_n+(\\tfrac14)^{n+1}e^{-1/4}$。$k=1$〜$n$ で和をとると $a$ の項は $a_{n+1}-a_1$ に，等比部分は $\\tfrac1{12}e^{-1/4}\\{1-(\\tfrac14)^n\\}$（$P=1,QR=12,S=1,T=4$）。$[0,\\tfrac14]$ で $0<e^{-x}\\le1$（$U=1$）より $0<a_n<\\int_0^{1/4}x^n dx=\\tfrac{1}{4^{n+1}(n+1)}$（$V=4$），ゆえに $\\lim a_n=0$（$W=0$）。よって $\\lim\\sum k a_k=-a_1+\\tfrac1{12}e^{-1/4}=\\tfrac43 e^{-1/4}-1$（$X=4,Y=3$）。"
+      },
+      "blanks": [
+        { "label": "H", "value": "5" }, { "label": "I", "value": "4" }, { "label": "JK", "value": "-1" }, { "label": "L", "value": "4" }, { "label": "M", "value": "1" }, { "label": "N", "value": "4" }, { "label": "O", "value": "1" }, { "label": "P", "value": "1" }, { "label": "QR", "value": "12" }, { "label": "S", "value": "1" }, { "label": "T", "value": "4" }, { "label": "U", "value": "1" }, { "label": "V", "value": "4" }, { "label": "W", "value": "0" }, { "label": "X", "value": "4" }, { "label": "Y", "value": "3" }
+      ]
+    }
+  ]
+}
