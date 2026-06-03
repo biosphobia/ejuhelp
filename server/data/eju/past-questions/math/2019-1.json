@@ -1,0 +1,194 @@
+{
+  "id": "2019-1-math-c2",
+  "year": 2019,
+  "session": 1,
+  "subject": "math",
+  "course": 2,
+  "title": "2019 EJU Session 1 — Mathematics (Course 2)",
+  "source": "Examination for Japanese University Admission for International Students, 2019 Session 1 (JASSO). Official English question paper; answers verified against the official answer key and re-derived by solving.",
+  "answerFormat": "digit-fill",
+  "answerKeyVerified": true,
+  "note": "The exam has four large questions (大問 I-IV). In Course 2, large questions I and II each contain two independent sub-questions (問1, 問2); these are stored as separate entries, giving six questions. Parts I-Q1 and I-Q2 are shared with Course 1. Answer-letters follow the official scheme and reset at the start of each large question. The official answer key OCR interleaves the Course 1 and Course 2 columns; every box here was both re-solved and matched to the Course 2 column. For II-Q1 (vectors) only the first box (A) is cleanly OCR-readable in the key; the remaining boxes B-L are determined by rigorous solving (numerically verified), as noted in the report.",
+  "questions": [
+    {
+      "id": "2019-1-math-c2-1-1",
+      "answerRow": 1,
+      "number": "I-Q1",
+      "section": "I",
+      "part": "Q1",
+      "topicId": "quadratic-functions",
+      "topicIds": ["quadratic-functions"],
+      "subtopic": "Reading signs of coefficients from a parabola graph, then minimizing a^2-8b-8c under graph constraints",
+      "patternTags": ["sign-of-coefficients", "graph-reading", "expression-from-list", "minimize-expression", "parameter-range"],
+      "hasFigure": true,
+      "en": {
+        "prompt": "**[I] Q1 — Quadratic functions.** *(For $\\boxed{A}$–$\\boxed{K}$ choose the correct symbol/number from the list $⓪$–$⑨$ below.)*\n\nConsider the quadratic function $y=ax^2+bx+c$ whose graph is the parabola shown: it opens downward, passes through the point $(1,0)$ on the $x$-axis, and has its vertex to the right of the $y$-axis with positive $y$-intercept.\n\n(1) Then $a,b,c$ satisfy: (i) $a\\,\\boxed{A}\\,0,\\ b\\,\\boxed{B}\\,0,\\ c\\,\\boxed{C}\\,0$; (ii) $a+b+c\\,\\boxed{D}\\,0$; (iii) $a-b+c\\,\\boxed{E}\\,0$; (iv) $4a+2b+c\\,\\boxed{F}\\,0$; (v) $b^2-4ac\\,\\boxed{G}\\,0$.\n\n(2) Under conditions (i) and (ii), minimize $a^2-8b-8c$. We find $a=\\boxed{H}$. Writing $y=ax^2+bx+c$ in terms of $b$, $y=\\boxed{H}\\,x^2+bx-b+\\boxed{I}$. The range of $b$ is $\\boxed{J}<b<\\boxed{K}$.\n\nChoices: $⓪\\ 0\\quad ①\\ 1\\quad ②\\ 2\\quad ③\\ 3\\quad ④\\ 4\\quad ⑤\\ -2\\quad ⑥\\ -4\\quad ⑦\\ >\\quad ⑧\\ =\\quad ⑨\\ <$"
+      },
+      "ja": {
+        "prompt": "**[Ⅰ] 問1 — 二次関数** *（$\\boxed{A}$〜$\\boxed{K}$ は下の選択肢 $⓪$〜$⑨$ から選べ。）*\n\n二次関数 $y=ax^2+bx+c$ のグラフが図のような放物線であるとする：上に凸で，$x$ 軸上の点 $(1,0)$ を通り，頂点は $y$ 軸の右にあり，$y$ 切片は正である。\n\n(1) このとき $a,b,c$ は次を満たす：(i) $a\\,\\boxed{A}\\,0,\\ b\\,\\boxed{B}\\,0,\\ c\\,\\boxed{C}\\,0$；(ii) $a+b+c\\,\\boxed{D}\\,0$；(iii) $a-b+c\\,\\boxed{E}\\,0$；(iv) $4a+2b+c\\,\\boxed{F}\\,0$；(v) $b^2-4ac\\,\\boxed{G}\\,0$。\n\n(2) 条件 (i),(ii) のもとで $a^2-8b-8c$ を最小にする。$a=\\boxed{H}$ となる。$y=ax^2+bx+c$ を $b$ で表すと $y=\\boxed{H}\\,x^2+bx-b+\\boxed{I}$。$b$ の範囲は $\\boxed{J}<b<\\boxed{K}$。\n\n選択肢：$⓪\\ 0\\quad ①\\ 1\\quad ②\\ 2\\quad ③\\ 3\\quad ④\\ 4\\quad ⑤\\ -2\\quad ⑥\\ -4\\quad ⑦\\ >\\quad ⑧\\ =\\quad ⑨\\ <$"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "(1) $a<0,b>0,c>0$; $a+b+c=0$; $a-b+c<0$; $4a+2b+c<0$; $b^2-4ac>0$. (2) $a=-4$, $y=-4x^2+bx-b+4$, $0<b<4$.  Boxes: A=9, B=7, C=7, D=8, E=9, F=9, G=7, H=6, I=4, J=0, K=4.",
+        "ja": "(1) $a<0,b>0,c>0$；$a+b+c=0$；$a-b+c<0$；$4a+2b+c<0$；$b^2-4ac>0$。(2) $a=-4$，$y=-4x^2+bx-b+4$，$0<b<4$。 解答：A=9, B=7, C=7, D=8, E=9, F=9, G=7, H=6, I=4, J=0, K=4。"
+      },
+      "explanation": {
+        "en": "The parabola opens downward, so $a<0$ ($\\boxed{A}=⑨\\,<$). Its $y$-intercept is positive, so $c>0$ ($\\boxed{C}=⑦\\,>$). The vertex is at $x=-b/(2a)>0$; since $a<0$ this forces $b>0$ ($\\boxed{B}=⑦\\,>$).\n(ii) The graph passes through $(1,0)$, so $a+b+c=0$ ($\\boxed{D}=⑧\\,=$).\n(iii) $a-b+c$ is the value at $x=-1$, which lies left of the left root, so it is negative: $a-b+c<0$ ($\\boxed{E}=⑨\\,<$).\n(iv) $4a+2b+c$ is the value at $x=2$, beyond the right root, hence negative ($\\boxed{F}=⑨\\,<$).\n(v) Two distinct real roots give $b^2-4ac>0$ ($\\boxed{G}=⑦\\,>$).\n(2) From (ii) $b+c=-a$, so $a^2-8b-8c=a^2-8(b+c)=a^2+8a=(a+4)^2-16$, minimized at $a=-4$ ($\\boxed{H}=⑥\\,-4$). Then $c=-a-b=4-b$, so $y=-4x^2+bx+(4-b)=-4x^2+bx-b+4$ ($\\boxed{I}=④\\,4$). The conditions $b>0$ and $c=4-b>0$ give $0<b<4$ ($\\boxed{J}=⓪,\\ \\boxed{K}=④$).",
+        "ja": "放物線は上に凸なので $a<0$（$\\boxed{A}=⑨$）。$y$ 切片が正なので $c>0$（$\\boxed{C}=⑦$）。頂点 $x=-b/(2a)>0$ かつ $a<0$ より $b>0$（$\\boxed{B}=⑦$）。\n(ii) $(1,0)$ を通るので $a+b+c=0$（$\\boxed{D}=⑧$）。\n(iii) $a-b+c$ は $x=-1$ での値で，左の解より左にあり負：$a-b+c<0$（$\\boxed{E}=⑨$）。\n(iv) $4a+2b+c$ は $x=2$ での値で，右の解より右にあり負（$\\boxed{F}=⑨$）。\n(v) 相異なる2実解より $b^2-4ac>0$（$\\boxed{G}=⑦$）。\n(2) (ii) より $b+c=-a$ なので $a^2-8b-8c=a^2+8a=(a+4)^2-16$，$a=-4$ で最小（$\\boxed{H}=⑥$）。$c=4-b$ より $y=-4x^2+bx-b+4$（$\\boxed{I}=④$）。$b>0$ かつ $c=4-b>0$ より $0<b<4$（$\\boxed{J}=⓪,\\ \\boxed{K}=④$）。"
+      },
+      "blanks": [
+        { "label": "A", "value": "9" }, { "label": "B", "value": "7" }, { "label": "C", "value": "7" }, { "label": "D", "value": "8" }, { "label": "E", "value": "9" }, { "label": "F", "value": "9" }, { "label": "G", "value": "7" }, { "label": "H", "value": "6" }, { "label": "I", "value": "4" }, { "label": "J", "value": "0" }, { "label": "K", "value": "4" }
+      ]
+    },
+    {
+      "id": "2019-1-math-c2-1-2",
+      "answerRow": 2,
+      "number": "I-Q2",
+      "section": "I",
+      "part": "Q2",
+      "topicId": "counting-probability",
+      "topicIds": ["counting-probability", "independent-trials"],
+      "subtopic": "Biased die (6 twice as likely): single-roll probability, then two- and three-roll comparisons of complementary events",
+      "patternTags": ["biased-die", "probability-of-event", "complementary-event", "repeated-trials", "comparison-of-probabilities"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "**[I] Q2 — Probability.** Consider die-X: for each of $1$ through $5$ the probability is the same, but the probability of $6$ is twice that of any other number.\n\n(1) Let $p$ be the probability a particular number $1$–$5$ comes up. Then $P(6)=\\boxed{L}\\,p$. Since the total probability is $\\boxed{M}$, we get $p=\\dfrac{\\boxed{N}}{\\boxed{O}}$.\n\n(2) Die-X is rolled twice. Let $A$ be the event that both rolls show $1$–$5$, and $B$ the event that $6$ appears at least once. Then $P(A)=\\dfrac{\\boxed{PQ}}{\\boxed{RS}}$ and $P(B)=\\dfrac{\\boxed{TU}}{\\boxed{VW}}$. Hence $\\boxed{X}$, choosing from: $⓪$ $P(A)<P(B)$ and the difference is $\\ge\\tfrac1{36}$; $①$ $P(A)<P(B)$ and the difference is $<\\tfrac1{36}$; $②$ $P(A)=P(B)$; $③$ $P(A)>P(B)$ and the difference is $\\ge\\tfrac1{36}$; $④$ $P(A)>P(B)$ and the difference is $<\\tfrac1{36}$.\n\n(3) Die-X is rolled three times. Let $C$ be the event that all three show $1$–$5$, and $D$ the event that $6$ appears at least once. Then $\\boxed{Y}$, choosing from: $⓪$ $P(C)<P(D)$ and $P(D)\\ge 2P(C)$; $①$ $P(C)<P(D)$ and $P(D)<2P(C)$; $②$ $P(C)=P(D)$; $③$ $P(C)>P(D)$ and $P(C)\\ge 2P(D)$; $④$ $P(C)>P(D)$ and $P(C)<2P(D)$."
+      },
+      "ja": {
+        "prompt": "**[Ⅰ] 問2 — 確率** さいころ X を考える：$1$ から $5$ の出る確率は等しいが，$6$ の出る確率は他のどの目の $2$ 倍である。\n\n(1) $1$〜$5$ のある目が出る確率を $p$ とすると $P(6)=\\boxed{L}\\,p$。全確率は $\\boxed{M}$ なので $p=\\dfrac{\\boxed{N}}{\\boxed{O}}$。\n\n(2) X を $2$ 回振る。両方とも $1$〜$5$ である事象を $A$，$6$ が少なくとも $1$ 回出る事象を $B$ とすると $P(A)=\\dfrac{\\boxed{PQ}}{\\boxed{RS}}$，$P(B)=\\dfrac{\\boxed{TU}}{\\boxed{VW}}$。よって $\\boxed{X}$。選択肢：$⓪$ $P(A)<P(B)$ で差が $\\tfrac1{36}$ 以上；$①$ $P(A)<P(B)$ で差が $\\tfrac1{36}$ 未満；$②$ $P(A)=P(B)$；$③$ $P(A)>P(B)$ で差が $\\tfrac1{36}$ 以上；$④$ $P(A)>P(B)$ で差が $\\tfrac1{36}$ 未満。\n\n(3) X を $3$ 回振る。すべて $1$〜$5$ である事象を $C$，$6$ が少なくとも $1$ 回出る事象を $D$ とすると $\\boxed{Y}$。選択肢：$⓪$ $P(C)<P(D)$ で $P(D)\\ge 2P(C)$；$①$ $P(C)<P(D)$ で $P(D)<2P(C)$；$②$ $P(C)=P(D)$；$③$ $P(C)>P(D)$ で $P(C)\\ge 2P(D)$；$④$ $P(C)>P(D)$ で $P(C)<2P(D)$。"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "$P(6)=2p$, total $=1$, $p=\\tfrac17$; $P(A)=\\tfrac{25}{49}$, $P(B)=\\tfrac{24}{49}$ (so $④$); three rolls give $①$.  Boxes: L=2, M=1, NO=17, PQRS=2549, TUVW=2449, X=4, Y=1.",
+        "ja": "$P(6)=2p$，全確率 $=1$，$p=\\tfrac17$；$P(A)=\\tfrac{25}{49}$，$P(B)=\\tfrac{24}{49}$（よって $④$）；$3$ 回では $①$。 解答：L=2, M=1, NO=17, PQRS=2549, TUVW=2449, X=4, Y=1。"
+      },
+      "explanation": {
+        "en": "(1) The six probabilities are $p,p,p,p,p,2p$, so $P(6)=2p$ ($\\boxed{L}=2$). Their sum is the total probability $1$ ($\\boxed{M}=1$): $5p+2p=7p=1\\Rightarrow p=\\tfrac17$ ($\\boxed{NO}=17$).\n(2) $P(\\text{one roll in }1\\text{–}5)=5p=\\tfrac57$. $P(A)=(\\tfrac57)^2=\\tfrac{25}{49}$. $P(B)=1-P(A)=\\tfrac{24}{49}$. Thus $P(A)>P(B)$ with difference $\\tfrac{1}{49}<\\tfrac1{36}$, so $\\boxed{X}=④$.\n(3) $P(C)=(\\tfrac57)^3=\\tfrac{125}{343}$, $P(D)=1-\\tfrac{125}{343}=\\tfrac{218}{343}$. Here $P(C)<P(D)$; and $2P(C)=\\tfrac{250}{343}>\\tfrac{218}{343}=P(D)$, so $P(D)<2P(C)$, giving $\\boxed{Y}=①$.",
+        "ja": "(1) $6$ 個の確率は $p,p,p,p,p,2p$ で $P(6)=2p$（$\\boxed{L}=2$）。総和は全確率 $1$（$\\boxed{M}=1$）：$7p=1\\Rightarrow p=\\tfrac17$（$\\boxed{NO}=17$）。\n(2) $1$ 回で $1$〜$5$ の確率は $5p=\\tfrac57$。$P(A)=(\\tfrac57)^2=\\tfrac{25}{49}$，$P(B)=1-P(A)=\\tfrac{24}{49}$。$P(A)>P(B)$ で差 $\\tfrac1{49}<\\tfrac1{36}$，よって $\\boxed{X}=④$。\n(3) $P(C)=(\\tfrac57)^3=\\tfrac{125}{343}$，$P(D)=\\tfrac{218}{343}$。$P(C)<P(D)$ かつ $2P(C)=\\tfrac{250}{343}>P(D)$，すなわち $P(D)<2P(C)$ なので $\\boxed{Y}=①$。"
+      },
+      "blanks": [
+        { "label": "L", "value": "2" }, { "label": "M", "value": "1" }, { "label": "NO", "value": "17" }, { "label": "PQRS", "value": "2549" }, { "label": "TUVW", "value": "2449" }, { "label": "X", "value": "4" }, { "label": "Y", "value": "1" }
+      ]
+    },
+    {
+      "id": "2019-1-math-c2-2-1",
+      "answerRow": 3,
+      "number": "II-Q1",
+      "section": "II",
+      "part": "Q1",
+      "topicId": "space-vectors",
+      "topicIds": ["space-vectors", "vector-figures"],
+      "subtopic": "Tetrahedron inscribed in a sphere with a diametral edge: position vectors of midpoints, centroid, and collinearity",
+      "patternTags": ["sphere-inscribed-tetrahedron", "diameter-edge", "midpoint-vectors", "centroid", "collinearity", "expression-from-list"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "**[II] Q1 — Vectors.** *(For $\\boxed{A},\\boxed{B},\\boxed{D},\\boxed{E},\\boxed{G}$ choose the correct vector from the list $⓪$–$⑨$ below; for the other boxes enter a number.)*\n\nA sphere of radius $2$ is centered at $O$, and a tetrahedron $ABCD$ has all four vertices on the sphere. Let $AB=BC=CA=2$, and let side $BD$ be a diameter of the sphere. Put $\\vec a=\\overrightarrow{OA},\\ \\vec b=\\overrightarrow{OB},\\ \\vec c=\\overrightarrow{OC}$.\n\n(1) Let $M,N$ be the midpoints of $DA,BC$. Then $\\overrightarrow{DA}=\\boxed{A}$ and $\\overrightarrow{MN}=\\dfrac{\\boxed{B}}{\\boxed{C}}+\\boxed{D}$.\n\n(2) Let $P$ be the midpoint of $MN$ and $G$ the centroid of triangle $BCD$. Then $\\overrightarrow{OP}=\\dfrac{\\boxed{E}}{\\boxed{F}}$, $\\overrightarrow{OG}=\\dfrac{\\boxed{G}}{\\boxed{H}}$, and $\\overrightarrow{PG}=\\dfrac{\\boxed{I}}{\\boxed{J}}\\,\\overrightarrow{AP}$. Since $\\overrightarrow{AG}=\\dfrac{\\boxed{K}}{\\boxed{L}}\\,\\overrightarrow{AP}$, the three points $A,P,G$ are collinear.\n\nChoices: $⓪\\ \\vec a\\quad ①\\ \\vec b\\quad ②\\ \\vec c\\quad ③\\ \\vec a-\\vec b\\quad ④\\ \\vec b-\\vec c\\quad ⑤\\ \\vec c-\\vec a\\quad ⑥\\ \\vec a+\\vec b\\quad ⑦\\ \\vec b+\\vec c\\quad ⑧\\ \\vec c+\\vec a\\quad ⑨\\ \\vec a+\\vec b+\\vec c$"
+      },
+      "ja": {
+        "prompt": "**[Ⅱ] 問1 — ベクトル** *（$\\boxed{A},\\boxed{B},\\boxed{D},\\boxed{E},\\boxed{G}$ は下の選択肢 $⓪$〜$⑨$ から選び，他の空欄には数を入れよ。）*\n\n中心 $O$，半径 $2$ の球面に，四面体 $ABCD$ の $4$ 頂点がすべて乗っている。$AB=BC=CA=2$ とし，辺 $BD$ は球の直径とする。$\\vec a=\\overrightarrow{OA},\\ \\vec b=\\overrightarrow{OB},\\ \\vec c=\\overrightarrow{OC}$ とおく。\n\n(1) $M,N$ を $DA,BC$ の中点とすると $\\overrightarrow{DA}=\\boxed{A}$，$\\overrightarrow{MN}=\\dfrac{\\boxed{B}}{\\boxed{C}}+\\boxed{D}$。\n\n(2) $P$ を $MN$ の中点，$G$ を三角形 $BCD$ の重心とすると $\\overrightarrow{OP}=\\dfrac{\\boxed{E}}{\\boxed{F}}$，$\\overrightarrow{OG}=\\dfrac{\\boxed{G}}{\\boxed{H}}$，$\\overrightarrow{PG}=\\dfrac{\\boxed{I}}{\\boxed{J}}\\,\\overrightarrow{AP}$。$\\overrightarrow{AG}=\\dfrac{\\boxed{K}}{\\boxed{L}}\\,\\overrightarrow{AP}$ なので，$3$ 点 $A,P,G$ は一直線上にある。\n\n選択肢：$⓪\\ \\vec a\\quad ①\\ \\vec b\\quad ②\\ \\vec c\\quad ③\\ \\vec a-\\vec b\\quad ④\\ \\vec b-\\vec c\\quad ⑤\\ \\vec c-\\vec a\\quad ⑥\\ \\vec a+\\vec b\\quad ⑦\\ \\vec b+\\vec c\\quad ⑧\\ \\vec c+\\vec a\\quad ⑨\\ \\vec a+\\vec b+\\vec c$"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "$\\overrightarrow{DA}=\\vec a+\\vec b\\,(⑥)$; $\\overrightarrow{MN}=\\tfrac{\\vec c-\\vec a}{2}+\\vec b$ ($⑤/2+①$); $\\overrightarrow{OP}=\\tfrac{\\vec c+\\vec a}{4}$ ($⑧/4$); $\\overrightarrow{OG}=\\tfrac{\\vec c}{3}$ ($②/3$); $\\overrightarrow{PG}=\\tfrac13\\overrightarrow{AP}$; $\\overrightarrow{AG}=\\tfrac43\\overrightarrow{AP}$.  Boxes: A=6, B=5, C=2, D=1, E=8, F=4, G=2, H=3, I=1, J=3, K=4, L=3.",
+        "ja": "$\\overrightarrow{DA}=\\vec a+\\vec b\\,(⑥)$；$\\overrightarrow{MN}=\\tfrac{\\vec c-\\vec a}{2}+\\vec b$（$⑤/2+①$）；$\\overrightarrow{OP}=\\tfrac{\\vec c+\\vec a}{4}$（$⑧/4$）；$\\overrightarrow{OG}=\\tfrac{\\vec c}{3}$（$②/3$）；$\\overrightarrow{PG}=\\tfrac13\\overrightarrow{AP}$；$\\overrightarrow{AG}=\\tfrac43\\overrightarrow{AP}$。 解答：A=6, B=5, C=2, D=1, E=8, F=4, G=2, H=3, I=1, J=3, K=4, L=3。"
+      },
+      "explanation": {
+        "en": "Since $BD$ is a diameter and $O$ is the center, $O$ is the midpoint of $BD$, so $\\overrightarrow{OD}=-\\vec b$. With $|\\vec a|=|\\vec b|=|\\vec c|=2$ and $AB=BC=CA=2$, each pairwise dot product is $\\vec a\\cdot\\vec b=\\vec b\\cdot\\vec c=\\vec c\\cdot\\vec a=2$.\n(1) $\\overrightarrow{DA}=\\overrightarrow{OA}-\\overrightarrow{OD}=\\vec a-(-\\vec b)=\\vec a+\\vec b$ ($\\boxed{A}=⑥$). $\\overrightarrow{OM}=\\tfrac12(\\overrightarrow{OD}+\\overrightarrow{OA})=\\tfrac12(\\vec a-\\vec b)$ and $\\overrightarrow{ON}=\\tfrac12(\\vec b+\\vec c)$, so $\\overrightarrow{MN}=\\overrightarrow{ON}-\\overrightarrow{OM}=\\tfrac12(\\vec c-\\vec a)+\\vec b$ ($\\boxed{B}=⑤,\\ \\boxed{C}=2,\\ \\boxed{D}=①$).\n(2) $\\overrightarrow{OP}=\\tfrac12(\\overrightarrow{OM}+\\overrightarrow{ON})=\\tfrac14(\\vec a+\\vec c)=\\tfrac{\\vec c+\\vec a}{4}$ ($\\boxed{E}=⑧,\\ \\boxed{F}=4$). $\\overrightarrow{OG}=\\tfrac13(\\overrightarrow{OB}+\\overrightarrow{OC}+\\overrightarrow{OD})=\\tfrac13(\\vec b+\\vec c-\\vec b)=\\tfrac{\\vec c}{3}$ ($\\boxed{G}=②,\\ \\boxed{H}=3$). Now $\\overrightarrow{AP}=\\overrightarrow{OP}-\\vec a=-\\tfrac34\\vec a+\\tfrac14\\vec c$ and $\\overrightarrow{PG}=\\overrightarrow{OG}-\\overrightarrow{OP}=-\\tfrac14\\vec a+\\tfrac1{12}\\vec c=\\tfrac13\\overrightarrow{AP}$ ($\\boxed{I}=1,\\ \\boxed{J}=3$). Hence $\\overrightarrow{AG}=\\overrightarrow{AP}+\\overrightarrow{PG}=\\tfrac43\\overrightarrow{AP}$ ($\\boxed{K}=4,\\ \\boxed{L}=3$), so $A,P,G$ are collinear.",
+        "ja": "$BD$ は直径で $O$ が中心なので $O$ は $BD$ の中点，よって $\\overrightarrow{OD}=-\\vec b$。$|\\vec a|=|\\vec b|=|\\vec c|=2$ かつ $AB=BC=CA=2$ より $\\vec a\\cdot\\vec b=\\vec b\\cdot\\vec c=\\vec c\\cdot\\vec a=2$。\n(1) $\\overrightarrow{DA}=\\vec a-(-\\vec b)=\\vec a+\\vec b$（$\\boxed{A}=⑥$）。$\\overrightarrow{OM}=\\tfrac12(\\vec a-\\vec b),\\ \\overrightarrow{ON}=\\tfrac12(\\vec b+\\vec c)$ より $\\overrightarrow{MN}=\\tfrac12(\\vec c-\\vec a)+\\vec b$（$\\boxed{B}=⑤,\\ \\boxed{C}=2,\\ \\boxed{D}=①$）。\n(2) $\\overrightarrow{OP}=\\tfrac14(\\vec a+\\vec c)=\\tfrac{\\vec c+\\vec a}{4}$（$\\boxed{E}=⑧,\\ \\boxed{F}=4$）。$\\overrightarrow{OG}=\\tfrac13(\\vec b+\\vec c-\\vec b)=\\tfrac{\\vec c}{3}$（$\\boxed{G}=②,\\ \\boxed{H}=3$）。$\\overrightarrow{AP}=-\\tfrac34\\vec a+\\tfrac14\\vec c$，$\\overrightarrow{PG}=-\\tfrac14\\vec a+\\tfrac1{12}\\vec c=\\tfrac13\\overrightarrow{AP}$（$\\boxed{I}=1,\\ \\boxed{J}=3$）。よって $\\overrightarrow{AG}=\\tfrac43\\overrightarrow{AP}$（$\\boxed{K}=4,\\ \\boxed{L}=3$）で $A,P,G$ は一直線上。"
+      },
+      "blanks": [
+        { "label": "A", "value": "6" }, { "label": "B", "value": "5" }, { "label": "C", "value": "2" }, { "label": "D", "value": "1" }, { "label": "E", "value": "8" }, { "label": "F", "value": "4" }, { "label": "G", "value": "2" }, { "label": "H", "value": "3" }, { "label": "I", "value": "1" }, { "label": "J", "value": "3" }, { "label": "K", "value": "4" }, { "label": "L", "value": "3" }
+      ]
+    },
+    {
+      "id": "2019-1-math-c2-2-2",
+      "answerRow": 4,
+      "number": "II-Q2",
+      "section": "II",
+      "part": "Q2",
+      "topicId": "complex-figures",
+      "topicIds": ["complex-figures", "complex-plane-polar"],
+      "subtopic": "Triangle on the complex plane from a quadratic relation among side ratios; modulus/argument and area",
+      "patternTags": ["complex-plane", "ratio-quadratic", "polar-form", "argument-modulus", "triangle-area"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "**[II] Q2 — Complex plane.** Let $\\alpha,\\beta,\\gamma$ represent three distinct points $A,B,C$ on the complex plane, satisfying\n$$(\\gamma-\\alpha)^2+(\\gamma-\\alpha)(\\beta-\\alpha)+(\\beta-\\alpha)^2=0,\\qquad |\\beta-2\\alpha+\\gamma|=3.$$\nFind the area of triangle $ABC$ (take $-\\pi<\\arg<\\pi$).\n\nFrom the first relation, $\\dfrac{\\gamma-\\alpha}{\\beta-\\alpha}=\\dfrac{-\\boxed{M}\\pm\\sqrt{\\boxed{N}}\\,i}{\\boxed{O}}$, so $\\left|\\dfrac{\\gamma-\\alpha}{\\beta-\\alpha}\\right|=\\boxed{P}$ and $\\arg\\dfrac{\\gamma-\\alpha}{\\beta-\\alpha}=\\pm\\dfrac{\\boxed{Q}}{\\boxed{R}}\\pi$.\n\nAlso $\\beta-2\\alpha+\\gamma=(\\beta-\\alpha)\\cdot\\dfrac{\\boxed{S}\\pm\\sqrt{\\boxed{T}}\\,i}{\\boxed{U}}$, so from the second relation $|\\beta-\\alpha|=\\boxed{V}$.\n\nTherefore the area of triangle $ABC$ is $\\dfrac{\\boxed{W}\\sqrt{\\boxed{X}}}{\\boxed{Y}}$."
+      },
+      "ja": {
+        "prompt": "**[Ⅱ] 問2 — 複素数平面** 複素数平面上の相異なる $3$ 点 $A,B,C$ を表す $\\alpha,\\beta,\\gamma$ が次を満たす：\n$$(\\gamma-\\alpha)^2+(\\gamma-\\alpha)(\\beta-\\alpha)+(\\beta-\\alpha)^2=0,\\qquad |\\beta-2\\alpha+\\gamma|=3。$$\n三角形 $ABC$ の面積を求めよ（$-\\pi<\\arg<\\pi$ とする）。\n\n第1式より $\\dfrac{\\gamma-\\alpha}{\\beta-\\alpha}=\\dfrac{-\\boxed{M}\\pm\\sqrt{\\boxed{N}}\\,i}{\\boxed{O}}$ なので，$\\left|\\dfrac{\\gamma-\\alpha}{\\beta-\\alpha}\\right|=\\boxed{P}$，$\\arg\\dfrac{\\gamma-\\alpha}{\\beta-\\alpha}=\\pm\\dfrac{\\boxed{Q}}{\\boxed{R}}\\pi$。\n\nまた $\\beta-2\\alpha+\\gamma=(\\beta-\\alpha)\\cdot\\dfrac{\\boxed{S}\\pm\\sqrt{\\boxed{T}}\\,i}{\\boxed{U}}$ なので，第2式より $|\\beta-\\alpha|=\\boxed{V}$。\n\nよって三角形 $ABC$ の面積は $\\dfrac{\\boxed{W}\\sqrt{\\boxed{X}}}{\\boxed{Y}}$。"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "$\\tfrac{\\gamma-\\alpha}{\\beta-\\alpha}=\\tfrac{-1\\pm\\sqrt3 i}{2}$, modulus $1$, argument $\\pm\\tfrac23\\pi$; $\\beta-2\\alpha+\\gamma=(\\beta-\\alpha)\\tfrac{1\\pm\\sqrt3 i}{2}$ so $|\\beta-\\alpha|=3$; area $=\\tfrac{9\\sqrt3}{4}$.  Boxes: M=1, N=3, O=2, P=1, QR=23, S=1, T=3, U=2, V=3, W=9, X=3, Y=4.",
+        "ja": "$\\tfrac{\\gamma-\\alpha}{\\beta-\\alpha}=\\tfrac{-1\\pm\\sqrt3 i}{2}$，絶対値 $1$，偏角 $\\pm\\tfrac23\\pi$；$\\beta-2\\alpha+\\gamma=(\\beta-\\alpha)\\tfrac{1\\pm\\sqrt3 i}{2}$ より $|\\beta-\\alpha|=3$；面積 $=\\tfrac{9\\sqrt3}{4}$。 解答：M=1, N=3, O=2, P=1, QR=23, S=1, T=3, U=2, V=3, W=9, X=3, Y=4。"
+      },
+      "explanation": {
+        "en": "Let $w=\\dfrac{\\gamma-\\alpha}{\\beta-\\alpha}$. Dividing the first relation by $(\\beta-\\alpha)^2$ gives $w^2+w+1=0$, so $w=\\dfrac{-1\\pm\\sqrt3\\,i}{2}$ ($\\boxed{M}=1,\\boxed{N}=3,\\boxed{O}=2$). Then $|w|=1$ ($\\boxed{P}=1$) and $\\arg w=\\pm\\tfrac{2}{3}\\pi$ ($\\boxed{QR}=23$).\nNext $\\beta-2\\alpha+\\gamma=(\\beta-\\alpha)+(\\gamma-\\alpha)=(\\beta-\\alpha)(1+w)$, and $1+w=1+\\dfrac{-1\\pm\\sqrt3 i}{2}=\\dfrac{1\\pm\\sqrt3\\,i}{2}$ ($\\boxed{S}=1,\\boxed{T}=3,\\boxed{U}=2$), which has modulus $1$. So $|\\beta-2\\alpha+\\gamma|=|\\beta-\\alpha|\\cdot1=3$, giving $|\\beta-\\alpha|=3$ ($\\boxed{V}=3$).\nFinally $|\\gamma-\\alpha|=|w||\\beta-\\alpha|=3$, and the angle at $A$ is $\\arg w=\\tfrac23\\pi$ (interior $\\tfrac23\\pi$, $\\sin=\\tfrac{\\sqrt3}2$), so the area $=\\tfrac12|\\beta-\\alpha||\\gamma-\\alpha|\\sin\\tfrac{2\\pi}{3}=\\tfrac12\\cdot3\\cdot3\\cdot\\tfrac{\\sqrt3}{2}=\\tfrac{9\\sqrt3}{4}$ ($\\boxed{W}=9,\\boxed{X}=3,\\boxed{Y}=4$).",
+        "ja": "$w=\\dfrac{\\gamma-\\alpha}{\\beta-\\alpha}$ とおく。第1式を $(\\beta-\\alpha)^2$ で割ると $w^2+w+1=0$，よって $w=\\dfrac{-1\\pm\\sqrt3\\,i}{2}$（$\\boxed{M}=1,\\boxed{N}=3,\\boxed{O}=2$）。$|w|=1$（$\\boxed{P}=1$），$\\arg w=\\pm\\tfrac23\\pi$（$\\boxed{QR}=23$）。\n$\\beta-2\\alpha+\\gamma=(\\beta-\\alpha)(1+w)$，$1+w=\\dfrac{1\\pm\\sqrt3\\,i}{2}$（$\\boxed{S}=1,\\boxed{T}=3,\\boxed{U}=2$）で絶対値 $1$。よって $|\\beta-2\\alpha+\\gamma|=|\\beta-\\alpha|=3$，$|\\beta-\\alpha|=3$（$\\boxed{V}=3$）。\n$|\\gamma-\\alpha|=|w||\\beta-\\alpha|=3$，$A$ での角は $\\tfrac23\\pi$（$\\sin=\\tfrac{\\sqrt3}2$）なので 面積 $=\\tfrac12\\cdot3\\cdot3\\cdot\\tfrac{\\sqrt3}2=\\tfrac{9\\sqrt3}{4}$（$\\boxed{W}=9,\\boxed{X}=3,\\boxed{Y}=4$）。"
+      },
+      "blanks": [
+        { "label": "M", "value": "1" }, { "label": "N", "value": "3" }, { "label": "O", "value": "2" }, { "label": "P", "value": "1" }, { "label": "QR", "value": "23" }, { "label": "S", "value": "1" }, { "label": "T", "value": "3" }, { "label": "U", "value": "2" }, { "label": "V", "value": "3" }, { "label": "W", "value": "9" }, { "label": "X", "value": "3" }, { "label": "Y", "value": "4" }
+      ]
+    },
+    {
+      "id": "2019-1-math-c2-3",
+      "answerRow": 5,
+      "number": "III",
+      "section": "III",
+      "part": null,
+      "topicId": "trig-functions",
+      "topicIds": ["trig-functions", "derivative-applications"],
+      "subtopic": "Feet of perpendiculars from points at angles theta and 3theta on the unit circle; maximize the gap via a cubic in cos theta",
+      "patternTags": ["unit-circle", "triple-angle-formula", "cubic-in-cosine", "derivative-extrema", "coordinates-from-list"],
+      "hasFigure": true,
+      "en": {
+        "prompt": "**[III] — Unit circle.** On a coordinate plane let $C$ be the unit circle centered at $O$. For $0\\le\\theta\\le\\pi$, let $P,Q$ be the points where the radii at angles $\\theta$ and $3\\theta$ from the positive $x$-axis meet $C$. Let $A,B$ be the feet of the perpendiculars from $P,Q$ to the $x$-axis, and let $\\ell$ be the length of $AB$.\n\n(1) When $\\theta=\\dfrac{\\pi}{3}$, $\\ell=\\dfrac{\\boxed{A}}{\\boxed{B}}$.\n\n(2) Set $\\cos\\theta=t$. Then $\\ell=\\boxed{C}\\,t^{\\boxed{D}}-\\boxed{E}\\,t$. With $g(t)=\\boxed{C}\\,t^{\\boxed{D}}-\\boxed{E}\\,t$, we have $g'(t)=\\boxed{F}\\big(\\boxed{G}\\,t^{\\boxed{H}}-1\\big)$. Hence when $\\cos\\theta=\\pm\\dfrac{\\sqrt{\\boxed{I}}}{\\boxed{J}}$, $\\ell$ is maximized with value $\\dfrac{\\boxed{K}\\sqrt{\\boxed{L}}}{\\boxed{M}}$.\n\n(3) *(For $\\boxed{N}$–$\\boxed{S}$ choose from the list $⓪$–$⑨$ below.)* There are two pairs $P,Q$ at which $\\ell$ is maximized, with coordinates $P\\!\\left(\\dfrac{\\sqrt{\\boxed{I}}}{\\boxed{J}},\\boxed{N}\\right),\\ Q\\!\\left(\\boxed{O},\\boxed{P}\\right)$ and $P\\!\\left(-\\dfrac{\\sqrt{\\boxed{I}}}{\\boxed{J}},\\boxed{Q}\\right),\\ Q\\!\\left(\\boxed{R},\\boxed{S}\\right)$.\n\nChoices: $⓪\\ \\tfrac{\\sqrt6}{3}\\quad ①\\ \\tfrac{\\sqrt6}{2}\\quad ②\\ \\tfrac{4\\sqrt3}{9}\\quad ③\\ -\\tfrac{4\\sqrt3}{9}\\quad ④\\ \\tfrac{5\\sqrt3}{9}\\quad ⑤\\ -\\tfrac{5\\sqrt3}{9}\\quad ⑥\\ \\tfrac{\\sqrt6}{9}\\quad ⑦\\ -\\tfrac{\\sqrt6}{9}\\quad ⑧\\ \\tfrac{2\\sqrt6}{9}\\quad ⑨\\ -\\tfrac{2\\sqrt6}{9}$"
+      },
+      "ja": {
+        "prompt": "**[Ⅲ] — 単位円** 座標平面上で $C$ を $O$ を中心とする単位円とする。$0\\le\\theta\\le\\pi$ に対し，$x$ 軸の正の向きから角 $\\theta,3\\theta$ の半径が $C$ と交わる点を $P,Q$ とする。$P,Q$ から $x$ 軸に下ろした垂線の足を $A,B$ とし，$AB$ の長さを $\\ell$ とする。\n\n(1) $\\theta=\\dfrac{\\pi}{3}$ のとき $\\ell=\\dfrac{\\boxed{A}}{\\boxed{B}}$。\n\n(2) $\\cos\\theta=t$ とおくと $\\ell=\\boxed{C}\\,t^{\\boxed{D}}-\\boxed{E}\\,t$。$g(t)=\\boxed{C}\\,t^{\\boxed{D}}-\\boxed{E}\\,t$ とすると $g'(t)=\\boxed{F}\\big(\\boxed{G}\\,t^{\\boxed{H}}-1\\big)$。よって $\\cos\\theta=\\pm\\dfrac{\\sqrt{\\boxed{I}}}{\\boxed{J}}$ のとき $\\ell$ は最大となり，最大値は $\\dfrac{\\boxed{K}\\sqrt{\\boxed{L}}}{\\boxed{M}}$。\n\n(3) *（$\\boxed{N}$〜$\\boxed{S}$ は下の選択肢 $⓪$〜$⑨$ から選べ。）* $\\ell$ が最大となる $P,Q$ の組は $2$ つあり，座標は $P\\!\\left(\\dfrac{\\sqrt{\\boxed{I}}}{\\boxed{J}},\\boxed{N}\\right),\\ Q\\!\\left(\\boxed{O},\\boxed{P}\\right)$ および $P\\!\\left(-\\dfrac{\\sqrt{\\boxed{I}}}{\\boxed{J}},\\boxed{Q}\\right),\\ Q\\!\\left(\\boxed{R},\\boxed{S}\\right)$。\n\n選択肢：$⓪\\ \\tfrac{\\sqrt6}{3}\\quad ①\\ \\tfrac{\\sqrt6}{2}\\quad ②\\ \\tfrac{4\\sqrt3}{9}\\quad ③\\ -\\tfrac{4\\sqrt3}{9}\\quad ④\\ \\tfrac{5\\sqrt3}{9}\\quad ⑤\\ -\\tfrac{5\\sqrt3}{9}\\quad ⑥\\ \\tfrac{\\sqrt6}{9}\\quad ⑦\\ -\\tfrac{\\sqrt6}{9}\\quad ⑧\\ \\tfrac{2\\sqrt6}{9}\\quad ⑨\\ -\\tfrac{2\\sqrt6}{9}$"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "$\\ell(\\tfrac\\pi3)=\\tfrac32$; $\\ell=4t^3-4t$, $g'(t)=4(3t^2-1)$, max at $\\cos\\theta=\\pm\\tfrac{\\sqrt3}{3}$ with value $\\tfrac{8\\sqrt3}{9}$; $P(\\tfrac{\\sqrt3}{3},\\tfrac{\\sqrt6}{3}),Q(-\\tfrac{5\\sqrt3}{9},\\tfrac{\\sqrt6}{9})$ and $P(-\\tfrac{\\sqrt3}{3},\\tfrac{\\sqrt6}{3}),Q(\\tfrac{5\\sqrt3}{9},\\tfrac{\\sqrt6}{9})$.  Boxes: AB=32, C=4, D=3, E=4, F=4, G=3, H=2, IJ=33, K=8, L=3, M=9, N=0, O=5, P=6, Q=0, R=4, S=6.",
+        "ja": "$\\ell(\\tfrac\\pi3)=\\tfrac32$；$\\ell=4t^3-4t$，$g'(t)=4(3t^2-1)$，$\\cos\\theta=\\pm\\tfrac{\\sqrt3}{3}$ で最大値 $\\tfrac{8\\sqrt3}{9}$；$P(\\tfrac{\\sqrt3}{3},\\tfrac{\\sqrt6}{3}),Q(-\\tfrac{5\\sqrt3}{9},\\tfrac{\\sqrt6}{9})$ および $P(-\\tfrac{\\sqrt3}{3},\\tfrac{\\sqrt6}{3}),Q(\\tfrac{5\\sqrt3}{9},\\tfrac{\\sqrt6}{9})$。 解答：AB=32, C=4, D=3, E=4, F=4, G=3, H=2, IJ=33, K=8, L=3, M=9, N=0, O=5, P=6, Q=0, R=4, S=6。"
+      },
+      "explanation": {
+        "en": "$P=(\\cos\\theta,\\sin\\theta)$ and $Q=(\\cos3\\theta,\\sin3\\theta)$, so $A=(\\cos\\theta,0)$, $B=(\\cos3\\theta,0)$ and $\\ell=|\\cos\\theta-\\cos3\\theta|$.\n(1) $\\theta=\\tfrac\\pi3$: $\\cos\\tfrac\\pi3=\\tfrac12$, $\\cos\\pi=-1$, so $\\ell=|\\tfrac12-(-1)|=\\tfrac32$ ($\\boxed{AB}=32$).\n(2) Using $\\cos3\\theta=4\\cos^3\\theta-3\\cos\\theta$, $\\cos3\\theta-\\cos\\theta=4t^3-4t$. For the maximizing range $\\cos\\theta<0$ this is positive, so $\\ell=4t^3-4t$ ($\\boxed{C}=4,\\boxed{D}=3,\\boxed{E}=4$). Then $g'(t)=12t^2-4=4(3t^2-1)$ ($\\boxed{F}=4,\\boxed{G}=3,\\boxed{H}=2$). Setting $3t^2-1=0$ gives $t=\\pm\\tfrac1{\\sqrt3}=\\pm\\tfrac{\\sqrt3}{3}$ ($\\boxed{IJ}=33$); at these points $\\ell=\\big|4t^3-4t\\big|=\\tfrac{8\\sqrt3}{9}$ ($\\boxed{K}=8,\\boxed{L}=3,\\boxed{M}=9$).\n(3) For $\\cos\\theta=\\tfrac{\\sqrt3}{3}$: $\\sin\\theta=\\tfrac{\\sqrt6}{3}$, so $P=(\\tfrac{\\sqrt3}{3},\\tfrac{\\sqrt6}{3})$ with $\\boxed{N}=⓪$. Then $\\cos3\\theta=4t^3-3t=-\\tfrac{5\\sqrt3}{9}$ ($\\boxed{O}=⑤$) and $\\sin3\\theta=3\\sin\\theta-4\\sin^3\\theta=\\tfrac{\\sqrt6}{9}$ ($\\boxed{P}=⑥$). For $\\cos\\theta=-\\tfrac{\\sqrt3}{3}$: $\\sin\\theta=\\tfrac{\\sqrt6}{3}$ so $\\boxed{Q}=⓪$, while $\\cos3\\theta=\\tfrac{5\\sqrt3}{9}$ ($\\boxed{R}=④$) and $\\sin3\\theta=\\tfrac{\\sqrt6}{9}$ ($\\boxed{S}=⑥$).",
+        "ja": "$P=(\\cos\\theta,\\sin\\theta),\\ Q=(\\cos3\\theta,\\sin3\\theta)$ なので $A=(\\cos\\theta,0),\\ B=(\\cos3\\theta,0)$ で $\\ell=|\\cos\\theta-\\cos3\\theta|$。\n(1) $\\theta=\\tfrac\\pi3$：$\\ell=|\\tfrac12-(-1)|=\\tfrac32$（$\\boxed{AB}=32$）。\n(2) $\\cos3\\theta=4\\cos^3\\theta-3\\cos\\theta$ より $\\cos3\\theta-\\cos\\theta=4t^3-4t$。最大を与える範囲 $\\cos\\theta<0$ ではこれが正なので $\\ell=4t^3-4t$（$\\boxed{C}=4,\\boxed{D}=3,\\boxed{E}=4$）。$g'(t)=12t^2-4=4(3t^2-1)$（$\\boxed{F}=4,\\boxed{G}=3,\\boxed{H}=2$）。$3t^2-1=0$ より $t=\\pm\\tfrac{\\sqrt3}{3}$（$\\boxed{IJ}=33$），最大値 $\\tfrac{8\\sqrt3}{9}$（$\\boxed{K}=8,\\boxed{L}=3,\\boxed{M}=9$）。\n(3) $\\cos\\theta=\\tfrac{\\sqrt3}{3}$ では $\\sin\\theta=\\tfrac{\\sqrt6}{3}$ で $P=(\\tfrac{\\sqrt3}{3},\\tfrac{\\sqrt6}{3})$（$\\boxed{N}=⓪$），$\\cos3\\theta=-\\tfrac{5\\sqrt3}{9}$（$\\boxed{O}=⑤$），$\\sin3\\theta=\\tfrac{\\sqrt6}{9}$（$\\boxed{P}=⑥$）。$\\cos\\theta=-\\tfrac{\\sqrt3}{3}$ では $\\sin\\theta=\\tfrac{\\sqrt6}{3}$（$\\boxed{Q}=⓪$），$\\cos3\\theta=\\tfrac{5\\sqrt3}{9}$（$\\boxed{R}=④$），$\\sin3\\theta=\\tfrac{\\sqrt6}{9}$（$\\boxed{S}=⑥$）。"
+      },
+      "blanks": [
+        { "label": "AB", "value": "32" }, { "label": "C", "value": "4" }, { "label": "D", "value": "3" }, { "label": "E", "value": "4" }, { "label": "F", "value": "4" }, { "label": "G", "value": "3" }, { "label": "H", "value": "2" }, { "label": "IJ", "value": "33" }, { "label": "K", "value": "8" }, { "label": "L", "value": "3" }, { "label": "M", "value": "9" }, { "label": "N", "value": "0" }, { "label": "O", "value": "5" }, { "label": "P", "value": "6" }, { "label": "Q", "value": "0" }, { "label": "R", "value": "4" }, { "label": "S", "value": "6" }
+      ]
+    },
+    {
+      "id": "2019-1-math-c2-4",
+      "answerRow": 6,
+      "number": "IV",
+      "section": "IV",
+      "part": null,
+      "topicId": "integral-applications",
+      "topicIds": ["integral-applications", "exp-log", "limits"],
+      "subtopic": "Inequality x-1>=log x, area between a line and a logarithm, then minimizing the area over k and its limit",
+      "patternTags": ["log-inequality", "definite-integral", "area-between-curves", "minimize-over-parameter", "sequence-limit", "expression-from-list"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "**[IV] — Logarithm, area, limit.** Here $\\log$ is the natural logarithm.\n\n(1) Let $f(x)=x-1-\\log x$. Then $f'(x)=\\boxed{A}-\\dfrac{\\boxed{B}}{x}$. The minimum is at $x=\\boxed{C}$ with value $\\boxed{D}$, which gives $x-1\\ge\\log x$.\n\n(2) *(For $\\boxed{G}$ choose from the list $⓪$–$③$ below; for the others enter a number.)* Let $k>0$ and $n$ a positive integer. Let $S$ be the area bounded by $y=\\dfrac{x}{k}-1$, $x=n$, $x=n+1$ and $y=\\log\\dfrac{x}{k}$. Using (1),\n$$S=\\left[\\dfrac{x^{\\boxed{E}}}{\\boxed{F}\\,k}-x-\\boxed{G}+x\\log k\\right]_{n}^{n+1}=\\dfrac{\\boxed{H}\\,n+1}{\\boxed{I}\\,k}+\\log k-(n+\\boxed{J})\\log(n+\\boxed{K})+n\\log n.$$\n\n(3) Fix $n$ and vary $k>0$; let $a_n$ be the minimum of $S$. Then $\\dfrac{dS}{dk}=\\dfrac{\\boxed{L}\\,k-(\\boxed{M}\\,n+1)}{\\boxed{N}\\,k^{2}}$, so $S$ is minimized at $k=n+\\dfrac{\\boxed{O}}{\\boxed{P}}$, and\n$$a_n=\\boxed{Q}-\\log\\!\\left[\\left(\\boxed{R}+\\dfrac{\\boxed{S}}{n}\\right)^{n}\\cdot\\dfrac{\\boxed{T}\\,n+\\boxed{U}}{\\boxed{V}\\,n+1}\\right],\\qquad \\lim_{n\\to\\infty}a_n=\\boxed{W}.$$\n\nChoices for $\\boxed{G}$: $⓪\\ x(\\log x+1)\\quad ①\\ x(\\log x-1)\\quad ②\\ \\dfrac{\\log x+1}{x}\\quad ③\\ \\dfrac{\\log x-1}{x}$"
+      },
+      "ja": {
+        "prompt": "**[Ⅳ] — 対数・面積・極限** ここで $\\log$ は自然対数とする。\n\n(1) $f(x)=x-1-\\log x$ とすると $f'(x)=\\boxed{A}-\\dfrac{\\boxed{B}}{x}$。最小は $x=\\boxed{C}$ で値 $\\boxed{D}$ となり，$x-1\\ge\\log x$ を得る。\n\n(2) *（$\\boxed{G}$ は下の選択肢 $⓪$〜$③$ から選び，他は数を入れよ。）* $k>0$，$n$ を正の整数とする。$y=\\dfrac{x}{k}-1$，$x=n$，$x=n+1$，$y=\\log\\dfrac{x}{k}$ で囲まれた部分の面積を $S$ とする。(1) を用いて\n$$S=\\left[\\dfrac{x^{\\boxed{E}}}{\\boxed{F}\\,k}-x-\\boxed{G}+x\\log k\\right]_{n}^{n+1}=\\dfrac{\\boxed{H}\\,n+1}{\\boxed{I}\\,k}+\\log k-(n+\\boxed{J})\\log(n+\\boxed{K})+n\\log n。$$\n\n(3) $n$ を固定して $k>0$ を動かすときの $S$ の最小値を $a_n$ とする。$\\dfrac{dS}{dk}=\\dfrac{\\boxed{L}\\,k-(\\boxed{M}\\,n+1)}{\\boxed{N}\\,k^{2}}$ なので $S$ は $k=n+\\dfrac{\\boxed{O}}{\\boxed{P}}$ で最小となり，\n$$a_n=\\boxed{Q}-\\log\\!\\left[\\left(\\boxed{R}+\\dfrac{\\boxed{S}}{n}\\right)^{n}\\cdot\\dfrac{\\boxed{T}\\,n+\\boxed{U}}{\\boxed{V}\\,n+1}\\right],\\qquad \\lim_{n\\to\\infty}a_n=\\boxed{W}。$$\n\n$\\boxed{G}$ の選択肢：$⓪\\ x(\\log x+1)\\quad ①\\ x(\\log x-1)\\quad ②\\ \\dfrac{\\log x+1}{x}\\quad ③\\ \\dfrac{\\log x-1}{x}$"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "$f'(x)=1-\\tfrac1x$, min at $x=1$ value $0$; $S=[\\tfrac{x^2}{2k}-x-x(\\log x-1)+x\\log k]$, $\\boxed{G}=①$, $S=\\tfrac{2n+1}{2k}+\\log k-(n+1)\\log(n+1)+n\\log n$; $\\tfrac{dS}{dk}=\\tfrac{2k-(2n+1)}{2k^2}$, min at $k=n+\\tfrac12$; $a_n=1-\\log[(1+\\tfrac1n)^n\\tfrac{2n+2}{2n+1}]$, $\\lim a_n=0$.  Boxes: A=1, B=1, C=1, D=0, E=2, F=2, G=1, H=2, I=2, J=1, K=1, L=2, M=2, N=2, OP=12, Q=1, R=1, S=1, T=2, U=2, V=2, W=0.",
+        "ja": "$f'(x)=1-\\tfrac1x$，$x=1$ で最小値 $0$；$S=[\\tfrac{x^2}{2k}-x-x(\\log x-1)+x\\log k]$，$\\boxed{G}=①$，$S=\\tfrac{2n+1}{2k}+\\log k-(n+1)\\log(n+1)+n\\log n$；$\\tfrac{dS}{dk}=\\tfrac{2k-(2n+1)}{2k^2}$，$k=n+\\tfrac12$ で最小；$a_n=1-\\log[(1+\\tfrac1n)^n\\tfrac{2n+2}{2n+1}]$，$\\lim a_n=0$。 解答：A=1, B=1, C=1, D=0, E=2, F=2, G=1, H=2, I=2, J=1, K=1, L=2, M=2, N=2, OP=12, Q=1, R=1, S=1, T=2, U=2, V=2, W=0。"
+      },
+      "explanation": {
+        "en": "(1) $f'(x)=1-\\tfrac1x$ ($\\boxed{A}=1,\\boxed{B}=1$); $f'(x)=0$ at $x=1$ ($\\boxed{C}=1$), where $f$ has its minimum $f(1)=0$ ($\\boxed{D}=0$). Hence $x-1-\\log x\\ge0$, i.e. $x-1\\ge\\log x$.\n(2) By (1) the line $y=\\tfrac{x}{k}-1$ lies above the curve $y=\\log\\tfrac{x}{k}$, so $S=\\int_n^{n+1}\\big(\\tfrac{x}{k}-1-\\log\\tfrac{x}{k}\\big)dx$. An antiderivative is $\\tfrac{x^2}{2k}-x-x(\\log x-1)+x\\log k$, using $\\int\\log x\\,dx=x(\\log x-1)$ ($\\boxed{G}=①$, $\\boxed{E}=2,\\boxed{F}=2$). Evaluating from $n$ to $n+1$ gives $S=\\tfrac{2n+1}{2k}+\\log k-(n+1)\\log(n+1)+n\\log n$ ($\\boxed{H}=2,\\boxed{I}=2,\\boxed{J}=1,\\boxed{K}=1$).\n(3) $\\tfrac{dS}{dk}=-\\tfrac{2n+1}{2k^2}+\\tfrac1k=\\tfrac{2k-(2n+1)}{2k^2}$ ($\\boxed{L}=2,\\boxed{M}=2,\\boxed{N}=2$), which is $0$ at $k=\\tfrac{2n+1}{2}=n+\\tfrac12$ ($\\boxed{OP}=12$); this is a minimum. Substituting, the $\\tfrac{2n+1}{2k}$ term becomes $1$, so $a_n=1+\\log(n+\\tfrac12)-(n+1)\\log(n+1)+n\\log n=1-\\log\\!\\Big[\\big(1+\\tfrac1n\\big)^n\\cdot\\tfrac{2n+2}{2n+1}\\Big]$ ($\\boxed{Q}=1,\\boxed{R}=1,\\boxed{S}=1,\\boxed{T}=2,\\boxed{U}=2,\\boxed{V}=2$). As $n\\to\\infty$, $(1+\\tfrac1n)^n\\to e$ and $\\tfrac{2n+2}{2n+1}\\to1$, so $a_n\\to1-\\log e=0$ ($\\boxed{W}=0$).",
+        "ja": "(1) $f'(x)=1-\\tfrac1x$（$\\boxed{A}=1,\\boxed{B}=1$）。$x=1$（$\\boxed{C}=1$）で最小 $f(1)=0$（$\\boxed{D}=0$），よって $x-1\\ge\\log x$。\n(2) (1) より直線 $y=\\tfrac{x}{k}-1$ は曲線 $y=\\log\\tfrac{x}{k}$ の上にあるので $S=\\int_n^{n+1}\\big(\\tfrac{x}{k}-1-\\log\\tfrac{x}{k}\\big)dx$。$\\int\\log x\\,dx=x(\\log x-1)$（$\\boxed{G}=①$）を用い，原始関数は $\\tfrac{x^2}{2k}-x-x(\\log x-1)+x\\log k$（$\\boxed{E}=2,\\boxed{F}=2$）。$n$ から $n+1$ まで計算して $S=\\tfrac{2n+1}{2k}+\\log k-(n+1)\\log(n+1)+n\\log n$（$\\boxed{H}=2,\\boxed{I}=2,\\boxed{J}=1,\\boxed{K}=1$）。\n(3) $\\tfrac{dS}{dk}=\\tfrac{2k-(2n+1)}{2k^2}$（$\\boxed{L}=2,\\boxed{M}=2,\\boxed{N}=2$），$k=n+\\tfrac12$（$\\boxed{OP}=12$）で最小。代入すると $\\tfrac{2n+1}{2k}=1$ となり $a_n=1+\\log(n+\\tfrac12)-(n+1)\\log(n+1)+n\\log n=1-\\log\\!\\Big[\\big(1+\\tfrac1n\\big)^n\\cdot\\tfrac{2n+2}{2n+1}\\Big]$（$\\boxed{Q}=1,\\boxed{R}=1,\\boxed{S}=1,\\boxed{T}=2,\\boxed{U}=2,\\boxed{V}=2$）。$n\\to\\infty$ で $(1+\\tfrac1n)^n\\to e$，$\\tfrac{2n+2}{2n+1}\\to1$ なので $a_n\\to1-\\log e=0$（$\\boxed{W}=0$）。"
+      },
+      "blanks": [
+        { "label": "A", "value": "1" }, { "label": "B", "value": "1" }, { "label": "C", "value": "1" }, { "label": "D", "value": "0" }, { "label": "E", "value": "2" }, { "label": "F", "value": "2" }, { "label": "G", "value": "1" }, { "label": "H", "value": "2" }, { "label": "I", "value": "2" }, { "label": "J", "value": "1" }, { "label": "K", "value": "1" }, { "label": "L", "value": "2" }, { "label": "M", "value": "2" }, { "label": "N", "value": "2" }, { "label": "OP", "value": "12" }, { "label": "Q", "value": "1" }, { "label": "R", "value": "1" }, { "label": "S", "value": "1" }, { "label": "T", "value": "2" }, { "label": "U", "value": "2" }, { "label": "V", "value": "2" }, { "label": "W", "value": "0" }
+      ]
+    }
+  ]
+}
