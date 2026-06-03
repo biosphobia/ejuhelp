@@ -1,0 +1,239 @@
+{
+  "id": "2013-1-math-c2",
+  "year": 2013,
+  "session": 1,
+  "subject": "math",
+  "course": 2,
+  "title": "2013 EJU Session 1 — Mathematics (Course 2)",
+  "source": "Examination for Japanese University Admission for International Students, 2013 Session 1 (JASSO). Official English question paper (scanned image PDF, OCR-rendered) and official answer key. Every box was re-derived by solving AND cross-checked against the machine-readable Course-2 answer-key column.",
+  "answerFormat": "digit-fill",
+  "answerKeyVerified": true,
+  "note": "The Course 2 paper has four large questions (大問 I-IV). Large questions I and IV each contain two independent sub-questions (問1, 問2); these are stored as separate entries, giving six questions. Large questions II and III are single problems. Answer-letters follow the official scheme and reset at the start of each large question. The official answer key is a vector PDF (machine-readable); its Course-2 column was read directly and matched box-for-box with independent solving. (In Part I-Q1 the answer space X~Z is intentionally left blank per the paper.)",
+  "questions": [
+    {
+      "id": "2013-1-math-c2-1",
+      "answerRow": 1,
+      "number": "I-Q1",
+      "section": "I",
+      "part": "Q1",
+      "topicId": "quadratic-functions",
+      "topicIds": ["quadratic-functions"],
+      "subtopic": "Quadratic determined by two point conditions plus a monotonicity (increasing-on-interval) requirement; express coefficients in terms of the leading coefficient and bound it",
+      "patternTags": ["coefficients-in-terms-of-parameter", "axis-of-symmetry", "monotonic-on-interval", "range-of-parameter", "case-split-sign-of-leading-coefficient"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "**[I] Q1 — Quadratic functions.**\n\nSuppose we have a quadratic function $y=ax^2+bx+c$ in $x$ which satisfies the following conditions $[\\ast]$:\n\n$[\\ast]$ When $x=-1$, then $y=-8$ and when $x=3$, then $y=16$. Further, in the interval $-1\\le x\\le 3$, the value of $y$ increases with the increase of the value of $x$.\n\nWe are to find the conditions which $a,b$ and $c$ must satisfy.\n\nFrom $[\\ast]$, it follows that $b$ and $c$ can be expressed in terms of $a$ as\n$$b=\\boxed{AB}\\,a+\\boxed{C}\\quad\\cdots\\;①,\\qquad c=\\boxed{DE}\\,a-\\boxed{F}\\quad\\cdots\\;②.$$\nHence the axis of symmetry of the graph of this quadratic function has the equation\n$$x=\\boxed{G}-\\dfrac{\\boxed{H}}{a}.$$\nThus $a,b$ and $c$ must satisfy the relationships $①$ and $②$, and furthermore\n$$0<a\\le\\dfrac{\\boxed{I}}{\\boxed{J}}\\quad\\text{or}\\quad\\dfrac{\\boxed{KL}}{\\boxed{M}}\\le a<0.$$"
+      },
+      "ja": {
+        "prompt": "**[Ⅰ] 問1 — 二次関数**\n\n次の条件 $[\\ast]$ を満たす $x$ の二次関数 $y=ax^2+bx+c$ を考える。\n\n$[\\ast]$ $x=-1$ のとき $y=-8$，$x=3$ のとき $y=16$ である。さらに，区間 $-1\\le x\\le 3$ において，$x$ の値が増加すると $y$ の値も増加する。\n\n$a,b,c$ が満たすべき条件を求める。\n\n$[\\ast]$ より，$b$ と $c$ は $a$ を用いて\n$$b=\\boxed{AB}\\,a+\\boxed{C}\\quad\\cdots\\;①,\\qquad c=\\boxed{DE}\\,a-\\boxed{F}\\quad\\cdots\\;②$$\nと表せる。よってこの二次関数のグラフの軸の方程式は\n$$x=\\boxed{G}-\\dfrac{\\boxed{H}}{a}$$\nである。したがって $a,b,c$ は $①$，$②$ を満たし，さらに\n$$0<a\\le\\dfrac{\\boxed{I}}{\\boxed{J}}\\quad\\text{または}\\quad\\dfrac{\\boxed{KL}}{\\boxed{M}}\\le a<0$$\nを満たさなければならない。"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "$b=-2a+6,\\ c=-3a-2$; axis $x=1-\\dfrac{3}{a}$; the function increases on $[-1,3]$ iff $0<a\\le\\tfrac32$ or $-\\tfrac32\\le a<0$.  Boxes: ABC=-26, DEF=-32, GH=13, IJ=32, KLM=-32.",
+        "ja": "$b=-2a+6,\\ c=-3a-2$；軸 $x=1-\\dfrac{3}{a}$；$[-1,3]$ で増加するのは $0<a\\le\\tfrac32$ または $-\\tfrac32\\le a<0$。 解答：ABC=-26, DEF=-32, GH=13, IJ=32, KLM=-32。"
+      },
+      "explanation": {
+        "en": "Substituting the two points into $y=ax^2+bx+c$: $a-b+c=-8$ (from $x=-1$) and $9a+3b+c=16$ (from $x=3$). Subtracting gives $8a+4b=24\\Rightarrow b=-2a+6$ ($①$, so $AB=-2,\\ C=6$). Then $c=-8-a+b=-8-a+(-2a+6)=-3a-2$ ($②$, so $DE=-3,\\ F=2$). The axis is $x=-\\dfrac{b}{2a}=-\\dfrac{-2a+6}{2a}=1-\\dfrac{3}{a}$ ($G=1,\\ H=3$).\nFor $y$ to be increasing throughout $-1\\le x\\le 3$: if $a>0$ the parabola opens up and increases to the right of the axis, so the axis must be $\\le -1$: $1-\\tfrac3a\\le -1\\Rightarrow \\tfrac3a\\ge 2\\Rightarrow 0<a\\le\\tfrac32$. If $a<0$ it opens down and increases to the left of the axis, so the axis must be $\\ge 3$: $1-\\tfrac3a\\ge 3\\Rightarrow -\\tfrac3a\\ge 2\\Rightarrow -\\tfrac32\\le a<0$. Hence $IJ=32$ ($\\tfrac32$) and $KLM=-32$ ($-\\tfrac32$).",
+        "ja": "2点を $y=ax^2+bx+c$ に代入すると，$a-b+c=-8$（$x=-1$），$9a+3b+c=16$（$x=3$）。辺々引いて $8a+4b=24\\Rightarrow b=-2a+6$（$①$，$AB=-2,\\ C=6$）。さらに $c=-8-a+b=-3a-2$（$②$，$DE=-3,\\ F=2$）。軸は $x=-\\dfrac{b}{2a}=1-\\dfrac{3}{a}$（$G=1,\\ H=3$）。\n$-1\\le x\\le 3$ で増加するためには，$a>0$ なら下に凸で軸の右で増加するので軸 $\\le -1$：$1-\\tfrac3a\\le -1\\Rightarrow 0<a\\le\\tfrac32$。$a<0$ なら上に凸で軸の左で増加するので軸 $\\ge 3$：$1-\\tfrac3a\\ge 3\\Rightarrow -\\tfrac32\\le a<0$。よって $IJ=32$，$KLM=-32$。"
+      },
+      "blanks": [
+        { "label": "ABC", "value": "-26" },
+        { "label": "DEF", "value": "-32" },
+        { "label": "GH", "value": "13" },
+        { "label": "IJ", "value": "32" },
+        { "label": "KLM", "value": "-32" }
+      ]
+    },
+    {
+      "id": "2013-1-math-c2-2",
+      "answerRow": 2,
+      "number": "I-Q2",
+      "section": "I",
+      "part": "Q2",
+      "topicId": "sets-propositions",
+      "topicIds": ["sets-propositions"],
+      "subtopic": "Two real intervals A=[a,c], B=[b,d]; recover endpoints from quadratic-inequality descriptions of their union, intersection and complements",
+      "patternTags": ["intervals-as-sets", "quadratic-inequality-solution-set", "union-intersection", "complement", "endpoint-recovery"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "**[I] Q2 — Sets.**\n\nLet $a,b,c$ and $d$ be real numbers satisfying $a<b<c<d$. Suppose that the two subsets of real numbers\n$$A=\\{x\\mid a\\le x\\le c\\},\\qquad B=\\{x\\mid b\\le x\\le d\\}$$\nsatisfy\n$$A\\cap B=\\{x\\mid x^2-4x+3\\le 0\\}.$$\nThen, answer the questions for cases (1) and (2).\n\n(1) Let the union of $A$ and $B$ be $A\\cup B=\\{x\\mid x^2-5x-24\\le 0\\}$. Then the values of $a,b,c$ and $d$ are\n$$a=\\boxed{NO},\\quad b=\\boxed{P},\\quad c=\\boxed{Q},\\quad d=\\boxed{R}.$$\n\n(2) Let the intersection of $A$ and the complement $\\overline{B}$ of $B$ be $A\\cap\\overline{B}=\\{x\\mid x^2+5x-6\\le 0\\ \\text{and}\\ x\\neq 1\\}$, and let the intersection of the complement $\\overline{A}$ of $A$ and $B$ be $\\overline{A}\\cap B=\\{x\\mid x^2-9x+18\\le 0\\ \\text{and}\\ x\\neq 3\\}$. Then the values of $a,b,c$ and $d$ are\n$$a=\\boxed{ST},\\quad b=\\boxed{U},\\quad c=\\boxed{V},\\quad d=\\boxed{W}.$$"
+      },
+      "ja": {
+        "prompt": "**[Ⅰ] 問2 — 集合**\n\n$a<b<c<d$ を満たす実数 $a,b,c,d$ を考える。実数の2つの部分集合\n$$A=\\{x\\mid a\\le x\\le c\\},\\qquad B=\\{x\\mid b\\le x\\le d\\}$$\nが\n$$A\\cap B=\\{x\\mid x^2-4x+3\\le 0\\}$$\nを満たすとする。(1)，(2) の各場合について答えよ。\n\n(1) $A$ と $B$ の和集合が $A\\cup B=\\{x\\mid x^2-5x-24\\le 0\\}$ であるとき，$a,b,c,d$ の値は\n$$a=\\boxed{NO},\\quad b=\\boxed{P},\\quad c=\\boxed{Q},\\quad d=\\boxed{R}.$$\n\n(2) $A$ と $B$ の補集合 $\\overline{B}$ の共通部分が $A\\cap\\overline{B}=\\{x\\mid x^2+5x-6\\le 0\\ \\text{かつ}\\ x\\neq 1\\}$ であり，$A$ の補集合 $\\overline{A}$ と $B$ の共通部分が $\\overline{A}\\cap B=\\{x\\mid x^2-9x+18\\le 0\\ \\text{かつ}\\ x\\neq 3\\}$ であるとき，$a,b,c,d$ の値は\n$$a=\\boxed{ST},\\quad b=\\boxed{U},\\quad c=\\boxed{V},\\quad d=\\boxed{W}.$$"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "From $A\\cap B=[1,3]$: $b=1,\\ c=3$. (1) $A\\cup B=[-3,8]$ gives $a=-3,\\ d=8$. (2) $A\\cap\\overline B=[-6,1)$ and $\\overline A\\cap B=(3,6]$ give $a=-6,\\ d=6$ (with $b=1,\\ c=3$).  Boxes: NO=-3, P=1, Q=3, R=8; ST=-6, U=1, V=3, W=6.",
+        "ja": "$A\\cap B=[1,3]$ より $b=1,\\ c=3$。(1) $A\\cup B=[-3,8]$ より $a=-3,\\ d=8$。(2) $A\\cap\\overline B=[-6,1)$，$\\overline A\\cap B=(3,6]$ より $a=-6,\\ d=6$（$b=1,\\ c=3$）。 解答：NO=-3, P=1, Q=3, R=8；ST=-6, U=1, V=3, W=6。"
+      },
+      "explanation": {
+        "en": "$x^2-4x+3\\le 0\\Rightarrow(x-1)(x-3)\\le 0\\Rightarrow 1\\le x\\le 3$. Since $A=[a,c]$ and $B=[b,d]$ with $a<b<c<d$, we have $A\\cap B=[b,c]=[1,3]$, so $b=1,\\ c=3$.\n(1) $A\\cup B=[a,d]$. $x^2-5x-24\\le 0\\Rightarrow(x+3)(x-8)\\le 0\\Rightarrow -3\\le x\\le 8$, so $a=-3,\\ d=8$ ($NO=-3,\\ P=1,\\ Q=3,\\ R=8$).\n(2) $A\\cap\\overline B$ is the part of $A=[a,c]$ to the left of $B$, i.e. $[a,b)$. $x^2+5x-6\\le 0\\Rightarrow(x+6)(x-1)\\le 0\\Rightarrow -6\\le x\\le 1$ (excluding $x=1$), so $a=-6$ and $b=1$. $\\overline A\\cap B$ is the part of $B$ to the right of $A$, i.e. $(c,d]$. $x^2-9x+18\\le 0\\Rightarrow(x-3)(x-6)\\le 0\\Rightarrow 3\\le x\\le 6$ (excluding $x=3$), so $c=3$ and $d=6$. Hence $ST=-6,\\ U=1,\\ V=3,\\ W=6$.",
+        "ja": "$x^2-4x+3\\le 0\\Rightarrow(x-1)(x-3)\\le 0\\Rightarrow 1\\le x\\le 3$。$A=[a,c]$，$B=[b,d]$，$a<b<c<d$ より $A\\cap B=[b,c]=[1,3]$，よって $b=1,\\ c=3$。\n(1) $A\\cup B=[a,d]$。$x^2-5x-24\\le 0\\Rightarrow(x+3)(x-8)\\le 0\\Rightarrow -3\\le x\\le 8$ より $a=-3,\\ d=8$（$NO=-3,\\ P=1,\\ Q=3,\\ R=8$）。\n(2) $A\\cap\\overline B$ は $A$ のうち $B$ の左側 $[a,b)$。$x^2+5x-6\\le 0\\Rightarrow(x+6)(x-1)\\le 0\\Rightarrow -6\\le x\\le 1$（$x=1$ を除く）より $a=-6,\\ b=1$。$\\overline A\\cap B$ は $B$ のうち $A$ の右側 $(c,d]$。$x^2-9x+18\\le 0\\Rightarrow(x-3)(x-6)\\le 0\\Rightarrow 3\\le x\\le 6$（$x=3$ を除く）より $c=3,\\ d=6$。よって $ST=-6,\\ U=1,\\ V=3,\\ W=6$。"
+      },
+      "blanks": [
+        { "label": "NO", "value": "-3" },
+        { "label": "P", "value": "1" },
+        { "label": "Q", "value": "3" },
+        { "label": "R", "value": "8" },
+        { "label": "ST", "value": "-6" },
+        { "label": "U", "value": "1" },
+        { "label": "V", "value": "3" },
+        { "label": "W", "value": "6" }
+      ]
+    },
+    {
+      "id": "2013-1-math-c2-3",
+      "answerRow": 3,
+      "number": "II",
+      "section": "II",
+      "part": null,
+      "topicId": "space-vectors",
+      "topicIds": ["space-vectors", "dot-product"],
+      "subtopic": "Three mutually perpendicular unit position vectors on a unit sphere: triangle area, centroid, ray-sphere intersection and tetrahedron volume",
+      "patternTags": ["orthogonal-unit-vectors", "dot-product", "triangle-area", "centroid", "ray-sphere-intersection", "tetrahedron-volume"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "**[II] — Space vectors.**\n\nGiven a sphere $S$ whose center is at O and whose radius is $1$, take three points A, B and C on $S$ such that\n$$\\overrightarrow{OA}\\cdot\\overrightarrow{OB}=\\overrightarrow{OB}\\cdot\\overrightarrow{OC}=\\overrightarrow{OC}\\cdot\\overrightarrow{OA}=0.$$\n(Here $\\overrightarrow{OA}\\cdot\\overrightarrow{OB}$, etc., refers to the inner product of the two vectors.)\n\n(1) It follows that $\\overrightarrow{AB}\\cdot\\overrightarrow{AC}=\\boxed{A}$, $\\;\\left|\\overrightarrow{AB}\\right|=\\sqrt{\\boxed{B}}$, $\\;\\cos\\angle BAC=\\dfrac{\\boxed{C}}{\\boxed{D}}$, and the area of the triangle ABC is $\\dfrac{\\sqrt{\\boxed{E}}}{\\boxed{F}}$.\n\n(2) Let G be the center of gravity of triangle ABC and P be the intersection point of the ray (half line) OG and sphere $S$. Since $\\overrightarrow{OG}=\\dfrac{\\boxed{G}}{\\boxed{H}}\\left(\\overrightarrow{OA}+\\overrightarrow{OB}+\\overrightarrow{OC}\\right)$, we have\n$$\\left|\\overrightarrow{OG}\\right|=\\dfrac{\\sqrt{\\boxed{I}}}{\\boxed{J}},\\qquad \\left|\\overrightarrow{PG}\\right|=\\dfrac{\\boxed{K}-\\sqrt{\\boxed{L}}}{\\boxed{M}},\\qquad \\overrightarrow{AG}\\cdot\\overrightarrow{PG}=\\boxed{N}.$$\nHence the volume of the tetrahedron PABC is $\\dfrac{\\sqrt{\\boxed{O}}-\\boxed{P}}{\\boxed{Q}}$."
+      },
+      "ja": {
+        "prompt": "**[Ⅱ] — 空間ベクトル**\n\n中心 O，半径 $1$ の球面 $S$ をとり，$S$ 上に3点 A, B, C を\n$$\\overrightarrow{OA}\\cdot\\overrightarrow{OB}=\\overrightarrow{OB}\\cdot\\overrightarrow{OC}=\\overrightarrow{OC}\\cdot\\overrightarrow{OA}=0$$\nを満たすようにとる。（ここで $\\overrightarrow{OA}\\cdot\\overrightarrow{OB}$ などは2つのベクトルの内積を表す。）\n\n(1) このとき $\\overrightarrow{AB}\\cdot\\overrightarrow{AC}=\\boxed{A}$，$\\;\\left|\\overrightarrow{AB}\\right|=\\sqrt{\\boxed{B}}$，$\\;\\cos\\angle BAC=\\dfrac{\\boxed{C}}{\\boxed{D}}$ であり，三角形 ABC の面積は $\\dfrac{\\sqrt{\\boxed{E}}}{\\boxed{F}}$ である。\n\n(2) G を三角形 ABC の重心，P を半直線 OG と球面 $S$ の交点とする。$\\overrightarrow{OG}=\\dfrac{\\boxed{G}}{\\boxed{H}}\\left(\\overrightarrow{OA}+\\overrightarrow{OB}+\\overrightarrow{OC}\\right)$ なので\n$$\\left|\\overrightarrow{OG}\\right|=\\dfrac{\\sqrt{\\boxed{I}}}{\\boxed{J}},\\qquad \\left|\\overrightarrow{PG}\\right|=\\dfrac{\\boxed{K}-\\sqrt{\\boxed{L}}}{\\boxed{M}},\\qquad \\overrightarrow{AG}\\cdot\\overrightarrow{PG}=\\boxed{N}.$$\nよって四面体 PABC の体積は $\\dfrac{\\sqrt{\\boxed{O}}-\\boxed{P}}{\\boxed{Q}}$ である。"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "Take $\\overrightarrow{OA},\\overrightarrow{OB},\\overrightarrow{OC}$ as orthonormal. $\\overrightarrow{AB}\\cdot\\overrightarrow{AC}=1$, $|\\overrightarrow{AB}|=\\sqrt2$, $\\cos\\angle BAC=\\tfrac12$, area $=\\tfrac{\\sqrt3}{2}$; $\\overrightarrow{OG}=\\tfrac13(\\cdots)$, $|\\overrightarrow{OG}|=\\tfrac{\\sqrt3}{3}$, $|\\overrightarrow{PG}|=\\tfrac{3-\\sqrt3}{3}$, $\\overrightarrow{AG}\\cdot\\overrightarrow{PG}=0$, volume $=\\tfrac{\\sqrt3-1}{6}$.  Boxes: A=1, B=2, CD=12, EF=32, GH=13, IJ=33, KLM=333, N=0, OPQ=316.",
+        "ja": "$\\overrightarrow{OA},\\overrightarrow{OB},\\overrightarrow{OC}$ を正規直交にとる。$\\overrightarrow{AB}\\cdot\\overrightarrow{AC}=1$，$|\\overrightarrow{AB}|=\\sqrt2$，$\\cos\\angle BAC=\\tfrac12$，面積 $\\tfrac{\\sqrt3}{2}$；$\\overrightarrow{OG}=\\tfrac13(\\cdots)$，$|\\overrightarrow{OG}|=\\tfrac{\\sqrt3}{3}$，$|\\overrightarrow{PG}|=\\tfrac{3-\\sqrt3}{3}$，$\\overrightarrow{AG}\\cdot\\overrightarrow{PG}=0$，体積 $\\tfrac{\\sqrt3-1}{6}$。 解答：A=1, B=2, CD=12, EF=32, GH=13, IJ=33, KLM=333, N=0, OPQ=316。"
+      },
+      "explanation": {
+        "en": "Since $\\overrightarrow{OA},\\overrightarrow{OB},\\overrightarrow{OC}$ are mutually perpendicular unit vectors, take $\\overrightarrow{OA}=(1,0,0),\\ \\overrightarrow{OB}=(0,1,0),\\ \\overrightarrow{OC}=(0,0,1)$.\n(1) $\\overrightarrow{AB}=(-1,1,0),\\ \\overrightarrow{AC}=(-1,0,1)$, so $\\overrightarrow{AB}\\cdot\\overrightarrow{AC}=1$ and $|\\overrightarrow{AB}|=\\sqrt2$. Then $\\cos\\angle BAC=\\dfrac{1}{\\sqrt2\\cdot\\sqrt2}=\\tfrac12$. The triangle is equilateral with side $\\sqrt2$, so area $=\\dfrac{\\sqrt3}{4}(\\sqrt2)^2=\\dfrac{\\sqrt3}{2}$ ($E=3,\\ F=2$).\n(2) The centroid is $\\overrightarrow{OG}=\\tfrac13(\\overrightarrow{OA}+\\overrightarrow{OB}+\\overrightarrow{OC})=(\\tfrac13,\\tfrac13,\\tfrac13)$ ($G=1,\\ H=3$), so $|\\overrightarrow{OG}|=\\dfrac{\\sqrt3}{3}$. P is on ray OG at distance $1$ (sphere radius), so $|\\overrightarrow{OP}|=1$ and $|\\overrightarrow{PG}|=|\\overrightarrow{OP}|-|\\overrightarrow{OG}|=1-\\dfrac{\\sqrt3}{3}=\\dfrac{3-\\sqrt3}{3}$ ($K=3,\\ L=3,\\ M=3$). Since OG $\\perp$ plane ABC and G is the foot, $\\overrightarrow{PG}\\parallel\\overrightarrow{OG}$ is perpendicular to $\\overrightarrow{AG}$, so $\\overrightarrow{AG}\\cdot\\overrightarrow{PG}=0$. Plane ABC is $x+y+z=1$; P $=(\\tfrac{1}{\\sqrt3},\\tfrac{1}{\\sqrt3},\\tfrac{1}{\\sqrt3})$ is at distance $\\dfrac{|\\sqrt3-1|}{\\sqrt3}=1-\\dfrac{\\sqrt3}{3}$ from it, so the volume is $\\tfrac13\\cdot\\dfrac{\\sqrt3}{2}\\cdot\\left(1-\\dfrac{\\sqrt3}{3}\\right)=\\dfrac{\\sqrt3-1}{6}$ ($O=3,\\ P=1,\\ Q=6$).",
+        "ja": "$\\overrightarrow{OA},\\overrightarrow{OB},\\overrightarrow{OC}$ は互いに垂直な単位ベクトルなので $\\overrightarrow{OA}=(1,0,0),\\ \\overrightarrow{OB}=(0,1,0),\\ \\overrightarrow{OC}=(0,0,1)$ とおける。\n(1) $\\overrightarrow{AB}=(-1,1,0),\\ \\overrightarrow{AC}=(-1,0,1)$ より $\\overrightarrow{AB}\\cdot\\overrightarrow{AC}=1$，$|\\overrightarrow{AB}|=\\sqrt2$，$\\cos\\angle BAC=\\dfrac{1}{2}$。三角形は1辺 $\\sqrt2$ の正三角形なので面積 $=\\dfrac{\\sqrt3}{4}(\\sqrt2)^2=\\dfrac{\\sqrt3}{2}$（$E=3,\\ F=2$）。\n(2) 重心 $\\overrightarrow{OG}=\\tfrac13(\\overrightarrow{OA}+\\overrightarrow{OB}+\\overrightarrow{OC})=(\\tfrac13,\\tfrac13,\\tfrac13)$（$G=1,\\ H=3$），$|\\overrightarrow{OG}|=\\dfrac{\\sqrt3}{3}$。P は半直線 OG 上で球面（半径1）との交点なので $|\\overrightarrow{OP}|=1$，$|\\overrightarrow{PG}|=1-\\dfrac{\\sqrt3}{3}=\\dfrac{3-\\sqrt3}{3}$（$K=3,\\ L=3,\\ M=3$）。OG は平面 ABC に垂直で G がその足なので $\\overrightarrow{PG}\\perp\\overrightarrow{AG}$，よって $\\overrightarrow{AG}\\cdot\\overrightarrow{PG}=0$。平面 ABC は $x+y+z=1$，P $=(\\tfrac{1}{\\sqrt3},\\tfrac{1}{\\sqrt3},\\tfrac{1}{\\sqrt3})$ との距離は $1-\\dfrac{\\sqrt3}{3}$ なので体積 $=\\tfrac13\\cdot\\dfrac{\\sqrt3}{2}\\cdot\\left(1-\\dfrac{\\sqrt3}{3}\\right)=\\dfrac{\\sqrt3-1}{6}$（$O=3,\\ P=1,\\ Q=6$）。"
+      },
+      "blanks": [
+        { "label": "A", "value": "1" },
+        { "label": "B", "value": "2" },
+        { "label": "CD", "value": "12" },
+        { "label": "EF", "value": "32" },
+        { "label": "GH", "value": "13" },
+        { "label": "IJ", "value": "33" },
+        { "label": "KLM", "value": "333" },
+        { "label": "N", "value": "0" },
+        { "label": "OPQ", "value": "316" }
+      ]
+    },
+    {
+      "id": "2013-1-math-c2-4",
+      "answerRow": 4,
+      "number": "III",
+      "section": "III",
+      "part": null,
+      "topicId": "trig-functions",
+      "topicIds": ["trig-functions", "curves-equations"],
+      "subtopic": "Maximize P=x^2+xy+y^2 on a quarter-ellipse by trig parameterization and synthesis a sin+b cos",
+      "patternTags": ["ellipse-parameterization", "double-angle", "trig-synthesis", "max-of-trig-expression", "angle-of-maximum"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "**[III] — Trigonometric functions.**\n\nGiven real numbers $x$ and $y$ that satisfy\n$$\\dfrac{x^2}{2}+\\dfrac{y^2}{4}=1,\\qquad x\\ge 0,\\quad y\\ge 0,$$\nwe are to find the maximum value of $P=x^2+xy+y^2$.\n\nWhen we set $x=\\sqrt2\\cos\\theta\\ \\left(0\\le\\theta\\le\\dfrac{\\pi}{2}\\right)$, we have $y=\\boxed{A}\\sin\\theta$. Thus $P$ can be represented as\n$$P=\\sqrt{\\boxed{B}}\\,\\sin 2\\theta-\\cos 2\\theta+\\boxed{C}=\\sqrt{\\boxed{D}}\\,\\sin(2\\theta-\\alpha)+\\boxed{E},$$\nwhere\n$$\\sin\\alpha=\\dfrac{\\sqrt{\\boxed{F}}}{\\boxed{G}},\\qquad \\cos\\alpha=\\dfrac{\\sqrt{\\boxed{H}}}{\\boxed{I}}\\qquad\\left(0<\\alpha<\\dfrac{\\pi}{2}\\right).$$\nHence the maximum value of $P$ is $\\sqrt{\\boxed{J}}+\\boxed{K}$.\n\nLet us denote the $\\theta$ at which the value of $P$ is maximized by $\\theta_0$. Then we have $2\\theta_0=\\alpha+\\dfrac{\\pi}{\\boxed{L}}$, and hence\n$$\\sin 2\\theta_0=\\dfrac{\\sqrt{\\boxed{M}}}{\\boxed{N}},\\qquad \\cos 2\\theta_0=-\\dfrac{\\sqrt{\\boxed{O}}}{\\boxed{P}}.$$"
+      },
+      "ja": {
+        "prompt": "**[Ⅲ] — 三角関数**\n\n次を満たす実数 $x,y$\n$$\\dfrac{x^2}{2}+\\dfrac{y^2}{4}=1,\\qquad x\\ge 0,\\quad y\\ge 0$$\nに対して，$P=x^2+xy+y^2$ の最大値を求める。\n\n$x=\\sqrt2\\cos\\theta\\ \\left(0\\le\\theta\\le\\dfrac{\\pi}{2}\\right)$ とおくと，$y=\\boxed{A}\\sin\\theta$ である。よって $P$ は\n$$P=\\sqrt{\\boxed{B}}\\,\\sin 2\\theta-\\cos 2\\theta+\\boxed{C}=\\sqrt{\\boxed{D}}\\,\\sin(2\\theta-\\alpha)+\\boxed{E}$$\nと表せる。ただし\n$$\\sin\\alpha=\\dfrac{\\sqrt{\\boxed{F}}}{\\boxed{G}},\\qquad \\cos\\alpha=\\dfrac{\\sqrt{\\boxed{H}}}{\\boxed{I}}\\qquad\\left(0<\\alpha<\\dfrac{\\pi}{2}\\right).$$\nよって $P$ の最大値は $\\sqrt{\\boxed{J}}+\\boxed{K}$ である。\n\n$P$ が最大となる $\\theta$ を $\\theta_0$ とすると，$2\\theta_0=\\alpha+\\dfrac{\\pi}{\\boxed{L}}$ であり，\n$$\\sin 2\\theta_0=\\dfrac{\\sqrt{\\boxed{M}}}{\\boxed{N}},\\qquad \\cos 2\\theta_0=-\\dfrac{\\sqrt{\\boxed{O}}}{\\boxed{P}}.$$"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "$y=2\\sin\\theta$; $P=\\sqrt2\\sin2\\theta-\\cos2\\theta+3=\\sqrt3\\sin(2\\theta-\\alpha)+3$ with $\\sin\\alpha=\\tfrac{\\sqrt3}{3},\\ \\cos\\alpha=\\tfrac{\\sqrt6}{3}$; max $P=\\sqrt3+3$; $2\\theta_0=\\alpha+\\tfrac\\pi2$, $\\sin2\\theta_0=\\tfrac{\\sqrt6}{3}$, $\\cos2\\theta_0=-\\tfrac{\\sqrt3}{3}$.  Boxes: A=2, BC=23, DE=33, FG=33, HI=63, JK=33, L=2, MN=63, OP=33.",
+        "ja": "$y=2\\sin\\theta$；$P=\\sqrt2\\sin2\\theta-\\cos2\\theta+3=\\sqrt3\\sin(2\\theta-\\alpha)+3$，$\\sin\\alpha=\\tfrac{\\sqrt3}{3},\\ \\cos\\alpha=\\tfrac{\\sqrt6}{3}$；最大値 $\\sqrt3+3$；$2\\theta_0=\\alpha+\\tfrac\\pi2$，$\\sin2\\theta_0=\\tfrac{\\sqrt6}{3}$，$\\cos2\\theta_0=-\\tfrac{\\sqrt3}{3}$。 解答：A=2, BC=23, DE=33, FG=33, HI=63, JK=33, L=2, MN=63, OP=33。"
+      },
+      "explanation": {
+        "en": "With $x=\\sqrt2\\cos\\theta$, the constraint $\\dfrac{x^2}{2}+\\dfrac{y^2}{4}=1$ gives $\\cos^2\\theta+\\dfrac{y^2}{4}=1$, so $y^2=4\\sin^2\\theta$ and (since $y\\ge0$) $y=2\\sin\\theta$ ($A=2$).\nThen $x^2=2\\cos^2\\theta=1+\\cos2\\theta$, $y^2=4\\sin^2\\theta=2-2\\cos2\\theta$, $xy=2\\sqrt2\\sin\\theta\\cos\\theta=\\sqrt2\\sin2\\theta$. Summing: $P=\\sqrt2\\sin2\\theta-\\cos2\\theta+3$ ($B=2,\\ C=3$). Synthesizing, the amplitude is $\\sqrt{(\\sqrt2)^2+1^2}=\\sqrt3$, so $P=\\sqrt3\\sin(2\\theta-\\alpha)+3$ ($D=3,\\ E=3$) with $\\sqrt3\\cos\\alpha=\\sqrt2,\\ \\sqrt3\\sin\\alpha=1$, i.e. $\\sin\\alpha=\\dfrac{1}{\\sqrt3}=\\dfrac{\\sqrt3}{3}$ ($F=3,\\ G=3$) and $\\cos\\alpha=\\dfrac{\\sqrt2}{\\sqrt3}=\\dfrac{\\sqrt6}{3}$ ($H=6,\\ I=3$).\nThe maximum of $\\sin(2\\theta-\\alpha)$ is $1$, attainable since $0<\\alpha<\\tfrac\\pi2$, so $\\max P=\\sqrt3+3$ ($J=3,\\ K=3$). It occurs when $2\\theta-\\alpha=\\tfrac\\pi2$, i.e. $2\\theta_0=\\alpha+\\dfrac{\\pi}{2}$ ($L=2$). Then $\\sin2\\theta_0=\\sin\\!\\left(\\alpha+\\tfrac\\pi2\\right)=\\cos\\alpha=\\dfrac{\\sqrt6}{3}$ ($M=6,\\ N=3$) and $\\cos2\\theta_0=\\cos\\!\\left(\\alpha+\\tfrac\\pi2\\right)=-\\sin\\alpha=-\\dfrac{\\sqrt3}{3}$ ($O=3,\\ P=3$).",
+        "ja": "$x=\\sqrt2\\cos\\theta$ を制約 $\\dfrac{x^2}{2}+\\dfrac{y^2}{4}=1$ に代入すると $\\cos^2\\theta+\\dfrac{y^2}{4}=1$，よって $y^2=4\\sin^2\\theta$，$y\\ge0$ より $y=2\\sin\\theta$（$A=2$）。\n$x^2=1+\\cos2\\theta$，$y^2=2-2\\cos2\\theta$，$xy=\\sqrt2\\sin2\\theta$ なので $P=\\sqrt2\\sin2\\theta-\\cos2\\theta+3$（$B=2,\\ C=3$）。合成すると振幅 $\\sqrt{(\\sqrt2)^2+1^2}=\\sqrt3$ で $P=\\sqrt3\\sin(2\\theta-\\alpha)+3$（$D=3,\\ E=3$），$\\sqrt3\\cos\\alpha=\\sqrt2,\\ \\sqrt3\\sin\\alpha=1$ より $\\sin\\alpha=\\dfrac{\\sqrt3}{3}$（$F=3,\\ G=3$），$\\cos\\alpha=\\dfrac{\\sqrt6}{3}$（$H=6,\\ I=3$）。\n$\\sin(2\\theta-\\alpha)$ の最大値は $1$（$0<\\alpha<\\tfrac\\pi2$ なので到達可能）なので $\\max P=\\sqrt3+3$（$J=3,\\ K=3$）。これは $2\\theta-\\alpha=\\tfrac\\pi2$，すなわち $2\\theta_0=\\alpha+\\dfrac{\\pi}{2}$（$L=2$）のとき。よって $\\sin2\\theta_0=\\cos\\alpha=\\dfrac{\\sqrt6}{3}$（$M=6,\\ N=3$），$\\cos2\\theta_0=-\\sin\\alpha=-\\dfrac{\\sqrt3}{3}$（$O=3,\\ P=3$）。"
+      },
+      "blanks": [
+        { "label": "A", "value": "2" },
+        { "label": "BC", "value": "23" },
+        { "label": "DE", "value": "33" },
+        { "label": "FG", "value": "33" },
+        { "label": "HI", "value": "63" },
+        { "label": "JK", "value": "33" },
+        { "label": "L", "value": "2" },
+        { "label": "MN", "value": "63" },
+        { "label": "OP", "value": "33" }
+      ]
+    },
+    {
+      "id": "2013-1-math-c2-5",
+      "answerRow": 5,
+      "number": "IV-Q1",
+      "section": "IV",
+      "part": "Q1",
+      "topicId": "limits",
+      "topicIds": ["limits", "integration"],
+      "subtopic": "Estimating sums of 1/sqrt(k) by integral comparison; divergence of S_n and a Riemann-sum limit for (S_2n - S_n)/sqrt(n)",
+      "patternTags": ["integral-comparison", "monotone-function-bounds", "divergence", "riemann-sum-limit", "choose-from-list"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "**[IV] Q1 — Sums and limits.** *(For $\\boxed{A}$–$\\boxed{I}$ and $\\boxed{J}$–$\\boxed{P}$ choose the appropriate answer from the lists $⓪$–$⑨$ given below; for the other boxes enter a number.)*\n\nLet us define a sequence $\\{S_n\\}$ as\n$$S_n=\\sum_{k=1}^{n}\\dfrac{1}{\\sqrt{k}}\\quad(n=1,2,3,\\cdots).$$\nWe are to find the following two limits: $\\displaystyle\\lim_{n\\to\\infty}S_n$ and $\\displaystyle\\lim_{n\\to\\infty}\\dfrac{S_{2n}-S_n}{\\sqrt{n}}$.\n\n(1) Look at the function $y=\\dfrac{1}{\\sqrt{x}}$. We have $y'=-\\dfrac{\\boxed{A}}{2\\sqrt{x^{\\boxed{B}}}}$, and hence this function $y$ is $\\boxed{C}$. So, considering each interval $k\\le x\\le k+1\\ (k=1,2,\\cdots,n)$, we obtain $\\dfrac{1}{\\sqrt{k}}\\;\\boxed{D}\\;\\displaystyle\\int_{k}^{k+1}\\dfrac{1}{\\sqrt{x}}\\,dx$. Adding these for $k=1$ to $k=n$, we have $S_n\\;\\boxed{E}\\;\\displaystyle\\int_{\\boxed{F}}^{\\boxed{G}}\\dfrac{1}{\\sqrt{x}}\\,dx=\\boxed{H}\\left(\\sqrt{\\boxed{G}}-1\\right)$, and finally $\\displaystyle\\lim_{n\\to\\infty}S_n=\\boxed{I}$.\n\nList for (1): $⓪\\ \\infty\\quad ①\\ 1\\quad ②\\ 2\\quad ③\\ 3\\quad ④\\ n\\quad ⑤\\ n+1\\quad ⑥\\ <\\quad ⑦\\ >\\quad ⑧\\ \\text{monotonically increasing}\\quad ⑨\\ \\text{monotonically decreasing}$\n\n(2) Since $S_{2n}-S_n=\\displaystyle\\sum_{k=1}^{n}\\dfrac{1}{\\sqrt{\\boxed{J}}}$, by quadrature (mensuration) we have $\\displaystyle\\lim_{n\\to\\infty}\\dfrac{S_{2n}-S_n}{\\sqrt{n}}=\\lim_{n\\to\\infty}\\dfrac{1}{\\boxed{K}}\\sum_{k=1}^{n}\\dfrac{1}{\\sqrt{\\boxed{L}+\\frac{k}{n}}}=\\displaystyle\\int_{\\boxed{M}}^{\\boxed{N}}\\dfrac{1}{\\sqrt{1+x}}\\,dx=\\boxed{O}\\left(\\sqrt{\\boxed{P}}-1\\right).$\n\nList for (2): $⓪\\ 0\\quad ①\\ 1\\quad ②\\ 2\\quad ③\\ n-1\\quad ④\\ n\\quad ⑤\\ n+1\\quad ⑥\\ n-k\\quad ⑦\\ n+k\\quad ⑧\\ n+k-1\\quad ⑨\\ n+k+1$"
+      },
+      "ja": {
+        "prompt": "**[Ⅳ] 問1 — 和と極限** *（$\\boxed{A}$〜$\\boxed{I}$ および $\\boxed{J}$〜$\\boxed{P}$ は下の選択肢 $⓪$〜$⑨$ から選び，他の空欄には数を入れよ。）*\n\n数列 $\\{S_n\\}$ を\n$$S_n=\\sum_{k=1}^{n}\\dfrac{1}{\\sqrt{k}}\\quad(n=1,2,3,\\cdots)$$\nと定める。次の2つの極限 $\\displaystyle\\lim_{n\\to\\infty}S_n$ と $\\displaystyle\\lim_{n\\to\\infty}\\dfrac{S_{2n}-S_n}{\\sqrt{n}}$ を求める。\n\n(1) 関数 $y=\\dfrac{1}{\\sqrt{x}}$ に着目すると $y'=-\\dfrac{\\boxed{A}}{2\\sqrt{x^{\\boxed{B}}}}$ であり，よってこの関数 $y$ は $\\boxed{C}$。ゆえに各区間 $k\\le x\\le k+1\\ (k=1,2,\\cdots,n)$ を考えると $\\dfrac{1}{\\sqrt{k}}\\;\\boxed{D}\\;\\displaystyle\\int_{k}^{k+1}\\dfrac{1}{\\sqrt{x}}\\,dx$。これを $k=1$ から $k=n$ まで加えると $S_n\\;\\boxed{E}\\;\\displaystyle\\int_{\\boxed{F}}^{\\boxed{G}}\\dfrac{1}{\\sqrt{x}}\\,dx=\\boxed{H}\\left(\\sqrt{\\boxed{G}}-1\\right)$，最終的に $\\displaystyle\\lim_{n\\to\\infty}S_n=\\boxed{I}$。\n\n(1) の選択肢：$⓪\\ \\infty\\quad ①\\ 1\\quad ②\\ 2\\quad ③\\ 3\\quad ④\\ n\\quad ⑤\\ n+1\\quad ⑥\\ <\\quad ⑦\\ >\\quad ⑧\\ \\text{単調増加}\\quad ⑨\\ \\text{単調減少}$\n\n(2) $S_{2n}-S_n=\\displaystyle\\sum_{k=1}^{n}\\dfrac{1}{\\sqrt{\\boxed{J}}}$ なので，区分求積法により $\\displaystyle\\lim_{n\\to\\infty}\\dfrac{S_{2n}-S_n}{\\sqrt{n}}=\\lim_{n\\to\\infty}\\dfrac{1}{\\boxed{K}}\\sum_{k=1}^{n}\\dfrac{1}{\\sqrt{\\boxed{L}+\\frac{k}{n}}}=\\displaystyle\\int_{\\boxed{M}}^{\\boxed{N}}\\dfrac{1}{\\sqrt{1+x}}\\,dx=\\boxed{O}\\left(\\sqrt{\\boxed{P}}-1\\right)$。\n\n(2) の選択肢：$⓪\\ 0\\quad ①\\ 1\\quad ②\\ 2\\quad ③\\ n-1\\quad ④\\ n\\quad ⑤\\ n+1\\quad ⑥\\ n-k\\quad ⑦\\ n+k\\quad ⑧\\ n+k-1\\quad ⑨\\ n+k+1$"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "$y'=-\\tfrac{1}{2\\sqrt{x^3}}$ so $y$ is monotonically decreasing; $\\tfrac{1}{\\sqrt k}>\\int_k^{k+1}\\tfrac{1}{\\sqrt x}dx$, $S_n>\\int_1^{n+1}\\tfrac{1}{\\sqrt x}dx=2(\\sqrt{n+1}-1)\\to\\infty$. (2) $S_{2n}-S_n=\\sum_{k=1}^n\\tfrac{1}{\\sqrt{n+k}}=\\tfrac1n\\sum\\tfrac{1}{\\sqrt{1+k/n}}\\to\\int_0^1\\tfrac{1}{\\sqrt{1+x}}dx=2(\\sqrt2-1)$.  Boxes: A=1,B=3 (AB=13), C=9, D=7, E=7, F=1,G=5 (FG=15), H=2, I=0; J=7, K=4,L=1 (KL=41), M=0,N=1 (MN=01), O=2,P=2 (OP=22).",
+        "ja": "$y'=-\\tfrac{1}{2\\sqrt{x^3}}$ なので $y$ は単調減少；$\\tfrac{1}{\\sqrt k}>\\int_k^{k+1}\\tfrac{1}{\\sqrt x}dx$，$S_n>\\int_1^{n+1}\\tfrac{1}{\\sqrt x}dx=2(\\sqrt{n+1}-1)\\to\\infty$。(2) $S_{2n}-S_n=\\sum_{k=1}^n\\tfrac{1}{\\sqrt{n+k}}=\\tfrac1n\\sum\\tfrac{1}{\\sqrt{1+k/n}}\\to\\int_0^1\\tfrac{1}{\\sqrt{1+x}}dx=2(\\sqrt2-1)$。 解答：A=1,B=3 (AB=13), C=9, D=7, E=7, F=1,G=5 (FG=15), H=2, I=0；J=7, K=4,L=1 (KL=41), M=0,N=1 (MN=01), O=2,P=2 (OP=22)。"
+      },
+      "explanation": {
+        "en": "(1) $y=x^{-1/2}\\Rightarrow y'=-\\tfrac12 x^{-3/2}=-\\dfrac{1}{2\\sqrt{x^3}}$, so $A=1,\\ B=3$; since $y'<0$, $y$ is monotonically decreasing ($C=⑨$). On $[k,k+1]$, $\\dfrac{1}{\\sqrt k}\\ge\\dfrac{1}{\\sqrt x}$, so $\\dfrac{1}{\\sqrt k}>\\displaystyle\\int_k^{k+1}\\dfrac{1}{\\sqrt x}dx$ ($D=⑦$). Summing $k=1,\\dots,n$ gives $S_n>\\displaystyle\\int_1^{n+1}\\dfrac{1}{\\sqrt x}dx$ ($E=⑦,\\ F=1,\\ G=⑤=n+1$); the integral equals $\\big[2\\sqrt x\\big]_1^{n+1}=2(\\sqrt{n+1}-1)$ ($H=2$). As $n\\to\\infty$ this $\\to\\infty$, so $\\lim S_n=\\infty$ ($I=⓪$).\n(2) Reindexing, $S_{2n}-S_n=\\displaystyle\\sum_{k=n+1}^{2n}\\dfrac{1}{\\sqrt k}=\\sum_{k=1}^{n}\\dfrac{1}{\\sqrt{n+k}}$ ($J=⑦=n+k$). Dividing by $\\sqrt n$: $\\dfrac{1}{\\sqrt n}\\cdot\\dfrac{1}{\\sqrt{n+k}}=\\dfrac{1}{n}\\cdot\\dfrac{1}{\\sqrt{1+k/n}}$, so the expression is $\\dfrac{1}{n}\\displaystyle\\sum_{k=1}^n\\dfrac{1}{\\sqrt{1+k/n}}$ ($K=④=n,\\ L=①=1$). This Riemann sum tends to $\\displaystyle\\int_0^1\\dfrac{1}{\\sqrt{1+x}}dx$ ($M=0,\\ N=1$) $=\\big[2\\sqrt{1+x}\\big]_0^1=2(\\sqrt2-1)$ ($O=2,\\ P=2$).",
+        "ja": "(1) $y=x^{-1/2}\\Rightarrow y'=-\\dfrac{1}{2\\sqrt{x^3}}$ なので $A=1,\\ B=3$，$y'<0$ より単調減少（$C=⑨$）。$[k,k+1]$ で $\\dfrac{1}{\\sqrt k}\\ge\\dfrac{1}{\\sqrt x}$ なので $\\dfrac{1}{\\sqrt k}>\\displaystyle\\int_k^{k+1}\\dfrac{1}{\\sqrt x}dx$（$D=⑦$）。$k=1,\\dots,n$ で加えると $S_n>\\displaystyle\\int_1^{n+1}\\dfrac{1}{\\sqrt x}dx$（$E=⑦,\\ F=1,\\ G=⑤=n+1$），積分は $\\big[2\\sqrt x\\big]_1^{n+1}=2(\\sqrt{n+1}-1)$（$H=2$）。$n\\to\\infty$ で $\\to\\infty$ なので $\\lim S_n=\\infty$（$I=⓪$）。\n(2) 番号を付け替えて $S_{2n}-S_n=\\displaystyle\\sum_{k=n+1}^{2n}\\dfrac{1}{\\sqrt k}=\\sum_{k=1}^{n}\\dfrac{1}{\\sqrt{n+k}}$（$J=⑦=n+k$）。$\\sqrt n$ で割ると $\\dfrac{1}{\\sqrt n}\\cdot\\dfrac{1}{\\sqrt{n+k}}=\\dfrac{1}{n}\\cdot\\dfrac{1}{\\sqrt{1+k/n}}$ なので $\\dfrac{1}{n}\\displaystyle\\sum_{k=1}^n\\dfrac{1}{\\sqrt{1+k/n}}$（$K=④=n,\\ L=①=1$）。これは $\\displaystyle\\int_0^1\\dfrac{1}{\\sqrt{1+x}}dx$（$M=0,\\ N=1$）$=\\big[2\\sqrt{1+x}\\big]_0^1=2(\\sqrt2-1)$（$O=2,\\ P=2$）に収束する。"
+      },
+      "blanks": [
+        { "label": "AB", "value": "13" },
+        { "label": "C", "value": "9" },
+        { "label": "D", "value": "7" },
+        { "label": "E", "value": "7" },
+        { "label": "FG", "value": "15" },
+        { "label": "H", "value": "2" },
+        { "label": "I", "value": "0" },
+        { "label": "J", "value": "7" },
+        { "label": "KL", "value": "41" },
+        { "label": "MN", "value": "01" },
+        { "label": "OP", "value": "22" }
+      ]
+    },
+    {
+      "id": "2013-1-math-c2-6",
+      "answerRow": 6,
+      "number": "IV-Q2",
+      "section": "IV",
+      "part": "Q2",
+      "topicId": "integration",
+      "topicIds": ["integration", "differentiation"],
+      "subtopic": "Integral equation for f(x): differentiate to get an ODE, solve via substitution f=e^x g, recover f and its limit",
+      "patternTags": ["integral-equation", "differentiate-both-sides", "first-order-ode", "substitution", "limit-with-e", "choose-from-list"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "**[IV] Q2 — Integral equation.** *(For $\\boxed{Q},\\boxed{S},\\boxed{V}$ choose the appropriate expression from the list $⓪$–$⑦$ given below; for the other boxes enter a number.)*\n\nSuppose we have a differentiable function $f(x)$ which satisfies the equation\n$$\\int_{0}^{x}f(t)\\,dt=(1+e^{-x})f(x)+2x-4\\log 2\\quad\\cdots\\;①.$$\nWe are to find $f(x)$ and the value of $\\displaystyle\\lim_{x\\to\\infty}f(x)$.\n\nDifferentiating each side of $①$ with respect to $x$ and rearranging, we have $(1+e^{-x})\\big(\\boxed{Q}\\big)=\\boxed{R}\\quad\\cdots\\;②$.\n\nNext we set $f(x)=e^{x}g(x)$; using $②$ we obtain $g'(x)=\\dfrac{\\boxed{S}}{1+e^{-x}}$, and hence $g(x)=\\boxed{T}\\log(1+e^{-x})+C$, where $C$ is an integral constant.\n\nFurthermore, since $g(0)=f(0)$, we see that $C=\\boxed{U}$. Thus we obtain $g(x)$ and from that, $f(x)=\\boxed{V}\\log(1+e^{-x})$.\n\nFinally, we set $e^{-x}=t$ and obtain $f(x)=\\boxed{W}\\log(1+t)^{\\frac{1}{t}}$, and hence $\\displaystyle\\lim_{x\\to\\infty}f(x)=\\lim_{t\\to\\boxed{X}}\\boxed{W}\\log(1+t)^{\\frac{1}{t}}=\\boxed{Y}$.\n\nList: $⓪\\ f'(x)-f(x)\\quad ①\\ f(x)-f'(x)\\quad ②\\ f'(x)-2f(x)\\quad ③\\ f(x)-2f'(x)\\quad ④\\ 2e^{x}\\quad ⑤\\ -2e^{x}\\quad ⑥\\ 2e^{-x}\\quad ⑦\\ -2e^{-x}$"
+      },
+      "ja": {
+        "prompt": "**[Ⅳ] 問2 — 積分方程式** *（$\\boxed{Q},\\boxed{S},\\boxed{V}$ は下の選択肢 $⓪$〜$⑦$ から選び，他の空欄には数を入れよ。）*\n\n微分可能な関数 $f(x)$ が\n$$\\int_{0}^{x}f(t)\\,dt=(1+e^{-x})f(x)+2x-4\\log 2\\quad\\cdots\\;①$$\nを満たすとする。$f(x)$ と $\\displaystyle\\lim_{x\\to\\infty}f(x)$ の値を求める。\n\n$①$ の両辺を $x$ で微分して変形すると $(1+e^{-x})\\big(\\boxed{Q}\\big)=\\boxed{R}\\quad\\cdots\\;②$。\n\n次に $f(x)=e^{x}g(x)$ とおくと，$②$ より $g'(x)=\\dfrac{\\boxed{S}}{1+e^{-x}}$ となり，$g(x)=\\boxed{T}\\log(1+e^{-x})+C$（$C$ は積分定数）。\n\nさらに $g(0)=f(0)$ より $C=\\boxed{U}$ である。よって $g(x)$ が定まり，$f(x)=\\boxed{V}\\log(1+e^{-x})$ となる。\n\n最後に $e^{-x}=t$ とおくと $f(x)=\\boxed{W}\\log(1+t)^{\\frac{1}{t}}$ となり，$\\displaystyle\\lim_{x\\to\\infty}f(x)=\\lim_{t\\to\\boxed{X}}\\boxed{W}\\log(1+t)^{\\frac{1}{t}}=\\boxed{Y}$。\n\n選択肢：$⓪\\ f'(x)-f(x)\\quad ①\\ f(x)-f'(x)\\quad ②\\ f'(x)-2f(x)\\quad ③\\ f(x)-2f'(x)\\quad ④\\ 2e^{x}\\quad ⑤\\ -2e^{x}\\quad ⑥\\ 2e^{-x}\\quad ⑦\\ -2e^{-x}$"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "Differentiating: $(1+e^{-x})(f-f')=2$ (so $Q=①,\\ R=2$); with $f=e^xg$, $g'=\\tfrac{-2e^{-x}}{1+e^{-x}}$ ($S=⑦$), $g=2\\log(1+e^{-x})+C$ ($T=2$), $g(0)=f(0)=2\\log2\\Rightarrow C=0$ ($U=0$); $f(x)=2e^x\\log(1+e^{-x})$ ($V=④$) $=2\\log(1+t)^{1/t}$ ($W=2$); as $x\\to\\infty,\\ t\\to0$ ($X=0$), $\\lim=2\\log e=2$ ($Y=2$).  Boxes: Q=1, R=2, S=7, T=2, U=0, V=4, W=2, X=0, Y=2.",
+        "ja": "微分すると $(1+e^{-x})(f-f')=2$（$Q=①,\\ R=2$）；$f=e^xg$ より $g'=\\tfrac{-2e^{-x}}{1+e^{-x}}$（$S=⑦$），$g=2\\log(1+e^{-x})+C$（$T=2$），$g(0)=f(0)=2\\log2\\Rightarrow C=0$（$U=0$）；$f(x)=2e^x\\log(1+e^{-x})$（$V=④$）$=2\\log(1+t)^{1/t}$（$W=2$）；$x\\to\\infty$ で $t\\to0$（$X=0$），$\\lim=2\\log e=2$（$Y=2$）。 解答：Q=1, R=2, S=7, T=2, U=0, V=4, W=2, X=0, Y=2。"
+      },
+      "explanation": {
+        "en": "Differentiate $①$ (the left side gives $f(x)$): $f(x)=-e^{-x}f(x)+(1+e^{-x})f'(x)+2$. Rearranging, $(1+e^{-x})f(x)-2=(1+e^{-x})f'(x)$, i.e. $(1+e^{-x})\\big(f(x)-f'(x)\\big)=2$ ($Q=①,\\ R=2$).\nSet $f=e^xg$, so $f'=e^xg+e^xg'$ and $f-f'=-e^xg'$. Then $(1+e^{-x})(-e^xg')=2\\Rightarrow g'=\\dfrac{-2}{e^x+1}=\\dfrac{-2e^{-x}}{1+e^{-x}}$ ($S=⑦$). Integrating with $u=1+e^{-x}$ gives $g(x)=2\\log(1+e^{-x})+C$ ($T=2$). At $x=0$, equation $①$ gives $0=2f(0)-4\\log2$, so $f(0)=2\\log2$; also $g(0)=f(0)=2\\log2=2\\log2+C\\Rightarrow C=0$ ($U=0$). Thus $f(x)=e^xg(x)=2e^x\\log(1+e^{-x})$ ($V=④$). Writing $e^{-x}=t$, $f=2\\cdot\\tfrac1t\\log(1+t)=2\\log(1+t)^{1/t}$ ($W=2$). As $x\\to\\infty,\\ t\\to0$ ($X=0$), and $(1+t)^{1/t}\\to e$, so $\\lim f=2\\log e=2$ ($Y=2$).",
+        "ja": "$①$ を微分（左辺は $f(x)$）：$f(x)=-e^{-x}f(x)+(1+e^{-x})f'(x)+2$。変形して $(1+e^{-x})f(x)-2=(1+e^{-x})f'(x)$，すなわち $(1+e^{-x})\\big(f(x)-f'(x)\\big)=2$（$Q=①,\\ R=2$）。\n$f=e^xg$ とおくと $f'=e^xg+e^xg'$，$f-f'=-e^xg'$。よって $(1+e^{-x})(-e^xg')=2\\Rightarrow g'=\\dfrac{-2}{e^x+1}=\\dfrac{-2e^{-x}}{1+e^{-x}}$（$S=⑦$）。$u=1+e^{-x}$ で積分して $g(x)=2\\log(1+e^{-x})+C$（$T=2$）。$x=0$ で $①$ より $0=2f(0)-4\\log2$，$f(0)=2\\log2$；$g(0)=f(0)=2\\log2=2\\log2+C\\Rightarrow C=0$（$U=0$）。よって $f(x)=2e^x\\log(1+e^{-x})$（$V=④$）。$e^{-x}=t$ とおくと $f=2\\log(1+t)^{1/t}$（$W=2$）。$x\\to\\infty$ で $t\\to0$（$X=0$），$(1+t)^{1/t}\\to e$ なので $\\lim f=2\\log e=2$（$Y=2$）。"
+      },
+      "blanks": [
+        { "label": "Q", "value": "1" },
+        { "label": "R", "value": "2" },
+        { "label": "S", "value": "7" },
+        { "label": "T", "value": "2" },
+        { "label": "U", "value": "0" },
+        { "label": "V", "value": "4" },
+        { "label": "W", "value": "2" },
+        { "label": "X", "value": "0" },
+        { "label": "Y", "value": "2" }
+      ]
+    }
+  ]
+}

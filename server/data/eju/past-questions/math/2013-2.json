@@ -1,0 +1,194 @@
+{
+  "id": "2013-2-math-c2",
+  "year": 2013,
+  "session": 2,
+  "subject": "math",
+  "course": 2,
+  "title": "2013 EJU Session 2 — Mathematics (Course 2)",
+  "source": "Examination for Japanese University Admission for International Students, 2013 Session 2 (JASSO). Official English question paper; answers verified against the official answer key and re-derived by solving.",
+  "answerFormat": "digit-fill",
+  "answerKeyVerified": true,
+  "note": "The exam has four large questions (大問 I-IV). In Course 2, large questions I and IV each contain two independent sub-questions (問1, 問2); these are stored as separate entries, giving six questions. Large questions II and III each contain a single question. Answer-letters follow the official scheme and reset at the start of each large question (and at the start of each 問 within a large question). Every box here was both re-solved (numerically/symbolically verified) and cross-checked against the official answer-key Course 2 column, which was machine-readable; all boxes reconcile.",
+  "questions": [
+    {
+      "id": "2013-2-math-c2-1-1",
+      "answerRow": 1,
+      "number": "I-Q1",
+      "section": "I",
+      "part": "Q1",
+      "topicId": "quadratic-functions",
+      "topicIds": ["quadratic-functions"],
+      "subtopic": "Quadratic with a parameter: maximum value, axis of symmetry, x-intercepts, and a translation condition",
+      "patternTags": ["maximum-value", "axis-of-symmetry", "x-intercepts", "graph-translation", "parameter-determination"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "**[I] Q1 — Quadratic functions.**\n\nConsider the quadratic function\n$$y=-x^2-ax+3.\\qquad\\cdots\\cdots ①$$\n\n(1) If $a>0$ and the maximum value of function $①$ is $7$, then $a=\\boxed{A}$. In this case, the equation of the axis of symmetry of the graph is $x=\\boxed{BC}$, and the $x$-coordinates of the points of intersection of this graph and the $x$-axis are $\\boxed{DE}\\pm\\sqrt{\\boxed{F}}$.\n\n(2) If the curve obtained by translating the graph of function $①$ by $2$ in the $x$-direction and by $-3$ in the $y$-direction passes through $(-3,-5)$, then $a=\\boxed{G}$."
+      },
+      "ja": {
+        "prompt": "**[Ⅰ] 問1 — 二次関数**\n\n二次関数\n$$y=-x^2-ax+3\\qquad\\cdots\\cdots ①$$\nを考える。\n\n(1) $a>0$ で関数 $①$ の最大値が $7$ のとき，$a=\\boxed{A}$ である。このとき，グラフの軸の方程式は $x=\\boxed{BC}$ であり，このグラフと $x$ 軸との交点の $x$ 座標は $\\boxed{DE}\\pm\\sqrt{\\boxed{F}}$ である。\n\n(2) 関数 $①$ のグラフを $x$ 軸方向に $2$，$y$ 軸方向に $-3$ だけ平行移動して得られる曲線が点 $(-3,-5)$ を通るとき，$a=\\boxed{G}$ である。"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "Maximum $3+\\tfrac{a^2}{4}=7\\Rightarrow a=4$; axis $x=-2$; intercepts $-2\\pm\\sqrt7$; translation gives $a=4$.  Boxes: A=4, BC=-2, DE=-2, F=7, G=4.",
+        "ja": "最大値 $3+\\tfrac{a^2}{4}=7\\Rightarrow a=4$；軸 $x=-2$；交点 $-2\\pm\\sqrt7$；平行移動より $a=4$。 解答：A=4, BC=-2, DE=-2, F=7, G=4。"
+      },
+      "explanation": {
+        "en": "(1) $y=-x^2-ax+3$ opens downward; its maximum value is $3-\\dfrac{a^2}{4(-1)}=3+\\dfrac{a^2}{4}$. Setting this equal to $7$ gives $a^2=16$, and with $a>0$, $a=4$. Then $y=-x^2-4x+3$, whose axis is $x=-\\dfrac{-4}{2(-1)}=-2$. Solving $-x^2-4x+3=0\\Rightarrow x^2+4x-3=0\\Rightarrow x=-2\\pm\\sqrt7$.\n(2) Translating $y=-x^2-ax+3$ by $+2$ in $x$ and $-3$ in $y$ gives $y=-(x-2)^2-a(x-2)+3-3=-(x-2)^2-a(x-2)$. Passing through $(-3,-5)$: $-25-a(-5)=-5\\Rightarrow -25+5a=-5\\Rightarrow a=4$.",
+        "ja": "(1) $y=-x^2-ax+3$ は上に凸で，最大値は $3-\\dfrac{a^2}{4(-1)}=3+\\dfrac{a^2}{4}$。これが $7$ なので $a^2=16$，$a>0$ より $a=4$。よって $y=-x^2-4x+3$ で軸は $x=-2$。$-x^2-4x+3=0\\Rightarrow x^2+4x-3=0\\Rightarrow x=-2\\pm\\sqrt7$。\n(2) $y=-x^2-ax+3$ を $x$ 方向に $+2$，$y$ 方向に $-3$ 平行移動すると $y=-(x-2)^2-a(x-2)$。点 $(-3,-5)$ を通るので $-25+5a=-5\\Rightarrow a=4$。"
+      },
+      "blanks": [
+        { "label": "A", "value": "4" }, { "label": "BC", "value": "-2" }, { "label": "DE", "value": "-2" }, { "label": "F", "value": "7" }, { "label": "G", "value": "4" }
+      ]
+    },
+    {
+      "id": "2013-2-math-c2-1-2",
+      "answerRow": 2,
+      "number": "I-Q2",
+      "section": "I",
+      "part": "Q2",
+      "topicId": "propositions-conditions",
+      "topicIds": ["propositions-conditions", "factorization"],
+      "subtopic": "Necessary and sufficient conditions for an equation in two variables; completing the square to find a parameter range",
+      "patternTags": ["necessary-sufficient", "expression-from-list", "completing-the-square", "parameter-range", "two-variable-equation"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "**[I] Q2 — Conditions.** *(For $\\boxed{H},\\boxed{I}$ in question (1) and $\\boxed{J},\\boxed{K}$ in question (2), choose the appropriate answer from $⓪$–$③$ below; for $\\boxed{L}$–$\\boxed{R}$ in question (3), enter the appropriate number.)*\n\nConsider the following three possible conditions on two real numbers $x$ and $y$:\n\n$p:\\ x$ and $y$ satisfy the equation $(x+y)^2=a(x^2+y^2)+bxy$, where $a$ and $b$ are real constants.\n\n$q:\\ x=0$ and $y=0$.\n\n$r:\\ x=0$ or $y=0$.\n\n(1) Suppose that in condition $p$, $a=b=1$. Then $p$ is $\\boxed{H}$ for $q$, and $p$ is $\\boxed{I}$ for $r$.\n\n(2) Suppose that in condition $p$, $a=b=2$. Then $p$ is $\\boxed{J}$ for $q$, and $p$ is $\\boxed{K}$ for $r$.\n\n(3) If in condition $p$ we set $a=2$, we can transform the equation in $p$ into\n$$\\left(x+\\dfrac{b-\\boxed{L}}{\\boxed{M}}\\,y\\right)^2+\\left(\\boxed{N}-\\dfrac{(b-\\boxed{O})^2}{\\boxed{P}}\\right)y^2=0.$$\nHence $p$ is a necessary and sufficient condition for $q$ if and only if $b$ satisfies\n$$\\boxed{Q}<b<\\boxed{R}.$$\n\nChoices: $⓪$ a necessary and sufficient condition; $①$ a necessary condition but not a sufficient condition; $②$ a sufficient condition but not a necessary condition; $③$ neither a necessary condition nor a sufficient condition."
+      },
+      "ja": {
+        "prompt": "**[Ⅰ] 問2 — 条件** *（(1) の $\\boxed{H},\\boxed{I}$ と (2) の $\\boxed{J},\\boxed{K}$ は下の $⓪$〜$③$ から選び，(3) の $\\boxed{L}$〜$\\boxed{R}$ には適切な数を入れよ。）*\n\n2つの実数 $x,y$ に関する次の3つの条件を考える。\n\n$p:\\ x,y$ は等式 $(x+y)^2=a(x^2+y^2)+bxy$ を満たす（$a,b$ は実数の定数）。\n\n$q:\\ x=0$ かつ $y=0$。\n\n$r:\\ x=0$ または $y=0$。\n\n(1) 条件 $p$ で $a=b=1$ とする。このとき $p$ は $q$ であるための $\\boxed{H}$，$p$ は $r$ であるための $\\boxed{I}$ である。\n\n(2) 条件 $p$ で $a=b=2$ とする。このとき $p$ は $q$ であるための $\\boxed{J}$，$p$ は $r$ であるための $\\boxed{K}$ である。\n\n(3) 条件 $p$ で $a=2$ とすると，$p$ の等式は\n$$\\left(x+\\dfrac{b-\\boxed{L}}{\\boxed{M}}\\,y\\right)^2+\\left(\\boxed{N}-\\dfrac{(b-\\boxed{O})^2}{\\boxed{P}}\\right)y^2=0$$\nと変形できる。よって $p$ が $q$ であるための必要十分条件であるのは，$b$ が\n$$\\boxed{Q}<b<\\boxed{R}$$\nを満たすとき，かつそのときに限る。\n\n選択肢：$⓪$ 必要十分条件；$①$ 必要条件であるが十分条件でない；$②$ 十分条件であるが必要条件でない；$③$ 必要条件でも十分条件でもない。"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "(1) $p\\Leftrightarrow xy=0$ ($=r$): for $q$, $①$; for $r$, $⓪$. (2) $p\\Leftrightarrow x=y=0$ ($=q$): for $q$, $⓪$; for $r$, $②$. (3) $(x+\\tfrac{b-2}{2}y)^2+(1-\\tfrac{(b-2)^2}{4})y^2=0$; nec.&suff. iff $0<b<4$.  Boxes: H=1, I=0, J=0, K=2, L=2, M=2, N=1, O=2, P=4, Q=0, R=4.",
+        "ja": "(1) $p\\Leftrightarrow xy=0$（$=r$）：$q$ について $①$，$r$ について $⓪$。(2) $p\\Leftrightarrow x=y=0$（$=q$）：$q$ について $⓪$，$r$ について $②$。(3) $(x+\\tfrac{b-2}{2}y)^2+(1-\\tfrac{(b-2)^2}{4})y^2=0$；必要十分は $0<b<4$。 解答：H=1, I=0, J=0, K=2, L=2, M=2, N=1, O=2, P=4, Q=0, R=4。"
+      },
+      "explanation": {
+        "en": "(1) With $a=b=1$: $(x+y)^2=(x^2+y^2)+xy\\Rightarrow x^2+2xy+y^2=x^2+y^2+xy\\Rightarrow xy=0$, i.e. $x=0$ or $y=0$. So $p\\Leftrightarrow r$. For $q$ ($x=0$ and $y=0$): $q\\Rightarrow p$ holds but $p\\not\\Rightarrow q$, so $p$ is necessary but not sufficient for $q$ ($\\boxed{H}=①$). For $r$: $p\\Leftrightarrow r$, so necessary and sufficient ($\\boxed{I}=⓪$).\n(2) With $a=b=2$: $(x+y)^2=2(x^2+y^2)+2xy\\Rightarrow x^2+2xy+y^2=2x^2+2y^2+2xy\\Rightarrow x^2+y^2=0\\Rightarrow x=0$ and $y=0$. So $p\\Leftrightarrow q$, hence necessary and sufficient for $q$ ($\\boxed{J}=⓪$). For $r$: $p\\Rightarrow r$ but $r\\not\\Rightarrow p$, so sufficient but not necessary ($\\boxed{K}=②$).\n(3) With $a=2$: $(x+y)^2=2(x^2+y^2)+bxy\\Rightarrow x^2+(b-2)xy+y^2=0$. Completing the square in $x$: $\\left(x+\\dfrac{b-2}{2}y\\right)^2+\\left(1-\\dfrac{(b-2)^2}{4}\\right)y^2=0$ ($\\boxed{L}=2,\\boxed{M}=2,\\boxed{N}=1,\\boxed{O}=2,\\boxed{P}=4$). This forces $x=y=0$ (i.e. $p\\Leftrightarrow q$) exactly when the $y^2$ coefficient is positive: $1-\\dfrac{(b-2)^2}{4}>0\\Rightarrow (b-2)^2<4\\Rightarrow 0<b<4$ ($\\boxed{Q}=0,\\boxed{R}=4$).",
+        "ja": "(1) $a=b=1$：$(x+y)^2=(x^2+y^2)+xy\\Rightarrow xy=0$，すなわち $x=0$ または $y=0$。よって $p\\Leftrightarrow r$。$q$ について：$q\\Rightarrow p$ だが $p\\not\\Rightarrow q$ なので必要条件であって十分条件でない（$\\boxed{H}=①$）。$r$ について：$p\\Leftrightarrow r$ で必要十分（$\\boxed{I}=⓪$）。\n(2) $a=b=2$：$(x+y)^2=2(x^2+y^2)+2xy\\Rightarrow x^2+y^2=0\\Rightarrow x=0$ かつ $y=0$。よって $p\\Leftrightarrow q$ で必要十分（$\\boxed{J}=⓪$）。$r$ について：$p\\Rightarrow r$ だが $r\\not\\Rightarrow p$ なので十分条件であって必要条件でない（$\\boxed{K}=②$）。\n(3) $a=2$：$x^2+(b-2)xy+y^2=0$。$x$ について平方完成すると $\\left(x+\\dfrac{b-2}{2}y\\right)^2+\\left(1-\\dfrac{(b-2)^2}{4}\\right)y^2=0$（$\\boxed{L}=2,\\boxed{M}=2,\\boxed{N}=1,\\boxed{O}=2,\\boxed{P}=4$）。$x=y=0$ のみ（$p\\Leftrightarrow q$）となるのは $y^2$ の係数が正のとき：$1-\\dfrac{(b-2)^2}{4}>0\\Rightarrow 0<b<4$（$\\boxed{Q}=0,\\boxed{R}=4$）。"
+      },
+      "blanks": [
+        { "label": "H", "value": "1" }, { "label": "I", "value": "0" }, { "label": "J", "value": "0" }, { "label": "K", "value": "2" }, { "label": "L", "value": "2" }, { "label": "M", "value": "2" }, { "label": "N", "value": "1" }, { "label": "O", "value": "2" }, { "label": "P", "value": "4" }, { "label": "Q", "value": "0" }, { "label": "R", "value": "4" }
+      ]
+    },
+    {
+      "id": "2013-2-math-c2-2",
+      "answerRow": 3,
+      "number": "II",
+      "section": "II",
+      "part": null,
+      "topicId": "sequence-limits",
+      "topicIds": ["sequence-limits", "arithmetic-geometric"],
+      "subtopic": "Arithmetic progression, infinite geometric series with exponent depending on the sequence, convergence and minimizing the sum",
+      "patternTags": ["arithmetic-progression", "infinite-geometric-series", "convergence-condition", "sum-of-series", "minimize-over-parameter"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "**[II] — Sequences and series.** Let the sequence $\\{a_n\\}\\ (n=1,2,3,\\dots)$ be an arithmetic progression satisfying\n$$a_2=2,\\qquad a_6=3a_3.$$\nThen consider the series $\\displaystyle\\sum_{n=1}^{\\infty}\\dfrac{3^n}{r^{a_n}}$, where $r$ is a positive real number.\n\n(1) When we denote the first term of $\\{a_n\\}$ by $a$ and the common difference by $d$, we have $a=\\boxed{AB}$ and $d=\\boxed{C}$.\n\n(2) The series $\\displaystyle\\sum_{n=1}^{\\infty}\\dfrac{3^n}{r^{a_n}}$ is an infinite geometric series whose first term is $\\boxed{D}\\,r^{\\boxed{E}}$ and whose common ratio is $\\dfrac{\\boxed{F}}{r^{\\boxed{G}}}$. Hence this series converges when\n$$r>3^{\\frac{\\boxed{H}}{\\boxed{I}}},$$\nand its sum $S$ is\n$$S=\\dfrac{\\boxed{J}\\,r^{\\boxed{K}}}{r^{\\boxed{L}}-\\boxed{M}}.$$\n\n(3) This sum $S$ is minimized at $r=\\boxed{N}^{\\frac{\\boxed{O}}{2}}$."
+      },
+      "ja": {
+        "prompt": "**[Ⅱ] — 数列と級数** 数列 $\\{a_n\\}\\ (n=1,2,3,\\dots)$ を，\n$$a_2=2,\\qquad a_6=3a_3$$\nを満たす等差数列とする。さらに，$r$ を正の実数として，級数 $\\displaystyle\\sum_{n=1}^{\\infty}\\dfrac{3^n}{r^{a_n}}$ を考える。\n\n(1) $\\{a_n\\}$ の初項を $a$，公差を $d$ とすると，$a=\\boxed{AB}$，$d=\\boxed{C}$ である。\n\n(2) 級数 $\\displaystyle\\sum_{n=1}^{\\infty}\\dfrac{3^n}{r^{a_n}}$ は，初項 $\\boxed{D}\\,r^{\\boxed{E}}$，公比 $\\dfrac{\\boxed{F}}{r^{\\boxed{G}}}$ の無限等比級数である。よってこの級数は\n$$r>3^{\\frac{\\boxed{H}}{\\boxed{I}}}$$\nのとき収束し，その和 $S$ は\n$$S=\\dfrac{\\boxed{J}\\,r^{\\boxed{K}}}{r^{\\boxed{L}}-\\boxed{M}}$$\nである。\n\n(3) この和 $S$ は $r=\\boxed{N}^{\\frac{\\boxed{O}}{2}}$ のとき最小となる。"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "$a=-2,\\ d=4$; $a_n=4n-6$; first term $3r^2$, ratio $3/r^4$; converges $r>3^{1/4}$; $S=\\dfrac{3r^6}{r^4-3}$; minimized at $r=3^{1/2}=\\sqrt3$.  Boxes: AB=-2, C=4, DE=32, FG=34, HI=14, JKLM=3643, NO=31.",
+        "ja": "$a=-2,\\ d=4$；$a_n=4n-6$；初項 $3r^2$，公比 $3/r^4$；収束は $r>3^{1/4}$；$S=\\dfrac{3r^6}{r^4-3}$；最小は $r=3^{1/2}=\\sqrt3$。 解答：AB=-2, C=4, DE=32, FG=34, HI=14, JKLM=3643, NO=31。"
+      },
+      "explanation": {
+        "en": "(1) $a_2=a+d=2$ and $a_6=a+5d=3a_3=3(a+2d)$. The second gives $a+5d=3a+6d\\Rightarrow -2a-d=0\\Rightarrow d=-2a$. With $a+d=2$: $a-2a=2\\Rightarrow a=-2$, $d=4$. So $a_n=-2+4(n-1)=4n-6$.\n(2) The term is $\\dfrac{3^n}{r^{4n-6}}=3^n r^{6-4n}$. For $n=1$ the first term is $3r^{2}$ ($\\boxed{D}=3,\\boxed{E}=2$); the ratio of consecutive terms is $\\dfrac{3^{n+1}r^{6-4(n+1)}}{3^n r^{6-4n}}=\\dfrac{3}{r^{4}}$ ($\\boxed{F}=3,\\boxed{G}=4$). It converges when $\\left|\\dfrac{3}{r^4}\\right|<1\\Rightarrow r^4>3\\Rightarrow r>3^{1/4}$ ($\\boxed{HI}=14$). The sum is $S=\\dfrac{3r^2}{1-3r^{-4}}=\\dfrac{3r^6}{r^4-3}$ ($\\boxed{J}=3,\\boxed{K}=6,\\boxed{L}=4,\\boxed{M}=3$).\n(3) $\\dfrac{dS}{dr}=0$ gives $r=\\sqrt3=3^{1/2}$ (within $r>3^{1/4}$), where $S$ attains its minimum ($\\boxed{N}=3,\\boxed{O}=1$).",
+        "ja": "(1) $a_2=a+d=2$，$a_6=a+5d=3a_3=3(a+2d)$。後者より $a+5d=3a+6d\\Rightarrow d=-2a$。$a+d=2$ と合わせて $a=-2$，$d=4$。よって $a_n=4n-6$。\n(2) 一般項は $\\dfrac{3^n}{r^{4n-6}}=3^n r^{6-4n}$。$n=1$ で初項 $3r^{2}$（$\\boxed{D}=3,\\boxed{E}=2$），隣接項の比は $\\dfrac{3}{r^{4}}$（$\\boxed{F}=3,\\boxed{G}=4$）。$\\left|\\dfrac{3}{r^4}\\right|<1\\Rightarrow r^4>3\\Rightarrow r>3^{1/4}$（$\\boxed{HI}=14$）で収束。和は $S=\\dfrac{3r^2}{1-3r^{-4}}=\\dfrac{3r^6}{r^4-3}$（$\\boxed{J}=3,\\boxed{K}=6,\\boxed{L}=4,\\boxed{M}=3$）。\n(3) $\\dfrac{dS}{dr}=0$ より $r=\\sqrt3=3^{1/2}$（$r>3^{1/4}$ 内）で最小（$\\boxed{N}=3,\\boxed{O}=1$）。"
+      },
+      "blanks": [
+        { "label": "AB", "value": "-2" }, { "label": "C", "value": "4" }, { "label": "DE", "value": "32" }, { "label": "FG", "value": "34" }, { "label": "HI", "value": "14" }, { "label": "JKLM", "value": "3643" }, { "label": "NO", "value": "31" }
+      ]
+    },
+    {
+      "id": "2013-2-math-c2-3",
+      "answerRow": 4,
+      "number": "III",
+      "section": "III",
+      "part": null,
+      "topicId": "trig-functions",
+      "topicIds": ["trig-functions", "trig-synthesis"],
+      "subtopic": "Substitution t = sin x + cos x to rewrite sin 2x; range of t on an interval and the minimum value of the function",
+      "patternTags": ["sin-cos-substitution", "double-angle", "range-on-interval", "quadratic-in-t", "minimum-value"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "**[III] — Trigonometric function.** Consider the function\n$$f(x)=\\sin 2x-3(\\sin x+\\cos x)$$\non the interval $-\\dfrac{\\pi}{3}\\le x\\le\\dfrac{\\pi}{3}$.\n\n(1) Let $t=\\sin x+\\cos x$. The range of the values which $t$ can take is\n$$\\dfrac{\\boxed{A}-\\sqrt{\\boxed{B}}}{\\boxed{C}}\\le t\\le\\sqrt{\\boxed{D}}.$$\n\n(2) The function $f(x)$ takes its minimum value $\\boxed{E}-\\boxed{F}\\sqrt{\\boxed{G}}$ at $x=\\dfrac{\\boxed{H}}{\\boxed{I}}\\pi$."
+      },
+      "ja": {
+        "prompt": "**[Ⅲ] — 三角関数** 区間 $-\\dfrac{\\pi}{3}\\le x\\le\\dfrac{\\pi}{3}$ における関数\n$$f(x)=\\sin 2x-3(\\sin x+\\cos x)$$\nを考える。\n\n(1) $t=\\sin x+\\cos x$ とおくと，$t$ のとり得る値の範囲は\n$$\\dfrac{\\boxed{A}-\\sqrt{\\boxed{B}}}{\\boxed{C}}\\le t\\le\\sqrt{\\boxed{D}}$$\nである。\n\n(2) 関数 $f(x)$ は $x=\\dfrac{\\boxed{H}}{\\boxed{I}}\\pi$ で最小値 $\\boxed{E}-\\boxed{F}\\sqrt{\\boxed{G}}$ をとる。"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "$t=\\sqrt2\\sin(x+\\tfrac\\pi4)$, range $\\tfrac{1-\\sqrt3}{2}\\le t\\le\\sqrt2$; $f=t^2-3t-1$, decreasing on the range, minimum $1-3\\sqrt2$ at $t=\\sqrt2$, i.e. $x=\\tfrac{\\pi}{4}$.  Boxes: A=1, B=3, C=2, D=2, E=1, F=3, G=2, HI=14.",
+        "ja": "$t=\\sqrt2\\sin(x+\\tfrac\\pi4)$，範囲 $\\tfrac{1-\\sqrt3}{2}\\le t\\le\\sqrt2$；$f=t^2-3t-1$ は範囲上で減少，$t=\\sqrt2$ で最小値 $1-3\\sqrt2$，すなわち $x=\\tfrac{\\pi}{4}$。 解答：A=1, B=3, C=2, D=2, E=1, F=3, G=2, HI=14。"
+      },
+      "explanation": {
+        "en": "(1) $t=\\sin x+\\cos x=\\sqrt2\\sin\\!\\left(x+\\dfrac\\pi4\\right)$. For $-\\dfrac\\pi3\\le x\\le\\dfrac\\pi3$, the angle $x+\\dfrac\\pi4$ runs over $\\left[-\\dfrac{\\pi}{12},\\dfrac{7\\pi}{12}\\right]$, which includes $\\dfrac\\pi2$. So $\\sin$ reaches its maximum $1$ (giving $t=\\sqrt2$) and its minimum at the endpoint $x=-\\dfrac\\pi3$: $t=\\sin(-\\tfrac\\pi3)+\\cos(-\\tfrac\\pi3)=-\\dfrac{\\sqrt3}{2}+\\dfrac12=\\dfrac{1-\\sqrt3}{2}$. Thus $\\dfrac{1-\\sqrt3}{2}\\le t\\le\\sqrt2$.\n(2) Since $t^2=1+2\\sin x\\cos x=1+\\sin 2x$, we have $\\sin 2x=t^2-1$, so $f=t^2-1-3t=t^2-3t-1$. This is an upward parabola with vertex at $t=\\dfrac32>\\sqrt2$, so on $\\left[\\dfrac{1-\\sqrt3}{2},\\sqrt2\\right]$ it is decreasing; the minimum is at $t=\\sqrt2$: $f=2-3\\sqrt2-1=1-3\\sqrt2$. The value $t=\\sqrt2$ corresponds to $\\sin\\!\\left(x+\\dfrac\\pi4\\right)=1\\Rightarrow x=\\dfrac\\pi4$, so $x=\\dfrac14\\pi$.",
+        "ja": "(1) $t=\\sin x+\\cos x=\\sqrt2\\sin\\!\\left(x+\\dfrac\\pi4\\right)$。$-\\dfrac\\pi3\\le x\\le\\dfrac\\pi3$ で $x+\\dfrac\\pi4\\in\\left[-\\dfrac{\\pi}{12},\\dfrac{7\\pi}{12}\\right]$ となり $\\dfrac\\pi2$ を含む。よって $\\sin$ の最大 $1$（$t=\\sqrt2$），最小は端点 $x=-\\dfrac\\pi3$ で $t=-\\dfrac{\\sqrt3}{2}+\\dfrac12=\\dfrac{1-\\sqrt3}{2}$。ゆえに $\\dfrac{1-\\sqrt3}{2}\\le t\\le\\sqrt2$。\n(2) $t^2=1+\\sin 2x$ より $\\sin 2x=t^2-1$ なので $f=t^2-3t-1$。下に凸で頂点 $t=\\dfrac32>\\sqrt2$ なので区間上で減少，$t=\\sqrt2$ で最小 $f=2-3\\sqrt2-1=1-3\\sqrt2$。$t=\\sqrt2$ は $\\sin\\!\\left(x+\\dfrac\\pi4\\right)=1\\Rightarrow x=\\dfrac\\pi4$，すなわち $x=\\dfrac14\\pi$。"
+      },
+      "blanks": [
+        { "label": "A", "value": "1" }, { "label": "B", "value": "3" }, { "label": "C", "value": "2" }, { "label": "D", "value": "2" }, { "label": "E", "value": "1" }, { "label": "F", "value": "3" }, { "label": "G", "value": "2" }, { "label": "HI", "value": "14" }
+      ]
+    },
+    {
+      "id": "2013-2-math-c2-4-1",
+      "answerRow": 5,
+      "number": "IV-Q1",
+      "section": "IV",
+      "part": "Q1",
+      "topicId": "derivative-applications",
+      "topicIds": ["derivative-applications", "exp-log"],
+      "subtopic": "Using f(x)=log x / x to compare the magnitudes of a^{a+1} and (a+1)^a",
+      "patternTags": ["derivative", "monotonic-intervals", "expression-from-list", "compare-magnitudes", "log-over-x"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "**[IV] Q1 — Comparing magnitudes.** *(For each of $\\boxed{A}$–$\\boxed{I}$ below, choose the appropriate answer from $⓪$–$⑨$ at the bottom.)*\n\nWe are to compare the magnitudes of $a^{a+1}$ and $(a+1)^a$ by using the properties of the function $f(x)=\\dfrac{\\log x}{x}$, where $a>0$.\n\n(1) Since the derivative of $f(x)$ is\n$$f'(x)=\\dfrac{\\boxed{A}-\\log x}{x^{\\boxed{B}}},$$\nthe interval on $x$ in which $f(x)$ monotonically increases is $\\boxed{C}<x\\le\\boxed{D}$, and the interval on $x$ in which $f(x)$ monotonically decreases is $\\boxed{E}\\le x$.\n\n(2) When we set $p=a^{a+1},\\ q=(a+1)^a$, we have\n$$\\log p-\\log q=\\left(a^{\\boxed{F}}+a\\right)\\left\\{f(a)-f\\!\\left(a+\\boxed{G}\\right)\\right\\}.$$\nHence we see that\n$$\\text{if } 0<a<\\dfrac32 \\text{ then } p\\,\\boxed{H}\\,q,\\qquad\\text{and if } 3<a \\text{ then } p\\,\\boxed{I}\\,q.$$\n\nChoices: $⓪\\ 0\\quad ①\\ 1\\quad ②\\ 2\\quad ③\\ 3\\quad ④\\ e\\quad ⑤\\ e+1\\quad ⑥\\ \\dfrac1e\\quad ⑦\\ >\\quad ⑧\\ =\\quad ⑨\\ <$"
+      },
+      "ja": {
+        "prompt": "**[Ⅳ] 問1 — 大小の比較** *（下の $\\boxed{A}$〜$\\boxed{I}$ には，最下部の $⓪$〜$⑨$ から適切なものを選べ。）*\n\n$a>0$ とし，関数 $f(x)=\\dfrac{\\log x}{x}$ の性質を用いて，$a^{a+1}$ と $(a+1)^a$ の大小を比較する。\n\n(1) $f(x)$ の導関数は\n$$f'(x)=\\dfrac{\\boxed{A}-\\log x}{x^{\\boxed{B}}}$$\nなので，$f(x)$ が単調に増加する $x$ の区間は $\\boxed{C}<x\\le\\boxed{D}$，単調に減少する $x$ の区間は $\\boxed{E}\\le x$ である。\n\n(2) $p=a^{a+1},\\ q=(a+1)^a$ とおくと，\n$$\\log p-\\log q=\\left(a^{\\boxed{F}}+a\\right)\\left\\{f(a)-f\\!\\left(a+\\boxed{G}\\right)\\right\\}$$\nである。よって，\n$$0<a<\\dfrac32 \\text{ ならば } p\\,\\boxed{H}\\,q,\\qquad 3<a \\text{ ならば } p\\,\\boxed{I}\\,q$$\nであることがわかる。\n\n選択肢：$⓪\\ 0\\quad ①\\ 1\\quad ②\\ 2\\quad ③\\ 3\\quad ④\\ e\\quad ⑤\\ e+1\\quad ⑥\\ \\dfrac1e\\quad ⑦\\ >\\quad ⑧\\ =\\quad ⑨\\ <$"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "$f'(x)=\\dfrac{1-\\log x}{x^2}$; increases on $0<x\\le e$, decreases on $e\\le x$; $\\log p-\\log q=(a^2+a)\\{f(a)-f(a+1)\\}$; for $0<a<\\tfrac32$, $p<q$; for $3<a$, $p>q$.  Boxes: A=1, B=2, C=0, D=e, E=e, F=2, G=1, H=$<$, I=$>$ → AB=12, CD=04, E=4, FG=21, H=9, I=7.",
+        "ja": "$f'(x)=\\dfrac{1-\\log x}{x^2}$；$0<x\\le e$ で増加，$e\\le x$ で減少；$\\log p-\\log q=(a^2+a)\\{f(a)-f(a+1)\\}$；$0<a<\\tfrac32$ では $p<q$，$3<a$ では $p>q$。 解答：A=1, B=2, C=0, D=4(=e), E=4(=e), F=2, G=1, H=9($<$), I=7($>$) → AB=12, CD=04, E=4, FG=21, H=9, I=7。"
+      },
+      "explanation": {
+        "en": "(1) $f(x)=\\dfrac{\\log x}{x}$ gives $f'(x)=\\dfrac{1\\cdot x-\\log x\\cdot 1}{x^2}=\\dfrac{1-\\log x}{x^2}$ ($\\boxed{A}=①\\,1,\\ \\boxed{B}=②\\,2$). Since $x^2>0$, the sign of $f'$ matches $1-\\log x$: $f'>0$ for $\\log x<1$, i.e. $0<x<e$. So $f$ increases on $0<x\\le e$ ($\\boxed{C}=⓪\\,0,\\ \\boxed{D}=④\\,e$) and decreases on $e\\le x$ ($\\boxed{E}=④\\,e$).\n(2) $\\log p=(a+1)\\log a$ and $\\log q=a\\log(a+1)$. Note $(a+1)\\log a=a(a+1)\\cdot\\dfrac{\\log a}{a}=a(a+1)f(a)$ and $a\\log(a+1)=a(a+1)\\cdot\\dfrac{\\log(a+1)}{a+1}=a(a+1)f(a+1)$. Hence $\\log p-\\log q=a(a+1)\\{f(a)-f(a+1)\\}=(a^2+a)\\{f(a)-f(a+1)\\}$ ($\\boxed{F}=②\\,2,\\ \\boxed{G}=①\\,1$). The sign of $\\log p-\\log q$ equals the sign of $f(a)-f(a+1)$. For $0<a<\\dfrac32$ both $a,a+1$ are below... more precisely on $(0,e)$ $f$ is increasing, so for $0<a<\\tfrac32$ ($a$ and $a+1$ ordered with $f(a)<f(a+1)$ throughout this range), $f(a)-f(a+1)<0$, giving $p<q$ ($\\boxed{H}=⑨\\,<$). For $3<a$ both lie on the decreasing part $(e,\\infty)$, so $f(a)>f(a+1)$, giving $p>q$ ($\\boxed{I}=⑦\\,>$). (Numerically: $a=1\\Rightarrow 1<2$; $a=4\\Rightarrow 1024>625$.)",
+        "ja": "(1) $f(x)=\\dfrac{\\log x}{x}$ より $f'(x)=\\dfrac{1-\\log x}{x^2}$（$\\boxed{A}=①,\\ \\boxed{B}=②$）。$x^2>0$ なので $f'$ の符号は $1-\\log x$ と一致し，$\\log x<1$（$0<x<e$）で $f'>0$。よって $0<x\\le e$ で増加（$\\boxed{C}=⓪,\\ \\boxed{D}=④$），$e\\le x$ で減少（$\\boxed{E}=④$）。\n(2) $\\log p=(a+1)\\log a=a(a+1)f(a)$，$\\log q=a\\log(a+1)=a(a+1)f(a+1)$。よって $\\log p-\\log q=(a^2+a)\\{f(a)-f(a+1)\\}$（$\\boxed{F}=②,\\ \\boxed{G}=①$）。符号は $f(a)-f(a+1)$ と一致。$0<a<\\dfrac32$ では増加部にあり $f(a)<f(a+1)$ なので $p<q$（$\\boxed{H}=⑨$）。$3<a$ では減少部 $(e,\\infty)$ にあり $f(a)>f(a+1)$ なので $p>q$（$\\boxed{I}=⑦$）。（数値例：$a=1$ で $1<2$，$a=4$ で $1024>625$。）"
+      },
+      "blanks": [
+        { "label": "AB", "value": "12" }, { "label": "CD", "value": "04" }, { "label": "E", "value": "4" }, { "label": "FG", "value": "21" }, { "label": "H", "value": "9" }, { "label": "I", "value": "7" }
+      ]
+    },
+    {
+      "id": "2013-2-math-c2-4-2",
+      "answerRow": 6,
+      "number": "IV-Q2",
+      "section": "IV",
+      "part": "Q2",
+      "topicId": "integral-applications",
+      "topicIds": ["integral-applications", "differentiation"],
+      "subtopic": "Sum of two areas under y = x e^{2x} on either side of the origin, minimized over a parameter",
+      "patternTags": ["integration-by-parts", "area-under-curve", "sum-of-areas", "minimize-over-parameter", "exp-function"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "**[IV] Q2 — Area and minimization.** Let $0<a<1$. Let $S(a)$ denote the sum of the areas of two regions: one region bounded by the curve $y=xe^{2x}$, the $x$-axis, and the straight line $x=a-1$; and the other region bounded by the curve $y=xe^{2x}$, the $x$-axis, and the straight line $x=a$. We are to find the value of $a$ at which $S(a)$ is minimized.\n\nThe indefinite integral of $xe^{2x}$ is\n$$\\dfrac{\\boxed{J}}{\\boxed{K}}\\left(\\boxed{L}\\,x-1\\right)e^{2x}+C,$$\nwhere $C$ is the constant of integration.\n\nThe value of $xe^{2x}$ is $xe^{2x}<0$ for $x<0$ and $xe^{2x}\\ge0$ for $x\\ge0$. Hence we have\n$$S(a)=\\dfrac{\\boxed{M}}{\\boxed{N}}\\left\\{\\boxed{O}+\\left(\\boxed{P}\\,a-\\boxed{Q}\\right)e^{2(a-1)}+\\left(\\boxed{R}\\,a-1\\right)e^{2a}\\right\\}.$$\nFurther, since\n$$S'(a)=\\left(a-\\boxed{S}\\right)e^{2(a-1)}+ae^{2a},$$\nthe value of $a$ at which $S(a)$ is minimized is $a=\\dfrac{\\boxed{T}}{e^2+\\boxed{U}}$, which satisfies $0<a<1$."
+      },
+      "ja": {
+        "prompt": "**[Ⅳ] 問2 — 面積と最小化** $0<a<1$ とする。$S(a)$ を，次の2つの部分の面積の和とする：1つは曲線 $y=xe^{2x}$，$x$ 軸，直線 $x=a-1$ で囲まれた部分；もう1つは曲線 $y=xe^{2x}$，$x$ 軸，直線 $x=a$ で囲まれた部分。$S(a)$ が最小となる $a$ の値を求める。\n\n$xe^{2x}$ の不定積分は\n$$\\dfrac{\\boxed{J}}{\\boxed{K}}\\left(\\boxed{L}\\,x-1\\right)e^{2x}+C$$\nである（$C$ は積分定数）。\n\n$xe^{2x}$ の値は，$x<0$ で $xe^{2x}<0$，$x\\ge0$ で $xe^{2x}\\ge0$ である。よって\n$$S(a)=\\dfrac{\\boxed{M}}{\\boxed{N}}\\left\\{\\boxed{O}+\\left(\\boxed{P}\\,a-\\boxed{Q}\\right)e^{2(a-1)}+\\left(\\boxed{R}\\,a-1\\right)e^{2a}\\right\\}$$\nである。さらに，\n$$S'(a)=\\left(a-\\boxed{S}\\right)e^{2(a-1)}+ae^{2a}$$\nなので，$S(a)$ が最小となる $a$ の値は $a=\\dfrac{\\boxed{T}}{e^2+\\boxed{U}}$ であり，これは $0<a<1$ を満たす。"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "$\\int xe^{2x}dx=\\tfrac14(2x-1)e^{2x}+C$; $S(a)=\\tfrac14\\{2+(2a-3)e^{2(a-1)}+(2a-1)e^{2a}\\}$; $S'(a)=(a-1)e^{2(a-1)}+ae^{2a}$; minimized at $a=\\dfrac{1}{e^2+1}$.  Boxes: JKL=142, M=1, N=4, O=2, P=2, Q=3, R=2, S=1, T=1, U=1 → MNOPQR=142232, S=1, TU=11.",
+        "ja": "$\\int xe^{2x}dx=\\tfrac14(2x-1)e^{2x}+C$；$S(a)=\\tfrac14\\{2+(2a-3)e^{2(a-1)}+(2a-1)e^{2a}\\}$；$S'(a)=(a-1)e^{2(a-1)}+ae^{2a}$；最小は $a=\\dfrac{1}{e^2+1}$。 解答：JKL=142, M=1, N=4, O=2, P=2, Q=3, R=2, S=1, T=1, U=1 → MNOPQR=142232, S=1, TU=11。"
+      },
+      "explanation": {
+        "en": "Integration by parts: $\\int xe^{2x}dx=\\dfrac{x}{2}e^{2x}-\\dfrac12\\int e^{2x}dx=\\dfrac{x}{2}e^{2x}-\\dfrac14 e^{2x}=\\dfrac14(2x-1)e^{2x}+C$ ($\\boxed{J}=1,\\boxed{K}=4,\\boxed{L}=2$). Let $F(x)=\\dfrac14(2x-1)e^{2x}$.\nSince $0<a<1$, we have $a-1<0<a$. On $[a-1,0]$ the curve is below the $x$-axis, so that area is $-\\int_{a-1}^{0}xe^{2x}dx=-(F(0)-F(a-1))$. On $[0,a]$ the curve is above the axis, so that area is $\\int_{0}^{a}xe^{2x}dx=F(a)-F(0)$. Adding and using $F(0)=-\\tfrac14$:\n$S(a)=F(a)+F(a-1)-2F(0)=\\dfrac14(2a-1)e^{2a}+\\dfrac14(2a-3)e^{2(a-1)}+\\dfrac12=\\dfrac14\\{2+(2a-3)e^{2(a-1)}+(2a-1)e^{2a}\\}$ ($\\boxed{M}=1,\\boxed{N}=4,\\boxed{O}=2,\\boxed{P}=2,\\boxed{Q}=3,\\boxed{R}=2$).\nDifferentiating: $S'(a)=(a-1)e^{2(a-1)}+ae^{2a}$ ($\\boxed{S}=1$). Setting $S'(a)=0$: $(a-1)e^{2(a-1)}+ae^{2a}=0\\Rightarrow (a-1)e^{-2}+a=0\\Rightarrow a(1+e^2)=1\\Rightarrow a=\\dfrac{1}{e^2+1}$ ($\\boxed{T}=1,\\boxed{U}=1$), which lies in $(0,1)$ and gives the minimum.",
+        "ja": "部分積分により $\\int xe^{2x}dx=\\dfrac{x}{2}e^{2x}-\\dfrac14 e^{2x}=\\dfrac14(2x-1)e^{2x}+C$（$\\boxed{J}=1,\\boxed{K}=4,\\boxed{L}=2$）。$F(x)=\\dfrac14(2x-1)e^{2x}$ とおく。\n$0<a<1$ より $a-1<0<a$。$[a-1,0]$ では曲線が $x$ 軸の下にあり，その面積は $-\\int_{a-1}^{0}xe^{2x}dx=-(F(0)-F(a-1))$。$[0,a]$ では上にあり $\\int_{0}^{a}xe^{2x}dx=F(a)-F(0)$。$F(0)=-\\tfrac14$ を用いて和をとると\n$S(a)=F(a)+F(a-1)-2F(0)=\\dfrac14\\{2+(2a-3)e^{2(a-1)}+(2a-1)e^{2a}\\}$（$\\boxed{M}=1,\\boxed{N}=4,\\boxed{O}=2,\\boxed{P}=2,\\boxed{Q}=3,\\boxed{R}=2$）。\n微分して $S'(a)=(a-1)e^{2(a-1)}+ae^{2a}$（$\\boxed{S}=1$）。$S'(a)=0$ より $(a-1)e^{-2}+a=0\\Rightarrow a(1+e^2)=1\\Rightarrow a=\\dfrac{1}{e^2+1}$（$\\boxed{T}=1,\\boxed{U}=1$）で，$(0,1)$ 内にあり最小を与える。"
+      },
+      "blanks": [
+        { "label": "JKL", "value": "142" }, { "label": "MNOPQR", "value": "142232" }, { "label": "S", "value": "1" }, { "label": "TU", "value": "11" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,254 @@
+{
+  "id": "2010-1-math-c2",
+  "year": 2010,
+  "session": 1,
+  "subject": "math",
+  "course": 2,
+  "title": "2010 EJU Session 1 — Mathematics (Course 2)",
+  "source": "Examination for Japanese University Admission for International Students, 2010 Session 1 (JASSO). Official English question paper; answers re-derived by solving and cross-checked against the official answer key.",
+  "answerFormat": "digit-fill",
+  "answerKeyVerified": true,
+  "note": "The exam has four large questions (大問 I-IV). The booklet is split into Course 1 (Basic, booklet pages 1-13) and Course 2 (Advanced, booklet pages 15-23); this file transcribes Course 2 only. In Course 2, large question I contains two independent sub-questions (問1, 問2) and large question IV contains two (問1, 問2); these are stored as separate entries, giving six questions. Parts I-Q1 and I-Q2 are shared with Course 1 (the answer key lists identical values in both course columns). Answer-letters follow the official scheme and reset at the start of each large question. The official answer key is an image-derived two-column (Course 1 | Course 2) table; its Course-2 column for Parts I, II and III matches the solving exactly, and the verifiable fragments of Part IV (Q2: O,P,Q,V,W,XYZ) also match. Where the linearized key column for Part IV Q1 was ambiguous, the values come from rigorous solving consistent with the actual Course-2 question paper.",
+  "questions": [
+    {
+      "id": "2010-1-math-c2-1-1",
+      "answerRow": 1,
+      "number": "I-Q1",
+      "section": "I",
+      "part": "Q1",
+      "topicId": "absolute-value",
+      "topicIds": ["absolute-value", "quadratic-equations-inequalities"],
+      "subtopic": "Equation with an absolute value: case split, counting solutions, integer bound on the smallest root",
+      "patternTags": ["absolute-value-equation", "case-split", "quadratic-roots", "counting-solutions", "integer-bound"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "**[I] Q1 — Equation with absolute value.**\n\nConsider the equation\n$$(x-1)^2=|3x-5|.\\qquad\\cdots\\cdots ①$$\n\n(1) Among all solutions of equation $①$, the solutions satisfying $x\\ge\\dfrac{5}{3}$ are $x=\\boxed{A}$ and $x=\\boxed{B}$, where $\\boxed{A}<\\boxed{B}$.\n\n(2) Equation $①$ has a total of $\\boxed{C}$ solutions. When the minimum one is denoted by $\\alpha$, the integer $m$ satisfying $m-1<\\alpha\\le m$ is $\\boxed{DE}$."
+      },
+      "ja": {
+        "prompt": "**[Ⅰ] 問1 — 絶対値を含む方程式**\n\n方程式\n$$(x-1)^2=|3x-5|\\qquad\\cdots\\cdots ①$$\nを考える。\n\n(1) 方程式 $①$ のすべての解のうち，$x\\ge\\dfrac{5}{3}$ を満たす解は $x=\\boxed{A}$ と $x=\\boxed{B}$ である（ただし $\\boxed{A}<\\boxed{B}$）。\n\n(2) 方程式 $①$ の解は全部で $\\boxed{C}$ 個ある。最小の解を $\\alpha$ とするとき，$m-1<\\alpha\\le m$ を満たす整数 $m$ は $\\boxed{DE}$ である。"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "For $x\\ge\\tfrac53$: $x^2-5x+6=0\\Rightarrow x=2,3$. For $x<\\tfrac53$: $x^2+x-4=0\\Rightarrow x=\\tfrac{-1\\pm\\sqrt{17}}{2}$ (both $<\\tfrac53$). So $4$ solutions; the smallest is $\\alpha=\\tfrac{-1-\\sqrt{17}}{2}\\approx-2.56$, so $m=-2$.  Boxes: A=2, B=3, C=4, DE=-2.",
+        "ja": "$x\\ge\\tfrac53$ では $x^2-5x+6=0\\Rightarrow x=2,3$。$x<\\tfrac53$ では $x^2+x-4=0\\Rightarrow x=\\tfrac{-1\\pm\\sqrt{17}}{2}$（ともに $<\\tfrac53$）。よって解は $4$ 個。最小は $\\alpha=\\tfrac{-1-\\sqrt{17}}{2}\\approx-2.56$ なので $m=-2$。 解答：A=2, B=3, C=4, DE=-2。"
+      },
+      "explanation": {
+        "en": "Split by the sign of $3x-5$.\n• For $x\\ge\\tfrac53$ (so $3x-5\\ge0$): $(x-1)^2=3x-5\\Rightarrow x^2-2x+1=3x-5\\Rightarrow x^2-5x+6=0\\Rightarrow(x-2)(x-3)=0$, giving $x=2,3$, both $\\ge\\tfrac53$. Hence $A=2,B=3$.\n• For $x<\\tfrac53$ (so $3x-5<0$): $(x-1)^2=-(3x-5)=5-3x\\Rightarrow x^2-2x+1=5-3x\\Rightarrow x^2+x-4=0\\Rightarrow x=\\tfrac{-1\\pm\\sqrt{17}}{2}$. Numerically $\\approx 1.56$ and $\\approx-2.56$, both less than $\\tfrac53\\approx1.67$, so both are valid.\nTotal: $2+2=4$ solutions, so $C=4$. The smallest is $\\alpha=\\tfrac{-1-\\sqrt{17}}{2}\\approx-2.56$; the integer $m$ with $m-1<\\alpha\\le m$ is $m=-2$ (since $-3<-2.56\\le-2$).",
+        "ja": "$3x-5$ の符号で場合分けする。\n・$x\\ge\\tfrac53$（$3x-5\\ge0$）：$(x-1)^2=3x-5\\Rightarrow x^2-5x+6=0\\Rightarrow(x-2)(x-3)=0$ より $x=2,3$（ともに $\\ge\\tfrac53$）。よって $A=2,B=3$。\n・$x<\\tfrac53$（$3x-5<0$）：$(x-1)^2=5-3x\\Rightarrow x^2+x-4=0\\Rightarrow x=\\tfrac{-1\\pm\\sqrt{17}}{2}$。数値は約 $1.56,\\,-2.56$ でともに $\\tfrac53\\approx1.67$ 未満なので有効。\n合計 $2+2=4$ 個なので $C=4$。最小解 $\\alpha=\\tfrac{-1-\\sqrt{17}}{2}\\approx-2.56$，$m-1<\\alpha\\le m$ を満たす整数は $m=-2$（$-3<-2.56\\le-2$）。"
+      },
+      "blanks": [
+        { "label": "A", "value": "2" },
+        { "label": "B", "value": "3" },
+        { "label": "C", "value": "4" },
+        { "label": "DE", "value": "-2" }
+      ]
+    },
+    {
+      "id": "2010-1-math-c2-1-2",
+      "answerRow": 2,
+      "number": "I-Q2",
+      "section": "I",
+      "part": "Q2",
+      "topicId": "propositions-conditions",
+      "topicIds": ["propositions-conditions", "numbers-expressions"],
+      "subtopic": "Symmetric expressions x+y, xy; necessary/sufficient conditions among three statements",
+      "patternTags": ["symmetric-functions", "necessary-sufficient", "logical-implication", "choose-from-list"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "**[I] Q2 — Conditions.**\n\nConsider the following three conditions (a), (b) and (c) on two real numbers $x$ and $y$:\n\n  (a) $x+y=5$ and $xy=3$,\n\n  (b) $x+y=5$ and $x^2+y^2=19$,\n\n  (c) $x^2+y^2=19$ and $xy=3$.\n\n(1) Using the equality $x^2+y^2=(x+y)^2-\\boxed{F}\\,xy$, we see that condition (b) gives $xy=\\boxed{G}$, and condition (c) gives $x+y=\\boxed{H}$ or $x+y=\\boxed{IJ}$.\n\n(2) For each of the following $\\boxed{K}$–$\\boxed{M}$, choose the most appropriate answer from among the choices $⓪$–$③$ below.\n\n  (i) (a) is $\\boxed{K}$ for (b).\n\n  (ii) (b) is $\\boxed{L}$ for (c).\n\n  (iii) (c) is $\\boxed{M}$ for (a).\n\nChoices: $⓪$ a necessary and sufficient condition; $①$ a sufficient condition but not a necessary condition; $②$ a necessary condition but not a sufficient condition; $③$ neither a necessary condition nor a sufficient condition."
+      },
+      "ja": {
+        "prompt": "**[Ⅰ] 問2 — 条件**\n\n2つの実数 $x,y$ に関する次の3つの条件 (a)，(b)，(c) を考える：\n\n  (a) $x+y=5$ かつ $xy=3$，\n\n  (b) $x+y=5$ かつ $x^2+y^2=19$，\n\n  (c) $x^2+y^2=19$ かつ $xy=3$。\n\n(1) 等式 $x^2+y^2=(x+y)^2-\\boxed{F}\\,xy$ を用いると，条件 (b) から $xy=\\boxed{G}$，条件 (c) から $x+y=\\boxed{H}$ または $x+y=\\boxed{IJ}$ が得られる。\n\n(2) 次の $\\boxed{K}$〜$\\boxed{M}$ のそれぞれについて，下の選択肢 $⓪$〜$③$ から最も適切なものを選べ。\n\n  (i) (a) は (b) であるための $\\boxed{K}$。\n\n  (ii) (b) は (c) であるための $\\boxed{L}$。\n\n  (iii) (c) は (a) であるための $\\boxed{M}$。\n\n選択肢：$⓪$ 必要十分条件；$①$ 十分条件であるが必要条件でない；$②$ 必要条件であるが十分条件でない；$③$ 必要条件でも十分条件でもない。"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "$F=2$; (b)$\\Rightarrow xy=\\tfrac{25-19}{2}=3$ so $G=3$; (c)$\\Rightarrow(x+y)^2=19+6=25$ so $x+y=5$ or $-5$, $H=5,IJ=-5$. (a)$\\Leftrightarrow$(b) so $K=0$; (b)$\\Rightarrow$(c) only (not conversely) so $L=1$; (a)$\\Rightarrow$(c) only so (c) is necessary not sufficient for (a), $M=2$.  Boxes: F=2, G=3, H=5, IJ=-5, K=0, L=1, M=2.",
+        "ja": "$F=2$；(b) より $xy=\\tfrac{25-19}{2}=3$ なので $G=3$；(c) より $(x+y)^2=19+6=25$ なので $x+y=5$ または $-5$，$H=5,IJ=-5$。(a)$\\Leftrightarrow$(b) より $K=0$；(b)$\\Rightarrow$(c) のみで逆は不成立なので $L=1$；(a)$\\Rightarrow$(c) のみなので (c) は (a) の必要条件だが十分条件でなく $M=2$。 解答：F=2, G=3, H=5, IJ=-5, K=0, L=1, M=2。"
+      },
+      "explanation": {
+        "en": "(1) The identity is $x^2+y^2=(x+y)^2-2xy$, so $F=2$. From (b): $19=25-2xy\\Rightarrow xy=3$ ($G=3$). From (c): $(x+y)^2=x^2+y^2+2xy=19+6=25\\Rightarrow x+y=\\pm5$ ($H=5,IJ=-5$).\n(2) Note (a): $x+y=5,xy=3$; (b): $x+y=5,x^2+y^2=19$ which gives $xy=3$, so (a)$\\Leftrightarrow$(b) — equivalent, $K=0$.\n(b)$\\Rightarrow$(c): (b) gives $x^2+y^2=19$ and $xy=3$, which is exactly (c); but (c) allows $x+y=-5$, so (c)$\\not\\Rightarrow$(b). Hence (b) is sufficient but not necessary for (c), $L=1$.\n(a)$\\Rightarrow$(c): (a) gives $x^2+y^2=25-6=19$ and $xy=3$, i.e. (c); but (c) allows $x+y=-5\\ne$(a), so (c)$\\not\\Rightarrow$(a). Hence (c) is necessary but not sufficient for (a), $M=2$.",
+        "ja": "(1) 恒等式は $x^2+y^2=(x+y)^2-2xy$ なので $F=2$。(b) より $19=25-2xy\\Rightarrow xy=3$（$G=3$）。(c) より $(x+y)^2=19+6=25\\Rightarrow x+y=\\pm5$（$H=5,IJ=-5$）。\n(2) (a)：$x+y=5,xy=3$。(b)：$x+y=5,x^2+y^2=19$ から $xy=3$ となり (a)$\\Leftrightarrow$(b)（同値）なので $K=0$。\n(b)$\\Rightarrow$(c)：(b) は $x^2+y^2=19,xy=3$ すなわち (c) を与えるが，(c) は $x+y=-5$ も許すので逆は不成立。よって (b) は (c) の十分条件だが必要条件でなく $L=1$。\n(a)$\\Rightarrow$(c)：(a) は $x^2+y^2=19,xy=3$ すなわち (c) を与えるが，(c) は $x+y=-5$ も許すので逆は不成立。よって (c) は (a) の必要条件だが十分条件でなく $M=2$。"
+      },
+      "blanks": [
+        { "label": "F", "value": "2" },
+        { "label": "G", "value": "3" },
+        { "label": "H", "value": "5" },
+        { "label": "IJ", "value": "-5" },
+        { "label": "K", "value": "0" },
+        { "label": "L", "value": "1" },
+        { "label": "M", "value": "2" }
+      ]
+    },
+    {
+      "id": "2010-1-math-c2-2",
+      "answerRow": 3,
+      "number": "II",
+      "section": "II",
+      "part": null,
+      "topicId": "points-lines",
+      "topicIds": ["points-lines", "quadratic-max-min"],
+      "subtopic": "Right angle PAQ between two horizontal lines; minimizing segment length PQ via AM-GM",
+      "patternTags": ["coordinate-geometry", "perpendicularity-condition", "am-gm-inequality", "minimum-distance", "equality-condition"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "**[II] — Coordinate geometry.**\n\nConsider two straight lines $y=1,\\ y=-1$, and the point $A(0,3)$ in the $xy$-plane. Take a point $P$ on the line $y=1$ and a point $Q$ on the line $y=-1$ such that $\\angle PAQ=90^\\circ$. Let $P$ and $Q$ move preserving this condition. We find the minimum value of the length of the segment $PQ$.\n\nFirst, denote the coordinates of $P$ by $(\\alpha,1)$ and the coordinates of $Q$ by $(\\beta,-1)$. Then the condition $\\angle PAQ=90^\\circ$ reduces to $\\alpha\\neq0,\\ \\beta\\neq0$ and $\\alpha\\beta=\\boxed{AB}$.\n\nSince $\\alpha$ and $\\beta$ have opposite signs, assume $\\alpha<0<\\beta$. Then\n$$PQ^2=(\\beta-\\alpha)^2+\\boxed{C}=\\alpha^2+\\beta^2+\\boxed{DE}\\ge2|\\alpha\\beta|+\\boxed{DE}=\\boxed{FG},$$\nso $PQ\\ge\\boxed{H}$.\n\nHence, when $\\alpha=\\boxed{IJ}\\sqrt{\\boxed{K}}$ and $\\beta=\\boxed{L}\\sqrt{\\boxed{M}}$, $PQ$ takes its minimum value $\\boxed{H}$."
+      },
+      "ja": {
+        "prompt": "**[Ⅱ] — 図形と方程式**\n\n$xy$ 平面上の2直線 $y=1,\\ y=-1$ と点 $A(0,3)$ を考える。直線 $y=1$ 上に点 $P$，直線 $y=-1$ 上に点 $Q$ を，$\\angle PAQ=90^\\circ$ となるようにとる。この条件を保ちながら $P,Q$ を動かすとき，線分 $PQ$ の長さの最小値を求める。\n\nまず $P$ の座標を $(\\alpha,1)$，$Q$ の座標を $(\\beta,-1)$ とおく。条件 $\\angle PAQ=90^\\circ$ は $\\alpha\\neq0,\\ \\beta\\neq0$ かつ $\\alpha\\beta=\\boxed{AB}$ に帰着する。\n\n$\\alpha$ と $\\beta$ は異符号なので $\\alpha<0<\\beta$ としてよい。このとき\n$$PQ^2=(\\beta-\\alpha)^2+\\boxed{C}=\\alpha^2+\\beta^2+\\boxed{DE}\\ge2|\\alpha\\beta|+\\boxed{DE}=\\boxed{FG}$$\nより $PQ\\ge\\boxed{H}$。\n\nよって $\\alpha=\\boxed{IJ}\\sqrt{\\boxed{K}}$，$\\beta=\\boxed{L}\\sqrt{\\boxed{M}}$ のとき，$PQ$ は最小値 $\\boxed{H}$ をとる。"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "$\\overrightarrow{AP}\\cdot\\overrightarrow{AQ}=\\alpha\\beta+8=0\\Rightarrow\\alpha\\beta=-8$. $PQ^2=(\\beta-\\alpha)^2+4=\\alpha^2+\\beta^2+20\\ge2|\\alpha\\beta|+20=16+20=36$, so $PQ\\ge6$. Equality at $\\alpha=-2\\sqrt2,\\ \\beta=2\\sqrt2$.  Boxes: AB=-8, C=4, DE=20, FG=36, H=6, IJ=-2, K=2, L=2, M=2.",
+        "ja": "$\\overrightarrow{AP}\\cdot\\overrightarrow{AQ}=\\alpha\\beta+8=0\\Rightarrow\\alpha\\beta=-8$。$PQ^2=(\\beta-\\alpha)^2+4=\\alpha^2+\\beta^2+20\\ge2|\\alpha\\beta|+20=36$ より $PQ\\ge6$。等号は $\\alpha=-2\\sqrt2,\\ \\beta=2\\sqrt2$ のとき。 解答：AB=-8, C=4, DE=20, FG=36, H=6, IJ=-2, K=2, L=2, M=2。"
+      },
+      "explanation": {
+        "en": "$\\overrightarrow{AP}=(\\alpha,1-3)=(\\alpha,-2)$ and $\\overrightarrow{AQ}=(\\beta,-1-3)=(\\beta,-4)$. The right angle gives $\\overrightarrow{AP}\\cdot\\overrightarrow{AQ}=\\alpha\\beta+(-2)(-4)=\\alpha\\beta+8=0$, so $\\alpha\\beta=-8$ ($AB=-8$). The vertical gap between the lines is $2$, so $PQ^2=(\\beta-\\alpha)^2+2^2=(\\beta-\\alpha)^2+4$ ($C=4$). Expanding, $(\\beta-\\alpha)^2=\\alpha^2+\\beta^2-2\\alpha\\beta=\\alpha^2+\\beta^2+16$, hence $PQ^2=\\alpha^2+\\beta^2+20$ ($DE=20$). By AM–GM, $\\alpha^2+\\beta^2\\ge2|\\alpha\\beta|=16$, so $PQ^2\\ge16+20=36$ ($FG=36$) and $PQ\\ge6$ ($H=6$). Equality holds when $\\alpha^2=\\beta^2$ with $\\alpha\\beta=-8$ and $\\alpha<0<\\beta$: $\\alpha^2=8\\Rightarrow\\alpha=-2\\sqrt2$ ($IJ=-2,K=2$), $\\beta=2\\sqrt2$ ($L=2,M=2$).",
+        "ja": "$\\overrightarrow{AP}=(\\alpha,-2)$，$\\overrightarrow{AQ}=(\\beta,-4)$。直角条件より $\\overrightarrow{AP}\\cdot\\overrightarrow{AQ}=\\alpha\\beta+8=0$ なので $\\alpha\\beta=-8$（$AB=-8$）。2直線の縦の間隔は $2$ なので $PQ^2=(\\beta-\\alpha)^2+4$（$C=4$）。$(\\beta-\\alpha)^2=\\alpha^2+\\beta^2-2\\alpha\\beta=\\alpha^2+\\beta^2+16$ より $PQ^2=\\alpha^2+\\beta^2+20$（$DE=20$）。相加相乗平均より $\\alpha^2+\\beta^2\\ge2|\\alpha\\beta|=16$ なので $PQ^2\\ge36$（$FG=36$），$PQ\\ge6$（$H=6$）。等号は $\\alpha^2=\\beta^2,\\ \\alpha\\beta=-8,\\ \\alpha<0<\\beta$ のとき，すなわち $\\alpha^2=8\\Rightarrow\\alpha=-2\\sqrt2$（$IJ=-2,K=2$），$\\beta=2\\sqrt2$（$L=2,M=2$）。"
+      },
+      "blanks": [
+        { "label": "AB", "value": "-8" },
+        { "label": "C", "value": "4" },
+        { "label": "DE", "value": "20" },
+        { "label": "FG", "value": "36" },
+        { "label": "H", "value": "6" },
+        { "label": "IJ", "value": "-2" },
+        { "label": "K", "value": "2" },
+        { "label": "L", "value": "2" },
+        { "label": "M", "value": "2" }
+      ]
+    },
+    {
+      "id": "2010-1-math-c2-3",
+      "answerRow": 4,
+      "number": "III",
+      "section": "III",
+      "part": null,
+      "topicId": "vector-figures",
+      "topicIds": ["vector-figures", "plane-vectors", "dot-product"],
+      "subtopic": "Intersection of cevians by position vectors; OP via dot product, cos of angle, range of a length",
+      "patternTags": ["position-vectors", "internal-division", "intersection-point", "dot-product", "law-of-cosines", "range-of-length"],
+      "hasFigure": true,
+      "en": {
+        "prompt": "**[III] — Vectors.**\n\nConsider a triangle $OAB$. Let $M$ be the point dividing side $OA$ internally in the ratio $3:1$, and $N$ the point dividing side $OB$ internally in the ratio $1:2$. Let $P$ be the intersection of segment $AN$ and segment $BM$. Write $\\overrightarrow{OA}=\\vec a,\\ \\overrightarrow{OB}=\\vec b$.\n\n(1) Setting $AP:PN=s:(1-s)$ ($0<s<1$) and $BP:PM=t:(1-t)$ ($0<t<1$), we have\n$$\\overrightarrow{OP}=(\\boxed{A}-s)\\vec a+\\dfrac{\\boxed{B}}{\\boxed{C}}\\,s\\vec b=\\dfrac{\\boxed{D}}{\\boxed{E}}\\,t\\vec a+(\\boxed{F}-t)\\vec b,$$\nfrom which $s=\\dfrac{\\boxed{G}}{\\boxed{H}}$ and $t=\\dfrac{\\boxed{I}}{\\boxed{J}}$. Hence $\\overrightarrow{OP}=\\dfrac{\\boxed{K}}{\\boxed{L}}\\vec a+\\dfrac{\\boxed{M}}{\\boxed{N}}\\vec b$.\n\n(2) Now look at the relation between the length of $OP$ and the size of $\\angle AOB$, when $OA=6$ and $OB=9$. Denote the length of $OP$ by $\\ell$. Expressing $\\ell^2$ in terms of $\\vec a\\cdot\\vec b$,\n$$\\ell^2=\\dfrac{\\boxed{O}}{\\boxed{PQ}}\\,\\vec a\\cdot\\vec b+\\boxed{RS},$$\nwhere $\\vec a\\cdot\\vec b$ is the inner product of $\\vec a$ and $\\vec b$. Hence, for instance, if $\\ell=4$ then $\\cos\\angle AOB=\\dfrac{\\boxed{TU}}{\\boxed{V}}$. As $\\angle AOB$ varies, the range of values $\\ell$ can take is $\\boxed{W}<\\ell<\\boxed{X}$."
+      },
+      "ja": {
+        "prompt": "**[Ⅲ] — ベクトル**\n\n三角形 $OAB$ を考える。辺 $OA$ を $3:1$ に内分する点を $M$，辺 $OB$ を $1:2$ に内分する点を $N$ とする。線分 $AN$ と線分 $BM$ の交点を $P$ とする。$\\overrightarrow{OA}=\\vec a,\\ \\overrightarrow{OB}=\\vec b$ とおく。\n\n(1) $AP:PN=s:(1-s)$（$0<s<1$），$BP:PM=t:(1-t)$（$0<t<1$）とおくと，\n$$\\overrightarrow{OP}=(\\boxed{A}-s)\\vec a+\\dfrac{\\boxed{B}}{\\boxed{C}}\\,s\\vec b=\\dfrac{\\boxed{D}}{\\boxed{E}}\\,t\\vec a+(\\boxed{F}-t)\\vec b$$\nとなり，$s=\\dfrac{\\boxed{G}}{\\boxed{H}}$，$t=\\dfrac{\\boxed{I}}{\\boxed{J}}$ を得る。よって $\\overrightarrow{OP}=\\dfrac{\\boxed{K}}{\\boxed{L}}\\vec a+\\dfrac{\\boxed{M}}{\\boxed{N}}\\vec b$。\n\n(2) $OA=6,\\ OB=9$ のとき，$OP$ の長さと $\\angle AOB$ の大きさの関係を調べる。$OP$ の長さを $\\ell$ とすると，$\\ell^2$ を $\\vec a\\cdot\\vec b$ で表して\n$$\\ell^2=\\dfrac{\\boxed{O}}{\\boxed{PQ}}\\,\\vec a\\cdot\\vec b+\\boxed{RS}$$\nとなる（$\\vec a\\cdot\\vec b$ は $\\vec a$ と $\\vec b$ の内積）。よって，たとえば $\\ell=4$ のとき $\\cos\\angle AOB=\\dfrac{\\boxed{TU}}{\\boxed{V}}$。$\\angle AOB$ が変化するとき，$\\ell$ のとり得る値の範囲は $\\boxed{W}<\\ell<\\boxed{X}$ である。"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "$\\overrightarrow{OP}=(1-s)\\vec a+\\tfrac13 s\\vec b=\\tfrac34 t\\vec a+(1-t)\\vec b$, giving $s=\\tfrac13,\\ t=\\tfrac89$, so $\\overrightarrow{OP}=\\tfrac23\\vec a+\\tfrac19\\vec b$. With $OA=6,OB=9$: $\\ell^2=\\tfrac{4}{27}\\vec a\\cdot\\vec b+17$; $\\ell=4\\Rightarrow\\cos\\angle AOB=-\\tfrac18$; range $3<\\ell<5$.  Boxes: A=1, B=1, C=3, D=3, E=4, F=1, G=1, H=3, I=8, J=9, K=2, L=3, M=1, N=9, O=4, PQ=27, RS=17, TU=-1, V=8, W=3, X=5.",
+        "ja": "$\\overrightarrow{OP}=(1-s)\\vec a+\\tfrac13 s\\vec b=\\tfrac34 t\\vec a+(1-t)\\vec b$ より $s=\\tfrac13,\\ t=\\tfrac89$，よって $\\overrightarrow{OP}=\\tfrac23\\vec a+\\tfrac19\\vec b$。$OA=6,OB=9$ のとき $\\ell^2=\\tfrac{4}{27}\\vec a\\cdot\\vec b+17$；$\\ell=4\\Rightarrow\\cos\\angle AOB=-\\tfrac18$；範囲 $3<\\ell<5$。 解答：A=1, B=1, C=3, D=3, E=4, F=1, G=1, H=3, I=8, J=9, K=2, L=3, M=1, N=9, O=4, PQ=27, RS=17, TU=-1, V=8, W=3, X=5。"
+      },
+      "explanation": {
+        "en": "(1) $\\overrightarrow{ON}=\\tfrac13\\vec b$ (since $ON:NB=1:2$) and $\\overrightarrow{OM}=\\tfrac34\\vec a$ (since $OM:MA=3:1$). Along $AN$: $\\overrightarrow{OP}=\\vec a+s(\\overrightarrow{ON}-\\vec a)=(1-s)\\vec a+\\tfrac13 s\\vec b$, so $A=1,B=1,C=3$. Along $BM$: $\\overrightarrow{OP}=\\vec b+t(\\overrightarrow{OM}-\\vec b)=\\tfrac34 t\\vec a+(1-t)\\vec b$, so $D=3,E=4,F=1$. Matching coefficients of $\\vec a,\\vec b$: $1-s=\\tfrac34 t$ and $\\tfrac13 s=1-t$. Solving gives $s=\\tfrac13$ ($G=1,H=3$) and $t=\\tfrac89$ ($I=8,J=9$). Then $\\overrightarrow{OP}=\\tfrac23\\vec a+\\tfrac19\\vec b$ ($K=2,L=3,M=1,N=9$).\n(2) With $|\\vec a|=6,|\\vec b|=9$: $\\ell^2=|\\tfrac23\\vec a+\\tfrac19\\vec b|^2=\\tfrac49\\cdot36+\\tfrac1{81}\\cdot81+2\\cdot\\tfrac23\\cdot\\tfrac19\\,\\vec a\\cdot\\vec b=16+1+\\tfrac{4}{27}\\vec a\\cdot\\vec b=\\tfrac{4}{27}\\vec a\\cdot\\vec b+17$, so $O=4,PQ=27,RS=17$. If $\\ell=4$: $16=\\tfrac{4}{27}\\vec a\\cdot\\vec b+17\\Rightarrow\\vec a\\cdot\\vec b=-\\tfrac{27}{4}$, and $\\cos\\angle AOB=\\dfrac{\\vec a\\cdot\\vec b}{|\\vec a||\\vec b|}=\\dfrac{-27/4}{54}=-\\tfrac18$ ($TU=-1,V=8$). As $\\angle AOB$ ranges over $(0,\\pi)$, $\\vec a\\cdot\\vec b=54\\cos\\angle AOB\\in(-54,54)$, so $\\ell^2=\\tfrac{4}{27}\\vec a\\cdot\\vec b+17\\in(9,25)$, giving $3<\\ell<5$ ($W=3,X=5$).",
+        "ja": "(1) $ON:NB=1:2$ より $\\overrightarrow{ON}=\\tfrac13\\vec b$，$OM:MA=3:1$ より $\\overrightarrow{OM}=\\tfrac34\\vec a$。$AN$ 上で $\\overrightarrow{OP}=\\vec a+s(\\overrightarrow{ON}-\\vec a)=(1-s)\\vec a+\\tfrac13 s\\vec b$ なので $A=1,B=1,C=3$。$BM$ 上で $\\overrightarrow{OP}=\\vec b+t(\\overrightarrow{OM}-\\vec b)=\\tfrac34 t\\vec a+(1-t)\\vec b$ なので $D=3,E=4,F=1$。$\\vec a,\\vec b$ の係数を比較して $1-s=\\tfrac34 t,\\ \\tfrac13 s=1-t$。これを解いて $s=\\tfrac13$（$G=1,H=3$），$t=\\tfrac89$（$I=8,J=9$）。よって $\\overrightarrow{OP}=\\tfrac23\\vec a+\\tfrac19\\vec b$（$K=2,L=3,M=1,N=9$）。\n(2) $|\\vec a|=6,|\\vec b|=9$ より $\\ell^2=|\\tfrac23\\vec a+\\tfrac19\\vec b|^2=\\tfrac49\\cdot36+\\tfrac1{81}\\cdot81+2\\cdot\\tfrac23\\cdot\\tfrac19\\,\\vec a\\cdot\\vec b=16+1+\\tfrac{4}{27}\\vec a\\cdot\\vec b=\\tfrac{4}{27}\\vec a\\cdot\\vec b+17$ なので $O=4,PQ=27,RS=17$。$\\ell=4$ のとき $16=\\tfrac{4}{27}\\vec a\\cdot\\vec b+17\\Rightarrow\\vec a\\cdot\\vec b=-\\tfrac{27}{4}$，$\\cos\\angle AOB=\\dfrac{-27/4}{54}=-\\tfrac18$（$TU=-1,V=8$）。$\\angle AOB$ が $(0,\\pi)$ を動くと $\\vec a\\cdot\\vec b=54\\cos\\angle AOB\\in(-54,54)$ なので $\\ell^2\\in(9,25)$，すなわち $3<\\ell<5$（$W=3,X=5$）。"
+      },
+      "blanks": [
+        { "label": "A", "value": "1" },
+        { "label": "B", "value": "1" },
+        { "label": "C", "value": "3" },
+        { "label": "D", "value": "3" },
+        { "label": "E", "value": "4" },
+        { "label": "F", "value": "1" },
+        { "label": "G", "value": "1" },
+        { "label": "H", "value": "3" },
+        { "label": "I", "value": "8" },
+        { "label": "J", "value": "9" },
+        { "label": "K", "value": "2" },
+        { "label": "L", "value": "3" },
+        { "label": "M", "value": "1" },
+        { "label": "N", "value": "9" },
+        { "label": "O", "value": "4" },
+        { "label": "PQ", "value": "27" },
+        { "label": "RS", "value": "17" },
+        { "label": "TU", "value": "-1" },
+        { "label": "V", "value": "8" },
+        { "label": "W", "value": "3" },
+        { "label": "X", "value": "5" }
+      ]
+    },
+    {
+      "id": "2010-1-math-c2-4-1",
+      "answerRow": 5,
+      "number": "IV-Q1",
+      "section": "IV",
+      "part": "Q1",
+      "topicId": "derivative-applications",
+      "topicIds": ["derivative-applications", "derivatives", "logarithmic-functions"],
+      "subtopic": "Local extremum of f(x)=log(4x - log x) using the second derivative",
+      "patternTags": ["logarithmic-function", "first-derivative", "second-derivative", "local-extremum", "choose-from-list"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "**[IV] Q1 — Differentiation.** *(For $\\boxed{K}$ and $\\boxed{L}$, choose the most appropriate answer from the choices $⓪$–$⑥$ below; for the other boxes enter a number.)*\n\nLet $f(x)=\\log(4x-\\log x)$, where $\\log$ is the natural logarithm. We find a local extremum of $f(x)$ by using $f''(x)$.\n\nFirst, $f'(x)=\\dfrac{\\boxed{A}-\\dfrac{\\boxed{B}}{x}}{4x-\\log x}$ and $f''(x)=\\dfrac{\\dfrac{1}{x^{\\boxed{C}}}(4x-\\log x)-\\left(\\boxed{A}-\\dfrac{\\boxed{B}}{x}\\right)^{\\boxed{D}}}{(4x-\\log x)^2}$.\n\nThese give $f'\\!\\left(\\dfrac{\\boxed{E}}{\\boxed{F}}\\right)=0$ and $f''\\!\\left(\\dfrac{\\boxed{E}}{\\boxed{F}}\\right)=\\dfrac{\\boxed{GH}}{\\boxed{I}+\\log\\boxed{J}}$. Since $f''\\!\\left(\\dfrac{\\boxed{E}}{\\boxed{F}}\\right)\\ \\boxed{K}\\ 0$, $f(x)$ has a $\\boxed{L}$ at $x=\\dfrac{\\boxed{E}}{\\boxed{F}}$, and this value is $\\log(\\boxed{M}+\\log\\boxed{N})$.\n\nChoices: $⓪\\ =\\quad ①\\ >\\quad ②\\ \\ge\\quad ③\\ <\\quad ④\\ \\le\\quad ⑤$ local maximum$\\quad ⑥$ local minimum"
+      },
+      "ja": {
+        "prompt": "**[Ⅳ] 問1 — 微分** *（$\\boxed{K}$ と $\\boxed{L}$ は下の選択肢 $⓪$〜$⑥$ から選び，他の空欄には数を入れよ。）*\n\n$f(x)=\\log(4x-\\log x)$ とする（$\\log$ は自然対数）。$f''(x)$ を用いて $f(x)$ の極値を求める。\n\nまず $f'(x)=\\dfrac{\\boxed{A}-\\dfrac{\\boxed{B}}{x}}{4x-\\log x}$，$f''(x)=\\dfrac{\\dfrac{1}{x^{\\boxed{C}}}(4x-\\log x)-\\left(\\boxed{A}-\\dfrac{\\boxed{B}}{x}\\right)^{\\boxed{D}}}{(4x-\\log x)^2}$。\n\nこれより $f'\\!\\left(\\dfrac{\\boxed{E}}{\\boxed{F}}\\right)=0$，$f''\\!\\left(\\dfrac{\\boxed{E}}{\\boxed{F}}\\right)=\\dfrac{\\boxed{GH}}{\\boxed{I}+\\log\\boxed{J}}$。$f''\\!\\left(\\dfrac{\\boxed{E}}{\\boxed{F}}\\right)\\ \\boxed{K}\\ 0$ なので，$f(x)$ は $x=\\dfrac{\\boxed{E}}{\\boxed{F}}$ で $\\boxed{L}$ をとり，その値は $\\log(\\boxed{M}+\\log\\boxed{N})$ である。\n\n選択肢：$⓪\\ =\\quad ①\\ >\\quad ②\\ \\ge\\quad ③\\ <\\quad ④\\ \\le\\quad ⑤$ 極大$\\quad ⑥$ 極小"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "$f'(x)=\\dfrac{4-1/x}{4x-\\log x}$ ($A=4,B=1$); $f''$ has $C=2,D=2$. $f'=0$ at $x=\\tfrac14$ ($E=1,F=4$). $f''(\\tfrac14)=\\dfrac{16}{1+\\log4}>0$ ($GH=16,I=1,J=4$; $K=①$ '>'), so $f$ has a local minimum ($L=⑥$); value $=\\log(1+\\log4)$ ($M=1,N=4$).  Boxes: A=4, B=1, C=2, D=2, E=1, F=4, GH=16, I=1, J=4, K=1, L=6, M=1, N=4.",
+        "ja": "$f'(x)=\\dfrac{4-1/x}{4x-\\log x}$（$A=4,B=1$）；$f''$ では $C=2,D=2$。$f'=0$ は $x=\\tfrac14$（$E=1,F=4$）。$f''(\\tfrac14)=\\dfrac{16}{1+\\log4}>0$（$GH=16,I=1,J=4$；$K=①$「>」）なので $f$ は極小（$L=⑥$）をとり，値は $\\log(1+\\log4)$（$M=1,N=4$）。 解答：A=4, B=1, C=2, D=2, E=1, F=4, GH=16, I=1, J=4, K=1, L=6, M=1, N=4。"
+      },
+      "explanation": {
+        "en": "Let $u(x)=4x-\\log x$, so $f=\\log u$, $f'=u'/u$ with $u'=4-\\tfrac1x$. Thus $f'(x)=\\dfrac{4-1/x}{4x-\\log x}$, giving $A=4,B=1$. Differentiating again, $f''=\\dfrac{u''u-(u')^2}{u^2}$ with $u''=\\tfrac1{x^2}$, so $f''(x)=\\dfrac{\\tfrac1{x^2}(4x-\\log x)-(4-\\tfrac1x)^2}{(4x-\\log x)^2}$, giving $C=2,D=2$. $f'(x)=0$ when $4-\\tfrac1x=0$, i.e. $x=\\tfrac14$ ($E=1,F=4$). At $x=\\tfrac14$ the term $(4-\\tfrac1x)^2=0$, and $4x-\\log x=1-\\log\\tfrac14=1+\\log4$, so $f''(\\tfrac14)=\\dfrac{\\tfrac1{(1/4)^2}(1+\\log4)}{(1+\\log4)^2}=\\dfrac{16(1+\\log4)}{(1+\\log4)^2}=\\dfrac{16}{1+\\log4}$ ($GH=16,I=1,J=4$). Since $1+\\log4>0$, $f''(\\tfrac14)>0$ (choice $①$ '>', $K=1$), so $f$ has a local minimum (choice $⑥$, $L=6$). The value is $f(\\tfrac14)=\\log(4\\cdot\\tfrac14-\\log\\tfrac14)=\\log(1+\\log4)$ ($M=1,N=4$).",
+        "ja": "$u(x)=4x-\\log x$ とおくと $f=\\log u$，$f'=u'/u$，$u'=4-\\tfrac1x$。よって $f'(x)=\\dfrac{4-1/x}{4x-\\log x}$ で $A=4,B=1$。さらに $f''=\\dfrac{u''u-(u')^2}{u^2}$，$u''=\\tfrac1{x^2}$ なので $f''(x)=\\dfrac{\\tfrac1{x^2}(4x-\\log x)-(4-\\tfrac1x)^2}{(4x-\\log x)^2}$，$C=2,D=2$。$f'(x)=0$ は $4-\\tfrac1x=0$ すなわち $x=\\tfrac14$（$E=1,F=4$）。$x=\\tfrac14$ では $(4-\\tfrac1x)^2=0$，$4x-\\log x=1+\\log4$ なので $f''(\\tfrac14)=\\dfrac{16(1+\\log4)}{(1+\\log4)^2}=\\dfrac{16}{1+\\log4}$（$GH=16,I=1,J=4$）。$1+\\log4>0$ より $f''(\\tfrac14)>0$（選択肢 $①$「>」，$K=1$）なので $f$ は極小（選択肢 $⑥$，$L=6$）。値は $f(\\tfrac14)=\\log(1+\\log4)$（$M=1,N=4$）。"
+      },
+      "blanks": [
+        { "label": "A", "value": "4" },
+        { "label": "B", "value": "1" },
+        { "label": "C", "value": "2" },
+        { "label": "D", "value": "2" },
+        { "label": "E", "value": "1" },
+        { "label": "F", "value": "4" },
+        { "label": "GH", "value": "16" },
+        { "label": "I", "value": "1" },
+        { "label": "J", "value": "4" },
+        { "label": "K", "value": "1" },
+        { "label": "L", "value": "6" },
+        { "label": "M", "value": "1" },
+        { "label": "N", "value": "4" }
+      ]
+    },
+    {
+      "id": "2010-1-math-c2-4-2",
+      "answerRow": 6,
+      "number": "IV-Q2",
+      "section": "IV",
+      "part": "Q2",
+      "topicId": "integral-applications",
+      "topicIds": ["integral-applications", "integrals", "trig-functions"],
+      "subtopic": "Common tangent of y=2cos2x and y=4cosx+k; area between the curves",
+      "patternTags": ["common-tangent", "trig-derivative", "tangent-line", "area-between-curves", "definite-integral", "symmetry"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "**[IV] Q2 — Integration.**\n\nSuppose that the curve $y=2\\cos2x$ and the curve $y=4\\cos x+k$ have a common tangent at $x=a$ $\\left(0<a\\le\\dfrac{\\pi}{2}\\right)$.\n\n(1) Set $f(x)=2\\cos2x$ and $g(x)=4\\cos x+k$. Since $y=f(x)$ and $y=g(x)$ have a common tangent at $x=a$, we have $f'(a)=g'(a)$ and $f(a)=g(a)$. From $f'(a)=g'(a)$ with $0<a\\le\\dfrac{\\pi}{2}$ we get $a=\\dfrac{\\pi}{\\boxed{O}}$, and from $f(a)=g(a)$ we get $k=-\\boxed{P}$.\n\nHence the tangent point is $\\left(\\dfrac{\\pi}{\\boxed{O}},\\,-\\boxed{Q}\\right)$, and the common tangent line is\n$$y=-\\boxed{R}\\sqrt{\\boxed{S}}\\left(x-\\dfrac{\\pi}{\\boxed{T}}\\right)-\\boxed{U}.$$\n\n(2) Find the area $S$ of the region bounded by these two curves over $-\\dfrac{\\pi}{2}\\le x\\le\\dfrac{\\pi}{2}$. Since both curves are symmetric about the $y$-axis, putting $b=\\boxed{V}$ and $c=\\dfrac{\\pi}{\\boxed{O}}$, we have $S=\\boxed{W}\\displaystyle\\int_b^c(2\\cos2x-4\\cos x-k)\\,dx$. Calculating this, $S=\\boxed{X}\\pi-\\boxed{Y}\\sqrt{\\boxed{Z}}$."
+      },
+      "ja": {
+        "prompt": "**[Ⅳ] 問2 — 積分**\n\n曲線 $y=2\\cos2x$ と曲線 $y=4\\cos x+k$ が $x=a$ $\\left(0<a\\le\\dfrac{\\pi}{2}\\right)$ で共通の接線をもつとする。\n\n(1) $f(x)=2\\cos2x$，$g(x)=4\\cos x+k$ とおく。$y=f(x)$ と $y=g(x)$ が $x=a$ で共通の接線をもつので，$f'(a)=g'(a)$ かつ $f(a)=g(a)$。$0<a\\le\\dfrac{\\pi}{2}$ で $f'(a)=g'(a)$ より $a=\\dfrac{\\pi}{\\boxed{O}}$，$f(a)=g(a)$ より $k=-\\boxed{P}$。\n\nよって接点は $\\left(\\dfrac{\\pi}{\\boxed{O}},\\,-\\boxed{Q}\\right)$，共通接線は\n$$y=-\\boxed{R}\\sqrt{\\boxed{S}}\\left(x-\\dfrac{\\pi}{\\boxed{T}}\\right)-\\boxed{U}$$\nである。\n\n(2) $-\\dfrac{\\pi}{2}\\le x\\le\\dfrac{\\pi}{2}$ において，この2曲線で囲まれた部分の面積 $S$ を求める。2曲線はともに $y$ 軸に関して対称なので，$b=\\boxed{V}$，$c=\\dfrac{\\pi}{\\boxed{O}}$ とおくと $S=\\boxed{W}\\displaystyle\\int_b^c(2\\cos2x-4\\cos x-k)\\,dx$。これを計算して $S=\\boxed{X}\\pi-\\boxed{Y}\\sqrt{\\boxed{Z}}$ となる。"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "$f'(a)=g'(a)\\Rightarrow\\sin2a=\\sin a\\Rightarrow\\cos a=\\tfrac12\\Rightarrow a=\\tfrac\\pi3$ ($O=3$); $k=2\\cos\\tfrac{2\\pi}3-4\\cos\\tfrac\\pi3=-3$ ($P=3$); tangent point $(\\tfrac\\pi3,-1)$ ($Q=1$); slope $-2\\sqrt3$, line $y=-2\\sqrt3(x-\\tfrac\\pi3)-1$ ($R=2,S=3,T=3,U=1$). Area: $b=0$ ($V=0$), factor $2$ ($W=2$), $S=2\\pi-3\\sqrt3$ ($X=2,Y=3,Z=3$).  Boxes: O=3, P=3, Q=1, R=2, S=3, T=3, U=1, V=0, W=2, X=2, Y=3, Z=3.",
+        "ja": "$f'(a)=g'(a)\\Rightarrow\\sin2a=\\sin a\\Rightarrow\\cos a=\\tfrac12\\Rightarrow a=\\tfrac\\pi3$（$O=3$）；$k=2\\cos\\tfrac{2\\pi}3-4\\cos\\tfrac\\pi3=-3$（$P=3$）；接点 $(\\tfrac\\pi3,-1)$（$Q=1$）；傾き $-2\\sqrt3$，接線 $y=-2\\sqrt3(x-\\tfrac\\pi3)-1$（$R=2,S=3,T=3,U=1$）。面積：$b=0$（$V=0$），係数 $2$（$W=2$），$S=2\\pi-3\\sqrt3$（$X=2,Y=3,Z=3$）。 解答：O=3, P=3, Q=1, R=2, S=3, T=3, U=1, V=0, W=2, X=2, Y=3, Z=3。"
+      },
+      "explanation": {
+        "en": "(1) $f'(x)=-4\\sin2x,\\ g'(x)=-4\\sin x$. Equality: $\\sin2a=\\sin a\\Rightarrow2\\sin a\\cos a=\\sin a\\Rightarrow\\sin a(2\\cos a-1)=0$. On $0<a\\le\\tfrac\\pi2$, $\\sin a\\ne0$, so $\\cos a=\\tfrac12\\Rightarrow a=\\tfrac\\pi3$ ($O=3$). Then $f(a)=g(a)$: $2\\cos\\tfrac{2\\pi}3=4\\cos\\tfrac\\pi3+k\\Rightarrow-1=2+k\\Rightarrow k=-3$ ($P=3$). Tangent point: $f(\\tfrac\\pi3)=2\\cos\\tfrac{2\\pi}3=-1$, so $(\\tfrac\\pi3,-1)$ ($Q=1$). Slope $=f'(\\tfrac\\pi3)=-4\\sin\\tfrac{2\\pi}3=-2\\sqrt3$, so the line is $y=-2\\sqrt3(x-\\tfrac\\pi3)-1$ ($R=2,S=3,T=3,U=1$).\n(2) On $[-\\tfrac\\pi2,\\tfrac\\pi2]$ the curves are even, and they meet at $x=\\pm\\tfrac\\pi3$ with $f>g$ on $(-\\tfrac\\pi3,\\tfrac\\pi3)$. By symmetry take $b=0$ ($V=0$) and double: $S=2\\int_0^{\\pi/3}(2\\cos2x-4\\cos x-k)\\,dx$ ($W=2$). With $k=-3$: $\\int_0^{\\pi/3}(2\\cos2x-4\\cos x+3)\\,dx=[\\sin2x-4\\sin x+3x]_0^{\\pi/3}=\\tfrac{\\sqrt3}2-4\\cdot\\tfrac{\\sqrt3}2+\\pi=\\pi-\\tfrac{3\\sqrt3}2$. So $S=2\\left(\\pi-\\tfrac{3\\sqrt3}2\\right)=2\\pi-3\\sqrt3$ ($X=2,Y=3,Z=3$).",
+        "ja": "(1) $f'(x)=-4\\sin2x,\\ g'(x)=-4\\sin x$。等号より $\\sin2a=\\sin a\\Rightarrow\\sin a(2\\cos a-1)=0$。$0<a\\le\\tfrac\\pi2$ で $\\sin a\\ne0$ なので $\\cos a=\\tfrac12\\Rightarrow a=\\tfrac\\pi3$（$O=3$）。$f(a)=g(a)$：$2\\cos\\tfrac{2\\pi}3=4\\cos\\tfrac\\pi3+k\\Rightarrow-1=2+k\\Rightarrow k=-3$（$P=3$）。接点は $f(\\tfrac\\pi3)=-1$ より $(\\tfrac\\pi3,-1)$（$Q=1$）。傾き $f'(\\tfrac\\pi3)=-4\\sin\\tfrac{2\\pi}3=-2\\sqrt3$，接線 $y=-2\\sqrt3(x-\\tfrac\\pi3)-1$（$R=2,S=3,T=3,U=1$）。\n(2) $[-\\tfrac\\pi2,\\tfrac\\pi2]$ で2曲線は偶関数で，$x=\\pm\\tfrac\\pi3$ で交わり $(-\\tfrac\\pi3,\\tfrac\\pi3)$ で $f>g$。対称性より $b=0$（$V=0$）とし2倍：$S=2\\int_0^{\\pi/3}(2\\cos2x-4\\cos x-k)\\,dx$（$W=2$）。$k=-3$ より $\\int_0^{\\pi/3}(2\\cos2x-4\\cos x+3)\\,dx=[\\sin2x-4\\sin x+3x]_0^{\\pi/3}=\\tfrac{\\sqrt3}2-2\\sqrt3+\\pi=\\pi-\\tfrac{3\\sqrt3}2$。よって $S=2\\pi-3\\sqrt3$（$X=2,Y=3,Z=3$）。"
+      },
+      "blanks": [
+        { "label": "O", "value": "3" },
+        { "label": "P", "value": "3" },
+        { "label": "Q", "value": "1" },
+        { "label": "R", "value": "2" },
+        { "label": "S", "value": "3" },
+        { "label": "T", "value": "3" },
+        { "label": "U", "value": "1" },
+        { "label": "V", "value": "0" },
+        { "label": "W", "value": "2" },
+        { "label": "X", "value": "2" },
+        { "label": "Y", "value": "3" },
+        { "label": "Z", "value": "3" }
+      ]
+    }
+  ]
+}

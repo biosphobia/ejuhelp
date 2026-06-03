@@ -1,0 +1,248 @@
+{
+  "id": "2018-2-math-c2",
+  "year": 2018,
+  "session": 2,
+  "subject": "math",
+  "course": 2,
+  "title": "2018 EJU Session 2 — Mathematics (Course 2)",
+  "source": "Examination for Japanese University Admission for International Students, 2018 Session 2 (JASSO). Official English question paper; answers verified against the official answer key and re-derived by solving.",
+  "answerFormat": "digit-fill",
+  "answerKeyVerified": true,
+  "note": "The exam has four large questions (大問 I-IV). In Course 2, large questions I and II each contain two independent sub-questions (問1, 問2); these are stored as separate entries, giving six questions. Parts I-Q1 and I-Q2 are shared with Course 1. Answer-letters follow the official scheme and reset at the start of each large question. The official answer key OCR interleaves the Course 1 and Course 2 columns and bleeds Course-1 values into the Course-2 visual column for the lower half of Section II; every box here was both re-solved and matched to the Course 2 column. For II-Q1, boxes H,I,J (B=-1/4), K,L,M (S_n=(1/4)(1-c_n)) were determined by rigorous solving and numerical verification (the key column was Course-1-contaminated at those rows); FG=14 and NO=14 are clean key anchors that confirm the surrounding derivation.",
+  "questions": [
+    {
+      "id": "2018-2-math-c2-1-1",
+      "answerRow": 1,
+      "number": "I-Q1",
+      "section": "I",
+      "part": "Q1",
+      "topicId": "quadratic-functions",
+      "topicIds": ["quadratic-functions"],
+      "subtopic": "Max/min of a quadratic on a fixed interval with a parameter; maximize/minimize the minimum value",
+      "patternTags": ["vertex-completion", "max-min-on-interval", "parameter-case-split", "optimize-over-parameter"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "**[I] Q1 — Quadratic functions.** Consider the maximum value $M$ and the minimum value $m$ of the quadratic function\n$$f(x)=x^2-2(a+1)x+2a^2$$\nover $0\\le x\\le 2$, where $a$ is a constant with $0\\le a\\le 3$.\n\n(1) The coordinates of the vertex of $y=f(x)$ are $\\left(a+\\boxed{A},\\ a^2-\\boxed{B}a-\\boxed{C}\\right)$.\n\n(2) For $\\boxed{D}$–$\\boxed{H}$ choose the correct answers from $⓪$–$⑨$ below. According to the position of the axis of symmetry:\n\n  if $0\\le a<\\boxed{D}$, then $M=\\boxed{E}$, $m=\\boxed{F}$;\n\n  if $\\boxed{D}\\le a\\le 3$, then $M=\\boxed{G}$, $m=\\boxed{H}$.\n\nChoices: $⓪\\ 0\\quad ①\\ 1\\quad ②\\ 2\\quad ③\\ 3\\quad ④\\ a^2-2a\\quad ⑤\\ a^2-2a-1\\quad ⑥\\ 2a^2\\quad ⑦\\ 2a^2-2a-1\\quad ⑧\\ 2a^2-4a\\quad ⑨\\ 2a^2-6a+3$\n\n(3) Thus $m$ is maximized at $a=\\boxed{I}$ and its value there is $\\boxed{J}$. Also $m$ is minimized at $a=\\boxed{K}$ and its value there is $\\boxed{LM}$."
+      },
+      "ja": {
+        "prompt": "**[Ⅰ] 問1 — 二次関数** 二次関数\n$$f(x)=x^2-2(a+1)x+2a^2$$\nの $0\\le x\\le 2$ における最大値 $M$ と最小値 $m$ を考える。ただし $a$ は定数で $0\\le a\\le 3$ とする。\n\n(1) $y=f(x)$ のグラフの頂点の座標は $\\left(a+\\boxed{A},\\ a^2-\\boxed{B}a-\\boxed{C}\\right)$ である。\n\n(2) $\\boxed{D}$〜$\\boxed{H}$ は下の $⓪$〜$⑨$ から選べ。軸の位置に応じて最大値 $M$・最小値 $m$ を求めると，\n\n  $0\\le a<\\boxed{D}$ のとき $M=\\boxed{E}$，$m=\\boxed{F}$；\n\n  $\\boxed{D}\\le a\\le 3$ のとき $M=\\boxed{G}$，$m=\\boxed{H}$。\n\n選択肢：$⓪\\ 0\\quad ①\\ 1\\quad ②\\ 2\\quad ③\\ 3\\quad ④\\ a^2-2a\\quad ⑤\\ a^2-2a-1\\quad ⑥\\ 2a^2\\quad ⑦\\ 2a^2-2a-1\\quad ⑧\\ 2a^2-4a\\quad ⑨\\ 2a^2-6a+3$\n\n(3) よって $m$ は $a=\\boxed{I}$ で最大となり，その値は $\\boxed{J}$。また $m$ は $a=\\boxed{K}$ で最小となり，その値は $\\boxed{LM}$ である。"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "Vertex $(a+1,\\ a^2-2a-1)$. For $0\\le a<1$: $M=2a^2\\,(⑥)$, $m=a^2-2a-1\\,(⑤)$; for $1\\le a\\le3$: $M=2a^2\\,(⑥)$, $m=2a^2-4a\\,(⑧)$. $m$ is maximized at $a=3$ (value $6$) and minimized at $a=1$ (value $-2$). Boxes: ABC=121, D=1, E=6, F=5, GH=68, I=3, J=6, K=1, LM=-2.",
+        "ja": "頂点 $(a+1,\\ a^2-2a-1)$。$0\\le a<1$ で $M=2a^2\\,(⑥)$，$m=a^2-2a-1\\,(⑤)$；$1\\le a\\le3$ で $M=2a^2\\,(⑥)$，$m=2a^2-4a\\,(⑧)$。$m$ は $a=3$ で最大値 $6$，$a=1$ で最小値 $-2$。 解答：ABC=121, D=1, E=6, F=5, GH=68, I=3, J=6, K=1, LM=-2。"
+      },
+      "explanation": {
+        "en": "Completing the square: $f(x)=(x-(a+1))^2+a^2-2a-1$, so the vertex is $(a+1,\\ a^2-2a-1)$ (A=1, B=2, C=1). The axis $x=a+1$ satisfies $1\\le a+1\\le4$, so it is at or right of the interval's right edge region.\nMaximum: $f$ opens upward; the endpoint farther from the axis gives $M$. Since $f(0)-f(2)=2a^2-(2a^2-4a)=4a\\ge0$, $x=0$ is always farther, so $M=f(0)=2a^2$ for all $a$ (E=⑥, G=⑥).\nMinimum: if $a+1\\le2$ i.e. $a<1$, the vertex lies in $[0,2]$ and $m=a^2-2a-1$ (⑤); if $a+1>2$ i.e. $a\\ge1$, $f$ is decreasing on $[0,2]$ and $m=f(2)=2a^2-4a$ (⑧). The split is at $a=1$ (D=1).\n(3) On $0\\le a<1$, $m=a^2-2a-1=(a-1)^2-2$ decreases from $-1$ (a=0) toward $-2$; on $1\\le a\\le3$, $m=2a^2-4a=2(a-1)^2-2$ increases from $-2$ (a=1) to $6$ (a=3). Hence $m$ is maximized at $a=3$ with value $6$, and minimized at $a=1$ with value $-2$.",
+        "ja": "平方完成より $f(x)=(x-(a+1))^2+a^2-2a-1$ なので頂点は $(a+1,\\ a^2-2a-1)$（A=1, B=2, C=1）。軸 $x=a+1$ は $1\\le a+1\\le4$。\n最大：下に凸なので軸から遠い端点で最大。$f(0)-f(2)=4a\\ge0$ より $x=0$ が常に遠く，$M=f(0)=2a^2$（E=⑥, G=⑥）。\n最小：$a+1\\le2$（$a<1$）なら頂点が区間内で $m=a^2-2a-1$（⑤）；$a\\ge1$ なら $[0,2]$ で減少し $m=f(2)=2a^2-4a$（⑧）。境目は $a=1$（D=1）。\n(3) $0\\le a<1$ では $m=(a-1)^2-2$ が $-1$ から $-2$ へ減少，$1\\le a\\le3$ では $m=2(a-1)^2-2$ が $-2$ から $6$ へ増加。よって $m$ は $a=3$ で最大値 $6$，$a=1$ で最小値 $-2$。"
+      },
+      "blanks": [
+        { "label": "ABC", "value": "121" },
+        { "label": "D", "value": "1" },
+        { "label": "E", "value": "6" },
+        { "label": "F", "value": "5" },
+        { "label": "GH", "value": "68" },
+        { "label": "I", "value": "3" },
+        { "label": "J", "value": "6" },
+        { "label": "K", "value": "1" },
+        { "label": "LM", "value": "-2" }
+      ]
+    },
+    {
+      "id": "2018-2-math-c2-1-2",
+      "answerRow": 2,
+      "number": "I-Q2",
+      "section": "I",
+      "part": "Q2",
+      "topicId": "counting-probability",
+      "topicIds": ["counting-probability", "probability"],
+      "subtopic": "Three dice define a quadratic; probabilities involving the discriminant and a value condition f(10)>453",
+      "patternTags": ["sample-space-enumeration", "discriminant-condition", "case-count", "probability"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "**[I] Q2 — Probability.** Throw one die three times; let the first, second, third results be $a,b,c$. Consider $f(x)=ax^2+bx+c$.\n\n(1) The probability that $b=4$ and that $f(x)=0$ has two different real solutions is $\\dfrac{\\boxed{N}}{\\boxed{OPQ}}$.\n\n(2) Find the probability that $f(10)>453$. The number of cases $(a,b,c)$ with $f(10)>453$ is:\n\n  when $a=4$ and $b=5$, it is $\\boxed{R}$;\n\n  when $a=4$ and $b=6$, it is $\\boxed{S}$;\n\n  when $a=5$, it is $\\boxed{TU}$;\n\n  when $a=6$, it is $\\boxed{VW}$.\n\nHence the probability that $f(10)>453$ is $\\dfrac{\\boxed{X}}{\\boxed{Y}}$."
+      },
+      "ja": {
+        "prompt": "**[Ⅰ] 問2 — 確率** さいころを3回投げ，1回目・2回目・3回目の出目をそれぞれ $a,b,c$ とする。$f(x)=ax^2+bx+c$ を考える。\n\n(1) $b=4$ かつ $f(x)=0$ が異なる2つの実数解をもつ確率は $\\dfrac{\\boxed{N}}{\\boxed{OPQ}}$。\n\n(2) $f(10)>453$ となる確率を求める。$f(10)>453$ となる $(a,b,c)$ の場合の数は，\n\n  $a=4$ かつ $b=5$ のとき $\\boxed{R}$；\n\n  $a=4$ かつ $b=6$ のとき $\\boxed{S}$；\n\n  $a=5$ のとき $\\boxed{TU}$；\n\n  $a=6$ のとき $\\boxed{VW}$。\n\nよって $f(10)>453$ となる確率は $\\dfrac{\\boxed{X}}{\\boxed{Y}}$ である。"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "(1) $b=4$ needs $16-4ac>0\\Rightarrow ac\\le3$: $5$ pairs, so prob $=\\tfrac16\\cdot\\tfrac{5}{36}=\\tfrac{5}{216}$. (2) Counts: $a{=}4,b{=}5\\to3$; $a{=}4,b{=}6\\to6$; $a{=}5\\to36$; $a{=}6\\to36$; total $81$, prob $=\\tfrac{81}{216}=\\tfrac38$. Boxes: NOPQ=5216, R=3, S=6, TU=36, VW=36, XY=38.",
+        "ja": "(1) $b=4$ では $16-4ac>0\\Rightarrow ac\\le3$ となる組は $5$ 通り，確率 $\\tfrac16\\cdot\\tfrac{5}{36}=\\tfrac{5}{216}$。(2) 場合の数：$a{=}4,b{=}5\\to3$；$a{=}4,b{=}6\\to6$；$a{=}5\\to36$；$a{=}6\\to36$；計 $81$，確率 $\\tfrac{81}{216}=\\tfrac38$。 解答：NOPQ=5216, R=3, S=6, TU=36, VW=36, XY=38。"
+      },
+      "explanation": {
+        "en": "(1) With $b=4$ the discriminant is $16-4ac$; two distinct real roots need $16-4ac>0$, i.e. $ac<4$, so $ac\\in\\{1,2,3\\}$: $(1,1),(1,2),(2,1),(1,3),(3,1)$ — $5$ pairs out of $36$. Independent of the throws, $P(b=4)=\\tfrac16$, so the probability is $\\tfrac16\\cdot\\tfrac{5}{36}=\\tfrac{5}{216}$.\n(2) $f(10)=100a+10b+c$. Need $100a+10b+c>453$.\n• $a=4$: need $10b+c>53$. $b=5$: $c>3\\Rightarrow c\\in\\{4,5,6\\}$, $3$ cases; $b=6$: $c>-7$, all $6$ cases; $b\\le4$: impossible. So $a=4$ gives $3+6=9$.\n• $a=5$: $500+10b+c>453$ always, $36$ cases.\n• $a=6$: $600+\\dots>453$ always, $36$ cases.\n• $a\\le3$: maximum $300+66=366<453$, none.\nTotal favorable $=9+36+36=81$ out of $216$, so $P=\\tfrac{81}{216}=\\tfrac38$.",
+        "ja": "(1) $b=4$ のとき判別式は $16-4ac$。異なる2実数解には $16-4ac>0$，すなわち $ac<4$ が必要で $ac\\in\\{1,2,3\\}$：$(1,1),(1,2),(2,1),(1,3),(3,1)$ の $5$ 通り（全 $36$ 通り）。$P(b=4)=\\tfrac16$ より確率は $\\tfrac16\\cdot\\tfrac{5}{36}=\\tfrac{5}{216}$。\n(2) $f(10)=100a+10b+c>453$。\n・$a=4$：$10b+c>53$。$b=5$ で $c>3$ より $3$ 通り，$b=6$ で全 $6$ 通り，$b\\le4$ は不可。計 $9$ 通り。\n・$a=5$：常に成立，$36$ 通り。\n・$a=6$：常に成立，$36$ 通り。\n・$a\\le3$：最大 $366<453$ で無し。\n合計 $81$ 通り（全 $216$ 通り），$P=\\tfrac{81}{216}=\\tfrac38$。"
+      },
+      "blanks": [
+        { "label": "NOPQ", "value": "5216" },
+        { "label": "R", "value": "3" },
+        { "label": "S", "value": "6" },
+        { "label": "TU", "value": "36" },
+        { "label": "VW", "value": "36" },
+        { "label": "XY", "value": "38" }
+      ]
+    },
+    {
+      "id": "2018-2-math-c2-2-1",
+      "answerRow": 3,
+      "number": "II-Q1",
+      "section": "II",
+      "part": "Q1",
+      "topicId": "sequences",
+      "topicIds": ["sequences", "limits"],
+      "subtopic": "Recurrence-defined sequence: general term via a telescoping auxiliary sequence, telescoping partial sums, infinite sum",
+      "patternTags": ["recurrence", "telescoping-product", "partial-fractions", "telescoping-sum", "infinite-series", "expression-from-list"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "**[II] Q1 — Sequences.** The sequence $\\{a_n\\}$ is defined by\n$$a_1=\\frac{2}{9},\\qquad a_n=\\frac{(n+1)(2n-3)}{3n(2n+1)}\\,a_{n-1}\\quad(n=2,3,4,\\dots).$$\nWe find the general term $a_n$ and the infinite sum $\\displaystyle\\sum_{n=1}^{\\infty}a_n$.\n\n(1) For $\\boxed{A}$–$\\boxed{E}$ choose from $⓪$–$⑨$ below. Setting $b_n=\\dfrac{n+1}{3^n a_n}$ and expressing $\\dfrac{b_n}{b_{n-1}}$ in terms of $n$:\n$$\\frac{b_n}{b_{n-1}}=\\frac{\\boxed{A}}{\\boxed{B}}\\cdot\\frac{a_{n-1}}{a_n}=\\frac{\\boxed{C}}{\\boxed{D}}.$$\nFrom this, $a_n=\\dfrac{n+1}{3^n\\left(\\boxed{E}\\right)(2n+1)}$.\n\nChoices: $⓪\\ n-1\\quad ①\\ n\\quad ②\\ n+1\\quad ③\\ 2n-1\\quad ④\\ 2n+1\\quad ⑤\\ 2n-3\\quad ⑥\\ 2n+3\\quad ⑦\\ 3n-1\\quad ⑧\\ 3n\\quad ⑨\\ 3n+1$\n\n(2) Next let $c_n=\\dfrac{1}{3^n(2n+1)}\\ (n=0,1,2,\\dots)$. Writing $a_n=A\\,c_{n-1}+B\\,c_n$ gives $A=\\dfrac{\\boxed{F}}{\\boxed{G}}$ and $B=\\boxed{HIJ}$. Hence $S_n=\\displaystyle\\sum_{k=1}^{n}a_k=\\boxed{KL}\\left(\\boxed{M}-c_n\\right)$, and so $\\displaystyle\\sum_{n=1}^{\\infty}a_n=\\lim_{n\\to\\infty}S_n=\\dfrac{\\boxed{N}}{\\boxed{O}}$."
+      },
+      "ja": {
+        "prompt": "**[Ⅱ] 問1 — 数列** 数列 $\\{a_n\\}$ を\n$$a_1=\\frac{2}{9},\\qquad a_n=\\frac{(n+1)(2n-3)}{3n(2n+1)}\\,a_{n-1}\\quad(n=2,3,4,\\dots)$$\nで定める。一般項 $a_n$ と無限和 $\\displaystyle\\sum_{n=1}^{\\infty}a_n$ を求める。\n\n(1) $\\boxed{A}$〜$\\boxed{E}$ は下の $⓪$〜$⑨$ から選べ。$b_n=\\dfrac{n+1}{3^n a_n}$ とおき $\\dfrac{b_n}{b_{n-1}}$ を $n$ で表すと，\n$$\\frac{b_n}{b_{n-1}}=\\frac{\\boxed{A}}{\\boxed{B}}\\cdot\\frac{a_{n-1}}{a_n}=\\frac{\\boxed{C}}{\\boxed{D}}.$$\nこれより $a_n=\\dfrac{n+1}{3^n\\left(\\boxed{E}\\right)(2n+1)}$。\n\n選択肢：$⓪\\ n-1\\quad ①\\ n\\quad ②\\ n+1\\quad ③\\ 2n-1\\quad ④\\ 2n+1\\quad ⑤\\ 2n-3\\quad ⑥\\ 2n+3\\quad ⑦\\ 3n-1\\quad ⑧\\ 3n\\quad ⑨\\ 3n+1$\n\n(2) 次に $c_n=\\dfrac{1}{3^n(2n+1)}\\ (n=0,1,2,\\dots)$ とおく。$a_n=A\\,c_{n-1}+B\\,c_n$ と表すと $A=\\dfrac{\\boxed{F}}{\\boxed{G}}$，$B=\\boxed{HIJ}$。よって $S_n=\\displaystyle\\sum_{k=1}^{n}a_k=\\boxed{KL}\\left(\\boxed{M}-c_n\\right)$ となり，$\\displaystyle\\sum_{n=1}^{\\infty}a_n=\\lim_{n\\to\\infty}S_n=\\dfrac{\\boxed{N}}{\\boxed{O}}$。"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "$\\frac{b_n}{b_{n-1}}=\\frac{n+1}{3n}\\cdot\\frac{a_{n-1}}{a_n}=\\frac{2n+1}{2n-3}$ (A=②,B=⑧,C=④,D=⑤), and $a_n=\\frac{n+1}{3^n(2n-1)(2n+1)}$ (E=③). Partial fractions: $A=\\frac14$, $B=-\\frac14$; $S_n=\\frac14(1-c_n)$; $\\sum_{n=1}^\\infty a_n=\\frac14$. Boxes: AB=28, CD=45, E=3, FG=14, HIJ=-14, KL=14, M=1, NO=14.",
+        "ja": "$\\frac{b_n}{b_{n-1}}=\\frac{n+1}{3n}\\cdot\\frac{a_{n-1}}{a_n}=\\frac{2n+1}{2n-3}$（A=②,B=⑧,C=④,D=⑤），$a_n=\\frac{n+1}{3^n(2n-1)(2n+1)}$（E=③）。部分分数分解で $A=\\frac14$，$B=-\\frac14$；$S_n=\\frac14(1-c_n)$；$\\sum_{n=1}^\\infty a_n=\\frac14$。 解答：AB=28, CD=45, E=3, FG=14, HIJ=-14, KL=14, M=1, NO=14。"
+      },
+      "explanation": {
+        "en": "With $b_n=\\dfrac{n+1}{3^n a_n}$, $\\dfrac{b_n}{b_{n-1}}=\\dfrac{(n+1)/3^n}{n/3^{n-1}}\\cdot\\dfrac{a_{n-1}}{a_n}=\\dfrac{n+1}{3n}\\cdot\\dfrac{a_{n-1}}{a_n}$ (so A=$n+1$=②, B=$3n$=⑧). Since $\\dfrac{a_{n-1}}{a_n}=\\dfrac{3n(2n+1)}{(n+1)(2n-3)}$, this equals $\\dfrac{2n+1}{2n-3}$ (C=④, D=⑤). Thus $b_n=(2n-1)(2n+1)$ (check $b_1=\\frac{2}{3a_1}=3=1\\cdot3$), giving $a_n=\\dfrac{n+1}{3^n(2n-1)(2n+1)}$ (E=$2n-1$=③).\n(2) Write $a_n=\\dfrac{\\alpha}{3^{n-1}(2n-1)}+\\dfrac{\\beta}{3^n(2n+1)}$. Multiplying by $3^n(2n-1)(2n+1)$: $n+1=3\\alpha(2n+1)+\\beta(2n-1)$, so $6\\alpha+2\\beta=1$ and $3\\alpha-\\beta=1$, giving $\\alpha=\\frac14$, $\\beta=-\\frac14$. Hence $A=\\frac14$ (FG=14), $B=-\\frac14$ (HIJ=$-14$).\nThen $S_n=\\sum_{k=1}^n\\big(\\frac14 c_{k-1}-\\frac14 c_k\\big)=\\frac14(c_0-c_n)$, and $c_0=\\frac{1}{3^0\\cdot1}=1$, so $S_n=\\frac14(1-c_n)$ (KL=$\\frac14$, M=1). As $n\\to\\infty$, $c_n\\to0$, so $\\sum_{n=1}^\\infty a_n=\\frac14$ (NO=14). (Verified numerically: partial sums approach $0.25$.)",
+        "ja": "$b_n=\\dfrac{n+1}{3^n a_n}$ より $\\dfrac{b_n}{b_{n-1}}=\\dfrac{n+1}{3n}\\cdot\\dfrac{a_{n-1}}{a_n}$（A=$n+1$=②, B=$3n$=⑧）。$\\dfrac{a_{n-1}}{a_n}=\\dfrac{3n(2n+1)}{(n+1)(2n-3)}$ なのでこれは $\\dfrac{2n+1}{2n-3}$（C=④, D=⑤）。よって $b_n=(2n-1)(2n+1)$（$b_1=\\frac{2}{3a_1}=3=1\\cdot3$）で，$a_n=\\dfrac{n+1}{3^n(2n-1)(2n+1)}$（E=$2n-1$=③）。\n(2) $a_n=\\dfrac{\\alpha}{3^{n-1}(2n-1)}+\\dfrac{\\beta}{3^n(2n+1)}$ とおき，$3^n(2n-1)(2n+1)$ を掛けると $n+1=3\\alpha(2n+1)+\\beta(2n-1)$。$6\\alpha+2\\beta=1$，$3\\alpha-\\beta=1$ より $\\alpha=\\frac14$，$\\beta=-\\frac14$。よって $A=\\frac14$（FG=14），$B=-\\frac14$（HIJ=$-14$）。\nさらに $S_n=\\sum_{k=1}^n\\big(\\frac14 c_{k-1}-\\frac14 c_k\\big)=\\frac14(c_0-c_n)$，$c_0=1$ なので $S_n=\\frac14(1-c_n)$（KL=$\\frac14$, M=1）。$n\\to\\infty$ で $c_n\\to0$ ゆえ $\\sum_{n=1}^\\infty a_n=\\frac14$（NO=14）。（数値的にも部分和が $0.25$ に収束することを確認。）"
+      },
+      "blanks": [
+        { "label": "AB", "value": "28" },
+        { "label": "CD", "value": "45" },
+        { "label": "E", "value": "3" },
+        { "label": "FG", "value": "14" },
+        { "label": "HIJ", "value": "-14" },
+        { "label": "KL", "value": "14" },
+        { "label": "M", "value": "1" },
+        { "label": "NO", "value": "14" }
+      ]
+    },
+    {
+      "id": "2018-2-math-c2-2-2",
+      "answerRow": 4,
+      "number": "II-Q2",
+      "section": "II",
+      "part": "Q2",
+      "topicId": "figures-equations",
+      "topicIds": ["figures-equations", "circles-equations"],
+      "subtopic": "Circle: point condition, tangent line at a point, tangent length from an external point, orthogonal tangents",
+      "patternTags": ["circle-equation", "tangent-at-point", "tangent-length", "orthogonal-tangents", "minimization"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "**[II] Q2 — Circles.** Let $C$ be the circle of radius $4$ centered at $(5,0)$ on the $x$-axis.\n\n(1) If $P(p,q)$ is on $C$, then $p^2-\\boxed{PQ}\\,p+q^2+\\boxed{R}=0$. The tangent to $C$ at $P(p,q)$ is $(p-\\boxed{S})x+qy=\\boxed{T}\\,p-\\boxed{U}$.\n\n(2) Draw a tangent line to $C$ from $A(0,a)$ on the $y$-axis ($a\\ge0$), with tangent point $P(p,q)$. The length $AP$ is minimized at $a=\\boxed{V}$, where its value is $\\boxed{W}$. Moreover, the two tangents from $A$ to $C$ are orthogonal when $AP=\\boxed{X}$, in which case $a=\\sqrt{\\boxed{Y}}$."
+      },
+      "ja": {
+        "prompt": "**[Ⅱ] 問2 — 円** $C$ を $x$ 軸上の点 $(5,0)$ を中心とする半径 $4$ の円とする。\n\n(1) $P(p,q)$ が円 $C$ 上にあるとき $p^2-\\boxed{PQ}\\,p+q^2+\\boxed{R}=0$。また点 $P(p,q)$ における $C$ の接線は $(p-\\boxed{S})x+qy=\\boxed{T}\\,p-\\boxed{U}$ である。\n\n(2) $y$ 軸上の点 $A(0,a)$（$a\\ge0$）から円 $C$ に接線を引き，接点を $P(p,q)$ とする。線分 $AP$ の長さは $a=\\boxed{V}$ のとき最小で，その値は $\\boxed{W}$ である。さらに $A$ から $C$ への2本の接線が直交するのは $AP=\\boxed{X}$ のときで，このとき $a=\\sqrt{\\boxed{Y}}$ である。"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "$C:(x-5)^2+y^2=16\\Rightarrow p^2-10p+q^2+9=0$ (PQ=10, R=9); tangent $(p-5)x+qy=5p-9$ (S=5, T=5, U=9). $AP^2=a^2+9$ so $AP$ is minimized at $a=0$ with value $3$ (V=0, W=3). Orthogonal tangents give $AP=4$ (X=4) and $a=\\sqrt7$ (Y=7). Boxes: PQ=10, R=9, S=5, T=5, U=9, V=0, W=3, X=4, Y=7.",
+        "ja": "$C:(x-5)^2+y^2=16\\Rightarrow p^2-10p+q^2+9=0$（PQ=10, R=9）；接線 $(p-5)x+qy=5p-9$（S=5, T=5, U=9）。$AP^2=a^2+9$ より $a=0$ で最小，値 $3$（V=0, W=3）。直交条件で $AP=4$（X=4），$a=\\sqrt7$（Y=7）。 解答：PQ=10, R=9, S=5, T=5, U=9, V=0, W=3, X=4, Y=7。"
+      },
+      "explanation": {
+        "en": "(1) $C:(x-5)^2+y^2=16$ expands to $x^2-10x+25+y^2=16$, i.e. $x^2-10x+y^2+9=0$; for $P(p,q)$ on $C$, $p^2-10p+q^2+9=0$ (PQ=10, R=9). The tangent at $(p,q)$ is $(p-5)(x-5)+q\\,y=16\\Rightarrow(p-5)x+qy=16+5(p-5)=5p-9$ (S=5, T=5, U=9).\n(2) The tangent length from $A(0,a)$ to $C$ is $AP=\\sqrt{|AC|^2-r^2}$ with center $C_0=(5,0)$, $r=4$: $|AC|^2=25+a^2$, so $AP=\\sqrt{25+a^2-16}=\\sqrt{a^2+9}$. This is minimized at $a=0$ giving $AP=3$ (V=0, W=3). If the two tangents from $A$ are orthogonal, $\\angle PAC_0=45^\\circ$, so $\\sin45^\\circ=\\dfrac{r}{|AC|}=\\dfrac{4}{|AC|}\\Rightarrow|AC|=4\\sqrt2$ and $AP=\\sqrt{32-16}=4$ (X=4). Then $25+a^2=32\\Rightarrow a^2=7\\Rightarrow a=\\sqrt7$ (Y=7).",
+        "ja": "(1) $C:(x-5)^2+y^2=16$ を展開すると $x^2-10x+y^2+9=0$。$P(p,q)$ が $C$ 上なら $p^2-10p+q^2+9=0$（PQ=10, R=9）。$(p,q)$ での接線は $(p-5)(x-5)+q\\,y=16\\Rightarrow(p-5)x+qy=5p-9$（S=5, T=5, U=9）。\n(2) $A(0,a)$ からの接線の長さは中心 $C_0=(5,0)$，$r=4$ として $AP=\\sqrt{|AC|^2-r^2}$。$|AC|^2=25+a^2$ より $AP=\\sqrt{a^2+9}$。$a=0$ で最小値 $3$（V=0, W=3）。2接線が直交するとき $\\angle PAC_0=45^\\circ$ なので $\\sin45^\\circ=\\dfrac{4}{|AC|}\\Rightarrow|AC|=4\\sqrt2$，$AP=\\sqrt{32-16}=4$（X=4）。よって $25+a^2=32\\Rightarrow a=\\sqrt7$（Y=7）。"
+      },
+      "blanks": [
+        { "label": "PQ", "value": "10" },
+        { "label": "R", "value": "9" },
+        { "label": "S", "value": "5" },
+        { "label": "T", "value": "5" },
+        { "label": "U", "value": "9" },
+        { "label": "V", "value": "0" },
+        { "label": "W", "value": "3" },
+        { "label": "X", "value": "4" },
+        { "label": "Y", "value": "7" }
+      ]
+    },
+    {
+      "id": "2018-2-math-c2-3",
+      "answerRow": 5,
+      "number": "III",
+      "section": "III",
+      "part": null,
+      "topicId": "differentiation",
+      "topicIds": ["differentiation", "derivative-applications"],
+      "subtopic": "Cubic with parameter: factor f', classify extrema by cases, minimum on [-1,1] by cases, maximize that minimum over the parameter",
+      "patternTags": ["cubic-function", "derivative-factor", "extrema-classification", "min-on-interval", "parameter-case-split", "optimize-over-parameter", "expression-from-list"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "**[III] — Differentiation.** Given $f(x)=x^3-3ax^2-3(2a+1)x+a+2$, answer the following.\n\n(1) For $\\boxed{G}$–$\\boxed{K}$ choose from $⓪$–$⑤$ below; for the others enter numbers. Since $f'(x)=\\boxed{A}(x-\\boxed{B}a-\\boxed{C})(x+\\boxed{D})$,\n\n  (i) when $a>\\boxed{EF}$, $f(x)$ is $\\boxed{G}$ at $x=-\\boxed{D}$ and is $\\boxed{H}$ at $x=\\boxed{B}a+\\boxed{C}$;\n\n  (ii) when $a=\\boxed{EF}$, $f(x)$ is always $\\boxed{I}$;\n\n  (iii) when $a<\\boxed{EF}$, $f(x)$ is $\\boxed{J}$ at $x=-\\boxed{D}$ and is $\\boxed{K}$ at $x=\\boxed{B}a+\\boxed{C}$.\n\nChoices: $⓪\\ \\text{locally maximized}\\quad ①\\ \\text{locally minimized}\\quad ②\\ \\text{increasing}\\quad ③\\ \\text{decreasing}\\quad ④\\ \\text{maximized}\\quad ⑤\\ \\text{minimized}$\n\n(2) Expressing the minimum value $m$ of $f(x)$ on $-1\\le x\\le 1$ in terms of $a$:\n\n  (i) when $a\\ge\\boxed{L}$, $m=\\boxed{MN}\\,a$;\n\n  (ii) when $\\boxed{OP}\\le a<\\boxed{L}$, $m=\\boxed{QR}\\left(a^3+\\boxed{S}\\,a^2+\\boxed{T}\\,a\\right)$;\n\n  (iii) when $a<\\boxed{OP}$, $m=\\boxed{U}\\,a+\\boxed{V}$.\n\n(3) The value of $m$ in (2) is maximized at $a=\\dfrac{-\\boxed{W}+\\sqrt{\\boxed{X}}}{\\boxed{Y}}$."
+      },
+      "ja": {
+        "prompt": "**[Ⅲ] — 微分法** $f(x)=x^3-3ax^2-3(2a+1)x+a+2$ について次に答えよ。\n\n(1) $\\boxed{G}$〜$\\boxed{K}$ は下の $⓪$〜$⑤$ から選び，他は数を入れよ。$f'(x)=\\boxed{A}(x-\\boxed{B}a-\\boxed{C})(x+\\boxed{D})$ より，\n\n  (i) $a>\\boxed{EF}$ のとき，$f(x)$ は $x=-\\boxed{D}$ で $\\boxed{G}$，$x=\\boxed{B}a+\\boxed{C}$ で $\\boxed{H}$；\n\n  (ii) $a=\\boxed{EF}$ のとき，$f(x)$ は常に $\\boxed{I}$；\n\n  (iii) $a<\\boxed{EF}$ のとき，$f(x)$ は $x=-\\boxed{D}$ で $\\boxed{J}$，$x=\\boxed{B}a+\\boxed{C}$ で $\\boxed{K}$。\n\n選択肢：$⓪\\ 極大\\quad ①\\ 極小\\quad ②\\ 増加\\quad ③\\ 減少\\quad ④\\ 最大\\quad ⑤\\ 最小$\n\n(2) $-1\\le x\\le 1$ における $f(x)$ の最小値 $m$ を $a$ で表すと，\n\n  (i) $a\\ge\\boxed{L}$ のとき $m=\\boxed{MN}\\,a$；\n\n  (ii) $\\boxed{OP}\\le a<\\boxed{L}$ のとき $m=\\boxed{QR}\\left(a^3+\\boxed{S}\\,a^2+\\boxed{T}\\,a\\right)$；\n\n  (iii) $a<\\boxed{OP}$ のとき $m=\\boxed{U}\\,a+\\boxed{V}$。\n\n(3) (2) の $m$ は $a=\\dfrac{-\\boxed{W}+\\sqrt{\\boxed{X}}}{\\boxed{Y}}$ で最大となる。"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "$f'(x)=3(x-2a-1)(x+1)$ (A=3,B=2,C=1,D=1); threshold $a=-1$ (EF=-1). For $a>-1$: local max at $x=-1$ (G=⓪), local min at $x=2a+1$ (H=①); at $a=-1$ increasing (I=②); for $a<-1$: local min at $x=-1$ (J=①), local max at $x=2a+1$ (K=⓪). Min on $[-1,1]$: $a\\ge0$: $m=-8a$ (L=0,MN=-8); $-1\\le a<0$: $m=-4(a^3+3a^2+2a)$ (OP=-1,QR=-4,S=3,T=2); $a<-1$: $m=4a+4$ (U=4,V=4). $m$ maximized at $a=\\frac{-3+\\sqrt3}{3}$ (W=3,X=3,Y=3).",
+        "ja": "$f'(x)=3(x-2a-1)(x+1)$（A=3,B=2,C=1,D=1）；境目 $a=-1$（EF=-1）。$a>-1$：$x=-1$ で極大（G=⓪），$x=2a+1$ で極小（H=①）；$a=-1$ で増加（I=②）；$a<-1$：$x=-1$ で極小（J=①），$x=2a+1$ で極大（K=⓪）。$[-1,1]$ の最小値：$a\\ge0$ で $m=-8a$（L=0,MN=-8）；$-1\\le a<0$ で $m=-4(a^3+3a^2+2a)$（OP=-1,QR=-4,S=3,T=2）；$a<-1$ で $m=4a+4$（U=4,V=4）。$m$ は $a=\\frac{-3+\\sqrt3}{3}$ で最大（W=3,X=3,Y=3）。"
+      },
+      "explanation": {
+        "en": "(1) $f'(x)=3x^2-6ax-3(2a+1)=3[x^2-2ax-(2a+1)]$. The bracket has discriminant $4a^2+4(2a+1)=4(a+1)^2$, roots $x=a\\pm(a+1)$, i.e. $x=2a+1$ and $x=-1$. So $f'(x)=3(x-2a-1)(x+1)$ (A=3, B=2, C=1, D=1). The critical points are $-1$ and $2a+1$, equal when $a=-1$ (EF=$-1$). For $a>-1$, $-1<2a+1$, so (upward parabola $f'$) $f$ has a local max at the smaller root $x=-1$ (G=⓪) and a local min at $x=2a+1$ (H=①). At $a=-1$, $f'(x)=3(x+1)^2\\ge0$, so $f$ is increasing (I=②). For $a<-1$, $2a+1<-1$, so at $x=-1$ (the larger root) $f$ has a local min (J=①) and at $x=2a+1$ a local max (K=⓪).\n(2) On $[-1,1]$ with $f'(x)=3(x+1)(x-(2a+1))$:\n• $a\\ge0$: $2a+1\\ge1$, so $f'\\le0$ on $[-1,1]$ (decreasing); min at $x=1$: $f(1)=1-3a-3(2a+1)+a+2=-8a$ (L=0, MN=$-8$).\n• $-1\\le a<0$: the local min $x=2a+1\\in(-1,1)$ is interior; $m=f(2a+1)$. Using $2a+1=x_0\\Rightarrow f(x_0)=x_0^3-3(a+1)x_0^2+a+2=-4a^3-12a^2-8a=-4(a^3+3a^2+2a)$ (OP=$-1$, QR=$-4$, S=3, T=2).\n• $a<-1$: $2a+1<-1$, so $f'\\ge0$ on $[-1,1]$ (increasing); min at $x=-1$: $f(-1)=-1-3a+3(2a+1)+a+2=4a+4$ (U=4, V=4). (Continuity holds at $a=0$ and $a=-1$, both pieces giving $m=0$.)\n(3) Maximize $m(a)$: on $a\\ge0$ it decreases from $0$; on $a<-1$ it increases toward $0$; on $-1\\le a<0$, $m=-4a^3-12a^2-8a$ with $m'(a)=-4(3a^2+6a+2)=0\\Rightarrow a=-1+\\frac{\\sqrt3}{3}=\\frac{-3+\\sqrt3}{3}$ (the root in $[-1,0)$). There $m\\approx1.54>0$, the global maximum (W=3, X=3, Y=3). Verified numerically.",
+        "ja": "(1) $f'(x)=3x^2-6ax-3(2a+1)=3[x^2-2ax-(2a+1)]$。括弧内の判別式は $4(a+1)^2$，解は $x=2a+1,\\ -1$。よって $f'(x)=3(x-2a-1)(x+1)$（A=3, B=2, C=1, D=1）。臨界点は $-1$ と $2a+1$ で $a=-1$ のとき一致（EF=$-1$）。$a>-1$ では $-1<2a+1$ なので（$f'$ は下に凸）小さい解 $x=-1$ で極大（G=⓪），$x=2a+1$ で極小（H=①）。$a=-1$ では $f'(x)=3(x+1)^2\\ge0$ で増加（I=②）。$a<-1$ では $2a+1<-1$ なので $x=-1$ で極小（J=①），$x=2a+1$ で極大（K=⓪）。\n(2) $[-1,1]$ 上，$f'(x)=3(x+1)(x-(2a+1))$：\n・$a\\ge0$：$2a+1\\ge1$ で $f'\\le0$（減少），最小は $x=1$，$f(1)=-8a$（L=0, MN=$-8$）。\n・$-1\\le a<0$：極小点 $x=2a+1\\in(-1,1)$ が区間内，$m=f(2a+1)=-4(a^3+3a^2+2a)$（OP=$-1$, QR=$-4$, S=3, T=2）。\n・$a<-1$：$f'\\ge0$（増加），最小は $x=-1$，$f(-1)=4a+4$（U=4, V=4）。（$a=0,-1$ で連続，いずれも $m=0$。）\n(3) $m(a)$ の最大化：$a\\ge0$ で $0$ から減少，$a<-1$ で $0$ へ増加，$-1\\le a<0$ では $m=-4a^3-12a^2-8a$，$m'(a)=-4(3a^2+6a+2)=0\\Rightarrow a=-1+\\frac{\\sqrt3}{3}=\\frac{-3+\\sqrt3}{3}$（区間内の解）。ここで $m\\approx1.54>0$ が全体の最大（W=3, X=3, Y=3）。数値的に確認済み。"
+      },
+      "blanks": [
+        { "label": "A", "value": "3" },
+        { "label": "B", "value": "2" },
+        { "label": "C", "value": "1" },
+        { "label": "D", "value": "1" },
+        { "label": "EF", "value": "-1" },
+        { "label": "G", "value": "0" },
+        { "label": "H", "value": "1" },
+        { "label": "I", "value": "2" },
+        { "label": "J", "value": "1" },
+        { "label": "K", "value": "0" },
+        { "label": "L", "value": "0" },
+        { "label": "MN", "value": "-8" },
+        { "label": "OP", "value": "-1" },
+        { "label": "QR", "value": "-4" },
+        { "label": "S", "value": "3" },
+        { "label": "T", "value": "2" },
+        { "label": "U", "value": "4" },
+        { "label": "V", "value": "4" },
+        { "label": "W", "value": "3" },
+        { "label": "X", "value": "3" },
+        { "label": "Y", "value": "3" }
+      ]
+    },
+    {
+      "id": "2018-2-math-c2-4",
+      "answerRow": 6,
+      "number": "IV",
+      "section": "IV",
+      "part": null,
+      "topicId": "integration",
+      "topicIds": ["integration", "exp-log", "differentiation"],
+      "subtopic": "Curve y=x ln(ax) tangent to a line: find a, the tangent point, the minimum of the curve, and an enclosed area via integration by parts",
+      "patternTags": ["tangent-line", "natural-log", "integration-by-parts", "area-between-curves", "minimization", "expression-from-list"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "**[IV] — Integration.** Consider $y=x\\ln(ax)$ … ① and $y=2x-3$ … ②, where $a>0$ and $\\ln$ is the natural logarithm.\n\n(1) The tangent to ① at $(t,\\,t\\ln(at))$ is $\\boxed{A}$ (choose from $⓪$–$③$ below). Hence ① is tangent to ② when $a=\\dfrac{e}{\\boxed{B}}$, and the tangent point is $(\\boxed{C},\\boxed{D})$.\n\nChoices: $⓪\\ y=(\\ln(at)+1)x-t\\quad ①\\ y=(\\ln(at)+a)x-t\\quad ②\\ y=(a\\ln t+1)x+t\\quad ③\\ y=(a\\ln t+a)x+t$\n\n(2) When $a=\\dfrac{e}{\\boxed{B}}$, ① is minimized at $x=\\boxed{E}\\,e^{-\\boxed{F}}$, and the minimum value is $-\\boxed{G}\\,e^{-\\boxed{H}}$.\n\n(3) When $a=\\dfrac{e}{\\boxed{B}}$, find the area $S$ of the region bounded by ①, ② and the $x$-axis. We have $\\displaystyle\\int x\\ln(ax)\\,dx=\\boxed{I}+C$ (choose from $⓪$–$③$ below), and hence $S=\\dfrac{\\boxed{J}}{\\boxed{K}}\\,e^{-\\boxed{L}}$.\n\nChoices: $⓪\\ \\tfrac12 x^2\\ln(ax)-\\tfrac12 x^2\\quad ①\\ 2x^2\\ln(ax)-2x^2\\quad ②\\ \\tfrac12 x^2\\ln(ax)-\\tfrac14 x^2\\quad ③\\ 2x^2\\ln(ax)-4x^2$"
+      },
+      "ja": {
+        "prompt": "**[Ⅳ] — 積分法** $y=x\\ln(ax)$ … ①，$y=2x-3$ … ② を考える。ただし $a>0$，$\\ln$ は自然対数とする。\n\n(1) ① の点 $(t,\\,t\\ln(at))$ における接線は $\\boxed{A}$（下の $⓪$〜$③$ から選べ）。よって ① が ② に接するのは $a=\\dfrac{e}{\\boxed{B}}$ のときで，接点は $(\\boxed{C},\\boxed{D})$ である。\n\n選択肢：$⓪\\ y=(\\ln(at)+1)x-t\\quad ①\\ y=(\\ln(at)+a)x-t\\quad ②\\ y=(a\\ln t+1)x+t\\quad ③\\ y=(a\\ln t+a)x+t$\n\n(2) $a=\\dfrac{e}{\\boxed{B}}$ のとき，① は $x=\\boxed{E}\\,e^{-\\boxed{F}}$ で最小となり，最小値は $-\\boxed{G}\\,e^{-\\boxed{H}}$ である。\n\n(3) $a=\\dfrac{e}{\\boxed{B}}$ のとき，①，② と $x$ 軸で囲まれた部分の面積 $S$ を求める。$\\displaystyle\\int x\\ln(ax)\\,dx=\\boxed{I}+C$（下の $⓪$〜$③$ から選べ）であり，よって $S=\\dfrac{\\boxed{J}}{\\boxed{K}}\\,e^{-\\boxed{L}}$。\n\n選択肢：$⓪\\ \\tfrac12 x^2\\ln(ax)-\\tfrac12 x^2\\quad ①\\ 2x^2\\ln(ax)-2x^2\\quad ②\\ \\tfrac12 x^2\\ln(ax)-\\tfrac14 x^2\\quad ③\\ 2x^2\\ln(ax)-4x^2$"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "Tangent at $(t,t\\ln at)$ is $y=(\\ln(at)+1)x-t$ (A=⓪). Matching with $y=2x-3$: $t=3$ and $a=\\frac{e}{3}$ (B=3), tangent point $(3,3)$. With $a=\\frac{e}{3}$: minimum at $x=3e^{-2}$ (E=3,F=2), value $-3e^{-2}$ (G=3,H=2). $\\int x\\ln(ax)dx=\\frac12x^2\\ln(ax)-\\frac14x^2$ (I=②); $S=\\frac{9}{4}e^{-2}$ (J=9,K=4,L=2). Boxes: A=0, B=3, CD=33, EF=32, GH=32, I=2, JKL=942.",
+        "ja": "$(t,t\\ln at)$ での接線は $y=(\\ln(at)+1)x-t$（A=⓪）。$y=2x-3$ と一致させて $t=3$，$a=\\frac{e}{3}$（B=3），接点 $(3,3)$。$a=\\frac{e}{3}$ のとき最小は $x=3e^{-2}$（E=3,F=2），最小値 $-3e^{-2}$（G=3,H=2）。$\\int x\\ln(ax)dx=\\frac12x^2\\ln(ax)-\\frac14x^2$（I=②）；$S=\\frac{9}{4}e^{-2}$（J=9,K=4,L=2）。 解答：A=0, B=3, CD=33, EF=32, GH=32, I=2, JKL=942。"
+      },
+      "explanation": {
+        "en": "(1) $y'=\\dfrac{d}{dx}[x\\ln(ax)]=\\ln(ax)+1$, so the tangent at $(t,t\\ln(at))$ is $y=(\\ln(at)+1)x-t$ (A=⓪; the constant simplifies to $-t$). Tangency to $y=2x-3$ needs equal slope and intercept: $\\ln(at)+1=2\\Rightarrow at=e$, and $-t=-3\\Rightarrow t=3$, so $a=\\dfrac{e}{3}$ (B=3). The tangent point is $(3,\\,2\\cdot3-3)=(3,3)$.\n(2) With $a=\\dfrac{e}{3}$, $y'=\\ln\\!\\big(\\tfrac{e}{3}x\\big)+1=0\\Rightarrow \\tfrac{e}{3}x=e^{-1}\\Rightarrow x=3e^{-2}$ (E=3, F=2). There $\\ln(\\tfrac{e}{3}\\cdot3e^{-2})=\\ln(e^{-1})=-1$, so $y=3e^{-2}\\cdot(-1)=-3e^{-2}$ (G=3, H=2).\n(3) By parts, $\\int x\\ln(ax)\\,dx=\\tfrac12 x^2\\ln(ax)-\\int\\tfrac{x}{2}\\,dx=\\tfrac12 x^2\\ln(ax)-\\tfrac14 x^2$ (I=②). The region has vertices $(3/e,0)$ (① meets $x$-axis), $(3/2,0)$ (② meets $x$-axis) and $(3,3)$. Then $S=\\int_{3/e}^{3} x\\ln(\\tfrac{e}{3}x)\\,dx-\\int_{3/2}^{3}(2x-3)\\,dx$. With $F(x)=\\tfrac12 x^2\\ln(\\tfrac{e}{3}x)-\\tfrac14 x^2$: $F(3)=\\tfrac92-\\tfrac94=\\tfrac94$ and $F(3/e)=-\\tfrac{9}{4e^2}$, so the first integral is $\\tfrac94+\\tfrac{9}{4e^2}$; the triangle integral is $\\tfrac94$. Hence $S=\\tfrac{9}{4e^2}=\\tfrac94 e^{-2}$ (J=9, K=4, L=2). Verified numerically ($S\\approx0.3045$).",
+        "ja": "(1) $y'=\\ln(ax)+1$ なので $(t,t\\ln(at))$ での接線は $y=(\\ln(at)+1)x-t$（A=⓪；定数項は $-t$ に簡約）。$y=2x-3$ への接触には傾き・切片の一致が必要で，$\\ln(at)+1=2\\Rightarrow at=e$，$-t=-3\\Rightarrow t=3$，よって $a=\\dfrac{e}{3}$（B=3）。接点は $(3,3)$。\n(2) $a=\\dfrac{e}{3}$ のとき $y'=\\ln\\!\\big(\\tfrac{e}{3}x\\big)+1=0\\Rightarrow x=3e^{-2}$（E=3, F=2）。そこで $\\ln(\\tfrac{e}{3}\\cdot3e^{-2})=-1$ より $y=-3e^{-2}$（G=3, H=2）。\n(3) 部分積分で $\\int x\\ln(ax)\\,dx=\\tfrac12 x^2\\ln(ax)-\\tfrac14 x^2$（I=②）。囲まれた領域の頂点は $(3/e,0)$，$(3/2,0)$，$(3,3)$。$S=\\int_{3/e}^{3} x\\ln(\\tfrac{e}{3}x)\\,dx-\\int_{3/2}^{3}(2x-3)\\,dx$。$F(x)=\\tfrac12 x^2\\ln(\\tfrac{e}{3}x)-\\tfrac14 x^2$ として $F(3)=\\tfrac94$，$F(3/e)=-\\tfrac{9}{4e^2}$ より第1積分は $\\tfrac94+\\tfrac{9}{4e^2}$，三角形の積分は $\\tfrac94$。よって $S=\\tfrac{9}{4e^2}=\\tfrac94 e^{-2}$（J=9, K=4, L=2）。数値的に確認済み（$S\\approx0.3045$）。"
+      },
+      "blanks": [
+        { "label": "A", "value": "0" },
+        { "label": "B", "value": "3" },
+        { "label": "CD", "value": "33" },
+        { "label": "EF", "value": "32" },
+        { "label": "GH", "value": "32" },
+        { "label": "I", "value": "2" },
+        { "label": "JKL", "value": "942" }
+      ]
+    }
+  ]
+}
