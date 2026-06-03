@@ -82,10 +82,10 @@ app.post('/api/claude/ask', requireAuth, async (req: Request, res: Response) => 
 
 app.post('/api/claude/generate', requireAuth, async (req: Request, res: Response) => {
   try {
-    const { subject, lang, topic, difficulty, count, focus } = req.body ?? {};
+    const { subject, lang, topics, difficulty, count, focus } = req.body ?? {};
     const { model, userKey } = getAiContext(req);
     if (!isSubject(subject)) return res.status(400).json({ error: 'bad_subject' });
-    
+
     const cleanFocus = focus && typeof focus === 'object'
         ? {
             topics: Array.isArray(focus.topics) ? focus.topics.map(String).slice(0, 8) : [],
@@ -96,7 +96,7 @@ app.post('/api/claude/generate', requireAuth, async (req: Request, res: Response
     const result = await generate({
       subject,
       lang: toLang(lang),
-      topic: typeof topic === 'string' && topic ? topic : undefined,
+      topics: Array.isArray(topics) ? topics.map(String).slice(0, 40) : undefined,
       difficulty: difficulty === 'easy' || difficulty === 'hard' ? difficulty : 'medium',
       count: Number(count) || 3,
       focus: cleanFocus,

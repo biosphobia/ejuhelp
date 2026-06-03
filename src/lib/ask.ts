@@ -173,6 +173,45 @@ export const useAsk = create<AskState>((set, get) => ({
   },
 }));
 
+// Builds an EJU-oriented overview request whose depth scales with how many
+// topics are selected: one topic → room to elaborate; many → terse, high-yield.
+const OVERVIEW_REQUEST: Record<Lang, (subject: string, list: string, n: number) => string> = {
+  en: (subject, list, n) =>
+    n === 1
+      ? `Give me a clear, EJU-focused study overview of this ${subject} topic: ${list}. ` +
+        'I want full marks, so explain the core idea and intuition, the must-know formulas/definitions, one quick worked mini-example, the typical EJU question patterns for it, and the common traps. You have room to elaborate a little.'
+      : `Give me a condensed, EJU-focused study overview covering all ${n} of these ${subject} topics: ${list}. ` +
+        'Be tight and to the point so you can cover them all without a wall of text — the more topics, the more condensed you must be. For each topic give a few sharp bullets: the must-know formula(s)/fact(s), the typical EJU question pattern, and the main trap. End with the highest-yield points to memorize across them.',
+  ja: (subject, list, n) =>
+    n === 1
+      ? `次の${subject}のトピックについて、EJU向けにわかりやすく要点をまとめてください：${list}。` +
+        '満点を狙いたいので、核心となる考え方と直感、必ず覚える公式・定義、簡単な計算例、EJUでの典型的な出題パターン、よくある落とし穴を説明してください。少し詳しく書いて構いません。'
+      : `次の${n}個の${subject}トピックすべてを、EJU向けに簡潔にまとめてください：${list}。` +
+        'すべてを長文にせず簡潔に — トピックが多いほど凝縮してください。各トピックについて、必ず覚える公式・要点、EJUでの典型的な出題パターン、主な落とし穴を箇条書きで。最後に全体で最も得点に直結する暗記事項をまとめてください。',
+  zh: (subject, list, n) =>
+    n === 1
+      ? `请就这个${subject}主题给我一份清晰、面向 EJU 的复习概览：${list}。` +
+        '我要拿满分，请讲清核心思想与直觉、必记的公式/定义、一个简短的例题、该主题在 EJU 的典型出题方式以及常见陷阱。可以适当展开。'
+      : `请用面向 EJU 的方式，简明地概览以下全部 ${n} 个${subject}主题：${list}。` +
+        '要精炼、抓重点，不要长篇大论——主题越多越要浓缩。每个主题用几条要点列出：必记公式/要点、EJU 典型出题方式、主要陷阱。最后总结这些主题中最能得分的必背要点。',
+  tr: (subject, list, n) =>
+    n === 1
+      ? `Şu ${subject} konusu için EJU odaklı, net bir çalışma özeti ver: ${list}. ` +
+        'Tam puan istiyorum; temel fikri ve sezgiyi, bilinmesi şart formülleri/tanımları, kısa bir örnek çözümü, EJU’daki tipik soru kalıplarını ve sık yapılan hataları açıkla. Biraz detaylandırabilirsin.'
+      : `Şu ${n} ${subject} konusunun hepsini kapsayan, EJU odaklı, yoğunlaştırılmış bir özet ver: ${list}. ` +
+        'Hepsini uzun metne boğmadan, kısa ve öz tut — konu arttıkça daha da yoğunlaştır. Her konu için birkaç madde: bilinmesi şart formül(ler)/bilgi(ler), tipik EJU soru kalıbı ve ana tuzak. Sonunda hepsi içinden en çok puan getiren ezberlenecekleri özetle.',
+};
+
+/** Mirror the topics selected in the practice panel to Ask Coach for an EJU overview. */
+export function overviewTopics(subjectName: string, labels: string[]) {
+  const list = labels.filter(Boolean);
+  if (!list.length) return;
+  const { lang } = useUI.getState();
+  const msg = OVERVIEW_REQUEST[lang](subjectName, list.join('; '), list.length);
+  useUI.getState().openPanel('ask');
+  void useAsk.getState().send(msg);
+}
+
 /** Open the Ask Coach panel and ask Claude to explain a question, allowing follow-ups. */
 export function explainQuestion(prompt: string, choices: string[] | undefined, answer: string) {
   const { lang } = useUI.getState();

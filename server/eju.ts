@@ -159,6 +159,7 @@ interface RichQuestion {
   answerRow?: number;
   topicId?: string;
   subtopic?: string;
+  patternTags?: string[];
   hasFigure?: boolean;
   figure?: Partial<Record<Lang, string>>;
   ja: RichLoc;
@@ -320,6 +321,143 @@ export function systemContextFor(subject: Subject): string {
 // The full knowledge base across every subject, for flows where the student has
 // NOT picked a subject (Ask Coach) and the coach must infer it. Built once and
 // kept byte-identical so it caches as a single stable prompt-cache block.
+/** Resolve a subtopic OR topic id to its parent category (topic) id. */
+export function categoryOf(subject: Subject, id: string): string | null {
+  const kb = getKB(subject);
+  if (!kb) return null;
+  for (const t of kb.topics) {
+    if (t.id === id) return t.id;
+    for (const s of t.subtopics ?? []) if (s.id === id) return t.id;
+  }
+  return null;
+}
+
+// ── Past-paper archetypes used to ground generation in real EJU patterns ──
+// A real, previously-asked EJU question, distilled to what's useful as a style
+// reference for the generator (NOT to be copied — only emulated).
+export interface PastExample {
+  category: string;
+  subtopic?: string;
+  patternTags?: string[];
+  prompt: string;
+  choices?: string[];
+  answer: string;
+  source: string;
+}
+
+// Past-question files tag physics with short category ids; the syllabus taxonomy
+// uses long ones. Bridge them so a selected sub-topic can find its real questions.
+const RICH_TOPIC_ALIAS: Record<string, string> = {
+  mechanics: 'mech',
+  thermodynamics: 'thermo',
+  waves: 'waves',
+  electromagnetism: 'em',
+  'atomic-physics': 'atoms',
+};
+
+const richLoc = (q: RichQuestion, lang: Lang) => {
+  const loc: 'ja' | 'en' = lang === 'ja' ? 'ja' : 'en';
+  return {
+    prompt: q[loc]?.prompt ?? q.en.prompt,
+    choices: q[loc]?.choices ?? q.en.choices,
+    answer: q.answer?.[loc] ?? q.answer?.en ?? '',
+  };
+};
+
+/** Every verified past question for a subject, localized and flattened. */
+export function pastExamplePool(subject: Subject, lang: Lang): PastExample[] {
+  const out: PastExample[] = [];
+  for (const ex of loadRichExams()) {
+    if (ex.subject !== subject) continue;
+    for (const q of ex.questions) {
+      const l = richLoc(q, lang);
+      if (!l.prompt?.trim()) continue;
+      out.push({
+        category: q.topicId ?? '',
+        subtopic: q.subtopic,
+        patternTags: q.patternTags,
+        prompt: l.prompt,
+        choices: l.choices,
+        answer: l.answer,
+        source: ex.id,
+      });
+    }
+  }
+  return out;
+}
+
+// Searchable terms (id words + sub-topic names + keywords) for a syllabus id.
+function termsForId(subject: Subject, id: string): string[] {
+  const words = new Set<string>();
+  const add = (s?: string) => {
+    for (const w of (s ?? '').toLowerCase().split(/[^a-z0-9]+/)) if (w.length > 2) words.add(w);
+  };
+  add(id);
+  const kb = getKB(subject);
+  if (kb) {
+    for (const t of kb.topics) {
+      for (const s of t.subtopics ?? []) {
+        if (s.id !== id) continue;
+        add(s.name.en);
+        for (const k of s.keywords ?? []) add(k);
+      }
+      if (t.id === id) add(t.name.en);
+    }
+  }
+  return [...words];
+}
+
+const shuffle = <T,>(arr: T[]): T[] => {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+};
+
+/**
+ * For each target sub-topic/topic id, pick the most relevant real past question
+ * to use as a style reference (matched by category, then by keyword overlap),
+ * avoiding reusing the same example twice. Returns null where there's no data
+ * (e.g. subjects whose past papers aren't ingested yet).
+ */
+export function chooseArchetypeExamples(
+  subject: Subject,
+  targetIds: string[],
+  lang: Lang
+): (PastExample | null)[] {
+  const pool = pastExamplePool(subject, lang);
+  if (!pool.length) return targetIds.map(() => null);
+  const used = new Set<string>();
+  return targetIds.map((id) => {
+    const cat = categoryOf(subject, id);
+    const richCat = cat ? RICH_TOPIC_ALIAS[cat] ?? cat : null;
+    const candidates = shuffle(richCat ? pool.filter((p) => p.category === richCat) : pool);
+    if (!candidates.length) return null;
+    const terms = termsForId(subject, id);
+    let best: PastExample | null = null;
+    let bestScore = -Infinity;
+    for (const c of candidates) {
+      if (used.has(c.prompt)) continue;
+      const hay = `${c.subtopic ?? ''} ${(c.patternTags ?? []).join(' ')}`.toLowerCase();
+      let score = 0;
+      for (const w of terms) if (hay.includes(w)) score++;
+      if (score > bestScore) {
+        bestScore = score;
+        best = c;
+      }
+    }
+    if (best) used.add(best.prompt);
+    return best;
+  });
+}
+
+/** N random past questions across the whole subject, as style anchors for a mixed set. */
+export function randomArchetypeExamples(subject: Subject, lang: Lang, n: number): PastExample[] {
+  return shuffle(pastExamplePool(subject, lang)).slice(0, Math.max(0, n));
+}
+
 let allContextCache: string | null = null;
 export function systemContextForAll(): string {
   if (allContextCache) return allContextCache;

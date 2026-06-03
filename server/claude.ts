@@ -1,7 +1,16 @@
 import Anthropic from '@anthropic-ai/sdk';
 import OpenAI from 'openai';
 import { GoogleGenerativeAI } from '@google/generative-ai';
-import { systemContextFor, systemContextForAll, labelFor, SUBJECTS, type Subject } from './eju';
+import {
+  systemContextFor,
+  systemContextForAll,
+  labelFor,
+  chooseArchetypeExamples,
+  randomArchetypeExamples,
+  SUBJECTS,
+  type PastExample,
+  type Subject,
+} from './eju';
 
 const MODEL = process.env.ANTHROPIC_MODEL || 'claude-opus-4-8';
 const USE_THINKING = process.env.ANTHROPIC_THINKING !== 'off';
@@ -353,10 +362,42 @@ export interface GenQuestion {
   explanation: string;
 }
 
+// Evenly spread n question slots across the chosen topics, in random order, so
+// the set isn't lopsided and refills the bag when n exceeds the topic count.
+function sampleAssign(ids: string[], n: number): string[] {
+  const out: string[] = [];
+  let bag: string[] = [];
+  const draw = () => {
+    if (!bag.length) {
+      bag = [...ids];
+      for (let i = bag.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [bag[i], bag[j]] = [bag[j], bag[i]];
+      }
+    }
+    return bag.pop()!;
+  };
+  for (let i = 0; i < n; i++) out.push(draw());
+  return out;
+}
+
+// Compact one real past question into a style reference (trimmed to bound tokens).
+function exampleToText(ex: PastExample): string {
+  const tags = ex.patternTags?.length ? ` · pattern: ${ex.patternTags.join(', ')}` : '';
+  const head = `[real EJU ${ex.source}${ex.subtopic ? ` · ${ex.subtopic}` : ''}${tags}]`;
+  let body = ex.prompt.replace(/\s+/g, ' ').trim();
+  if (body.length > 420) body = body.slice(0, 420) + '…';
+  const choices = ex.choices?.length
+    ? ' Options: ' + ex.choices.map((c, i) => `(${'ABCDE'[i]}) ${c}`).join(' ').replace(/\s+/g, ' ').slice(0, 320)
+    : '';
+  return `${head} ${body}${choices}`;
+}
+
 export async function generate(args: {
   subject: Subject;
   lang: Lang;
-  topic?: string;
+  /** Sub-topic / topic ids the student selected; questions are spread randomly across them. */
+  topics?: string[];
   difficulty: 'easy' | 'medium' | 'hard';
   count: number;
   focus?: { topics?: string[]; tags?: string[] };
@@ -364,22 +405,48 @@ export async function generate(args: {
   userKey?: string;
 }): Promise<{ questions: GenQuestion[] }> {
   const n = Math.max(1, Math.min(5, args.count || 3));
-  const tName = args.topic ? labelFor(args.subject, args.topic, args.lang) : null;
+  const selected = (args.topics ?? []).filter((t) => typeof t === 'string' && t.trim());
+  const focusing = Boolean(args.focus && (args.focus.topics?.length || args.focus.tags?.length));
 
-  const parts = [
-    `Generate ${n} EJU-style ${args.subject} question(s)${tName ? ` specifically on: ${tName}` : ' across the most exam-relevant topics'}.`,
+  const parts: string[] = [
+    `Generate ${n} EJU-style ${args.subject} question(s) that closely match what really appears on the exam.`,
     `Difficulty: ${args.difficulty} ("medium" = typical EJU exam level).`,
-    'Match the authentic EJU question style, format, topic scope, and difficulty from the knowledge base.',
-    'Prefer multiple-choice with 4-5 plausible choices.',
+    // Hard grounding in the analyzed past-paper patterns.
+    'Ground every question in the documented past-paper archetypes, pattern tags, style notes, printed constants and answer formats in the knowledge base above: mirror the authentic EJU phrasing, structure, figure usage, choice design and difficulty.',
+    'CRITICAL: do NOT copy or merely renumber any past question. Invent a genuinely new scenario — different context, values and framing — that tests the SAME underlying concept and fits the same archetype, i.e. the kind of question highly likely to appear on an upcoming EJU.',
+    'Prefer multiple-choice with 4-5 plausible options where each distractor reflects a realistic student mistake.',
   ];
-  if (args.focus && (args.focus.topics?.length || args.focus.tags?.length)) {
-    if (args.focus.topics?.length)
-      parts.push(`Personalize: the student is currently weakest in: ${args.focus.topics.join('; ')}. Prioritize these.`);
-    if (args.focus.tags?.length)
+
+  if (focusing) {
+    if (args.focus!.topics?.length)
+      parts.push(`Personalize: the student is currently weakest in: ${args.focus!.topics.join('; ')}. Prioritize and spread the questions across these.`);
+    if (args.focus!.tags?.length)
       parts.push(
-        `They frequently make these mistakes: ${args.focus.tags.join(', ')}. Design questions that specifically probe and help fix them (e.g. require careful unit conversion if "units").`
+        `They frequently make these mistakes: ${args.focus!.tags.join(', ')}. Design questions that specifically probe and help fix them (e.g. require careful unit conversion if "units").`
       );
+  } else if (selected.length) {
+    const assigned = sampleAssign(selected, n);
+    const examples = chooseArchetypeExamples(args.subject, assigned, args.lang);
+    parts.push('Assign the questions to topics exactly as follows (chosen at random for you). Set each question\'s "topic" field to its assigned sub-topic:');
+    assigned.forEach((id, i) => {
+      const label = labelFor(args.subject, id, args.lang);
+      const ex = examples[i];
+      parts.push(
+        ex
+          ? `Question ${i + 1}: topic "${label}". Emulate the STYLE, STRUCTURE and DIFFICULTY of this real EJU question — but write a brand-new question with a different scenario and different numbers; do NOT reproduce it: ${exampleToText(ex)}`
+          : `Question ${i + 1}: topic "${label}".`
+      );
+    });
+  } else {
+    const examples = randomArchetypeExamples(args.subject, args.lang, n);
+    if (examples.length) {
+      parts.push('Spread the questions across the most exam-relevant topics. Emulate the STYLE, STRUCTURE and DIFFICULTY of these real past questions, each on its own fresh scenario (do NOT reproduce them):');
+      examples.forEach((ex, i) => parts.push(`${i + 1}. ${exampleToText(ex)}`));
+    } else {
+      parts.push('Spread the questions across the most exam-relevant topics for this subject.');
+    }
   }
+
   parts.push(`Write everything in ${writeLang(args.lang)}.`);
   parts.push(
     'Respond with ONLY a single JSON object, no other text or code fences: ' +
@@ -387,16 +454,16 @@ export async function generate(args: {
   );
 
   const raw = await executeModelCall(
-    args.model, args.userKey, args.subject, args.lang, undefined, [{ role: 'user', content: parts.join(' ') }], 16000
+    args.model, args.userKey, args.subject, args.lang, undefined, [{ role: 'user', content: parts.join('\n') }], 16000
   );
-  
+
   const parsed = extractJson<{ questions?: any[] }>(raw, { questions: [] });
   const questions: GenQuestion[] = (parsed.questions ?? []).map((q: any, i: number) => {
     const choices = Array.isArray(q.choices) && q.choices.length ? q.choices.map(String) : undefined;
     const idx = Number.isInteger(q.answerIndex) ? q.answerIndex : -1;
     return {
       id: `${Date.now().toString(36)}-${i}`,
-      topic: String(q.topic ?? tName ?? ''),
+      topic: String(q.topic ?? ''),
       prompt: String(q.prompt ?? ''),
       choices,
       answerIndex: choices && idx >= 0 && idx < choices.length ? idx : -1,

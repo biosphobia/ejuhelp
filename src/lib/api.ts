@@ -83,7 +83,8 @@ export interface GenerateResponse {
 export const generateQuestions = (p: {
   subject: Subject;
   lang: Lang;
-  topic?: string;
+  /** Sub-topic / topic ids to draw from; questions are spread randomly across them. */
+  topics?: string[];
   difficulty: Difficulty;
   count: number;
   focus?: { topics?: string[]; tags?: string[] };
