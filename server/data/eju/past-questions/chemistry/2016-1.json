@@ -1,0 +1,275 @@
+{
+  "id": "2016-1-chemistry",
+  "year": 2016,
+  "session": 1,
+  "subject": "chemistry",
+  "title": "EJU 2016 · Session 1 · Chemistry",
+  "source": "平成28年度（2016年度）日本留学試験（第1回）理科〈化学〉 © Japan Student Services Organization (JASSO)",
+  "attribution": "EJU past questions © JASSO. Question text paraphrased from the official past paper; figures described in text; correct answers taken from the official JASSO answer key and independently re-solved for verification.",
+  "languages": ["ja", "en"],
+  "answerKeyVerified": true,
+  "structure": {
+    "format": "flat",
+    "totalQuestions": 20,
+    "note": "Chemistry is a flat list of 20 single-best-answer items (問1–問20, answer rows 1–20) — no Roman-numeral blocks. Order ≈ structure & bonding → states/energetics/electrochemistry/equilibria → inorganic → organic.",
+    "givens": {
+      "ja": "標準状態 $0\\,$°C・$1.0\\times10^5\\,$Pa，気体 $1\\,$mol の体積 $22.4\\,$L，アボガドロ定数 $N_A=6.02\\times10^{23}\\,$/mol，ファラデー定数 $F=9.65\\times10^4\\,$C/mol。原子量：H 1.0, C 12, N 14, O 16, S 32, Cl 35.5。族・周期は周期表の通り。",
+      "en": "STP $0\\,$°C, $1.0\\times10^5\\,$Pa; molar volume $22.4\\,$L; $N_A=6.02\\times10^{23}\\,$/mol; $F=9.65\\times10^4\\,$C/mol. Atomic weights: H 1.0, C 12, N 14, O 16, S 32, Cl 35.5. Groups/periods per the periodic table."
+    }
+  },
+  "questions": [
+    {
+      "id": "2016-1-chem-1", "answerRow": 1, "topicId": "matter-structure",
+      "subtopic": "Molecule with a different total electron count",
+      "patternTags": ["atomic-structure", "electron-count", "odd-one-out"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の分子①〜⑤のうち，電子の総数が他と異なるものを一つ選びなさい。 ① $\\mathrm{NH_3}$ ② HCl ③ $\\mathrm{CH_4}$ ④ Ne ⑤ $\\mathrm{H_2O}$", "choices": ["$\\mathrm{NH_3}$", "HCl", "$\\mathrm{CH_4}$", "Ne", "$\\mathrm{H_2O}$"] },
+      "en": { "prompt": "Which of these has a total electron count DIFFERENT from the rest? ① $\\mathrm{NH_3}$ ② HCl ③ $\\mathrm{CH_4}$ ④ Ne ⑤ $\\mathrm{H_2O}$", "choices": ["$\\mathrm{NH_3}$", "HCl", "$\\mathrm{CH_4}$", "Ne", "$\\mathrm{H_2O}$"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "② HCl（18 個）", "en": "② HCl (18)" },
+      "explanation": { "en": "Electron totals: NH₃ $=10$, $\\mathrm{CH_4}=10$, Ne $=10$, $\\mathrm{H_2O}=10$, but HCl $=1+17=18$. HCl is the odd one out.", "ja": "電子の総数：NH₃ $=10$，$\\mathrm{CH_4}=10$，Ne $=10$，$\\mathrm{H_2O}=10$ に対し HCl $=1+17=18$。HCl だけ異なる。" }
+    },
+    {
+      "id": "2016-1-chem-2", "answerRow": 2, "topicId": "matter-structure",
+      "subtopic": "Molecular shape and polarity matching",
+      "patternTags": ["chemical-bonds", "molecular-shape", "polarity", "pick-statement"], "hasFigure": true,
+      "figure": { "ja": "表（分子 / 分子の形 / 極性）：① HCl / 直線形 / なし ② $\\mathrm{H_2S}$ / 直線形 / あり ③ $\\mathrm{CO_2}$ / 折れ線形 / あり ④ $\\mathrm{NH_3}$ / 三角錐形 / なし ⑤ $\\mathrm{CCl_4}$ / 正四面体形 / なし。", "en": "Table (molecule / shape / polarity): ① HCl / linear / none ② $\\mathrm{H_2S}$ / linear / polar ③ $\\mathrm{CO_2}$ / bent / polar ④ $\\mathrm{NH_3}$ / trigonal pyramidal / none ⑤ $\\mathrm{CCl_4}$ / tetrahedral / none." },
+      "ja": { "prompt": "表の分子①〜⑤に関して，分子の形と極性の組み合わせとして正しいものを一つ選びなさい。", "choices": ["HCl：直線形・極性なし", "$\\mathrm{H_2S}$：直線形・極性あり", "$\\mathrm{CO_2}$：折れ線形・極性あり", "$\\mathrm{NH_3}$：三角錐形・極性なし", "$\\mathrm{CCl_4}$：正四面体形・極性なし"] },
+      "en": { "prompt": "Which molecule has the correct shape-and-polarity pairing?", "choices": ["HCl: linear, non-polar", "$\\mathrm{H_2S}$: linear, polar", "$\\mathrm{CO_2}$: bent, polar", "$\\mathrm{NH_3}$: trigonal pyramidal, non-polar", "$\\mathrm{CCl_4}$: tetrahedral, non-polar"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "⑤ $\\mathrm{CCl_4}$（正四面体形・無極性）", "en": "⑤ $\\mathrm{CCl_4}$ (tetrahedral, non-polar)" },
+      "explanation": { "en": "$\\mathrm{CCl_4}$ is tetrahedral and non-polar (bond dipoles cancel) — ⑤ correct. ① HCl is linear but polar; ② $\\mathrm{H_2S}$ is bent; ③ $\\mathrm{CO_2}$ is linear and non-polar; ④ $\\mathrm{NH_3}$ is polar.", "ja": "$\\mathrm{CCl_4}$ は正四面体形で結合の極性が打ち消し合い無極性 — ⑤が正。① HCl は直線だが極性あり，② $\\mathrm{H_2S}$ は折れ線形，③ $\\mathrm{CO_2}$ は直線形で無極性，④ $\\mathrm{NH_3}$ は極性あり。" }
+    },
+    {
+      "id": "2016-1-chem-3", "answerRow": 3, "topicId": "states-and-change",
+      "subtopic": "Atomic weight of a metal from oxide-to-sulfate mass",
+      "patternTags": ["stoichiometry", "mole-mass", "plug-in-numbers"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "ある金属 M の酸化物 MO $1.0\\,$g から，硫酸塩 $\\mathrm{MSO_4}$ が最大で $2.0\\,$g 得られる。この金属の原子量に最も近い値を選びなさい。", "choices": ["48", "64", "80", "96", "112"] },
+      "en": { "prompt": "From $1.0\\,$g of a metal oxide MO, at most $2.0\\,$g of the sulfate $\\mathrm{MSO_4}$ is obtained. What is the atomic weight of metal M?", "choices": ["48", "64", "80", "96", "112"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "64", "en": "64" },
+      "explanation": { "en": "Same moles of M: $\\dfrac{1.0}{x+16}=\\dfrac{2.0}{x+96}$ (where $x$ is the atomic weight; $\\mathrm{SO_4}=96$). Cross-multiplying: $x+96=2(x+16) \\Rightarrow x=64$.", "ja": "M の物質量は等しいので $\\dfrac{1.0}{x+16}=\\dfrac{2.0}{x+96}$（$x$ は原子量，$\\mathrm{SO_4}=96$）。整理して $x+96=2(x+16) \\Rightarrow x=64$。" }
+    },
+    {
+      "id": "2016-1-chem-4", "answerRow": 4, "topicId": "states-and-change",
+      "subtopic": "Number of atoms in a cube from density",
+      "patternTags": ["mole-concept", "avogadro", "density", "formula-selection"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "原子量 $M$ の金属からなる密度 $d$ の金属結晶がある。一辺が $2\\,$cm の立方体のこの結晶中にある原子の数を表す式として正しいものを選びなさい。ただし $N_A$ はアボガドロ定数とする。", "choices": ["$\\dfrac{8dN_A}{M}$", "$\\dfrac{dN_A}{8M}$", "$8dMN_A$", "$\\dfrac{d}{8MN_A}$", "$\\dfrac{8dM}{N_A}$"] },
+      "en": { "prompt": "A metal crystal of atomic weight $M$ has density $d$. Which expression gives the number of atoms in a $2\\,$cm cube of it? ($N_A$ is Avogadro's number.)", "choices": ["$\\dfrac{8dN_A}{M}$", "$\\dfrac{dN_A}{8M}$", "$8dMN_A$", "$\\dfrac{d}{8MN_A}$", "$\\dfrac{8dM}{N_A}$"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "① $\\dfrac{8dN_A}{M}$", "en": "① $\\dfrac{8dN_A}{M}$" },
+      "explanation": { "en": "Cube volume $=2^3=8\\,$cm³, mass $=8d\\,$g, moles $=8d/M$, atoms $=\\dfrac{8d}{M}N_A=\\dfrac{8dN_A}{M}$.", "ja": "立方体の体積 $=2^3=8\\,$cm³，質量 $=8d\\,$g，物質量 $=8d/M$，原子数 $=\\dfrac{8d}{M}N_A=\\dfrac{8dN_A}{M}$。" }
+    },
+    {
+      "id": "2016-1-chem-5", "answerRow": 5, "topicId": "states-and-change",
+      "subtopic": "Molarity of sulfuric acid from mass percent and density",
+      "patternTags": ["concentration", "molarity", "density", "plug-in-numbers"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "質量パーセント濃度 38% の希硫酸 $\\mathrm{H_2SO_4}$ のモル濃度 [mol/L] に最も近い値を選びなさい。ただし，この希硫酸の密度を $1.29\\,\\mathrm{g/cm^3}$ とする。", "choices": ["0.49", "2.9", "3.8", "5.0", "6.8"] },
+      "en": { "prompt": "What is the molar concentration [mol/L] of a 38% (by mass) dilute sulfuric acid? Take its density as $1.29\\,\\mathrm{g/cm^3}$.", "choices": ["0.49", "2.9", "3.8", "5.0", "6.8"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "$5.0\\,$mol/L", "en": "5.0 mol/L" },
+      "explanation": { "en": "$1\\,$L weighs $1000\\times1.29=1290\\,$g; $\\mathrm{H_2SO_4}=1290\\times0.38=490\\,$g $\\Rightarrow 490/98=5.0\\,$mol, so $5.0\\,$mol/L.", "ja": "$1\\,$L は $1000\\times1.29=1290\\,$g，$\\mathrm{H_2SO_4}=1290\\times0.38=490\\,$g $\\Rightarrow 490/98=5.0\\,$mol，よって $5.0\\,$mol/L。" }
+    },
+    {
+      "id": "2016-1-chem-6", "answerRow": 6, "topicId": "states-and-change",
+      "subtopic": "Water acting as a Brønsted-Lowry acid",
+      "patternTags": ["acids-bases", "bronsted-lowry", "proton-transfer", "true-false-combo"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の化学反応(a)〜(d)のうち，水がブレンステッド・ローリー理論に基づく酸としてはたらいているものが二つある。その組み合わせを選びなさい。 (a) $\\mathrm{CH_3COOH+H_2O\\to CH_3COO^-+H_3O^+}$ (b) $\\mathrm{2Na+2H_2O\\to 2Na^++2OH^-+H_2}$ (c) $\\mathrm{NH_3+H_2O\\to NH_4^++OH^-}$ (d) $\\mathrm{CO_3^{2-}+H_2O\\to HCO_3^-+OH^-}$", "choices": ["a, b", "a, c", "a, d", "b, c", "b, d", "c, d"] },
+      "en": { "prompt": "In two of these reactions water acts as a Brønsted-Lowry ACID. Which pair? (a) $\\mathrm{CH_3COOH+H_2O\\to CH_3COO^-+H_3O^+}$ (b) $\\mathrm{2Na+2H_2O\\to 2Na^++2OH^-+H_2}$ (c) $\\mathrm{NH_3+H_2O\\to NH_4^++OH^-}$ (d) $\\mathrm{CO_3^{2-}+H_2O\\to HCO_3^-+OH^-}$", "choices": ["a, b", "a, c", "a, d", "b, c", "b, d", "c, d"] },
+      "answerIndex": 5, "answerOption": 6, "answer": { "ja": "c と d", "en": "c and d" },
+      "explanation": { "en": "A Brønsted acid donates a proton. In (c) and (d) water gives up H⁺ (→ OH⁻) to NH₃ / $\\mathrm{CO_3^{2-}}$, so water is the acid. In (a) water accepts H⁺ (→ H₃O⁺), acting as a base; (b) is a redox reaction, not a simple proton transfer.", "ja": "ブレンステッド酸は H⁺ を与える。(c)(d) では水が H⁺ を放出（→ OH⁻）し NH₃ / $\\mathrm{CO_3^{2-}}$ に渡すので酸。(a) は水が H⁺ を受け取り（→ H₃O⁺）塩基，(b) は酸化還元反応で単純な H⁺ 移動ではない。" }
+    },
+    {
+      "id": "2016-1-chem-7", "answerRow": 7, "topicId": "states-and-change",
+      "subtopic": "Combined gas law for volume change",
+      "patternTags": ["gas-laws", "combined-gas-law", "plug-in-numbers"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "$27\\,$°C，$1.0\\times10^5\\,$Pa で $2.0\\,$L の気体がある。この気体の温度を $127\\,$°C，圧力を $2.0\\times10^5\\,$Pa に上げると，体積は何 L になるか。最も近い値を選びなさい。", "choices": ["0.21", "0.38", "0.75", "1.3", "2.7", "4.7"] },
+      "en": { "prompt": "A gas occupies $2.0\\,$L at $27\\,$°C and $1.0\\times10^5\\,$Pa. Raising it to $127\\,$°C and $2.0\\times10^5\\,$Pa, what is the new volume (L)?", "choices": ["0.21", "0.38", "0.75", "1.3", "2.7", "4.7"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "約 $1.3\\,$L", "en": "≈ 1.3 L" },
+      "explanation": { "en": "$\\dfrac{PV}{T}$ is constant: $V_2=2.0\\times\\dfrac{1.0\\times10^5}{2.0\\times10^5}\\times\\dfrac{400}{300}=2.0\\times0.5\\times1.33\\approx1.3\\,$L (T in K).", "ja": "$\\dfrac{PV}{T}$ 一定：$V_2=2.0\\times\\dfrac{1.0\\times10^5}{2.0\\times10^5}\\times\\dfrac{400}{300}=2.0\\times0.5\\times1.33\\approx1.3\\,$L（温度は K）。" }
+    },
+    {
+      "id": "2016-1-chem-8", "answerRow": 8, "topicId": "states-and-change",
+      "subtopic": "Freezing-point depression with glucose",
+      "patternTags": ["colligative-properties", "freezing-point-depression", "plug-in-numbers"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "$14.4\\,$g のグルコース $\\mathrm{C_6H_{12}O_6}$ を水 $100\\,$g に溶かした水溶液の凝固点は何 °C か。最も近い値を選びなさい。ただし水のモル凝固点降下は $1.85\\,\\mathrm{K\\cdot kg/mol}$ とする。", "choices": ["$-1.48$", "$-1.29$", "$-0.148$", "$-0.0169$", "$-0.0148$"] },
+      "en": { "prompt": "What is the freezing point (°C) of a solution of $14.4\\,$g glucose $\\mathrm{C_6H_{12}O_6}$ in $100\\,$g water? The molal freezing-point depression constant of water is $1.85\\,\\mathrm{K\\cdot kg/mol}$.", "choices": ["$-1.48$", "$-1.29$", "$-0.148$", "$-0.0169$", "$-0.0148$"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "$-1.48\\,$°C", "en": "$-1.48$ °C" },
+      "explanation": { "en": "Glucose $M=180$: $14.4/180=0.080\\,$mol; molality $=0.080/0.100=0.80\\,$mol/kg. $\\Delta T_f=1.85\\times0.80=1.48\\,$K, so the freezing point is $-1.48\\,$°C.", "ja": "グルコース $M=180$：$14.4/180=0.080\\,$mol，質量モル濃度 $=0.080/0.100=0.80\\,$mol/kg。$\\Delta T_f=1.85\\times0.80=1.48\\,$K，凝固点は $-1.48\\,$°C。" }
+    },
+    {
+      "id": "2016-1-chem-9", "answerRow": 9, "topicId": "states-and-change",
+      "subtopic": "Heat of reaction from bond energies",
+      "patternTags": ["thermochemistry", "bond-energy", "plug-in-numbers"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "気体の水素 $\\mathrm{H_2}\\ 1.00\\,$mol と気体の塩素 $\\mathrm{Cl_2}\\ 1.00\\,$mol から気体の塩化水素 HCl が生成するとき，発生する熱は何 kJ か。最も近い値を選びなさい。ただし $\\mathrm{H_2}$，$\\mathrm{Cl_2}$，HCl の結合エネルギーはそれぞれ $436$，$243$，$432\\,$kJ/mol とする。", "choices": ["56", "94", "136", "185", "226", "380"] },
+      "en": { "prompt": "When $1.00\\,$mol $\\mathrm{H_2}$ and $1.00\\,$mol $\\mathrm{Cl_2}$ form gaseous HCl, how much heat (kJ) is released? Bond energies: $\\mathrm{H_2}=436$, $\\mathrm{Cl_2}=243$, HCl $=432\\,$kJ/mol.", "choices": ["56", "94", "136", "185", "226", "380"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "$185\\,$kJ", "en": "185 kJ" },
+      "explanation": { "en": "$\\mathrm{H_2+Cl_2\\to 2HCl}$. Heat released $=$ (bonds formed) $-$ (bonds broken) $=2\\times432-(436+243)=864-679=185\\,$kJ.", "ja": "$\\mathrm{H_2+Cl_2\\to 2HCl}$。発熱 $=$（生成した結合）$-$（切れた結合）$=2\\times432-(436+243)=864-679=185\\,$kJ。" }
+    },
+    {
+      "id": "2016-1-chem-10", "answerRow": 10, "topicId": "states-and-change",
+      "subtopic": "Identify electrolyte giving O2 at anode and H2 at cathode",
+      "patternTags": ["electrochemistry", "electrolysis", "electrode-products", "compare-cases"], "hasFigure": true,
+      "figure": { "ja": "炭素電極 C を 2 本用いた電気分解装置の図。左の電極が陽極(+)，右が陰極(−)。陽極で $\\mathrm{O_2}$，陰極で $\\mathrm{H_2}$ が発生した。", "en": "Diagram of an electrolysis cell with two graphite electrodes C; the left electrode is the anode (+), the right the cathode (−). $\\mathrm{O_2}$ forms at the anode and $\\mathrm{H_2}$ at the cathode." },
+      "ja": { "prompt": "炭素電極 C を用いてある水溶液を電気分解したところ，陽極では酸素 $\\mathrm{O_2}$，陰極では水素 $\\mathrm{H_2}$ が発生した。この水溶液として最も適当なものを選びなさい。", "choices": ["希塩酸 dil. HCl", "希硫酸 dil. $\\mathrm{H_2SO_4}$", "ヨウ化カリウム水溶液 KI aq", "塩化ナトリウム水溶液 NaCl aq"] },
+      "en": { "prompt": "Electrolysing a solution with graphite electrodes gives $\\mathrm{O_2}$ at the anode and $\\mathrm{H_2}$ at the cathode. Which solution is it?", "choices": ["dilute HCl", "dilute $\\mathrm{H_2SO_4}$", "KI solution", "NaCl solution"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "② 希硫酸", "en": "② dilute $\\mathrm{H_2SO_4}$" },
+      "explanation": { "en": "$\\mathrm{O_2}$ at the anode means the anion ($\\mathrm{SO_4^{2-}}$) is not oxidised — water is, giving $\\mathrm{O_2}$. Cathode gives $\\mathrm{H_2}$ from water. For HCl/KI/NaCl the anode would liberate $\\mathrm{Cl_2}$ or $\\mathrm{I_2}$, not $\\mathrm{O_2}$.", "ja": "陽極で $\\mathrm{O_2}$ ＝ 陰イオン（$\\mathrm{SO_4^{2-}}$）が酸化されず水が酸化される。陰極は水から $\\mathrm{H_2}$。HCl/KI/NaCl では陽極で $\\mathrm{Cl_2}$ や $\\mathrm{I_2}$ が出て $\\mathrm{O_2}$ にならない。" }
+    },
+    {
+      "id": "2016-1-chem-11", "answerRow": 11, "topicId": "states-and-change",
+      "subtopic": "Precipitate-amount vs added-acid graph",
+      "patternTags": ["stoichiometry", "precipitation", "graph-reading", "limiting-reagent"], "hasFigure": true,
+      "figure": { "ja": "$5.0\\,$mL の $0.10\\,$mol/L 酢酸鉛(II) $\\mathrm{Pb(CH_3COO)_2}$ に $0.050\\,$mol/L の希硫酸を加える。横軸 $V$ [mL]，縦軸 沈殿 $n$ [$\\times10^{-4}$ mol]。正解のグラフ④は原点から直線的に増え，$V=10\\,$mL で $5.0\\times10^{-4}\\,$mol に達したのち一定。", "en": "$5.0\\,$mL of $0.10\\,$mol/L lead(II) acetate $\\mathrm{Pb(CH_3COO)_2}$ is titrated with $0.050\\,$mol/L $\\mathrm{H_2SO_4}$. x-axis $V$ [mL], y-axis precipitate $n$ [$\\times10^{-4}$ mol]. The correct graph (④) rises linearly from the origin, reaches $5.0\\times10^{-4}\\,$mol at $V=10\\,$mL, then stays flat." },
+      "ja": { "prompt": "$5.0\\,$mL の $0.10\\,$mol/L 酢酸鉛(II)水溶液に $0.050\\,$mol/L の希硫酸を加えると白色沈殿が生じた。加えた希硫酸の体積 $V$ [mL] と生じた白色沈殿の物質量 $n$ [mol] の関係を表すグラフとして正しいものを選びなさい。", "choices": ["①（傾き小，頭打ちなし）", "②（傾き大，頭打ちなし）", "③（$V=10$ で頭打ち $2.5\\times10^{-4}$）", "④（$V=10$ で頭打ち $5.0\\times10^{-4}$）", "⑤（$V=5$ で頭打ち $2.5\\times10^{-4}$）", "⑥（切片あり，$V=5$ で頭打ち $5.0\\times10^{-4}$）"] },
+      "en": { "prompt": "Adding $0.050\\,$mol/L $\\mathrm{H_2SO_4}$ to $5.0\\,$mL of $0.10\\,$mol/L lead(II) acetate gives a white precipitate. Which graph shows added-acid volume $V$ [mL] vs precipitate amount $n$ [mol]?", "choices": ["① small slope, no plateau", "② large slope, no plateau", "③ plateau $2.5\\times10^{-4}$ at $V=10$", "④ plateau $5.0\\times10^{-4}$ at $V=10$", "⑤ plateau $2.5\\times10^{-4}$ at $V=5$", "⑥ non-zero intercept, plateau $5.0\\times10^{-4}$ at $V=5$"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "④（$V=10\\,$mL で $5.0\\times10^{-4}\\,$mol に達し一定）", "en": "④ (reaches $5.0\\times10^{-4}$ mol at $V=10$ mL, then constant)" },
+      "explanation": { "en": "$\\mathrm{Pb^{2+}}=5.0\\times10^{-3}\\,$L$\\times0.10=5.0\\times10^{-4}\\,$mol. $\\mathrm{Pb^{2+}+SO_4^{2-}\\to PbSO_4}$ needs the same mol of $\\mathrm{SO_4^{2-}}$: $5.0\\times10^{-4}/0.050=0.010\\,$L $=10\\,$mL. So $\\mathrm{PbSO_4}$ rises linearly to $5.0\\times10^{-4}\\,$mol at $10\\,$mL, then plateaus — graph ④.", "ja": "$\\mathrm{Pb^{2+}}=5.0\\times10^{-3}\\,$L$\\times0.10=5.0\\times10^{-4}\\,$mol。$\\mathrm{Pb^{2+}+SO_4^{2-}\\to PbSO_4}$ に必要な $\\mathrm{SO_4^{2-}}$ は同 mol で $5.0\\times10^{-4}/0.050=0.010\\,$L$=10\\,$mL。よって $10\\,$mL で $5.0\\times10^{-4}\\,$mol に達し一定 — グラフ④。" }
+    },
+    {
+      "id": "2016-1-chem-12", "answerRow": 12, "topicId": "inorganic",
+      "subtopic": "Elements identified by qualitative tests",
+      "patternTags": ["inorganic", "flame-test", "ion-tests", "element-identification"], "hasFigure": true,
+      "figure": { "ja": "表（物質 A / B / C の元素の組み合わせ）：① K, Cl, C ② K, I, C ③ K, Cl, H ④ Na, I, H ⑤ Na, Cl, H ⑥ Na, I, C。", "en": "Table of element combinations for substances A / B / C: ① K, Cl, C ② K, I, C ③ K, Cl, H ④ Na, I, H ⑤ Na, Cl, H ⑥ Na, I, C." },
+      "ja": { "prompt": "物質 A，B，C に含まれる元素を確認するため次の実験を行った。元素の組み合わせとして最も適当なものを選びなさい。 (a) A の水溶液を白金線につけて炎に入れると炎が赤紫色になった。 (b) B の水溶液に硝酸銀水溶液を加えると白色沈殿が生じた。 (c) C の完全燃焼で生じた気体を石灰水 $\\mathrm{Ca(OH)_2}$ aq に通じると白く濁った。", "choices": ["A=K, B=Cl, C=C", "A=K, B=I, C=C", "A=K, B=Cl, C=H", "A=Na, B=I, C=H", "A=Na, B=Cl, C=H", "A=Na, B=I, C=C"] },
+      "en": { "prompt": "To identify the elements in substances A, B, C: (a) A's solution on a platinum wire gives a reddish-purple flame; (b) adding $\\mathrm{AgNO_3}$ to B's solution gives a white precipitate; (c) the gas from complete combustion of C turns limewater $\\mathrm{Ca(OH)_2}$ cloudy. Which element set is correct?", "choices": ["A=K, B=Cl, C=C", "A=K, B=I, C=C", "A=K, B=Cl, C=H", "A=Na, B=I, C=H", "A=Na, B=Cl, C=H", "A=Na, B=I, C=C"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "① A=K, B=Cl, C=C", "en": "① A=K, B=Cl, C=C" },
+      "explanation": { "en": "(a) Reddish-purple flame → potassium K. (b) White precipitate with $\\mathrm{AgNO_3}$ → AgCl, so chloride Cl (AgI is yellow). (c) Combustion gas clouding limewater → $\\mathrm{CO_2}$, so carbon C. Thus K, Cl, C.", "ja": "(a) 赤紫色の炎色 → カリウム K。(b) $\\mathrm{AgNO_3}$ で白色沈殿 → AgCl，すなわち塩素 Cl（AgI は黄色）。(c) 燃焼ガスが石灰水を白濁 → $\\mathrm{CO_2}$，すなわち炭素 C。よって K, Cl, C。" }
+    },
+    {
+      "id": "2016-1-chem-13", "answerRow": 13, "topicId": "inorganic",
+      "subtopic": "Two acidic oxides",
+      "patternTags": ["inorganic", "oxides", "acidic-basic-amphoteric", "true-false-combo"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の化合物(a)〜(f)のうち，酸性酸化物が二つある。その組み合わせを選びなさい。 (a) $\\mathrm{Al_2O_3}$ (b) CaO (c) $\\mathrm{CO_2}$ (d) $\\mathrm{K_2O}$ (e) MgO (f) $\\mathrm{P_4O_{10}}$", "choices": ["a, b", "a, c", "b, d", "c, f", "d, e", "e, f"] },
+      "en": { "prompt": "Two of these are acidic oxides. Which pair? (a) $\\mathrm{Al_2O_3}$ (b) CaO (c) $\\mathrm{CO_2}$ (d) $\\mathrm{K_2O}$ (e) MgO (f) $\\mathrm{P_4O_{10}}$", "choices": ["a, b", "a, c", "b, d", "c, f", "d, e", "e, f"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "c と f", "en": "c and f" },
+      "explanation": { "en": "Acidic oxides are the non-metal oxides $\\mathrm{CO_2}$ (c) and $\\mathrm{P_4O_{10}}$ (f). CaO, $\\mathrm{K_2O}$, MgO are basic; $\\mathrm{Al_2O_3}$ is amphoteric.", "ja": "酸性酸化物は非金属酸化物の $\\mathrm{CO_2}$(c) と $\\mathrm{P_4O_{10}}$(f)。CaO，$\\mathrm{K_2O}$，MgO は塩基性，$\\mathrm{Al_2O_3}$ は両性。" }
+    },
+    {
+      "id": "2016-1-chem-14", "answerRow": 14, "topicId": "inorganic",
+      "subtopic": "Calcium chemistry fill-in-the-blanks",
+      "patternTags": ["inorganic", "alkaline-earth-metals", "calcium", "fill-in-blanks"], "hasFigure": true,
+      "figure": { "ja": "表（a / b / c / d）：① アルカリ金属, $\\mathrm{H_2}$, $\\mathrm{CaCO_3}$, $\\mathrm{Ca(OH)_2}$ ② アルカリ金属, $\\mathrm{O_2}$, CaO, $\\mathrm{Ca(OH)_2}$ ③ アルカリ金属, $\\mathrm{O_2}$, $\\mathrm{CaCO_3}$, $\\mathrm{Ca(HCO_3)_2}$ ④ アルカリ土類金属, $\\mathrm{O_2}$, CaO, $\\mathrm{Ca(HCO_3)_2}$ ⑤ アルカリ土類金属, $\\mathrm{H_2}$, $\\mathrm{CaCO_3}$, $\\mathrm{Ca(HCO_3)_2}$ ⑥ アルカリ土類金属, $\\mathrm{H_2}$, CaO, $\\mathrm{Ca(OH)_2}$。", "en": "Table for blanks a / b / c / d: ① alkali metal, $\\mathrm{H_2}$, $\\mathrm{CaCO_3}$, $\\mathrm{Ca(OH)_2}$ ② alkali metal, $\\mathrm{O_2}$, CaO, $\\mathrm{Ca(OH)_2}$ ③ alkali metal, $\\mathrm{O_2}$, $\\mathrm{CaCO_3}$, $\\mathrm{Ca(HCO_3)_2}$ ④ alkaline-earth metal, $\\mathrm{O_2}$, CaO, $\\mathrm{Ca(HCO_3)_2}$ ⑤ alkaline-earth metal, $\\mathrm{H_2}$, $\\mathrm{CaCO_3}$, $\\mathrm{Ca(HCO_3)_2}$ ⑥ alkaline-earth metal, $\\mathrm{H_2}$, CaO, $\\mathrm{Ca(OH)_2}$." },
+      "ja": { "prompt": "カルシウム Ca に関する記述の空欄 a〜d に当てはまる語と化学式の組み合わせを選びなさい。「カルシウムは [a] の一つであり，室温で水と反応して [b] を発生する。また地殻中では石灰岩の成分である [c] として存在する。[c] が二酸化炭素を含む水に接触すると [d] になり，水に溶ける。」", "choices": ["アルカリ金属 / $\\mathrm{H_2}$ / $\\mathrm{CaCO_3}$ / $\\mathrm{Ca(OH)_2}$", "アルカリ金属 / $\\mathrm{O_2}$ / CaO / $\\mathrm{Ca(OH)_2}$", "アルカリ金属 / $\\mathrm{O_2}$ / $\\mathrm{CaCO_3}$ / $\\mathrm{Ca(HCO_3)_2}$", "アルカリ土類金属 / $\\mathrm{O_2}$ / CaO / $\\mathrm{Ca(HCO_3)_2}$", "アルカリ土類金属 / $\\mathrm{H_2}$ / $\\mathrm{CaCO_3}$ / $\\mathrm{Ca(HCO_3)_2}$", "アルカリ土類金属 / $\\mathrm{H_2}$ / CaO / $\\mathrm{Ca(OH)_2}$"] },
+      "en": { "prompt": "Fill blanks a–d about calcium: \"Calcium is one of the [a]; at room temperature it reacts with water to release [b]. In the earth's crust it occurs as [c], the main component of limestone. When [c] contacts water containing $\\mathrm{CO_2}$ it becomes [d], which dissolves in water.\"", "choices": ["alkali metal / $\\mathrm{H_2}$ / $\\mathrm{CaCO_3}$ / $\\mathrm{Ca(OH)_2}$", "alkali metal / $\\mathrm{O_2}$ / CaO / $\\mathrm{Ca(OH)_2}$", "alkali metal / $\\mathrm{O_2}$ / $\\mathrm{CaCO_3}$ / $\\mathrm{Ca(HCO_3)_2}$", "alkaline-earth metal / $\\mathrm{O_2}$ / CaO / $\\mathrm{Ca(HCO_3)_2}$", "alkaline-earth metal / $\\mathrm{H_2}$ / $\\mathrm{CaCO_3}$ / $\\mathrm{Ca(HCO_3)_2}$", "alkaline-earth metal / $\\mathrm{H_2}$ / CaO / $\\mathrm{Ca(OH)_2}$"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "⑤ アルカリ土類金属 / $\\mathrm{H_2}$ / $\\mathrm{CaCO_3}$ / $\\mathrm{Ca(HCO_3)_2}$", "en": "⑤ alkaline-earth metal / $\\mathrm{H_2}$ / $\\mathrm{CaCO_3}$ / $\\mathrm{Ca(HCO_3)_2}$" },
+      "explanation": { "en": "Ca is an alkaline-earth metal; $\\mathrm{Ca+2H_2O\\to Ca(OH)_2+H_2}$ (b = H₂); limestone is $\\mathrm{CaCO_3}$ (c); $\\mathrm{CaCO_3+CO_2+H_2O\\to Ca(HCO_3)_2}$, which is soluble (d).", "ja": "Ca はアルカリ土類金属。$\\mathrm{Ca+2H_2O\\to Ca(OH)_2+H_2}$（b=H₂）。石灰岩は $\\mathrm{CaCO_3}$（c）。$\\mathrm{CaCO_3+CO_2+H_2O\\to Ca(HCO_3)_2}$ で水に溶ける（d）。" }
+    },
+    {
+      "id": "2016-1-chem-15", "answerRow": 15, "topicId": "inorganic",
+      "subtopic": "Which ion pair gives one sulfide precipitate in acid",
+      "patternTags": ["inorganic", "sulfide-precipitation", "qualitative-analysis", "compare-cases"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "2 種類の金属イオンを含む酸性の水溶液に硫化水素 $\\mathrm{H_2S}$ を通じたとき，一方の金属イオンだけから硫化物の沈殿が生じた。水溶液に含まれる金属イオンの組み合わせとして最も適当なものを選びなさい。", "choices": ["$\\mathrm{Ag^+},\\ \\mathrm{Pb^{2+}}$", "$\\mathrm{Al^{3+}},\\ \\mathrm{Ba^{2+}}$", "$\\mathrm{Ca^{2+}},\\ \\mathrm{Cu^{2+}}$", "$\\mathrm{Fe^{2+}},\\ \\mathrm{Na^+}$", "$\\mathrm{K^+},\\ \\mathrm{Zn^{2+}}$"] },
+      "en": { "prompt": "Passing $\\mathrm{H_2S}$ through an ACIDIC solution of two metal ions, only one of them forms a sulfide precipitate. Which ion pair is it?", "choices": ["$\\mathrm{Ag^+},\\ \\mathrm{Pb^{2+}}$", "$\\mathrm{Al^{3+}},\\ \\mathrm{Ba^{2+}}$", "$\\mathrm{Ca^{2+}},\\ \\mathrm{Cu^{2+}}$", "$\\mathrm{Fe^{2+}},\\ \\mathrm{Na^+}$", "$\\mathrm{K^+},\\ \\mathrm{Zn^{2+}}$"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "③ $\\mathrm{Ca^{2+}},\\ \\mathrm{Cu^{2+}}$", "en": "③ $\\mathrm{Ca^{2+}},\\ \\mathrm{Cu^{2+}}$" },
+      "explanation": { "en": "In acid, only low-ionization-tendency cations (Cu²⁺, Pb²⁺, Ag⁺) precipitate as sulfides. ③ gives exactly one precipitate: CuS forms, Ca²⁺ does not. ① both precipitate; ②④⑤ give none in acid (Zn²⁺/Fe²⁺ need neutral/basic; Al³⁺/Ba²⁺/Na⁺/K⁺ never).", "ja": "酸性ではイオン化傾向の小さい陽イオン（Cu²⁺，Pb²⁺，Ag⁺）だけが硫化物として沈殿。③ は CuS が沈殿し Ca²⁺ は沈殿せず，ちょうど一方のみ。① は両方沈殿，②④⑤ は酸性で沈殿なし（Zn²⁺/Fe²⁺ は中・塩基性が必要，Al³⁺/Ba²⁺/Na⁺/K⁺ は不沈）。" }
+    },
+    {
+      "id": "2016-1-chem-16", "answerRow": 16, "topicId": "organic",
+      "subtopic": "Compounds with both a double bond and oxygen",
+      "patternTags": ["organic", "functional-groups", "double-bond", "true-false-combo"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の化合物(a)〜(e)のうち，二重結合と酸素原子 O の両方をもつものが二つある。その組み合わせを選びなさい。 (a) 酢酸 (b) アセトン (c) ジメチルエーテル (d) エテン（エチレン） (e) 塩化ビニル", "choices": ["a, b", "a, d", "b, c", "b, d", "c, e", "d, e"] },
+      "en": { "prompt": "Two of these compounds have BOTH a double bond and an oxygen atom. Which pair? (a) acetic acid (b) acetone (c) dimethyl ether (d) ethene (ethylene) (e) vinyl chloride", "choices": ["a, b", "a, d", "b, c", "b, d", "c, e", "d, e"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "a と b", "en": "a and b" },
+      "explanation": { "en": "Acetic acid ($\\mathrm{CH_3COOH}$) and acetone ($\\mathrm{CH_3COCH_3}$) each have a C=O double bond and oxygen. Dimethyl ether has O but no double bond; ethene and vinyl chloride have C=C but no O.", "ja": "酢酸（$\\mathrm{CH_3COOH}$）とアセトン（$\\mathrm{CH_3COCH_3}$）はともに C=O 二重結合と O をもつ。ジメチルエーテルは O はあるが二重結合なし，エテン・塩化ビニルは C=C はあるが O なし。" }
+    },
+    {
+      "id": "2016-1-chem-17", "answerRow": 17, "topicId": "organic",
+      "subtopic": "Number of structural isomers of C6H14",
+      "patternTags": ["organic", "isomers", "alkanes", "counting"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "分子式 $\\mathrm{C_6H_{14}}$ で表される化合物の構造異性体の数として正しいものを選びなさい。", "choices": ["1", "2", "3", "4", "5", "6"] },
+      "en": { "prompt": "How many structural isomers does $\\mathrm{C_6H_{14}}$ have?", "choices": ["1", "2", "3", "4", "5", "6"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "5", "en": "5" },
+      "explanation": { "en": "$\\mathrm{C_6H_{14}}$ has 5 isomers: n-hexane, 2-methylpentane, 3-methylpentane, 2,2-dimethylbutane, and 2,3-dimethylbutane.", "ja": "$\\mathrm{C_6H_{14}}$ の異性体は 5 種：ヘキサン，2-メチルペンタン，3-メチルペンタン，2,2-ジメチルブタン，2,3-ジメチルブタン。" }
+    },
+    {
+      "id": "2016-1-chem-18", "answerRow": 18, "topicId": "organic",
+      "subtopic": "Hydrogen needed to saturate linoleic acid",
+      "patternTags": ["organic", "hydrogenation", "unsaturation", "stoichiometry", "plug-in-numbers"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "$1.0\\,$g のリノール酸 $\\mathrm{C_{17}H_{31}COOH}$（分子量 280）を水素化してステアリン酸 $\\mathrm{C_{17}H_{35}COOH}$ を得た。この反応に必要な水素 $\\mathrm{H_2}$ は標準状態で何 mL か。最も近い値を選びなさい。", "choices": ["50", "80", "100", "160", "200"] },
+      "en": { "prompt": "$1.0\\,$g of linoleic acid $\\mathrm{C_{17}H_{31}COOH}$ (molecular weight 280) is hydrogenated to stearic acid $\\mathrm{C_{17}H_{35}COOH}$. What volume of $\\mathrm{H_2}$ at STP is needed (mL)?", "choices": ["50", "80", "100", "160", "200"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "$160\\,$mL", "en": "160 mL" },
+      "explanation": { "en": "Linoleic acid has 2 C=C bonds (31 → 35 H means 4 H added = 2 $\\mathrm{H_2}$). Moles acid $=1.0/280=3.57\\times10^{-3}$; $\\mathrm{H_2}=2\\times3.57\\times10^{-3}=7.14\\times10^{-3}\\,$mol $\\times22400=160\\,$mL.", "ja": "リノール酸は C=C を 2 個もつ（H が 31→35，4 個増＝$\\mathrm{H_2}$ 2 分子）。酸 $=1.0/280=3.57\\times10^{-3}\\,$mol，$\\mathrm{H_2}=2\\times3.57\\times10^{-3}=7.14\\times10^{-3}\\,$mol $\\times22400=160\\,$mL。" }
+    },
+    {
+      "id": "2016-1-chem-19", "answerRow": 19, "topicId": "organic",
+      "subtopic": "Reagents to make phenyl acetate from benzenesulfonic acid",
+      "patternTags": ["organic", "phenol-synthesis", "esterification", "reagent-selection"], "hasFigure": true,
+      "figure": { "ja": "合成経路：ベンゼンスルホン酸 $\\mathrm{(C_6H_5SO_3H)}$ →（NaOH 固体・融解）→ ナトリウムフェノキシド $\\mathrm{(C_6H_5ONa)}$ →（試薬 A，$\\mathrm{H_2O}$）→ フェノール $\\mathrm{(C_6H_5OH)}$ →（試薬 B）→ 酢酸フェニル $\\mathrm{(C_6H_5OCOCH_3)}$。表で A・B を選ぶ。", "en": "Route: benzenesulfonic acid $\\mathrm{(C_6H_5SO_3H)}$ →(solid NaOH, fusion)→ sodium phenoxide $\\mathrm{(C_6H_5ONa)}$ →(reagent A, $\\mathrm{H_2O}$)→ phenol $\\mathrm{(C_6H_5OH)}$ →(reagent B)→ phenyl acetate $\\mathrm{(C_6H_5OCOCH_3)}$. The table gives candidate A/B pairs." },
+      "ja": { "prompt": "ベンゼンスルホン酸から酢酸フェニルを合成する経路で，用いる試薬 A，B の組み合わせとして最も適当なものを選びなさい。", "choices": ["A=$\\mathrm{CO_2}$ / B=$\\mathrm{(CH_3)_2CO}$", "A=$\\mathrm{CO_2}$ / B=$\\mathrm{(CH_3CO)_2O}$", "A=HCl / B=$\\mathrm{(CH_3)_2CO}$", "A=HCl / B=$\\mathrm{CH_3OH}$", "A=NaOH / B=$\\mathrm{(CH_3CO)_2O}$"] },
+      "en": { "prompt": "In the route from benzenesulfonic acid to phenyl acetate, which pair of reagents A and B is most appropriate?", "choices": ["A=$\\mathrm{CO_2}$ / B=$\\mathrm{(CH_3)_2CO}$", "A=$\\mathrm{CO_2}$ / B=$\\mathrm{(CH_3CO)_2O}$", "A=HCl / B=$\\mathrm{(CH_3)_2CO}$", "A=HCl / B=$\\mathrm{CH_3OH}$", "A=NaOH / B=$\\mathrm{(CH_3CO)_2O}$"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "② A=$\\mathrm{CO_2}$ / B=$\\mathrm{(CH_3CO)_2O}$", "en": "② A=$\\mathrm{CO_2}$ / B=$\\mathrm{(CH_3CO)_2O}$" },
+      "explanation": { "en": "A: bubbling $\\mathrm{CO_2}$ into sodium phenoxide liberates the weaker-acid phenol (carbonic acid is stronger than phenol). B: phenol is acetylated to phenyl acetate by acetic anhydride $\\mathrm{(CH_3CO)_2O}$.", "ja": "A：ナトリウムフェノキシドに $\\mathrm{CO_2}$ を通じると，より弱い酸であるフェノールが遊離（炭酸はフェノールより強い酸）。B：フェノールを無水酢酸 $\\mathrm{(CH_3CO)_2O}$ でアセチル化して酢酸フェニルにする。" }
+    },
+    {
+      "id": "2016-1-chem-20", "answerRow": 20, "topicId": "organic",
+      "subtopic": "Correct statement about polymers",
+      "patternTags": ["organic", "polymers", "bonds", "pick-statement"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の記述①〜⑥のうち，下線部が正しいものを一つ選びなさい。 ① ポリエチレンは，エテンが縮合重合した高分子化合物である。 ② ポリエチレンテレフタラートには，アミド結合が含まれる。 ③ ナイロン 66 には，エーテル結合が含まれる。 ④ デンプンは，フルクトースが脱水縮合した高分子化合物である。 ⑤ タンパク質は，アミノ酸が付加重合した高分子化合物である。 ⑥ 生ゴムに少量の硫黄を混ぜて加熱すると，架橋構造が生じる。", "choices": ["①", "②", "③", "④", "⑤", "⑥"] },
+      "en": { "prompt": "Which underlined part is CORRECT? ① Polyethylene is made by CONDENSATION polymerization of ethene. ② PET contains AMIDE bonds. ③ Nylon 6,6 contains ETHER bonds. ④ Starch is a dehydration-condensation polymer of FRUCTOSE. ⑤ Protein is made by ADDITION polymerization of amino acids. ⑥ Heating raw rubber with a little SULFUR produces a cross-linked structure.", "choices": ["①", "②", "③", "④", "⑤", "⑥"] },
+      "answerIndex": 5, "answerOption": 6, "answer": { "ja": "⑥（加硫で架橋構造ができる）", "en": "⑥ (vulcanization gives a cross-linked structure)" },
+      "explanation": { "en": "⑥ is correct — vulcanization (rubber + sulfur, heated) cross-links the chains. ① wrong (addition polymerization), ② wrong (PET has ester bonds), ③ wrong (nylon 6,6 has amide bonds), ④ wrong (starch is a glucose polymer), ⑤ wrong (protein forms by condensation polymerization).", "ja": "⑥が正 — 加硫（ゴム＋硫黄を加熱）で鎖が架橋する。① 誤（付加重合），② 誤（PET はエステル結合），③ 誤（ナイロン 66 はアミド結合），④ 誤（デンプンはグルコースの重合体），⑤ 誤（タンパク質は縮合重合で生成）。" }
+    }
+  ],
+  "patterns": {
+    "archetypes": [
+      "Odd-one-out by total electron count (isoelectronic screen).",
+      "Molecular shape + polarity matching (CCl₄ tetrahedral non-polar).",
+      "Atomic weight of a divalent metal from oxide→sulfate mass ratio.",
+      "Atom count in a cube from density and atomic weight (Avogadro).",
+      "Molarity from mass percent and density.",
+      "Water as a Brønsted-Lowry acid (donates H⁺ → OH⁻).",
+      "Combined gas law volume change (PV/T constant).",
+      "Freezing-point depression (molality × Kf).",
+      "Heat of reaction from bond energies (formed − broken).",
+      "Identify electrolyte from electrode gases (O₂ anode ⇒ sulfate).",
+      "Precipitate-amount vs added-titrant graph (linear then plateau).",
+      "Element identification by flame test + AgNO₃ + limewater.",
+      "Two acidic oxides (non-metal oxides CO₂, P₄O₁₀).",
+      "Calcium fill-in-the-blanks (alkaline-earth, H₂, CaCO₃, Ca(HCO₃)₂).",
+      "Which ion pair gives exactly one acidic-H₂S sulfide precipitate.",
+      "Compounds with both C=C/C=O double bond and oxygen.",
+      "Counting structural isomers of C₆H₁₄ (5).",
+      "Hydrogen volume to saturate a di-unsaturated fatty acid.",
+      "Reagents to convert phenoxide → phenol → phenyl acetate.",
+      "Correct polymer statement (vulcanization cross-links rubber)."
+    ],
+    "recurring": [
+      "Atomic-structure / bonding / shape screens open the paper.",
+      "Quantitative core: oxide-sulfate ratios, density↔atom count, molarity, gas law, colligative, bond-energy, electrolysis.",
+      "A precipitation-titration graph and qualitative inorganic (flame test, oxides, calcium, sulfide selectivity) form a guaranteed block.",
+      "Organic: functional-group screens, isomer counting, hydrogenation stoichiometry, aromatic synthesis routes, and polymers recur."
+    ],
+    "examTacticNotes": [
+      "Isoelectronic: NH₃, CH₄, Ne, H₂O all have 10 electrons; HCl has 18.",
+      "CCl₄ is tetrahedral and non-polar; CO₂ linear non-polar; H₂S bent; NH₃ pyramidal polar.",
+      "Oxide→sulfate same mol: 1/(x+16) = 2/(x+96) ⇒ x = 64.",
+      "Cube atom count = (side³ × density / M) × Nₐ = 8dNₐ/M.",
+      "Molarity = (1000·ρ·w%)/M; here 1290×0.38/98 = 5.0 mol/L.",
+      "Brønsted acid donates H⁺; water → OH⁻ when reacting with NH₃ or CO₃²⁻.",
+      "Combined gas law: V₂ = V₁ (P₁/P₂)(T₂/T₁), temperatures in kelvin.",
+      "ΔTf = Kf × molality; glucose 0.80 mol/kg × 1.85 = 1.48 K.",
+      "Bond-energy heat = Σ(bonds formed) − Σ(bonds broken) = 2·432 − (436+243) = 185 kJ.",
+      "O₂ at the anode means a non-oxidisable anion (sulfate) → dilute H₂SO₄.",
+      "Precipitation graph: rises to n(limiting) at the equivalence volume, then flat.",
+      "Reddish-purple flame = K; white AgX = Cl⁻; gas clouding limewater = CO₂ (carbon).",
+      "Acidic oxides are non-metal oxides (CO₂, P₄O₁₀); Al₂O₃ is amphoteric.",
+      "Ca: alkaline-earth; Ca+2H₂O→Ca(OH)₂+H₂; limestone CaCO₃ → soluble Ca(HCO₃)₂.",
+      "In acid only Cu²⁺/Pb²⁺/Ag⁺ give sulfides; Zn²⁺/Fe²⁺ need neutral/basic.",
+      "Both double bond and O: carbonyl compounds (acetic acid, acetone).",
+      "C₆H₁₄ has 5 structural isomers.",
+      "Linoleic acid (2 C=C) needs 2 H₂ per molecule to become stearic acid.",
+      "Phenoxide + CO₂ → phenol; phenol + (CH₃CO)₂O → phenyl acetate.",
+      "Vulcanization (rubber + S, heat) forms cross-links; PET = ester, nylon = amide."
+    ],
+    "difficulty": "Standard EJU chemistry — a full-syllabus sweep with a strong quantitative core. The more discriminating items are the cube atom-count expression (Q4), the precipitation-titration graph (Q11), the acidic-H₂S sulfide-selectivity pair (Q15), and the hydrogenation volume for linoleic acid (Q18)."
+  }
+}
