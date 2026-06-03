@@ -1,17 +1,125 @@
 {
   "subject": "math",
   "displayName": { "en": "Mathematics", "ja": "数学" },
-  "examFormat": "PLACEHOLDER - not yet ingested. The EJU Mathematics exam is a SEPARATE booklet from the Science (理科) booklet, not part of it. It is offered in two courses: Course 1 (Basic, コース1) for humanities/social-science-oriented applicants and Course 2 (Advanced, コース2) for science/engineering-oriented applicants; an examinee takes exactly one course. The exam is 80 minutes. Answers are recorded on a mark-sheet by digit: each blank box (A, B, C, ...) is filled by marking a single digit 0-9 (or a sign), so a multi-character answer like '24' is entered as B=2, C=4. The Drive folder currently contains one math question file (2021_1question_math_e_1.pdf, English/bilingual) and the answer keys embedded in the Science answer-key PDFs include a Mathematics section listing Course 1 and Course 2 digit-by-digit answers. No math papers have been ingested for this knowledge base yet.",
+  "examFormat": "EJU Mathematics is a SEPARATE 80-minute booklet (not part of the Science booklet). Two courses are offered and the examinee takes exactly one: Course 1 (Basic, コース1) covers syllabus topics 1-7; Course 2 (Advanced, コース2) covers all topics 1-20 and is required by science/engineering faculties. This knowledge base targets Course 2. Each course paper has four large questions (大問 I, II, III, IV), each split into sub-questions (Q1, Q2, …) and parts (1),(2),(3). Answers are NOT multiple-choice: every blank is labelled by a letter (A, B, C, …) and is filled on a mark-sheet with a single numeral 0-9 OR a minus sign. Consecutive letters concatenate into a number, the numerator/denominator of a fraction, an exponent, etc. (e.g. b = -BC with B=2, C=4 means b = -24; a fraction L/M with L=1, M=3 means 1/3). Answer-letters reset at the start of each large question. Conventions: reduce square roots fully, put any minus sign on the numerator, and reduce fractions to lowest terms. A few sub-parts instead ask the examinee to pick the correct expression from a labelled list 0~9 (still entered as a single digit). Some answer letters are intentionally left blank.",
   "courses": [
-    { "id": "course1", "name": { "en": "Course 1 (Basic)", "ja": "コース1（基本）" }, "note": "For applicants in fields where advanced mathematics is not required." },
-    { "id": "course2", "name": { "en": "Course 2 (Advanced)", "ja": "コース2（発展）" }, "note": "For applicants in fields requiring advanced mathematics; superset of Course 1 scope with additional advanced topics." }
+    { "id": "course1", "name": { "en": "Course 1 (Basic)", "ja": "コース1（基本）" }, "scope": "Topics 1-7", "note": "For faculties where only basic mathematics is required (humanities / social sciences)." },
+    { "id": "course2", "name": { "en": "Course 2 (Advanced)", "ja": "コース2（発展）" }, "scope": "Topics 1-20 (superset of Course 1)", "note": "For faculties requiring advanced mathematics (science / engineering). This KB targets Course 2." }
   ],
-  "topics": [],
-  "questionArchetypes": [],
-  "styleNotes": "TODO: ingest the EJU Mathematics syllabus and at least one Course 1 and one Course 2 past paper before populating topics, archetypes, and style notes. The answer format is digit-by-digit fill-in (mark one digit 0-9 per box) rather than option selection, which differs from the Science subjects.",
-  "sources": [],
-  "status": "placeholder",
-  "availableDriveFiles": [
-    { "fileId": "16fCKoVqX-rr6cQgvOI9rjGWEHz86fZZj", "title": "2021_1question_math_e_1.pdf", "note": "Course 1/2 question paper, English/bilingual - not yet read." }
-  ]
+  "answerFormat": "digit-fill",
+  "topics": [
+    { "id": "numbers-expressions", "name": { "en": "Numbers and expressions", "ja": "数と式" }, "course": 1, "subtopics": [
+      { "id": "polynomial-operations", "name": { "en": "Operations on polynomials", "ja": "多項式の計算" }, "keywords": ["polynomial", "expand", "add", "multiply"] },
+      { "id": "factorization", "name": { "en": "Factorization", "ja": "因数分解" }, "keywords": ["factor", "factorization"] },
+      { "id": "real-numbers-roots", "name": { "en": "Real numbers and square roots", "ja": "実数と平方根" }, "keywords": ["square root", "surd", "rationalize", "irrational"] },
+      { "id": "absolute-value", "name": { "en": "Equations/inequalities with absolute values", "ja": "絶対値を含む方程式・不等式" }, "keywords": ["absolute value", "inequality"] }
+    ] },
+    { "id": "sets-propositions", "name": { "en": "Sets and propositions", "ja": "集合と命題" }, "course": 1, "subtopics": [
+      { "id": "sets", "name": { "en": "Sets", "ja": "集合" }, "keywords": ["set", "union", "intersection", "complement"] },
+      { "id": "propositions-conditions", "name": { "en": "Propositions and conditions", "ja": "命題と条件" }, "keywords": ["necessary", "sufficient", "contrapositive", "condition"] }
+    ] },
+    { "id": "quadratic-functions", "name": { "en": "Quadratic functions", "ja": "二次関数" }, "course": 1, "subtopics": [
+      { "id": "quadratic-graphs", "name": { "en": "Graphs of quadratic functions", "ja": "二次関数のグラフ" }, "keywords": ["parabola", "vertex", "axis"] },
+      { "id": "quadratic-max-min", "name": { "en": "Maximum and minimum values", "ja": "最大・最小" }, "keywords": ["maximum", "minimum", "range"] },
+      { "id": "quadratic-equations-inequalities", "name": { "en": "Quadratic equations and inequalities", "ja": "二次方程式・不等式" }, "keywords": ["discriminant", "roots", "inequality"] }
+    ] },
+    { "id": "figures-measurement", "name": { "en": "Figures and measurement (trigonometric ratios)", "ja": "図形と計量" }, "course": 1, "subtopics": [
+      { "id": "trig-ratios", "name": { "en": "Sine, cosine, tangent", "ja": "三角比" }, "keywords": ["sine", "cosine", "tangent", "trig ratio"] },
+      { "id": "sine-cosine-rules", "name": { "en": "Law of sines, law of cosines", "ja": "正弦定理・余弦定理" }, "keywords": ["law of sines", "law of cosines", "triangle"] },
+      { "id": "figure-measurement", "name": { "en": "Measurement of plane and solid figures", "ja": "図形の計量" }, "keywords": ["area", "volume", "circumradius", "inradius"] }
+    ] },
+    { "id": "counting-probability", "name": { "en": "Counting and probability", "ja": "場合の数と確率" }, "course": 1, "subtopics": [
+      { "id": "counting-principles", "name": { "en": "Counting principles", "ja": "場合の数" }, "keywords": ["counting", "addition principle", "multiplication principle"] },
+      { "id": "permutations-combinations", "name": { "en": "Permutations and combinations", "ja": "順列・組合せ" }, "keywords": ["permutation", "combination", "nCr", "nPr"] },
+      { "id": "probability", "name": { "en": "Probability and its properties", "ja": "確率" }, "keywords": ["probability", "event"] },
+      { "id": "independent-trials", "name": { "en": "Independent trials, binomial, conditional", "ja": "独立試行・条件付き確率" }, "keywords": ["independent", "binomial", "conditional", "repeated"] },
+      { "id": "expected-value", "name": { "en": "Expected value", "ja": "期待値" }, "keywords": ["expected value", "expectation"] }
+    ] },
+    { "id": "integers", "name": { "en": "Properties of integers", "ja": "整数の性質" }, "course": 1, "subtopics": [
+      { "id": "divisors-multiples", "name": { "en": "Divisors, multiples, primes", "ja": "約数・倍数・素因数分解" }, "keywords": ["divisor", "multiple", "prime", "factorization"] },
+      { "id": "gcd-lcm", "name": { "en": "GCD and LCM", "ja": "最大公約数・最小公倍数" }, "keywords": ["gcd", "lcm", "greatest common divisor"] },
+      { "id": "euclidean-diophantine", "name": { "en": "Euclidean algorithm, linear Diophantine equations", "ja": "互除法・不定方程式" }, "keywords": ["euclidean", "diophantine", "ax+by"] },
+      { "id": "base-n", "name": { "en": "Base-n notation", "ja": "n進法" }, "keywords": ["base", "radix", "base-n", "binary"] }
+    ] },
+    { "id": "plane-space-figures", "name": { "en": "Properties of figures", "ja": "図形の性質" }, "course": 1, "subtopics": [
+      { "id": "triangle-centers", "name": { "en": "Triangle properties and five centers", "ja": "三角形の性質・五心" }, "keywords": ["centroid", "incenter", "circumcenter", "Ceva", "Menelaus"] },
+      { "id": "circle-properties", "name": { "en": "Properties of circles", "ja": "円の性質" }, "keywords": ["cyclic quadrilateral", "power of a point", "tangent"] },
+      { "id": "space-figures", "name": { "en": "Figures in space (lines, planes, polyhedra)", "ja": "空間図形" }, "keywords": ["polyhedron", "plane", "line", "space"] }
+    ] },
+    { "id": "expressions-proofs", "name": { "en": "Various expressions and higher-degree equations", "ja": "いろいろな式" }, "course": 2, "subtopics": [
+      { "id": "polynomial-division-binomial", "name": { "en": "Polynomial division, fractions, binomial theorem, identities", "ja": "式の計算・二項定理・恒等式" }, "keywords": ["binomial theorem", "identity", "polynomial division", "remainder"] },
+      { "id": "complex-numbers", "name": { "en": "Complex numbers and quadratic solutions", "ja": "複素数と二次方程式の解" }, "keywords": ["complex number", "imaginary", "discriminant"] },
+      { "id": "roots-coefficients", "name": { "en": "Relation between roots and coefficients", "ja": "解と係数の関係" }, "keywords": ["roots and coefficients", "sum of roots", "product of roots"] },
+      { "id": "higher-degree-equations", "name": { "en": "Higher-degree equations (remainder/factor theorem)", "ja": "高次方程式・剰余/因数定理" }, "keywords": ["remainder theorem", "factor theorem", "cubic", "higher-degree"] }
+    ] },
+    { "id": "figures-equations", "name": { "en": "Figures and equations (coordinate geometry)", "ja": "図形と方程式" }, "course": 2, "subtopics": [
+      { "id": "points-lines", "name": { "en": "Points and lines", "ja": "点と直線" }, "keywords": ["line", "slope", "distance from point to line"] },
+      { "id": "circles-equations", "name": { "en": "Equations of circles", "ja": "円の方程式" }, "keywords": ["circle equation", "tangent line", "intersection"] },
+      { "id": "locus-region", "name": { "en": "Locus and region", "ja": "軌跡と領域" }, "keywords": ["locus", "region", "inequality region"] }
+    ] },
+    { "id": "exp-log", "name": { "en": "Exponential and logarithmic functions", "ja": "指数関数・対数関数" }, "course": 2, "subtopics": [
+      { "id": "exponential-functions", "name": { "en": "Exponential functions", "ja": "指数関数" }, "keywords": ["exponential", "exponent"] },
+      { "id": "logarithmic-functions", "name": { "en": "Logarithmic functions", "ja": "対数関数" }, "keywords": ["logarithm", "log"] },
+      { "id": "common-logarithms", "name": { "en": "Common logarithms", "ja": "常用対数" }, "keywords": ["common logarithm", "log base 10", "number of digits"] }
+    ] },
+    { "id": "trig-functions", "name": { "en": "Trigonometric functions", "ja": "三角関数" }, "course": 2, "subtopics": [
+      { "id": "trig-functions-graphs", "name": { "en": "Trig functions, radians and graphs", "ja": "三角関数とグラフ" }, "keywords": ["radian", "trig function", "graph", "period"] },
+      { "id": "addition-formulas", "name": { "en": "Addition formulas and applications", "ja": "加法定理" }, "keywords": ["addition formula", "double angle", "product-to-sum"] },
+      { "id": "trig-synthesis", "name": { "en": "Synthesis / transformation of trig expressions", "ja": "三角関数の合成・変形" }, "keywords": ["synthesis", "a sin + b cos", "amplitude"] }
+    ] },
+    { "id": "sequences", "name": { "en": "Sequences of numbers", "ja": "数列" }, "course": 2, "subtopics": [
+      { "id": "arithmetic-geometric", "name": { "en": "Arithmetic and geometric progressions", "ja": "等差・等比数列" }, "keywords": ["arithmetic progression", "geometric progression", "common difference", "common ratio"] },
+      { "id": "various-sums", "name": { "en": "Difference sequences and various sums", "ja": "いろいろな数列の和" }, "keywords": ["sum", "sigma", "telescoping", "difference sequence"] },
+      { "id": "recurrence-induction", "name": { "en": "Recurrence relations and mathematical induction", "ja": "漸化式・数学的帰納法" }, "keywords": ["recurrence", "induction", "recursive"] }
+    ] },
+    { "id": "probability-distributions", "name": { "en": "Probability distributions", "ja": "確率分布" }, "course": 2, "subtopics": [
+      { "id": "random-variables", "name": { "en": "Random variables and distributions", "ja": "確率変数と確率分布" }, "keywords": ["random variable", "distribution"] },
+      { "id": "mean-variance", "name": { "en": "Expected value, variance, standard deviation", "ja": "期待値・分散・標準偏差" }, "keywords": ["variance", "standard deviation", "expectation"] },
+      { "id": "distributions-sums", "name": { "en": "Sums/transformations of random variables, correlation", "ja": "確率変数の和・変換・相関" }, "keywords": ["covariance", "correlation", "sum of variables"] }
+    ] },
+    { "id": "vectors", "name": { "en": "Vectors", "ja": "ベクトル" }, "course": 2, "subtopics": [
+      { "id": "plane-vectors", "name": { "en": "Plane vectors and components", "ja": "平面ベクトルと成分" }, "keywords": ["vector", "component", "magnitude"] },
+      { "id": "dot-product", "name": { "en": "Inner (dot) product", "ja": "ベクトルの内積" }, "keywords": ["dot product", "inner product", "angle between vectors"] },
+      { "id": "vector-figures", "name": { "en": "Position vectors and vector equations", "ja": "位置ベクトル・ベクトル方程式" }, "keywords": ["position vector", "vector equation", "divide segment"] },
+      { "id": "space-vectors", "name": { "en": "Space coordinates and spatial vectors", "ja": "空間座標と空間ベクトル" }, "keywords": ["space vector", "3d", "tetrahedron", "spatial"] }
+    ] },
+    { "id": "complex-plane", "name": { "en": "Complex plane", "ja": "複素数平面" }, "course": 2, "subtopics": [
+      { "id": "complex-plane-polar", "name": { "en": "Complex plane and polar form", "ja": "複素数平面・極形式" }, "keywords": ["complex plane", "polar form", "argument", "modulus"] },
+      { "id": "de-moivre", "name": { "en": "De Moivre's theorem", "ja": "ド・モアブルの定理" }, "keywords": ["de moivre", "nth power", "roots of unity"] },
+      { "id": "complex-figures", "name": { "en": "Complex numbers and figures", "ja": "複素数と図形" }, "keywords": ["rotation", "triangle", "complex geometry"] }
+    ] },
+    { "id": "curves-equations", "name": { "en": "Equations and curves", "ja": "式と曲線" }, "course": 2, "subtopics": [
+      { "id": "conics", "name": { "en": "Conic sections (parabola, ellipse, hyperbola)", "ja": "二次曲線" }, "keywords": ["parabola", "ellipse", "hyperbola", "focus", "directrix"] },
+      { "id": "parametric", "name": { "en": "Parameterization", "ja": "媒介変数表示" }, "keywords": ["parametric", "parameter"] },
+      { "id": "polar-coordinates", "name": { "en": "Polar coordinates and polar equations", "ja": "極座標・極方程式" }, "keywords": ["polar coordinate", "polar equation"] }
+    ] },
+    { "id": "functions", "name": { "en": "Functions (rational, irrational, inverse, composite)", "ja": "関数" }, "course": 2, "subtopics": [
+      { "id": "rational-irrational", "name": { "en": "Rational and irrational functions", "ja": "分数関数・無理関数" }, "keywords": ["rational function", "irrational function"] },
+      { "id": "inverse-composite", "name": { "en": "Inverse and composite functions", "ja": "逆関数・合成関数" }, "keywords": ["inverse function", "composite function"] }
+    ] },
+    { "id": "limits", "name": { "en": "Limits", "ja": "極限" }, "course": 2, "subtopics": [
+      { "id": "sequence-limits", "name": { "en": "Limits of sequences and infinite series", "ja": "数列の極限・無限級数" }, "keywords": ["limit", "infinite series", "convergence", "sum"] },
+      { "id": "function-limits-continuity", "name": { "en": "Limits and continuity of functions", "ja": "関数の極限と連続性" }, "keywords": ["function limit", "continuity"] }
+    ] },
+    { "id": "differentiation", "name": { "en": "Differential calculus", "ja": "微分法" }, "course": 2, "subtopics": [
+      { "id": "derivatives", "name": { "en": "Derivatives (incl. trig, exp, log, composite)", "ja": "導関数" }, "keywords": ["derivative", "differentiate", "product rule", "chain rule"] },
+      { "id": "derivative-applications", "name": { "en": "Tangents, increase/decrease, max/min, velocity", "ja": "微分の応用" }, "keywords": ["tangent", "extremum", "increasing", "maximum", "minimum", "velocity"] }
+    ] },
+    { "id": "integration", "name": { "en": "Integral calculus", "ja": "積分法" }, "course": 2, "subtopics": [
+      { "id": "integrals", "name": { "en": "Indefinite and definite integrals", "ja": "不定積分・定積分" }, "keywords": ["integral", "integration", "substitution", "by parts"] },
+      { "id": "integral-applications", "name": { "en": "Area, volume, length of a curve", "ja": "積分の応用（面積・体積）" }, "keywords": ["area", "volume", "arc length", "region between curves"] }
+    ] }
+  ],
+  "questionArchetypes": [
+    { "topicId": "quadratic-functions", "description": "Two quadratics are given with vertex / value conditions (e.g. g minimized at a given x, and g(k)=f(k)); determine the coefficients, find the non-trivial intersection by reducing to a quadratic, then maximize the difference f(x)-g(x) over the resulting interval. Pure symbolic + integer answers.", "exampleStem": "f(x)=-2x^2, g(x)=x^2+ax+b with g minimized at x=3 and g(4)=f(4); find a,b, the min of g, the other intersection x, and the max of f-g on [-2,4]. (2021_1 C2 I-Q1)", "sourceYear": "2021_1 C2" },
+    { "topicId": "independent-trials", "description": "Two players each draw a card and compare; compute the single-trial probabilities of draw/win, then for n repeated independent trials compute binomial/multinomial probabilities (e.g. 'A wins >= 3 of 4') and use symmetry to get P(A>B) = (1 - P(tie))/2.", "exampleStem": "Each of A,B has cards 1,2,3; play four times; P(draw), P(A wins >=3), P(one win/one loss/two draws), P(equal wins), P(A>B). (2021_1 C2 I-Q2)", "sourceYear": "2021_1 C2" },
+    { "topicId": "space-vectors", "description": "Regular tetrahedron of side 1; points P,Q divide two edges in ratio x:(1-x); express OP,OQ as position vectors (choose from a list), compute |OP|=|OQ| and OP.OQ as functions of x, then bound cos(angle POQ) over 0<x<1.", "exampleStem": "Regular tetrahedron OABC; find the range of cos(angle POQ): 1/2 < cos <= 5/6. (2021_1 C2 II-Q1)", "sourceYear": "2021_1 C2" },
+    { "topicId": "complex-figures", "description": "Triangle on the complex plane with vertices A(α),B(β),C(γ) defined by a ratio (γ-α)/(β-α)=given complex number; convert to polar form, interpret as a rotation+scaling about A, find |w| and arg w for a related ratio, and derive side-length ratios under a constraint like α+β+γ=0.", "exampleStem": "(γ-α)/(β-α)=1-i; polar form √2(cos 7π/4 + i sin 7π/4); rotation by 7π/4 and scaling by √2. (2021_1 C2 II-Q2)", "sourceYear": "2021_1 C2" },
+    { "topicId": "derivative-applications", "description": "Minimize a symmetric exponential expression by substituting t = 2^x + 2^{-x} (so 4^x+4^{-x}=t^2-2, 8^x+8^{-x}=t^3-3t), reduce to a cubic g(t), restrict t>=2, and use g'(t) to locate local/global extrema; recover x via logs.", "exampleStem": "Minimize f(x)=8^x+8^{-x}-... using t=2^x+2^{-x}; find the minimum value and the x attaining it. (2021_1 C2 III)", "sourceYear": "2021_1 C2" },
+    { "topicId": "integral-applications", "description": "Two curves (e.g. y=sin^2 x and y=k cos 2x on [0,π/2]) bound regions of area S1 and S2; set up the intersection, integrate, and prove S2-S1 is a constant independent of the parameter k.", "exampleStem": "C1: y=sin^2 x, C2: y=k cos 2x; show S2-S1 = π/4 independent of k. (2021_1 C2 IV)", "sourceYear": "2021_1 C2" }
+  ],
+  "styleNotes": "Course 2 papers consist of four large questions (I-IV). A typical mix: I tends to combine an algebra/quadratics part with a counting/probability part; later questions range over the advanced topics — vectors (often a tetrahedron or plane-figure setup), the complex plane (rotation/similarity of triangles), calculus (min/max via a clever substitution; areas/volumes between curves; proving a quantity is independent of a parameter), sequences/recurrences, exponential-log, and trigonometry. Answers are exact integers, reduced fractions, or reduced surds, entered digit-by-digit into lettered boxes. Phrasing is terse and guided: the problem walks the student through intermediate boxed results that are reused later (shaded when reused). Generate new questions that follow this guided, multi-part, digit-fill structure and the same topic mixes; keep every answer an exact value that fits single-digit boxes after reduction.",
+  "sources": ["EJU past papers 2010-2021 (both sessions), Course 2", "2026 EJU Mathematics Syllabus (Course 1 & 2)"],
+  "status": "in-progress",
+  "ingestionNote": "Taxonomy and format encoded from the 2026 syllabus and the 2021_1 Course 2 paper (answers verified by solving and against the official key). Per-paper Course 2 extractions are being added under past-questions/math/. Answer format is digit-fill, not multiple-choice."
 }

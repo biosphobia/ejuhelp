@@ -1,0 +1,128 @@
+{
+  "id": "2021-1-math-c2",
+  "year": 2021,
+  "session": 1,
+  "subject": "math",
+  "course": 2,
+  "title": "2021 EJU Session 1 — Mathematics (Course 2)",
+  "source": "Examination for Japanese University Admission for International Students, 2021 Session 1 (JASSO). Official English & Japanese papers; answers verified against the official answer key and re-derived by solving.",
+  "answerFormat": "digit-fill",
+  "answerKeyVerified": true,
+  "questions": [
+    {
+      "id": "2021-1-math-c2-1",
+      "answerRow": 1,
+      "number": "I",
+      "topicId": "quadratic-functions",
+      "topicIds": ["quadratic-functions", "counting-probability"],
+      "subtopic": "Quadratics (vertex / intersection) + card-game probability",
+      "patternTags": ["vertex-condition", "intersection-of-curves", "max-min-on-interval", "binomial-probability", "symmetry-argument"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "**Q1 — Quadratic functions.**\n\nConsider the two quadratic functions $f(x)=-2x^2$ and $g(x)=x^2+ax+b$. The function $g(x)$ satisfies: (i) $g(x)$ is minimized at $x=3$; (ii) $g(4)=f(4)$.\n\n(1) From (i), $a=-\\boxed{A}$. From (ii), $b=-\\boxed{BC}$. Hence the minimum value of $g(x)$ is $-\\boxed{DE}$.\n\n(2) To find the value of $x$ with $f(x)=g(x)$ and $x\\neq 4$: since $x^2-\\boxed{F}\\,x-\\boxed{G}=0$, we obtain $x=-\\boxed{H}$.\n\n(3) On $-\\boxed{H}\\le x\\le 4$, the value of $f(x)-g(x)$ is maximized at $x=\\boxed{I}$, and its maximum value is $\\boxed{JK}$.\n\n**Q2 — Probability.**\n\nEach of two people, A and B, has a bag containing three cards numbered $1,2,3$. Each takes out one card and they compare: equal numbers give a draw; otherwise the person with the larger number wins.\n\n(1) For a single game, the probability of a draw is $\\dfrac{\\boxed{L}}{\\boxed{M}}$.\n\n(2) The game is played four times in a row, replacing the cards after each game.\n\n  (i) P(A wins three or more times) $=\\dfrac{\\boxed{N}}{\\boxed{O}}$.\n\n  (ii) P(A wins once, loses once, and the other two are draws) $=\\dfrac{\\boxed{P}}{\\boxed{QR}}$.\n\n  (iii) P(A and B win the same number of times) $=\\dfrac{\\boxed{ST}}{\\boxed{UV}}$. Hence P(the number of A's wins is greater than the number of B's wins) $=\\dfrac{\\boxed{WX}}{\\boxed{UV}}$."
+      },
+      "ja": {
+        "prompt": "**Q1 — 二次関数**\n\n2つの二次関数 $f(x)=-2x^2$，$g(x)=x^2+ax+b$ を考える。$g(x)$ は次の2条件を満たす：(i) $g(x)$ は $x=3$ で最小になる；(ii) $g(4)=f(4)$。\n\n(1) 条件 (i) より $a=-\\boxed{A}$。さらに条件 (ii) より $b=-\\boxed{BC}$。よって $g(x)$ の最小値は $-\\boxed{DE}$ である。\n\n(2) $f(x)=g(x)$ かつ $x\\neq 4$ となる $x$ を求める。$x$ は $x^2-\\boxed{F}\\,x-\\boxed{G}=0$ を満たすので，$x=-\\boxed{H}$ である。\n\n(3) $-\\boxed{H}\\le x\\le 4$ において，$f(x)-g(x)$ は $x=\\boxed{I}$ で最大となり，その最大値は $\\boxed{JK}$ である。\n\n**Q2 — 確率**\n\nA，B の2人はそれぞれ $1,2,3$ の数字が1つずつ書かれた3枚のカードの入った袋を持つ。各自が袋から1枚取り出して数を比べ，同じなら引き分け，異なれば大きい数の人の勝ちとする。\n\n(1) 1回の対戦で引き分けとなる確率は $\\dfrac{\\boxed{L}}{\\boxed{M}}$。\n\n(2) カードを毎回戻して4回続けて対戦するとき，\n\n  (i) A が3回以上勝つ確率は $\\dfrac{\\boxed{N}}{\\boxed{O}}$。\n\n  (ii) A が1勝1敗で残り2回が引き分けとなる確率は $\\dfrac{\\boxed{P}}{\\boxed{QR}}$。\n\n  (iii) A の勝った回数と B の勝った回数が等しい確率は $\\dfrac{\\boxed{ST}}{\\boxed{UV}}$。よって A の勝った回数が B の勝った回数より多い確率は $\\dfrac{\\boxed{WX}}{\\boxed{UV}}$。"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "Q1: $a=-6,\\ b=-24$, min $g=-33$; $x^2-2x-8=0\\Rightarrow x=-2$; $f-g$ is maximized as $27$ at $x=1$.  Q2: draw $=\\tfrac13$; P(A wins $\\ge 3$) $=\\tfrac19$; P(1 win, 1 loss, 2 draws) $=\\tfrac{4}{27}$; P(equal wins) $=\\tfrac{19}{81}$; P(A$>$B) $=\\tfrac{31}{81}$.  Boxes: A=6, BC=24, DE=33, F=2, G=8, H=2, I=1, JK=27, LM=13, NO=19, PQR=427, STUV=1981, WX=31.",
+        "ja": "Q1：$a=-6,\\ b=-24$，$g$ の最小値 $-33$；$x^2-2x-8=0\\Rightarrow x=-2$；$f-g$ は $x=1$ で最大値 $27$。 Q2：引き分け $\\tfrac13$；A が3回以上勝つ $\\tfrac19$；1勝1敗2引分 $\\tfrac{4}{27}$；勝数が等しい $\\tfrac{19}{81}$；A の勝数が多い $\\tfrac{31}{81}$。 解答：A=6, BC=24, DE=33, F=2, G=8, H=2, I=1, JK=27, LM=13, NO=19, PQR=427, STUV=1981, WX=31。"
+      },
+      "explanation": {
+        "en": "**Q1.** $g(x)=x^2+ax+b$ has its vertex at $x=-a/2$. Condition (i): $-a/2=3\\Rightarrow a=-6$. Condition (ii): $f(4)=-2\\cdot16=-32$ and $g(4)=16+4a+b=16-24+b=b-8$, so $b-8=-32\\Rightarrow b=-24$. Min of $g$ $=b-\\dfrac{a^2}{4}=-24-9=-33$.\n(2) $f=g:\\ -2x^2=x^2-6x-24\\Rightarrow 3x^2-6x-24=0\\Rightarrow x^2-2x-8=0\\Rightarrow (x-4)(x+2)=0$, so $x=-2$ (the root $\\ne 4$).\n(3) $f(x)-g(x)=-3x^2+6x+24$, a downward parabola with vertex at $x=1$ (inside $[-2,4]$); value $=-3+6+24=27$.\n\n**Q2.** Among the $9$ equally likely pairs, $3$ are draws and of the $6$ unequal pairs A is larger in $3$, so $P(\\text{draw})=P(\\text{A win})=P(\\text{B win})=\\tfrac13$.\n(i) $P=\\binom{4}{3}(\\tfrac13)^3(\\tfrac23)+(\\tfrac13)^4=\\tfrac{8}{81}+\\tfrac{1}{81}=\\tfrac{9}{81}=\\tfrac19$.\n(ii) Multinomial: $\\dfrac{4!}{1!\\,1!\\,2!}(\\tfrac13)^4=12\\cdot\\tfrac1{81}=\\tfrac{4}{27}$.\n(iii) Equal wins (0-0,1-1,2-2 with the rest draws): $\\tfrac{19}{81}$. By the A$\\leftrightarrow$B symmetry, $P(\\text{A}>\\text{B})=\\tfrac{1-19/81}{2}=\\tfrac{31}{81}$.",
+        "ja": "**Q1.** 頂点は $x=-a/2$。(i) より $-a/2=3\\Rightarrow a=-6$。(ii)：$f(4)=-32$，$g(4)=b-8$ なので $b=-24$。最小値 $=b-\\dfrac{a^2}{4}=-33$。(2) $-2x^2=x^2-6x-24\\Rightarrow x^2-2x-8=0\\Rightarrow (x-4)(x+2)=0$ より $x=-2$。(3) $f-g=-3x^2+6x+24$ は上に凸で頂点 $x=1$（区間内），値 $27$。\n**Q2.** 9通りのうち引き分け3通り，残り6通りで A が大きいのは3通り。よって各 $\\tfrac13$。(i) $\\binom{4}{3}(\\tfrac13)^3(\\tfrac23)+(\\tfrac13)^4=\\tfrac19$。(ii) $\\dfrac{4!}{1!1!2!}(\\tfrac13)^4=\\tfrac{4}{27}$。(iii) 勝数が等しい確率は $\\tfrac{19}{81}$，対称性より A の方が多い確率は $\\tfrac{31}{81}$。"
+      },
+      "blanks": [
+        { "label": "A", "value": "6" }, { "label": "BC", "value": "24" }, { "label": "DE", "value": "33" },
+        { "label": "FG", "value": "28" }, { "label": "H", "value": "2" }, { "label": "I", "value": "1" }, { "label": "JK", "value": "27" },
+        { "label": "LM", "value": "13" }, { "label": "NO", "value": "19" }, { "label": "PQR", "value": "427" }, { "label": "STUV", "value": "1981" }, { "label": "WX", "value": "31" }
+      ]
+    },
+    {
+      "id": "2021-1-math-c2-2",
+      "answerRow": 2,
+      "number": "II",
+      "topicId": "space-vectors",
+      "topicIds": ["space-vectors", "complex-figures"],
+      "subtopic": "Regular-tetrahedron vectors + triangle on the complex plane",
+      "patternTags": ["regular-tetrahedron", "position-vectors", "dot-product", "range-of-cosine", "complex-plane", "rotation-similarity"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "**Q1 — Vectors.** *(For $\\boxed{C},\\boxed{D},\\boxed{E},\\boxed{F},\\boxed{G}$ choose the correct expression from the list $⓪$–$⑨$ below; for the other boxes enter a number.)*\n\nConsider a regular tetrahedron $OABC$ with edges of length $1$. Let $0<x<1$, let $P$ divide $AB$ in the ratio $x:(1-x)$ and $Q$ divide $BC$ in the ratio $x:(1-x)$. Put $\\vec{a}=\\overrightarrow{OA},\\ \\vec{b}=\\overrightarrow{OB},\\ \\vec{c}=\\overrightarrow{OC}$. We find the range of $\\cos\\angle POQ$.\n\nThe vectors satisfy $\\vec a\\cdot\\vec b=\\vec b\\cdot\\vec c=\\vec c\\cdot\\vec a=\\dfrac{\\boxed{A}}{\\boxed{B}}$. We can write $\\overrightarrow{OP}=\\boxed{C}$ and $\\overrightarrow{OQ}=\\boxed{D}$, giving $|\\overrightarrow{OP}|^2=|\\overrightarrow{OQ}|^2=\\boxed{E}$ and $\\overrightarrow{OP}\\cdot\\overrightarrow{OQ}=\\boxed{F}$. Hence $\\cos\\angle POQ=\\dfrac{1}{\\boxed{G}}-\\dfrac{\\boxed{H}}{\\boxed{I}}$, and finally $\\dfrac{\\boxed{J}}{\\boxed{K}}<\\cos\\angle POQ\\le\\dfrac{\\boxed{L}}{\\boxed{M}}$.\n\nChoices: $⓪\\ (1-x)\\vec a+x\\vec b\\quad ①\\ x\\vec a+(1-x)\\vec b\\quad ②\\ (1-x)\\vec b+x\\vec c\\quad ③\\ x\\vec b+(1-x)\\vec c\\quad ④\\ x^2+x+1\\quad ⑤\\ x^2-x+1\\quad ⑥\\ x^2-x-1\\quad ⑦\\ \\tfrac12(-x^2+x+1)\\quad ⑧\\ \\tfrac12(-x^2-x+1)\\quad ⑨\\ \\tfrac12(-x^2+x-1)$\n\n**Q2 — Complex plane.** On the complex plane, triangle $ABC$ has vertices $A(\\alpha),B(\\beta),C(\\gamma)$ with $\\dfrac{\\gamma-\\alpha}{\\beta-\\alpha}=1-i$. (Take arguments in $0\\le\\theta<2\\pi$.)\n\n(1) In polar form $\\dfrac{\\gamma-\\alpha}{\\beta-\\alpha}=\\sqrt{\\boxed{N}}\\left(\\cos\\dfrac{\\boxed{O}}{\\boxed{P}}\\pi+i\\sin\\dfrac{\\boxed{O}}{\\boxed{P}}\\pi\\right)$. Thus $C$ is obtained from $B$ by rotating about $A$ through $\\dfrac{\\boxed{Q}}{\\boxed{R}}\\pi$ and scaling the distance from $A$ by $\\sqrt{\\boxed{S}}$. For $w=\\dfrac{\\gamma-\\beta}{\\alpha-\\beta}$ we have $|w|=\\boxed{T}$ and $\\arg w=\\dfrac{\\boxed{U}}{\\boxed{V}}\\pi$.\n\n(2) If $\\alpha+\\beta+\\gamma=0$, then $|\\alpha|:|\\beta|:|\\gamma|=\\sqrt{\\boxed{W}}:\\sqrt{\\boxed{X}}:\\sqrt{\\boxed{Y}}$."
+      },
+      "ja": {
+        "prompt": "**Q1 — ベクトル** *（$\\boxed{C},\\boxed{D},\\boxed{E},\\boxed{F},\\boxed{G}$ は下の選択肢 $⓪$〜$⑨$ から選び，他の空欄には数を入れよ。）*\n\n1辺の長さ $1$ の正四面体 $OABC$ を考える。$0<x<1$ とし，$P$ は辺 $AB$ を $x:(1-x)$ に，$Q$ は辺 $BC$ を $x:(1-x)$ に分ける点とする。$\\vec a=\\overrightarrow{OA},\\ \\vec b=\\overrightarrow{OB},\\ \\vec c=\\overrightarrow{OC}$ とおき，$\\cos\\angle POQ$ の値の範囲を求める。\n\n各ベクトルは $\\vec a\\cdot\\vec b=\\vec b\\cdot\\vec c=\\vec c\\cdot\\vec a=\\dfrac{\\boxed{A}}{\\boxed{B}}$ を満たす。$\\overrightarrow{OP}=\\boxed{C}$，$\\overrightarrow{OQ}=\\boxed{D}$ と表せ，$|\\overrightarrow{OP}|^2=|\\overrightarrow{OQ}|^2=\\boxed{E}$，$\\overrightarrow{OP}\\cdot\\overrightarrow{OQ}=\\boxed{F}$。よって $\\cos\\angle POQ=\\dfrac{1}{\\boxed{G}}-\\dfrac{\\boxed{H}}{\\boxed{I}}$，最終的に $\\dfrac{\\boxed{J}}{\\boxed{K}}<\\cos\\angle POQ\\le\\dfrac{\\boxed{L}}{\\boxed{M}}$。\n\n選択肢：$⓪\\ (1-x)\\vec a+x\\vec b\\quad ①\\ x\\vec a+(1-x)\\vec b\\quad ②\\ (1-x)\\vec b+x\\vec c\\quad ③\\ x\\vec b+(1-x)\\vec c\\quad ④\\ x^2+x+1\\quad ⑤\\ x^2-x+1\\quad ⑥\\ x^2-x-1\\quad ⑦\\ \\tfrac12(-x^2+x+1)\\quad ⑧\\ \\tfrac12(-x^2-x+1)\\quad ⑨\\ \\tfrac12(-x^2+x-1)$\n\n**Q2 — 複素数平面** 複素数平面上の三角形 $ABC$ の頂点 $A(\\alpha),B(\\beta),C(\\gamma)$ が $\\dfrac{\\gamma-\\alpha}{\\beta-\\alpha}=1-i$ を満たす。（偏角は $0\\le\\theta<2\\pi$ とする。）\n\n(1) 極形式で $\\dfrac{\\gamma-\\alpha}{\\beta-\\alpha}=\\sqrt{\\boxed{N}}\\left(\\cos\\dfrac{\\boxed{O}}{\\boxed{P}}\\pi+i\\sin\\dfrac{\\boxed{O}}{\\boxed{P}}\\pi\\right)$。よって $C$ は $B$ を $A$ のまわりに $\\dfrac{\\boxed{Q}}{\\boxed{R}}\\pi$ 回転し，$A$ からの距離を $\\sqrt{\\boxed{S}}$ 倍した点。$w=\\dfrac{\\gamma-\\beta}{\\alpha-\\beta}$ について $|w|=\\boxed{T}$，$\\arg w=\\dfrac{\\boxed{U}}{\\boxed{V}}\\pi$。\n\n(2) $\\alpha+\\beta+\\gamma=0$ ならば $|\\alpha|:|\\beta|:|\\gamma|=\\sqrt{\\boxed{W}}:\\sqrt{\\boxed{X}}:\\sqrt{\\boxed{Y}}$。"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "Q1: $\\vec a\\cdot\\vec b=\\tfrac12$; $\\overrightarrow{OP}=⓪,\\ \\overrightarrow{OQ}=②$; $|\\overrightarrow{OP}|^2=⑤\\ (x^2-x+1)$; $\\overrightarrow{OP}\\cdot\\overrightarrow{OQ}=⑦$; $\\cos\\angle POQ=\\dfrac1{x^2-x+1}-\\dfrac12$ (so G picks ⑤), and $\\tfrac12<\\cos\\angle POQ\\le\\tfrac56$.  Q2: $1-i=\\sqrt2(\\cos\\tfrac74\\pi+i\\sin\\tfrac74\\pi)$; rotation $\\tfrac74\\pi$, scale $\\sqrt2$; $w=i$ so $|w|=1,\\ \\arg w=\\tfrac12\\pi$; ratio $\\sqrt5:\\sqrt2:\\sqrt5$.  Boxes: AB=12, C=0, D=2, E=5, F=7, G=5, HI=12, JK=12, LM=56, N=2, OP=74, QR=74, S=2, T=1, UV=12, WXY=525.",
+        "ja": "Q1：$\\vec a\\cdot\\vec b=\\tfrac12$；$\\overrightarrow{OP}=⓪,\\ \\overrightarrow{OQ}=②$；$|\\overrightarrow{OP}|^2=⑤$；$\\overrightarrow{OP}\\cdot\\overrightarrow{OQ}=⑦$；$\\cos\\angle POQ=\\dfrac1{x^2-x+1}-\\dfrac12$，$\\tfrac12<\\cos\\angle POQ\\le\\tfrac56$。 Q2：$1-i=\\sqrt2(\\cos\\tfrac74\\pi+i\\sin\\tfrac74\\pi)$，回転 $\\tfrac74\\pi$・$\\sqrt2$ 倍；$w=i$ で $|w|=1,\\ \\arg w=\\tfrac12\\pi$；比 $\\sqrt5:\\sqrt2:\\sqrt5$。 解答：AB=12, C=0, D=2, E=5, F=7, G=5, HI=12, JK=12, LM=56, N=2, OP=74, QR=74, S=2, T=1, UV=12, WXY=525。"
+      },
+      "explanation": {
+        "en": "**Q1.** Unit edges at $60^\\circ$ give $\\vec a\\cdot\\vec b=\\cos60^\\circ=\\tfrac12$. $P$ divides $AB$ as $AP:PB=x:(1-x)$, so $\\overrightarrow{OP}=(1-x)\\vec a+x\\vec b\\ (⓪)$; likewise $\\overrightarrow{OQ}=(1-x)\\vec b+x\\vec c\\ (②)$. Then $|\\overrightarrow{OP}|^2=(1-x)^2+x^2+2x(1-x)\\tfrac12=x^2-x+1\\ (⑤)$. And $\\overrightarrow{OP}\\cdot\\overrightarrow{OQ}=\\tfrac12(-x^2+x+1)\\ (⑦)$. So $\\cos\\angle POQ=\\dfrac{\\tfrac12(-x^2+x+1)}{x^2-x+1}=\\dfrac{1}{x^2-x+1}-\\dfrac12$ (here $\\boxed{G}$ is choice ⑤ $=x^2-x+1$). For $0<x<1$, $x^2-x+1\\in[\\tfrac34,1)$, so $\\dfrac1{x^2-x+1}\\in(1,\\tfrac43]$ and $\\cos\\angle POQ\\in(\\tfrac12,\\tfrac56]$.\n\n**Q2.** $1-i$ has modulus $\\sqrt2$ and argument $-\\tfrac\\pi4\\equiv\\tfrac74\\pi$, so $1-i=\\sqrt2(\\cos\\tfrac74\\pi+i\\sin\\tfrac74\\pi)$; multiplying by it rotates by $\\tfrac74\\pi$ and scales by $\\sqrt2$. Taking $A=0,B=1$ gives $C=1-i$, so $w=\\dfrac{\\gamma-\\beta}{\\alpha-\\beta}=\\dfrac{(1-i)-1}{0-1}=\\dfrac{-i}{-1}=i$, hence $|w|=1,\\ \\arg w=\\tfrac\\pi2$. (2) With $\\alpha+\\beta+\\gamma=0$ the points are measured from the centroid; for $A=0,B=1,C=1-i$ the centroid is $\\tfrac{2-i}{3}$ and the distances to $A,B,C$ are $\\tfrac{\\sqrt5}{3},\\tfrac{\\sqrt2}{3},\\tfrac{\\sqrt5}{3}$, so $|\\alpha|:|\\beta|:|\\gamma|=\\sqrt5:\\sqrt2:\\sqrt5$.",
+        "ja": "**Q1.** 1辺が単位・なす角 $60^\\circ$ なので $\\vec a\\cdot\\vec b=\\tfrac12$。$AP:PB=x:(1-x)$ より $\\overrightarrow{OP}=(1-x)\\vec a+x\\vec b\\,(⓪)$，同様に $\\overrightarrow{OQ}=(1-x)\\vec b+x\\vec c\\,(②)$。$|\\overrightarrow{OP}|^2=x^2-x+1\\,(⑤)$，$\\overrightarrow{OP}\\cdot\\overrightarrow{OQ}=\\tfrac12(-x^2+x+1)\\,(⑦)$。よって $\\cos\\angle POQ=\\dfrac1{x^2-x+1}-\\dfrac12$（$\\boxed{G}$ は選択肢⑤）。$0<x<1$ で $x^2-x+1\\in[\\tfrac34,1)$ より $\\tfrac12<\\cos\\angle POQ\\le\\tfrac56$。\n**Q2.** $1-i$ は絶対値 $\\sqrt2$，偏角 $\\tfrac74\\pi$。$A=0,B=1$ とすると $C=1-i$，$w=\\dfrac{-i}{-1}=i$ で $|w|=1,\\ \\arg w=\\tfrac\\pi2$。(2) 重心を原点とみなすと $A,B,C$ から重心までの距離は $\\tfrac{\\sqrt5}{3},\\tfrac{\\sqrt2}{3},\\tfrac{\\sqrt5}{3}$，よって $\\sqrt5:\\sqrt2:\\sqrt5$。"
+      },
+      "blanks": [
+        { "label": "AB", "value": "12" }, { "label": "C", "value": "0" }, { "label": "D", "value": "2" }, { "label": "E", "value": "5" }, { "label": "F", "value": "7" }, { "label": "G", "value": "5" }, { "label": "HI", "value": "12" }, { "label": "JK", "value": "12" }, { "label": "LM", "value": "56" },
+        { "label": "N", "value": "2" }, { "label": "OP", "value": "74" }, { "label": "QR", "value": "74" }, { "label": "S", "value": "2" }, { "label": "T", "value": "1" }, { "label": "UV", "value": "12" }, { "label": "WXY", "value": "525" }
+      ]
+    },
+    {
+      "id": "2021-1-math-c2-3",
+      "answerRow": 3,
+      "number": "III",
+      "topicId": "differentiation",
+      "topicIds": ["differentiation", "exp-log"],
+      "subtopic": "Minimizing a symmetric exponential expression via t = 2^x + 2^{-x}",
+      "patternTags": ["substitution", "symmetric-exponential", "cubic-in-t", "derivative-extrema", "domain-restriction", "logarithm-recovery"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "We find the minimum value of\n$$f(x)=8^{x}+8^{-x}-3\\!\\left(4^{1+x}+4^{1-x}\\right)+24\\!\\left(2^{1+x}+2^{1-x}\\right)-24$$\nand the value of $x$ at which it occurs.\n\nSet $t=2^{x}+2^{-x}$. Then $4^{x}+4^{-x}=t^{2}-\\boxed{A}$ and $8^{x}+8^{-x}=t^{3}-\\boxed{B}\\,t$, so\n$$f(x)=t^{3}-\\boxed{CD}\\,t^{2}+\\boxed{EF}\\,t.$$\nWriting the right side as $g(t)$, its derivative is $g'(t)=\\boxed{G}\\,(t-\\boxed{H})(t-\\boxed{I})$ with $\\boxed{H}<\\boxed{I}$.\n\nSince $t=2^{x}+2^{-x}$, the range of $t$ is $t\\ge\\boxed{J}$. When $t=\\boxed{J}$, $g(\\boxed{J})=\\boxed{KL}$. For $t>\\boxed{J}$, $g(t)$ is locally maximized at $t=\\boxed{M}$ with local maximum $\\boxed{NO}$, and locally minimized at $t=\\boxed{P}$ with local minimum $\\boxed{QR}$.\n\nThus the minimum value of $f(x)$ is $\\boxed{ST}$, attained at $x=\\boxed{U}$ and at $x=\\log_{2}\\!\\left(\\boxed{V}\\pm\\sqrt{\\boxed{WX}}\\right)-\\boxed{Y}$."
+      },
+      "ja": {
+        "prompt": "次の関数の最小値と，それを与える $x$ の値を求める。\n$$f(x)=8^{x}+8^{-x}-3\\!\\left(4^{1+x}+4^{1-x}\\right)+24\\!\\left(2^{1+x}+2^{1-x}\\right)-24$$\n\n$t=2^{x}+2^{-x}$ とおく。すると $4^{x}+4^{-x}=t^{2}-\\boxed{A}$，$8^{x}+8^{-x}=t^{3}-\\boxed{B}\\,t$ となり，\n$$f(x)=t^{3}-\\boxed{CD}\\,t^{2}+\\boxed{EF}\\,t.$$\n右辺を $g(t)$ とおくと，$g'(t)=\\boxed{G}\\,(t-\\boxed{H})(t-\\boxed{I})$（$\\boxed{H}<\\boxed{I}$）。\n\n$t=2^{x}+2^{-x}$ より $t$ のとり得る範囲は $t\\ge\\boxed{J}$。$t=\\boxed{J}$ のとき $g(\\boxed{J})=\\boxed{KL}$。$t>\\boxed{J}$ では $g(t)$ は $t=\\boxed{M}$ で極大値 $\\boxed{NO}$，$t=\\boxed{P}$ で極小値 $\\boxed{QR}$ をとる。\n\nよって $f(x)$ の最小値は $\\boxed{ST}$ であり，$x=\\boxed{U}$ および $x=\\log_{2}\\!\\left(\\boxed{V}\\pm\\sqrt{\\boxed{WX}}\\right)-\\boxed{Y}$ で達成される。"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "$4^x+4^{-x}=t^2-2,\\ 8^x+8^{-x}=t^3-3t$; $g(t)=t^3-12t^2+45t$; $g'(t)=3(t-3)(t-5)$; $t\\ge2$, $g(2)=50$; local max $g(3)=54$, local min $g(5)=50$; minimum of $f$ is $50$ at $x=0$ and $x=\\log_2(5\\pm\\sqrt{21})-1$.  Boxes: A=2, B=3, CD=12, EF=45, G=3, H=3, I=5, J=2, KL=50, M=3, NO=54, P=5, QR=50, ST=50, U=0, V=5, WX=21, Y=1.",
+        "ja": "$4^x+4^{-x}=t^2-2,\\ 8^x+8^{-x}=t^3-3t$；$g(t)=t^3-12t^2+45t$；$g'(t)=3(t-3)(t-5)$；$t\\ge2$，$g(2)=50$；極大 $g(3)=54$，極小 $g(5)=50$；$f$ の最小値は $50$（$x=0$ および $x=\\log_2(5\\pm\\sqrt{21})-1$）。 解答：A=2, B=3, CD=12, EF=45, G=3, H=3, I=5, J=2, KL=50, M=3, NO=54, P=5, QR=50, ST=50, U=0, V=5, WX=21, Y=1。"
+      },
+      "explanation": {
+        "en": "From $(2^x+2^{-x})^2=4^x+2+4^{-x}$ we get $4^x+4^{-x}=t^2-2$; from $(2^x+2^{-x})^3=8^x+8^{-x}+3(2^x+2^{-x})$ we get $8^x+8^{-x}=t^3-3t$. Also $4^{1+x}+4^{1-x}=4(t^2-2)$ and $2^{1+x}+2^{1-x}=2t$. Substituting, $f=(t^3-3t)-12(t^2-2)+48t-24=t^3-12t^2+45t=g(t)$. Then $g'(t)=3t^2-24t+45=3(t-3)(t-5)$. By AM–GM $t=2^x+2^{-x}\\ge2$ (equality at $x=0$). On $[2,\\infty)$: $g(2)=50$, $g$ rises to a local max $g(3)=54$, falls to a local min $g(5)=50$, then rises. So the global minimum on $t\\ge2$ is $50$, reached at $t=2$ and $t=5$. $t=2\\Rightarrow x=0$. $t=5\\Rightarrow 2^x+2^{-x}=5\\Rightarrow (2^x)^2-5\\cdot2^x+1=0\\Rightarrow 2^x=\\tfrac{5\\pm\\sqrt{21}}{2}\\Rightarrow x=\\log_2(5\\pm\\sqrt{21})-1$.",
+        "ja": "$(2^x+2^{-x})^2$ より $4^x+4^{-x}=t^2-2$，$(2^x+2^{-x})^3$ より $8^x+8^{-x}=t^3-3t$。また $4^{1+x}+4^{1-x}=4(t^2-2)$，$2^{1+x}+2^{1-x}=2t$。代入して $f=t^3-12t^2+45t=g(t)$。$g'(t)=3(t-3)(t-5)$。相加相乗平均より $t\\ge2$（等号 $x=0$）。$[2,\\infty)$ で $g(2)=50$，極大 $g(3)=54$，極小 $g(5)=50$。最小値は $50$（$t=2,5$）。$t=2\\Rightarrow x=0$。$t=5\\Rightarrow 2^x=\\tfrac{5\\pm\\sqrt{21}}{2}\\Rightarrow x=\\log_2(5\\pm\\sqrt{21})-1$。"
+      },
+      "blanks": [
+        { "label": "A", "value": "2" }, { "label": "B", "value": "3" }, { "label": "CD", "value": "12" }, { "label": "EF", "value": "45" }, { "label": "G", "value": "3" }, { "label": "H", "value": "3" }, { "label": "I", "value": "5" }, { "label": "J", "value": "2" }, { "label": "KL", "value": "50" }, { "label": "M", "value": "3" }, { "label": "NO", "value": "54" }, { "label": "P", "value": "5" }, { "label": "QR", "value": "50" }, { "label": "ST", "value": "50" }, { "label": "U", "value": "0" }, { "label": "V", "value": "5" }, { "label": "WX", "value": "21" }, { "label": "Y", "value": "1" }
+      ]
+    },
+    {
+      "id": "2021-1-math-c2-4",
+      "answerRow": 4,
+      "number": "IV",
+      "topicId": "integration",
+      "topicIds": ["integration", "trig-functions"],
+      "subtopic": "Areas between y = sin^2 x and y = k cos 2x; difference independent of k",
+      "patternTags": ["area-between-curves", "definite-integral", "trig-identity", "parameter-independence", "proof"],
+      "hasFigure": false,
+      "en": {
+        "prompt": "Let $k$ be a positive real number and consider the two curves $C_1:\\ y=\\sin^2 x$ and $C_2:\\ y=k\\cos 2x$ on $0\\le x\\le\\dfrac{\\pi}{2}$. Let $S_1$ be the area bounded by $C_1,C_2$ and the $y$-axis, and $S_2$ the area bounded by $C_1,C_2$ and the line $x=\\dfrac{\\pi}{2}$. We show $S_2-S_1$ is constant (independent of $k$).\n\nLet $\\alpha$ satisfy $\\sin^2 x=k\\cos 2x$. Then $\\sin\\alpha=\\dfrac{\\sqrt{k}}{\\sqrt{\\boxed{A}k+\\boxed{B}}}$ and $\\cos\\alpha=\\sqrt{\\dfrac{k+\\boxed{C}}{\\boxed{D}k+\\boxed{E}}}$.\n\nThen $S_1=\\dfrac{\\boxed{F}}{\\boxed{G}}\\displaystyle\\int_0^{\\alpha}\\!\\big((\\boxed{H}k+\\boxed{I})\\cos\\boxed{J}x-1\\big)\\,dx=\\dfrac{\\boxed{K}}{\\boxed{L}}\\big(\\sqrt{k(k+\\boxed{M})}-\\alpha\\big)$, and $S_2=\\dfrac{\\boxed{N}}{\\boxed{O}}\\big(\\sqrt{k(k+\\boxed{P})}-\\alpha\\big)+\\dfrac{\\pi}{\\boxed{Q}}$.\n\nHence $S_2-S_1=\\dfrac{\\pi}{\\boxed{R}}$, which is independent of $k$."
+      },
+      "ja": {
+        "prompt": "$k$ を正の実数とし，$0\\le x\\le\\dfrac{\\pi}{2}$ における2曲線 $C_1:\\ y=\\sin^2 x$，$C_2:\\ y=k\\cos 2x$ を考える。$C_1,C_2$ と $y$ 軸で囲まれた部分の面積を $S_1$，$C_1,C_2$ と直線 $x=\\dfrac{\\pi}{2}$ で囲まれた部分の面積を $S_2$ とする。$S_2-S_1$ が $k$ によらず一定であることを示す。\n\n$\\sin^2 x=k\\cos 2x$ を満たす $x$ を $\\alpha$ とすると，$\\sin\\alpha=\\dfrac{\\sqrt{k}}{\\sqrt{\\boxed{A}k+\\boxed{B}}}$，$\\cos\\alpha=\\sqrt{\\dfrac{k+\\boxed{C}}{\\boxed{D}k+\\boxed{E}}}$。\n\nこのとき $S_1=\\dfrac{\\boxed{F}}{\\boxed{G}}\\displaystyle\\int_0^{\\alpha}\\!\\big((\\boxed{H}k+\\boxed{I})\\cos\\boxed{J}x-1\\big)\\,dx=\\dfrac{\\boxed{K}}{\\boxed{L}}\\big(\\sqrt{k(k+\\boxed{M})}-\\alpha\\big)$，$S_2=\\dfrac{\\boxed{N}}{\\boxed{O}}\\big(\\sqrt{k(k+\\boxed{P})}-\\alpha\\big)+\\dfrac{\\pi}{\\boxed{Q}}$。\n\nよって $S_2-S_1=\\dfrac{\\pi}{\\boxed{R}}$ となり，$k$ によらず一定である。"
+      },
+      "answerIndex": -1,
+      "answer": {
+        "en": "$\\cos2\\alpha=\\tfrac1{2k+1}$, so $\\sin\\alpha=\\tfrac{\\sqrt k}{\\sqrt{2k+1}}$, $\\cos\\alpha=\\sqrt{\\tfrac{k+1}{2k+1}}$; $S_1=\\tfrac12\\!\\int_0^\\alpha((2k+1)\\cos2x-1)dx=\\tfrac12(\\sqrt{k(k+1)}-\\alpha)$, $S_2=\\tfrac12(\\sqrt{k(k+1)}-\\alpha)+\\tfrac\\pi4$; $S_2-S_1=\\tfrac\\pi4$.  Boxes: AB=21, CDE=121, FG=12, HIJ=212, KLM=121, NOP=121, Q=4, R=4.",
+        "ja": "$\\cos2\\alpha=\\tfrac1{2k+1}$ より $\\sin\\alpha=\\tfrac{\\sqrt k}{\\sqrt{2k+1}}$，$\\cos\\alpha=\\sqrt{\\tfrac{k+1}{2k+1}}$；$S_1=\\tfrac12(\\sqrt{k(k+1)}-\\alpha)$，$S_2=\\tfrac12(\\sqrt{k(k+1)}-\\alpha)+\\tfrac\\pi4$；$S_2-S_1=\\tfrac\\pi4$。 解答：AB=21, CDE=121, FG=12, HIJ=212, KLM=121, NOP=121, Q=4, R=4。"
+      },
+      "explanation": {
+        "en": "Using $\\sin^2x=\\tfrac{1-\\cos2x}{2}$, the intersection gives $\\tfrac{1-\\cos2x}{2}=k\\cos2x\\Rightarrow\\cos2\\alpha=\\tfrac1{2k+1}$. Then $\\sin^2\\alpha=\\tfrac{1-\\cos2\\alpha}{2}=\\tfrac{k}{2k+1}$ and $\\cos^2\\alpha=\\tfrac{k+1}{2k+1}$. Near $x=0$, $C_2$ lies above $C_1$, so $S_1=\\int_0^\\alpha(k\\cos2x-\\sin^2x)dx=\\tfrac12\\int_0^\\alpha((2k+1)\\cos2x-1)dx=\\tfrac12\\big(\\sqrt{k(k+1)}-\\alpha\\big)$ (using $\\sin2\\alpha=\\tfrac{2\\sqrt{k(k+1)}}{2k+1}$). Beyond $\\alpha$, $C_1$ is above $C_2$, giving $S_2=\\tfrac12\\big(\\sqrt{k(k+1)}-\\alpha\\big)+\\tfrac\\pi4$. Most directly, $S_2-S_1=\\int_0^{\\pi/2}(\\sin^2x-k\\cos2x)dx=\\tfrac\\pi4-k\\cdot0=\\tfrac\\pi4$, independent of $k$.",
+        "ja": "$\\sin^2x=\\tfrac{1-\\cos2x}{2}$ より交点で $\\cos2\\alpha=\\tfrac1{2k+1}$。よって $\\sin^2\\alpha=\\tfrac{k}{2k+1}$，$\\cos^2\\alpha=\\tfrac{k+1}{2k+1}$。$x=0$ 付近では $C_2$ が上なので $S_1=\\int_0^\\alpha(k\\cos2x-\\sin^2x)dx=\\tfrac12(\\sqrt{k(k+1)}-\\alpha)$。$\\alpha$ より先では $C_1$ が上で $S_2=\\tfrac12(\\sqrt{k(k+1)}-\\alpha)+\\tfrac\\pi4$。簡明には $S_2-S_1=\\int_0^{\\pi/2}(\\sin^2x-k\\cos2x)dx=\\tfrac\\pi4$ で $k$ によらない。"
+      },
+      "blanks": [
+        { "label": "AB", "value": "21" }, { "label": "CDE", "value": "121" }, { "label": "FG", "value": "12" }, { "label": "HIJ", "value": "212" }, { "label": "KLM", "value": "121" }, { "label": "NOP", "value": "121" }, { "label": "Q", "value": "4" }, { "label": "R", "value": "4" }
+      ]
+    }
+  ]
+}

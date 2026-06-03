@@ -216,9 +216,14 @@ function loadRichExams(): RichExam[] {
 }
 
 /** Localize one rich question into the flat MockQuestion shape (en for zh/tr). */
-function richToMockQuestion(q: RichQuestion, lang: Lang): MockQuestion {
+function richToMockQuestion(q: RichQuestion, lang: Lang, subject: Subject): MockQuestion {
   const loc: 'ja' | 'en' = lang === 'ja' ? 'ja' : 'en';
-  const block = q.topicId ? pick(BLOCK_NAME[q.topicId] ?? { en: q.topicId, ja: q.topicId }, lang) : '';
+  // Prefer the short-id block name (physics/chem), else the syllabus topic name.
+  const block = q.topicId
+    ? BLOCK_NAME[q.topicId]
+      ? pick(BLOCK_NAME[q.topicId], lang)
+      : labelFor(subject, q.topicId, lang)
+    : '';
   const topic = [block, q.subtopic].filter(Boolean).join(' · ');
   let prompt = q[loc]?.prompt ?? q.en.prompt;
   const fig = q.figure?.[loc] ?? q.figure?.en;
@@ -237,7 +242,7 @@ function richToMockQuestion(q: RichQuestion, lang: Lang): MockQuestion {
 
 function richToMockExam(ex: RichExam, lang: Lang): MockExam {
   const { questions, ...meta } = ex;
-  return { ...meta, questions: questions.map((q) => richToMockQuestion(q, lang)) };
+  return { ...meta, questions: questions.map((q) => richToMockQuestion(q, lang, ex.subject)) };
 }
 
 /** Legacy + rich exams merged by id (rich wins), localized to `lang`. */
