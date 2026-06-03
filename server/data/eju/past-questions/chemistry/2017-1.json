@@ -1,0 +1,276 @@
+{
+  "id": "2017-1-chemistry",
+  "year": 2017,
+  "session": 1,
+  "subject": "chemistry",
+  "title": "EJU 2017 · Session 1 · Chemistry",
+  "source": "平成29年度（2017年度）日本留学試験（第1回）理科〈化学〉 © Japan Student Services Organization (JASSO)",
+  "attribution": "EJU past questions © JASSO. Question text paraphrased from the official past paper; figures described in text; correct answers taken from the official JASSO answer key and independently re-solved for verification.",
+  "languages": ["ja", "en"],
+  "answerKeyVerified": true,
+  "structure": {
+    "format": "flat",
+    "totalQuestions": 20,
+    "note": "Chemistry is a flat list of 20 single-best-answer items (問1–問20, answer rows 1–20) — no Roman-numeral blocks. Order ≈ structure & bonding → states/energetics/electrochemistry/equilibria → inorganic → organic.",
+    "givens": {
+      "ja": "標準状態 $0\\,$°C・$1.0\\times10^5\\,$Pa，気体 $1\\,$mol の体積 $22.4\\,$L，気体定数 $R=8.31\\times10^3\\,$Pa·L/(K·mol)，アボガドロ定数 $N_A=6.02\\times10^{23}\\,$/mol，ファラデー定数 $F=9.65\\times10^4\\,$C/mol。原子量：H 1.0, C 12, N 14, O 16, Na 23, S 32, Cl 35.5, Ca 40, Pb 207。族・周期は周期表の通り。",
+      "en": "STP $0\\,$°C, $1.0\\times10^5\\,$Pa; molar volume $22.4\\,$L; $R=8.31\\times10^3\\,$Pa·L/(K·mol); $N_A=6.02\\times10^{23}\\,$/mol; $F=9.65\\times10^4\\,$C/mol. Atomic weights: H 1.0, C 12, N 14, O 16, Na 23, S 32, Cl 35.5, Ca 40, Pb 207. Groups/periods per the periodic table."
+    }
+  },
+  "questions": [
+    {
+      "id": "2017-1-chem-1", "answerRow": 1, "topicId": "matter-structure",
+      "subtopic": "Molecule with equal bonding and lone pairs",
+      "patternTags": ["chemical-bonds", "shared-pairs", "lone-pairs", "compare-cases"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の分子①〜⑤のうち，共有電子対の数と非共有電子対の数が等しいものを選びなさい。 ① $\\mathrm{N_2}$ ② $\\mathrm{Cl_2}$ ③ $\\mathrm{CH_4}$ ④ $\\mathrm{NH_3}$ ⑤ $\\mathrm{H_2O}$", "choices": ["$\\mathrm{N_2}$", "$\\mathrm{Cl_2}$", "$\\mathrm{CH_4}$", "$\\mathrm{NH_3}$", "$\\mathrm{H_2O}$"] },
+      "en": { "prompt": "Which molecule has equal numbers of shared (bonding) electron pairs and unshared (lone) pairs? ① $\\mathrm{N_2}$ ② $\\mathrm{Cl_2}$ ③ $\\mathrm{CH_4}$ ④ $\\mathrm{NH_3}$ ⑤ $\\mathrm{H_2O}$", "choices": ["$\\mathrm{N_2}$", "$\\mathrm{Cl_2}$", "$\\mathrm{CH_4}$", "$\\mathrm{NH_3}$", "$\\mathrm{H_2O}$"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "⑤ $\\mathrm{H_2O}$（共有 2 対・非共有 2 対）", "en": "⑤ $\\mathrm{H_2O}$ (2 bonding, 2 lone)" },
+      "explanation": { "en": "$\\mathrm{H_2O}$ has 2 O–H bonds (2 shared pairs) and 2 lone pairs on O — equal. Others differ: $\\mathrm{N_2}$ 3/2, $\\mathrm{Cl_2}$ 1/6, $\\mathrm{CH_4}$ 4/0, $\\mathrm{NH_3}$ 3/1.", "ja": "$\\mathrm{H_2O}$ は O–H 結合 2 本（共有 2 対）と O 上の非共有 2 対で等しい。他は不一致：$\\mathrm{N_2}$ 3/2，$\\mathrm{Cl_2}$ 1/6，$\\mathrm{CH_4}$ 4/0，$\\mathrm{NH_3}$ 3/1。" }
+    },
+    {
+      "id": "2017-1-chem-2", "answerRow": 2, "topicId": "matter-structure",
+      "subtopic": "Two correct statements about elements and ions",
+      "patternTags": ["atomic-structure", "ionization-energy", "electron-affinity", "ionic-radius", "true-false-combo"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "周期表の第 3 周期までの元素やそのイオンに関する記述(a)〜(e)のうち，正しいものが二つある。その組み合わせを選びなさい。 (a) C と Si は L 殻の電子数が等しい。 (b) $\\mathrm{F^-}$ と $\\mathrm{Al^{3+}}$ の電子数は互いに等しい。 (c) Li は He よりもイオン化エネルギーが大きい。 (d) F は O よりも電子親和力が大きい。 (e) $\\mathrm{Mg^{2+}}$ は $\\mathrm{O^{2-}}$ よりイオン半径が大きい。", "choices": ["a, b", "a, c", "a, e", "b, d", "c, d", "d, e"] },
+      "en": { "prompt": "Among elements up to period 3 and their ions, two statements are correct. Which pair? (a) C and Si have equal numbers of L-shell electrons. (b) $\\mathrm{F^-}$ and $\\mathrm{Al^{3+}}$ have equal electron counts. (c) Li has a larger ionization energy than He. (d) F has a larger electron affinity than O. (e) $\\mathrm{Mg^{2+}}$ has a larger ionic radius than $\\mathrm{O^{2-}}$.", "choices": ["a, b", "a, c", "a, e", "b, d", "c, d", "d, e"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "b と d", "en": "b and d" },
+      "explanation": { "en": "(b) True — $\\mathrm{F^-}=10$ and $\\mathrm{Al^{3+}}=10$ electrons. (d) True — fluorine's electron affinity exceeds oxygen's. (a) False — C has 4 L-shell electrons, Si has 8. (c) False — He (noble gas) has a far larger ionization energy. (e) False — isoelectronic $\\mathrm{Mg^{2+}}$ has more protons, so it is SMALLER than $\\mathrm{O^{2-}}$.", "ja": "(b) 正 — $\\mathrm{F^-}=10$，$\\mathrm{Al^{3+}}=10$ 電子。(d) 正 — フッ素の電子親和力は酸素より大。(a) 誤 — C の L 殻は 4，Si は 8。(c) 誤 — He（希ガス）のイオン化エネルギーがはるかに大。(e) 誤 — 等電子で $\\mathrm{Mg^{2+}}$ は陽子が多く $\\mathrm{O^{2-}}$ より小さい。" }
+    },
+    {
+      "id": "2017-1-chem-3", "answerRow": 3, "topicId": "inorganic",
+      "subtopic": "Two elements forming an XO2 oxide",
+      "patternTags": ["inorganic", "oxides", "oxidation-state", "compare-cases"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "ある元素 X と酸素 O は化合物 $\\mathrm{XO_2}$ を形成する。この条件を満たす元素 X が(a)〜(e)のうち二つある。その組み合わせを選びなさい。 (a) Al (b) Fe (c) Mg (d) Mn (e) Si", "choices": ["a, b", "a, d", "b, c", "b, d", "c, e", "d, e"] },
+      "en": { "prompt": "Element X and oxygen form the compound $\\mathrm{XO_2}$. Two of (a)–(e) satisfy this. Which pair? (a) Al (b) Fe (c) Mg (d) Mn (e) Si", "choices": ["a, b", "a, d", "b, c", "b, d", "c, e", "d, e"] },
+      "answerIndex": 5, "answerOption": 6, "answer": { "ja": "d と e（$\\mathrm{MnO_2}$，$\\mathrm{SiO_2}$）", "en": "d and e ($\\mathrm{MnO_2}$, $\\mathrm{SiO_2}$)" },
+      "explanation": { "en": "$\\mathrm{XO_2}$ needs X in the +4 state: manganese forms $\\mathrm{MnO_2}$ and silicon forms $\\mathrm{SiO_2}$. Al gives $\\mathrm{Al_2O_3}$ (+3), Mg gives MgO (+2), and Fe gives FeO/$\\mathrm{Fe_2O_3}$.", "ja": "$\\mathrm{XO_2}$ には X が +4：マンガンは $\\mathrm{MnO_2}$，ケイ素は $\\mathrm{SiO_2}$。Al は $\\mathrm{Al_2O_3}$（+3），Mg は MgO（+2），Fe は FeO/$\\mathrm{Fe_2O_3}$。" }
+    },
+    {
+      "id": "2017-1-chem-4", "answerRow": 4, "topicId": "states-and-change",
+      "subtopic": "Gas with the highest pressure at fixed V and T",
+      "patternTags": ["gas-laws", "mole-concept", "ideal-gas", "compare-cases"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の気体①〜⑤を，それぞれ同じ容積の容器に入れて同じ温度に保ったとき，最も圧力が高くなるものを選びなさい。いずれも理想気体とする。 ① $2.8\\,$g の $\\mathrm{C_2H_4}$ ② $3.4\\,$g の $\\mathrm{H_2S}$ ③ $4.5\\,$g の NO ④ $1.4\\,$g の CO ⑤ $3.4\\,$g の $\\mathrm{NH_3}$", "choices": ["$2.8\\,$g の $\\mathrm{C_2H_4}$", "$3.4\\,$g の $\\mathrm{H_2S}$", "$4.5\\,$g の NO", "$1.4\\,$g の CO", "$3.4\\,$g の $\\mathrm{NH_3}$"] },
+      "en": { "prompt": "Each gas is placed in an identical container at the same temperature. Which gives the highest pressure (all ideal)? ① $2.8\\,$g $\\mathrm{C_2H_4}$ ② $3.4\\,$g $\\mathrm{H_2S}$ ③ $4.5\\,$g NO ④ $1.4\\,$g CO ⑤ $3.4\\,$g $\\mathrm{NH_3}$", "choices": ["$2.8\\,$g $\\mathrm{C_2H_4}$", "$3.4\\,$g $\\mathrm{H_2S}$", "$4.5\\,$g NO", "$1.4\\,$g CO", "$3.4\\,$g $\\mathrm{NH_3}$"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "⑤ $3.4\\,$g の $\\mathrm{NH_3}$（$0.20\\,$mol）", "en": "⑤ $3.4\\,$g $\\mathrm{NH_3}$ (0.20 mol)" },
+      "explanation": { "en": "At fixed $V,T$, pressure $\\propto$ moles. Moles: $\\mathrm{C_2H_4}=0.10$, $\\mathrm{H_2S}=0.10$, NO $=0.15$, CO $=0.05$, $\\mathrm{NH_3}=3.4/17=0.20$. $\\mathrm{NH_3}$ has the most moles, so the highest pressure.", "ja": "一定 $V,T$ で圧力 ∝ mol。mol：$\\mathrm{C_2H_4}=0.10$，$\\mathrm{H_2S}=0.10$，NO $=0.15$，CO $=0.05$，$\\mathrm{NH_3}=3.4/17=0.20$。$\\mathrm{NH_3}$ が最多 mol で最高圧。" }
+    },
+    {
+      "id": "2017-1-chem-5", "answerRow": 5, "topicId": "states-and-change",
+      "subtopic": "O2:CO2 ratio in methanol combustion",
+      "patternTags": ["stoichiometry", "combustion", "mole-ratio", "plug-in-numbers"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "メタノールが完全燃焼するとき，反応する酸素 $\\mathrm{O_2}$ と生成する二酸化炭素 $\\mathrm{CO_2}$ の物質量の比 $(\\mathrm{O_2}:\\mathrm{CO_2})$ として正しいものを選びなさい。", "choices": ["4 : 1", "3 : 1", "2 : 1", "3 : 2", "4 : 3", "1 : 1"] },
+      "en": { "prompt": "When methanol is completely combusted, what is the mole ratio of $\\mathrm{O_2}$ reacted to $\\mathrm{CO_2}$ produced $(\\mathrm{O_2}:\\mathrm{CO_2})$?", "choices": ["4 : 1", "3 : 1", "2 : 1", "3 : 2", "4 : 3", "1 : 1"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "3 : 2", "en": "3 : 2" },
+      "explanation": { "en": "$\\mathrm{2CH_3OH+3O_2\\to2CO_2+4H_2O}$, so $\\mathrm{O_2}:\\mathrm{CO_2}=3:2$.", "ja": "$\\mathrm{2CH_3OH+3O_2\\to2CO_2+4H_2O}$ なので $\\mathrm{O_2}:\\mathrm{CO_2}=3:2$。" }
+    },
+    {
+      "id": "2017-1-chem-6", "answerRow": 6, "topicId": "states-and-change",
+      "subtopic": "Mass percent of a saturated KNO3 solution",
+      "patternTags": ["solubility", "mass-percent", "plug-in-numbers"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "$20\\,$°C の水 $100\\,$g に対する硝酸カリウム $\\mathrm{KNO_3}$ の溶解度は $32\\,$g である。$20\\,$°C での $\\mathrm{KNO_3}$ 飽和水溶液の質量パーセント濃度は何 % か。最も近い値を選びなさい。", "choices": ["3.1", "4.1", "24", "32", "47"] },
+      "en": { "prompt": "The solubility of $\\mathrm{KNO_3}$ at $20\\,$°C is $32\\,$g per $100\\,$g water. What is the mass percent concentration of the saturated solution at $20\\,$°C?", "choices": ["3.1", "4.1", "24", "32", "47"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "約 24%", "en": "≈ 24%" },
+      "explanation": { "en": "A saturated solution is $32\\,$g $\\mathrm{KNO_3}$ in $100\\,$g water $=132\\,$g solution. Mass percent $=32/132\\approx24\\%$.", "ja": "飽和溶液は $\\mathrm{KNO_3}\\ 32\\,$g＋水 $100\\,$g＝溶液 $132\\,$g。質量% $=32/132\\approx24\\%$。" }
+    },
+    {
+      "id": "2017-1-chem-7", "answerRow": 7, "topicId": "states-and-change",
+      "subtopic": "Pressure after pyrolysis of NaHCO3 in a sealed vessel",
+      "patternTags": ["stoichiometry", "gas-laws", "partial-pressure", "decomposition", "plug-in-numbers"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "炭酸水素ナトリウム $\\mathrm{NaHCO_3}\\ 4.2\\,$g を，窒素 $\\mathrm{N_2}$（$27\\,$°C, $1.0\\times10^5\\,$Pa）で満たされた $1.0\\,$L の容器に入れて密閉し，$327\\,$°C に加熱したところ $\\mathrm{2NaHCO_3\\to Na_2CO_3+H_2O+CO_2}$ が完結した。容器内の圧力は $327\\,$°C で何 Pa か。固体の体積は無視でき，生成する $\\mathrm{CO_2}$，$\\mathrm{H_2O}$ は理想気体とする。", "choices": ["$1.2\\times10^5$", "$2.5\\times10^5$", "$3.2\\times10^5$", "$4.5\\times10^5$", "$5.0\\times10^5$", "$7.0\\times10^5$"] },
+      "en": { "prompt": "$4.2\\,$g of $\\mathrm{NaHCO_3}$ in a sealed $1.0\\,$L vessel filled with $\\mathrm{N_2}$ ($27\\,$°C, $1.0\\times10^5\\,$Pa) is heated to $327\\,$°C, where $\\mathrm{2NaHCO_3\\to Na_2CO_3+H_2O+CO_2}$ completes. What is the pressure at $327\\,$°C? (Solid volume negligible; $\\mathrm{CO_2}$, $\\mathrm{H_2O}$ ideal.)", "choices": ["$1.2\\times10^5$", "$2.5\\times10^5$", "$3.2\\times10^5$", "$4.5\\times10^5$", "$5.0\\times10^5$", "$7.0\\times10^5$"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "約 $4.5\\times10^5\\,$Pa", "en": "≈ $4.5\\times10^5$ Pa" },
+      "explanation": { "en": "$\\mathrm{N_2}$ alone at $600\\,$K: $1.0\\times10^5\\times\\dfrac{600}{300}=2.0\\times10^5\\,$Pa. $\\mathrm{NaHCO_3}=4.2/84=0.050\\,$mol → $0.025\\,$mol $\\mathrm{H_2O}+0.025\\,$mol $\\mathrm{CO_2}=0.050\\,$mol gas. Their pressure $=\\dfrac{nRT}{V}=\\dfrac{0.050\\times8.31\\times10^3\\times600}{1.0}\\approx2.5\\times10^5\\,$Pa. Total $\\approx2.0+2.5=4.5\\times10^5\\,$Pa.", "ja": "$\\mathrm{N_2}$ だけで $600\\,$K：$1.0\\times10^5\\times\\dfrac{600}{300}=2.0\\times10^5\\,$Pa。$\\mathrm{NaHCO_3}=4.2/84=0.050\\,$mol → $\\mathrm{H_2O}\\ 0.025+\\mathrm{CO_2}\\ 0.025=0.050\\,$mol の気体。その圧力 $=\\dfrac{nRT}{V}=\\dfrac{0.050\\times8.31\\times10^3\\times600}{1.0}\\approx2.5\\times10^5\\,$Pa。合計 $\\approx2.0+2.5=4.5\\times10^5\\,$Pa。" }
+    },
+    {
+      "id": "2017-1-chem-8", "answerRow": 8, "topicId": "states-and-change",
+      "subtopic": "Operations shifting acetic-acid equilibrium right",
+      "patternTags": ["acids-bases", "equilibrium", "le-chatelier", "common-ion", "true-false-combo"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "酢酸の電離平衡 $\\mathrm{CH_3COOH+H_2O\\rightleftharpoons CH_3COO^-+H_3O^+}$ について，次の操作(a)〜(d)のうち平衡が右に移動するものが二つある。その組み合わせを選びなさい。 (a) 水を加える。 (b) 酢酸ナトリウム $\\mathrm{CH_3COONa}$ を加える。 (c) 水酸化ナトリウム NaOH を加える。 (d) 塩化水素 HCl を通じる。", "choices": ["a, b", "a, c", "a, d", "b, c", "b, d", "c, d"] },
+      "en": { "prompt": "For $\\mathrm{CH_3COOH+H_2O\\rightleftharpoons CH_3COO^-+H_3O^+}$, two of these operations shift the equilibrium to the right. Which pair? (a) add water. (b) add sodium acetate $\\mathrm{CH_3COONa}$. (c) add NaOH. (d) bubble in HCl.", "choices": ["a, b", "a, c", "a, d", "b, c", "b, d", "c, d"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "a と c", "en": "a and c" },
+      "explanation": { "en": "(a) Diluting with water increases the degree of dissociation (shifts right). (c) NaOH consumes $\\mathrm{H_3O^+}$, pulling the equilibrium right. (b) Sodium acetate adds the common ion $\\mathrm{CH_3COO^-}$ (shifts left); (d) HCl adds $\\mathrm{H_3O^+}$ (shifts left).", "ja": "(a) 水で薄めると電離度が増し右へ。(c) NaOH が $\\mathrm{H_3O^+}$ を消費し右へ。(b) 酢酸ナトリウムは共通イオン $\\mathrm{CH_3COO^-}$ を加え左へ，(d) HCl は $\\mathrm{H_3O^+}$ を加え左へ。" }
+    },
+    {
+      "id": "2017-1-chem-9", "answerRow": 9, "topicId": "states-and-change",
+      "subtopic": "Identify acids/base from titration curves",
+      "patternTags": ["acids-bases", "titration-curve", "strong-weak", "polyprotic", "figure-reading"], "hasFigure": true,
+      "figure": { "ja": "操作 A：$0.1\\,$mol/L の X $10\\,$mL に $0.1\\,$mol/L の Z を加えた滴定曲線 a（初め pH≈3.5，中和点 $10\\,$mL で pH が塩基性側へ急上昇）。操作 B：$0.1\\,$mol/L の Y $10\\,$mL に Z を加えた曲線 b（初め pH≈1，中和点 $20\\,$mL）。表は X/Y/Z の組み合わせ①〜⑥。", "en": "Operation A: $10\\,$mL of $0.1\\,$mol/L X titrated with $0.1\\,$mol/L Z gives curve a (starts pH≈3.5, jump at $10\\,$mL to the basic side). Operation B: $10\\,$mL of $0.1\\,$mol/L Y with Z gives curve b (starts pH≈1, jump at $20\\,$mL). The table lists X/Y/Z combinations ①–⑥." },
+      "ja": { "prompt": "操作 A・B から滴定曲線 a, b を得た。X, Y, Z の組み合わせとして正しいものを選びなさい。（a：中和点 $10\\,$mL・初め pH≈3.5，b：中和点 $20\\,$mL・初め pH≈1）", "choices": ["X:HCl Y:$\\mathrm{H_2SO_4}$ Z:$\\mathrm{NH_3}$", "X:HCl Y:$\\mathrm{H_2SO_4}$ Z:NaOH", "X:$\\mathrm{CH_3COOH}$ Y:HCl Z:$\\mathrm{NH_3}$", "X:$\\mathrm{CH_3COOH}$ Y:HCl Z:NaOH", "X:$\\mathrm{CH_3COOH}$ Y:$\\mathrm{H_2SO_4}$ Z:$\\mathrm{NH_3}$", "X:$\\mathrm{CH_3COOH}$ Y:$\\mathrm{H_2SO_4}$ Z:NaOH"] },
+      "en": { "prompt": "Operations A and B give curves a and b. Choose the correct X, Y, Z. (a: equivalence at $10\\,$mL, starts pH≈3.5; b: equivalence at $20\\,$mL, starts pH≈1.)", "choices": ["X:HCl Y:$\\mathrm{H_2SO_4}$ Z:$\\mathrm{NH_3}$", "X:HCl Y:$\\mathrm{H_2SO_4}$ Z:NaOH", "X:$\\mathrm{CH_3COOH}$ Y:HCl Z:$\\mathrm{NH_3}$", "X:$\\mathrm{CH_3COOH}$ Y:HCl Z:NaOH", "X:$\\mathrm{CH_3COOH}$ Y:$\\mathrm{H_2SO_4}$ Z:$\\mathrm{NH_3}$", "X:$\\mathrm{CH_3COOH}$ Y:$\\mathrm{H_2SO_4}$ Z:NaOH"] },
+      "answerIndex": 5, "answerOption": 6, "answer": { "ja": "⑥ X:$\\mathrm{CH_3COOH}$ / Y:$\\mathrm{H_2SO_4}$ / Z:NaOH", "en": "⑥ X:$\\mathrm{CH_3COOH}$ / Y:$\\mathrm{H_2SO_4}$ / Z:NaOH" },
+      "explanation": { "en": "Curve a starts at pH≈3.5 (weak acid) and reaches equivalence at $10\\,$mL (monoprotic, 1:1) with a basic equivalence point → X = $\\mathrm{CH_3COOH}$. Curve b starts at pH≈1 (strong acid) and needs $20\\,$mL (diprotic) → Y = $\\mathrm{H_2SO_4}$. The titrant Z is the strong base NaOH.", "ja": "曲線 a は pH≈3.5 から始まり（弱酸）中和点 $10\\,$mL（1 価，1:1）で塩基性 → X=$\\mathrm{CH_3COOH}$。曲線 b は pH≈1（強酸）で $20\\,$mL 必要（2 価）→ Y=$\\mathrm{H_2SO_4}$。滴下する Z は強塩基 NaOH。" }
+    },
+    {
+      "id": "2017-1-chem-10", "answerRow": 10, "topicId": "states-and-change",
+      "subtopic": "Correct statement about the lead storage battery",
+      "patternTags": ["electrochemistry", "lead-acid-battery", "discharge-charge", "pick-statement"], "hasFigure": true,
+      "figure": { "ja": "鉛蓄電池：Pb 電極（負極）と $\\mathrm{PbO_2}$ 電極（正極）が希硫酸中にあり，豆電球につながる。", "en": "Lead storage battery: a Pb electrode (negative) and a $\\mathrm{PbO_2}$ electrode (positive) in dilute $\\mathrm{H_2SO_4}$, connected to a bulb." },
+      "ja": { "prompt": "鉛蓄電池に関する記述①〜④のうち，正しいものを選びなさい。 ① 放電するとき，電流は Pb 電極から $\\mathrm{PbO_2}$ 電極へ流れる。 ② 充電するときは外部電源の正極を Pb 電極に接続する。 ③ Pb 電極の質量は放電により増える。 ④ 希硫酸の密度は充電により小さくなる。", "choices": ["①", "②", "③", "④"] },
+      "en": { "prompt": "Which statement about the lead storage battery is correct? ① On discharge, current (in the external circuit) flows from the Pb electrode to the $\\mathrm{PbO_2}$ electrode. ② When charging, connect the external source's positive terminal to the Pb electrode. ③ The Pb electrode gains mass on discharge. ④ The dilute $\\mathrm{H_2SO_4}$ density decreases on charging.", "choices": ["①", "②", "③", "④"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "③（放電で Pb→$\\mathrm{PbSO_4}$ となり質量増加）", "en": "③ (Pb→$\\mathrm{PbSO_4}$ on discharge, mass increases)" },
+      "explanation": { "en": "On discharge $\\mathrm{Pb}\\to\\mathrm{PbSO_4}$ ($M$ 207→303), so the Pb electrode gains mass — ③. ① wrong (external current flows from + ($\\mathrm{PbO_2}$) to − (Pb)); ② wrong (connect the source's + to the $\\mathrm{PbO_2}$ electrode); ④ wrong ($\\mathrm{H_2SO_4}$ is regenerated on charging, so density INCREASES).", "ja": "放電で $\\mathrm{Pb}\\to\\mathrm{PbSO_4}$（$M$ 207→303）なので Pb 電極は質量増 — ③。① 誤（外部電流は ＋（$\\mathrm{PbO_2}$）から −（Pb）へ）；② 誤（電源の ＋ は $\\mathrm{PbO_2}$ 電極へ）；④ 誤（充電で $\\mathrm{H_2SO_4}$ が再生し密度は増加）。" }
+    },
+    {
+      "id": "2017-1-chem-11", "answerRow": 11, "topicId": "inorganic",
+      "subtopic": "Generating and collecting SO2",
+      "patternTags": ["inorganic", "gas-preparation", "gas-collection", "compare-cases"], "hasFigure": true,
+      "figure": { "ja": "物質 (a) Zn, (b) FeS, (c) $\\mathrm{Na_2SO_3}$。$\\mathrm{SO_2}$ の集め方：(i) 上方置換，(ii) 下方置換，(iii) 水上置換。表は A（物質）・B（集め方）の組み合わせ①〜⑥。", "en": "Substances (a) Zn, (b) FeS, (c) $\\mathrm{Na_2SO_3}$. Collection of $\\mathrm{SO_2}$: (i) upward delivery, (ii) downward delivery, (iii) over water. The table pairs A (substance) and B (method), options ①–⑥." },
+      "ja": { "prompt": "物質(a)〜(c)のうち硫酸との反応で $\\mathrm{SO_2}$ を発生するものはどれか。また発生する $\\mathrm{SO_2}$ を集める方法は(i)〜(iii)のどれか。正しい組み合わせを選びなさい。 (a) Zn (b) FeS (c) $\\mathrm{Na_2SO_3}$／(i)上方置換 (ii)下方置換 (iii)水上置換", "choices": ["A:a / B:i", "A:a / B:ii", "A:b / B:i", "A:b / B:iii", "A:c / B:ii", "A:c / B:iii"] },
+      "en": { "prompt": "Which substance reacts with sulfuric acid to give $\\mathrm{SO_2}$, and how is the $\\mathrm{SO_2}$ collected? (a) Zn (b) FeS (c) $\\mathrm{Na_2SO_3}$; (i) upward delivery (ii) downward delivery (iii) over water.", "choices": ["A:a / B:i", "A:a / B:ii", "A:b / B:i", "A:b / B:iii", "A:c / B:ii", "A:c / B:iii"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "⑤ A:$\\mathrm{Na_2SO_3}$ / B:下方置換", "en": "⑤ A:$\\mathrm{Na_2SO_3}$ / B:downward delivery" },
+      "explanation": { "en": "$\\mathrm{Na_2SO_3+H_2SO_4\\to Na_2SO_4+H_2O+SO_2}$ — sulfite + acid gives $\\mathrm{SO_2}$ (FeS gives $\\mathrm{H_2S}$). $\\mathrm{SO_2}$ is denser than air and water-soluble, so collect by downward delivery (ii).", "ja": "$\\mathrm{Na_2SO_3+H_2SO_4\\to Na_2SO_4+H_2O+SO_2}$ — 亜硫酸塩＋酸で $\\mathrm{SO_2}$（FeS は $\\mathrm{H_2S}$）。$\\mathrm{SO_2}$ は空気より重く水に溶けるので下方置換(ii)で集める。" }
+    },
+    {
+      "id": "2017-1-chem-12", "answerRow": 12, "topicId": "inorganic",
+      "subtopic": "Volume of CO2 from heating CaCO3",
+      "patternTags": ["inorganic", "stoichiometry", "decomposition", "gas-volume", "plug-in-numbers"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "炭酸カルシウム $\\mathrm{CaCO_3}$ を強熱したところ，白色の固体が $14\\,$g 生じた。この反応で発生した気体の体積は標準状態で何 L か。最も近い値を選びなさい。", "choices": ["1.4", "2.7", "3.8", "4.5", "5.6", "8.4"] },
+      "en": { "prompt": "Strongly heating $\\mathrm{CaCO_3}$ produced $14\\,$g of a white solid. What volume of gas (at STP) was produced?", "choices": ["1.4", "2.7", "3.8", "4.5", "5.6", "8.4"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "$5.6\\,$L", "en": "5.6 L" },
+      "explanation": { "en": "$\\mathrm{CaCO_3\\to CaO+CO_2}$. The white solid is CaO: $14/56=0.25\\,$mol, so $\\mathrm{CO_2}=0.25\\,$mol $=0.25\\times22.4=5.6\\,$L.", "ja": "$\\mathrm{CaCO_3\\to CaO+CO_2}$。白色固体は CaO：$14/56=0.25\\,$mol なので $\\mathrm{CO_2}=0.25\\,$mol$=0.25\\times22.4=5.6\\,$L。" }
+    },
+    {
+      "id": "2017-1-chem-13", "answerRow": 13, "topicId": "inorganic",
+      "subtopic": "Two incorrect halogen statements",
+      "patternTags": ["inorganic", "halogens", "physical-states", "reactivity", "true-false-combo"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "ハロゲン X（X = F, Cl, Br, I）に関する記述(a)〜(f)のうち，下線部が誤っているものが二つある。その組み合わせを選びなさい。 (a) X はすべて 17 族に属する。 (b) $\\mathrm{X_2}$ はすべて有色の物質である。 (c) $\\mathrm{X_2}$ は分子量が大きいものほど沸点が高い。 (d) $\\mathrm{X_2}$ は分子量が小さいものほど酸化力が強い。 (e) $\\mathrm{X_2}$ はすべて常温・常圧で気体である。 (f) $\\mathrm{X_2}$ はすべて水と反応しやすい。", "choices": ["a, b", "a, c", "b, d", "c, e", "d, f", "e, f"] },
+      "en": { "prompt": "Among statements about the halogens X (= F, Cl, Br, I), two underlined parts are INCORRECT. Which pair? (a) all X are in group 17. (b) all $\\mathrm{X_2}$ are coloured. (c) larger-molecular-weight $\\mathrm{X_2}$ have higher boiling points. (d) smaller-molecular-weight $\\mathrm{X_2}$ have stronger oxidizing power. (e) all $\\mathrm{X_2}$ are gases at NTP. (f) all $\\mathrm{X_2}$ react readily with water.", "choices": ["a, b", "a, c", "b, d", "c, e", "d, f", "e, f"] },
+      "answerIndex": 5, "answerOption": 6, "answer": { "ja": "e と f", "en": "e and f" },
+      "explanation": { "en": "(e) False — only $\\mathrm{F_2}$ and $\\mathrm{Cl_2}$ are gases; $\\mathrm{Br_2}$ is a liquid and $\\mathrm{I_2}$ a solid. (f) False — $\\mathrm{I_2}$ is poorly soluble and barely reacts with water. The rest are correct: all are group 17, all coloured, boiling point rises with $M$, oxidizing power $\\mathrm{F_2>Cl_2>Br_2>I_2}$.", "ja": "(e) 誤 — 気体は $\\mathrm{F_2}$ と $\\mathrm{Cl_2}$ だけで，$\\mathrm{Br_2}$ は液体，$\\mathrm{I_2}$ は固体。(f) 誤 — $\\mathrm{I_2}$ は水に溶けにくくほとんど反応しない。他は正：すべて 17 族，有色，沸点は $M$ とともに増，酸化力 $\\mathrm{F_2>Cl_2>Br_2>I_2}$。" }
+    },
+    {
+      "id": "2017-1-chem-14", "answerRow": 14, "topicId": "inorganic",
+      "subtopic": "Two correct statements about metals and ions",
+      "patternTags": ["inorganic", "amalgam", "precipitation", "alloys", "true-false-combo"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "金属とそのイオンに関する記述(a)〜(e)のうち，正しいものが二つある。その組み合わせを選びなさい。 (a) $\\mathrm{Zn^{2+}}$ を含む酸性水溶液に $\\mathrm{H_2S}$ を通じると ZnS の沈殿が生じる。 (b) 水銀 Hg の合金はアマルガムとよばれる。 (c) Al は酸化アルミニウム水溶液 $\\mathrm{Al_2O_3}$ aq の電気分解で得られる。 (d) 黄銅は Cu と Sn との合金である。 (e) $\\mathrm{Pb^{2+}}$ を含む水溶液に $\\mathrm{Na_2SO_4}$ を加えると $\\mathrm{PbSO_4}$ の沈殿が生じる。", "choices": ["a, b", "a, e", "b, c", "b, e", "c, d", "d, e"] },
+      "en": { "prompt": "Two statements about metals and ions are correct. Which pair? (a) Passing $\\mathrm{H_2S}$ through an acidic $\\mathrm{Zn^{2+}}$ solution gives a ZnS precipitate. (b) Mercury alloys are called amalgams. (c) Al is obtained by electrolysis of aqueous $\\mathrm{Al_2O_3}$. (d) Brass is an alloy of Cu and Sn. (e) Adding $\\mathrm{Na_2SO_4}$ to a $\\mathrm{Pb^{2+}}$ solution gives a $\\mathrm{PbSO_4}$ precipitate.", "choices": ["a, b", "a, e", "b, c", "b, e", "c, d", "d, e"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "b と e", "en": "b and e" },
+      "explanation": { "en": "(b) True — mercury alloys are amalgams. (e) True — $\\mathrm{Pb^{2+}+SO_4^{2-}\\to PbSO_4}$ (insoluble). (a) False — Zn²⁺ does not precipitate as ZnS in acid. (c) False — Al is won by molten-salt electrolysis, not aqueous. (d) False — brass is Cu + Zn (Cu + Sn is bronze).", "ja": "(b) 正 — 水銀の合金はアマルガム。(e) 正 — $\\mathrm{Pb^{2+}+SO_4^{2-}\\to PbSO_4}$（不溶）。(a) 誤 — 酸性で Zn²⁺ は ZnS 沈殿しない。(c) 誤 — Al は溶融塩電解で得る。(d) 誤 — 黄銅は Cu＋Zn（Cu＋Sn は青銅）。" }
+    },
+    {
+      "id": "2017-1-chem-15", "answerRow": 15, "topicId": "inorganic",
+      "subtopic": "Separating Ag+, Cu2+, Fe3+ with HCl then H2S",
+      "patternTags": ["inorganic", "qualitative-analysis", "precipitation", "compare-cases"], "hasFigure": true,
+      "figure": { "ja": "$\\mathrm{Ag^+,Cu^{2+},Fe^{3+}}$ の水溶液。操作 A：希塩酸を加え沈殿 X。操作 B：A のろ液に $\\mathrm{H_2S}$ を通じ沈殿 Y。表は X/Y のイオンの組み合わせ①〜⑥。", "en": "A solution of $\\mathrm{Ag^+,Cu^{2+},Fe^{3+}}$. A: add dilute HCl → precipitate X. B: pass $\\mathrm{H_2S}$ through A's filtrate → precipitate Y. The table lists the ions in X/Y, options ①–⑥." },
+      "ja": { "prompt": "$\\mathrm{Ag^+,Cu^{2+},Fe^{3+}}$ の水溶液に，操作 A（希塩酸を加え沈殿 X）と操作 B（A のろ液に $\\mathrm{H_2S}$ を通じ沈殿 Y）を行った。X, Y に含まれる金属イオンの組み合わせを選びなさい。", "choices": ["X:$\\mathrm{Ag^+}$ / Y:$\\mathrm{Cu^{2+}}$", "X:$\\mathrm{Ag^+}$ / Y:$\\mathrm{Fe^{3+}}$", "X:$\\mathrm{Cu^{2+}}$ / Y:$\\mathrm{Ag^+}$", "X:$\\mathrm{Cu^{2+}}$ / Y:$\\mathrm{Fe^{3+}}$", "X:$\\mathrm{Fe^{3+}}$ / Y:$\\mathrm{Ag^+}$", "X:$\\mathrm{Fe^{3+}}$ / Y:$\\mathrm{Cu^{2+}}$"] },
+      "en": { "prompt": "After operation A (add dilute HCl → precipitate X) and operation B (pass $\\mathrm{H_2S}$ through A's filtrate → precipitate Y), which ions are in X and Y?", "choices": ["X:$\\mathrm{Ag^+}$ / Y:$\\mathrm{Cu^{2+}}$", "X:$\\mathrm{Ag^+}$ / Y:$\\mathrm{Fe^{3+}}$", "X:$\\mathrm{Cu^{2+}}$ / Y:$\\mathrm{Ag^+}$", "X:$\\mathrm{Cu^{2+}}$ / Y:$\\mathrm{Fe^{3+}}$", "X:$\\mathrm{Fe^{3+}}$ / Y:$\\mathrm{Ag^+}$", "X:$\\mathrm{Fe^{3+}}$ / Y:$\\mathrm{Cu^{2+}}$"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "① X:$\\mathrm{Ag^+}$ / Y:$\\mathrm{Cu^{2+}}$", "en": "① X:$\\mathrm{Ag^+}$ / Y:$\\mathrm{Cu^{2+}}$" },
+      "explanation": { "en": "Dilute HCl precipitates AgCl (X = Ag⁺); Cu²⁺ and Fe³⁺ stay. Passing $\\mathrm{H_2S}$ through the acidic filtrate precipitates CuS (Y = Cu²⁺); Fe³⁺ does not form a sulfide in acid.", "ja": "希塩酸は AgCl を沈殿（X=Ag⁺），Cu²⁺・Fe³⁺ は残る。酸性のろ液に $\\mathrm{H_2S}$ で CuS が沈殿（Y=Cu²⁺），Fe³⁺ は酸性で硫化物を作らない。" }
+    },
+    {
+      "id": "2017-1-chem-16", "answerRow": 16, "topicId": "organic",
+      "subtopic": "Number of dichlorobutane structural isomers",
+      "patternTags": ["organic", "isomers", "substitution", "counting"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "ブタン $\\mathrm{CH_3CH_2CH_2CH_3}$ の 2 個の水素原子を 2 個の塩素原子で置換した化合物の構造異性体はいくつあるか。鏡像異性体は構造異性体に含めない。", "choices": ["3", "4", "5", "6", "7", "8"] },
+      "en": { "prompt": "How many structural isomers result from replacing two H atoms of butane $\\mathrm{CH_3CH_2CH_2CH_3}$ with two Cl atoms? (Enantiomers are not counted as structural isomers.)", "choices": ["3", "4", "5", "6", "7", "8"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "6", "en": "6" },
+      "explanation": { "en": "Accounting for the C1↔C4 and C2↔C3 symmetry of n-butane, the dichloro isomers are 1,1-, 1,2-, 1,3-, 1,4-, 2,2-, and 2,3-dichlorobutane — 6 structural isomers.", "ja": "n-ブタンの C1↔C4，C2↔C3 の対称性を考えると，二塩化物は 1,1-，1,2-，1,3-，1,4-，2,2-，2,3-ジクロロブタンの 6 種。" }
+    },
+    {
+      "id": "2017-1-chem-17", "answerRow": 17, "topicId": "organic",
+      "subtopic": "True/false grid for benzene statements",
+      "patternTags": ["organic", "benzene", "aromatic", "true-false-grid"], "hasFigure": true,
+      "figure": { "ja": "表は (a)〜(d) の 正/誤 の組み合わせ①〜⑤。正解②は a=正, b=正, c=誤, d=正。", "en": "The table lists true(正)/false(誤) combinations ①–⑤ for (a)–(d). The correct row (②) is a=true, b=true, c=false, d=true." },
+      "ja": { "prompt": "ベンゼンに関する記述(a)〜(d)の正誤の組み合わせを選びなさい。 (a) ベンゼン分子ではすべての原子が同じ平面上にある。 (b) ベンゼンの分子式は $\\mathrm{C_6H_6}$ である。 (c) ベンゼンに常温で塩素 $\\mathrm{Cl_2}$ を含む水と反応させると塩素が付加する。 (d) ベンゼンは空気中で燃やすと多量のすすを出して燃える。", "choices": ["a正 b正 c正 d正", "a正 b正 c誤 d正", "a正 b誤 c誤 d正", "a誤 b正 c正 d正", "a誤 b正 c正 d誤"] },
+      "en": { "prompt": "Choose the true/false combination for these benzene statements. (a) All atoms of a benzene molecule lie in one plane. (b) Benzene's formula is $\\mathrm{C_6H_6}$. (c) At room temperature benzene reacts with chlorine water by ADDITION of chlorine. (d) Benzene burns in air with much soot.", "choices": ["a-T b-T c-T d-T", "a-T b-T c-F d-T", "a-T b-F c-F d-T", "a-F b-T c-T d-T", "a-F b-T c-T d-F"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "② a正 b正 c誤 d正", "en": "② a-T b-T c-F d-T" },
+      "explanation": { "en": "(a) True — benzene is planar. (b) True — $\\mathrm{C_6H_6}$. (c) False — benzene does NOT undergo addition with chlorine water at room temperature (it resists addition; substitution needs a catalyst). (d) True — it burns with a sooty flame. So a-T, b-T, c-F, d-T → ②.", "ja": "(a) 正 — ベンゼンは平面。(b) 正 — $\\mathrm{C_6H_6}$。(c) 誤 — 常温で塩素水と付加反応しない（付加しにくく，置換は触媒が必要）。(d) 正 — すすを出して燃える。よって a正 b正 c誤 d正 → ②。" }
+    },
+    {
+      "id": "2017-1-chem-18", "answerRow": 18, "topicId": "organic",
+      "subtopic": "Two incorrect aromatic reaction products",
+      "patternTags": ["organic", "aromatic-substitution", "reaction-products", "true-false-combo"], "hasFigure": true,
+      "figure": { "ja": "表（A 操作 / B 生成物）：a ベンゼン＋濃硝酸・濃硫酸 → ベンゼンスルホン酸（$\\mathrm{SO_3H}$）；b トルエンを触媒で空気酸化 → 安息香酸（COOH）；c フェノール＋臭素水 → 2,4,6-トリブロモフェノール；d ベンゼン＋鉄粉＋$\\mathrm{Cl_2}$ → ヘキサクロロシクロヘキサン（$\\mathrm{C_6H_6Cl_6}$）。", "en": "Table (A operation / B product): a benzene + conc. $\\mathrm{HNO_3}$/$\\mathrm{H_2SO_4}$ → benzenesulfonic acid ($\\mathrm{SO_3H}$); b toluene air-oxidised with catalyst → benzoic acid (COOH); c phenol + bromine water → 2,4,6-tribromophenol; d benzene + iron powder + $\\mathrm{Cl_2}$ → hexachlorocyclohexane ($\\mathrm{C_6H_6Cl_6}$)." },
+      "ja": { "prompt": "A 欄の操作で得られる主な生成物を B 欄に示した。B 欄の生成物が誤っているものが二つある。その組み合わせを選びなさい。 a ベンゼン＋濃硝酸・濃硫酸 → ベンゼンスルホン酸 b トルエンの空気酸化 → 安息香酸 c フェノール＋臭素水 → 2,4,6-トリブロモフェノール d ベンゼン＋鉄粉＋$\\mathrm{Cl_2}$ → $\\mathrm{C_6H_6Cl_6}$", "choices": ["a, b", "a, c", "a, d", "b, c", "b, d", "c, d"] },
+      "en": { "prompt": "The main product B of each operation A is shown. Two products B are INCORRECT. Which pair? a benzene + conc. $\\mathrm{HNO_3}$/$\\mathrm{H_2SO_4}$ → benzenesulfonic acid; b toluene air oxidation → benzoic acid; c phenol + bromine water → 2,4,6-tribromophenol; d benzene + iron powder + $\\mathrm{Cl_2}$ → $\\mathrm{C_6H_6Cl_6}$", "choices": ["a, b", "a, c", "a, d", "b, c", "b, d", "c, d"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "a と d", "en": "a and d" },
+      "explanation": { "en": "(a) Wrong — benzene + conc. $\\mathrm{HNO_3}$/$\\mathrm{H_2SO_4}$ gives NITRObenzene (nitration), not benzenesulfonic acid (which needs conc. $\\mathrm{H_2SO_4}$ sulfonation). (d) Wrong — benzene + Fe + $\\mathrm{Cl_2}$ gives chlorobenzene (substitution), not $\\mathrm{C_6H_6Cl_6}$ (that is photochemical addition). (b) and (c) are correct.", "ja": "(a) 誤 — ベンゼン＋濃硝酸・濃硫酸はニトロベンゼン（ニトロ化）で，ベンゼンスルホン酸（濃硫酸でのスルホン化）ではない。(d) 誤 — ベンゼン＋鉄＋$\\mathrm{Cl_2}$ はクロロベンゼン（置換）で，$\\mathrm{C_6H_6Cl_6}$（光付加）ではない。(b)(c) は正しい。" }
+    },
+    {
+      "id": "2017-1-chem-19", "answerRow": 19, "topicId": "organic",
+      "subtopic": "Identify an alkene from bromine addition and chirality",
+      "patternTags": ["organic", "alkenes", "bromine-addition", "chirality", "plug-in-numbers"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "あるアルケン $1.4\\,$g に臭素 $\\mathrm{Br_2}$ をじゅうぶんに付加させたところ，不斉炭素原子を 2 個含む生成物が $5.4\\,$g 得られた。このアルケンとして正しいものを選びなさい。 ① $\\mathrm{H_2C{=}CHCH_2CH_3}$ ② $\\mathrm{(CH_3)_2C{=}CH_2}$ ③ $\\mathrm{CH_3CH{=}CHCH_3}$ ④ $\\mathrm{H_2C{=}CHCH_2CH_2CH_3}$ ⑤ $\\mathrm{(CH_3)_2C{=}CHCH_3}$ ⑥ $\\mathrm{CH_3CH{=}CHCH_2CH_3}$", "choices": ["$\\mathrm{H_2C{=}CHCH_2CH_3}$", "$\\mathrm{(CH_3)_2C{=}CH_2}$", "$\\mathrm{CH_3CH{=}CHCH_3}$", "$\\mathrm{H_2C{=}CHCH_2CH_2CH_3}$", "$\\mathrm{(CH_3)_2C{=}CHCH_3}$", "$\\mathrm{CH_3CH{=}CHCH_2CH_3}$"] },
+      "en": { "prompt": "Adding excess $\\mathrm{Br_2}$ to $1.4\\,$g of an alkene gave $5.4\\,$g of a product containing two asymmetric carbon atoms. Which alkene is it? ① $\\mathrm{H_2C{=}CHCH_2CH_3}$ ② $\\mathrm{(CH_3)_2C{=}CH_2}$ ③ $\\mathrm{CH_3CH{=}CHCH_3}$ ④ $\\mathrm{H_2C{=}CHCH_2CH_2CH_3}$ ⑤ $\\mathrm{(CH_3)_2C{=}CHCH_3}$ ⑥ $\\mathrm{CH_3CH{=}CHCH_2CH_3}$", "choices": ["$\\mathrm{H_2C{=}CHCH_2CH_3}$", "$\\mathrm{(CH_3)_2C{=}CH_2}$", "$\\mathrm{CH_3CH{=}CHCH_3}$", "$\\mathrm{H_2C{=}CHCH_2CH_2CH_3}$", "$\\mathrm{(CH_3)_2C{=}CHCH_3}$", "$\\mathrm{CH_3CH{=}CHCH_2CH_3}$"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "③ $\\mathrm{CH_3CH{=}CHCH_3}$（2-ブテン）", "en": "③ $\\mathrm{CH_3CH{=}CHCH_3}$ (2-butene)" },
+      "explanation": { "en": "Mass of $\\mathrm{Br_2}$ added $=5.4-1.4=4.0\\,$g $=0.025\\,$mol, so alkene $=0.025\\,$mol and $M=1.4/0.025=56$ ($\\mathrm{C_4H_8}$). The dibromide must have 2 asymmetric carbons: 2-butene gives $\\mathrm{CH_3CHBrCHBrCH_3}$, whose C2 and C3 are both chiral. (1-butene gives only one; isobutylene gives none.)", "ja": "付加した $\\mathrm{Br_2}$ の質量 $=5.4-1.4=4.0\\,$g$=0.025\\,$mol よりアルケン $=0.025\\,$mol，$M=1.4/0.025=56$（$\\mathrm{C_4H_8}$）。二臭化物が不斉炭素を 2 個もつのは 2-ブテン：$\\mathrm{CH_3CHBrCHBrCH_3}$ で C2, C3 がともに不斉。（1-ブテンは 1 個，イソブチレンは 0 個。）" }
+    },
+    {
+      "id": "2017-1-chem-20", "answerRow": 20, "topicId": "organic",
+      "subtopic": "Polymer matched with its functional group",
+      "patternTags": ["organic", "polymers", "functional-groups", "compare-cases"], "hasFigure": true,
+      "figure": { "ja": "表（高分子 / 官能基）：① ナイロン 66 / アミド結合 ② フェノール樹脂 / カルボニル基 ③ ポリアクリロニトリル / エステル結合 ④ ポリエチレンテレフタラート / ヒドロキシ基 ⑤ ポリプロピレン / エーテル結合。", "en": "Table (polymer / functional group): ① nylon 6,6 / amide bond ② phenol resin / carbonyl group ③ polyacrylonitrile / ester bond ④ PET / hydroxy group ⑤ polypropylene / ether bond." },
+      "ja": { "prompt": "高分子とそれに含まれる官能基の組み合わせとして正しいものを選びなさい。 ① ナイロン66 / アミド結合 ② フェノール樹脂 / カルボニル基 ③ ポリアクリロニトリル / エステル結合 ④ PET / ヒドロキシ基 ⑤ ポリプロピレン / エーテル結合", "choices": ["ナイロン66 / アミド結合", "フェノール樹脂 / カルボニル基", "ポリアクリロニトリル / エステル結合", "PET / ヒドロキシ基", "ポリプロピレン / エーテル結合"] },
+      "en": { "prompt": "Which polymer-and-functional-group pairing is correct? ① nylon 6,6 / amide bond ② phenol resin / carbonyl group ③ polyacrylonitrile / ester bond ④ PET / hydroxy group ⑤ polypropylene / ether bond", "choices": ["nylon 6,6 / amide bond", "phenol resin / carbonyl group", "polyacrylonitrile / ester bond", "PET / hydroxy group", "polypropylene / ether bond"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "① ナイロン66 / アミド結合", "en": "① nylon 6,6 / amide bond" },
+      "explanation": { "en": "Nylon 6,6 contains amide bonds ($-\\mathrm{CO{-}NH}-$) — ① correct. The others are wrong: phenol resin has methylene bridges (no carbonyl); polyacrylonitrile has nitrile groups (not ester); PET has ester bonds (not hydroxy); polypropylene is a pure hydrocarbon (no ether).", "ja": "ナイロン 66 はアミド結合（$-\\mathrm{CO{-}NH}-$）をもつ — ①が正。他は誤：フェノール樹脂はメチレン架橋（カルボニルなし），ポリアクリロニトリルはニトリル基（エステルでない），PET はエステル結合（ヒドロキシでない），ポリプロピレンは炭化水素（エーテルなし）。" }
+    }
+  ],
+  "patterns": {
+    "archetypes": [
+      "Molecule with equal bonding and lone pairs (H₂O).",
+      "Two correct element/ion statements (isoelectronic count, electron affinity).",
+      "Two elements forming an XO₂ oxide (Mn, Si).",
+      "Gas with the highest pressure at fixed V, T (most moles).",
+      "O₂:CO₂ ratio in methanol combustion.",
+      "Mass percent of a saturated solution from solubility.",
+      "Pressure after carbonate pyrolysis in a sealed N₂-filled vessel.",
+      "Operations shifting a weak-acid equilibrium right (dilution, NaOH).",
+      "Identify acids/base from titration curves (weak monoprotic vs strong diprotic).",
+      "Correct lead-acid battery statement (Pb gains mass on discharge).",
+      "Generate and collect SO₂ (sulfite + acid; downward delivery).",
+      "CO₂ volume from heating CaCO₃.",
+      "Two incorrect halogen statements (not all gases; I₂ barely reacts with water).",
+      "Two correct metal/ion statements (amalgam; PbSO₄ precipitate).",
+      "Separate Ag⁺/Cu²⁺/Fe³⁺ (HCl then acidic H₂S).",
+      "Count dichlorobutane structural isomers (6).",
+      "True/false grid on benzene (planar, C₆H₆, no RT addition, sooty flame).",
+      "Two incorrect aromatic products (nitration not sulfonation; substitution not addition).",
+      "Identify an alkene from bromine addition mass + chirality (2-butene).",
+      "Polymer-functional-group matching (nylon = amide)."
+    ],
+    "recurring": [
+      "Bonding / lone-pair / periodic-property screens open the paper.",
+      "Quantitative core: gas pressure/moles, combustion ratio, solubility, sealed-vessel pyrolysis, titration curves.",
+      "Electrochemistry (lead-acid) and equilibrium reasoning sit mid-paper.",
+      "Qualitative inorganic: gas prep/collection, carbonate decomposition, halogens, metal/ion facts, cation separation.",
+      "Organic: isomer counting, benzene/aromatic substitution, alkene chirality, polymers."
+    ],
+    "examTacticNotes": [
+      "H₂O has 2 bonding and 2 lone pairs (equal).",
+      "F⁻ and Al³⁺ are isoelectronic (10 e⁻); F > O in electron affinity; isoelectronic cations are smaller.",
+      "XO₂ needs +4: MnO₂ and SiO₂.",
+      "Fixed V,T: highest pressure = most moles (3.4 g NH₃ = 0.20 mol).",
+      "2CH₃OH + 3O₂ → 2CO₂: O₂:CO₂ = 3:2.",
+      "Saturated solution mass % = solute/(solute+water) = 32/132 ≈ 24%.",
+      "Sealed vessel: scale N₂ pressure with T, add nRT/V of the decomposition gases.",
+      "Weak-acid equilibrium shifts right on dilution and on removing H⁺ with NaOH.",
+      "Titration: start pH ≈3.5 = weak acid; equivalence at 2× volume = diprotic; NaOH is the strong-base titrant.",
+      "Lead-acid discharge: Pb→PbSO₄ gains mass; H₂SO₄ density drops on discharge, rises on charge.",
+      "SO₂ from Na₂SO₃ + acid; collect by downward delivery (dense, water-soluble).",
+      "CaCO₃→CaO+CO₂: 14 g CaO = 0.25 mol → 5.6 L CO₂.",
+      "Halogens: only F₂/Cl₂ are gases; I₂ barely reacts with water.",
+      "Mercury alloys = amalgams; PbSO₄ is insoluble; brass = Cu+Zn; Al by molten-salt electrolysis.",
+      "HCl precipitates AgCl; acidic H₂S precipitates CuS (not Fe³⁺).",
+      "Dichloro-n-butane: 6 structural isomers.",
+      "Benzene is planar C₆H₆, sooty flame, no addition with chlorine water at RT.",
+      "Benzene + HNO₃/H₂SO₄ = nitrobenzene; benzene + Fe/Cl₂ = chlorobenzene.",
+      "Br₂-addition mass gives M=56 (C₄H₈); 2-butene's dibromide has 2 chiral carbons.",
+      "Nylon = amide; PET = ester; polyacrylonitrile = nitrile; polypropylene = hydrocarbon."
+    ],
+    "difficulty": "Standard EJU chemistry — a full-syllabus sweep with a strong quantitative core. The more discriminating items are the sealed-vessel pyrolysis pressure (Q7), the titration-curve identification (Q9), the dichlorobutane isomer count (Q16), and the alkene-from-bromination chirality problem (Q19)."
+  }
+}
