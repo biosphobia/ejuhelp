@@ -1,0 +1,271 @@
+{
+  "id": "2012-2-chemistry",
+  "year": 2012,
+  "session": 2,
+  "subject": "chemistry",
+  "title": "EJU 2012 · Session 2 · Chemistry",
+  "source": "平成24年度（2012年度）日本留学試験（第2回）理科〈化学〉 © Japan Student Services Organization (JASSO)",
+  "attribution": "EJU past questions © JASSO. Question text transcribed from the official past paper; figures described in text; correct answers taken from the official JASSO answer key and independently re-solved for verification.",
+  "languages": ["ja", "en"],
+  "answerKeyVerified": true,
+  "structure": {
+    "format": "flat",
+    "totalQuestions": 20,
+    "note": "Chemistry is a flat list of 20 single-best-answer items (問1–問20, answer rows 1–20) — no Roman-numeral blocks. Order ≈ structure & bonding → states/energetics/electrochemistry/equilibria → inorganic → organic.",
+    "givens": {
+      "ja": "標準状態 $0\\,$°C・$1.0\\times10^5\\,$Pa，気体 $1\\,$mol の体積 $22.4\\,$L，気体定数 $R=8.31\\times10^3\\,$Pa·L/(K·mol)，ファラデー定数 $F=9.65\\times10^4\\,$C/mol。原子量：H 1.0, C 12, N 14, O 16。",
+      "en": "STP $0\\,$°C, $1.0\\times10^5\\,$Pa; molar volume $22.4\\,$L; gas constant $R=8.31\\times10^3\\,$Pa·L/(K·mol); Faraday $F=9.65\\times10^4\\,$C/mol. Atomic weights: H 1.0, C 12, N 14, O 16."
+    }
+  },
+  "questions": [
+    {
+      "id": "2012-2-chem-1", "answerRow": 1, "topicId": "matter-structure",
+      "subtopic": "Which pair of two numbers differs",
+      "patternTags": ["atomic-structure", "isotopes", "subatomic-counts", "odd-one-out"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の①〜⑤に示した原子またはイオンに関する二つの数が互いに異なるものを，一つ選びなさい。", "choices": ["$^{12}\\mathrm{C}$ の陽子の数 と 中性子の数", "$^{12}\\mathrm{C}$ の陽子の数 と $^{13}\\mathrm{C}$ の陽子の数", "$\\mathrm{Ca^{2+}}$ の最外殻電子の数 と $\\mathrm{F^-}$ の最外殻電子の数", "$^{2}\\mathrm{H}$ の中性子の数 と $^{4}\\mathrm{He}$ の中性子の数", "$\\mathrm{He}$ の電子の総数 と $\\mathrm{Li^+}$ の電子の総数"] },
+      "en": { "prompt": "Choose the pair whose two numbers are different from each other.", "choices": ["protons in $^{12}\\mathrm{C}$ vs neutrons in $^{12}\\mathrm{C}$", "protons in $^{12}\\mathrm{C}$ vs protons in $^{13}\\mathrm{C}$", "outermost-shell electrons of $\\mathrm{Ca^{2+}}$ vs of $\\mathrm{F^-}$", "neutrons in $^{2}\\mathrm{H}$ vs neutrons in $^{4}\\mathrm{He}$", "total electrons in $\\mathrm{He}$ vs in $\\mathrm{Li^+}$"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "④（$^{2}\\mathrm{H}$ は中性子 1，$^{4}\\mathrm{He}$ は中性子 2）", "en": "④ ($^{2}\\mathrm{H}$ has 1 neutron, $^{4}\\mathrm{He}$ has 2)" },
+      "explanation": { "en": "① 6=6, ② 6=6 (both carbon), ③ both have 8 outermost electrons ($\\mathrm{Ca^{2+}}$ M-shell 8, $\\mathrm{F^-}$ L-shell 8), ⑤ 2=2. Only ④ differs: $^{2}\\mathrm{H}$ has $2-1=1$ neutron while $^{4}\\mathrm{He}$ has $4-2=2$.", "ja": "① 6=6，② 6=6（ともに炭素），③ ともに最外殻電子 8（$\\mathrm{Ca^{2+}}$ は M 殻 8，$\\mathrm{F^-}$ は L 殻 8），⑤ 2=2。異なるのは④のみ：$^{2}\\mathrm{H}$ は中性子 $2-1=1$，$^{4}\\mathrm{He}$ は $4-2=2$。" }
+    },
+    {
+      "id": "2012-2-chem-2", "answerRow": 2, "topicId": "matter-structure",
+      "subtopic": "Incorrect statement about periodic-table regions",
+      "patternTags": ["electron-config-periodic", "periodic-blocks", "pick-false-statement"], "hasFigure": true,
+      "figure": { "ja": "周期表を領域(a)〜(h)に分けた図：(a)=H の位置，(b)=1 族（アルカリ金属），(c)=2 族，(d)=遷移元素ブロック，(e)=右側 p ブロックの金属，(f)=右上の非金属，(g)=17 族（ハロゲン），(h)=18 族（貴ガス）。", "en": "Periodic table split into regions (a)–(h): (a) H's position, (b) group 1 (alkali metals), (c) group 2, (d) transition-metal block, (e) right p-block metals, (f) upper-right non-metals, (g) group 17 (halogens), (h) group 18 (noble gases)." },
+      "ja": { "prompt": "周期表を図のように領域(a)〜(h)に分けた。次の記述①〜⑥のうち，正しくないものを一つ選びなさい。 ① (b)の元素はアルカリ金属。 ② Ca, Mg は両方とも(c)。 ③ Fe, Sn は両方とも(d)。 ④ (e)の元素はすべて典型元素。 ⑤ (f),(g)の元素はすべて非金属元素。 ⑥ (g)の元素はハロゲン。", "choices": ["①", "②", "③", "④", "⑤", "⑥"] },
+      "en": { "prompt": "The periodic table is split into regions (a)–(h). Which statement is INCORRECT? ① (b) are alkali metals. ② Ca, Mg are both in (c). ③ Fe, Sn are both in (d). ④ (e) are all main-group elements. ⑤ (f),(g) are all non-metals. ⑥ (g) are halogens.", "choices": ["①", "②", "③", "④", "⑤", "⑥"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "「Fe, Sn は両方とも(d)」は誤り（③）", "en": "\"Fe, Sn both in (d)\" is wrong (③)" },
+      "explanation": { "en": "(d) is the transition-metal block. Fe is a transition metal, but Sn is a group-14 (p-block) main-group metal, region (e) — not (d). The other statements are correct.", "ja": "(d) は遷移元素ブロック。Fe は遷移金属だが，Sn は 14 族（p ブロック）の典型金属で領域(e)に属し，(d)ではない。他は正しい。" }
+    },
+    {
+      "id": "2012-2-chem-3", "answerRow": 3, "topicId": "matter-structure",
+      "subtopic": "Incorrect statement about the water molecule",
+      "patternTags": ["chemical-bonds", "molecular-geometry", "polarity", "pick-false-statement"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "水分子に関する次の記述①〜⑤のうち，正しくないものを一つ選びなさい。", "choices": ["分子内で共有結合にかかわる電子の数は 4 である。", "非共有電子対を二つもっている。", "分子構造は直線形である。", "極性分子である。", "フッ化水素 HF やメタノール $\\mathrm{CH_3OH}$ と水素結合をつくる。"] },
+      "en": { "prompt": "Which statement about the water molecule is INCORRECT?", "choices": ["4 electrons are involved in its covalent bonds.", "It has two lone (unshared) electron pairs.", "Its molecular shape is linear.", "It is a polar molecule.", "It forms hydrogen bonds with HF and methanol."] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "「直線形である」は誤り（③）", "en": "\"linear\" is wrong (③)" },
+      "explanation": { "en": "Water is bent (angular, ≈104.5°), not linear, because of the two lone pairs on oxygen. The other statements are correct (2 O–H bonds = 4 bonding electrons; 2 lone pairs; polar; hydrogen-bonding).", "ja": "水は O の 2 組の非共有電子対のため折れ線形（約 104.5°）で，直線形ではない。他は正しい（O–H 2 本＝結合電子 4，非共有電子対 2，極性，水素結合）。" }
+    },
+    {
+      "id": "2012-2-chem-4", "answerRow": 4, "topicId": "states-and-change",
+      "subtopic": "Molar concentration of an ammonia solution",
+      "patternTags": ["concentration", "molarity", "mole-mass", "plug-in-numbers"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "水に $3.4\\,$g のアンモニア $\\mathrm{NH_3}$ を溶かして $25\\,$mL のアンモニア水溶液を得た。この水溶液の濃度〔mol/L〕として最も近い値を選びなさい。", "choices": ["0.20", "0.50", "0.80", "2.0", "5.0", "8.0"] },
+      "en": { "prompt": "Dissolving $3.4\\,$g of $\\mathrm{NH_3}$ in water gives $25\\,$mL of solution. What is its molar concentration (mol/L)?", "choices": ["0.20", "0.50", "0.80", "2.0", "5.0", "8.0"] },
+      "answerIndex": 5, "answerOption": 6, "answer": { "ja": "$8.0\\,$mol/L", "en": "8.0 mol/L" },
+      "explanation": { "en": "$3.4\\,$g $/17=0.20\\,$mol $\\mathrm{NH_3}$ in $0.025\\,$L: $0.20/0.025=8.0\\,$mol/L.", "ja": "$3.4\\,$g$/17=0.20\\,$mol を $0.025\\,$L に溶かす：$0.20/0.025=8.0\\,$mol/L。" }
+    },
+    {
+      "id": "2012-2-chem-5", "answerRow": 5, "topicId": "matter-structure",
+      "subtopic": "Which molecules contain a double bond",
+      "patternTags": ["chemical-bonds", "multiple-bonds", "true-false-combo"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の分子(a)〜(g)の中に二重結合をもつものが二つある。それらの組み合わせを選びなさい。 (a) $\\mathrm{C_2H_2}$ (b) $\\mathrm{NH_3}$ (c) $\\mathrm{C_2H_4}$ (d) $\\mathrm{HCl}$ (e) $\\mathrm{Cl_2}$ (f) $\\mathrm{N_2}$ (g) $\\mathrm{CO_2}$", "choices": ["a, c", "a, g", "b, d", "b, f", "c, g", "e, f"] },
+      "en": { "prompt": "Two of these molecules contain a double bond. Which pair? (a) $\\mathrm{C_2H_2}$ (b) $\\mathrm{NH_3}$ (c) $\\mathrm{C_2H_4}$ (d) $\\mathrm{HCl}$ (e) $\\mathrm{Cl_2}$ (f) $\\mathrm{N_2}$ (g) $\\mathrm{CO_2}$", "choices": ["a, c", "a, g", "b, d", "b, f", "c, g", "e, f"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "c（$\\mathrm{C_2H_4}$）と g（$\\mathrm{CO_2}$）", "en": "c ($\\mathrm{C_2H_4}$) and g ($\\mathrm{CO_2}$)" },
+      "explanation": { "en": "Ethylene $\\mathrm{C_2H_4}$ has a C=C double bond and $\\mathrm{CO_2}$ has C=O double bonds. $\\mathrm{C_2H_2}$ and $\\mathrm{N_2}$ have triple bonds; $\\mathrm{NH_3}$, $\\mathrm{HCl}$, $\\mathrm{Cl_2}$ have only single bonds.", "ja": "エチレン $\\mathrm{C_2H_4}$ は C=C，$\\mathrm{CO_2}$ は C=O をもつ。$\\mathrm{C_2H_2}$ と $\\mathrm{N_2}$ は三重結合，$\\mathrm{NH_3}$・$\\mathrm{HCl}$・$\\mathrm{Cl_2}$ は単結合のみ。" }
+    },
+    {
+      "id": "2012-2-chem-6", "answerRow": 6, "topicId": "states-and-change",
+      "subtopic": "V–t graph of an ideal gas at two constant pressures",
+      "patternTags": ["gas-law", "charles-law", "read-from-graph"], "hasFigure": true,
+      "figure": { "ja": "1 mol の理想気体を圧力 $P_1$ または $P_2$（$P_1<P_2$）に保ち，温度 $t$〔°C〕を変えたときの $t$–$V$〔L〕グラフ。正しいのは：原点を通らず（$t=0$ で $V>0$）右上がりの直線で，$P_1$（低圧）の線が上・傾き大。", "en": "1 mol ideal gas held at $P_1$ or $P_2$ ($P_1<P_2$); $t$〔°C〕 vs $V$〔L〕. The correct graph: straight rising lines with a positive V-intercept at $t=0$ (not through the origin), the $P_1$ (lower-pressure) line higher and steeper." },
+      "ja": { "prompt": "理想気体 1 mol を圧力 $P_1$ または $P_2$ に保ったまま，温度 $t$〔°C〕を変化させた。$P_1<P_2$ のとき，$t$ と気体の体積 $V$〔L〕の関係を表すグラフとして最も適当なものを選びなさい（①〜⑥）。", "choices": ["直線・原点から・$P_1$ 上で急", "直線・$t{=}0$ で $V{>}0$・$P_1$ 上で急", "曲線（上に凹）・$P_1$ 上", "直線・原点から・$P_2$ 上で急", "直線・$t{=}0$ で $V{>}0$・$P_2$ 上で急", "曲線（上に凹）・$P_2$ 上"] },
+      "en": { "prompt": "For 1 mol of ideal gas held at $P_1$ or $P_2$ ($P_1<P_2$), which graph shows $t$〔°C〕 vs volume $V$〔L〕? (①–⑥)", "choices": ["lines through origin, $P_1$ steeper", "lines with $V{>}0$ at $t{=}0$, $P_1$ higher/steeper", "concave-up curves, $P_1$ on top", "lines through origin, $P_2$ steeper", "lines with $V{>}0$ at $t{=}0$, $P_2$ higher/steeper", "concave-up curves, $P_2$ on top"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "②（$t{=}0$ で $V{>}0$ の直線，$P_1$ が上で傾き大）", "en": "② (straight lines with a positive intercept, $P_1$ higher and steeper)" },
+      "explanation": { "en": "At constant pressure $V=\\dfrac{nR}{P}(t+273)$, linear in $t$ with a positive intercept at $t=0$°C (extrapolating to $V=0$ at $t=-273$). Lower pressure $P_1$ gives larger $V$ and a steeper slope, so its line lies above $P_2$'s — graph ②.", "ja": "定圧では $V=\\dfrac{nR}{P}(t+273)$ で，$t$ に対し直線（$t=0$°C で $V>0$，$t=-273$ で $V=0$ に外挿）。低圧 $P_1$ ほど $V$ が大きく傾きも急なので $P_2$ の線より上 — ②。" }
+    },
+    {
+      "id": "2012-2-chem-7", "answerRow": 7, "topicId": "states-and-change",
+      "subtopic": "Heat of glucose fermentation from heats of formation",
+      "patternTags": ["thermochemistry", "hess-law", "heat-of-formation", "plug-in-numbers"], "hasFigure": false,
+      "figure": { "ja": "生成熱：$\\mathrm{C+O_2=CO_2}+394$，$\\mathrm{2C+3H_2+\\tfrac12 O_2=C_2H_5OH}+277$，$\\mathrm{6C+6H_2+3O_2=C_6H_{12}O_6}+1273$（kJ）。求める式：$\\mathrm{C_6H_{12}O_6=2C_2H_5OH+2CO_2}+Q$。", "en": "Heats of formation: $\\mathrm{C+O_2=CO_2}+394$; $\\mathrm{2C+3H_2+\\tfrac12 O_2=C_2H_5OH}+277$; $\\mathrm{6C+6H_2+3O_2=C_6H_{12}O_6}+1273$ (kJ). Target: $\\mathrm{C_6H_{12}O_6=2C_2H_5OH+2CO_2}+Q$." },
+      "ja": { "prompt": "$\\mathrm{CO_2}$，$\\mathrm{C_2H_5OH}$，$\\mathrm{C_6H_{12}O_6}$ の生成熱はそれぞれ $394$，$277$，$1273\\,$kJ/mol である。$\\mathrm{C_6H_{12}O_6}$（固）$=2\\mathrm{C_2H_5OH}$（液）$+2\\mathrm{CO_2}$（気）$+Q\\,$kJ における $Q$ の値を選びなさい。", "choices": ["17", "33", "47", "63", "69", "95"] },
+      "en": { "prompt": "The heats of formation of $\\mathrm{CO_2}$, $\\mathrm{C_2H_5OH}$, $\\mathrm{C_6H_{12}O_6}$ are $394$, $277$, $1273\\,$kJ/mol. Find $Q$ for $\\mathrm{C_6H_{12}O_6(s)=2C_2H_5OH(l)+2CO_2(g)}+Q\\,$kJ.", "choices": ["17", "33", "47", "63", "69", "95"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "$69\\,$kJ", "en": "69 kJ" },
+      "explanation": { "en": "$Q=\\sum Q_f(\\text{products})-\\sum Q_f(\\text{reactants})=[2(277)+2(394)]-1273=1342-1273=69\\,$kJ.", "ja": "$Q=\\sum Q_f(\\text{生成物})-\\sum Q_f(\\text{反応物})=[2(277)+2(394)]-1273=1342-1273=69\\,$kJ。" }
+    },
+    {
+      "id": "2012-2-chem-8", "answerRow": 8, "topicId": "states-and-change",
+      "subtopic": "Reduce NH₄⁺ in the ammonia equilibrium",
+      "patternTags": ["chemical-equilibrium", "le-chatelier", "acids-bases"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "$\\mathrm{NH_3+H_2O\\rightleftharpoons NH_4^++OH^-}$ の平衡状態にあるアンモニア水溶液で，$\\mathrm{NH_4^+}$ の濃度を減らすには，どの化合物を加えればよいか。", "choices": ["$\\mathrm{C_2H_5OH}$", "$\\mathrm{CH_3COOH}$", "$\\mathrm{NaCl}$", "$\\mathrm{NaOH}$", "$\\mathrm{NH_4Cl}$"] },
+      "en": { "prompt": "For $\\mathrm{NH_3+H_2O\\rightleftharpoons NH_4^++OH^-}$ at equilibrium, which compound, when added, lowers the $\\mathrm{NH_4^+}$ concentration?", "choices": ["$\\mathrm{C_2H_5OH}$", "$\\mathrm{CH_3COOH}$", "$\\mathrm{NaCl}$", "$\\mathrm{NaOH}$", "$\\mathrm{NH_4Cl}$"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "$\\mathrm{NaOH}$", "en": "$\\mathrm{NaOH}$" },
+      "explanation": { "en": "Adding $\\mathrm{NaOH}$ raises $[\\mathrm{OH^-}]$, shifting the equilibrium left (Le Chatelier) and lowering $[\\mathrm{NH_4^+}]$. $\\mathrm{CH_3COOH}$ would shift it right (more $\\mathrm{NH_4^+}$); $\\mathrm{NH_4Cl}$ adds $\\mathrm{NH_4^+}$; ethanol and $\\mathrm{NaCl}$ are inert here.", "ja": "$\\mathrm{NaOH}$ を加えると $[\\mathrm{OH^-}]$ が増え，ルシャトリエにより平衡が左に移動して $[\\mathrm{NH_4^+}]$ が減る。$\\mathrm{CH_3COOH}$ は右へ（$\\mathrm{NH_4^+}$ 増），$\\mathrm{NH_4Cl}$ は $\\mathrm{NH_4^+}$ を加える，エタノール・$\\mathrm{NaCl}$ は無関係。" }
+    },
+    {
+      "id": "2012-2-chem-9", "answerRow": 9, "topicId": "states-and-change",
+      "subtopic": "Heat of neutralization with a limiting reagent",
+      "patternTags": ["thermochemistry", "neutralization", "limiting-reagent", "plug-in-numbers"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "$0.40\\,$mol/L 塩酸 $50\\,$mL に $0.10\\,$mol/L NaOH $100\\,$mL を加えると $0.56\\,$kJ の熱が発生した。$0.40\\,$mol/L 塩酸 $50\\,$mL に $0.30\\,$mol/L NaOH $100\\,$mL を加えた場合，何 kJ の熱が発生するか。", "choices": ["0.51", "0.72", "1.1", "1.6", "2.1", "3.2"] },
+      "en": { "prompt": "Adding $0.10\\,$mol/L NaOH $100\\,$mL to $0.40\\,$mol/L HCl $50\\,$mL releases $0.56\\,$kJ. How much heat is released when $0.30\\,$mol/L NaOH $100\\,$mL is added to $0.40\\,$mol/L HCl $50\\,$mL?", "choices": ["0.51", "0.72", "1.1", "1.6", "2.1", "3.2"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "約 $1.1\\,$kJ", "en": "≈ 1.1 kJ" },
+      "explanation": { "en": "First run: HCl $=0.020\\,$mol, NaOH $=0.010\\,$mol (limiting) → $0.010\\,$mol water gives $0.56\\,$kJ, i.e. $56\\,$kJ/mol. Second run: HCl $0.020$, NaOH $0.030$ → HCl limiting, $0.020\\,$mol water → $0.020\\times56=1.1\\,$kJ.", "ja": "1 回目：HCl $0.020\\,$mol，NaOH $0.010\\,$mol（不足）→ 水 $0.010\\,$mol で $0.56\\,$kJ ＝ $56\\,$kJ/mol。2 回目：HCl $0.020$，NaOH $0.030$ → HCl が不足，水 $0.020\\,$mol → $0.020\\times56=1.1\\,$kJ。" }
+    },
+    {
+      "id": "2012-2-chem-10", "answerRow": 10, "topicId": "states-and-change",
+      "subtopic": "Electrode mass change when charging a lead-acid battery",
+      "patternTags": ["cells-electrolysis", "lead-acid", "charging"], "hasFigure": true,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "鉛蓄電池を充電すると，正極と負極の質量はそれぞれどのように変化するか。最も適当な組み合わせを選びなさい。", "choices": ["正極:増える 負極:増える", "正極:増える 負極:減る", "正極:減る 負極:減る", "正極:減る 負極:増える", "正極:変わらない 負極:変わらない"] },
+      "en": { "prompt": "When a lead-acid battery is charged, how do the positive and negative electrode masses change?", "choices": ["positive: increases / negative: increases", "positive: increases / negative: decreases", "positive: decreases / negative: decreases", "positive: decreases / negative: increases", "positive: unchanged / negative: unchanged"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "正極:減る，負極:減る（③）", "en": "positive: decreases, negative: decreases (③)" },
+      "explanation": { "en": "Charging reverses discharge: at both electrodes $\\mathrm{PbSO_4}$ is converted back ($\\mathrm{PbSO_4}\\to\\mathrm{PbO_2}$ at the positive, $\\mathrm{PbSO_4}\\to\\mathrm{Pb}$ at the negative), releasing $\\mathrm{SO_4^{2-}}$, so both electrodes lose mass.", "ja": "充電は放電の逆：両極とも $\\mathrm{PbSO_4}$ が元に戻り（正極 $\\mathrm{PbSO_4}\\to\\mathrm{PbO_2}$，負極 $\\mathrm{PbSO_4}\\to\\mathrm{Pb}$）$\\mathrm{SO_4^{2-}}$ を放出するので，どちらも質量が減る。" }
+    },
+    {
+      "id": "2012-2-chem-11", "answerRow": 11, "topicId": "inorganic",
+      "subtopic": "Correct statement about metal reactivity",
+      "patternTags": ["typical-elements", "passivation", "metals-acids", "pick-correct-statement"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "金属の性質に関する次の記述①〜⑤のうち，最も適当なものを一つ選びなさい。", "choices": ["銀 Ag は，濃硝酸に溶けない。", "アルミニウム Al は，水酸化ナトリウム水溶液に溶けない。", "金 Au は，濃硫酸に溶ける。", "銅 Cu は，希塩酸に溶ける。", "鉄 Fe は，濃硝酸に溶けない。"] },
+      "en": { "prompt": "Which statement about metals is correct?", "choices": ["Ag does not dissolve in conc. $\\mathrm{HNO_3}$.", "Al does not dissolve in NaOH aq.", "Au dissolves in conc. $\\mathrm{H_2SO_4}$.", "Cu dissolves in dilute HCl.", "Fe does not dissolve in conc. $\\mathrm{HNO_3}$."] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "「Fe は濃硝酸に溶けない」（⑤）", "en": "\"Fe does not dissolve in conc. $\\mathrm{HNO_3}$\" (⑤)" },
+      "explanation": { "en": "Iron is passivated by concentrated $\\mathrm{HNO_3}$ (forms a protective oxide), so it does not dissolve — ⑤ is correct. The others are false: Ag does dissolve in $\\mathrm{HNO_3}$; Al (amphoteric) dissolves in NaOH; Au does not dissolve in $\\mathrm{H_2SO_4}$; Cu (below H) does not dissolve in dilute HCl.", "ja": "Fe は濃硝酸で不動態となり溶けない — ⑤ が正しい。他は誤り：Ag は硝酸に溶ける，Al は両性で NaOH に溶ける，Au は硫酸に溶けない，Cu（H より下位）は希塩酸に溶けない。" }
+    },
+    {
+      "id": "2012-2-chem-12", "answerRow": 12, "topicId": "inorganic",
+      "subtopic": "Incorrect ion-detection result",
+      "patternTags": ["ion-analysis", "qualitative-tests", "pick-false-statement"], "hasFigure": true,
+      "figure": { "ja": "イオン検出表：① $\\mathrm{Ag^+}$+HCl→白色沈殿。② $\\mathrm{Fe^{3+}}$+NaOH 少量→赤褐色沈殿、その後溶解。③ $\\mathrm{MnO_4^-}$+硫酸酸性シュウ酸・加熱→脱色。④ $\\mathrm{Na^+}$ 炎色反応→黄色。⑤ $\\mathrm{SO_4^{2-}}$+$\\mathrm{Ba(NO_3)_2}$→白色沈殿。", "en": "Ion-detection table: ① $\\mathrm{Ag^+}$+HCl→white ppt. ② $\\mathrm{Fe^{3+}}$+NaOH (gradual)→reddish-brown ppt, then dissolves. ③ $\\mathrm{MnO_4^-}$+acidified oxalic acid (heat)→decolorizes. ④ $\\mathrm{Na^+}$ flame→yellow. ⑤ $\\mathrm{SO_4^{2-}}$+$\\mathrm{Ba(NO_3)_2}$→white ppt." },
+      "ja": { "prompt": "表の A 欄のイオンを検出するため B 欄の操作をした。C 欄の結果が正しくないものを選びなさい。 ① $\\mathrm{Ag^+}$／HCl／白色沈殿 ② $\\mathrm{Fe^{3+}}$／少量の NaOH／赤褐色沈殿後に溶解 ③ $\\mathrm{MnO_4^-}$／硫酸酸性シュウ酸・加熱／脱色 ④ $\\mathrm{Na^+}$／炎色反応／黄色 ⑤ $\\mathrm{SO_4^{2-}}$／$\\mathrm{Ba(NO_3)_2}$／白色沈殿", "choices": ["①", "②", "③", "④", "⑤"] },
+      "en": { "prompt": "An ion in column A is detected by operation B; which result C is INCORRECT? ① $\\mathrm{Ag^+}$/HCl/white ppt ② $\\mathrm{Fe^{3+}}$/gradual NaOH/reddish-brown ppt then dissolves ③ $\\mathrm{MnO_4^-}$/acidified oxalic acid, heat/decolorizes ④ $\\mathrm{Na^+}$/flame test/yellow ⑤ $\\mathrm{SO_4^{2-}}$/$\\mathrm{Ba(NO_3)_2}$/white ppt", "choices": ["①", "②", "③", "④", "⑤"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "②（$\\mathrm{Fe(OH)_3}$ は過剰 NaOH に溶けない）", "en": "② ($\\mathrm{Fe(OH)_3}$ does not dissolve in excess NaOH)" },
+      "explanation": { "en": "$\\mathrm{Fe^{3+}}$ with NaOH gives reddish-brown $\\mathrm{Fe(OH)_3}$, but this hydroxide is NOT amphoteric and does not redissolve in excess NaOH — so the 'then dissolves' part is wrong. The other results are all correct.", "ja": "$\\mathrm{Fe^{3+}}$ に NaOH で赤褐色の $\\mathrm{Fe(OH)_3}$ が生じるが，これは両性でなく過剰の NaOH に溶けない — 「その後溶解」は誤り。他は正しい。" }
+    },
+    {
+      "id": "2012-2-chem-13", "answerRow": 13, "topicId": "inorganic",
+      "subtopic": "Correctly written reaction equation",
+      "patternTags": ["typical-elements", "reaction-equations", "pick-correct-statement"], "hasFigure": true,
+      "figure": { "ja": "操作と反応式：① $\\mathrm{CuSO_4}$ aq+NaOH aq → $\\mathrm{CuSO_4+2NaOH\\to Cu(OH)_2+Na_2SO_4}$。② $\\mathrm{NaHCO_3}$ 熱分解 → $\\mathrm{NaHCO_3\\to NaOH+CO_2}$。③ $\\mathrm{AgNO_3}$ aq に過剰 $\\mathrm{NH_3}$ → $\\mathrm{2AgNO_3+2NH_3+H_2O\\to Ag_2O+2NH_4NO_3}$。④ $\\mathrm{NH_4Cl+Ca(OH)_2}$ 加熱 → $\\mathrm{2NH_4Cl+Ca(OH)_2\\to 2NH_4OH+CaCl_2}$。", "en": "Operation and equation: ① $\\mathrm{CuSO_4}$ aq + NaOH aq → $\\mathrm{CuSO_4+2NaOH\\to Cu(OH)_2+Na_2SO_4}$. ② $\\mathrm{NaHCO_3}$ thermal decomp → $\\mathrm{NaHCO_3\\to NaOH+CO_2}$. ③ $\\mathrm{AgNO_3}$ + excess $\\mathrm{NH_3}$ → $\\mathrm{2AgNO_3+2NH_3+H_2O\\to Ag_2O+2NH_4NO_3}$. ④ $\\mathrm{NH_4Cl+Ca(OH)_2}$ heated → $\\mathrm{2NH_4Cl+Ca(OH)_2\\to 2NH_4OH+CaCl_2}$." },
+      "ja": { "prompt": "次の①〜④のうち，操作でおこる化学反応を反応式で正しく示したものを一つ選びなさい。 ① $\\mathrm{CuSO_4}$ aq に NaOH aq：$\\mathrm{CuSO_4+2NaOH\\to Cu(OH)_2+Na_2SO_4}$ ② $\\mathrm{NaHCO_3}$ 熱分解：$\\mathrm{NaHCO_3\\to NaOH+CO_2}$ ③ $\\mathrm{AgNO_3}$ aq に過剰 $\\mathrm{NH_3}$：$\\mathrm{2AgNO_3+2NH_3+H_2O\\to Ag_2O+2NH_4NO_3}$ ④ $\\mathrm{NH_4Cl}$ に $\\mathrm{Ca(OH)_2}$ 加熱：$\\mathrm{2NH_4Cl+Ca(OH)_2\\to 2NH_4OH+CaCl_2}$", "choices": ["①", "②", "③", "④"] },
+      "en": { "prompt": "Which reaction equation is written correctly? ① $\\mathrm{CuSO_4+2NaOH\\to Cu(OH)_2+Na_2SO_4}$ ② $\\mathrm{NaHCO_3\\to NaOH+CO_2}$ ③ $\\mathrm{2AgNO_3+2NH_3+H_2O\\to Ag_2O+2NH_4NO_3}$ (excess $\\mathrm{NH_3}$) ④ $\\mathrm{2NH_4Cl+Ca(OH)_2\\to 2NH_4OH+CaCl_2}$ (heated)", "choices": ["①", "②", "③", "④"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "①（$\\mathrm{CuSO_4+2NaOH\\to Cu(OH)_2+Na_2SO_4}$）", "en": "① ($\\mathrm{CuSO_4+2NaOH\\to Cu(OH)_2+Na_2SO_4}$)" },
+      "explanation": { "en": "① is correct and balanced (blue $\\mathrm{Cu(OH)_2}$ precipitates). The others are wrong: ② should give $\\mathrm{2NaHCO_3\\to Na_2CO_3+H_2O+CO_2}$; ③ with excess ammonia gives the soluble $[\\mathrm{Ag(NH_3)_2}]^+$ complex, not $\\mathrm{Ag_2O}$; ④ evolves $\\mathrm{NH_3}$ gas: $\\mathrm{2NH_4Cl+Ca(OH)_2\\to CaCl_2+2H_2O+2NH_3}$.", "ja": "① が正しく釣り合っている（青色の $\\mathrm{Cu(OH)_2}$ 沈殿）。他は誤り：② は $\\mathrm{2NaHCO_3\\to Na_2CO_3+H_2O+CO_2}$，③ 過剰アンモニアでは可溶な $[\\mathrm{Ag(NH_3)_2}]^+$ 錯イオン（$\\mathrm{Ag_2O}$ ではない），④ は $\\mathrm{NH_3}$ ガスが発生：$\\mathrm{2NH_4Cl+Ca(OH)_2\\to CaCl_2+2H_2O+2NH_3}$。" }
+    },
+    {
+      "id": "2012-2-chem-14", "answerRow": 14, "topicId": "states-and-change",
+      "subtopic": "Identify the redox reaction",
+      "patternTags": ["redox", "oxidation-number", "reaction-classification"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の反応①〜⑤のうち，酸化還元反応であるものを一つ選びなさい。 ① $\\mathrm{CaCO_3+2HCl\\to CaCl_2+H_2O+CO_2}$ ② $\\mathrm{FeCl_3+3NaOH\\to Fe(OH)_3+3NaCl}$ ③ $\\mathrm{Na_2O+H_2O\\to 2NaOH}$ ④ $\\mathrm{2NH_3+H_2SO_4\\to(NH_4)_2SO_4}$ ⑤ $\\mathrm{SO_2+2H_2S\\to 3S+2H_2O}$", "choices": ["①", "②", "③", "④", "⑤"] },
+      "en": { "prompt": "Which reaction is a redox reaction? ① $\\mathrm{CaCO_3+2HCl}$ ② $\\mathrm{FeCl_3+3NaOH}$ ③ $\\mathrm{Na_2O+H_2O}$ ④ $\\mathrm{2NH_3+H_2SO_4}$ ⑤ $\\mathrm{SO_2+2H_2S\\to 3S+2H_2O}$", "choices": ["①", "②", "③", "④", "⑤"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "⑤", "en": "⑤" },
+      "explanation": { "en": "In ⑤ the S in $\\mathrm{SO_2}$ goes $+4\\to0$ (reduced) and the S in $\\mathrm{H_2S}$ goes $-2\\to0$ (oxidized) — a redox (comproportionation). ①–④ are acid–base/precipitation reactions with no oxidation-number change.", "ja": "⑤ では $\\mathrm{SO_2}$ の S が $+4\\to0$（還元），$\\mathrm{H_2S}$ の S が $-2\\to0$（酸化）— 酸化還元（共比例）。①〜④は酸塩基・沈殿で酸化数不変。" }
+    },
+    {
+      "id": "2012-2-chem-15", "answerRow": 15, "topicId": "inorganic",
+      "subtopic": "Ostwald process: mass of HNO₃ from NH₃",
+      "patternTags": ["gas-prep-industry", "ostwald-process", "stoichiometry", "plug-in-numbers"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "アンモニア $\\mathrm{NH_3}$ から硝酸 $\\mathrm{HNO_3}$ を工業的に合成するオストワルト法は，全体として $\\mathrm{NH_3+2O_2\\to HNO_3+H_2O}$ と表される。$17\\,$kg のアンモニアから何 kg の硝酸が得られるか。", "choices": ["17", "33", "50", "63", "86"] },
+      "en": { "prompt": "The Ostwald process for making $\\mathrm{HNO_3}$ from $\\mathrm{NH_3}$ is overall $\\mathrm{NH_3+2O_2\\to HNO_3+H_2O}$. How many kg of $\\mathrm{HNO_3}$ come from $17\\,$kg of $\\mathrm{NH_3}$?", "choices": ["17", "33", "50", "63", "86"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "$63\\,$kg", "en": "63 kg" },
+      "explanation": { "en": "$17\\,$kg $\\mathrm{NH_3}=1000\\,$mol (M = 17). The 1:1 stoichiometry gives $1000\\,$mol $\\mathrm{HNO_3}$ (M = 63) $=63\\,$kg.", "ja": "$17\\,$kg の $\\mathrm{NH_3}=1000\\,$mol（M=17）。1:1 なので $\\mathrm{HNO_3}$ も $1000\\,$mol（M=63）$=63\\,$kg。" }
+    },
+    {
+      "id": "2012-2-chem-16", "answerRow": 16, "topicId": "matter-structure",
+      "subtopic": "Two compounds with the same empirical formula",
+      "patternTags": ["mole-formulas", "empirical-formula", "organic-compounds", "compare-cases"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の化合物の組み合わせ①〜⑤のうち，二つの化合物の組成式が同じものを一つ選びなさい。 ① 酢酸・ホルムアルデヒド ② 酢酸・ギ酸 ③ アセトン・酢酸エチル ④ アセチルサリチル酸・サリチル酸メチル ⑤ エチレングリコール・グリセリン", "choices": ["①", "②", "③", "④", "⑤"] },
+      "en": { "prompt": "Which pair of compounds shares the same empirical formula? ① acetic acid / formaldehyde ② acetic acid / formic acid ③ acetone / ethyl acetate ④ acetylsalicylic acid / methyl salicylate ⑤ ethylene glycol / glycerin", "choices": ["①", "②", "③", "④", "⑤"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "①（酢酸とホルムアルデヒド，ともに $\\mathrm{CH_2O}$）", "en": "① (acetic acid and formaldehyde, both $\\mathrm{CH_2O}$)" },
+      "explanation": { "en": "Acetic acid $\\mathrm{C_2H_4O_2}$ reduces to empirical $\\mathrm{CH_2O}$, the same as formaldehyde $\\mathrm{CH_2O}$. The other pairs have different empirical formulas (e.g. formic acid $\\mathrm{CH_2O_2}$; acetone $\\mathrm{C_3H_6O}$ vs ethyl acetate $\\mathrm{C_2H_4O}$).", "ja": "酢酸 $\\mathrm{C_2H_4O_2}$ は組成式 $\\mathrm{CH_2O}$ に約分でき，ホルムアルデヒド $\\mathrm{CH_2O}$ と同じ。他は組成式が異なる（例：ギ酸 $\\mathrm{CH_2O_2}$，アセトン $\\mathrm{C_3H_6O}$ と酢酸エチル $\\mathrm{C_2H_4O}$）。" }
+    },
+    {
+      "id": "2012-2-chem-17", "answerRow": 17, "topicId": "matter-structure",
+      "subtopic": "Molecule with all atoms in one plane",
+      "patternTags": ["chemical-bonds", "molecular-geometry", "planarity"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の化合物①〜⑤のうち，分子中の原子がすべて一つの平面上にあるものを一つ選びなさい。", "choices": ["酢酸", "ベンゼン", "シクロヘキサン", "ジエチルエーテル", "メタン"] },
+      "en": { "prompt": "Which compound has all its atoms in a single plane?", "choices": ["acetic acid", "benzene", "cyclohexane", "diethyl ether", "methane"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "ベンゼン", "en": "benzene" },
+      "explanation": { "en": "Benzene is a flat, fully conjugated hexagonal ring — all 12 atoms are coplanar. The others have sp³ centers (methyl/methylene groups, the puckered cyclohexane ring), so they are non-planar.", "ja": "ベンゼンは完全共役した平面六員環で 12 原子すべてが同一平面。他は sp³ 中心（メチル/メチレン基や折れたシクロヘキサン環）をもち非平面。" }
+    },
+    {
+      "id": "2012-2-chem-18", "answerRow": 18, "topicId": "states-and-change",
+      "subtopic": "CO₂ and H₂O from combustion of an ester C₄H₈O₂",
+      "patternTags": ["stoichiometry", "combustion", "mass-products", "plug-in-numbers"], "hasFigure": true,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "分子式 $\\mathrm{C_4H_8O_2}$ のエステル $0.264\\,$g を完全燃焼させたとき，$\\mathrm{CO_2}$ と $\\mathrm{H_2O}$ はそれぞれ何 g 生成するか。", "choices": ["$\\mathrm{CO_2}$ 0.336 / $\\mathrm{H_2O}$ 0.192", "$\\mathrm{CO_2}$ 0.528 / $\\mathrm{H_2O}$ 0.192", "$\\mathrm{CO_2}$ 0.528 / $\\mathrm{H_2O}$ 0.216", "$\\mathrm{CO_2}$ 0.672 / $\\mathrm{H_2O}$ 0.216", "$\\mathrm{CO_2}$ 0.672 / $\\mathrm{H_2O}$ 0.384", "$\\mathrm{CO_2}$ 1.056 / $\\mathrm{H_2O}$ 0.432"] },
+      "en": { "prompt": "Completely burning $0.264\\,$g of an ester $\\mathrm{C_4H_8O_2}$ produces how many grams of $\\mathrm{CO_2}$ and $\\mathrm{H_2O}$?", "choices": ["$\\mathrm{CO_2}$ 0.336 / $\\mathrm{H_2O}$ 0.192", "$\\mathrm{CO_2}$ 0.528 / $\\mathrm{H_2O}$ 0.192", "$\\mathrm{CO_2}$ 0.528 / $\\mathrm{H_2O}$ 0.216", "$\\mathrm{CO_2}$ 0.672 / $\\mathrm{H_2O}$ 0.216", "$\\mathrm{CO_2}$ 0.672 / $\\mathrm{H_2O}$ 0.384", "$\\mathrm{CO_2}$ 1.056 / $\\mathrm{H_2O}$ 0.432"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "$\\mathrm{CO_2}$ $0.528\\,$g，$\\mathrm{H_2O}$ $0.216\\,$g", "en": "$\\mathrm{CO_2}$ $0.528\\,$g, $\\mathrm{H_2O}$ $0.216\\,$g" },
+      "explanation": { "en": "$\\mathrm{C_4H_8O_2}$ has M = 88; $0.264/88=0.003\\,$mol. $\\mathrm{C_4H_8O_2+5O_2\\to4CO_2+4H_2O}$ gives $0.012\\,$mol each: $\\mathrm{CO_2}=0.012\\times44=0.528\\,$g, $\\mathrm{H_2O}=0.012\\times18=0.216\\,$g.", "ja": "$\\mathrm{C_4H_8O_2}$ は M=88，$0.264/88=0.003\\,$mol。$\\mathrm{C_4H_8O_2+5O_2\\to4CO_2+4H_2O}$ で各 $0.012\\,$mol：$\\mathrm{CO_2}=0.012\\times44=0.528\\,$g，$\\mathrm{H_2O}=0.012\\times18=0.216\\,$g。" }
+    },
+    {
+      "id": "2012-2-chem-19", "answerRow": 19, "topicId": "organic",
+      "subtopic": "Name the reaction types along a synthetic route",
+      "patternTags": ["functional-groups", "reaction-types", "aromatic", "reaction-pathway"], "hasFigure": true,
+      "figure": { "ja": "反応経路：$\\mathrm{HC{\\equiv}CH}\\xrightarrow{H_2,(A)}\\mathrm{H_2C{=}CH_2}\\xrightarrow{H_2O,(A)}\\mathrm{C_2H_5OH}\\xrightarrow{(B)}\\mathrm{C_2H_5OC_2H_5}$。別経路：ベンゼン $\\xrightarrow{HNO_3/H_2SO_4,(C)}$ ニトロベンゼン $\\xrightarrow{Sn/HCl,(D)}$ アニリン塩酸塩 $\\xrightarrow{NaOH}$ アニリン。", "en": "Route: $\\mathrm{HC{\\equiv}CH}\\xrightarrow{H_2,(A)}\\mathrm{H_2C{=}CH_2}\\xrightarrow{H_2O,(A)}\\mathrm{C_2H_5OH}\\xrightarrow{(B)}\\mathrm{C_2H_5OC_2H_5}$. Also benzene $\\xrightarrow{HNO_3/H_2SO_4,(C)}$ nitrobenzene $\\xrightarrow{Sn/HCl,(D)}$ aniline·HCl $\\xrightarrow{NaOH}$ aniline." },
+      "ja": { "prompt": "反応経路の(A)〜(D)の反応はそれぞれ何と呼ばれるか。最も適当な組み合わせを選びなさい（縮合・付加・置換・還元・酸化）。", "choices": ["A:縮合 B:置換 C:縮合 D:還元", "A:縮合 B:付加 C:付加 D:酸化", "A:縮合 B:付加 C:付加 D:還元", "A:付加 B:縮合 C:置換 D:酸化", "A:付加 B:縮合 C:置換 D:還元", "A:付加 B:置換 C:縮合 D:酸化"] },
+      "en": { "prompt": "Name reactions (A)–(D) in the route (condensation / addition / substitution / reduction / oxidation).", "choices": ["A:condensation B:substitution C:condensation D:reduction", "A:condensation B:addition C:addition D:oxidation", "A:condensation B:addition C:addition D:reduction", "A:addition B:condensation C:substitution D:oxidation", "A:addition B:condensation C:substitution D:reduction", "A:addition B:substitution C:condensation D:oxidation"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "A:付加 B:縮合 C:置換 D:還元（⑤）", "en": "A: addition, B: condensation, C: substitution, D: reduction (⑤)" },
+      "explanation": { "en": "(A) adding H₂ to C≡C and H₂O to C=C are additions. (B) $\\mathrm{2C_2H_5OH\\to C_2H_5OC_2H_5+H_2O}$ is a (dehydration) condensation. (C) nitration of benzene is an aromatic substitution. (D) nitrobenzene → aniline (Sn/HCl) is a reduction.", "ja": "(A) C≡C への H₂ 付加，C=C への H₂O 付加はいずれも付加。(B) $\\mathrm{2C_2H_5OH\\to C_2H_5OC_2H_5+H_2O}$ は（脱水）縮合。(C) ベンゼンのニトロ化は置換。(D) ニトロベンゼン→アニリン（Sn/HCl）は還元。" }
+    },
+    {
+      "id": "2012-2-chem-20", "answerRow": 20, "topicId": "organic",
+      "subtopic": "Solvent extraction: which layer for benzoic acid and phenol",
+      "patternTags": ["aromatic", "solvent-extraction", "acid-base-separation"], "hasFigure": true,
+      "figure": { "ja": "安息香酸とフェノールをジエチルエーテル（上層）に溶かし，(a) NaOH aq または (b) $\\mathrm{NaHCO_3}$ aq を加えて振る。エーテル＝上層，水＝下層。", "en": "Benzoic acid and phenol dissolved in diethyl ether (upper layer); shaken with (a) NaOH aq or (b) $\\mathrm{NaHCO_3}$ aq. Ether = upper layer, aqueous = lower layer." },
+      "ja": { "prompt": "安息香酸とフェノールをジエチルエーテルに溶かし分液漏斗に入れ，(a) NaOH aq または (b) $\\mathrm{NaHCO_3}$ aq を加えて振った後静置すると 2 層に分かれた。安息香酸とフェノールはそれぞれ上層・下層どちらに含まれるか。", "choices": ["a:上層/上層 b:上層/上層", "a:上層/上層 b:上層/下層", "a:上層/下層 b:上層/下層", "a:下層/上層 b:下層/上層", "a:下層/下層 b:下層/下層", "a:下層/下層 b:下層/上層"] },
+      "en": { "prompt": "Benzoic acid and phenol in diethyl ether are shaken with (a) NaOH aq or (b) $\\mathrm{NaHCO_3}$ aq. In each case, which layer (upper/lower) holds benzoic acid and phenol? (entries: benzoic acid / phenol)", "choices": ["a:upper/upper b:upper/upper", "a:upper/upper b:upper/lower", "a:upper/lower b:upper/lower", "a:lower/upper b:lower/upper", "a:lower/lower b:lower/lower", "a:lower/lower b:lower/upper"] },
+      "answerIndex": 5, "answerOption": 6, "answer": { "ja": "a:両方とも下層／b:安息香酸 下層・フェノール 上層（⑥）", "en": "a: both lower / b: benzoic acid lower, phenol upper (⑥)" },
+      "explanation": { "en": "Ether is the upper layer. (a) NaOH is strong enough to deprotonate both benzoic acid and phenol into water-soluble salts → both move to the lower (aqueous) layer. (b) $\\mathrm{NaHCO_3}$ neutralizes only the stronger benzoic acid (pKa ≈ 4) → it goes to the lower layer, while phenol (pKa ≈ 10) stays in the ether (upper) layer.", "ja": "エーテルが上層。(a) NaOH は安息香酸もフェノールも中和して水溶性の塩にする → どちらも下層（水層）。(b) $\\mathrm{NaHCO_3}$ は強い方の安息香酸（pKa≈4）だけを中和 → 安息香酸は下層，フェノール（pKa≈10）はエーテル（上層）に残る。" }
+    }
+  ],
+  "patterns": {
+    "archetypes": [
+      "Compare subatomic counts (protons/neutrons/electrons, outermost-shell electrons, isotopes) — find the differing pair.",
+      "Periodic-table region/block screen (alkali metals, transition block, halogens; Sn is p-block not transition).",
+      "Water-molecule property screen (bent shape, 2 lone pairs, polarity, hydrogen bonding).",
+      "Molarity from mass and volume; double-bond identification; empirical-formula matching.",
+      "V–t (Charles) graph with a positive intercept; lower-pressure line is higher and steeper.",
+      "Hess's-law reaction heat from heats of formation (fermentation Q = 69 kJ).",
+      "Le Chatelier shift to lower a specific ion (add OH⁻ to suppress NH₄⁺).",
+      "Neutralization heat with a limiting reagent (scale by mol of water formed).",
+      "Lead-acid battery charging — both electrodes lose mass.",
+      "Metal-reactivity true statement (passivation of Fe; amphoteric Al; noble Au/Ag/Cu behaviour).",
+      "Ion qualitative-test screen (Fe(OH)₃ does not redissolve in excess NaOH).",
+      "Correctly-balanced equation screen (NaHCO₃ decomposition, Tollens complex, NH₃ evolution).",
+      "Identify the redox reaction (S comproportionation SO₂ + H₂S).",
+      "Ostwald-process mass yield (1:1 NH₃→HNO₃).",
+      "Same-empirical-formula pair (acetic acid vs formaldehyde, CH₂O).",
+      "Planar molecule selection (benzene).",
+      "Combustion product masses for a given ester formula.",
+      "Name reaction types along a synthesis (addition / condensation / substitution / reduction).",
+      "Solvent-extraction layer assignment (NaOH pulls both acid & phenol; NaHCO₃ pulls only the carboxylic acid)."
+    ],
+    "recurring": [
+      "Structure/bonding recall (subatomic counts, lone pairs, planarity, double bonds) opens the paper.",
+      "Thermochemistry recurs in two forms: Hess's law from formation heats and limiting-reagent neutralization heat.",
+      "Le Chatelier, electrode/Faraday electrochemistry, and metal-reactivity screens are standard.",
+      "Qualitative inorganic (ion tests, correctly-written equations, Ostwald) is a guaranteed block.",
+      "Organic: empirical formulas, planarity, combustion stoichiometry, reaction-type naming, and aromatic extraction recur every paper."
+    ],
+    "examTacticNotes": [
+      "Isoelectronic check: Ne-type (10 e⁻) ions and the equal outermost-shell-electron trick (both 8 for Ca²⁺ M-shell and F⁻ L-shell).",
+      "Sn, Pb, Al are p-block (typical) metals, not transition metals.",
+      "Water is bent with 2 lone pairs — never linear.",
+      "Charles graph (V vs t in °C): straight line crossing V=0 at t=−273, so a positive intercept at t=0; lower P ⇒ higher, steeper line.",
+      "Reaction heat = Σ Qf(products) − Σ Qf(reactants).",
+      "Neutralization heat scales with the mol of water formed; identify the limiting reagent first.",
+      "Charging a lead-acid cell reverses discharge: both electrodes lose the SO₄ mass.",
+      "Fe is passivated by conc. HNO₃; Al is amphoteric; Cu/Ag/Au resist non-oxidizing acids.",
+      "Fe(OH)₃ is NOT amphoteric — it does not redissolve in excess NaOH (unlike Al(OH)₃, Zn(OH)₂).",
+      "Excess NH₃ on Ag⁺ gives the soluble [Ag(NH₃)₂]⁺ complex; NH₄Cl + Ca(OH)₂ releases NH₃ gas.",
+      "Redox ⇔ an oxidation number changes; SO₂ + H₂S → S is comproportionation.",
+      "Empirical formula: divide subscripts by their GCD (acetic acid → CH₂O).",
+      "Only fully sp²/conjugated molecules (benzene) are planar; sp³ groups break planarity.",
+      "Ester combustion: CₙH₂ₙO₂ + (3n−2)/2 O₂ → n CO₂ + n H₂O.",
+      "Reaction names: H₂/H₂O across a multiple bond = addition; alcohol→ether = condensation; ring nitration = substitution; nitro→amine = reduction.",
+      "Extraction: NaOH removes both phenols and carboxylic acids; NaHCO₃ removes only carboxylic acids (phenol stays in the organic layer)."
+    ],
+    "difficulty": "Standard EJU chemistry — a full-syllabus sweep of mostly one-step items. The more discriminating ones are the Charles-law graph intercept (Q6), the limiting-reagent neutralization heat (Q9), the correctly-written-equation screen (Q13), and the NaOH-vs-NaHCO₃ extraction (Q20)."
+  }
+}
