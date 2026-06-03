@@ -1,0 +1,275 @@
+{
+  "id": "2015-1-chemistry",
+  "year": 2015,
+  "session": 1,
+  "subject": "chemistry",
+  "title": "EJU 2015 · Session 1 · Chemistry",
+  "source": "平成27年度（2015年度）日本留学試験（第1回）理科〈化学〉 © Japan Student Services Organization (JASSO)",
+  "attribution": "EJU past questions © JASSO. Question text transcribed from the official past paper; figures described in text; correct answers taken from the official JASSO answer key and independently re-solved for verification.",
+  "languages": ["ja", "en"],
+  "answerKeyVerified": true,
+  "structure": {
+    "format": "flat",
+    "totalQuestions": 20,
+    "note": "Chemistry is a flat list of 20 single-best-answer items (問1–問20, answer rows 1–20) — no Roman-numeral blocks. Order ≈ structure & bonding → states/energetics/electrochemistry/equilibria → inorganic → organic.",
+    "givens": {
+      "ja": "標準状態 $0\\,$°C・$1.0\\times10^5\\,$Pa，気体 $1\\,$mol の体積 $22.4\\,$L，気体定数 $R=8.31\\times10^3\\,$Pa·L/(K·mol)，アボガドロ定数 $N_A=6.02\\times10^{23}\\,$/mol，ファラデー定数 $F=9.65\\times10^4\\,$C/mol。原子量：H 1.0, C 12, N 14, O 16, Cu 64, Ag 108。族・周期は周期表の通り。",
+      "en": "STP $0\\,$°C, $1.0\\times10^5\\,$Pa; molar volume $22.4\\,$L; $R=8.31\\times10^3\\,$Pa·L/(K·mol); $N_A=6.02\\times10^{23}\\,$/mol; $F=9.65\\times10^4\\,$C/mol. Atomic weights: H 1.0, C 12, N 14, O 16, Cu 64, Ag 108. Groups/periods per the periodic table."
+    }
+  },
+  "questions": [
+    {
+      "id": "2015-1-chem-1", "answerRow": 1, "topicId": "matter-structure",
+      "subtopic": "Two correct statements about elements",
+      "patternTags": ["atomic-structure", "ionization-energy", "electron-affinity", "true-false-combo"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "元素に関する記述(a)〜(d)のうち，正しいものが二つある。それらの組み合わせを選びなさい。 (a) $^{26}_{12}\\mathrm{Mg}$ と $^{27}_{13}\\mathrm{Al}$ は同数の中性子をもつ。 (b) Na は Ne よりイオン化エネルギーが大きい。 (c) S は Cl より価電子の数が多い。 (d) O は F よりも電子親和力が小さい。", "choices": ["a, b", "a, c", "a, d", "b, c", "b, d", "c, d"] },
+      "en": { "prompt": "Two of these statements about elements are correct. Which pair? (a) $^{26}_{12}\\mathrm{Mg}$ and $^{27}_{13}\\mathrm{Al}$ have the same number of neutrons. (b) Na has a larger ionization energy than Ne. (c) S has more valence electrons than Cl. (d) O has a smaller electron affinity than F.", "choices": ["a, b", "a, c", "a, d", "b, c", "b, d", "c, d"] },
+      "answerIndex": 2, "answerOption": 3, "answer": { "ja": "a と d", "en": "a and d" },
+      "explanation": { "en": "(a) True — both have $26-12=14$ and $27-13=14$ neutrons. (d) True — F has a larger electron affinity than O. (b) False — Ne (noble gas) has a higher ionization energy than Na. (c) False — S (group 16) has 6 valence electrons, fewer than Cl (group 17, 7).", "ja": "(a) 正 — どちらも中性子 $26-12=14$，$27-13=14$。(d) 正 — F の電子親和力は O より大きい。(b) 誤 — Ne（貴ガス）のイオン化エネルギーは Na より大。(c) 誤 — S（16 族）の価電子は 6 で Cl（17 族，7）より少ない。" }
+    },
+    {
+      "id": "2015-1-chem-2", "answerRow": 2, "topicId": "matter-structure",
+      "subtopic": "Which pair are allotropes",
+      "patternTags": ["atomic-structure", "allotropes", "compare-cases"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の物質の組み合わせ①〜⑥のうち，互いに同素体であるものを選びなさい。", "choices": ["ダイヤモンド／ケイ素", "オゾン／二酸化炭素", "ゴム状硫黄／ゴム", "フラーレン／黒鉛", "リン／窒素", "氷／水"] },
+      "en": { "prompt": "Which pair are allotropes of each other?", "choices": ["diamond / silicon", "ozone / carbon dioxide", "rubbery sulfur / rubber", "fullerene / graphite", "phosphorus / nitrogen", "ice / water"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "フラーレンと黒鉛（ともに炭素）", "en": "fullerene and graphite (both carbon)" },
+      "explanation": { "en": "Allotropes are different forms of the SAME element. Fullerene and graphite are both elemental carbon. The others involve different elements (diamond/silicon, phosphorus/nitrogen), a compound (CO₂), a polymer (rubber), or the same substance in different states (ice/water).", "ja": "同素体は同じ元素の別の単体。フラーレンと黒鉛はともに炭素の単体。他は別元素（ダイヤモンド/ケイ素，リン/窒素），化合物（CO₂），高分子（ゴム），同一物質の状態違い（氷/水）。" }
+    },
+    {
+      "id": "2015-1-chem-3", "answerRow": 3, "topicId": "matter-structure",
+      "subtopic": "Incorrect bonding statement",
+      "patternTags": ["chemical-bonds", "coordinate-bond", "pick-false-statement"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の記述①〜⑤のうち，下線部が誤っているものを選びなさい。 ① アンモニウムイオンでは $\\mathrm{NH_3}$ 分子と $\\mathrm{H^+}$ がイオン結合で結びついている。 ② 塩化水素分子では H と Cl が共有結合で結びついている。 ③ ダイヤモンドでは C 原子どうしが共有結合で結びついている。 ④ 金属鉄では原子どうしが金属結合で結びついている。 ⑤ ドライアイスでは $\\mathrm{CO_2}$ 分子どうしが分子間力で結びついている。", "choices": ["①", "②", "③", "④", "⑤"] },
+      "en": { "prompt": "Which underlined part is INCORRECT? ① In the ammonium ion, $\\mathrm{NH_3}$ and $\\mathrm{H^+}$ are joined by an IONIC bond. ② In HCl, H and Cl are joined by a covalent bond. ③ In diamond, C atoms are joined by covalent bonds. ④ In metallic iron, atoms are joined by metallic bonds. ⑤ In dry ice, $\\mathrm{CO_2}$ molecules are held by intermolecular forces.", "choices": ["①", "②", "③", "④", "⑤"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "①（$\\mathrm{NH_3}$ と $\\mathrm{H^+}$ は配位結合＝共有結合）", "en": "① ($\\mathrm{NH_3}$ and $\\mathrm{H^+}$ join by a coordinate covalent bond)" },
+      "explanation": { "en": "Forming $\\mathrm{NH_4^+}$, the lone pair on N is shared with $\\mathrm{H^+}$ — a coordinate (dative) COVALENT bond, not an ionic bond. The other statements are correct.", "ja": "$\\mathrm{NH_4^+}$ では N の非共有電子対が $\\mathrm{H^+}$ と共有される配位結合（共有結合の一種）で，イオン結合ではない。他は正しい。" }
+    },
+    {
+      "id": "2015-1-chem-4", "answerRow": 4, "topicId": "states-and-change",
+      "subtopic": "Maximum urea from ammonia and carbon dioxide",
+      "patternTags": ["stoichiometry", "limiting-reagent", "plug-in-numbers"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "尿素の合成 $\\mathrm{2NH_3+CO_2\\to(NH_2)_2CO+H_2O}$ について，アンモニア $17\\,$g と二酸化炭素 $44\\,$g を反応させたとき，生じる尿素は最大で何 g か。", "choices": ["30", "42", "48", "56", "61"] },
+      "en": { "prompt": "For $\\mathrm{2NH_3+CO_2\\to(NH_2)_2CO+H_2O}$, reacting $17\\,$g of ammonia with $44\\,$g of carbon dioxide, what is the maximum mass of urea formed?", "choices": ["30", "42", "48", "56", "61"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "$30\\,$g", "en": "30 g" },
+      "explanation": { "en": "$\\mathrm{NH_3}=17/17=1.0\\,$mol, $\\mathrm{CO_2}=44/44=1.0\\,$mol. The 2:1 ratio makes $\\mathrm{NH_3}$ limiting → urea $=1.0/2=0.50\\,$mol. Urea $\\mathrm{(NH_2)_2CO}$ has $M=60$, so $0.50\\times60=30\\,$g.", "ja": "$\\mathrm{NH_3}=17/17=1.0\\,$mol，$\\mathrm{CO_2}=44/44=1.0\\,$mol。2:1 なので $\\mathrm{NH_3}$ が不足 → 尿素 $=1.0/2=0.50\\,$mol。尿素 $\\mathrm{(NH_2)_2CO}$ は $M=60$ なので $0.50\\times60=30\\,$g。" }
+    },
+    {
+      "id": "2015-1-chem-5", "answerRow": 5, "topicId": "states-and-change",
+      "subtopic": "CsCl crystal: coordination number and unit-cell content",
+      "patternTags": ["solid-structure", "unit-cell", "coordination-number"], "hasFigure": true,
+      "figure": { "ja": "CsCl の結晶構造：立方体の 8 つの頂点に $\\mathrm{Cl^-}$，中心に $\\mathrm{Cs^+}$。", "en": "CsCl crystal: $\\mathrm{Cl^-}$ at the 8 cube corners, $\\mathrm{Cs^+}$ at the body center." },
+      "ja": { "prompt": "塩化セシウム CsCl の結晶構造（頂点に $\\mathrm{Cl^-}$，中心に $\\mathrm{Cs^+}$）について，(a) 一つの $\\mathrm{Cl^-}$ と接している $\\mathrm{Cs^+}$ の数，(b) 単位格子中に含まれる $\\mathrm{Cl^-}$ の数 の組み合わせを選びなさい。", "choices": ["a:4 b:1/8", "a:8 b:1/8", "a:4 b:1/4", "a:8 b:1/4", "a:4 b:1", "a:8 b:1", "a:4 b:8", "a:8 b:8"] },
+      "en": { "prompt": "For the CsCl crystal ($\\mathrm{Cl^-}$ at corners, $\\mathrm{Cs^+}$ at the center): (a) the number of $\\mathrm{Cs^+}$ touching one $\\mathrm{Cl^-}$, and (b) the number of $\\mathrm{Cl^-}$ in one unit cell?", "choices": ["a:4 b:1/8", "a:8 b:1/8", "a:4 b:1/4", "a:8 b:1/4", "a:4 b:1", "a:8 b:1", "a:4 b:8", "a:8 b:8"] },
+      "answerIndex": 5, "answerOption": 6, "answer": { "ja": "a:8，b:1", "en": "a: 8, b: 1" },
+      "explanation": { "en": "In the CsCl structure the coordination number is 8 — each $\\mathrm{Cl^-}$ touches 8 $\\mathrm{Cs^+}$. The 8 corner $\\mathrm{Cl^-}$ each contribute $1/8$ to the cell, giving $8\\times\\tfrac18=1$ $\\mathrm{Cl^-}$ per unit cell.", "ja": "CsCl 構造の配位数は 8 — 各 $\\mathrm{Cl^-}$ は 8 個の $\\mathrm{Cs^+}$ と接する。頂点の 8 個の $\\mathrm{Cl^-}$ は各 $1/8$ 寄与し，$8\\times\\tfrac18=1$ 個/単位格子。" }
+    },
+    {
+      "id": "2015-1-chem-6", "answerRow": 6, "topicId": "states-and-change",
+      "subtopic": "Graphs of Boyle's and Charles's laws",
+      "patternTags": ["gas-law", "boyles-law", "charles-law", "read-from-graph"], "hasFigure": true,
+      "figure": { "ja": "グラフ (i) 水平線，(ii) 原点を通る右上がりの直線，(iii) 反比例（1/x）の曲線。", "en": "Graphs: (i) horizontal line; (ii) straight line through the origin (rising); (iii) inverse (1/x) curve." },
+      "ja": { "prompt": "理想気体について，(a) 温度一定での圧力 $P$ と体積 $V$ の関係，(b) 圧力一定での体積 $V$ と絶対温度 $T$ の関係 を表すグラフ (i)〜(iii) の組み合わせを選びなさい。", "choices": ["a:i b:ii", "a:i b:iii", "a:ii b:i", "a:ii b:iii", "a:iii b:i", "a:iii b:ii"] },
+      "en": { "prompt": "For an ideal gas, which graphs (i)–(iii) show (a) $P$ vs $V$ at constant T, and (b) $V$ vs absolute $T$ at constant pressure?", "choices": ["a:i b:ii", "a:i b:iii", "a:ii b:i", "a:ii b:iii", "a:iii b:i", "a:iii b:ii"] },
+      "answerIndex": 5, "answerOption": 6, "answer": { "ja": "a:iii（反比例曲線），b:ii（原点を通る直線）", "en": "a: iii (inverse curve), b: ii (line through origin)" },
+      "explanation": { "en": "(a) Boyle's law: $P=\\dfrac{nRT}{V}$, so $P$ vs $V$ is an inverse curve (iii). (b) Charles's law: $V=\\dfrac{nR}{P}T$, so $V$ vs $T$ is a straight line through the origin (ii).", "ja": "(a) ボイルの法則：$P=\\dfrac{nRT}{V}$ で $P$-$V$ は反比例曲線（iii）。(b) シャルルの法則：$V=\\dfrac{nR}{P}T$ で $V$-$T$ は原点を通る直線（ii）。" }
+    },
+    {
+      "id": "2015-1-chem-7", "answerRow": 7, "topicId": "states-and-change",
+      "subtopic": "Largest osmotic pressure",
+      "patternTags": ["colligative-properties", "osmotic-pressure", "electrolytes", "compare-cases"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の物質①〜⑥の $0.1\\,$mol/L 水溶液のうち，浸透圧が最も大きいものを選びなさい。", "choices": ["HCl", "$\\mathrm{NH_3}$", "KCl", "$\\mathrm{Na_2SO_4}$", "$\\mathrm{CH_3COOH}$", "$\\mathrm{C_6H_{12}O_6}$"] },
+      "en": { "prompt": "Which $0.1\\,$mol/L solution has the largest osmotic pressure?", "choices": ["HCl", "$\\mathrm{NH_3}$", "KCl", "$\\mathrm{Na_2SO_4}$", "$\\mathrm{CH_3COOH}$", "$\\mathrm{C_6H_{12}O_6}$"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "$\\mathrm{Na_2SO_4}$", "en": "$\\mathrm{Na_2SO_4}$" },
+      "explanation": { "en": "Osmotic pressure ∝ total particle concentration. $\\mathrm{Na_2SO_4\\to2Na^++SO_4^{2-}}$ gives 3 particles (largest); HCl and KCl give 2; $\\mathrm{NH_3}$, $\\mathrm{CH_3COOH}$ (weak), and glucose give ~1.", "ja": "浸透圧は全粒子濃度に比例。$\\mathrm{Na_2SO_4\\to2Na^++SO_4^{2-}}$ は 3 粒子（最大）。HCl・KCl は 2，$\\mathrm{NH_3}$・$\\mathrm{CH_3COOH}$（弱）・グルコースは約 1。" }
+    },
+    {
+      "id": "2015-1-chem-8", "answerRow": 8, "topicId": "states-and-change",
+      "subtopic": "Equilibrium constant from mole table",
+      "patternTags": ["chemical-equilibrium", "equilibrium-constant", "stoichiometry", "plug-in-numbers"], "hasFigure": true,
+      "figure": { "ja": "$a\\mathrm{A}+b\\mathrm{B}\\rightleftharpoons c\\mathrm{C}$。温度・体積一定。反応前 A 2.0, B 2.0, C 0；平衡時 A 1.0, B 1.0, C 2.0（mol）。", "en": "$a\\mathrm{A}+b\\mathrm{B}\\rightleftharpoons c\\mathrm{C}$ at constant T, V. Initial A 2.0, B 2.0, C 0; equilibrium A 1.0, B 1.0, C 2.0 (mol)." },
+      "ja": { "prompt": "反応 $a\\mathrm{A}+b\\mathrm{B}\\rightleftharpoons c\\mathrm{C}$（温度・体積一定）で，反応前 A 2.0・B 2.0・C 0 mol，平衡時 A 1.0・B 1.0・C 2.0 mol であった。平衡定数 $K$ として最も近い値を選びなさい。", "choices": ["1.0", "2.0", "3.0", "4.0", "5.0", "6.0"] },
+      "en": { "prompt": "For $a\\mathrm{A}+b\\mathrm{B}\\rightleftharpoons c\\mathrm{C}$ (constant T, V), initial A 2.0/B 2.0/C 0 mol and equilibrium A 1.0/B 1.0/C 2.0 mol. Find the equilibrium constant $K$.", "choices": ["1.0", "2.0", "3.0", "4.0", "5.0", "6.0"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "4.0", "en": "4.0" },
+      "explanation": { "en": "A and B each fell by 1.0 and C rose by 2.0, so $a:b:c=1:1:2$, i.e. $\\mathrm{A+B\\rightleftharpoons2C}$ ($\\Delta n=0$, volume cancels). $K=\\dfrac{[\\mathrm{C}]^2}{[\\mathrm{A}][\\mathrm{B}]}=\\dfrac{2.0^2}{1.0\\times1.0}=4.0$.", "ja": "A，B が各 1.0 減り C が 2.0 増えたので $a:b:c=1:1:2$，すなわち $\\mathrm{A+B\\rightleftharpoons2C}$（$\\Delta n=0$ で体積が消える）。$K=\\dfrac{[\\mathrm{C}]^2}{[\\mathrm{A}][\\mathrm{B}]}=\\dfrac{2.0^2}{1.0\\times1.0}=4.0$。" }
+    },
+    {
+      "id": "2015-1-chem-9", "answerRow": 9, "topicId": "states-and-change",
+      "subtopic": "Order four solutions by pH",
+      "patternTags": ["acids-bases", "ph-comparison", "buffer", "compare-cases"], "hasFigure": false,
+      "figure": { "ja": "A: $0.10\\,$mol/L HCl。B: $0.10\\,$mol/L 酢酸。C: $0.10\\,$mol/L 酢酸＋$0.10\\,$mol/L 酢酸ナトリウムの等量混合（緩衝液）。D: $0.10\\,$mol/L $\\mathrm{H_2SO_4}$。", "en": "A: $0.10\\,$mol/L HCl; B: $0.10\\,$mol/L acetic acid; C: equal mix of $0.10\\,$mol/L acetic acid + sodium acetate (buffer); D: $0.10\\,$mol/L $\\mathrm{H_2SO_4}$." },
+      "ja": { "prompt": "水溶液 A〜D を pH の大きい順に並べたものを選びなさい。 A: $0.10\\,$mol/L 塩酸 B: $0.10\\,$mol/L 酢酸 C: $0.10\\,$mol/L 酢酸と $0.10\\,$mol/L 酢酸ナトリウムを等量混合 D: $0.10\\,$mol/L 硫酸", "choices": ["D > B > A > C", "B > C > A > D", "B > C > D > A", "D > A > B = C", "C > B > A > D"] },
+      "en": { "prompt": "Order solutions A–D from highest to lowest pH. A: $0.10\\,$mol/L HCl; B: $0.10\\,$mol/L acetic acid; C: equal mix of acetic acid + sodium acetate; D: $0.10\\,$mol/L $\\mathrm{H_2SO_4}$.", "choices": ["D > B > A > C", "B > C > A > D", "B > C > D > A", "D > A > B = C", "C > B > A > D"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "C > B > A > D", "en": "C > B > A > D" },
+      "explanation": { "en": "C is an acetate buffer (pH ≈ pKa ≈ 4.7, highest); B is weak acetic acid (pH ≈ 2.9); A is strong HCl (pH 1); D is strong diprotic $\\mathrm{H_2SO_4}$ ($[\\mathrm{H^+}]\\approx0.2$, pH ≈ 0.7, lowest). So C > B > A > D.", "ja": "C は酢酸緩衝液（pH≈pKa≈4.7，最大），B は弱酸の酢酸（pH≈2.9），A は強酸 HCl（pH 1），D は 2 価強酸 $\\mathrm{H_2SO_4}$（$[\\mathrm{H^+}]\\approx0.2$，pH≈0.7，最小）。よって C > B > A > D。" }
+    },
+    {
+      "id": "2015-1-chem-10", "answerRow": 10, "topicId": "states-and-change",
+      "subtopic": "Copper-plate mass change in an Ag/Cu cell",
+      "patternTags": ["cells-electrolysis", "galvanic-cell", "faradays-law", "plug-in-numbers"], "hasFigure": true,
+      "figure": { "ja": "ボルタ電池：$\\mathrm{AgNO_3}$ aq 中の Ag 板と $\\mathrm{CuSO_4}$ aq 中の Cu 板を素焼き板で仕切り，豆電球をつないで放電。銀板の質量が $0.54\\,$g 変化。", "en": "Galvanic cell: an Ag plate in $\\mathrm{AgNO_3}$ aq and a Cu plate in $\\mathrm{CuSO_4}$ aq separated by a porous sheet, discharging through a bulb; the silver plate's mass changes by $0.54\\,$g." },
+      "ja": { "prompt": "図の電池（$\\mathrm{AgNO_3}$ aq 中の Ag 板と $\\mathrm{CuSO_4}$ aq 中の Cu 板）を放電させたところ，銀板の質量が $0.54\\,$g 変化した。このときの銅板の質量の変化を選びなさい。", "choices": ["0.16 g 減少", "0.32 g 減少", "0.64 g 減少", "0.16 g 増加", "0.32 g 増加", "0.64 g 増加"] },
+      "en": { "prompt": "Discharging the cell (Ag in $\\mathrm{AgNO_3}$, Cu in $\\mathrm{CuSO_4}$), the silver plate's mass changes by $0.54\\,$g. Find the change in the copper plate's mass.", "choices": ["0.16 g decrease", "0.32 g decrease", "0.64 g decrease", "0.16 g increase", "0.32 g increase", "0.64 g increase"] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "$0.16\\,$g 減少", "en": "0.16 g decrease" },
+      "explanation": { "en": "Cu is more reactive, so it is the anode and dissolves; Ag is the cathode where $\\mathrm{Ag^+}+e^-\\to\\mathrm{Ag}$ deposits $0.54\\,$g $=0.54/108=0.0050\\,$mol Ag $=0.0050\\,$mol $e^-$. At the Cu anode $\\mathrm{Cu\\to Cu^{2+}+2e^-}$: $0.0025\\,$mol Cu dissolves $=0.0025\\times64=0.16\\,$g lost.", "ja": "Cu の方が反応性が高く負極で溶け，Ag 側は正極で $\\mathrm{Ag^+}+e^-\\to\\mathrm{Ag}$ により $0.54\\,$g$=0.54/108=0.0050\\,$mol 析出 $=0.0050\\,$mol $e^-$。Cu 負極 $\\mathrm{Cu\\to Cu^{2+}+2e^-}$：$0.0025\\,$mol が溶け $0.0025\\times64=0.16\\,$g 減少。" }
+    },
+    {
+      "id": "2015-1-chem-11", "answerRow": 11, "topicId": "inorganic",
+      "subtopic": "Incorrect statement about period-3 elements",
+      "patternTags": ["typical-elements", "amphoteric-metal", "pick-false-statement"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "周期表の第 3 周期の元素に関する記述として誤っているものを選びなさい。", "choices": ["Al は NaOH aq と反応して酸素 $\\mathrm{O_2}$ を発生する。", "$\\mathrm{Cl_2}$ は水と反応して次亜塩素酸 HClO を生成する。", "Mg は希塩酸と反応して水素 $\\mathrm{H_2}$ を発生する。", "Na はエタノールと反応して水素を発生する。", "S は燃焼すると二酸化硫黄 $\\mathrm{SO_2}$ を発生する。"] },
+      "en": { "prompt": "Which statement about period-3 elements is INCORRECT?", "choices": ["Al reacts with NaOH aq to evolve $\\mathrm{O_2}$.", "$\\mathrm{Cl_2}$ reacts with water to form HClO.", "Mg reacts with dilute HCl to evolve $\\mathrm{H_2}$.", "Na reacts with ethanol to evolve hydrogen.", "Burning S gives $\\mathrm{SO_2}$."] },
+      "answerIndex": 0, "answerOption": 1, "answer": { "ja": "「Al は NaOH と反応して $\\mathrm{O_2}$ を発生」は誤り（$\\mathrm{H_2}$ を発生）", "en": "\"Al + NaOH evolves $\\mathrm{O_2}$\" is wrong (it evolves $\\mathrm{H_2}$)" },
+      "explanation": { "en": "Aluminium is amphoteric and reacts with NaOH to evolve HYDROGEN, not oxygen ($\\mathrm{2Al+2NaOH+6H_2O\\to2Na[Al(OH)_4]+3H_2}$). The other statements are correct.", "ja": "アルミニウムは両性で，NaOH と反応して酸素ではなく水素を発生する（$\\mathrm{2Al+2NaOH+6H_2O\\to2Na[Al(OH)_4]+3H_2}$）。他は正しい。" }
+    },
+    {
+      "id": "2015-1-chem-12", "answerRow": 12, "topicId": "states-and-change",
+      "subtopic": "Incorrect statement about a redox reaction",
+      "patternTags": ["redox", "ionization-tendency", "pick-false-statement"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "酸化還元反応に関する記述として誤っているものを選びなさい。", "choices": ["希硫酸に亜鉛 Zn を加えると水素 $\\mathrm{H_2}$ が発生する。", "酸化アルミニウム $\\mathrm{Al_2O_3}$ と鉄 Fe の混合物を加熱するとアルミニウム Al が生成する。", "硫化水素水溶液 $\\mathrm{H_2S}$ aq に二酸化硫黄 $\\mathrm{SO_2}$ を吹き込むと硫黄 S が生成する。", "硫酸銅(II)水溶液 $\\mathrm{CuSO_4}$ aq に鉄線を入れると鉄線表面に銅 Cu が析出する。", "ヨウ化カリウム水溶液 KI aq に塩素 $\\mathrm{Cl_2}$ を溶解した水を加えるとヨウ素 $\\mathrm{I_2}$ が生成する。"] },
+      "en": { "prompt": "Which statement about a redox reaction is INCORRECT?", "choices": ["Zn + dilute $\\mathrm{H_2SO_4}$ evolves $\\mathrm{H_2}$.", "Heating $\\mathrm{Al_2O_3}$ with Fe produces Al.", "Bubbling $\\mathrm{SO_2}$ into $\\mathrm{H_2S}$ aq produces sulfur.", "Iron wire in $\\mathrm{CuSO_4}$ aq deposits Cu on its surface.", "Adding chlorine water to KI aq produces $\\mathrm{I_2}$."] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "「$\\mathrm{Al_2O_3}$ と Fe で Al が生成」は誤り（Al の方が反応性が高い）", "en": "\"$\\mathrm{Al_2O_3}$ + Fe gives Al\" is wrong (Al is more reactive than Fe)" },
+      "explanation": { "en": "Iron cannot reduce $\\mathrm{Al_2O_3}$ to Al because aluminium is more reactive than iron (the thermite reaction runs the other way: Al reduces $\\mathrm{Fe_2O_3}$). The other reactions are valid redox processes.", "ja": "鉄は $\\mathrm{Al_2O_3}$ を Al に還元できない。アルミニウムの方が鉄より反応性が高い（テルミット反応は逆向きで Al が $\\mathrm{Fe_2O_3}$ を還元）。他は正しい酸化還元。" }
+    },
+    {
+      "id": "2015-1-chem-13", "answerRow": 13, "topicId": "inorganic",
+      "subtopic": "Which methods generate Cl₂",
+      "patternTags": ["gas-prep-industry", "chlorine-generation", "true-false-combo"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "次の記述(a)〜(e)のうち，塩素 $\\mathrm{Cl_2}$ が発生する反応が二つある。組み合わせを選びなさい。 (a) $\\mathrm{KClO_3}$ に $\\mathrm{MnO_2}$ を加えて熱する。 (b) $\\mathrm{MnO_2}$ に濃塩酸を加えて熱する。 (c) $\\mathrm{NH_4Cl}$ に $\\mathrm{Ca(OH)_2}$ を加える。 (d) さらし粉 $\\mathrm{CaCl(ClO){\\cdot}H_2O}$ に濃塩酸を加える。 (e) NaCl に濃硫酸を加える。", "choices": ["a, b", "a, c", "a, e", "b, d", "b, e", "c, d"] },
+      "en": { "prompt": "Two of these generate $\\mathrm{Cl_2}$. Which pair? (a) heat $\\mathrm{KClO_3}$ with $\\mathrm{MnO_2}$; (b) heat $\\mathrm{MnO_2}$ with conc. HCl; (c) $\\mathrm{NH_4Cl}$ + $\\mathrm{Ca(OH)_2}$; (d) bleaching powder $\\mathrm{CaCl(ClO){\\cdot}H_2O}$ + conc. HCl; (e) NaCl + conc. $\\mathrm{H_2SO_4}$", "choices": ["a, b", "a, c", "a, e", "b, d", "b, e", "c, d"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "b（$\\mathrm{MnO_2}$+濃塩酸）と d（さらし粉+濃塩酸）", "en": "b ($\\mathrm{MnO_2}$+conc. HCl) and d (bleaching powder+conc. HCl)" },
+      "explanation": { "en": "Both $\\mathrm{MnO_2}$+conc. HCl (heated) and bleaching powder + conc. HCl give $\\mathrm{Cl_2}$. (a) $\\mathrm{KClO_3}$/$\\mathrm{MnO_2}$ gives $\\mathrm{O_2}$ (MnO₂ catalyst); (c) gives $\\mathrm{NH_3}$; (e) gives HCl.", "ja": "$\\mathrm{MnO_2}$+濃塩酸（加熱）とさらし粉+濃塩酸はともに $\\mathrm{Cl_2}$ を発生。(a) $\\mathrm{KClO_3}$/$\\mathrm{MnO_2}$ は $\\mathrm{O_2}$（MnO₂ は触媒），(c) は $\\mathrm{NH_3}$，(e) は HCl。" }
+    },
+    {
+      "id": "2015-1-chem-14", "answerRow": 14, "topicId": "states-and-change",
+      "subtopic": "Reactions where the underlined atom's oxidation number rises by 2",
+      "patternTags": ["redox", "oxidation-number", "true-false-combo"], "hasFigure": true,
+      "figure": { "ja": "(a) $\\underline{\\mathrm{N}}_2+3\\mathrm{H_2}\\to2\\mathrm{NH_3}$。(b) $\\underline{\\mathrm{Fe}}+\\mathrm{H_2SO_4}\\to\\mathrm{FeSO_4}+\\mathrm{H_2}$。(c) $2\\underline{\\mathrm{K}}\\mathrm{Cl}+\\mathrm{F_2}\\to2\\mathrm{KF}+\\mathrm{Cl_2}$。(d) $2\\underline{\\mathrm{Fe}}\\mathrm{Cl_2}+\\mathrm{Cl_2}\\to2\\mathrm{FeCl_3}$。(e) $2\\underline{\\mathrm{S}}\\mathrm{O_2}+\\mathrm{O_2}\\to2\\mathrm{SO_3}$。(f) $2\\mathrm{K}\\underline{\\mathrm{Mn}}\\mathrm{O_4}+\\cdots$。", "en": "(a) $\\underline{\\mathrm{N}}_2+3\\mathrm{H_2}\\to2\\mathrm{NH_3}$; (b) $\\underline{\\mathrm{Fe}}+\\mathrm{H_2SO_4}\\to\\mathrm{FeSO_4}+\\mathrm{H_2}$; (c) $2\\underline{\\mathrm{K}}\\mathrm{Cl}+\\mathrm{F_2}\\to2\\mathrm{KF}+\\mathrm{Cl_2}$; (d) $2\\underline{\\mathrm{Fe}}\\mathrm{Cl_2}+\\mathrm{Cl_2}\\to2\\mathrm{FeCl_3}$; (e) $2\\underline{\\mathrm{S}}\\mathrm{O_2}+\\mathrm{O_2}\\to2\\mathrm{SO_3}$; (f) $2\\mathrm{K}\\underline{\\mathrm{Mn}}\\mathrm{O_4}+\\cdots$." },
+      "ja": { "prompt": "次の(a)〜(f)の反応のうち，下線を引いた原子の酸化数が 2 増えるものが二つある。組み合わせを選びなさい。 (a) $\\underline{\\mathrm{N}}_2+3\\mathrm{H_2}\\to2\\mathrm{NH_3}$ (b) $\\underline{\\mathrm{Fe}}+\\mathrm{H_2SO_4}\\to\\mathrm{FeSO_4}+\\mathrm{H_2}$ (c) $2\\underline{\\mathrm{K}}\\mathrm{Cl}+\\mathrm{F_2}\\to2\\mathrm{KF}+\\mathrm{Cl_2}$ (d) $2\\underline{\\mathrm{Fe}}\\mathrm{Cl_2}+\\mathrm{Cl_2}\\to2\\mathrm{FeCl_3}$ (e) $2\\underline{\\mathrm{S}}\\mathrm{O_2}+\\mathrm{O_2}\\to2\\mathrm{SO_3}$ (f) $2\\mathrm{K}\\underline{\\mathrm{Mn}}\\mathrm{O_4}+3\\mathrm{H_2SO_4}+5\\mathrm{H_2O_2}\\to\\cdots$", "choices": ["a, c", "a, f", "b, d", "b, e", "c, d", "e, f"] },
+      "en": { "prompt": "In two of these the underlined atom's oxidation number RISES by 2. Which pair? (a) $\\underline{\\mathrm{N}}_2\\to\\mathrm{NH_3}$ (b) $\\underline{\\mathrm{Fe}}\\to\\mathrm{FeSO_4}$ (c) $2\\underline{\\mathrm{K}}\\mathrm{Cl}\\to\\mathrm{KF}$ (d) $2\\underline{\\mathrm{Fe}}\\mathrm{Cl_2}\\to\\mathrm{FeCl_3}$ (e) $2\\underline{\\mathrm{S}}\\mathrm{O_2}\\to\\mathrm{SO_3}$ (f) $\\mathrm{K}\\underline{\\mathrm{Mn}}\\mathrm{O_4}\\to\\cdots$", "choices": ["a, c", "a, f", "b, d", "b, e", "c, d", "e, f"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "b（Fe $0\\to+2$）と e（S $+4\\to+6$）", "en": "b (Fe $0\\to+2$) and e (S $+4\\to+6$)" },
+      "explanation": { "en": "Fe goes $0\\to+2$ (+2) in (b); S goes $+4\\to+6$ (+2) in (e). In (a) N falls ($0\\to-3$); in (c) K is unchanged; in (d) Fe rises only by 1 ($+2\\to+3$); in (f) Mn falls ($+7\\to+2$).", "ja": "(b) Fe は $0\\to+2$（+2），(e) S は $+4\\to+6$（+2）。(a) N は減少（$0\\to-3$），(c) K は不変，(d) Fe は +1 だけ増（$+2\\to+3$），(f) Mn は減少（$+7\\to+2$）。" }
+    },
+    {
+      "id": "2015-1-chem-15", "answerRow": 15, "topicId": "inorganic",
+      "subtopic": "Metal ion matching three precipitation tests",
+      "patternTags": ["ion-analysis", "amphoteric-hydroxide", "solubility-rules"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "記述(a)〜(c)のいずれにもあてはまる金属イオンを選びなさい。 (a) 希塩酸を加えても沈殿しない。 (b) 希硫酸を加えても沈殿しない。 (c) NaOH aq を過剰に加えると，一度生じた沈殿が溶ける。", "choices": ["$\\mathrm{Ag^+}$", "$\\mathrm{Ba^{2+}}$", "$\\mathrm{Cu^{2+}}$", "$\\mathrm{Pb^{2+}}$", "$\\mathrm{Zn^{2+}}$"] },
+      "en": { "prompt": "Which metal ion satisfies all of: (a) no precipitate with dilute HCl; (b) no precipitate with dilute $\\mathrm{H_2SO_4}$; (c) the precipitate from excess NaOH redissolves?", "choices": ["$\\mathrm{Ag^+}$", "$\\mathrm{Ba^{2+}}$", "$\\mathrm{Cu^{2+}}$", "$\\mathrm{Pb^{2+}}$", "$\\mathrm{Zn^{2+}}$"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "$\\mathrm{Zn^{2+}}$", "en": "$\\mathrm{Zn^{2+}}$" },
+      "explanation": { "en": "$\\mathrm{Zn^{2+}}$ forms no chloride or sulfate precipitate, and its hydroxide $\\mathrm{Zn(OH)_2}$ is amphoteric — it redissolves in excess NaOH. $\\mathrm{Ag^+}$/$\\mathrm{Pb^{2+}}$ precipitate with HCl, $\\mathrm{Ba^{2+}}$/$\\mathrm{Pb^{2+}}$ with sulfate, and $\\mathrm{Cu(OH)_2}$ does not dissolve in excess NaOH.", "ja": "$\\mathrm{Zn^{2+}}$ は塩化物・硫酸塩の沈殿を作らず，$\\mathrm{Zn(OH)_2}$ は両性で過剰 NaOH に再溶解する。$\\mathrm{Ag^+}$・$\\mathrm{Pb^{2+}}$ は HCl で，$\\mathrm{Ba^{2+}}$・$\\mathrm{Pb^{2+}}$ は硫酸で沈殿し，$\\mathrm{Cu(OH)_2}$ は過剰 NaOH に溶けない。" }
+    },
+    {
+      "id": "2015-1-chem-16", "answerRow": 16, "topicId": "organic",
+      "subtopic": "Dichloro-substitution isomer counts (ethane/ethylene/benzene)",
+      "patternTags": ["aliphatic-hydrocarbons", "structural-isomers", "cis-trans", "count-how-many"], "hasFigure": true,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "エタン，エチレン（エテン），ベンゼン 中の H 原子 2 個を Cl 原子 2 個で置き換えて得られる異性体はそれぞれいくつか。シス-トランス異性体は別々に数える。正しい組み合わせを選びなさい。", "choices": ["2 / 2 / 2", "3 / 3 / 2", "2 / 3 / 2", "3 / 2 / 3", "2 / 3 / 3", "3 / 4 / 3", "2 / 4 / 2"] },
+      "en": { "prompt": "Replacing 2 H atoms with 2 Cl atoms in ethane, ethylene, and benzene gives how many isomers each (counting cis-trans separately)? (ethane / ethylene / benzene)", "choices": ["2 / 2 / 2", "3 / 3 / 2", "2 / 3 / 2", "3 / 2 / 3", "2 / 3 / 3", "3 / 4 / 3", "2 / 4 / 2"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "エタン 2／エチレン 3／ベンゼン 3", "en": "ethane 2 / ethylene 3 / benzene 3" },
+      "explanation": { "en": "Ethane → $\\mathrm{C_2H_4Cl_2}$: 1,1- and 1,2-dichloroethane = 2. Ethylene → $\\mathrm{C_2H_2Cl_2}$: 1,1-, cis-1,2-, trans-1,2- = 3. Benzene → $\\mathrm{C_6H_4Cl_2}$: ortho, meta, para = 3.", "ja": "エタン → $\\mathrm{C_2H_4Cl_2}$：1,1- と 1,2-ジクロロエタン＝2。エチレン → $\\mathrm{C_2H_2Cl_2}$：1,1-，シス-1,2-，トランス-1,2-＝3。ベンゼン → $\\mathrm{C_6H_4Cl_2}$：オルト・メタ・パラ＝3。" }
+    },
+    {
+      "id": "2015-1-chem-17", "answerRow": 17, "topicId": "organic",
+      "subtopic": "Ester whose hydrolysis gives silver-mirror + iodoform products",
+      "patternTags": ["functional-groups", "ester-hydrolysis", "silver-mirror", "iodoform-reaction"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "ある有機化合物 A を加水分解すると，銀鏡反応を示す化合物 B とヨードホルム反応を示す化合物 C が得られた。A として正しいものを選びなさい。", "choices": ["$\\mathrm{HCOOCH_3}$", "$\\mathrm{HCOOC_2H_5}$", "$\\mathrm{CH_3COOCH_3}$", "$\\mathrm{CH_3COOC_2H_5}$", "$\\mathrm{C_2H_5COOCH_3}$", "$\\mathrm{C_2H_5COOC_2H_5}$"] },
+      "en": { "prompt": "Hydrolysing compound A gives a silver-mirror-positive compound B and an iodoform-positive compound C. What is A?", "choices": ["$\\mathrm{HCOOCH_3}$", "$\\mathrm{HCOOC_2H_5}$", "$\\mathrm{CH_3COOCH_3}$", "$\\mathrm{CH_3COOC_2H_5}$", "$\\mathrm{C_2H_5COOCH_3}$", "$\\mathrm{C_2H_5COOC_2H_5}$"] },
+      "answerIndex": 1, "answerOption": 2, "answer": { "ja": "$\\mathrm{HCOOC_2H_5}$（ギ酸エチル）", "en": "$\\mathrm{HCOOC_2H_5}$ (ethyl formate)" },
+      "explanation": { "en": "Ethyl formate hydrolyses to formic acid (HCOOH, silver-mirror-positive because of its CHO-like group) and ethanol ($\\mathrm{C_2H_5OH}$, iodoform-positive). The other esters give either a non-reducing acid or a non-iodoform alcohol.", "ja": "ギ酸エチルは加水分解でギ酸（HCOOH，CHO 様基をもち銀鏡陽性）とエタノール（$\\mathrm{C_2H_5OH}$，ヨードホルム陽性）を与える。他のエステルは非還元性の酸かヨードホルム陰性のアルコールになる。" }
+    },
+    {
+      "id": "2015-1-chem-18", "answerRow": 18, "topicId": "organic",
+      "subtopic": "Incorrect statement about aniline",
+      "patternTags": ["aromatic", "aniline", "diazotization", "pick-false-statement"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "アニリンの性質と反応に関する記述として誤っているものを選びなさい。", "choices": ["アニリンは弱塩基である。", "アニリンはニトロベンゼンをスズ Sn と濃塩酸で還元すると得られる。", "アニリンをさらし粉で酸化すると赤紫色の物質が生成する。", "アニリンに無水酢酸を反応させるとアセトアニリドが生成する。", "アニリンに亜硝酸ナトリウム $\\mathrm{NaNO_2}$ と塩酸を反応させるとニトロベンゼンが生成する。"] },
+      "en": { "prompt": "Which statement about aniline is INCORRECT?", "choices": ["Aniline is a weak base.", "Aniline is obtained by reducing nitrobenzene with Sn and conc. HCl.", "Oxidizing aniline with bleaching powder gives a reddish-purple substance.", "Aniline + acetic anhydride gives acetanilide.", "Aniline + $\\mathrm{NaNO_2}$ + HCl gives nitrobenzene."] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "「$\\mathrm{NaNO_2}$+塩酸でニトロベンゼン」は誤り（ジアゾニウム塩が生成）", "en": "\"$\\mathrm{NaNO_2}$+HCl gives nitrobenzene\" is wrong (a diazonium salt forms)" },
+      "explanation": { "en": "Aniline + $\\mathrm{NaNO_2}$ + HCl (cold) gives a benzenediazonium salt ($\\mathrm{C_6H_5N_2^+Cl^-}$), not nitrobenzene. The other statements are correct.", "ja": "アニリン + $\\mathrm{NaNO_2}$ + 塩酸（低温）ではベンゼンジアゾニウム塩（$\\mathrm{C_6H_5N_2^+Cl^-}$）が生じ，ニトロベンゼンではない。他は正しい。" }
+    },
+    {
+      "id": "2015-1-chem-19", "answerRow": 19, "topicId": "organic",
+      "subtopic": "Average molecular weight of a fat from saponification",
+      "patternTags": ["biomolecules", "saponification", "stoichiometry", "plug-in-numbers"], "hasFigure": false,
+      "figure": { "ja": "", "en": "" },
+      "ja": { "prompt": "油脂 $6.0\\,$g をけん化するのに $1.0\\,$mol/L の NaOH aq が $20\\,$mL 必要であった。この油脂の平均分子量として最も近い値を選びなさい。", "choices": ["300", "600", "675", "900", "1800"] },
+      "en": { "prompt": "Saponifying $6.0\\,$g of a fat required $20\\,$mL of $1.0\\,$mol/L NaOH. What is the fat's average molecular weight?", "choices": ["300", "600", "675", "900", "1800"] },
+      "answerIndex": 3, "answerOption": 4, "answer": { "ja": "約 900", "en": "≈ 900" },
+      "explanation": { "en": "A fat is a triester, so it needs 3 NaOH per molecule. NaOH $=1.0\\times0.020=0.020\\,$mol → fat $=0.020/3=6.7\\times10^{-3}\\,$mol. Average $M=6.0/6.7\\times10^{-3}\\approx900$.", "ja": "油脂はトリエステルなので 1 分子あたり NaOH 3 mol。NaOH $=1.0\\times0.020=0.020\\,$mol → 油脂 $=0.020/3=6.7\\times10^{-3}\\,$mol。平均 $M=6.0/6.7\\times10^{-3}\\approx900$。" }
+    },
+    {
+      "id": "2015-1-chem-20", "answerRow": 20, "topicId": "organic",
+      "subtopic": "Water released forming nylon 6,6",
+      "patternTags": ["polymers", "condensation-polymerization", "stoichiometry", "plug-in-numbers"], "hasFigure": true,
+      "figure": { "ja": "ナイロン 66 の繰り返し単位 $\\mathrm{[-OC{-}(CH_2)_4{-}CO{-}NH{-}(CH_2)_6{-}NH-]}_n$（$M=226$）。$20\\,$kg のナイロン 66 をアジピン酸とヘキサメチレンジアミンの縮合重合で合成。", "en": "Nylon 6,6 repeat unit $\\mathrm{[-OC{-}(CH_2)_4{-}CO{-}NH{-}(CH_2)_6{-}NH-]}_n$ ($M=226$). $20\\,$kg of nylon 6,6 made by condensing adipic acid and hexamethylenediamine." },
+      "ja": { "prompt": "ナイロン 66 $20\\,$kg をアジピン酸 $\\mathrm{HOOC(CH_2)_4COOH}$ とヘキサメチレンジアミン $\\mathrm{H_2N(CH_2)_6NH_2}$ の縮合重合で合成するとき，最大で何 kg の水が生成するか。", "choices": ["0.16", "0.24", "1.6", "2.4", "3.2", "4.0"] },
+      "en": { "prompt": "Making $20\\,$kg of nylon 6,6 by condensation of adipic acid and hexamethylenediamine, what maximum mass of water (kg) is produced?", "choices": ["0.16", "0.24", "1.6", "2.4", "3.2", "4.0"] },
+      "answerIndex": 4, "answerOption": 5, "answer": { "ja": "約 $3.2\\,$kg", "en": "≈ 3.2 kg" },
+      "explanation": { "en": "Each repeat unit ($M=226$) forms with the loss of 2 $\\mathrm{H_2O}$. $20\\,$kg $/226=88.5\\,$mol units → $2\\times88.5=177\\,$mol $\\mathrm{H_2O}=177\\times18\\approx3.2\\times10^3\\,$g $=3.2\\,$kg.", "ja": "繰り返し単位（$M=226$）1 つにつき $\\mathrm{H_2O}$ が 2 分子とれる。$20\\,$kg$/226=88.5\\,$mol → $2\\times88.5=177\\,$mol $\\mathrm{H_2O}=177\\times18\\approx3.2\\times10^3\\,$g$=3.2\\,$kg。" }
+    }
+  ],
+  "patterns": {
+    "archetypes": [
+      "Two-correct-statement element screen (isotope neutrons, ionization energy, valence electrons, electron affinity).",
+      "Allotrope identification (same element, different forms).",
+      "Bonding false-statement (NH₄⁺ uses a coordinate covalent, not ionic, bond).",
+      "Limiting-reagent product mass (urea synthesis).",
+      "CsCl unit-cell: coordination number 8 and 1 ion per cell.",
+      "Boyle's vs Charles's law graph matching.",
+      "Largest osmotic pressure (highest van't Hoff i).",
+      "Equilibrium constant from a mole table (deduce coefficients first).",
+      "Order solutions by pH including a buffer.",
+      "Galvanic-cell electrode mass change (Ag deposits, Cu dissolves).",
+      "Period-3 element false-statement (Al + NaOH gives H₂, not O₂).",
+      "Redox false-statement (Fe cannot reduce Al₂O₃).",
+      "Which methods generate Cl₂ (MnO₂/HCl, bleaching powder/HCl).",
+      "Oxidation-number-rises-by-2 selection across reactions.",
+      "Metal ion satisfying three solubility tests (amphoteric Zn²⁺).",
+      "Dichloro-substitution isomer counting (with cis-trans and o/m/p).",
+      "Ester whose hydrolysis gives silver-mirror + iodoform products (ethyl formate).",
+      "Aniline false-statement (NaNO₂/HCl gives a diazonium salt, not nitrobenzene).",
+      "Average molecular weight of a fat from saponification (×3 NaOH).",
+      "Water released in nylon-6,6 condensation (2 per repeat unit)."
+    ],
+    "recurring": [
+      "Element/structure screens and allotropes open the paper.",
+      "Gas-law graphs, osmotic pressure, and equilibrium constants recur.",
+      "pH ordering (with buffers), galvanic/electrolysis mass, and redox identification are standard.",
+      "Qualitative inorganic (period-3 properties, gas prep, cation tests) is a guaranteed block.",
+      "Organic: isomer counting, ester/qualitative tests, aniline chemistry, fats, and polymers recur."
+    ],
+    "examTacticNotes": [
+      "Isotope neutrons = mass − Z; Mg-26 and Al-27 both have 14.",
+      "NH₄⁺ uses a coordinate (dative) covalent bond, not ionic.",
+      "Limiting-reagent: compare mole ratio to the equation before computing product.",
+      "CsCl: coordination number 8; 8 corners × ⅛ = 1 ion per unit cell.",
+      "Boyle: P–V is an inverse curve; Charles: V–T is a line through the origin.",
+      "Osmotic pressure ∝ i·C; Na₂SO₄ (3 ions) wins among equimolar solutions.",
+      "Deduce a:b:c from the mole changes, then K from the equilibrium amounts (volume cancels if Δn=0).",
+      "An acid/conjugate-base buffer has the highest pH among comparable acids; a diprotic strong acid the lowest.",
+      "Galvanic cell: the more reactive metal is the anode (dissolves); match charge through mol e⁻.",
+      "Al is amphoteric — it reacts with NaOH to give H₂ (not O₂).",
+      "A less reactive metal cannot reduce a more reactive metal's oxide (Fe can't free Al).",
+      "Cl₂ ⇐ MnO₂ + conc. HCl or bleaching powder + conc. HCl; KClO₃/MnO₂ gives O₂.",
+      "Oxidation number ‘+2 rise’: Fe 0→+2, S +4→+6.",
+      "Amphoteric Zn²⁺ gives no Cl⁻/SO₄²⁻ precipitate and redissolves in excess NaOH.",
+      "Dichloro isomers: ethane 2, ethylene 3 (incl. cis/trans), benzene 3 (o/m/p).",
+      "Ethyl formate hydrolyses to formic acid (silver-mirror) + ethanol (iodoform).",
+      "Aniline + NaNO₂/HCl (cold) → diazonium salt.",
+      "A fat consumes 3 NaOH per molecule — M = mass / (mol NaOH / 3).",
+      "Nylon-6,6 loses 2 H₂O per repeat unit (M ≈ 226)."
+    ],
+    "difficulty": "Standard EJU chemistry — a full-syllabus sweep. The more discriminating items are the equilibrium-constant deduction (Q8), the galvanic-cell mass change (Q10), the dichloro isomer count (Q16), and the nylon-6,6 condensation-water calculation (Q20)."
+  }
+}
