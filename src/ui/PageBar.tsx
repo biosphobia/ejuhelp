@@ -30,7 +30,7 @@ export default function PageBar() {
   };
 
   return (
-    <div className="pointer-events-auto absolute bottom-4 left-1/2 flex max-w-[96vw] -translate-x-1/2 items-center gap-1 rounded-2xl bg-white/90 p-1.5 shadow-lg ring-1 ring-black/5 backdrop-blur">
+    <div className="bottom-bar-safe pointer-events-auto absolute left-1/2 flex max-w-[96vw] -translate-x-1/2 items-center gap-1 rounded-2xl bg-white/90 p-1.5 shadow-lg ring-1 ring-black/5 backdrop-blur">
       <button
         type="button"
         title={t('mindmap')}

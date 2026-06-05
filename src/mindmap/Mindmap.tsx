@@ -388,7 +388,7 @@ export default function Mindmap() {
       ) : null}
 
       {/* dark bottom bar: back-to-board · subjects · coach */}
-      <div className="absolute bottom-4 left-1/2 flex max-w-[96vw] -translate-x-1/2 items-center gap-1 rounded-2xl bg-slate-800/90 p-1.5 shadow-xl ring-1 ring-white/10 backdrop-blur">
+      <div className="bottom-bar-safe absolute left-1/2 flex max-w-[96vw] -translate-x-1/2 items-center gap-1 rounded-2xl bg-slate-800/90 p-1.5 shadow-xl ring-1 ring-white/10 backdrop-blur">
         <button
           type="button"
           title={t('backToBoard')}

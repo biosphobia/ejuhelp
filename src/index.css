@@ -10,6 +10,24 @@ body,
   padding: 0;
 }
 
+/* iOS standalone PWA: 100%/100vh stop short of the bottom home-indicator safe
+   area, exposing the body background as a white strip. 100dvh fills the whole
+   screen edge-to-edge, so the app surface reaches the very bottom. */
+@supports (height: 100dvh) {
+  html,
+  body,
+  #root {
+    height: 100dvh;
+  }
+}
+
+html {
+  /* The root element's background paints the entire viewport canvas — including
+     any safe-area region — so keep it the dark app/theme colour, never a light
+     strip. (Also avoids a light flash before React mounts, matching the splash.) */
+  background-color: #0f172a;
+}
+
 body {
   overscroll-behavior: none;
   -webkit-user-select: none;
@@ -45,6 +63,10 @@ body {
 }
 .safe-pad-right {
   padding-right: env(safe-area-inset-right);
+}
+/* Float bottom bars above the iOS home-indicator safe area (1rem == bottom-4). */
+.bottom-bar-safe {
+  bottom: calc(1rem + env(safe-area-inset-bottom));
 }
 
 /* Thin scrollbars inside panels */
