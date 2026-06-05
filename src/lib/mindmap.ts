@@ -18,6 +18,8 @@ export interface Concept {
   topic: string;
   kind: ConceptKind;
   text: string;
+  /** Student-favourited for quick review (and surfaced to the coach). */
+  starred?: boolean;
 }
 
 // ── similarity: decide whether an incoming concept is the SAME as an existing one,
@@ -89,6 +91,8 @@ interface MindmapState {
    *  updates a similar existing node rather than duplicating it. Returns # changed. */
   addMany: (defaultSubject: Subject, kps: KeyPointDTO[]) => number;
   remove: (id: string) => void;
+  /** Toggle a concept's starred (favourite) flag. */
+  toggleStar: (id: string) => void;
   /** Apply a batch of coach-issued edits (add/remove/update). Returns what changed. */
   applyOps: (subject: Subject, ops: MindmapOp[]) => { added: number; removed: number; updated: number };
   /** Clear every concept for one subject (the Mindmap is per-subject). */
@@ -121,6 +125,11 @@ export const useMindmap = create<MindmapState>((set, get) => ({
     return changed;
   },
   remove: (id) => set((s) => ({ concepts: s.concepts.filter((c) => c.id !== id), rev: s.rev + 1 })),
+  toggleStar: (id) =>
+    set((s) => ({
+      concepts: s.concepts.map((c) => (c.id === id ? { ...c, starred: !c.starred } : c)),
+      rev: s.rev + 1,
+    })),
   applyOps: (subject, ops) => {
     let added = 0;
     let removed = 0;

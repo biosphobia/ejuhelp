@@ -200,3 +200,9 @@ export const MindmapIcon = (p: SVGProps<SVGSVGElement>) => (
     <path d="M9.9 9.9 6.4 6.4M14.3 10.4 17.2 7.4M13.7 14.1l2.2 2.4" />
   </svg>
 );
+// Pass fill="currentColor" to render a filled (starred) star.
+export const StarIcon = (p: SVGProps<SVGSVGElement>) => (
+  <svg {...base(p)}>
+    <path d="M12 3.6l2.5 5.06 5.6.82-4.05 3.95.96 5.57L12 16.95l-5.01 2.05.96-5.57L3.9 9.48l5.6-.82z" />
+  </svg>
+);

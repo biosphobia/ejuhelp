@@ -34,7 +34,7 @@ export const useMindmapCoach = create<MindmapCoachState>((set, get) => ({
     const concepts = useMindmap
       .getState()
       .concepts.filter((c) => c.subject === subject)
-      .map((c) => ({ id: c.id, kind: c.kind, text: c.text, category: c.topic }));
+      .map((c) => ({ id: c.id, kind: c.kind, text: c.text, category: c.topic, starred: !!c.starred }));
     const next: ChatMessage[] = [...get().messages, { role: 'user', content: t }];
     set({ messages: next, busy: true, error: null, lastChange: null });
     try {

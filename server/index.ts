@@ -212,6 +212,7 @@ app.post('/api/claude/mindmap-coach', requireAuth, async (req: Request, res: Res
             kind: (c.kind === 'fact' ? 'fact' : 'formula') as 'formula' | 'fact',
             text: String(c.text).slice(0, 400),
             category: String(c.category ?? ''),
+            starred: !!c.starred,
           }))
       : [];
 

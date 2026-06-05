@@ -136,6 +136,8 @@ export interface MindmapConceptDTO {
   kind: 'formula' | 'fact';
   text: string;
   category: string;
+  /** Whether the student starred (favourited) this concept. */
+  starred?: boolean;
 }
 export type MindmapOp =
   | { op: 'add'; kind: 'formula' | 'fact'; text: string; category: string }

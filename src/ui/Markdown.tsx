@@ -50,7 +50,7 @@ function inline(text: string, keyBase: string): ReactNode[] {
       );
     } else {
       nodes.push(
-        <code key={key} className="rounded bg-slate-100 px-1 py-0.5 font-mono text-[0.85em]">
+        <code key={key} className="rounded bg-slate-400/25 px-1 py-0.5 font-mono text-[0.85em]">
           {tok.slice(1, -1)}
         </code>
       );
@@ -67,7 +67,7 @@ export function Inline({ text }: { text: string }) {
   return <>{inline(text, 'inl')}</>;
 }
 
-export default function Markdown({ text }: { text: string }) {
+export default function Markdown({ text, className }: { text: string; className?: string }) {
   const lines = text.replace(/\r/g, '').split('\n');
   const blocks: ReactNode[] = [];
   let list: { ordered: boolean; items: string[] } | null = null;
@@ -136,5 +136,5 @@ export default function Markdown({ text }: { text: string }) {
   flushPara('bl-end');
   flushList('bl-end');
 
-  return <div className="text-[15px] text-slate-800">{blocks}</div>;
+  return <div className={`text-[15px] ${className ?? 'text-slate-800'}`}>{blocks}</div>;
 }

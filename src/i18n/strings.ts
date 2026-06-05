@@ -353,6 +353,9 @@ export const strings = {
   },
   mindmapAskCoach: { en: 'Ask Coach', ja: 'コーチに質問', zh: '问教练', tr: 'Koça sor' },
   removeConcept: { en: 'Remove', ja: '削除', zh: '删除', tr: 'Kaldır' },
+  star: { en: 'Star', ja: 'お気に入り', zh: '收藏', tr: 'Yıldızla' },
+  starred: { en: 'Starred', ja: 'お気に入り済み', zh: '已收藏', tr: 'Yıldızlı' },
+  starredOnly: { en: 'Show starred only', ja: 'お気に入りのみ表示', zh: '只看收藏', tr: 'Yalnızca yıldızlılar' },
   mindmapCoachTitle: { en: 'Mindmap Coach', ja: 'マインドマップコーチ', zh: '思维导图教练', tr: 'Zihin Haritası Koçu' },
   mindmapCoachHint: {
     en: 'Search your saved concepts, or ask me to add, edit, remove, or recategorize them for this subject.',

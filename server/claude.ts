@@ -753,7 +753,7 @@ export async function extractConcepts(args: {
 // Conversational assistant that operates ON the student's saved Mindmap: it can
 // search/explain what's there and add/remove/edit concepts on request. Returns a
 // reply plus a list of validated operations for the client to apply.
-export type MindmapConcept = { id: string; kind: 'formula' | 'fact'; text: string; category: string };
+export type MindmapConcept = { id: string; kind: 'formula' | 'fact'; text: string; category: string; starred?: boolean };
 export type MindmapOp =
   | { op: 'add'; kind: 'formula' | 'fact'; text: string; category: string }
   | { op: 'remove'; id: string }
@@ -804,17 +804,22 @@ export async function mindmapCoach(args: {
   const catLabel = new Map(choices.map((c) => [c.id, c.label]));
   const listing = args.concepts.length
     ? args.concepts
-        .map((c) => `- [${c.id}] (${catLabel.get(c.category) ?? 'General'}) ${c.kind}: ${c.text}`)
+        .map((c) => `- [${c.id}]${c.starred ? ' ★' : ''} (${catLabel.get(c.category) ?? 'General'}) ${c.kind}: ${c.text}`)
         .join('\n')
     : '(the Mindmap is currently empty for this subject)';
+  const starred = args.concepts.filter((c) => c.starred).length;
 
   const directive = [
     `You are the student's Mindmap assistant for EJU ${args.subject}. Their Mindmap is a personal, saved ` +
       'collection of key concepts (formulas/facts) grouped into categories. Its CURRENT content for this subject ' +
-      '(each line is "[id] (category) kind: text"):',
+      '(each line is "[id] (category) kind: text"; a ★ marks concepts the student starred as important):',
     listing,
     '',
     `Allowed categories — id (label): ${catList}. Never invent a new category.`,
+    starred
+      ? `The student has starred ${starred} concept(s) (marked ★) as their priorities — when they ask about their ` +
+        'starred / favourite / important concepts, or ask you to review or quiz them, focus on those.'
+      : '',
     '',
     'Help with the request. The student may want to SEARCH/REVIEW (find or explain what they already have — answer ' +
       'from the list and cite concepts), ADD important exam-relevant concepts, REMOVE concepts they name, or ' +

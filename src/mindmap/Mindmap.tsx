@@ -12,7 +12,7 @@ import { NOTEBOOK_COLOR } from '../lib/notebooks';
 import { fetchTopics } from '../lib/api';
 import { useT } from '../i18n';
 import { Inline } from '../ui/Markdown';
-import { MindmapIcon, AskIcon, ResetIcon, TrashIcon } from '../ui/icons';
+import { MindmapIcon, AskIcon, ResetIcon, TrashIcon, StarIcon } from '../ui/icons';
 
 const MIN = 0.25;
 const MAX = 2.5;
@@ -113,21 +113,41 @@ export default function Mindmap() {
   const concepts = useMindmap((s) => s.concepts);
   const removeConcept = useMindmap((s) => s.remove);
   const clearSubject = useMindmap((s) => s.clearSubject);
+  const toggleStar = useMindmap((s) => s.toggleStar);
 
   const subjectConcepts = useMemo(() => concepts.filter((c) => c.subject === subject), [concepts, subject]);
 
   const [expanded, setExpanded] = useState<Set<string>>(new Set());
   const [selected, setSelected] = useState<Concept | null>(null);
   const [view, setView] = useState<View>(DEFAULT_VIEW);
+  const [starredOnly, setStarredOnly] = useState(false);
   // Canonical category id → localized label, from the subject's EJU taxonomy.
   const [catLabels, setCatLabels] = useState<Record<string, string>>({});
+
+  const starCount = useMemo(() => subjectConcepts.filter((c) => c.starred).length, [subjectConcepts]);
+  // When favourites-only is on, show just the starred nodes with every category
+  // they live in pre-expanded, so they're a quick glance away.
+  const visible = useMemo(
+    () => (starredOnly ? subjectConcepts.filter((c) => c.starred) : subjectConcepts),
+    [subjectConcepts, starredOnly]
+  );
+  const effExpanded = useMemo(
+    () => (starredOnly ? new Set(visible.map(categoryKeyOf)) : expanded),
+    [starredOnly, visible, expanded]
+  );
 
   // Reset interaction state when switching subjects (each subject is its own map).
   useEffect(() => {
     setExpanded(new Set());
     setSelected(null);
     setView(DEFAULT_VIEW);
+    setStarredOnly(false);
   }, [subject]);
+
+  // Leave favourites-only automatically once nothing is starred.
+  useEffect(() => {
+    if (starredOnly && starCount === 0) setStarredOnly(false);
+  }, [starredOnly, starCount]);
 
   // Load localized category names for the active subject.
   useEffect(() => {
@@ -150,13 +170,16 @@ export default function Mindmap() {
     if (selected && !subjectConcepts.some((c) => c.id === selected.id)) setSelected(null);
   }, [subjectConcepts, selected]);
 
+  // Live view of the selected concept (so its star state in the card stays current).
+  const selectedLive = selected ? subjectConcepts.find((c) => c.id === selected.id) ?? null : null;
+
   const labelOf = (key: string) =>
     key === GENERAL_KEY ? t('categoryGeneral') : catLabels[key] ?? prettifyCategory(key);
 
   const color = NOTEBOOK_COLOR[subject];
   const { nodes, edges } = useMemo(
-    () => buildGraph(subjectConcepts, t(subject), color, expanded, labelOf),
-    [subjectConcepts, subject, color, expanded, catLabels, lang, t]
+    () => buildGraph(visible, t(subject), color, effExpanded, labelOf),
+    [visible, subject, color, effExpanded, catLabels, lang, t]
   );
 
   // ---- pan / zoom / pinch ----
@@ -314,11 +337,14 @@ export default function Mindmap() {
                 key={node.id}
                 type="button"
                 onClick={() => setSelected(node.concept)}
-                className={`${common} flex max-w-[190px] items-start gap-1.5 rounded-xl border border-white/10 bg-slate-900/90 px-2.5 py-1.5 text-left text-xs shadow-md backdrop-blur transition hover:border-white/30 ${
+                className={`${common} flex max-w-[190px] items-start gap-1.5 rounded-xl border bg-slate-900/90 px-2.5 py-1.5 text-left text-xs shadow-md backdrop-blur transition hover:border-white/30 ${
                   selected?.id === node.concept.id ? 'ring-2 ring-white/40' : ''
-                }`}
+                } ${node.concept.starred ? 'border-amber-400/60' : 'border-white/10'}`}
                 style={posStyle}
               >
+                {node.concept.starred ? (
+                  <StarIcon fill="currentColor" className="absolute -right-1.5 -top-1.5 h-3.5 w-3.5 text-amber-400" />
+                ) : null}
                 <span className={`mt-0.5 shrink-0 text-[10px] font-bold ${accent}`}>
                   {node.kind === 'formula' ? '∑' : '✦'}
                 </span>
@@ -347,6 +373,24 @@ export default function Mindmap() {
             </button>
           </div>
         </div>
+      ) : null}
+
+      {/* favourites filter */}
+      {starCount > 0 ? (
+        <button
+          type="button"
+          title={t('starredOnly')}
+          aria-label={t('starredOnly')}
+          onClick={() => setStarredOnly((v) => !v)}
+          className={`absolute left-3 top-3 flex h-10 items-center gap-1.5 rounded-xl px-2.5 shadow-lg ring-1 transition ${
+            starredOnly
+              ? 'bg-amber-400 text-slate-900 ring-amber-300'
+              : 'bg-slate-800/90 text-slate-300 ring-white/10 hover:bg-slate-700'
+          }`}
+        >
+          <StarIcon fill={starredOnly ? 'currentColor' : 'none'} className="h-5 w-5" />
+          <span className="text-sm font-semibold">{starCount}</span>
+        </button>
       ) : null}
 
       {/* recenter */}
@@ -380,25 +424,35 @@ export default function Mindmap() {
       ) : null}
 
       {/* selected-concept detail card */}
-      {selected ? (
+      {selectedLive ? (
         <div className="absolute bottom-24 left-1/2 w-[min(92vw,420px)] -translate-x-1/2 rounded-2xl bg-slate-900/95 p-4 shadow-2xl ring-1 ring-white/10 backdrop-blur">
           <div className="mb-1 flex items-center justify-between gap-2">
             <span
               className={`rounded-md px-1.5 py-0.5 text-[10px] font-bold uppercase ${
-                selected.kind === 'formula' ? 'bg-indigo-500/20 text-indigo-300' : 'bg-amber-500/20 text-amber-300'
+                selectedLive.kind === 'formula' ? 'bg-indigo-500/20 text-indigo-300' : 'bg-amber-500/20 text-amber-300'
               }`}
             >
-              {selected.kind === 'formula' ? t('kindFormula') : t('kindFact')}
+              {selectedLive.kind === 'formula' ? t('kindFormula') : t('kindFact')}
             </span>
-            <span className="truncate text-xs text-slate-400">{labelOf(categoryKeyOf(selected))}</span>
+            <span className="truncate text-xs text-slate-400">{labelOf(categoryKeyOf(selectedLive))}</span>
           </div>
           <div className="thin-scroll max-h-40 overflow-y-auto text-sm text-slate-100">
-            <Inline text={selected.text} />
+            <Inline text={selectedLive.text} />
           </div>
-          <div className="mt-3 flex justify-end">
+          <div className="mt-3 flex items-center justify-between">
             <button
               type="button"
-              onClick={() => removeConcept(selected.id)}
+              onClick={() => toggleStar(selectedLive.id)}
+              className={`inline-flex items-center gap-1 rounded-lg px-2 py-1 text-xs font-semibold transition ${
+                selectedLive.starred ? 'text-amber-400' : 'text-slate-400 hover:text-amber-300'
+              }`}
+            >
+              <StarIcon fill={selectedLive.starred ? 'currentColor' : 'none'} className="h-3.5 w-3.5" />
+              {selectedLive.starred ? t('starred') : t('star')}
+            </button>
+            <button
+              type="button"
+              onClick={() => removeConcept(selectedLive.id)}
               className="inline-flex items-center gap-1 rounded-lg px-2 py-1 text-xs font-semibold text-slate-400 hover:text-red-400"
             >
               <TrashIcon className="h-3.5 w-3.5" /> {t('removeConcept')}
