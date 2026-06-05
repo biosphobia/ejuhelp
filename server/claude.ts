@@ -564,7 +564,7 @@ export async function generate(args: {
     'Ground every question in the documented past-paper archetypes, pattern tags, style notes, printed constants and answer formats in the knowledge base above: mirror the authentic EJU phrasing, structure, figure usage, choice design and difficulty.',
     'CRITICAL: do NOT copy or merely renumber any past question. Invent a genuinely new scenario — different context, values and framing — that tests the SAME underlying concept and fits the same archetype, i.e. the kind of question highly likely to appear on an upcoming EJU.',
     isMath
-      ? 'FORMAT — EJU Mathematics is NOT multiple choice; it is fill-in-the-blank with single-character answer boxes. CRITICAL: every box holds exactly ONE character — a digit 0-9 or a minus sign — so a number needs one box PER character. Write a numeric blank as a single \\boxed{} whose label has one consecutive capital letter for EACH digit, plus a leading letter for the minus sign when the value can be negative. Examples: the value 14 → \\boxed{AB} (A=1, B=4); the value -3 → \\boxed{AB} (A is the minus sign, B=3); a single digit 5 → \\boxed{A}; a fraction 2/5 → \\dfrac{\\boxed{A}}{\\boxed{B}}. NEVER put a whole multi-digit number or an expression inside one single-letter box. Label the boxes with consecutive letters A, B, C, … in reading order, exactly like the real example(s) above (which write multi-digit blanks as \\boxed{AB}, \\boxed{IJK}, etc.). Write each question as a clear, SELF-CONTAINED problem (a handful of boxes — not a whole 大問). A sub-part may ask the student to choose the correct expression for a box from a printed numbered list ⓪①②…; you may keep that style. Do NOT give multiple-choice options for the question itself — the student solves it by hand and writes each box.'
+      ? 'FORMAT — EJU Mathematics is NOT multiple choice; it is fill-in-the-blank with single-character answer boxes. CRITICAL: every box holds exactly ONE character — a digit 0-9 or a minus sign — so a number needs one box PER character. Write a numeric blank as a single \\boxed{} whose label has one consecutive capital letter for EACH digit, plus a leading letter for the minus sign when the value can be negative. Examples: the value 14 → \\boxed{AB} (A=1, B=4); the value -3 → \\boxed{AB} (A is the minus sign, B=3); a single digit 5 → \\boxed{A}; a fraction 2/5 → \\dfrac{\\boxed{A}}{\\boxed{B}}. NEVER put a whole multi-digit number or an expression inside one single-letter box. ACCURACY IS PARAMOUNT: before you write a question, SOLVE it completely, then size every box to the EXACT number of characters in its computed value — a single-digit value MUST be a single-letter box (e.g. \\boxed{C}), never two letters; a two-digit or negative value gets two letters; and make sure the whole setup is mathematically consistent with one unique, correct answer (e.g. the intersection of two finite intervals is itself a finite interval, so an inequality describing it must be the bounded form). Label the boxes with consecutive letters A, B, C, … in reading order, exactly like the real example(s) above (which write multi-digit blanks as \\boxed{AB}, \\boxed{IJK}, etc.). Write each question as a clear, SELF-CONTAINED problem (a handful of boxes — not a whole 大問). A sub-part may ask the student to choose the correct expression for a box from a printed numbered list ⓪①②…; you may keep that style. Do NOT give multiple-choice options for the question itself — the student solves it by hand and writes each box.'
       : 'Prefer multiple-choice with 4-5 plausible options where each distractor reflects a realistic student mistake.',
   ];
 
@@ -625,7 +625,54 @@ export async function generate(args: {
       explanation: String(q.explanation ?? ''),
     };
   });
+  // Math is digit-fill with strict box layouts where a wrong question teaches the
+  // student wrong — run an independent verification pass that re-solves each one
+  // and fixes/drops it before returning.
+  if (isMath) return { questions: await verifyMathQuestions(args, questions) };
   return { questions };
+}
+
+// Independently re-solve each generated math question and correct it: enforce a
+// unique, well-posed problem, a correct answer, and box labels whose letter count
+// matches each value exactly (one letter per digit, + a leading letter if negative).
+async function verifyMathQuestions(
+  args: { lang: Lang; model?: string; userKey?: string },
+  questions: GenQuestion[]
+): Promise<GenQuestion[]> {
+  if (!questions.length) return questions;
+  const payload = questions.map((q, i) => ({ n: i + 1, topic: q.topic, prompt: q.prompt, answer: q.answer, explanation: q.explanation }));
+  const userText = [
+    'You are a meticulous EJU Mathematics checker. Accuracy is critical — a wrong practice question teaches the student something wrong. For EACH question below, solve it independently from scratch and correct any problem so it is fully accurate and well-posed:',
+    '1) The setup must be mathematically consistent and have a UNIQUE correct answer (e.g. the intersection of two finite intervals is itself a finite interval, so an inequality describing it must be the bounded form, not an unbounded one).',
+    '2) Re-derive the answer yourself and make sure it is correct.',
+    '3) The answer-box layout MUST match the answer EXACTLY: each \\boxed{} label contains exactly one letter per character of that box value — one letter per digit, plus a leading letter ONLY if the value is negative. A single-digit value MUST be a single-letter box (e.g. \\boxed{C}); never give a box more letters than its value has characters.',
+    '4) The "answer" field must list each box-group as letters=value with matching lengths (e.g. AB=14, C=5, DE=-3), and the prompt must label boxes with consecutive letters A, B, C, … in reading order.',
+    'Rewrite the prompt, answer and explanation as needed. If a question is unsalvageable or you are not fully confident it is correct, OMIT it.',
+    `Write everything in ${writeLang(args.lang)}.`,
+    'Respond with ONLY a JSON object, no code fences: {"questions":[{"topic":"...","prompt":"...","answer":"...","explanation":"..."}]} — include only questions you have verified as fully correct.',
+    '',
+    'Questions to verify:',
+    JSON.stringify(payload),
+  ].join('\n');
+  try {
+    const raw = await executeModelCall(args.model, args.userKey, 'math', args.lang, undefined, [{ role: 'user', content: userText }], 16000);
+    const parsed = extractJson<{ questions?: any[] }>(raw, { questions: [] });
+    const out: GenQuestion[] = (parsed.questions ?? [])
+      .filter((q: any) => q && typeof q.prompt === 'string' && q.prompt.trim())
+      .map((q: any, i: number) => ({
+        id: `${Date.now().toString(36)}-v${i}`,
+        topic: String(q.topic ?? ''),
+        prompt: String(q.prompt ?? ''),
+        choices: undefined,
+        answerIndex: -1,
+        answer: String(q.answer ?? ''),
+        explanation: String(q.explanation ?? ''),
+      }));
+    // Use the verified set when we got one; otherwise fall back (likely a parse hiccup).
+    return out.length ? out : questions;
+  } catch {
+    return questions;
+  }
 }
 
 // ─── Check Work ───
@@ -695,7 +742,7 @@ export async function check(args: {
     'Grade ONLY what is actually written in the image. Do NOT solve the problem yourself, and never report an answer or conclusion that is not physically written on the page.',
     'CRITICAL: If the page is blank, almost blank, or shows no genuine solution attempt (only the question text, doodles, or a few stray marks), do NOT grade it — set correct to "unknown", and in the feedback say there is nothing to check yet and invite the student to write their working. An empty or missing solution is never "correct".',
     isMath
-      ? 'PARTIAL MATH ANSWERS: EJU math answers are split into lettered boxes the student fills in over time. Grade ONLY the boxes the student has actually worked out so far. If every box they have attempted is correct, set "correct":"yes" and treat the still-empty boxes as simply not done yet (NOT mistakes) — in the feedback, confirm the boxes they got right and note which remain. Use "no" or "partial" ONLY when a box they actually attempted is wrong. Never mark the work incorrect or incomplete merely because later boxes are still blank — assume the student will fill those in later. (Example: if only box A is written and it is right, mark correct and say B, C are still to do.)'
+      ? 'PARTIAL MATH ANSWERS — IMPORTANT, this OVERRIDES the feedback structure below: EJU math answers are split into lettered boxes the student fills in over time. Check ONLY the boxes they have actually written, and keep the feedback SHORT and to the point. If every written box is correct, set "correct":"yes" and treat unwritten boxes as simply not done yet (NOT mistakes). Do NOT lecture about what is missing, do NOT restate the question, and do NOT re-derive the whole solution — at most one brief closing clause like "(B, C still to do)". Use "no"/"partial" only when a box they actually wrote is wrong, and then point out just that one box in a sentence or two. (Example: if only A, B, C are written and all are right, reply with a short confirmation that A, B, C are correct.)'
       : '',
     '',
     'First write the FEEDBACK as Markdown with LaTeX math ($...$ inline, $$...$$ display), in plain beginner-friendly language (define any jargon): briefly transcribe the key readable steps; state whether the written work is correct; pinpoint the FIRST error precisely and explain in simple terms WHY it is wrong; give a short hint to fix it (reveal the full answer only if the work is already complete and correct); finish with a one-line encouraging summary.',
