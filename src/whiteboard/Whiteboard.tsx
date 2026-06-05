@@ -16,6 +16,8 @@ import { boardEvents } from './view';
 
 const ERASER_RADIUS = 14; // screen px
 const STYLUS_MAX = 14; // px: a lone touch this tiny (and positive) is treated as a stylus tip
+const CENTER_PAD = 0.1; // when framing content, keep ~10% breathing room on each side
+const MAX_FIT_SCALE = 2; // don't blow small content up past 2x when framing it
 
 const clamp = (n: number, lo: number, hi: number) => Math.max(lo, Math.min(hi, n));
 
@@ -1048,10 +1050,50 @@ export default function Whiteboard() {
     canvas.addEventListener('gesturechange', stop as EventListener);
     canvas.addEventListener('gestureend', stop as EventListener);
 
+    // "Center" button: frame everything drawn on the current page rather than
+    // jumping back to the origin. Fit the strokes' bounding box into the viewport
+    // (with a small margin) and center on it. If the content is too big to fit
+    // even at the minimum zoom, the scale clamps to MIN_SCALE and we end up
+    // centered on its middle. An empty page falls back to the origin/default view.
     const onReset = () => {
-      vp.scale = 1;
-      vp.x = 0;
-      vp.y = 0;
+      const strokes = useBoard.getState().getCurrentPage().strokes;
+      let minX = Infinity;
+      let minY = Infinity;
+      let maxX = -Infinity;
+      let maxY = -Infinity;
+      for (const s of strokes) {
+        for (const p of s.points) {
+          if (p.x < minX) minX = p.x;
+          if (p.y < minY) minY = p.y;
+          if (p.x > maxX) maxX = p.x;
+          if (p.y > maxY) maxY = p.y;
+        }
+      }
+      if (minX === Infinity) {
+        // nothing drawn — return to the default starting view
+        vp.scale = 1;
+        vp.x = 0;
+        vp.y = 0;
+      } else {
+        const W = canvas.clientWidth;
+        const H = canvas.clientHeight;
+        const availW = Math.max(1, W * (1 - 2 * CENTER_PAD));
+        const availH = Math.max(1, H * (1 - 2 * CENTER_PAD));
+        const cw = maxX - minX;
+        const ch = maxY - minY;
+        // Largest scale that fits both dimensions; a zero-width/height extent
+        // (single point or perfectly straight line) imposes no constraint.
+        const sx = cw > 0 ? availW / cw : Infinity;
+        const sy = ch > 0 ? availH / ch : Infinity;
+        let scale = Math.min(sx, sy);
+        if (!isFinite(scale)) scale = 1; // single point: keep natural size
+        scale = clamp(Math.min(scale, MAX_FIT_SCALE), MIN_SCALE, MAX_SCALE);
+        const cx = (minX + maxX) / 2;
+        const cy = (minY + maxY) / 2;
+        vp.scale = scale;
+        vp.x = W / 2 - cx * scale;
+        vp.y = H / 2 - cy * scale;
+      }
       commitViewport();
       invalidate();
     };
