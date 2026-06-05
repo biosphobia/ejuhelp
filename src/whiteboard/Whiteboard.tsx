@@ -1052,9 +1052,8 @@ export default function Whiteboard() {
 
     // "Center" button: frame everything drawn on the current page rather than
     // jumping back to the origin. Fit the strokes' bounding box into the viewport
-    // (with a small margin) and center on it. If the content is too big to fit
-    // even at the minimum zoom, the scale clamps to MIN_SCALE and we end up
-    // centered on its middle. An empty page falls back to the origin/default view.
+    // (with a small margin) and center on it — zooming out as far as needed so
+    // even very large content fits. An empty page falls back to the origin view.
     const onReset = () => {
       const strokes = useBoard.getState().getCurrentPage().strokes;
       let minX = Infinity;

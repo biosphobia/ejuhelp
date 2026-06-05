@@ -38,7 +38,9 @@ export const INK_HEX: Record<InkColor, string> = {
 };
 
 export const PEN_SIZES = [2, 4, 7, 12];
-export const MIN_SCALE = 0.2;
+// Zoom-out is effectively unlimited: MIN_SCALE is only a numerical-safety floor
+// that keeps the scale strictly positive (the world<->screen math divides by it).
+export const MIN_SCALE = 0.0001;
 export const MAX_SCALE = 6;
 const UNDO_LIMIT = 50;
 
