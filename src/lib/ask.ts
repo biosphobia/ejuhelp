@@ -127,6 +127,10 @@ export const useAsk = create<AskState>((set, get) => ({
         lang,
         imageDataUrl: img,
         question: activeQuestion ?? undefined,
+        // Give the grader the official answer/solution when the work is tied to a
+        // known question, so it grades against them instead of re-deriving.
+        answer: activeItem?.answer || undefined,
+        solution: activeItem?.explanation || undefined,
         note: trimmedNote || undefined,
         messages: prior,
         profile: coachProfile(),

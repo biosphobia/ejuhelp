@@ -116,7 +116,7 @@ app.post('/api/claude/generate', requireAuth, async (req: Request, res: Response
 
 app.post('/api/claude/check', requireAuth, async (req: Request, res: Response) => {
   try {
-    const { subject, lang, imageDataUrl, question, note, messages, profile } = req.body ?? {};
+    const { subject, lang, imageDataUrl, question, answer, solution, note, messages, profile } = req.body ?? {};
     const { model, userKey } = getAiContext(req);
     if (!isSubject(subject)) return res.status(400).json({ error: 'bad_subject' });
     if (typeof imageDataUrl !== 'string') return res.status(400).json({ error: 'missing_image' });
@@ -126,6 +126,8 @@ app.post('/api/claude/check', requireAuth, async (req: Request, res: Response) =
       lang: toLang(lang),
       imageDataUrl,
       question: typeof question === 'string' ? question : undefined,
+      answer: typeof answer === 'string' ? answer : undefined,
+      solution: typeof solution === 'string' ? solution : undefined,
       note: typeof note === 'string' ? note : undefined,
       messages: Array.isArray(messages) ? messages : undefined,
       profile: toProfile(profile),

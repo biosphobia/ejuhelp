@@ -637,6 +637,10 @@ export async function check(args: {
   lang: Lang;
   imageDataUrl: string;
   question?: string;
+  /** Official answer for the attached question, so grading is checked against it. */
+  answer?: string;
+  /** Reference worked solution, to pinpoint the student's first mistake. */
+  solution?: string;
   /** A note the student typed alongside the request, to steer the feedback. */
   note?: string;
   /** Recent conversation, so repeated checks stay anchored to the same question. */
@@ -650,12 +654,23 @@ export async function check(args: {
   const [, media_type, data] = m;
 
   const note = args.note?.trim();
+  const answer = args.answer?.trim();
+  const solution = args.solution?.trim();
   const instructions = [
     args.question
       ? `The student is attempting this EJU question. ALWAYS grade against THIS question — even if you have already checked their work earlier in the conversation:\n"""\n${args.question}\n"""\n`
       : 'No specific question is attached — work out from the page what is being solved.\n',
-    note
-      ? `The student also typed this note/request — take it into account and address it directly in your feedback:\n"""\n${note}\n"""\n`
+    // Authoritative answer/solution (when the question is a known one): grade against
+    // these so the verdict is reliable; for EJU math, the answer lists each labelled
+    // box's value — check the student's written boxes against it.
+    answer
+      ? `The OFFICIAL correct answer to this question is (treat as authoritative — judge the written work against it, and use it to pinpoint exactly where they went wrong):\n"""\n${answer}\n"""\n`
+      : '',
+    solution
+      ? `Reference worked solution (for your reasoning only — use it to locate the first mistake; do NOT paste it back verbatim):\n"""\n${solution}\n"""\n`
+      : '',
+    answer
+      ? 'Even with the answer above, still grade ONLY what the student actually wrote: do not credit a correct result they did not write, and if their work is incomplete or wrong give a hint toward the fix rather than just revealing the answer.'
       : '',
     inferSubjectDirective(args.subject),
     learnerProfileDirective(args.profile) ?? '',

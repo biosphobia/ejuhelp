@@ -122,6 +122,10 @@ export const checkWork = (p: {
   lang: Lang;
   imageDataUrl: string;
   question?: string;
+  /** Official answer for the attached question, so grading is checked against it. */
+  answer?: string;
+  /** Reference worked solution, to pinpoint the student's first mistake. */
+  solution?: string;
   note?: string;
   messages?: ChatMessage[];
   profile?: string[];
