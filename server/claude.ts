@@ -564,7 +564,7 @@ export async function generate(args: {
     'Ground every question in the documented past-paper archetypes, pattern tags, style notes, printed constants and answer formats in the knowledge base above: mirror the authentic EJU phrasing, structure, figure usage, choice design and difficulty.',
     'CRITICAL: do NOT copy or merely renumber any past question. Invent a genuinely new scenario — different context, values and framing — that tests the SAME underlying concept and fits the same archetype, i.e. the kind of question highly likely to appear on an upcoming EJU.',
     isMath
-      ? 'FORMAT — EJU Mathematics is NOT multiple choice; it is fill-in-the-blank. In the answer, each digit or sign is replaced by a box marked with a capital letter (A, B, C, …): each single box is one digit 0-9 or a minus sign, consecutive letters form a multi-digit number, and a fraction is written as boxes over boxes. Write each question as a clear, SELF-CONTAINED problem (a handful of lettered boxes — not a whole 大問) and place the boxes exactly where the EJU would, writing each blank as \\boxed{A}, \\boxed{B}, … just like the real example(s) above. A sub-part may ask the student to choose the correct expression for a box from a printed numbered list ⓪①②…; you may keep that style (the student still just writes the chosen number). Do NOT give multiple-choice options for the question itself — the student solves it by hand and writes the value of each box.'
+      ? 'FORMAT — EJU Mathematics is NOT multiple choice; it is fill-in-the-blank with single-character answer boxes. CRITICAL: every box holds exactly ONE character — a digit 0-9 or a minus sign — so a number needs one box PER character. Write a numeric blank as a single \\boxed{} whose label has one consecutive capital letter for EACH digit, plus a leading letter for the minus sign when the value can be negative. Examples: the value 14 → \\boxed{AB} (A=1, B=4); the value -3 → \\boxed{AB} (A is the minus sign, B=3); a single digit 5 → \\boxed{A}; a fraction 2/5 → \\dfrac{\\boxed{A}}{\\boxed{B}}. NEVER put a whole multi-digit number or an expression inside one single-letter box. Label the boxes with consecutive letters A, B, C, … in reading order, exactly like the real example(s) above (which write multi-digit blanks as \\boxed{AB}, \\boxed{IJK}, etc.). Write each question as a clear, SELF-CONTAINED problem (a handful of boxes — not a whole 大問). A sub-part may ask the student to choose the correct expression for a box from a printed numbered list ⓪①②…; you may keep that style. Do NOT give multiple-choice options for the question itself — the student solves it by hand and writes each box.'
       : 'Prefer multiple-choice with 4-5 plausible options where each distractor reflects a realistic student mistake.',
   ];
 
@@ -602,7 +602,7 @@ export async function generate(args: {
   parts.push(
     isMath
       ? 'Respond with ONLY a single JSON object, no other text or code fences: ' +
-          '{"questions":[{"topic":"<sub-topic>","prompt":"<the full question; write every answer blank as \\\\boxed{A}, \\\\boxed{B}, … and put all math in LaTeX>","choices":[],"answerIndex":-1,"answer":"<the value of EVERY lettered box so the work can be graded, e.g. A=1, BC=-3, D=5, E/F=2/3>","explanation":"<a clear, step-by-step worked solution that derives each box value>"}]}.'
+          '{"questions":[{"topic":"<sub-topic>","prompt":"<the full question with all math in LaTeX; write each numeric blank as one \\\\boxed{} whose label has one letter per digit (+ a leading letter for a minus sign), e.g. \\\\boxed{AB} for a two-digit or negative value>","choices":[],"answerIndex":-1,"answer":"<the value of EVERY box-group so the work can be graded, e.g. AB=14, C=5, DE=-3, F/G=2/5>","explanation":"<a clear, step-by-step worked solution that derives each box value>"}]}.'
       : 'Respond with ONLY a single JSON object, no other text or code fences: ' +
           '{"questions":[{"topic":"<sub-topic>","prompt":"...","choices":["..."],"answerIndex":<0-based index of the correct choice, or -1 if not multiple-choice>,"answer":"<correct answer in words>","explanation":"<clear worked solution>"}]}.'
   );
@@ -672,6 +672,7 @@ export async function check(args: {
   const note = args.note?.trim();
   const answer = args.answer?.trim();
   const solution = args.solution?.trim();
+  const isMath = args.subject === 'math';
   const instructions = [
     args.question
       ? `The student is attempting this EJU question. ALWAYS grade against THIS question — even if you have already checked their work earlier in the conversation:\n"""\n${args.question}\n"""\n`
@@ -693,6 +694,9 @@ export async function check(args: {
     "The image is a capture of the student's OWN handwritten work on a whiteboard.",
     'Grade ONLY what is actually written in the image. Do NOT solve the problem yourself, and never report an answer or conclusion that is not physically written on the page.',
     'CRITICAL: If the page is blank, almost blank, or shows no genuine solution attempt (only the question text, doodles, or a few stray marks), do NOT grade it — set correct to "unknown", and in the feedback say there is nothing to check yet and invite the student to write their working. An empty or missing solution is never "correct".',
+    isMath
+      ? 'PARTIAL MATH ANSWERS: EJU math answers are split into lettered boxes the student fills in over time. Grade ONLY the boxes the student has actually worked out so far. If every box they have attempted is correct, set "correct":"yes" and treat the still-empty boxes as simply not done yet (NOT mistakes) — in the feedback, confirm the boxes they got right and note which remain. Use "no" or "partial" ONLY when a box they actually attempted is wrong. Never mark the work incorrect or incomplete merely because later boxes are still blank — assume the student will fill those in later. (Example: if only box A is written and it is right, mark correct and say B, C are still to do.)'
+      : '',
     '',
     'First write the FEEDBACK as Markdown with LaTeX math ($...$ inline, $$...$$ display), in plain beginner-friendly language (define any jargon): briefly transcribe the key readable steps; state whether the written work is correct; pinpoint the FIRST error precisely and explain in simple terms WHY it is wrong; give a short hint to fix it (reveal the full answer only if the work is already complete and correct); finish with a one-line encouraging summary.',
     `Write the feedback in ${writeLang(args.lang)}.`,
