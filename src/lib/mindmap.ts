@@ -31,10 +31,22 @@ function formulaSigs(s: string): string[] {
   const re = /\$+([^$]+)\$+/g;
   let m: RegExpExecArray | null;
   while ((m = re.exec(s))) {
-    const f = m[1].replace(/[\s{}\\]/g, '').toLowerCase();
+    const f = m[1]
+      .toLowerCase()
+      .replace(/\\(mathrm|left|right|text|big|cdot|times|vec|hat)/g, '')
+      .replace(/[\s{}\\,;!~]/g, '');
     if (f.length >= 3 && /[=+\-*/^_]/.test(f)) out.push(f);
   }
   return out;
+}
+/** The concept's leading "name" (before a colon / dash / paren / formula), normalized. */
+function conceptKey(s: string): string {
+  return s
+    .split(/[:—–(]|\s-\s|\$/)[0]
+    .toLowerCase()
+    .replace(/[^a-z0-9 ]+/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
 }
 function tokenSet(s: string): Set<string> {
   return new Set(
@@ -45,20 +57,30 @@ function tokenSet(s: string): Set<string> {
       .filter((w) => w.length >= 3)
   );
 }
-/** Same core formula, or high word overlap → treat as the same concept. */
+/** Same core formula, same concept name, or strong word overlap → the same concept. */
 function similar(a: string, b: string): boolean {
+  // 1) same core formula
   const fa = formulaSigs(a);
   const fb = formulaSigs(b);
   for (const x of fa) if (fb.includes(x)) return true;
+  // 2) same concept name (equal, or one name fully contains the other when it's specific)
+  const ka = conceptKey(a);
+  const kb = conceptKey(b);
+  if (ka && kb) {
+    if (ka === kb) return true;
+    const [short, long] = ka.length <= kb.length ? [ka, kb] : [kb, ka];
+    if (short.split(' ').length >= 3 && ` ${long} `.includes(` ${short} `)) return true;
+  }
+  // 3) strong word overlap (catches paraphrases of the same fact)
   const A = tokenSet(a);
   const B = tokenSet(b);
   if (A.size < 2 || B.size < 2) return false;
   let inter = 0;
   for (const x of A) if (B.has(x)) inter++;
-  return inter / (A.size + B.size - inter) >= 0.6;
+  return inter / (A.size + B.size - inter) >= 0.4;
 }
 
-/** Add a concept, or update the existing similar one (same subject) in place. */
+/** Add a concept, or update the existing similar one (keeping the richer text) in place. */
 function upsertConcept(
   concepts: Concept[],
   subject: Subject,
@@ -67,10 +89,16 @@ function upsertConcept(
   const idx = concepts.findIndex((x) => x.subject === subject && similar(x.text, c.text));
   if (idx >= 0) {
     const ex = concepts[idx];
-    // Keep the more informative (longer) wording; adopt a real category if we now have one.
-    const text = c.text.length > ex.text.length ? c.text : ex.text;
+    // Keep whichever wording carries more info; adopt a real category if we now have one.
+    const useNew = c.text.trim().length > ex.text.trim().length;
     const next = concepts.slice();
-    next[idx] = { ...ex, text, kind: c.kind, topic: c.topic || ex.topic, ts: Date.now() };
+    next[idx] = {
+      ...ex,
+      text: useNew ? c.text : ex.text,
+      kind: useNew ? c.kind : ex.kind,
+      topic: c.topic || ex.topic,
+      ts: Date.now(),
+    };
     return { concepts: next, added: false, updated: true };
   }
   return {

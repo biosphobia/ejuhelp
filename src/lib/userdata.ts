@@ -166,13 +166,13 @@ export function initUserData() {
     (s) => ({ attempts: s.attempts }),
     (s, data) => s.loadAttempts(data?.attempts ?? [])
   );
-  // NOTE: the storage keys carry a version suffix. Bumping it (v1 → v2) abandons
-  // the old localStorage/Firestore data, which cleanly wipes Mindmaps built before
-  // the categorization/subject fixes so they rebuild fresh.
+  // NOTE: the storage keys carry a version suffix. Bumping it abandons the old
+  // localStorage/Firestore data, cleanly wiping Mindmaps built before the
+  // categorization/merge fixes so they rebuild fresh.
   attachSync(
     useMindmap,
-    'eju-mindmap-v2',
-    'mindmap-v2',
+    'eju-mindmap-v3',
+    'mindmap-v3',
     (s) => ({ concepts: s.concepts }),
     (s, data) => s.load(data?.concepts ?? [])
   );
