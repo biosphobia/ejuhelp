@@ -34,6 +34,8 @@ export interface KeyPointDTO {
   kind: 'formula' | 'fact';
   text: string;
   topic?: string;
+  /** The EJU subject this concept belongs to (judged from the concept itself). */
+  subject?: Subject;
 }
 
 let defaultClaudeClient: Anthropic | null = null;
@@ -283,11 +285,25 @@ function canonicalCategory(subject: Subject, raw0: string | undefined): string {
   return '';
 }
 
-// Pin each concept's category to a canonical taxonomy id, so the Mindmap stays a
-// bounded, sensible set of categories instead of a fresh bucket for every concept.
-function normalizeConceptCategories(subject: Subject, kps: KeyPointDTO[]): KeyPointDTO[] {
-  return kps.map((k) => ({ ...k, topic: canonicalCategory(subject, k.topic) }));
+const isSubjectStr = (s: any): s is Subject => (SUBJECTS as readonly string[]).includes(s);
+
+// Pin each concept to (a) the subject it really belongs to — judged from the
+// concept, NOT the conversation, so a math note in a physics chat lands in math —
+// and (b) a canonical taxonomy category within that subject (bounded, never invented).
+function finalizeConcepts(defaultSubject: Subject, kps: KeyPointDTO[]): KeyPointDTO[] {
+  return kps.map((k) => {
+    const subject = isSubjectStr(k.subject) ? k.subject : defaultSubject;
+    return { ...k, subject, topic: canonicalCategory(subject, k.topic) };
+  });
 }
+
+// How every captured concept must be written: a self-contained, contextual line —
+// never a bare formula. Reused across all the extraction prompts.
+const CONCEPT_TEXT_RULE =
+  'Write each concept as ONE self-contained line that NAMES the concept and what it is for, then gives the ' +
+  'formula, then briefly defines its symbols/units — never a bare formula or a fragment with no context. ' +
+  'For example: "Newton\'s second law — net force equals mass times acceleration: $F=ma$ ($F$ in N, $m$ mass in kg, ' +
+  '$a$ acceleration in m/s²)."';
 
 // ─── Ask ───
 // The reply is plain Markdown (so LaTeX/backslashes pass through untouched — never
@@ -309,11 +325,13 @@ const ASK_DIRECTIVE =
   'Do NOT wrap the reply in JSON and do NOT put it in a code fence. ' +
   // Key points (machine-parsed; separate from the human-facing "Exam essentials" bullets above).
   'After the reply, ONLY if it contains genuinely memorize-worthy formulas or key facts, add a final ' +
-  `line that is exactly "${KEYPOINTS_MARK}" and then 1-4 lines, one point per line, each formatted as ` +
-  '`kind | text | category`. kind is the word formula or fact. text is ONE concise, self-contained, ' +
-  'memorizable statement (define the symbols; keep it short and clear). category MUST be the single ' +
-  'best-fitting top-level topic id from the Topic taxonomy in the knowledge base above (e.g. for physics: ' +
-  'mechanics, waves, electromagnetism) — never invent a new category. Write nothing after those lines.';
+  `line that is exactly "${KEYPOINTS_MARK}" and then 1-4 lines, one concept per line, each formatted as ` +
+  '`subject | kind | category | text`. subject is the EJU subject the concept belongs to (physics, chemistry, ' +
+  'biology, or math) — judge it from the concept itself, NOT from the rest of the conversation. kind is the ' +
+  'word formula or fact. category MUST be the single best-fitting top-level topic id from THAT subject\'s Topic ' +
+  'taxonomy in the knowledge base above (e.g. for physics: mechanics, waves, electromagnetism) — never invent one. ' +
+  CONCEPT_TEXT_RULE +
+  ' Use the | character only as the field separator. Write nothing after those lines.';
 
 function parseKeyPointLines(block: string): KeyPointDTO[] {
   return block
@@ -321,11 +339,27 @@ function parseKeyPointLines(block: string): KeyPointDTO[] {
     .map((l) => l.replace(/^[-*\s]+/, '').trim())
     .filter(Boolean)
     .map((l) => {
-      const [kind, text, topic] = l.split('|').map((s) => s.trim());
+      const parts = l.split('|').map((s) => s.trim());
+      // New format: subject | kind | category | text. Tolerate older/looser shapes.
+      let subject: string | undefined;
+      let kind: string;
+      let topic: string | undefined;
+      let text: string;
+      if (parts.length >= 4) {
+        [subject, kind, topic] = parts;
+        text = parts.slice(3).join('|').trim();
+      } else if (parts.length === 3) {
+        [kind, topic] = parts;
+        text = parts[2];
+      } else {
+        kind = parts[0] ?? '';
+        text = parts.slice(1).join('|').trim();
+      }
       return {
         kind: /fact/i.test(kind ?? '') ? 'fact' : 'formula',
         text: (text ?? '').trim(),
         topic: topic || undefined,
+        subject: isSubjectStr(subject) ? subject : undefined,
       } as KeyPointDTO;
     })
     .filter((k) => k.text)
@@ -375,7 +409,7 @@ export async function ask(args: {
   const i = raw.indexOf(KEYPOINTS_MARK);
   const text = (i >= 0 ? raw.slice(0, i) : raw).trim();
   const keyPoints = i >= 0 ? parseKeyPointLines(raw.slice(i + KEYPOINTS_MARK.length)) : [];
-  return { text: text || raw.trim(), keyPoints: normalizeConceptCategories(args.subject, keyPoints) };
+  return { text: text || raw.trim(), keyPoints: finalizeConcepts(args.subject, keyPoints) };
 }
 
 // ─── Generate Questions ───
@@ -553,6 +587,7 @@ export async function check(args: {
     `Then, on a new line, write exactly ${CHECK_META_MARK} and, on the next line, a single-line JSON object (and nothing after it):`,
     `{"correct":"yes"|"no"|"partial"|"unknown","subject":"physics"|"chemistry"|"biology"|"math" (whichever subject this work belongs to),"topic":"<specific EJU sub-topic in English>","errorTags":[subset of ${JSON.stringify(ERROR_TAGS)}; use ["none"] when correct and [] when unknown],"studentAnswerIndex":<for a multiple-choice question, the 0-based index of the option the WRITTEN work clearly concludes, counting the listed choices in order; use -1 if it is not multiple-choice or no final choice is written>,"keyPoints":[{"kind":"formula"|"fact","text":"<one concise, self-contained, memorizable concept this problem tests>","category":"<best-fitting top-level topic id from the taxonomy>"}] (0-4 items, only genuinely memorize-worthy concepts; [] if none)}`,
     '("partial" = on the right track but incomplete or with a fixable slip.)',
+    `For each keyPoints text: ${CONCEPT_TEXT_RULE}`,
   ].join('\n');
 
   const raw = await executeModelCall(
@@ -588,7 +623,7 @@ export async function check(args: {
   const studentAnswerIndex = Number.isInteger(p.studentAnswerIndex) ? Number(p.studentAnswerIndex) : -1;
   const subject = (SUBJECTS as readonly string[]).includes(p.subject as any) ? (p.subject as Subject) : '';
   // Classify the captured concepts under whichever subject the work belongs to.
-  const keyPoints = normalizeConceptCategories(subject || args.subject, cleanKeyPoints((p as any).keyPoints));
+  const keyPoints = finalizeConcepts(subject || args.subject, cleanKeyPoints((p as any).keyPoints));
   return {
     feedback: feedback || String(raw ?? ''),
     correct,
@@ -648,7 +683,7 @@ export async function explainBoard(args: {
   const i = raw.indexOf(KEYPOINTS_MARK);
   const text = (i >= 0 ? raw.slice(0, i) : raw).trim();
   const keyPoints = i >= 0 ? parseKeyPointLines(raw.slice(i + KEYPOINTS_MARK.length)) : [];
-  return { text: text || raw.trim(), keyPoints: normalizeConceptCategories(args.subject, keyPoints) };
+  return { text: text || raw.trim(), keyPoints: finalizeConcepts(args.subject, keyPoints) };
 }
 
 // ─── Keypoints ───
@@ -694,7 +729,8 @@ export async function extractConcepts(args: {
     : '(no preset categories — leave category blank)';
   const userText = [
     `From the EJU ${args.subject} study material below, extract the key concepts a student should remember for the exam.`,
-    'Be comprehensive but concise: capture only genuinely important, exam-relevant formulas and facts — skip trivia and do not restate the question. Each concept must be ONE short, clear, self-contained statement (define the symbols).',
+    'Be comprehensive but concise: capture only genuinely important, exam-relevant formulas and facts — skip trivia and do not restate the question.',
+    CONCEPT_TEXT_RULE,
     `Classify EACH concept into exactly one of these category ids: ${catList}. Pick the single closest existing category — do NOT invent new categories.`,
     `Write each concept's text in ${writeLang(args.lang)}.`,
     'Respond with ONLY one JSON object, no prose or code fences: {"concepts":[{"kind":"formula"|"fact","text":"...","category":"<id>"}]} — 0 to 6 items.',
@@ -710,7 +746,7 @@ export async function extractConcepts(args: {
   );
   const parsed = extractJson<{ concepts?: any }>(raw, {});
   const kps = cleanKeyPoints(parsed.concepts);
-  return { concepts: normalizeConceptCategories(args.subject, kps) };
+  return { concepts: finalizeConcepts(args.subject, kps) };
 }
 
 // ─── Mindmap coach ───
@@ -783,7 +819,7 @@ export async function mindmapCoach(args: {
     'Help with the request. The student may want to SEARCH/REVIEW (find or explain what they already have — answer ' +
       'from the list and cite concepts), ADD important exam-relevant concepts, REMOVE concepts they name, or ' +
       'EDIT/RECATEGORIZE existing ones. Only change the map when they clearly ask you to; for pure questions just answer. ' +
-      'Keep added/edited concepts concise, self-contained, and exam-worthy (define symbols).',
+      `Keep added/edited concepts exam-worthy. ${CONCEPT_TEXT_RULE}`,
     '',
     `Write a short, friendly reply in ${writeLang(args.lang)} as Markdown (LaTeX as $...$); briefly summarize any changes you make.`,
     `Then, ONLY if you are changing the map, append a final line that is exactly "${MINDMAP_OPS_MARK}" followed by a ` +

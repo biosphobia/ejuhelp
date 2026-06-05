@@ -112,6 +112,7 @@ export default function Mindmap() {
   const openPanel = useUI((s) => s.openPanel);
   const concepts = useMindmap((s) => s.concepts);
   const removeConcept = useMindmap((s) => s.remove);
+  const clearSubject = useMindmap((s) => s.clearSubject);
 
   const subjectConcepts = useMemo(() => concepts.filter((c) => c.subject === subject), [concepts, subject]);
 
@@ -358,6 +359,25 @@ export default function Mindmap() {
       >
         <ResetIcon />
       </button>
+
+      {/* clear this subject's map */}
+      {subjectConcepts.length > 0 ? (
+        <button
+          type="button"
+          title={t('clearSubjectMap')}
+          aria-label={t('clearSubjectMap')}
+          onClick={() => {
+            if (window.confirm(t('clearSubjectConfirm', { subject: t(subject) }))) {
+              clearSubject(subject);
+              setSelected(null);
+              setExpanded(new Set());
+            }
+          }}
+          className="absolute right-3 top-16 grid h-10 w-10 place-items-center rounded-xl bg-slate-800/90 text-slate-300 shadow-lg ring-1 ring-white/10 transition hover:bg-red-500/80 hover:text-white"
+        >
+          <TrashIcon />
+        </button>
+      ) : null}
 
       {/* selected-concept detail card */}
       {selected ? (

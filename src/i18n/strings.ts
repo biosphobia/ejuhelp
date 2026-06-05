@@ -337,6 +337,13 @@ export const strings = {
   },
   conceptsCount: { en: '{n} concept(s)', ja: '{n}件の概念', zh: '{n} 个概念', tr: '{n} kavram' },
   categoryGeneral: { en: 'General', ja: '一般', zh: '综合', tr: 'Genel' },
+  clearSubjectMap: { en: 'Clear this map', ja: 'このマップを消去', zh: '清空此导图', tr: 'Bu haritayı temizle' },
+  clearSubjectConfirm: {
+    en: 'Clear all saved {subject} concepts from your Mindmap? This cannot be undone.',
+    ja: 'マインドマップから{subject}の概念をすべて消去しますか？元に戻せません。',
+    zh: '从思维导图中清空所有已保存的{subject}概念？此操作无法撤销。',
+    tr: 'Zihin Haritandaki tüm kayıtlı {subject} kavramları silinsin mi? Bu geri alınamaz.',
+  },
   mindmapEmptyTitle: { en: 'Your Mindmap is empty', ja: 'マインドマップは空です', zh: '思维导图为空', tr: 'Zihin Haritan boş' },
   mindmapEmptyHint: {
     en: 'Concepts you come across while studying — from Coach answers and whiteboard help — are summarized and added here automatically.',

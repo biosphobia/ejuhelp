@@ -58,6 +58,8 @@ export interface KeyPointDTO {
   kind: 'formula' | 'fact';
   text: string;
   topic?: string;
+  /** The EJU subject this concept belongs to (server-judged from the concept). */
+  subject?: Subject;
 }
 
 export interface AskResponse {
