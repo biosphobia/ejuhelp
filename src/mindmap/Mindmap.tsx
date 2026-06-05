@@ -357,24 +357,6 @@ export default function Mindmap() {
         </div>
       </div>
 
-      {/* empty state */}
-      {subjectConcepts.length === 0 ? (
-        <div className="pointer-events-none absolute inset-0 grid place-items-center px-6">
-          <div className="pointer-events-auto max-w-sm rounded-2xl bg-slate-900/80 p-6 text-center ring-1 ring-white/10">
-            <MindmapIcon className="mx-auto mb-3 h-8 w-8 text-slate-400" />
-            <h2 className="mb-1.5 text-lg font-bold text-white">{t('mindmapEmptyTitle')}</h2>
-            <p className="mb-4 text-sm text-slate-400">{t('mindmapEmptyHint')}</p>
-            <button
-              type="button"
-              onClick={() => openPanel('mindmapCoach')}
-              className="inline-flex items-center gap-1.5 rounded-xl bg-white px-4 py-2 text-sm font-semibold text-slate-900 hover:bg-slate-200"
-            >
-              <AskIcon className="h-4 w-4" /> {t('mindmapAskCoach')}
-            </button>
-          </div>
-        </div>
-      ) : null}
-
       {/* favourites filter */}
       {starCount > 0 ? (
         <button

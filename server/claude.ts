@@ -330,6 +330,20 @@ function learnerProfileDirective(profile?: string[]): string | undefined {
   );
 }
 
+function cleanProfileNotes(arr: any): ProfileNoteDTO[] {
+  if (!Array.isArray(arr)) return [];
+  return arr
+    .filter((p) => p && typeof p.text === 'string' && p.text.trim())
+    .slice(0, 3)
+    .map(
+      (p) =>
+        ({
+          kind: /strength/i.test(p.kind) ? 'strength' : /struggle/i.test(p.kind) ? 'struggle' : 'style',
+          text: String(p.text).trim(),
+        }) as ProfileNoteDTO
+    );
+}
+
 function parseProfileLines(block: string): ProfileNoteDTO[] {
   return block
     .split('\n')
@@ -630,6 +644,8 @@ export interface CheckResult {
   studentAnswerIndex: number;
   /** Memorize-worthy concepts this problem tests, for the Mindmap. */
   keyPoints: KeyPointDTO[];
+  /** Durable observations about the learner, distilled from how they solved this. */
+  profile: ProfileNoteDTO[];
 }
 
 export async function check(args: {
@@ -681,7 +697,7 @@ export async function check(args: {
     'First write the FEEDBACK as Markdown with LaTeX math ($...$ inline, $$...$$ display), in plain beginner-friendly language (define any jargon): briefly transcribe the key readable steps; state whether the written work is correct; pinpoint the FIRST error precisely and explain in simple terms WHY it is wrong; give a short hint to fix it (reveal the full answer only if the work is already complete and correct); finish with a one-line encouraging summary.',
     `Write the feedback in ${writeLang(args.lang)}.`,
     `Then, on a new line, write exactly ${CHECK_META_MARK} and, on the next line, a single-line JSON object (and nothing after it):`,
-    `{"correct":"yes"|"no"|"partial"|"unknown","subject":"physics"|"chemistry"|"biology"|"math" (whichever subject this work belongs to),"topic":"<specific EJU sub-topic in English>","errorTags":[subset of ${JSON.stringify(ERROR_TAGS)}; use ["none"] when correct and [] when unknown],"studentAnswerIndex":<for a multiple-choice question, the 0-based index of the option the WRITTEN work clearly concludes, counting the listed choices in order; use -1 if it is not multiple-choice or no final choice is written>,"keyPoints":[{"kind":"formula"|"fact","text":"<one concise, self-contained, memorizable concept this problem tests>","category":"<best-fitting top-level topic id from the taxonomy>"}] (0-4 items, only genuinely memorize-worthy concepts; [] if none)}`,
+    `{"correct":"yes"|"no"|"partial"|"unknown","subject":"physics"|"chemistry"|"biology"|"math" (whichever subject this work belongs to),"topic":"<specific EJU sub-topic in English>","errorTags":[subset of ${JSON.stringify(ERROR_TAGS)}; use ["none"] when correct and [] when unknown],"studentAnswerIndex":<for a multiple-choice question, the 0-based index of the option the WRITTEN work clearly concludes, counting the listed choices in order; use -1 if it is not multiple-choice or no final choice is written>,"keyPoints":[{"kind":"formula"|"fact","text":"<one concise, self-contained, memorizable concept this problem tests>","category":"<best-fitting top-level topic id from the taxonomy>"}] (0-4 items, only genuinely memorize-worthy concepts; [] if none),"profile":[{"kind":"style"|"struggle"|"strength","text":"<short third-person note about a DURABLE, likely-recurring pattern in how this student works (e.g. \\"struggle | recurring sign errors when expanding brackets\\", \\"strength | sets up equations correctly\\") — NOT a one-off slip, and not anything already in the student profile above>"}] (0-2 items, [] if nothing durable)}`,
     '("partial" = on the right track but incomplete or with a fixable slip.)',
     `For each keyPoints text: ${CONCEPT_TEXT_RULE}`,
   ].join('\n');
@@ -728,6 +744,7 @@ export async function check(args: {
     errorTags,
     studentAnswerIndex,
     keyPoints,
+    profile: cleanProfileNotes((p as any).profile),
   };
 }
 

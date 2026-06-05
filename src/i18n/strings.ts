@@ -371,6 +371,13 @@ export const strings = {
     zh: '暂无内容——当你与教练交流时，它会记录最适合你的学习方式。',
     tr: 'Henüz yok — koçla sohbet ettikçe en iyi nasıl öğrendiğini not eder.',
   },
+  coachDiagnostics: { en: 'Coach’s read on you', ja: 'コーチによるあなたの分析', zh: '教练对你的分析', tr: 'Koçun seni değerlendirmesi' },
+  coachDiagnosticsHint: {
+    en: 'The coach’s current analysis of how you learn — it grows and sharpens the more you ask and solve. Remove anything that’s off.',
+    ja: 'コーチによる現在のあなたの学び方の分析です。質問や演習を重ねるほど精度が上がります。誤りは削除できます。',
+    zh: '教练当前对你学习方式的分析——你提问和做题越多，它越精准。可删除不准确的内容。',
+    tr: 'Koçun nasıl öğrendiğine dair güncel analizi — sordukça ve çözdükçe gelişir. Yanlış olanları kaldırabilirsin.',
+  },
   profileStyle: { en: 'Style', ja: 'スタイル', zh: '风格', tr: 'Stil' },
   profileStruggle: { en: 'Struggle', ja: '苦手', zh: '难点', tr: 'Zorluk' },
   profileStrength: { en: 'Strength', ja: '得意', zh: '强项', tr: 'Güçlü yön' },

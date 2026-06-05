@@ -151,8 +151,10 @@ export const useAsk = create<AskState>((set, get) => ({
           errorTags: res.errorTags,
         });
       }
-      // Capture the concepts this problem tests into the Mindmap.
+      // Capture the concepts this problem tests into the Mindmap, and any durable
+      // learner signals (e.g. recurring mistakes) into the profile.
       const added = useMindmap.getState().addMany(statSubject, res.keyPoints ?? []);
+      useLearnerProfile.getState().addNotes(res.profile ?? []);
       if (added) set({ lastSaved: added });
       // If the page clearly states a final choice for the active MCQ, reflect it on the board.
       if (

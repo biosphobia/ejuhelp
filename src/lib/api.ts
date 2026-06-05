@@ -116,6 +116,8 @@ export interface CheckResponse {
   studentAnswerIndex: number;
   /** Memorize-worthy concepts this problem tests, for the Mindmap. */
   keyPoints: KeyPointDTO[];
+  /** Durable observations about the learner, from how they solved this. */
+  profile: ProfileNoteDTO[];
 }
 export const checkWork = (p: {
   subject: Subject;
