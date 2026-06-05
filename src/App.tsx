@@ -7,11 +7,15 @@ import PanelHost from './ui/PanelHost';
 import BoardQuestions from './ui/BoardQuestions';
 import BoardTimer from './ui/BoardTimer';
 import DebugHud from './ui/DebugHud';
+import Mindmap from './mindmap/Mindmap';
+import { useUI } from './lib/ui';
 import { initPersistence } from './lib/persistence';
 import { initUserData } from './lib/userdata';
 import './lib/auth'; // registers the Firebase auth listener on load
 
 export default function App() {
+  const mode = useUI((s) => s.mode);
+
   useEffect(() => {
     initPersistence();
     initUserData();
@@ -19,16 +23,23 @@ export default function App() {
 
   return (
     <div className="relative h-full w-full overflow-hidden">
-      {/* Full-screen drawing surface */}
+      {/* Full-screen drawing surface (always mounted so its state/persistence is preserved) */}
       <Whiteboard />
 
       {/* Floating UI — empty areas pass touches through to the canvas */}
       <div className="pointer-events-none absolute inset-0 z-10">
-        <Toolbar />
-        <PageBar />
-        <BoardQuestions />
-        <BoardTimer />
-        <Launcher />
+        {mode === 'board' ? (
+          <>
+            <Toolbar />
+            <PageBar />
+            <BoardQuestions />
+            <BoardTimer />
+            <Launcher />
+          </>
+        ) : (
+          <Mindmap />
+        )}
+        {/* Panels (e.g. the coach) float above either surface */}
         <PanelHost />
         <DebugHud />
       </div>

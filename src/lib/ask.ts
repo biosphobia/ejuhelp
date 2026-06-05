@@ -3,7 +3,8 @@ import { askClaude, checkWork, explainBoard, EmptyBoardError, type ChatMessage }
 import { useUI, type Lang } from './ui';
 import { usePractice } from './practice';
 import { useAnswers } from './answers';
-import { useProgress, useKeyPoints } from './userdata';
+import { useProgress } from './userdata';
+import { useMindmap } from './mindmap';
 import { useBoard } from './board';
 import { exportPagePng } from '../whiteboard/export';
 
@@ -50,7 +51,7 @@ interface AskState {
   messages: Message[];
   busy: boolean;
   error: unknown | null;
-  lastSaved: number; // key points auto-saved from the latest answer
+  lastSaved: number; // concepts auto-added to the Mindmap from the latest answer
   lastAutoAnswered: boolean; // the latest check read a final answer onto a pinned question
   send: (text: string) => Promise<void>;
   /** Capture the current page and have the coach grade it, in-line with the chat.
@@ -77,7 +78,7 @@ export const useAsk = create<AskState>((set, get) => ({
     set({ messages: next, busy: true, error: null, lastSaved: 0, lastAutoAnswered: false });
     try {
       const res = await askClaude({ subject, lang, messages: next, context: activeQuestion ?? undefined });
-      const added = useKeyPoints.getState().addMany(subject, res.keyPoints ?? []);
+      const added = useMindmap.getState().addMany(subject, res.keyPoints ?? []);
       set({ messages: [...next, { role: 'assistant', content: res.text }], lastSaved: added });
     } catch (e) {
       set({ error: e });
@@ -163,7 +164,7 @@ export const useAsk = create<AskState>((set, get) => ({
         note: trimmedNote || undefined,
         messages: prior,
       });
-      const added = useKeyPoints.getState().addMany(subject, res.keyPoints ?? []);
+      const added = useMindmap.getState().addMany(subject, res.keyPoints ?? []);
       set({ messages: [...next, { role: 'assistant', content: res.text }], lastSaved: added });
     } catch (e) {
       set({ error: e });

@@ -325,6 +325,27 @@ export const strings = {
   savedKeyPoints: { en: 'Saved {n} key point(s)', ja: '{n}件の要点を保存しました', zh: '已保存 {n} 条要点', tr: '{n} önemli nokta kaydedildi' },
   saveKeyPoints: { en: 'Save key points', ja: '要点を保存', zh: '保存要点', tr: 'Önemli noktaları kaydet' },
 
+  // Mindmap
+  mindmap: { en: 'Mindmap', ja: 'マインドマップ', zh: '思维导图', tr: 'Zihin Haritası' },
+  backToBoard: { en: 'Back to board', ja: 'ボードに戻る', zh: '返回白板', tr: 'Tahtaya dön' },
+  recenter: { en: 'Recenter', ja: '中央に戻す', zh: '回到中心', tr: 'Ortala' },
+  savedToMindmap: {
+    en: 'Added {n} concept(s) to your Mindmap',
+    ja: '{n}件の概念をマインドマップに追加しました',
+    zh: '已向思维导图添加 {n} 个概念',
+    tr: 'Zihin Haritana {n} kavram eklendi',
+  },
+  conceptsCount: { en: '{n} concept(s)', ja: '{n}件の概念', zh: '{n} 个概念', tr: '{n} kavram' },
+  mindmapEmptyTitle: { en: 'Your Mindmap is empty', ja: 'マインドマップは空です', zh: '思维导图为空', tr: 'Zihin Haritan boş' },
+  mindmapEmptyHint: {
+    en: 'Concepts you come across while studying — from Coach answers and whiteboard help — are summarized and added here automatically.',
+    ja: '学習中に出会った重要な概念は、コーチの回答やホワイトボードの解説から自動で要約・追加されます。',
+    zh: '学习中遇到的重要概念——来自教练的回答和白板讲解——会自动总结并添加到这里。',
+    tr: 'Çalışırken karşılaştığın kavramlar — Koç yanıtları ve beyaz tahta yardımından — otomatik olarak özetlenip buraya eklenir.',
+  },
+  mindmapAskCoach: { en: 'Ask Coach', ja: 'コーチに質問', zh: '问教练', tr: 'Koça sor' },
+  removeConcept: { en: 'Remove', ja: '削除', zh: '删除', tr: 'Kaldır' },
+
   // Error-type labels
   tagUnits: { en: 'units', ja: '単位', zh: '单位', tr: 'birimler' },
   tagSign: { en: 'sign', ja: '符号', zh: '符号', tr: 'işaret' },

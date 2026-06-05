@@ -119,12 +119,6 @@ export const explainBoard = (p: {
   messages?: ChatMessage[];
 }) => call<AskResponse>('claude/explain', p);
 
-export interface KeyPointsResponse {
-  keyPoints: KeyPointDTO[];
-}
-export const generateKeyPoints = (p: { subject: Subject; lang: Lang; topic?: string }) =>
-  call<KeyPointsResponse>('claude/keypoints', p);
-
 export interface TopicsResponse {
   topics: { id: string; name: string }[];
   subtopics: { id: string; name: string; group: string }[];

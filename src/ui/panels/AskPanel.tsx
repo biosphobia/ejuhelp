@@ -192,7 +192,7 @@ export default function AskPanel() {
         ) : null}
         {!busy && savedCount > 0 ? (
           <div className="rounded-xl bg-emerald-50 px-3 py-1.5 text-xs font-medium text-emerald-700 ring-1 ring-emerald-100">
-            ★ {t('savedKeyPoints', { n: savedCount })}
+            ★ {t('savedToMindmap', { n: savedCount })}
           </div>
         ) : null}
         {error ? <ErrorNote>{errorMessage(error, t)}</ErrorNote> : null}

@@ -2,7 +2,6 @@ import { useUI } from '../lib/ui';
 import AskPanel from './panels/AskPanel';
 import GeneratePanel from './panels/GeneratePanel';
 import ExamsPanel from './panels/ExamsPanel';
-import NotesPanel from './panels/NotesPanel';
 import ProgressPanel from './panels/ProgressPanel';
 import TimerPanel from './panels/TimerPanel';
 import SettingsPanel from './panels/SettingsPanel';
@@ -17,8 +16,6 @@ export default function PanelHost() {
       return <GeneratePanel />;
     case 'exams':
       return <ExamsPanel />;
-    case 'notes':
-      return <NotesPanel />;
     case 'progress':
       return <ProgressPanel />;
     case 'timer':

@@ -191,3 +191,12 @@ export const ExamIcon = (p: SVGProps<SVGSVGElement>) => (
     <path d="M9 16h6" />
   </svg>
 );
+export const MindmapIcon = (p: SVGProps<SVGSVGElement>) => (
+  <svg {...base(p)}>
+    <circle cx="12" cy="12" r="3" />
+    <circle cx="5" cy="5" r="2" />
+    <circle cx="19" cy="6" r="2" />
+    <circle cx="17" cy="18" r="2" />
+    <path d="M9.9 9.9 6.4 6.4M14.3 10.4 17.2 7.4M13.7 14.1l2.2 2.4" />
+  </svg>
+);

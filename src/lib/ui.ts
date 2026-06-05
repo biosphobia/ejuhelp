@@ -8,12 +8,13 @@ export type PanelId =
   | 'ask'
   | 'generate'
   | 'exams'
-  | 'notes'
   | 'progress'
   | 'timer'
   | 'settings'
   | 'account'
   | null;
+/** Top-level app surface: the whiteboard, or the full-screen Mindmap. */
+export type Mode = 'board' | 'mindmap';
 
 export const SUBJECTS: Subject[] = ['physics', 'chemistry', 'biology', 'math'];
 
@@ -21,6 +22,8 @@ interface UIState {
   lang: Lang;
   subject: Subject;
   panel: PanelId;
+  /** Which top-level surface is showing. Not persisted — the app always opens on the board. */
+  mode: Mode;
   launcherOpen: boolean;
   /** When true, a single finger (or a Pencil that reports as touch) draws; two fingers pan/zoom.
    *  When false, only a real pen/stylus draws and any touch navigates (palm rejection). */
@@ -30,6 +33,9 @@ interface UIState {
   setSubject: (s: Subject) => void;
   openPanel: (p: PanelId) => void;
   closePanel: () => void;
+  setMode: (m: Mode) => void;
+  /** Flip between the board and the Mindmap, closing any open menu/panel. */
+  toggleMindmap: () => void;
   setLauncherOpen: (b: boolean) => void;
   setFingerDraw: (b: boolean) => void;
 }
@@ -40,6 +46,7 @@ export const useUI = create<UIState>()(
       lang: 'en',
       subject: 'physics',
       panel: null,
+      mode: 'board',
       launcherOpen: false,
       fingerDraw: false, // default: pen draws, fingers navigate (pan / pinch-zoom)
       setLang: (lang) => set({ lang }),
@@ -47,6 +54,9 @@ export const useUI = create<UIState>()(
       setSubject: (subject) => set({ subject }),
       openPanel: (panel) => set({ panel, launcherOpen: false }),
       closePanel: () => set({ panel: null }),
+      setMode: (mode) => set({ mode }),
+      toggleMindmap: () =>
+        set((s) => ({ mode: s.mode === 'mindmap' ? 'board' : 'mindmap', panel: null, launcherOpen: false })),
       setLauncherOpen: (launcherOpen) => set({ launcherOpen }),
       setFingerDraw: (fingerDraw) => set({ fingerDraw }),
     }),

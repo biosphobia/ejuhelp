@@ -1,4 +1,5 @@
 import { useBoard } from '../lib/board';
+import { useUI } from '../lib/ui';
 import { useT } from '../i18n';
 import { resetView } from '../whiteboard/view';
 import NotebookButton from './NotebookButton';
@@ -8,6 +9,7 @@ import {
   PlusIcon,
   TrashIcon,
   ResetIcon,
+  MindmapIcon,
 } from './icons';
 
 export default function PageBar() {
@@ -19,6 +21,7 @@ export default function PageBar() {
   const goToPage = useBoard((s) => s.goToPage);
   const addPage = useBoard((s) => s.addPage);
   const deletePage = useBoard((s) => s.deletePage);
+  const toggleMindmap = useUI((s) => s.toggleMindmap);
 
   const go = (delta: number) => {
     const st = useBoard.getState();
@@ -28,6 +31,18 @@ export default function PageBar() {
 
   return (
     <div className="pointer-events-auto absolute bottom-4 left-1/2 flex max-w-[96vw] -translate-x-1/2 items-center gap-1 rounded-2xl bg-white/90 p-1.5 shadow-lg ring-1 ring-black/5 backdrop-blur">
+      <button
+        type="button"
+        title={t('mindmap')}
+        aria-label={t('mindmap')}
+        onClick={toggleMindmap}
+        className="grid h-10 w-10 place-items-center rounded-xl text-slate-600 hover:bg-slate-100"
+      >
+        <MindmapIcon />
+      </button>
+
+      <span className="mx-1 h-7 w-px bg-slate-200" />
+
       <NotebookButton />
 
       <span className="mx-1 h-7 w-px bg-slate-200" />

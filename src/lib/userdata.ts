@@ -1,10 +1,10 @@
 import { create } from 'zustand';
 import { doc, getDoc, setDoc } from 'firebase/firestore';
 import type { Subject } from './ui';
-import type { KeyPointDTO } from './api';
 import { useAuth } from './auth';
 import { db } from './firebase';
 import { useGenerated } from './generated';
+import { useMindmap } from './mindmap';
 
 const newId = () => Math.random().toString(36).slice(2, 10);
 
@@ -87,56 +87,6 @@ export function focusFromSummary(s: ProgressSummary): { topics: string[]; tags: 
   };
 }
 
-// ─────────────────────────── Personal key points ───────────────────────────
-export interface KeyPoint {
-  id: string;
-  ts: number;
-  subject: Subject;
-  topic?: string;
-  kind: 'formula' | 'fact';
-  text: string;
-}
-
-interface KeyPointsState {
-  items: KeyPoint[];
-  rev: number;
-  addMany: (subject: Subject, kps: KeyPointDTO[]) => number;
-  remove: (id: string) => void;
-  clear: () => void;
-  load: (items: KeyPoint[]) => void;
-}
-
-const norm = (s: string) => s.trim().toLowerCase().replace(/\s+/g, ' ');
-const KP_LIMIT = 400;
-
-export const useKeyPoints = create<KeyPointsState>((set, get) => ({
-  items: [],
-  rev: 0,
-  addMany: (subject, kps) => {
-    const existing = new Set(get().items.map((i) => `${i.subject}:${norm(i.text)}`));
-    const fresh: KeyPoint[] = [];
-    for (const k of kps) {
-      if (!k?.text?.trim()) continue;
-      const key = `${subject}:${norm(k.text)}`;
-      if (existing.has(key)) continue;
-      existing.add(key);
-      fresh.push({
-        id: newId(),
-        ts: Date.now(),
-        subject,
-        topic: k.topic,
-        kind: k.kind === 'fact' ? 'fact' : 'formula',
-        text: k.text.trim(),
-      });
-    }
-    if (fresh.length) set((s) => ({ items: [...fresh, ...s.items].slice(0, KP_LIMIT), rev: s.rev + 1 }));
-    return fresh.length;
-  },
-  remove: (id) => set((s) => ({ items: s.items.filter((i) => i.id !== id), rev: s.rev + 1 })),
-  clear: () => set((s) => ({ items: [], rev: s.rev + 1 })),
-  load: (items) => set((s) => ({ items: Array.isArray(items) ? items : [], rev: s.rev + 1 })),
-}));
-
 // ─────────────────────────── Sync (localStorage + Firestore) ───────────────────────────
 type AnyStore<S> = {
   getState: () => S;
@@ -216,11 +166,11 @@ export function initUserData() {
     (s, data) => s.loadAttempts(data?.attempts ?? [])
   );
   attachSync(
-    useKeyPoints,
-    'eju-keypoints',
-    'keypoints',
-    (s) => ({ items: s.items }),
-    (s, data) => s.load(data?.items ?? [])
+    useMindmap,
+    'eju-mindmap',
+    'mindmap',
+    (s) => ({ concepts: s.concepts }),
+    (s, data) => s.load(data?.concepts ?? [])
   );
   attachSync(
     useGenerated,
