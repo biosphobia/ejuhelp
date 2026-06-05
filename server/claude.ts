@@ -267,29 +267,26 @@ function cleanKeyPoints(arr: any): KeyPointDTO[] {
     }));
 }
 
-// Pin each concept's category to a canonical top-level taxonomy id for the subject
-// (or '' → General). This keeps the Mindmap to a bounded, sensible set of
-// categories instead of a fresh bucket for every concept the model names.
-function normalizeConceptCategories(subject: Subject, kps: KeyPointDTO[]): KeyPointDTO[] {
+// Pin a category string to a canonical top-level taxonomy id for the subject
+// (or '' → General). Matches by id, label, then a loose contains check.
+function canonicalCategory(subject: Subject, raw0: string | undefined): string {
   const choices = categoryChoicesFor(subject);
-  if (!choices.length) return kps.map((k) => ({ ...k, topic: '' }));
-  const byId = new Map(choices.map((c) => [c.id.toLowerCase(), c.id]));
-  const byLabel = new Map(choices.map((c) => [c.label.toLowerCase(), c.id]));
-  return kps.map((k) => {
-    const raw = (k.topic ?? '').trim().toLowerCase();
-    let id = byId.get(raw) ?? byLabel.get(raw) ?? '';
-    if (!id && raw) {
-      for (const c of choices) {
-        const cid = c.id.toLowerCase();
-        const lab = c.label.toLowerCase();
-        if (raw.includes(cid) || raw.includes(lab) || lab.includes(raw)) {
-          id = c.id;
-          break;
-        }
-      }
-    }
-    return { ...k, topic: id };
-  });
+  if (!choices.length) return '';
+  const raw = (raw0 ?? '').trim().toLowerCase();
+  if (!raw) return '';
+  for (const c of choices) if (c.id.toLowerCase() === raw || c.label.toLowerCase() === raw) return c.id;
+  for (const c of choices) {
+    const cid = c.id.toLowerCase();
+    const lab = c.label.toLowerCase();
+    if (raw.includes(cid) || raw.includes(lab) || lab.includes(raw)) return c.id;
+  }
+  return '';
+}
+
+// Pin each concept's category to a canonical taxonomy id, so the Mindmap stays a
+// bounded, sensible set of categories instead of a fresh bucket for every concept.
+function normalizeConceptCategories(subject: Subject, kps: KeyPointDTO[]): KeyPointDTO[] {
+  return kps.map((k) => ({ ...k, topic: canonicalCategory(subject, k.topic) }));
 }
 
 // ─── Ask ───
@@ -714,4 +711,95 @@ export async function extractConcepts(args: {
   const parsed = extractJson<{ concepts?: any }>(raw, {});
   const kps = cleanKeyPoints(parsed.concepts);
   return { concepts: normalizeConceptCategories(args.subject, kps) };
+}
+
+// ─── Mindmap coach ───
+// Conversational assistant that operates ON the student's saved Mindmap: it can
+// search/explain what's there and add/remove/edit concepts on request. Returns a
+// reply plus a list of validated operations for the client to apply.
+export type MindmapConcept = { id: string; kind: 'formula' | 'fact'; text: string; category: string };
+export type MindmapOp =
+  | { op: 'add'; kind: 'formula' | 'fact'; text: string; category: string }
+  | { op: 'remove'; id: string }
+  | { op: 'update'; id: string; text?: string; kind?: 'formula' | 'fact'; category?: string };
+
+const MINDMAP_OPS_MARK = '###MINDMAP_OPS###';
+
+function sanitizeOps(subject: Subject, arr: any, validIds: Set<string>): MindmapOp[] {
+  if (!Array.isArray(arr)) return [];
+  const out: MindmapOp[] = [];
+  for (const o of arr.slice(0, 40)) {
+    if (!o || typeof o !== 'object') continue;
+    if (o.op === 'add' && typeof o.text === 'string' && o.text.trim()) {
+      out.push({
+        op: 'add',
+        kind: o.kind === 'fact' ? 'fact' : 'formula',
+        text: String(o.text).trim(),
+        category: canonicalCategory(subject, o.category),
+      });
+    } else if (o.op === 'remove' && typeof o.id === 'string' && validIds.has(o.id)) {
+      out.push({ op: 'remove', id: o.id });
+    } else if (o.op === 'update' && typeof o.id === 'string' && validIds.has(o.id)) {
+      const u: MindmapOp = { op: 'update', id: o.id };
+      if (typeof o.text === 'string' && o.text.trim()) u.text = o.text.trim();
+      if (o.kind === 'formula' || o.kind === 'fact') u.kind = o.kind;
+      if (typeof o.category === 'string') u.category = canonicalCategory(subject, o.category);
+      if (u.text || u.kind || u.category !== undefined) out.push(u);
+    }
+  }
+  return out;
+}
+
+export async function mindmapCoach(args: {
+  subject: Subject;
+  lang: Lang;
+  messages: ChatMessage[];
+  concepts: MindmapConcept[];
+  model?: string;
+  userKey?: string;
+}): Promise<{ text: string; ops: MindmapOp[] }> {
+  const messages = args.messages
+    .filter((m) => m && typeof m.content === 'string' && m.content.trim())
+    .map((m) => ({ role: m.role === 'assistant' ? 'assistant' : 'user', content: m.content }));
+  if (!messages.length) return { text: '', ops: [] };
+
+  const choices = categoryChoicesFor(args.subject);
+  const catList = choices.length ? choices.map((c) => `${c.id} (${c.label})`).join(', ') : '(none defined)';
+  const catLabel = new Map(choices.map((c) => [c.id, c.label]));
+  const listing = args.concepts.length
+    ? args.concepts
+        .map((c) => `- [${c.id}] (${catLabel.get(c.category) ?? 'General'}) ${c.kind}: ${c.text}`)
+        .join('\n')
+    : '(the Mindmap is currently empty for this subject)';
+
+  const directive = [
+    `You are the student's Mindmap assistant for EJU ${args.subject}. Their Mindmap is a personal, saved ` +
+      'collection of key concepts (formulas/facts) grouped into categories. Its CURRENT content for this subject ' +
+      '(each line is "[id] (category) kind: text"):',
+    listing,
+    '',
+    `Allowed categories — id (label): ${catList}. Never invent a new category.`,
+    '',
+    'Help with the request. The student may want to SEARCH/REVIEW (find or explain what they already have — answer ' +
+      'from the list and cite concepts), ADD important exam-relevant concepts, REMOVE concepts they name, or ' +
+      'EDIT/RECATEGORIZE existing ones. Only change the map when they clearly ask you to; for pure questions just answer. ' +
+      'Keep added/edited concepts concise, self-contained, and exam-worthy (define symbols).',
+    '',
+    `Write a short, friendly reply in ${writeLang(args.lang)} as Markdown (LaTeX as $...$); briefly summarize any changes you make.`,
+    `Then, ONLY if you are changing the map, append a final line that is exactly "${MINDMAP_OPS_MARK}" followed by a ` +
+      'single-line JSON array of operations, and nothing after it. Each operation is one of: ' +
+      '{"op":"add","kind":"formula"|"fact","text":"...","category":"<id>"}, {"op":"remove","id":"<existing id>"}, ' +
+      '{"op":"update","id":"<existing id>","text":"..."(optional),"kind":"..."(optional),"category":"<id>"(optional)}. ' +
+      'For remove/update use only ids that appear in the list above. If you are not changing anything, omit the marker entirely.',
+  ].join('\n');
+
+  const raw = await executeModelCall(args.model, args.userKey, args.subject, args.lang, directive, messages, 4000, false);
+
+  const i = raw.indexOf(MINDMAP_OPS_MARK);
+  const text = (i >= 0 ? raw.slice(0, i) : raw).trim();
+  const ops =
+    i >= 0
+      ? sanitizeOps(args.subject, extractJson<any[]>(raw.slice(i + MINDMAP_OPS_MARK.length), []), new Set(args.concepts.map((c) => c.id)))
+      : [];
+  return { text: text || raw.trim(), ops };
 }

@@ -339,7 +339,7 @@ export default function Mindmap() {
             <p className="mb-4 text-sm text-slate-400">{t('mindmapEmptyHint')}</p>
             <button
               type="button"
-              onClick={() => openPanel('ask')}
+              onClick={() => openPanel('mindmapCoach')}
               className="inline-flex items-center gap-1.5 rounded-xl bg-white px-4 py-2 text-sm font-semibold text-slate-900 hover:bg-slate-200"
             >
               <AskIcon className="h-4 w-4" /> {t('mindmapAskCoach')}

@@ -128,6 +128,28 @@ export interface ConceptsResponse {
 export const extractConcepts = (p: { subject: Subject; lang: Lang; text: string }) =>
   call<ConceptsResponse>('claude/concepts', p);
 
+/** A concept passed to the Mindmap coach so it can reference/edit existing nodes. */
+export interface MindmapConceptDTO {
+  id: string;
+  kind: 'formula' | 'fact';
+  text: string;
+  category: string;
+}
+export type MindmapOp =
+  | { op: 'add'; kind: 'formula' | 'fact'; text: string; category: string }
+  | { op: 'remove'; id: string }
+  | { op: 'update'; id: string; text?: string; kind?: 'formula' | 'fact'; category?: string };
+export interface MindmapCoachResponse {
+  text: string;
+  ops: MindmapOp[];
+}
+export const mindmapCoach = (p: {
+  subject: Subject;
+  lang: Lang;
+  messages: ChatMessage[];
+  concepts: MindmapConceptDTO[];
+}) => call<MindmapCoachResponse>('claude/mindmap-coach', p);
+
 export interface TopicsResponse {
   topics: { id: string; name: string }[];
   subtopics: { id: string; name: string; group: string }[];

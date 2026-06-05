@@ -346,6 +346,25 @@ export const strings = {
   },
   mindmapAskCoach: { en: 'Ask Coach', ja: 'コーチに質問', zh: '问教练', tr: 'Koça sor' },
   removeConcept: { en: 'Remove', ja: '削除', zh: '删除', tr: 'Kaldır' },
+  mindmapCoachTitle: { en: 'Mindmap Coach', ja: 'マインドマップコーチ', zh: '思维导图教练', tr: 'Zihin Haritası Koçu' },
+  mindmapCoachHint: {
+    en: 'Search your saved concepts, or ask me to add, edit, remove, or recategorize them for this subject.',
+    ja: '保存した概念を検索したり、この科目の概念の追加・編集・削除・分類変更を頼んだりできます。',
+    zh: '搜索你保存的概念，或让我为该科目添加、编辑、删除或重新归类概念。',
+    tr: 'Kayıtlı kavramlarını ara ya da bu ders için kavram eklememi, düzenlememi, silmemi veya yeniden sınıflandırmamı iste.',
+  },
+  mindmapCoachPlaceholder: {
+    en: 'e.g. "add the key kinematics formulas" or "what do I have on waves?"',
+    ja: '例：「運動学の重要公式を追加して」「波動について何がある？」',
+    zh: '例如“添加运动学的关键公式”或“我有哪些关于波的内容？”',
+    tr: 'örn. "kinematik formüllerini ekle" veya "dalgalar hakkında nelerim var?"',
+  },
+  mindmapChanged: {
+    en: 'Mindmap updated — {added} added, {removed} removed, {updated} edited',
+    ja: 'マインドマップを更新 — 追加{added}件、削除{removed}件、編集{updated}件',
+    zh: '思维导图已更新 — 新增 {added}，删除 {removed}，修改 {updated}',
+    tr: 'Zihin Haritası güncellendi — {added} eklendi, {removed} silindi, {updated} düzenlendi',
+  },
 
   // Error-type labels
   tagUnits: { en: 'units', ja: '単位', zh: '单位', tr: 'birimler' },

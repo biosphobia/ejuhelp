@@ -6,6 +6,7 @@ import ProgressPanel from './panels/ProgressPanel';
 import TimerPanel from './panels/TimerPanel';
 import SettingsPanel from './panels/SettingsPanel';
 import AccountPanel from './panels/AccountPanel';
+import MindmapCoachPanel from './panels/MindmapCoachPanel';
 
 export default function PanelHost() {
   const panel = useUI((s) => s.panel);
@@ -24,6 +25,8 @@ export default function PanelHost() {
       return <SettingsPanel />;
     case 'account':
       return <AccountPanel />;
+    case 'mindmapCoach':
+      return <MindmapCoachPanel />;
     default:
       return null;
   }

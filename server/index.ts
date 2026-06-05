@@ -6,7 +6,7 @@ import { dirname, join } from 'node:path';
 import { existsSync } from 'node:fs';
 import { requireAuth } from './auth';
 import { topicsFor, subtopicsFor, mockExamList, mockExam, SUBJECTS, type Subject } from './eju';
-import { hasApiKey, ask, generate, check, explainBoard, keypoints, extractConcepts } from './claude';
+import { hasApiKey, ask, generate, check, explainBoard, keypoints, extractConcepts, mindmapCoach } from './claude';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const app = express();
@@ -187,6 +187,39 @@ app.post('/api/claude/concepts', requireAuth, async (req: Request, res: Response
       subject,
       lang: toLang(lang),
       text: text.slice(0, 6000),
+      model,
+      userKey
+    });
+    res.json(result);
+  } catch (e) {
+    handleErr(e, res);
+  }
+});
+
+// Conversational coach that searches and edits the user's saved Mindmap.
+app.post('/api/claude/mindmap-coach', requireAuth, async (req: Request, res: Response) => {
+  try {
+    const { subject, lang, messages, concepts } = req.body ?? {};
+    const { model, userKey } = getAiContext(req);
+    if (!isSubject(subject)) return res.status(400).json({ error: 'bad_subject' });
+
+    const cleanConcepts = Array.isArray(concepts)
+      ? concepts
+          .filter((c: any) => c && typeof c.id === 'string' && typeof c.text === 'string' && c.text.trim())
+          .slice(0, 250)
+          .map((c: any) => ({
+            id: String(c.id),
+            kind: (c.kind === 'fact' ? 'fact' : 'formula') as 'formula' | 'fact',
+            text: String(c.text).slice(0, 400),
+            category: String(c.category ?? ''),
+          }))
+      : [];
+
+    const result = await mindmapCoach({
+      subject,
+      lang: toLang(lang),
+      messages: Array.isArray(messages) ? messages : [],
+      concepts: cleanConcepts,
       model,
       userKey
     });

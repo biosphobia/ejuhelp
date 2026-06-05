@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import type { Subject } from './ui';
-import type { KeyPointDTO } from './api';
+import type { KeyPointDTO, MindmapOp } from './api';
 
 const newId = () => Math.random().toString(36).slice(2, 10);
 const norm = (s: string) => s.trim().toLowerCase().replace(/\s+/g, ' ');
@@ -27,6 +27,8 @@ interface MindmapState {
   /** Merge freshly-extracted concepts for a subject, de-duplicating by text. Returns how many were new. */
   addMany: (subject: Subject, kps: KeyPointDTO[]) => number;
   remove: (id: string) => void;
+  /** Apply a batch of coach-issued edits (add/remove/update). Returns what changed. */
+  applyOps: (subject: Subject, ops: MindmapOp[]) => { added: number; removed: number; updated: number };
   /** Clear every concept for one subject (the Mindmap is per-subject). */
   clearSubject: (subject: Subject) => void;
   load: (concepts: Concept[]) => void;
@@ -58,6 +60,53 @@ export const useMindmap = create<MindmapState>((set, get) => ({
     return fresh.length;
   },
   remove: (id) => set((s) => ({ concepts: s.concepts.filter((c) => c.id !== id), rev: s.rev + 1 })),
+  applyOps: (subject, ops) => {
+    let added = 0;
+    let removed = 0;
+    let updated = 0;
+    set((s) => {
+      let concepts = s.concepts;
+      // Track existing text so coach-added concepts don't duplicate ones we have.
+      const seen = new Set(concepts.filter((c) => c.subject === subject).map((c) => norm(c.text)));
+      for (const op of ops) {
+        if (op.op === 'remove') {
+          const before = concepts.length;
+          concepts = concepts.filter((c) => c.id !== op.id);
+          if (concepts.length < before) removed++;
+        } else if (op.op === 'update') {
+          concepts = concepts.map((c) => {
+            if (c.id !== op.id) return c;
+            updated++;
+            return {
+              ...c,
+              ...(op.text?.trim() ? { text: op.text.trim() } : {}),
+              ...(op.kind ? { kind: op.kind } : {}),
+              ...(op.category !== undefined ? { topic: op.category.trim() } : {}),
+            };
+          });
+        } else if (op.op === 'add') {
+          const text = op.text?.trim();
+          if (!text || seen.has(norm(text))) continue;
+          seen.add(norm(text));
+          concepts = [
+            {
+              id: newId(),
+              ts: Date.now(),
+              subject,
+              topic: (op.category ?? '').trim(),
+              kind: op.kind === 'fact' ? 'fact' : 'formula',
+              text,
+            },
+            ...concepts,
+          ];
+          added++;
+        }
+      }
+      if (!added && !removed && !updated) return s;
+      return { concepts: concepts.slice(0, LIMIT), rev: s.rev + 1 };
+    });
+    return { added, removed, updated };
+  },
   clearSubject: (subject) =>
     set((s) => ({ concepts: s.concepts.filter((c) => c.subject !== subject), rev: s.rev + 1 })),
   load: (concepts) => set((s) => ({ concepts: Array.isArray(concepts) ? concepts : [], rev: s.rev + 1 })),

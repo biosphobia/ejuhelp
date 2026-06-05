@@ -12,6 +12,7 @@ export type PanelId =
   | 'timer'
   | 'settings'
   | 'account'
+  | 'mindmapCoach'
   | null;
 /** Top-level app surface: the whiteboard, or the full-screen Mindmap. */
 export type Mode = 'board' | 'mindmap';
