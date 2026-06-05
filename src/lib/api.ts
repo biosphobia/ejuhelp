@@ -62,12 +62,25 @@ export interface KeyPointDTO {
   subject?: Subject;
 }
 
+export type ProfileKind = 'style' | 'struggle' | 'strength';
+export interface ProfileNoteDTO {
+  kind: ProfileKind;
+  text: string;
+}
+
 export interface AskResponse {
   text: string;
   keyPoints: KeyPointDTO[];
+  /** Durable observations about the learner the coach made this turn. */
+  profile: ProfileNoteDTO[];
 }
-export const askClaude = (p: { subject: Subject; lang: Lang; messages: ChatMessage[]; context?: string }) =>
-  call<AskResponse>('claude/ask', p);
+export const askClaude = (p: {
+  subject: Subject;
+  lang: Lang;
+  messages: ChatMessage[];
+  context?: string;
+  profile?: string[];
+}) => call<AskResponse>('claude/ask', p);
 
 export type Difficulty = 'easy' | 'medium' | 'hard';
 export interface GenQuestion {
@@ -111,6 +124,7 @@ export const checkWork = (p: {
   question?: string;
   note?: string;
   messages?: ChatMessage[];
+  profile?: string[];
 }) => call<CheckResponse>('claude/check', p);
 
 /** Analyse the whiteboard and HELP the student (explanation, not grading). */
@@ -121,6 +135,7 @@ export const explainBoard = (p: {
   question?: string;
   note?: string;
   messages?: ChatMessage[];
+  profile?: string[];
 }) => call<AskResponse>('claude/explain', p);
 
 export interface ConceptsResponse {

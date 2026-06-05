@@ -356,6 +356,24 @@ export const strings = {
   star: { en: 'Star', ja: 'お気に入り', zh: '收藏', tr: 'Yıldızla' },
   starred: { en: 'Starred', ja: 'お気に入り済み', zh: '已收藏', tr: 'Yıldızlı' },
   starredOnly: { en: 'Show starred only', ja: 'お気に入りのみ表示', zh: '只看收藏', tr: 'Yalnızca yıldızlılar' },
+
+  // Coach memory (learner profile)
+  coachMemory: { en: 'What the coach remembers', ja: 'コーチが覚えていること', zh: '教练记住的内容', tr: 'Koçun hatırladıkları' },
+  coachMemoryHint: {
+    en: 'The coach learns how you like to study (e.g. simpler explanations) and what you find hard, and adapts its answers. Remove anything you don’t want it to keep.',
+    ja: 'コーチはあなたの学び方（例：やさしい説明が好き）や苦手分野を学習し、回答を調整します。残したくない項目は削除できます。',
+    zh: '教练会学习你的学习偏好（如喜欢更简单的讲解）和薄弱点，并据此调整回答。可删除你不想保留的内容。',
+    tr: 'Koç, nasıl çalışmayı sevdiğini (ör. daha basit açıklamalar) ve nelerde zorlandığını öğrenip yanıtlarını uyarlar. Tutmasını istemediklerini kaldırabilirsin.',
+  },
+  coachMemoryEmpty: {
+    en: 'Nothing yet — as you chat with the coach, it’ll note how you learn best.',
+    ja: 'まだありません。コーチと話すうちに、あなたに合った学び方を記録します。',
+    zh: '暂无内容——当你与教练交流时，它会记录最适合你的学习方式。',
+    tr: 'Henüz yok — koçla sohbet ettikçe en iyi nasıl öğrendiğini not eder.',
+  },
+  profileStyle: { en: 'Style', ja: 'スタイル', zh: '风格', tr: 'Stil' },
+  profileStruggle: { en: 'Struggle', ja: '苦手', zh: '难点', tr: 'Zorluk' },
+  profileStrength: { en: 'Strength', ja: '得意', zh: '强项', tr: 'Güçlü yön' },
   mindmapCoachTitle: { en: 'Mindmap Coach', ja: 'マインドマップコーチ', zh: '思维导图教练', tr: 'Zihin Haritası Koçu' },
   mindmapCoachHint: {
     en: 'Search your saved concepts, or ask me to add, edit, remove, or recategorize them for this subject.',

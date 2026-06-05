@@ -38,6 +38,14 @@ export interface KeyPointDTO {
   subject?: Subject;
 }
 
+// A durable observation about HOW the student learns/communicates, accumulated
+// across sessions and fed back so the coach can adapt.
+export type ProfileKind = 'style' | 'struggle' | 'strength';
+export interface ProfileNoteDTO {
+  kind: ProfileKind;
+  text: string;
+}
+
 let defaultClaudeClient: Anthropic | null = null;
 function getClaudeClient(userKey?: string): Anthropic {
   if (userKey) return new Anthropic({ apiKey: userKey });
@@ -305,6 +313,57 @@ const CONCEPT_TEXT_RULE =
   'For example: "Newton\'s second law — net force equals mass times acceleration: $F=ma$ ($F$ in N, $m$ mass in kg, ' +
   '$a$ acceleration in m/s²)."';
 
+// ─── Learner profile ───
+// A compact, per-student memory of how they like to learn (built up by the coach,
+// fed back into its context). Adapts answers without re-asking every time.
+const PROFILE_MARK = '###PROFILE###';
+
+function learnerProfileDirective(profile?: string[]): string | undefined {
+  const list = (profile ?? []).map((s) => String(s).trim()).filter(Boolean).slice(0, 30);
+  if (!list.length) return undefined;
+  return (
+    'What you have learned about THIS student from past sessions — adapt your teaching to it (e.g. if they prefer ' +
+    'simple explanations, keep it simple and build intuition; if they keep asking for an easier explanation, slow ' +
+    'down and use analogies; spend extra care on topics they struggle with; match their preferred style and language). ' +
+    'Do not mention this profile to the student:\n' +
+    list.map((s) => `- ${s}`).join('\n')
+  );
+}
+
+function parseProfileLines(block: string): ProfileNoteDTO[] {
+  return block
+    .split('\n')
+    .map((l) => l.replace(/^[-*\s]+/, '').trim())
+    .filter(Boolean)
+    .map((l) => {
+      const [kind, ...rest] = l.split('|');
+      const text = rest.join('|').trim();
+      const k: ProfileKind = /strength/i.test(kind ?? '')
+        ? 'strength'
+        : /struggle/i.test(kind ?? '')
+          ? 'struggle'
+          : 'style';
+      return { kind: k, text } as ProfileNoteDTO;
+    })
+    .filter((n) => n.text)
+    .slice(0, 3);
+}
+
+// Split a coach reply into the human text and its optional trailing machine blocks
+// (key points, then learner-profile observations). Tolerates either block order.
+function sliceCoachReply(raw: string): { text: string; keyBlock: string; profBlock: string } {
+  const ki = raw.indexOf(KEYPOINTS_MARK);
+  const pi = raw.indexOf(PROFILE_MARK);
+  const marks = [ki, pi].filter((x) => x >= 0);
+  const textEnd = marks.length ? Math.min(...marks) : raw.length;
+  const text = raw.slice(0, textEnd).trim();
+  let keyBlock = '';
+  if (ki >= 0) keyBlock = raw.slice(ki + KEYPOINTS_MARK.length, pi > ki ? pi : raw.length);
+  let profBlock = '';
+  if (pi >= 0) profBlock = raw.slice(pi + PROFILE_MARK.length, ki > pi ? ki : raw.length);
+  return { text, keyBlock, profBlock };
+}
+
 // ─── Ask ───
 // The reply is plain Markdown (so LaTeX/backslashes pass through untouched — never
 // JSON-encoded), followed by an optional delimited key-points block we strip off.
@@ -331,7 +390,15 @@ const ASK_DIRECTIVE =
   'word formula or fact. category MUST be the single best-fitting top-level topic id from THAT subject\'s Topic ' +
   'taxonomy in the knowledge base above (e.g. for physics: mechanics, waves, electromagnetism) — never invent one. ' +
   CONCEPT_TEXT_RULE +
-  ' Use the | character only as the field separator. Write nothing after those lines.';
+  ' Use the | character only as the field separator.' +
+  // Learner-profile capture (machine-parsed; separate memory of HOW they learn).
+  ' Finally, ONLY if this exchange reveals something DURABLE about how this student learns or communicates ' +
+  '(e.g. they repeatedly ask for an easier/simpler explanation, want step-by-step, prefer analogies, seem confused ' +
+  'by a particular topic, prefer brevity, or write in a certain language), add a line that is exactly ' +
+  `"${PROFILE_MARK}" and then 1-3 lines, each "kind | note", where kind is style, struggle, or strength and note is ` +
+  'a short third-person observation (e.g. "style | prefers simple, beginner-level explanations with analogies"; ' +
+  '"struggle | finds projectile motion confusing"). Do not record one-offs or notes already in the student profile ' +
+  'above. Put the KEYPOINTS block (if any) before the PROFILE block, and write nothing after these lines.';
 
 function parseKeyPointLines(block: string): KeyPointDTO[] {
   return block
@@ -389,27 +456,33 @@ export async function ask(args: {
   messages: ChatMessage[];
   /** The question the student is currently looking at, so "this question" resolves. */
   context?: string;
+  /** Compact learner-profile lines from past sessions, to tailor the answer. */
+  profile?: string[];
   model?: string;
   userKey?: string;
-}): Promise<{ text: string; keyPoints: KeyPointDTO[] }> {
+}): Promise<{ text: string; keyPoints: KeyPointDTO[]; profile: ProfileNoteDTO[] }> {
   const messages = args.messages
     .filter((m) => m && typeof m.content === 'string' && m.content.trim())
     .map((m) => ({ role: m.role === 'assistant' ? 'assistant' : 'user', content: m.content }));
-  if (!messages.length) return { text: '', keyPoints: [] };
+  if (!messages.length) return { text: '', keyPoints: [], profile: [] };
 
   const ctx = args.context?.trim()
     ? `The student is currently looking at this specific question:\n"""\n${args.context.trim()}\n"""\n` +
       'When the student says "this", "this question", "this problem", "これ", "この問題" or similar, they are ' +
       'referring to the question above — answer about it directly. Do not ask which question they mean.'
     : undefined;
-  const extra = [inferSubjectDirective(args.subject), ctx, ASK_DIRECTIVE].filter(Boolean).join('\n\n');
+  const extra = [inferSubjectDirective(args.subject), ctx, learnerProfileDirective(args.profile), ASK_DIRECTIVE]
+    .filter(Boolean)
+    .join('\n\n');
 
   const raw = await executeModelCall(args.model, args.userKey, args.subject, args.lang, extra, messages, 8000, true);
 
-  const i = raw.indexOf(KEYPOINTS_MARK);
-  const text = (i >= 0 ? raw.slice(0, i) : raw).trim();
-  const keyPoints = i >= 0 ? parseKeyPointLines(raw.slice(i + KEYPOINTS_MARK.length)) : [];
-  return { text: text || raw.trim(), keyPoints: finalizeConcepts(args.subject, keyPoints) };
+  const { text, keyBlock, profBlock } = sliceCoachReply(raw);
+  return {
+    text: text || raw.trim(),
+    keyPoints: finalizeConcepts(args.subject, keyBlock ? parseKeyPointLines(keyBlock) : []),
+    profile: profBlock ? parseProfileLines(profBlock) : [],
+  };
 }
 
 // ─── Generate Questions ───
@@ -562,6 +635,7 @@ export async function check(args: {
   note?: string;
   /** Recent conversation, so repeated checks stay anchored to the same question. */
   messages?: ChatMessage[];
+  profile?: string[];
   model?: string;
   userKey?: string;
 }): Promise<CheckResult> {
@@ -578,6 +652,7 @@ export async function check(args: {
       ? `The student also typed this note/request — take it into account and address it directly in your feedback:\n"""\n${note}\n"""\n`
       : '',
     inferSubjectDirective(args.subject),
+    learnerProfileDirective(args.profile) ?? '',
     "The image is a capture of the student's OWN handwritten work on a whiteboard.",
     'Grade ONLY what is actually written in the image. Do NOT solve the problem yourself, and never report an answer or conclusion that is not physically written on the page.',
     'CRITICAL: If the page is blank, almost blank, or shows no genuine solution attempt (only the question text, doodles, or a few stray marks), do NOT grade it — set correct to "unknown", and in the feedback say there is nothing to check yet and invite the student to write their working. An empty or missing solution is never "correct".',
@@ -646,9 +721,10 @@ export async function explainBoard(args: {
   question?: string;
   note?: string;
   messages?: ChatMessage[];
+  profile?: string[];
   model?: string;
   userKey?: string;
-}): Promise<{ text: string; keyPoints: KeyPointDTO[] }> {
+}): Promise<{ text: string; keyPoints: KeyPointDTO[]; profile: ProfileNoteDTO[] }> {
   const m = /^data:(image\/[a-zA-Z0-9.+-]+);base64,(.+)$/s.exec(args.imageDataUrl ?? '');
   if (!m) throw Object.assign(new Error('bad_image'), { status: 400 });
   const [, media_type, data] = m;
@@ -662,10 +738,13 @@ export async function explainBoard(args: {
       ? `The student typed this request — focus your help on exactly this:\n"""\n${note}\n"""\n`
       : 'The student tapped "Explain" without typing a request, so work out from the page what they most likely need help with (a step they seem stuck on, a concept, or the next move).',
     inferSubjectDirective(args.subject),
+    learnerProfileDirective(args.profile),
     "The image is a capture of the student's OWN handwriting/work on a whiteboard.",
     'Read what is on the page, then HELP them: explain the relevant concept and the method in simple terms, clarify wherever they seem stuck or confused, and show the correct approach step by step. This is teaching, NOT grading — be encouraging, do not reduce it to a verdict or score. Build on what they have already written when it is on the right track; if the page is essentially empty, teach the topic the question is about.',
     ASK_DIRECTIVE,
-  ].join('\n\n');
+  ]
+    .filter(Boolean)
+    .join('\n\n');
 
   const raw = await executeModelCall(
     args.model, args.userKey, args.subject, args.lang, undefined, [
@@ -680,10 +759,12 @@ export async function explainBoard(args: {
     ], 8000, true
   );
 
-  const i = raw.indexOf(KEYPOINTS_MARK);
-  const text = (i >= 0 ? raw.slice(0, i) : raw).trim();
-  const keyPoints = i >= 0 ? parseKeyPointLines(raw.slice(i + KEYPOINTS_MARK.length)) : [];
-  return { text: text || raw.trim(), keyPoints: finalizeConcepts(args.subject, keyPoints) };
+  const { text, keyBlock, profBlock } = sliceCoachReply(raw);
+  return {
+    text: text || raw.trim(),
+    keyPoints: finalizeConcepts(args.subject, keyBlock ? parseKeyPointLines(keyBlock) : []),
+    profile: profBlock ? parseProfileLines(profBlock) : [],
+  };
 }
 
 // ─── Keypoints ───

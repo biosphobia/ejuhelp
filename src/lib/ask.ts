@@ -3,10 +3,24 @@ import { askClaude, checkWork, explainBoard, EmptyBoardError, type ChatMessage }
 import { useUI, type Lang } from './ui';
 import { usePractice } from './practice';
 import { useAnswers } from './answers';
-import { useProgress } from './userdata';
+import { useProgress, summarize } from './userdata';
 import { useMindmap } from './mindmap';
+import { useLearnerProfile, learnerProfileLines } from './profile';
 import { useBoard } from './board';
 import { exportPagePng } from '../whiteboard/export';
+
+/** Compact learner-profile lines (saved preferences + measured weak topics) sent
+ *  to the coach so it adapts to how this student learns. */
+function coachProfile(): string[] {
+  const lines = learnerProfileLines();
+  const sum = summarize(useProgress.getState().attempts);
+  const weak = sum.topics
+    .filter((t) => t.total >= 2 && t.acc < 0.6)
+    .slice(0, 4)
+    .map((t) => t.topic);
+  if (weak.length) lines.push(`(struggle) lower quiz accuracy on: ${weak.join(', ')}`);
+  return lines;
+}
 
 /** Verdict metadata attached to the assistant message produced by "Check my work". */
 export interface CheckMeta {
@@ -77,8 +91,15 @@ export const useAsk = create<AskState>((set, get) => ({
     const next: Message[] = [...get().messages, { role: 'user', content: t }];
     set({ messages: next, busy: true, error: null, lastSaved: 0, lastAutoAnswered: false });
     try {
-      const res = await askClaude({ subject, lang, messages: next, context: activeQuestion ?? undefined });
+      const res = await askClaude({
+        subject,
+        lang,
+        messages: next,
+        context: activeQuestion ?? undefined,
+        profile: coachProfile(),
+      });
       const added = useMindmap.getState().addMany(subject, res.keyPoints ?? []);
+      useLearnerProfile.getState().addNotes(res.profile ?? []);
       set({ messages: [...next, { role: 'assistant', content: res.text }], lastSaved: added });
     } catch (e) {
       set({ error: e });
@@ -108,6 +129,7 @@ export const useAsk = create<AskState>((set, get) => ({
         question: activeQuestion ?? undefined,
         note: trimmedNote || undefined,
         messages: prior,
+        profile: coachProfile(),
       });
       set({
         messages: [
@@ -166,8 +188,10 @@ export const useAsk = create<AskState>((set, get) => ({
         question: activeQuestion ?? undefined,
         note: trimmedNote || undefined,
         messages: prior,
+        profile: coachProfile(),
       });
       const added = useMindmap.getState().addMany(subject, res.keyPoints ?? []);
+      useLearnerProfile.getState().addNotes(res.profile ?? []);
       set({ messages: [...next, { role: 'assistant', content: res.text }], lastSaved: added });
     } catch (e) {
       set({ error: e });

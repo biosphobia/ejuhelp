@@ -2,9 +2,21 @@ import Panel, { SubjectChips } from '../Panel';
 import { Label } from '../atoms';
 import { useUI, type Lang } from '../../lib/ui';
 import { useDebug } from '../../lib/debug';
-import { useT } from '../../i18n';
+import { useT, type StringKey } from '../../i18n';
 import { GlobeIcon } from '../icons';
 import { useApiStore } from '../../lib/apiStore';
+import { useLearnerProfile, type ProfileKind } from '../../lib/profile';
+
+const KIND_LABEL: Record<ProfileKind, StringKey> = {
+  style: 'profileStyle',
+  struggle: 'profileStruggle',
+  strength: 'profileStrength',
+};
+const KIND_CLS: Record<ProfileKind, string> = {
+  style: 'bg-sky-50 text-sky-700',
+  struggle: 'bg-amber-50 text-amber-700',
+  strength: 'bg-emerald-50 text-emerald-700',
+};
 
 export default function SettingsPanel() {
   const t = useT();
@@ -14,6 +26,9 @@ export default function SettingsPanel() {
   const setFingerDraw = useUI((s) => s.setFingerDraw);
   const debugEnabled = useDebug((s) => s.enabled);
   const setDebug = useDebug((s) => s.setEnabled);
+  const profileNotes = useLearnerProfile((s) => s.notes);
+  const removeNote = useLearnerProfile((s) => s.remove);
+  const clearProfile = useLearnerProfile((s) => s.clear);
 
   // BYOK State
   const activeModel = useApiStore((s) => s.activeModel);
@@ -130,6 +145,44 @@ export default function SettingsPanel() {
       <div className="mb-6">
         <Label>{t('defaultSubject')}</Label>
         <SubjectChips />
+      </div>
+
+      <div className="mb-6">
+        <div className="mb-1 flex items-center justify-between">
+          <Label>{t('coachMemory')}</Label>
+          {profileNotes.length ? (
+            <button
+              type="button"
+              onClick={clearProfile}
+              className="text-xs font-semibold text-slate-400 hover:text-red-600"
+            >
+              {t('clearAll')}
+            </button>
+          ) : null}
+        </div>
+        <p className="mb-2 text-xs leading-relaxed text-slate-500">{t('coachMemoryHint')}</p>
+        {profileNotes.length === 0 ? (
+          <p className="text-sm italic text-slate-400">{t('coachMemoryEmpty')}</p>
+        ) : (
+          <ul className="space-y-1.5">
+            {profileNotes.map((n) => (
+              <li key={n.id} className="flex items-start gap-2 rounded-xl border border-slate-200 p-2.5">
+                <span className={`mt-0.5 shrink-0 rounded-md px-1.5 py-0.5 text-[10px] font-bold uppercase ${KIND_CLS[n.kind]}`}>
+                  {t(KIND_LABEL[n.kind])}
+                </span>
+                <span className="min-w-0 flex-1 break-words text-sm text-slate-800">{n.text}</span>
+                <button
+                  type="button"
+                  aria-label="remove"
+                  onClick={() => removeNote(n.id)}
+                  className="shrink-0 rounded-md px-1.5 text-slate-300 hover:text-red-500"
+                >
+                  ✕
+                </button>
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
 
       <div>
