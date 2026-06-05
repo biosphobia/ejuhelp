@@ -7,8 +7,9 @@ import {
   type WheelEvent as ReactWheelEvent,
 } from 'react';
 import { useUI, SUBJECTS } from '../lib/ui';
-import { useMindmap, categoryOf, type Concept, type ConceptKind } from '../lib/mindmap';
+import { useMindmap, categoryKeyOf, GENERAL_KEY, type Concept, type ConceptKind } from '../lib/mindmap';
 import { NOTEBOOK_COLOR } from '../lib/notebooks';
+import { fetchTopics } from '../lib/api';
 import { useT } from '../i18n';
 import { Inline } from '../ui/Markdown';
 import { MindmapIcon, AskIcon, ResetIcon, TrashIcon } from '../ui/icons';
@@ -30,7 +31,7 @@ const DEFAULT_VIEW: View = { x: 0, y: 0, scale: 0.9 };
 
 type GNode =
   | { type: 'hub'; id: string; x: number; y: number; label: string; color: string }
-  | { type: 'category'; id: string; x: number; y: number; label: string; color: string; count: number; expanded: boolean }
+  | { type: 'category'; id: string; key: string; x: number; y: number; label: string; color: string; count: number; expanded: boolean }
   | { type: 'concept'; id: string; x: number; y: number; color: string; kind: ConceptKind; concept: Concept };
 interface GEdge {
   id: string;
@@ -43,28 +44,43 @@ interface GEdge {
 }
 
 /** Build the per-subject node graph: subject hub → category nodes → (expanded) concept nodes. */
-function buildGraph(concepts: Concept[], subjectLabel: string, color: string, expanded: Set<string>) {
+function buildGraph(
+  concepts: Concept[],
+  subjectLabel: string,
+  color: string,
+  expanded: Set<string>,
+  labelOf: (key: string) => string
+) {
   const nodes: GNode[] = [];
   const edges: GEdge[] = [];
   nodes.push({ type: 'hub', id: 'hub', x: 0, y: 0, label: subjectLabel, color });
 
-  // Group by category, preserving first-seen order.
+  // Group by canonical category key, preserving first-seen order.
   const groups = new Map<string, Concept[]>();
   for (const c of concepts) {
-    const k = categoryOf(c);
+    const k = categoryKeyOf(c);
     (groups.get(k) ?? groups.set(k, []).get(k)!).push(c);
   }
   const cats = [...groups.entries()];
   const n = cats.length;
 
-  cats.forEach(([label, items], i) => {
+  cats.forEach(([key, items], i) => {
     const theta = -Math.PI / 2 + (i * 2 * Math.PI) / Math.max(1, n);
     const cx = Math.cos(theta) * CAT_RADIUS;
     const cy = Math.sin(theta) * CAT_RADIUS;
-    const catId = `cat:${label}`;
-    const isOpen = expanded.has(label);
-    nodes.push({ type: 'category', id: catId, x: cx, y: cy, label, color, count: items.length, expanded: isOpen });
-    edges.push({ id: `e:${catId}`, x1: 0, y1: 0, x2: cx, y2: cy, color, width: 2 });
+    const isOpen = expanded.has(key);
+    nodes.push({
+      type: 'category',
+      id: `cat:${key}`,
+      key,
+      x: cx,
+      y: cy,
+      label: labelOf(key),
+      color,
+      count: items.length,
+      expanded: isOpen,
+    });
+    edges.push({ id: `e:cat:${key}`, x1: 0, y1: 0, x2: cx, y2: cy, color, width: 2 });
 
     if (!isOpen) return;
     const m = items.length;
@@ -83,9 +99,14 @@ function buildGraph(concepts: Concept[], subjectLabel: string, color: string, ex
   return { nodes, edges };
 }
 
+/** Fallback display label for a category id when the taxonomy hasn't loaded. */
+const prettifyCategory = (id: string) =>
+  id.replace(/[-_]+/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
+
 export default function Mindmap() {
   const t = useT();
   const subject = useUI((s) => s.subject);
+  const lang = useUI((s) => s.lang);
   const setSubject = useUI((s) => s.setSubject);
   const toggleMindmap = useUI((s) => s.toggleMindmap);
   const openPanel = useUI((s) => s.openPanel);
@@ -97,6 +118,8 @@ export default function Mindmap() {
   const [expanded, setExpanded] = useState<Set<string>>(new Set());
   const [selected, setSelected] = useState<Concept | null>(null);
   const [view, setView] = useState<View>(DEFAULT_VIEW);
+  // Canonical category id → localized label, from the subject's EJU taxonomy.
+  const [catLabels, setCatLabels] = useState<Record<string, string>>({});
 
   // Reset interaction state when switching subjects (each subject is its own map).
   useEffect(() => {
@@ -105,15 +128,34 @@ export default function Mindmap() {
     setView(DEFAULT_VIEW);
   }, [subject]);
 
-  // Drop a selected/expanded concept that no longer exists (e.g. removed).
+  // Load localized category names for the active subject.
+  useEffect(() => {
+    let alive = true;
+    fetchTopics({ subject, lang })
+      .then((r) => {
+        if (!alive) return;
+        const map: Record<string, string> = {};
+        for (const t of r.topics) map[t.id] = t.name;
+        setCatLabels(map);
+      })
+      .catch(() => alive && setCatLabels({}));
+    return () => {
+      alive = false;
+    };
+  }, [subject, lang]);
+
+  // Drop a selected concept that no longer exists (e.g. removed).
   useEffect(() => {
     if (selected && !subjectConcepts.some((c) => c.id === selected.id)) setSelected(null);
   }, [subjectConcepts, selected]);
 
+  const labelOf = (key: string) =>
+    key === GENERAL_KEY ? t('categoryGeneral') : catLabels[key] ?? prettifyCategory(key);
+
   const color = NOTEBOOK_COLOR[subject];
   const { nodes, edges } = useMemo(
-    () => buildGraph(subjectConcepts, t(subject), color, expanded),
-    [subjectConcepts, subject, color, expanded, t]
+    () => buildGraph(subjectConcepts, t(subject), color, expanded, labelOf),
+    [subjectConcepts, subject, color, expanded, catLabels, lang, t]
   );
 
   // ---- pan / zoom / pinch ----
@@ -248,7 +290,7 @@ export default function Mindmap() {
                 <button
                   key={node.id}
                   type="button"
-                  onClick={() => toggleCat(node.label)}
+                  onClick={() => toggleCat(node.key)}
                   className={`${common} flex max-w-[180px] items-center gap-2 rounded-2xl px-3.5 py-2 text-sm font-semibold shadow-lg ring-1 transition ${
                     node.expanded
                       ? 'bg-slate-700 text-white ring-white/20'
@@ -328,7 +370,7 @@ export default function Mindmap() {
             >
               {selected.kind === 'formula' ? t('kindFormula') : t('kindFact')}
             </span>
-            <span className="truncate text-xs text-slate-400">{categoryOf(selected)}</span>
+            <span className="truncate text-xs text-slate-400">{labelOf(categoryKeyOf(selected))}</span>
           </div>
           <div className="thin-scroll max-h-40 overflow-y-auto text-sm text-slate-100">
             <Inline text={selected.text} />

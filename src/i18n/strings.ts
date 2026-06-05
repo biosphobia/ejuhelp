@@ -336,6 +336,7 @@ export const strings = {
     tr: 'Zihin Haritana {n} kavram eklendi',
   },
   conceptsCount: { en: '{n} concept(s)', ja: '{n}件の概念', zh: '{n} 个概念', tr: '{n} kavram' },
+  categoryGeneral: { en: 'General', ja: '一般', zh: '综合', tr: 'Genel' },
   mindmapEmptyTitle: { en: 'Your Mindmap is empty', ja: 'マインドマップは空です', zh: '思维导图为空', tr: 'Zihin Haritan boş' },
   mindmapEmptyHint: {
     en: 'Concepts you come across while studying — from Coach answers and whiteboard help — are summarized and added here automatically.',

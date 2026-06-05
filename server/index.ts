@@ -6,7 +6,7 @@ import { dirname, join } from 'node:path';
 import { existsSync } from 'node:fs';
 import { requireAuth } from './auth';
 import { topicsFor, subtopicsFor, mockExamList, mockExam, SUBJECTS, type Subject } from './eju';
-import { hasApiKey, ask, generate, check, explainBoard, keypoints } from './claude';
+import { hasApiKey, ask, generate, check, explainBoard, keypoints, extractConcepts } from './claude';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const app = express();
@@ -165,6 +165,28 @@ app.post('/api/claude/keypoints', requireAuth, async (req: Request, res: Respons
       subject,
       lang: toLang(lang),
       topic: typeof topic === 'string' && topic ? topic : undefined,
+      model,
+      userKey
+    });
+    res.json(result);
+  } catch (e) {
+    handleErr(e, res);
+  }
+});
+
+// Extract + categorize concepts from study material (coach answers, solved
+// practice questions) for the Mindmap.
+app.post('/api/claude/concepts', requireAuth, async (req: Request, res: Response) => {
+  try {
+    const { subject, lang, text } = req.body ?? {};
+    const { model, userKey } = getAiContext(req);
+    if (!isSubject(subject)) return res.status(400).json({ error: 'bad_subject' });
+    if (typeof text !== 'string' || !text.trim()) return res.json({ concepts: [] });
+
+    const result = await extractConcepts({
+      subject,
+      lang: toLang(lang),
+      text: text.slice(0, 6000),
       model,
       userKey
     });

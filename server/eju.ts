@@ -82,6 +82,11 @@ export function topicsFor(subject: Subject, lang: Lang) {
   return kb.topics.map((t) => ({ id: t.id, name: pick(t.name, lang) }));
 }
 
+/** Canonical top-level categories for the Mindmap, with English labels for prompts. */
+export function categoryChoicesFor(subject: Subject): { id: string; label: string }[] {
+  return topicsFor(subject, 'en').map((t) => ({ id: t.id, label: t.name }));
+}
+
 /** Flattened subtopics with their parent topic name as `group` (for grouped selects). */
 export function subtopicsFor(subject: Subject, lang: Lang) {
   const kb = getKB(subject);

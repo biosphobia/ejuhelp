@@ -115,8 +115,8 @@ export const useAsk = create<AskState>((set, get) => ({
           { role: 'assistant', content: res.feedback, check: { correct: res.correct, errorTags: res.errorTags } },
         ],
       });
+      const statSubject = res.subject || subject; // attribute to the inferred subject
       if (res.correct !== 'unknown') {
-        const statSubject = res.subject || subject; // attribute to the inferred subject
         useProgress.getState().addAttempt({
           subject: statSubject,
           topic: res.topic || statSubject,
@@ -125,6 +125,9 @@ export const useAsk = create<AskState>((set, get) => ({
           errorTags: res.errorTags,
         });
       }
+      // Capture the concepts this problem tests into the Mindmap.
+      const added = useMindmap.getState().addMany(statSubject, res.keyPoints ?? []);
+      if (added) set({ lastSaved: added });
       // If the page clearly states a final choice for the active MCQ, reflect it on the board.
       if (
         activeItem &&

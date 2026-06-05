@@ -5,6 +5,7 @@ import {
   systemContextFor,
   systemContextForAll,
   labelFor,
+  categoryChoicesFor,
   chooseArchetypeExamples,
   randomArchetypeExamples,
   SUBJECTS,
@@ -261,8 +262,34 @@ function cleanKeyPoints(arr: any): KeyPointDTO[] {
     .map((k) => ({
       kind: k.kind === 'fact' ? 'fact' : 'formula',
       text: String(k.text).trim(),
-      topic: typeof k.topic === 'string' && k.topic ? k.topic : undefined,
+      // Accept either `category` or the legacy `topic` field name.
+      topic: typeof k.category === 'string' && k.category ? k.category : typeof k.topic === 'string' && k.topic ? k.topic : undefined,
     }));
+}
+
+// Pin each concept's category to a canonical top-level taxonomy id for the subject
+// (or '' → General). This keeps the Mindmap to a bounded, sensible set of
+// categories instead of a fresh bucket for every concept the model names.
+function normalizeConceptCategories(subject: Subject, kps: KeyPointDTO[]): KeyPointDTO[] {
+  const choices = categoryChoicesFor(subject);
+  if (!choices.length) return kps.map((k) => ({ ...k, topic: '' }));
+  const byId = new Map(choices.map((c) => [c.id.toLowerCase(), c.id]));
+  const byLabel = new Map(choices.map((c) => [c.label.toLowerCase(), c.id]));
+  return kps.map((k) => {
+    const raw = (k.topic ?? '').trim().toLowerCase();
+    let id = byId.get(raw) ?? byLabel.get(raw) ?? '';
+    if (!id && raw) {
+      for (const c of choices) {
+        const cid = c.id.toLowerCase();
+        const lab = c.label.toLowerCase();
+        if (raw.includes(cid) || raw.includes(lab) || lab.includes(raw)) {
+          id = c.id;
+          break;
+        }
+      }
+    }
+    return { ...k, topic: id };
+  });
 }
 
 // ─── Ask ───
@@ -286,7 +313,10 @@ const ASK_DIRECTIVE =
   // Key points (machine-parsed; separate from the human-facing "Exam essentials" bullets above).
   'After the reply, ONLY if it contains genuinely memorize-worthy formulas or key facts, add a final ' +
   `line that is exactly "${KEYPOINTS_MARK}" and then 1-4 lines, one point per line, each formatted as ` +
-  '`kind | text | topic` (kind is the word formula or fact; topic may be left blank). Write nothing after those lines.';
+  '`kind | text | category`. kind is the word formula or fact. text is ONE concise, self-contained, ' +
+  'memorizable statement (define the symbols; keep it short and clear). category MUST be the single ' +
+  'best-fitting top-level topic id from the Topic taxonomy in the knowledge base above (e.g. for physics: ' +
+  'mechanics, waves, electromagnetism) — never invent a new category. Write nothing after those lines.';
 
 function parseKeyPointLines(block: string): KeyPointDTO[] {
   return block
@@ -348,7 +378,7 @@ export async function ask(args: {
   const i = raw.indexOf(KEYPOINTS_MARK);
   const text = (i >= 0 ? raw.slice(0, i) : raw).trim();
   const keyPoints = i >= 0 ? parseKeyPointLines(raw.slice(i + KEYPOINTS_MARK.length)) : [];
-  return { text: text || raw.trim(), keyPoints };
+  return { text: text || raw.trim(), keyPoints: normalizeConceptCategories(args.subject, keyPoints) };
 }
 
 // ─── Generate Questions ───
@@ -488,6 +518,8 @@ export interface CheckResult {
   /** If the attached question is multiple-choice and the work clearly concludes one
    *  option, the 0-based index of that choice (counting the listed options in order); else -1. */
   studentAnswerIndex: number;
+  /** Memorize-worthy concepts this problem tests, for the Mindmap. */
+  keyPoints: KeyPointDTO[];
 }
 
 export async function check(args: {
@@ -522,7 +554,7 @@ export async function check(args: {
     'First write the FEEDBACK as Markdown with LaTeX math ($...$ inline, $$...$$ display), in plain beginner-friendly language (define any jargon): briefly transcribe the key readable steps; state whether the written work is correct; pinpoint the FIRST error precisely and explain in simple terms WHY it is wrong; give a short hint to fix it (reveal the full answer only if the work is already complete and correct); finish with a one-line encouraging summary.',
     `Write the feedback in ${writeLang(args.lang)}.`,
     `Then, on a new line, write exactly ${CHECK_META_MARK} and, on the next line, a single-line JSON object (and nothing after it):`,
-    `{"correct":"yes"|"no"|"partial"|"unknown","subject":"physics"|"chemistry"|"biology"|"math" (whichever subject this work belongs to),"topic":"<specific EJU sub-topic in English>","errorTags":[subset of ${JSON.stringify(ERROR_TAGS)}; use ["none"] when correct and [] when unknown],"studentAnswerIndex":<for a multiple-choice question, the 0-based index of the option the WRITTEN work clearly concludes, counting the listed choices in order; use -1 if it is not multiple-choice or no final choice is written>}`,
+    `{"correct":"yes"|"no"|"partial"|"unknown","subject":"physics"|"chemistry"|"biology"|"math" (whichever subject this work belongs to),"topic":"<specific EJU sub-topic in English>","errorTags":[subset of ${JSON.stringify(ERROR_TAGS)}; use ["none"] when correct and [] when unknown],"studentAnswerIndex":<for a multiple-choice question, the 0-based index of the option the WRITTEN work clearly concludes, counting the listed choices in order; use -1 if it is not multiple-choice or no final choice is written>,"keyPoints":[{"kind":"formula"|"fact","text":"<one concise, self-contained, memorizable concept this problem tests>","category":"<best-fitting top-level topic id from the taxonomy>"}] (0-4 items, only genuinely memorize-worthy concepts; [] if none)}`,
     '("partial" = on the right track but incomplete or with a fixable slip.)',
   ].join('\n');
 
@@ -558,6 +590,8 @@ export async function check(args: {
   const errorTags = Array.isArray(p.errorTags) ? p.errorTags.filter((t) => ERROR_TAGS.includes(t)) : [];
   const studentAnswerIndex = Number.isInteger(p.studentAnswerIndex) ? Number(p.studentAnswerIndex) : -1;
   const subject = (SUBJECTS as readonly string[]).includes(p.subject as any) ? (p.subject as Subject) : '';
+  // Classify the captured concepts under whichever subject the work belongs to.
+  const keyPoints = normalizeConceptCategories(subject || args.subject, cleanKeyPoints((p as any).keyPoints));
   return {
     feedback: feedback || String(raw ?? ''),
     correct,
@@ -565,6 +599,7 @@ export async function check(args: {
     topic: String(p.topic ?? ''),
     errorTags,
     studentAnswerIndex,
+    keyPoints,
   };
 }
 
@@ -616,7 +651,7 @@ export async function explainBoard(args: {
   const i = raw.indexOf(KEYPOINTS_MARK);
   const text = (i >= 0 ? raw.slice(0, i) : raw).trim();
   const keyPoints = i >= 0 ? parseKeyPointLines(raw.slice(i + KEYPOINTS_MARK.length)) : [];
-  return { text: text || raw.trim(), keyPoints };
+  return { text: text || raw.trim(), keyPoints: normalizeConceptCategories(args.subject, keyPoints) };
 }
 
 // ─── Keypoints ───
@@ -641,4 +676,42 @@ export async function keypoints(args: {
   
   const parsed = extractJson<{ keyPoints?: any }>(raw, {});
   return { keyPoints: cleanKeyPoints(parsed.keyPoints) };
+}
+
+// ─── Extract concepts ───
+// Subject-scoped concept extraction from arbitrary study material (a coach answer,
+// a solved practice question + its explanation, …). Classifies each concept into a
+// canonical taxonomy category so the Mindmap stays comprehensive but bounded.
+export async function extractConcepts(args: {
+  subject: Subject;
+  lang: Lang;
+  text: string;
+  model?: string;
+  userKey?: string;
+}): Promise<{ concepts: KeyPointDTO[] }> {
+  const text = (args.text ?? '').trim();
+  if (!text) return { concepts: [] };
+  const choices = categoryChoicesFor(args.subject);
+  const catList = choices.length
+    ? choices.map((c) => `${c.id} (${c.label})`).join(', ')
+    : '(no preset categories — leave category blank)';
+  const userText = [
+    `From the EJU ${args.subject} study material below, extract the key concepts a student should remember for the exam.`,
+    'Be comprehensive but concise: capture only genuinely important, exam-relevant formulas and facts — skip trivia and do not restate the question. Each concept must be ONE short, clear, self-contained statement (define the symbols).',
+    `Classify EACH concept into exactly one of these category ids: ${catList}. Pick the single closest existing category — do NOT invent new categories.`,
+    `Write each concept's text in ${writeLang(args.lang)}.`,
+    'Respond with ONLY one JSON object, no prose or code fences: {"concepts":[{"kind":"formula"|"fact","text":"...","category":"<id>"}]} — 0 to 6 items.',
+    '',
+    'Study material:',
+    '"""',
+    text,
+    '"""',
+  ].join('\n');
+
+  const raw = await executeModelCall(
+    args.model, args.userKey, args.subject, args.lang, undefined, [{ role: 'user', content: userText }], 2000, false
+  );
+  const parsed = extractJson<{ concepts?: any }>(raw, {});
+  const kps = cleanKeyPoints(parsed.concepts);
+  return { concepts: normalizeConceptCategories(args.subject, kps) };
 }

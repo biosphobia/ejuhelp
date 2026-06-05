@@ -99,6 +99,8 @@ export interface CheckResponse {
   errorTags: string[];
   /** 0-based choice the student concluded for an MCQ, or -1 if none/unclear. */
   studentAnswerIndex: number;
+  /** Memorize-worthy concepts this problem tests, for the Mindmap. */
+  keyPoints: KeyPointDTO[];
 }
 export const checkWork = (p: {
   subject: Subject;
@@ -118,6 +120,13 @@ export const explainBoard = (p: {
   note?: string;
   messages?: ChatMessage[];
 }) => call<AskResponse>('claude/explain', p);
+
+export interface ConceptsResponse {
+  concepts: KeyPointDTO[];
+}
+/** Extract + categorize Mindmap concepts from arbitrary study material. */
+export const extractConcepts = (p: { subject: Subject; lang: Lang; text: string }) =>
+  call<ConceptsResponse>('claude/concepts', p);
 
 export interface TopicsResponse {
   topics: { id: string; name: string }[];

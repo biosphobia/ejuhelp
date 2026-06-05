@@ -7,8 +7,8 @@ const norm = (s: string) => s.trim().toLowerCase().replace(/\s+/g, ' ');
 
 export type ConceptKind = 'formula' | 'fact';
 
-/** Default bucket for concepts the coach didn't tag with a topic. */
-export const GENERAL_CATEGORY = 'General';
+/** Sentinel grouping key for concepts with no (or an unrecognized) category. */
+export const GENERAL_KEY = '__general';
 
 /** A single important concept captured during study, shown as a node on the Mindmap. */
 export interface Concept {
@@ -63,5 +63,5 @@ export const useMindmap = create<MindmapState>((set, get) => ({
   load: (concepts) => set((s) => ({ concepts: Array.isArray(concepts) ? concepts : [], rev: s.rev + 1 })),
 }));
 
-/** The category label a concept belongs to, normalizing the empty/untagged case. */
-export const categoryOf = (c: Concept) => c.topic.trim() || GENERAL_CATEGORY;
+/** Stable grouping key for a concept: its canonical category id, or the General sentinel. */
+export const categoryKeyOf = (c: Concept) => c.topic.trim() || GENERAL_KEY;
