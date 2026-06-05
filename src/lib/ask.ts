@@ -7,6 +7,7 @@ import { useProgress, summarize } from './userdata';
 import { useMindmap } from './mindmap';
 import { useLearnerProfile, learnerProfileLines } from './profile';
 import { useBoard } from './board';
+import { useSelection } from './selection';
 import { exportPagePng } from '../whiteboard/export';
 
 /** Compact learner-profile lines (saved preferences + measured weak topics) sent
@@ -110,7 +111,9 @@ export const useAsk = create<AskState>((set, get) => ({
   check: async (note) => {
     if (get().busy) return;
     const { subject, lang } = useUI.getState();
-    const img = exportPagePng(useBoard.getState().getCurrentPage());
+    const selIds = useSelection.getState().ids;
+    const onlySelection = selIds.length > 0;
+    const img = exportPagePng(useBoard.getState().getCurrentPage(), onlySelection ? { onlyIds: selIds } : undefined);
     if (!img) {
       set({ error: new EmptyBoardError() });
       return;
@@ -134,6 +137,7 @@ export const useAsk = create<AskState>((set, get) => ({
         note: trimmedNote || undefined,
         messages: prior,
         profile: coachProfile(),
+        selection: onlySelection || undefined,
       });
       set({
         messages: [
@@ -176,7 +180,9 @@ export const useAsk = create<AskState>((set, get) => ({
   explain: async (note) => {
     if (get().busy) return;
     const { subject, lang } = useUI.getState();
-    const img = exportPagePng(useBoard.getState().getCurrentPage());
+    const selIds = useSelection.getState().ids;
+    const onlySelection = selIds.length > 0;
+    const img = exportPagePng(useBoard.getState().getCurrentPage(), onlySelection ? { onlyIds: selIds } : undefined);
     if (!img) {
       set({ error: new EmptyBoardError() });
       return;
@@ -193,6 +199,7 @@ export const useAsk = create<AskState>((set, get) => ({
         imageDataUrl: img,
         question: activeQuestion ?? undefined,
         note: trimmedNote || undefined,
+        selection: onlySelection || undefined,
         messages: prior,
         profile: coachProfile(),
       });

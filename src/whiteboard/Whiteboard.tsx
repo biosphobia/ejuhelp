@@ -11,6 +11,7 @@ import {
 } from '../lib/board';
 import { useUI } from '../lib/ui';
 import { useDebug } from '../lib/debug';
+import { useSelection } from '../lib/selection';
 import { drawStroke, strokeHit } from './render';
 import { boardEvents } from './view';
 
@@ -587,6 +588,7 @@ export default function Whiteboard() {
       marquee = null;
       manip = null;
       manipHidden.clear();
+      useSelection.getState().set([]); // tell the coach there's no active selection
     }
     function clearSelection() {
       resetSelection();
@@ -733,6 +735,7 @@ export default function Whiteboard() {
             .map((s) => s.id);
           selectedIds = ids;
           selBox = ids.length ? computeSelBox(ids) : null;
+          useSelection.getState().set(ids.slice()); // expose the selection to the coach
         }
         invalidate();
         return;

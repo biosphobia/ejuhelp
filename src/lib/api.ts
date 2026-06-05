@@ -131,6 +131,8 @@ export const checkWork = (p: {
   note?: string;
   messages?: ChatMessage[];
   profile?: string[];
+  /** The image is only the region the student selected, not the whole page. */
+  selection?: boolean;
 }) => call<CheckResponse>('claude/check', p);
 
 /** Analyse the whiteboard and HELP the student (explanation, not grading). */
@@ -142,6 +144,8 @@ export const explainBoard = (p: {
   note?: string;
   messages?: ChatMessage[];
   profile?: string[];
+  /** The image is only the region the student selected, not the whole page. */
+  selection?: boolean;
 }) => call<AskResponse>('claude/explain', p);
 
 export interface ConceptsResponse {

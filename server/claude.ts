@@ -709,6 +709,8 @@ export async function check(args: {
   /** Recent conversation, so repeated checks stay anchored to the same question. */
   messages?: ChatMessage[];
   profile?: string[];
+  /** The image is only the region the student selected, not the whole page. */
+  selection?: boolean;
   model?: string;
   userKey?: string;
 }): Promise<CheckResult> {
@@ -738,8 +740,12 @@ export async function check(args: {
       : '',
     inferSubjectDirective(args.subject),
     learnerProfileDirective(args.profile) ?? '',
-    "The image is a capture of the student's OWN handwritten work on a whiteboard.",
+    'Use the conversation so far as context: if you and the student have been discussing a specific problem, concept or approach, interpret and check the page in light of that discussion rather than starting from scratch.',
+    args.selection
+      ? "NOTE: the image is ONLY the region the student selected from a larger whiteboard — evaluate JUST this part, and do not treat the cropped-out surroundings as missing, blank, or incomplete."
+      : "The image is a capture of the student's OWN handwritten work on a whiteboard.",
     'Grade ONLY what is actually written in the image. Do NOT solve the problem yourself, and never report an answer or conclusion that is not physically written on the page.',
+    'This is a fast exam-prep app: the student writes ROUGH working and routinely SKIPS obvious intermediate steps (arithmetic, simple algebra, rearranging) they clearly did in their head. Do NOT penalize missing in-between steps — if each written line follows correctly from the previous one and the method and conclusion are right, fill in the omitted routine steps yourself and count the work as correct. Only flag a GENUINE error (a wrong value, a wrong method, or a real logical leap that does not follow) — never mere brevity or skipped routine algebra. If they are clearly on the right path, treat it as correct rather than wrong.',
     'CRITICAL: If the page is blank, almost blank, or shows no genuine solution attempt (only the question text, doodles, or a few stray marks), do NOT grade it — set correct to "unknown", and in the feedback say there is nothing to check yet and invite the student to write their working. An empty or missing solution is never "correct".',
     isMath
       ? 'PARTIAL MATH ANSWERS — IMPORTANT, this OVERRIDES the feedback structure below: EJU math answers are split into lettered boxes the student fills in over time. Check ONLY the boxes they have actually written, and keep the feedback SHORT and to the point. If every written box is correct, set "correct":"yes" and treat unwritten boxes as simply not done yet (NOT mistakes). Do NOT lecture about what is missing, do NOT restate the question, and do NOT re-derive the whole solution — at most one brief closing clause like "(B, C still to do)". Use "no"/"partial" only when a box they actually wrote is wrong, and then point out just that one box in a sentence or two. (Example: if only A, B, C are written and all are right, reply with a short confirmation that A, B, C are correct.)'
@@ -811,6 +817,8 @@ export async function explainBoard(args: {
   note?: string;
   messages?: ChatMessage[];
   profile?: string[];
+  /** The image is only the region the student selected, not the whole page. */
+  selection?: boolean;
   model?: string;
   userKey?: string;
 }): Promise<{ text: string; keyPoints: KeyPointDTO[]; profile: ProfileNoteDTO[] }> {
@@ -828,7 +836,10 @@ export async function explainBoard(args: {
       : 'The student tapped "Explain" without typing a request, so work out from the page what they most likely need help with (a step they seem stuck on, a concept, or the next move).',
     inferSubjectDirective(args.subject),
     learnerProfileDirective(args.profile),
-    "The image is a capture of the student's OWN handwriting/work on a whiteboard.",
+    'Use the conversation so far as context — if you have been discussing something specific with the student, build your help on that rather than starting cold.',
+    args.selection
+      ? "NOTE: the image is ONLY the region the student selected from a larger whiteboard — help with JUST this part; do not treat the cropped-out surroundings as missing or blank."
+      : "The image is a capture of the student's OWN handwriting/work on a whiteboard.",
     'Read what is on the page, then HELP them: explain the relevant concept and the method in simple terms, clarify wherever they seem stuck or confused, and show the correct approach step by step. This is teaching, NOT grading — be encouraging, do not reduce it to a verdict or score. Build on what they have already written when it is on the right track; if the page is essentially empty, teach the topic the question is about.',
     ASK_DIRECTIVE,
   ]

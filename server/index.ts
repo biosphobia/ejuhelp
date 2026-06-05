@@ -116,7 +116,7 @@ app.post('/api/claude/generate', requireAuth, async (req: Request, res: Response
 
 app.post('/api/claude/check', requireAuth, async (req: Request, res: Response) => {
   try {
-    const { subject, lang, imageDataUrl, question, answer, solution, note, messages, profile } = req.body ?? {};
+    const { subject, lang, imageDataUrl, question, answer, solution, note, messages, profile, selection } = req.body ?? {};
     const { model, userKey } = getAiContext(req);
     if (!isSubject(subject)) return res.status(400).json({ error: 'bad_subject' });
     if (typeof imageDataUrl !== 'string') return res.status(400).json({ error: 'missing_image' });
@@ -131,6 +131,7 @@ app.post('/api/claude/check', requireAuth, async (req: Request, res: Response) =
       note: typeof note === 'string' ? note : undefined,
       messages: Array.isArray(messages) ? messages : undefined,
       profile: toProfile(profile),
+      selection: selection === true,
       model,
       userKey
     });
@@ -142,7 +143,7 @@ app.post('/api/claude/check', requireAuth, async (req: Request, res: Response) =
 
 app.post('/api/claude/explain', requireAuth, async (req: Request, res: Response) => {
   try {
-    const { subject, lang, imageDataUrl, question, note, messages, profile } = req.body ?? {};
+    const { subject, lang, imageDataUrl, question, note, messages, profile, selection } = req.body ?? {};
     const { model, userKey } = getAiContext(req);
     if (!isSubject(subject)) return res.status(400).json({ error: 'bad_subject' });
     if (typeof imageDataUrl !== 'string') return res.status(400).json({ error: 'missing_image' });
@@ -155,6 +156,7 @@ app.post('/api/claude/explain', requireAuth, async (req: Request, res: Response)
       note: typeof note === 'string' ? note : undefined,
       messages: Array.isArray(messages) ? messages : undefined,
       profile: toProfile(profile),
+      selection: selection === true,
       model,
       userKey
     });
