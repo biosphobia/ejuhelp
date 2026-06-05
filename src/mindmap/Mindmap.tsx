@@ -482,7 +482,7 @@ export default function Mindmap() {
           type="button"
           title={t('askCoach')}
           aria-label={t('askCoach')}
-          onClick={() => openPanel('ask')}
+          onClick={() => openPanel('mindmapCoach')}
           className="flex h-10 items-center gap-1.5 rounded-xl px-3 text-sm font-semibold text-slate-200 hover:bg-white/10"
         >
           <AskIcon className="h-5 w-5" />
