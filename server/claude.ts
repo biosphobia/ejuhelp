@@ -541,6 +541,7 @@ export async function generate(args: {
   const n = Math.max(1, Math.min(5, args.count || 3));
   const selected = (args.topics ?? []).filter((t) => typeof t === 'string' && t.trim());
   const focusing = Boolean(args.focus && (args.focus.topics?.length || args.focus.tags?.length));
+  const isMath = args.subject === 'math';
 
   const parts: string[] = [
     `Generate ${n} EJU-style ${args.subject} question(s) that closely match what really appears on the exam.`,
@@ -548,7 +549,9 @@ export async function generate(args: {
     // Hard grounding in the analyzed past-paper patterns.
     'Ground every question in the documented past-paper archetypes, pattern tags, style notes, printed constants and answer formats in the knowledge base above: mirror the authentic EJU phrasing, structure, figure usage, choice design and difficulty.',
     'CRITICAL: do NOT copy or merely renumber any past question. Invent a genuinely new scenario — different context, values and framing — that tests the SAME underlying concept and fits the same archetype, i.e. the kind of question highly likely to appear on an upcoming EJU.',
-    'Prefer multiple-choice with 4-5 plausible options where each distractor reflects a realistic student mistake.',
+    isMath
+      ? 'FORMAT — EJU Mathematics is NOT multiple choice; it is fill-in-the-blank. In the answer, each digit or sign is replaced by a box marked with a capital letter (A, B, C, …): each single box is one digit 0-9 or a minus sign, consecutive letters form a multi-digit number, and a fraction is written as boxes over boxes. Write each question as a clear, SELF-CONTAINED problem (a handful of lettered boxes — not a whole 大問) and place the boxes exactly where the EJU would, writing each blank as \\boxed{A}, \\boxed{B}, … just like the real example(s) above. A sub-part may ask the student to choose the correct expression for a box from a printed numbered list ⓪①②…; you may keep that style (the student still just writes the chosen number). Do NOT give multiple-choice options for the question itself — the student solves it by hand and writes the value of each box.'
+      : 'Prefer multiple-choice with 4-5 plausible options where each distractor reflects a realistic student mistake.',
   ];
 
   if (focusing) {
@@ -583,8 +586,11 @@ export async function generate(args: {
 
   parts.push(`Write everything in ${writeLang(args.lang)}.`);
   parts.push(
-    'Respond with ONLY a single JSON object, no other text or code fences: ' +
-      '{"questions":[{"topic":"<sub-topic>","prompt":"...","choices":["..."],"answerIndex":<0-based index of the correct choice, or -1 if not multiple-choice>,"answer":"<correct answer in words>","explanation":"<clear worked solution>"}]}.'
+    isMath
+      ? 'Respond with ONLY a single JSON object, no other text or code fences: ' +
+          '{"questions":[{"topic":"<sub-topic>","prompt":"<the full question; write every answer blank as \\\\boxed{A}, \\\\boxed{B}, … and put all math in LaTeX>","choices":[],"answerIndex":-1,"answer":"<the value of EVERY lettered box so the work can be graded, e.g. A=1, BC=-3, D=5, E/F=2/3>","explanation":"<a clear, step-by-step worked solution that derives each box value>"}]}.'
+      : 'Respond with ONLY a single JSON object, no other text or code fences: ' +
+          '{"questions":[{"topic":"<sub-topic>","prompt":"...","choices":["..."],"answerIndex":<0-based index of the correct choice, or -1 if not multiple-choice>,"answer":"<correct answer in words>","explanation":"<clear worked solution>"}]}.'
   );
 
   const raw = await executeModelCall(

@@ -51,6 +51,10 @@ export default function QuestionCard({
       </div>
       <Markdown text={q.prompt} />
 
+      {!mcq && !(q.choices?.length) ? (
+        <p className="mt-2 text-xs italic text-slate-400">✏️ {t('solveOnBoardHint')}</p>
+      ) : null}
+
       {mcq ? (
         <div className="mt-2 space-y-1.5">
           {q.choices!.map((c, idx) => {

@@ -374,6 +374,12 @@ export const strings = {
   profileStyle: { en: 'Style', ja: 'スタイル', zh: '风格', tr: 'Stil' },
   profileStruggle: { en: 'Struggle', ja: '苦手', zh: '难点', tr: 'Zorluk' },
   profileStrength: { en: 'Strength', ja: '得意', zh: '强项', tr: 'Güçlü yön' },
+  solveOnBoardHint: {
+    en: 'No options — solve it by hand on the whiteboard, then use Check my work to grade it.',
+    ja: '選択肢はありません。ホワイトボードに手書きで解いてから「答案チェック」で採点してください。',
+    zh: '没有选项——在白板上手写作答，然后用“检查我的解答”评分。',
+    tr: 'Seçenek yok — beyaz tahtada elle çöz, sonra “Çözümümü kontrol et” ile puanla.',
+  },
   mindmapCoachTitle: { en: 'Mindmap Coach', ja: 'マインドマップコーチ', zh: '思维导图教练', tr: 'Zihin Haritası Koçu' },
   mindmapCoachHint: {
     en: 'Search your saved concepts, or ask me to add, edit, remove, or recategorize them for this subject.',

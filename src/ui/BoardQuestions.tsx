@@ -177,7 +177,9 @@ export default function BoardQuestions() {
               </li>
             ))}
           </ol>
-        ) : null}
+        ) : (
+          <p className="mt-2 text-xs italic text-slate-400">✏️ {t('solveOnBoardHint')}</p>
+        )}
         {showAnswer ? (
           <div className="mt-3 rounded-xl bg-emerald-50 p-2.5 text-sm ring-1 ring-emerald-100">
             <div className="font-semibold text-emerald-800">
