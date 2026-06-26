@@ -381,6 +381,14 @@ export const strings = {
   profileStyle: { en: 'Style', ja: 'スタイル', zh: '风格', tr: 'Stil' },
   profileStruggle: { en: 'Struggle', ja: '苦手', zh: '难点', tr: 'Zorluk' },
   profileStrength: { en: 'Strength', ja: '得意', zh: '强项', tr: 'Güçlü yön' },
+  originalPaper: { en: 'Original paper', ja: '本物の問題用紙', zh: '原始试卷', tr: 'Orijinal kağıt' },
+  openFullscreen: { en: 'Open fullscreen', ja: '全画面で開く', zh: '全屏打开', tr: 'Tam ekran aç' },
+  pdfHint: {
+    en: 'The real EJU paper — pinch/scroll to zoom. The coach still grades and explains from the questions below.',
+    ja: '本物のEJU問題用紙です。ピンチ／スクロールで拡大できます。採点と解説は下の問題から行います。',
+    zh: '真实的 EJU 试卷——可缩放查看。教练仍根据下方题目进行批改和讲解。',
+    tr: 'Gerçek EJU kağıdı — yakınlaştırmak için kaydır. Koç yine de aşağıdaki sorulardan puanlar ve açıklar.',
+  },
   figureHint: {
     en: 'Rough sketch — copy it onto your whiteboard',
     ja: '簡単な図 — ホワイトボードに写してください',

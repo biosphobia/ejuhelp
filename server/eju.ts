@@ -135,7 +135,28 @@ export interface MockExam {
   subject: Subject;
   title: string;
   source?: string;
+  /** Google Drive file id of the original EJU PDF, for the zoomable embed. */
+  pdfId?: string;
   questions: MockQuestion[];
+}
+
+// Map of exam id -> Google Drive file id of the original EJU question PDF, so the
+// app can embed Drive's zoomable preview. (Several subject exams from the same
+// session share the one combined "science" booklet.)
+let pdfMapCache: Record<string, string> | null = null;
+function pdfMap(): Record<string, string> {
+  if (!pdfMapCache) {
+    try {
+      pdfMapCache = JSON.parse(readFileSync(join(DATA_DIR, 'pdf-map.json'), 'utf8')) as Record<string, string>;
+    } catch {
+      pdfMapCache = {};
+    }
+  }
+  return pdfMapCache;
+}
+export function pdfIdFor(examId: string): string | undefined {
+  const id = pdfMap()[examId];
+  return typeof id === 'string' && id ? id : undefined;
 }
 
 let mockExamsCache: MockExam[] | null = null;
@@ -261,12 +282,13 @@ function allExams(lang: Lang): MockExam[] {
 /** Exam metadata (no questions) plus a question count, newest first. */
 export function mockExamList() {
   return allExams('en')
-    .map(({ questions, ...meta }) => ({ ...meta, count: questions.length }))
+    .map(({ questions, ...meta }) => ({ ...meta, count: questions.length, pdfId: pdfIdFor(meta.id) }))
     .sort((a, b) => b.year - a.year || b.session - a.session || a.subject.localeCompare(b.subject));
 }
 
 export function mockExam(id: string, lang: Lang = 'en'): MockExam | null {
-  return allExams(lang).find((e) => e.id === id) ?? null;
+  const e = allExams(lang).find((ex) => ex.id === id);
+  return e ? { ...e, pdfId: pdfIdFor(id) } : null;
 }
 
 // Build the (large, stable) per-subject system context. This is what we mark

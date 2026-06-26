@@ -196,6 +196,8 @@ export interface ExamMeta {
   title: string;
   source?: string;
   count: number;
+  /** Google Drive file id of the original EJU PDF (for the zoomable embed). */
+  pdfId?: string;
 }
 export interface Exam {
   id: string;
@@ -204,6 +206,8 @@ export interface Exam {
   subject: Subject;
   title: string;
   source?: string;
+  /** Google Drive file id of the original EJU PDF (for the zoomable embed). */
+  pdfId?: string;
   questions: GenQuestion[];
 }
 export const fetchExams = () => call<{ exams: ExamMeta[] }>('eju/exams', {});

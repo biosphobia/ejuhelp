@@ -1,0 +1,7 @@
+{
+  "_comment": "Maps exam id -> Google Drive file id of the original EJU question PDF (embedded via Drive's zoomable preview). Several subject exams from one session share the combined 'science' booklet. Keys are rich-exam ids like 2018-2-physics / 2016-2-math-c2. Seeded with the English math papers whose Drive ids are known; remaining years + the science booklets are filled in once the Drive folder is searchable + link-shared.",
+  "2018-2-math-c2": "1nUUR3pFxTEPtVRIuCpKfp3cWM_M6LHHk",
+  "2016-2-math-c2": "1k6whCcHX8Y3nnm_tFuLrhqxdFt6plt31",
+  "2015-1-math-c2": "1tRSVKxPcl04kFLYsnlczzY-4aLtyBbE2",
+  "2012-2-math-c2": "1wmV1cf0jEn_R9OZLkpAxo8q8vn-GeKDC"
+}

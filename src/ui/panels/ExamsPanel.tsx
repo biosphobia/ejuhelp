@@ -64,6 +64,30 @@ export default function ExamsPanel() {
         </div>
         {exam.source ? <p className="mb-3 text-[11px] text-slate-400">{exam.source}</p> : null}
 
+        {exam.pdfId ? (
+          <div className="mb-4">
+            <div className="mb-1 flex items-center justify-between">
+              <span className="text-xs font-semibold uppercase tracking-wide text-slate-400">{t('originalPaper')}</span>
+              <a
+                href={`https://drive.google.com/file/d/${exam.pdfId}/view`}
+                target="_blank"
+                rel="noreferrer"
+                className="text-[11px] font-semibold text-blue-500 hover:underline"
+              >
+                {t('openFullscreen')}
+              </a>
+            </div>
+            <iframe
+              src={`https://drive.google.com/file/d/${exam.pdfId}/preview`}
+              title={exam.title}
+              loading="lazy"
+              className="h-[70vh] w-full rounded-xl border border-slate-200 bg-slate-50"
+              allow="autoplay"
+            />
+            <p className="mt-1 text-[11px] text-slate-400">{t('pdfHint')}</p>
+          </div>
+        ) : null}
+
         <div className="space-y-3">
           {exam.questions.map((q, i) => (
             <QuestionCard
