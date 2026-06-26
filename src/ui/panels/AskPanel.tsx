@@ -165,7 +165,7 @@ export default function AskPanel() {
         {messages.map((m, i) => (
           <div key={i} className={m.role === 'user' ? 'flex justify-end' : 'flex justify-start'}>
             <div
-              className={`max-w-[92%] rounded-2xl px-3 py-2 ${
+              className={`min-w-0 max-w-[92%] rounded-2xl px-3 py-2 ${
                 m.role === 'user' ? 'bg-slate-900 text-white' : 'bg-slate-50 text-slate-800 ring-1 ring-slate-100'
               }`}
             >

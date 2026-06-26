@@ -79,6 +79,7 @@ function saveLocal() {
   try {
     const data: StoredNotebooks = { active: useNotebook.getState().active, books };
     localStorage.setItem(LS_KEY, JSON.stringify(data));
+    lastWrittenRev = useBoard.getState().rev;
   } catch (e) {
     console.warn('[persistence] local save failed', e);
   }
@@ -100,6 +101,9 @@ async function saveCloud() {
 
 let saveTimer: ReturnType<typeof setTimeout> | undefined;
 let lastSavedRev = -1;
+// The board rev actually written to storage, so a periodic backstop can tell when
+// there are unsaved changes even if the debounce/unload events never fire.
+let lastWrittenRev = -1;
 
 function scheduleSave() {
   if (saveTimer) clearTimeout(saveTimer);
@@ -108,7 +112,7 @@ function scheduleSave() {
     snapshotActive();
     saveLocal();
     void saveCloud();
-  }, 1000);
+  }, 600);
 }
 
 /** Persist immediately — used when the app is being hidden/closed so a pending
@@ -213,10 +217,36 @@ export function initPersistence() {
     document.addEventListener('visibilitychange', () => {
       if (document.visibilityState === 'hidden') flush();
     });
+    // Page Lifecycle 'freeze' fires before iOS/Chrome suspend a backgrounded PWA.
+    document.addEventListener('freeze', flush);
   }
   if (typeof window !== 'undefined') {
     window.addEventListener('pagehide', flush);
     window.addEventListener('beforeunload', flush);
+  }
+
+  // 3a) Ask the browser to keep our storage durable. Without this, iOS/Safari can
+  // EVICT a PWA's localStorage, which silently wipes saved notes between sessions.
+  if (typeof navigator !== 'undefined' && navigator.storage?.persist) {
+    void navigator.storage
+      .persisted?.()
+      .then((granted) => {
+        if (!granted) void navigator.storage.persist().catch(() => {});
+      })
+      .catch(() => {});
+  }
+
+  // 3b) Periodic backstop: if the board has changed since the last write (e.g. the
+  // user is drawing continuously, or an unload event was missed), persist it. This
+  // guarantees saves don't depend solely on pauses or lifecycle events.
+  if (typeof window !== 'undefined') {
+    window.setInterval(() => {
+      if (useBoard.getState().rev !== lastWrittenRev) {
+        snapshotActive();
+        saveLocal();
+        void saveCloud();
+      }
+    }, 5000);
   }
 
   // 4) on sign-in, merge the cloud copy (migrating the legacy single-board doc)

@@ -12,7 +12,7 @@ function renderMath(expr: string, display: boolean, key: string): ReactNode {
     return (
       <span
         key={key}
-        className={display ? 'my-1 block overflow-x-auto' : ''}
+        className={display ? 'thin-scroll my-1 block max-w-full overflow-x-auto' : ''}
         dangerouslySetInnerHTML={{ __html: html }}
       />
     );
@@ -136,5 +136,5 @@ export default function Markdown({ text, className }: { text: string; className?
   flushPara('bl-end');
   flushList('bl-end');
 
-  return <div className={`text-[15px] ${className ?? 'text-slate-800'}`}>{blocks}</div>;
+  return <div className={`text-[15px] break-words ${className ?? 'text-slate-800'}`}>{blocks}</div>;
 }
