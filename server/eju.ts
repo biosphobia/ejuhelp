@@ -131,6 +131,9 @@ export interface MockQuestion {
   page?: number;
   /** 1-based PDF page(s) this question spans (a math 大問 can run over two pages). */
   pages?: number[];
+  /** Optional [y0,y1] vertical crop (page-height fractions) when several questions share
+   *  a page, so the viewer shows just this question's region. */
+  rect?: [number, number];
 }
 export interface MockExam {
   id: string;
@@ -163,12 +166,18 @@ export function pdfIdFor(examId: string): string | undefined {
   return typeof id === 'string' && id ? id : undefined;
 }
 
-// Per-question page maps for the single-page viewer: examId -> { questionId -> [1-based pages] }.
-// Physics is derived by formula (see below); chemistry/math pages are pre-computed
-// (chemistry by OCR of the scanned booklets, math by parsing the text layer) and live
-// in exam-pages.json. An exam only opens the PDF viewer when we have its pages.
-let examPagesCache: Record<string, Record<string, number[]>> | null = null;
-function examPagesMap(): Record<string, Record<string, number[]>> {
+// Per-question page maps for the viewer: examId -> { questionId -> { pages, rect? } }.
+// `pages` are 1-based PDF pages; `rect` is an optional [y0,y1] vertical crop (as page-
+// height fractions) used when several questions share a page so the viewer can show one
+// question per view. Physics is derived by formula (see below); chemistry/math are
+// pre-computed (chemistry by OCR of the scanned booklets, math by parsing the text
+// layer) and live in exam-pages.json. An exam only opens the PDF viewer when it has pages.
+export interface QuestionPlacement {
+  pages: number[];
+  rect?: [number, number];
+}
+let examPagesCache: Record<string, Record<string, QuestionPlacement>> | null = null;
+function examPagesMap(): Record<string, Record<string, QuestionPlacement>> {
   if (!examPagesCache) {
     try {
       examPagesCache = JSON.parse(readFileSync(join(DATA_DIR, 'exam-pages.json'), 'utf8'));
@@ -267,7 +276,7 @@ function richToMockQuestion(
   q: RichQuestion,
   lang: Lang,
   subject: Subject,
-  pageMap?: Record<string, number[]>,
+  pageMap?: Record<string, QuestionPlacement>,
 ): MockQuestion {
   const loc: 'ja' | 'en' = lang === 'ja' ? 'ja' : 'en';
   // Prefer the short-id block name (physics/chem), else the syllabus topic name.
@@ -280,13 +289,15 @@ function richToMockQuestion(
   let prompt = q[loc]?.prompt ?? q.en.prompt;
   const fig = q.figure?.[loc] ?? q.figure?.en;
   if (fig) prompt += `\n\n*${loc === 'ja' ? '図' : 'Figure'}: ${fig}*`;
-  // 1-based PDF page(s) for the single-page viewer. EJU physics booklets are
+  // 1-based PDF page(s) + optional crop for the viewer. EJU physics booklets are
   // standardized — 3 pages of front matter then exactly one sub-question (問) per page —
   // so question N is on page N+3 (verified across every mapped year, text & scanned
-  // alike). Chemistry/math come from the pre-computed exam-pages.json (math 大問 may
-  // span two pages); they fall back to none, in which case the exam stays on cards.
-  const pages =
-    subject === 'physics' && q.answerRow ? [q.answerRow + 3] : pageMap?.[q.id];
+  // alike). Chemistry/math come from the pre-computed exam-pages.json: a math 大問 (one
+  // question) may span two pages; several short chemistry questions may share a page, in
+  // which case `rect` crops the page to just this question so each view is one question.
+  const placement: QuestionPlacement | undefined =
+    subject === 'physics' && q.answerRow ? { pages: [q.answerRow + 3] } : pageMap?.[q.id];
+  const pages = placement?.pages;
   return {
     id: q.id,
     number: q.answerRow,
@@ -298,28 +309,17 @@ function richToMockQuestion(
     explanation: q.explanation?.[loc] ?? q.explanation?.en ?? '',
     page: pages?.[0] ?? q.page,
     pages: pages && pages.length ? pages : undefined,
+    rect: placement?.rect,
   };
 }
 
 function richToMockExam(ex: RichExam, lang: Lang): MockExam {
   const { questions, ...meta } = ex;
   const pageMap = examPagesMap()[ex.id];
-  const mapped = questions.map((q) => richToMockQuestion(q, lang, ex.subject, pageMap));
-  // One PDF page per step: cut any question that spans multiple pages (a math 大問 can
-  // run over two pages) into consecutive single-page entries, renumbered in order. The
-  // split steps share the parent's prompt/answer so the coach still grades correctly.
-  const out: MockQuestion[] = [];
-  for (const q of mapped) {
-    const pgs = q.pages?.length ? q.pages : q.page ? [q.page] : [];
-    if (pgs.length <= 1) {
-      out.push({ ...q, number: out.length + 1 });
-    } else {
-      pgs.forEach((p, k) =>
-        out.push({ ...q, id: `${q.id}-p${k + 1}`, number: out.length + 1, page: p, pages: [p] }),
-      );
-    }
-  }
-  return { ...meta, questions: out };
+  // One question per view: each rich question becomes one entry. A math 大問 that runs
+  // over two pages stays a single question (shown as both pages); chemistry questions
+  // that share a page each carry a crop rect so the view shows just that question.
+  return { ...meta, questions: questions.map((q) => richToMockQuestion(q, lang, ex.subject, pageMap)) };
 }
 
 /** Legacy + rich exams merged by id (rich wins), localized to `lang`. */

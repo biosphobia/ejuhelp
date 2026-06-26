@@ -98,6 +98,9 @@ export interface GenQuestion {
   /** For mock-exam questions: the 1-based PDF page(s) this question spans (a math 大問
    *  can run over two pages). When set, the viewer shows exactly these pages. */
   pages?: number[];
+  /** Optional [y0,y1] vertical crop (page-height fractions) when several questions share
+   *  a page, so the viewer shows just this question's region of the page. */
+  rect?: [number, number];
 }
 export interface GenerateResponse {
   questions: GenQuestion[];

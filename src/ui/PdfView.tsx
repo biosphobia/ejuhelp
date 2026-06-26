@@ -21,7 +21,16 @@ const clamp = (n: number, lo: number, hi: number) => Math.max(lo, Math.min(hi, n
  *  pans and pinch-zooms as a unit (touch-action:none so the browser can't steal the
  *  pinch). There's no scrolling to *other* questions' pages — the panel's top arrows
  *  switch question (and page). */
-export default function PdfView({ url, pages }: { url: string; pages: number[] }) {
+export default function PdfView({
+  url,
+  pages,
+  rect,
+}: {
+  url: string;
+  pages: number[];
+  /** Optional [y0,y1] vertical crop (page-height fractions) for a single shared page. */
+  rect?: [number, number];
+}) {
   const t = useT();
   const docRef = useRef<any>(null);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -35,6 +44,7 @@ export default function PdfView({ url, pages }: { url: string; pages: number[] }
   const ptrs = useRef<Map<number, { x: number; y: number }>>(new Map());
   const pinch = useRef<{ dist: number; scale: number; cx: number; cy: number } | null>(null);
   const pagesKey = pages.join(',');
+  const rectKey = rect ? rect.join(',') : '';
 
   // Load the document once per URL.
   useEffect(() => {
@@ -73,6 +83,8 @@ export default function PdfView({ url, pages }: { url: string; pages: number[] }
     (async () => {
       let maxW = 0;
       let firstH = 0;
+      // Crop only applies to a single shared page (chemistry questions packed on one page).
+      const crop = pages.length === 1 ? rect : undefined;
       for (let idx = 0; idx < pages.length; idx++) {
         const pageNo = clamp(pages[idx], 1, doc.numPages);
         const pg = await doc.getPage(pageNo);
@@ -81,22 +93,53 @@ export default function PdfView({ url, pages }: { url: string; pages: number[] }
         const canvas = canvasRefs.current[idx];
         const ctx = canvas?.getContext('2d');
         if (!canvas || !ctx) continue;
-        canvas.width = vp.width;
-        canvas.height = vp.height;
-        const cssW = vp.width / dpr;
-        const cssH = vp.height / dpr;
-        canvas.style.width = `${cssW}px`;
-        canvas.style.height = `${cssH}px`;
-        const rt = pg.render({ canvasContext: ctx, viewport: vp });
-        tasks.push(rt);
-        maxW = Math.max(maxW, cssW);
-        if (idx === 0) firstH = cssH;
-        try {
-          await rt.promise;
-        } catch {
-          /* render cancelled */
+        if (crop) {
+          // Render the full page offscreen, then blit just this question's vertical band
+          // onto the visible canvas, so the view shows one question and pans only over it.
+          const off = document.createElement('canvas');
+          off.width = vp.width;
+          off.height = vp.height;
+          const octx = off.getContext('2d');
+          if (!octx) continue;
+          const rt = pg.render({ canvasContext: octx, viewport: vp });
+          tasks.push(rt);
+          try {
+            await rt.promise;
+          } catch {
+            /* render cancelled */
+          }
+          if (cancelled) return;
+          const y0 = clamp(crop[0], 0, 1);
+          const y1 = clamp(crop[1], 0, 1);
+          const srcY = Math.round(y0 * vp.height);
+          const bandH = Math.max(1, Math.round((y1 - y0) * vp.height));
+          canvas.width = vp.width;
+          canvas.height = bandH;
+          ctx.drawImage(off, 0, srcY, vp.width, bandH, 0, 0, vp.width, bandH);
+          const cssW = vp.width / dpr;
+          const cssH = bandH / dpr;
+          canvas.style.width = `${cssW}px`;
+          canvas.style.height = `${cssH}px`;
+          maxW = Math.max(maxW, cssW);
+          if (idx === 0) firstH = cssH;
+        } else {
+          canvas.width = vp.width;
+          canvas.height = vp.height;
+          const cssW = vp.width / dpr;
+          const cssH = vp.height / dpr;
+          canvas.style.width = `${cssW}px`;
+          canvas.style.height = `${cssH}px`;
+          const rt = pg.render({ canvasContext: ctx, viewport: vp });
+          tasks.push(rt);
+          maxW = Math.max(maxW, cssW);
+          if (idx === 0) firstH = cssH;
+          try {
+            await rt.promise;
+          } catch {
+            /* render cancelled */
+          }
+          if (cancelled) return;
         }
-        if (cancelled) return;
       }
       // Fit so the first page is fully visible; the user pans down to later pages.
       const el = containerRef.current;
@@ -119,7 +162,7 @@ export default function PdfView({ url, pages }: { url: string; pages: number[] }
       }
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [pagesKey, status]);
+  }, [pagesKey, rectKey, status]);
 
   // ── pan / pinch / wheel ──
   const rel = (clientX: number, clientY: number) => {

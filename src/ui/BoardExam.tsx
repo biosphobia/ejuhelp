@@ -169,7 +169,7 @@ export default function BoardExam() {
               </div>
             }
           >
-            <PdfView url={`/api/eju/pdf/${exam.pdfId}`} pages={pages} />
+            <PdfView url={`/api/eju/pdf/${exam.pdfId}`} pages={pages} rect={q.rect} />
           </Suspense>
         ) : (
           <div className="grid h-full place-items-center p-4 text-center text-sm text-slate-300">{t('pdfLoadError')}</div>
