@@ -53,6 +53,32 @@ app.post('/api/eju/exam', (req: Request, res: Response) => {
   res.json(exam);
 });
 
+// Proxy a (link-shared) Google Drive PDF so the browser can load it same-origin
+// for pdf.js — Drive's download URL doesn't send permissive CORS headers.
+app.get('/api/eju/pdf/:id', async (req: Request, res: Response) => {
+  const id = req.params.id;
+  if (!/^[a-zA-Z0-9_-]{10,}$/.test(id)) return res.status(400).end();
+  try {
+    const r = await fetch(`https://drive.google.com/uc?export=download&id=${id}`, {
+      headers: { 'User-Agent': 'Mozilla/5.0' },
+      redirect: 'follow',
+    });
+    if (!r.ok) return res.status(502).json({ error: 'pdf_fetch_failed', status: r.status });
+    const ct = r.headers.get('content-type') ?? '';
+    const buf = Buffer.from(await r.arrayBuffer());
+    // Small files download directly; if Drive returned its HTML scan/login page
+    // instead of a PDF, surface a clear error rather than a broken viewer.
+    if (ct.includes('text/html') || buf.slice(0, 5).toString() !== '%PDF-') {
+      return res.status(409).json({ error: 'pdf_not_public' });
+    }
+    res.setHeader('Content-Type', 'application/pdf');
+    res.setHeader('Cache-Control', 'public, max-age=86400');
+    res.send(buf);
+  } catch {
+    res.status(502).json({ error: 'pdf_fetch_failed' });
+  }
+});
+
 // Helper to extract BYOK credentials from requests
 const getAiContext = (req: Request) => {
   const model = req.body?.model || 'gemini';

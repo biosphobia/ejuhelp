@@ -382,6 +382,18 @@ export const strings = {
   profileStruggle: { en: 'Struggle', ja: '苦手', zh: '难点', tr: 'Zorluk' },
   profileStrength: { en: 'Strength', ja: '得意', zh: '强项', tr: 'Güçlü yön' },
   originalPaper: { en: 'Original paper', ja: '本物の問題用紙', zh: '原始试卷', tr: 'Orijinal kağıt' },
+  examSolveHint: {
+    en: 'Tap a question to open the real paper on your board — zoom in and solve it by hand, then use Ask Coach to check.',
+    ja: '問題番号をタップすると本物の問題用紙がボードに表示されます。拡大して手書きで解き、「AIコーチ」で確認しましょう。',
+    zh: '点击题号即可在白板上打开真实试卷——放大并手写作答，然后用“问教练”检查。',
+    tr: 'Bir soruya dokun, gerçek kağıt tahtanda açılsın — yakınlaştırıp elle çöz, sonra Koça Sor ile kontrol et.',
+  },
+  pdfLoadError: {
+    en: "Couldn't load the PDF. Make sure the paper is shared as 'anyone with the link can view' in Drive.",
+    ja: 'PDFを読み込めませんでした。Driveで「リンクを知っている全員が閲覧可」に共有されているか確認してください。',
+    zh: '无法加载 PDF。请确认该试卷在 Drive 中已设置为“知道链接的任何人都可查看”。',
+    tr: 'PDF yüklenemedi. Kağıdın Drive’da “bağlantıya sahip herkes görüntüleyebilir” olarak paylaşıldığından emin ol.',
+  },
   openFullscreen: { en: 'Open fullscreen', ja: '全画面で開く', zh: '全屏打开', tr: 'Tam ekran aç' },
   pdfHint: {
     en: 'The real EJU paper — pinch/scroll to zoom. The coach still grades and explains from the questions below.',

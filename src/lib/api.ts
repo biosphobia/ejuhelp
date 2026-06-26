@@ -93,6 +93,8 @@ export interface GenQuestion {
   explanation: string;
   /** Optional simple SVG schematic of the setup, to copy onto the whiteboard. */
   figure?: string;
+  /** For mock-exam questions: 1-based page of the original PDF this question is on. */
+  page?: number;
 }
 export interface GenerateResponse {
   questions: GenQuestion[];

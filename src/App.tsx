@@ -5,6 +5,7 @@ import PageBar from './ui/PageBar';
 import Launcher from './ui/Launcher';
 import PanelHost from './ui/PanelHost';
 import BoardQuestions from './ui/BoardQuestions';
+import BoardExam from './ui/BoardExam';
 import BoardTimer from './ui/BoardTimer';
 import DebugHud from './ui/DebugHud';
 import Mindmap from './mindmap/Mindmap';
@@ -33,6 +34,7 @@ export default function App() {
             <Toolbar />
             <PageBar />
             <BoardQuestions />
+            <BoardExam />
             <BoardTimer />
             <Launcher />
           </>

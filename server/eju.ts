@@ -127,6 +127,8 @@ export interface MockQuestion {
   answerIndex: number;
   answer: string;
   explanation: string;
+  /** 1-based page of the original PDF this question is on (for the per-question viewer). */
+  page?: number;
 }
 export interface MockExam {
   id: string;
@@ -186,6 +188,7 @@ interface RichQuestion {
   topicId?: string;
   subtopic?: string;
   patternTags?: string[];
+  page?: number;
   hasFigure?: boolean;
   figure?: Partial<Record<Lang, string>>;
   ja: RichLoc;
@@ -263,6 +266,7 @@ function richToMockQuestion(q: RichQuestion, lang: Lang, subject: Subject): Mock
     answerIndex: q.answerIndex,
     answer: q.answer?.[loc] ?? q.answer?.en ?? '',
     explanation: q.explanation?.[loc] ?? q.explanation?.en ?? '',
+    page: q.page,
   };
 }
 
