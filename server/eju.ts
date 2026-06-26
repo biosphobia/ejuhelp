@@ -304,7 +304,22 @@ function richToMockQuestion(
 function richToMockExam(ex: RichExam, lang: Lang): MockExam {
   const { questions, ...meta } = ex;
   const pageMap = examPagesMap()[ex.id];
-  return { ...meta, questions: questions.map((q) => richToMockQuestion(q, lang, ex.subject, pageMap)) };
+  const mapped = questions.map((q) => richToMockQuestion(q, lang, ex.subject, pageMap));
+  // One PDF page per step: cut any question that spans multiple pages (a math 大問 can
+  // run over two pages) into consecutive single-page entries, renumbered in order. The
+  // split steps share the parent's prompt/answer so the coach still grades correctly.
+  const out: MockQuestion[] = [];
+  for (const q of mapped) {
+    const pgs = q.pages?.length ? q.pages : q.page ? [q.page] : [];
+    if (pgs.length <= 1) {
+      out.push({ ...q, number: out.length + 1 });
+    } else {
+      pgs.forEach((p, k) =>
+        out.push({ ...q, id: `${q.id}-p${k + 1}`, number: out.length + 1, page: p, pages: [p] }),
+      );
+    }
+  }
+  return { ...meta, questions: out };
 }
 
 /** Legacy + rich exams merged by id (rich wins), localized to `lang`. */
