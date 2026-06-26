@@ -11,6 +11,22 @@ const LETTERS = 'ABCDE';
 const WIDTH = 460;
 const clamp = (n: number, lo: number, hi: number) => Math.max(lo, Math.min(hi, n));
 
+// EJU booklets are standardized: the science booklet runs Physics → Chemistry →
+// Biology, and the math booklet's Course 2 starts at page 15. Restrict each exam to
+// its own subject's pages so e.g. a physics paper never shows the chemistry section.
+function sectionRange(subject: string): { start: number; end?: number } {
+  switch (subject) {
+    case 'math':
+      return { start: 15 };
+    case 'physics':
+      return { start: 3, end: 24 };
+    case 'chemistry':
+      return { start: 25, end: 42 };
+    default:
+      return { start: 1 };
+  }
+}
+
 /** A mock-exam paper popped onto the board: a draggable, zoomable per-question PDF
  *  view. The question text isn't shown (it's on the PDF), but each question still
  *  scopes the coach so Check my work / Explain grade against the right one. */
@@ -142,7 +158,8 @@ export default function BoardExam() {
           >
             <PdfView
               url={`/api/eju/pdf/${exam.pdfId}`}
-              initialPage={q.page ?? (exam.subject === 'math' ? 15 : 1)}
+              startPage={q.page ?? sectionRange(exam.subject).start}
+              endPage={sectionRange(exam.subject).end}
             />
           </Suspense>
         ) : (
