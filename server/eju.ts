@@ -266,7 +266,12 @@ function richToMockQuestion(q: RichQuestion, lang: Lang, subject: Subject): Mock
     answerIndex: q.answerIndex,
     answer: q.answer?.[loc] ?? q.answer?.en ?? '',
     explanation: q.explanation?.[loc] ?? q.explanation?.en ?? '',
-    page: q.page,
+    // EJU physics booklets are standardized: 3 pages of front matter (cover,
+    // copyright, answer-sheet example) then exactly one sub-question (問) per page,
+    // so question N is on PDF page N+3. Verified across every mapped year (text &
+    // scanned booklets alike). Chemistry/math pack multiple questions per page or
+    // span pages and aren't reliably single-paged, so they keep q.page (usually none).
+    page: subject === 'physics' && q.answerRow ? q.answerRow + 3 : q.page,
   };
 }
 
@@ -286,13 +291,22 @@ function allExams(lang: Lang): MockExam[] {
 /** Exam metadata (no questions) plus a question count, newest first. */
 export function mockExamList() {
   return allExams('en')
-    .map(({ questions, ...meta }) => ({ ...meta, count: questions.length, pdfId: pdfIdFor(meta.id) }))
+    .map(({ questions, ...meta }) => ({ ...meta, count: questions.length, pdfId: examPdfId(meta.id, meta.subject) }))
     .sort((a, b) => b.year - a.year || b.session - a.session || a.subject.localeCompare(b.subject));
 }
 
 export function mockExam(id: string, lang: Lang = 'en'): MockExam | null {
   const e = allExams(lang).find((ex) => ex.id === id);
-  return e ? { ...e, pdfId: pdfIdFor(id) } : null;
+  return e ? { ...e, pdfId: examPdfId(id, e.subject) } : null;
+}
+
+// Only physics exposes the original PDF to the per-question viewer: it's the one
+// subject whose booklet maps cleanly to a single page per question (see page calc
+// above). Chemistry/math have a PDF in the map but pack/​span pages unpredictably,
+// so showing a fixed page per question would be inaccurate — they use transcribed
+// question cards instead, which the coach still grades against the real answer.
+function examPdfId(id: string, subject: Subject): string | undefined {
+  return subject === 'physics' ? pdfIdFor(id) : undefined;
 }
 
 // Build the (large, stable) per-subject system context. This is what we mark
