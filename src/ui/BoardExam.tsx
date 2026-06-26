@@ -23,6 +23,8 @@ export default function BoardExam() {
   const setIndex = useExamView((s) => s.setIndex);
   const setCollapsed = useExamView((s) => s.setCollapsed);
   const setPos = useExamView((s) => s.setPos);
+  const size = useExamView((s) => s.size);
+  const setSize = useExamView((s) => s.setSize);
   const close = useExamView((s) => s.close);
   const setActiveQuestion = usePractice((s) => s.setActiveQuestion);
 
@@ -37,8 +39,14 @@ export default function BoardExam() {
 
   if (!exam || !q) return null;
 
-  const left = pos ? pos.x : Math.max(8, window.innerWidth - WIDTH - 16);
+  const width = size?.w ?? WIDTH;
+  const height = size?.h ?? Math.round(window.innerHeight * 0.78);
+  const left = pos ? pos.x : Math.max(8, window.innerWidth - width - 16);
   const top = pos ? pos.y : 64;
+
+  // 1-based PDF page(s) for the current question (physics/chemistry → one page; a
+  // math 大問 may span two). Falls back to the physics formula if unset.
+  const pages = q.pages?.length ? q.pages : q.page ? [q.page] : [index + 4];
 
   const startDrag = (e: ReactPointerEvent) => {
     if ((e.target as HTMLElement).closest('button')) return;
@@ -50,6 +58,27 @@ export default function BoardExam() {
       setPos({
         x: clamp(bx + (ev.clientX - sx), 4, window.innerWidth - 90),
         y: clamp(by + (ev.clientY - sy), 4, window.innerHeight - 60),
+      });
+    };
+    const up = () => {
+      window.removeEventListener('pointermove', move);
+      window.removeEventListener('pointerup', up);
+    };
+    window.addEventListener('pointermove', move);
+    window.addEventListener('pointerup', up);
+    e.preventDefault();
+  };
+
+  const startResize = (e: ReactPointerEvent) => {
+    e.stopPropagation();
+    const sx = e.clientX;
+    const sy = e.clientY;
+    const bw = width;
+    const bh = height;
+    const move = (ev: PointerEvent) => {
+      setSize({
+        w: clamp(bw + (ev.clientX - sx), 280, window.innerWidth - 16),
+        h: clamp(bh + (ev.clientY - sy), 220, window.innerHeight - 16),
       });
     };
     const up = () => {
@@ -82,8 +111,8 @@ export default function BoardExam() {
 
   return (
     <div
-      style={{ left, top, width: WIDTH, height: '78vh' }}
-      className="pointer-events-auto absolute z-20 flex max-h-[88vh] max-w-[94vw] flex-col overflow-hidden rounded-2xl bg-slate-900 shadow-2xl ring-1 ring-black/20"
+      style={{ left, top, width, height }}
+      className="pointer-events-auto absolute z-20 flex max-h-[96vh] max-w-[98vw] flex-col overflow-hidden rounded-2xl bg-slate-900 shadow-2xl ring-1 ring-black/20"
     >
       <div
         onPointerDown={startDrag}
@@ -140,11 +169,23 @@ export default function BoardExam() {
               </div>
             }
           >
-            <PdfView url={`/api/eju/pdf/${exam.pdfId}`} page={q.page ?? index + 4} />
+            <PdfView url={`/api/eju/pdf/${exam.pdfId}`} pages={pages} />
           </Suspense>
         ) : (
           <div className="grid h-full place-items-center p-4 text-center text-sm text-slate-300">{t('pdfLoadError')}</div>
         )}
+      </div>
+
+      {/* Resize grip (drag to scale the window) */}
+      <div
+        onPointerDown={startResize}
+        aria-label="resize"
+        className="absolute bottom-0 right-0 z-10 flex h-6 w-6 cursor-nwse-resize touch-none items-end justify-end p-1 text-white/60 hover:text-white"
+      >
+        <svg viewBox="0 0 10 10" className="h-3 w-3 fill-current">
+          <path d="M9 1v8H1L9 1z" opacity="0.5" />
+          <path d="M9 4.5v4.5H4.5L9 4.5z" />
+        </svg>
       </div>
     </div>
   );

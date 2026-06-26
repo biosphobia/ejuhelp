@@ -129,6 +129,8 @@ export interface MockQuestion {
   explanation: string;
   /** 1-based page of the original PDF this question is on (for the per-question viewer). */
   page?: number;
+  /** 1-based PDF page(s) this question spans (a math 大問 can run over two pages). */
+  pages?: number[];
 }
 export interface MockExam {
   id: string;
@@ -159,6 +161,22 @@ function pdfMap(): Record<string, string> {
 export function pdfIdFor(examId: string): string | undefined {
   const id = pdfMap()[examId];
   return typeof id === 'string' && id ? id : undefined;
+}
+
+// Per-question page maps for the single-page viewer: examId -> { questionId -> [1-based pages] }.
+// Physics is derived by formula (see below); chemistry/math pages are pre-computed
+// (chemistry by OCR of the scanned booklets, math by parsing the text layer) and live
+// in exam-pages.json. An exam only opens the PDF viewer when we have its pages.
+let examPagesCache: Record<string, Record<string, number[]>> | null = null;
+function examPagesMap(): Record<string, Record<string, number[]>> {
+  if (!examPagesCache) {
+    try {
+      examPagesCache = JSON.parse(readFileSync(join(DATA_DIR, 'exam-pages.json'), 'utf8'));
+    } catch {
+      examPagesCache = {};
+    }
+  }
+  return examPagesCache!;
 }
 
 let mockExamsCache: MockExam[] | null = null;
@@ -245,7 +263,12 @@ function loadRichExams(): RichExam[] {
 }
 
 /** Localize one rich question into the flat MockQuestion shape (en for zh/tr). */
-function richToMockQuestion(q: RichQuestion, lang: Lang, subject: Subject): MockQuestion {
+function richToMockQuestion(
+  q: RichQuestion,
+  lang: Lang,
+  subject: Subject,
+  pageMap?: Record<string, number[]>,
+): MockQuestion {
   const loc: 'ja' | 'en' = lang === 'ja' ? 'ja' : 'en';
   // Prefer the short-id block name (physics/chem), else the syllabus topic name.
   const block = q.topicId
@@ -257,6 +280,13 @@ function richToMockQuestion(q: RichQuestion, lang: Lang, subject: Subject): Mock
   let prompt = q[loc]?.prompt ?? q.en.prompt;
   const fig = q.figure?.[loc] ?? q.figure?.en;
   if (fig) prompt += `\n\n*${loc === 'ja' ? '図' : 'Figure'}: ${fig}*`;
+  // 1-based PDF page(s) for the single-page viewer. EJU physics booklets are
+  // standardized — 3 pages of front matter then exactly one sub-question (問) per page —
+  // so question N is on page N+3 (verified across every mapped year, text & scanned
+  // alike). Chemistry/math come from the pre-computed exam-pages.json (math 大問 may
+  // span two pages); they fall back to none, in which case the exam stays on cards.
+  const pages =
+    subject === 'physics' && q.answerRow ? [q.answerRow + 3] : pageMap?.[q.id];
   return {
     id: q.id,
     number: q.answerRow,
@@ -266,18 +296,15 @@ function richToMockQuestion(q: RichQuestion, lang: Lang, subject: Subject): Mock
     answerIndex: q.answerIndex,
     answer: q.answer?.[loc] ?? q.answer?.en ?? '',
     explanation: q.explanation?.[loc] ?? q.explanation?.en ?? '',
-    // EJU physics booklets are standardized: 3 pages of front matter (cover,
-    // copyright, answer-sheet example) then exactly one sub-question (問) per page,
-    // so question N is on PDF page N+3. Verified across every mapped year (text &
-    // scanned booklets alike). Chemistry/math pack multiple questions per page or
-    // span pages and aren't reliably single-paged, so they keep q.page (usually none).
-    page: subject === 'physics' && q.answerRow ? q.answerRow + 3 : q.page,
+    page: pages?.[0] ?? q.page,
+    pages: pages && pages.length ? pages : undefined,
   };
 }
 
 function richToMockExam(ex: RichExam, lang: Lang): MockExam {
   const { questions, ...meta } = ex;
-  return { ...meta, questions: questions.map((q) => richToMockQuestion(q, lang, ex.subject)) };
+  const pageMap = examPagesMap()[ex.id];
+  return { ...meta, questions: questions.map((q) => richToMockQuestion(q, lang, ex.subject, pageMap)) };
 }
 
 /** Legacy + rich exams merged by id (rich wins), localized to `lang`. */
@@ -300,13 +327,14 @@ export function mockExam(id: string, lang: Lang = 'en'): MockExam | null {
   return e ? { ...e, pdfId: examPdfId(id, e.subject) } : null;
 }
 
-// Only physics exposes the original PDF to the per-question viewer: it's the one
-// subject whose booklet maps cleanly to a single page per question (see page calc
-// above). Chemistry/math have a PDF in the map but pack/​span pages unpredictably,
-// so showing a fixed page per question would be inaccurate — they use transcribed
-// question cards instead, which the coach still grades against the real answer.
+// An exam exposes the original PDF to the per-question viewer only when we can place
+// every question on an exact page: physics by formula (page = N+3), chemistry/math from
+// the pre-computed exam-pages.json. Exams without a verified page map (e.g. years whose
+// booklet is a scan we haven't OCR-mapped yet) fall back to transcribed question cards,
+// which the coach still grades against the real answer — never a wrong page.
 function examPdfId(id: string, subject: Subject): string | undefined {
-  return subject === 'physics' ? pdfIdFor(id) : undefined;
+  if (subject === 'physics') return pdfIdFor(id);
+  return examPagesMap()[id] ? pdfIdFor(id) : undefined;
 }
 
 // Build the (large, stable) per-subject system context. This is what we mark

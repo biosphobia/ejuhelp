@@ -13,16 +13,20 @@ import { useT } from '../i18n';
 pdfjsLib.GlobalWorkerOptions.workerSrc = workerUrl;
 
 const RES = 2; // render resolution multiplier (crisp up to ~RES× zoom)
+const GAP = 10; // px gap between stacked pages (in fitted/CSS space)
 const clamp = (n: number, lo: number, hi: number) => Math.max(lo, Math.min(hi, n));
 
-/** Shows a SINGLE PDF page (the one tied to the current question) with pan and
- *  pinch-to-zoom. No scrolling to other pages — the panel's top arrows change the
- *  page. touch-action:none so two-finger pinch isn't stolen by the browser. */
-export default function PdfView({ url, page }: { url: string; page: number }) {
+/** Shows the PDF page(s) tied to the current question — one for physics/chemistry,
+ *  the two pages a math 大問 spans, etc. The pages are stitched into one surface that
+ *  pans and pinch-zooms as a unit (touch-action:none so the browser can't steal the
+ *  pinch). There's no scrolling to *other* questions' pages — the panel's top arrows
+ *  switch question (and page). */
+export default function PdfView({ url, pages }: { url: string; pages: number[] }) {
   const t = useT();
   const docRef = useRef<any>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const stackRef = useRef<HTMLDivElement>(null);
+  const canvasRefs = useRef<(HTMLCanvasElement | null)[]>([]);
   const [status, setStatus] = useState<'loading' | 'ready' | 'error'>('loading');
   const [view, setView] = useState({ x: 0, y: 0, scale: 1 });
   const viewRef = useRef(view);
@@ -30,8 +34,9 @@ export default function PdfView({ url, page }: { url: string; page: number }) {
   const fitRef = useRef(0.2); // minimum scale = fit-to-view
   const ptrs = useRef<Map<number, { x: number; y: number }>>(new Map());
   const pinch = useRef<{ dist: number; scale: number; cx: number; cy: number } | null>(null);
+  const pagesKey = pages.join(',');
 
-  // Load the document.
+  // Load the document once per URL.
   useEffect(() => {
     let cancelled = false;
     setStatus('loading');
@@ -39,10 +44,7 @@ export default function PdfView({ url, page }: { url: string; page: number }) {
     const task = pdfjsLib.getDocument({ url });
     task.promise
       .then((doc: any) => {
-        if (cancelled) {
-          doc.destroy();
-          return;
-        }
+        if (cancelled) return doc.destroy();
         docRef.current = doc;
         setStatus('ready');
       })
@@ -59,52 +61,65 @@ export default function PdfView({ url, page }: { url: string; page: number }) {
     };
   }, [url]);
 
-  // Render the requested page and fit it to the container.
+  // Render the requested page(s), stacked vertically, then fit to the container.
   useEffect(() => {
     if (status !== 'ready') return;
     const doc = docRef.current;
     if (!doc) return;
     let cancelled = false;
-    let task: any = null;
-    doc
-      .getPage(clamp(page, 1, doc.numPages))
-      .then((pg: any) => {
+    const tasks: any[] = [];
+    const dpr = Math.max(1, window.devicePixelRatio || 1);
+
+    (async () => {
+      let maxW = 0;
+      let firstH = 0;
+      for (let idx = 0; idx < pages.length; idx++) {
+        const pageNo = clamp(pages[idx], 1, doc.numPages);
+        const pg = await doc.getPage(pageNo);
         if (cancelled) return;
-        const dpr = Math.max(1, window.devicePixelRatio || 1);
         const vp = pg.getViewport({ scale: RES * dpr });
-        const canvas = canvasRef.current;
+        const canvas = canvasRefs.current[idx];
         const ctx = canvas?.getContext('2d');
-        if (!canvas || !ctx) return;
+        if (!canvas || !ctx) continue;
         canvas.width = vp.width;
         canvas.height = vp.height;
         const cssW = vp.width / dpr;
         const cssH = vp.height / dpr;
         canvas.style.width = `${cssW}px`;
         canvas.style.height = `${cssH}px`;
-        task = pg.render({ canvasContext: ctx, viewport: vp });
-        task.promise
-          .then(() => {
-            if (cancelled) return;
-            const el = containerRef.current;
-            if (!el) return;
-            const cw = el.clientWidth;
-            const ch = el.clientHeight;
-            const fit = Math.min(cw / cssW, ch / cssH) || 1;
-            fitRef.current = fit;
-            setView({ scale: fit, x: (cw - cssW * fit) / 2, y: (ch - cssH * fit) / 2 });
-          })
-          .catch(() => {});
-      })
-      .catch(() => {});
+        const rt = pg.render({ canvasContext: ctx, viewport: vp });
+        tasks.push(rt);
+        maxW = Math.max(maxW, cssW);
+        if (idx === 0) firstH = cssH;
+        try {
+          await rt.promise;
+        } catch {
+          /* render cancelled */
+        }
+        if (cancelled) return;
+      }
+      // Fit so the first page is fully visible; the user pans down to later pages.
+      const el = containerRef.current;
+      if (!el || !maxW || !firstH) return;
+      const cw = el.clientWidth;
+      const ch = el.clientHeight;
+      const fit = Math.min(cw / maxW, ch / firstH) || 1;
+      fitRef.current = fit * 0.6; // allow zooming out a bit past the fit
+      setView({ scale: fit, x: (cw - maxW * fit) / 2, y: Math.max(0, (ch - firstH * fit) / 2) });
+    })();
+
     return () => {
       cancelled = true;
-      try {
-        task?.cancel();
-      } catch {
-        /* ignore */
+      for (const rt of tasks) {
+        try {
+          rt.cancel();
+        } catch {
+          /* ignore */
+        }
       }
     };
-  }, [page, status]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pagesKey, status]);
 
   // ── pan / pinch / wheel ──
   const rel = (clientX: number, clientY: number) => {
@@ -113,7 +128,7 @@ export default function PdfView({ url, page }: { url: string; page: number }) {
   };
   const zoomAt = (factor: number, cx: number, cy: number) => {
     const v = viewRef.current;
-    const scale = clamp(v.scale * factor, fitRef.current, fitRef.current * 6);
+    const scale = clamp(v.scale * factor, fitRef.current, fitRef.current * 12);
     const k = scale / v.scale;
     setView({ scale, x: cx - (cx - v.x) * k, y: cy - (cy - v.y) * k });
   };
@@ -139,7 +154,7 @@ export default function PdfView({ url, page }: { url: string; page: number }) {
       const [a, b] = [...ptrs.current.values()];
       const dist = Math.hypot(a.x - b.x, a.y - b.y) || 1;
       const p = pinch.current;
-      const scale = clamp((p.scale * dist) / p.dist, fitRef.current, fitRef.current * 6);
+      const scale = clamp((p.scale * dist) / p.dist, fitRef.current, fitRef.current * 12);
       const cx = (a.x + b.x) / 2;
       const cy = (a.y + b.y) / 2;
       const v = viewRef.current;
@@ -149,7 +164,6 @@ export default function PdfView({ url, page }: { url: string; page: number }) {
       p.cx = cx;
       p.cy = cy;
     } else {
-      // single-finger / mouse drag → pan
       const v = viewRef.current;
       setView({ ...v, x: v.x + (cur.x - prev.x), y: v.y + (cur.y - prev.y) });
     }
@@ -163,7 +177,8 @@ export default function PdfView({ url, page }: { url: string; page: number }) {
     zoomAt(Math.exp(-e.deltaY * 0.0015), x, y);
   };
 
-  const btn = 'grid h-8 w-8 place-items-center rounded-lg bg-slate-800/90 text-slate-100 shadow ring-1 ring-white/10 hover:bg-slate-700';
+  const btn =
+    'grid h-8 w-8 place-items-center rounded-lg bg-slate-800/90 text-lg text-slate-100 shadow ring-1 ring-white/10 hover:bg-slate-700';
 
   if (status === 'error') {
     return <div className="grid h-full place-items-center p-4 text-center text-sm text-slate-300">{t('pdfLoadError')}</div>;
@@ -186,16 +201,35 @@ export default function PdfView({ url, page }: { url: string; page: number }) {
         </div>
       ) : null}
       <div
-        className="absolute left-0 top-0 origin-top-left"
-        style={{ transform: `translate(${view.x}px, ${view.y}px) scale(${view.scale})` }}
+        ref={stackRef}
+        className="absolute left-0 top-0 flex origin-top-left flex-col items-center"
+        style={{ transform: `translate(${view.x}px, ${view.y}px) scale(${view.scale})`, gap: `${GAP}px` }}
       >
-        <canvas ref={canvasRef} className="block bg-white shadow-lg" />
+        {pages.map((p, i) => (
+          <canvas
+            key={`${p}-${i}`}
+            ref={(el) => {
+              canvasRefs.current[i] = el;
+            }}
+            className="block bg-white shadow-lg"
+          />
+        ))}
       </div>
       <div className="absolute bottom-2 right-2 flex flex-col gap-1">
-        <button type="button" className={btn} aria-label="zoom in" onClick={() => zoomAt(1.25, (containerRef.current?.clientWidth ?? 0) / 2, (containerRef.current?.clientHeight ?? 0) / 2)}>
+        <button
+          type="button"
+          className={btn}
+          aria-label="zoom in"
+          onClick={() => zoomAt(1.25, (containerRef.current?.clientWidth ?? 0) / 2, (containerRef.current?.clientHeight ?? 0) / 2)}
+        >
           +
         </button>
-        <button type="button" className={btn} aria-label="zoom out" onClick={() => zoomAt(0.8, (containerRef.current?.clientWidth ?? 0) / 2, (containerRef.current?.clientHeight ?? 0) / 2)}>
+        <button
+          type="button"
+          className={btn}
+          aria-label="zoom out"
+          onClick={() => zoomAt(0.8, (containerRef.current?.clientWidth ?? 0) / 2, (containerRef.current?.clientHeight ?? 0) / 2)}
+        >
           −
         </button>
       </div>

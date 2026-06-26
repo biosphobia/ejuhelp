@@ -95,6 +95,9 @@ export interface GenQuestion {
   figure?: string;
   /** For mock-exam questions: 1-based page of the original PDF this question is on. */
   page?: number;
+  /** For mock-exam questions: the 1-based PDF page(s) this question spans (a math 大問
+   *  can run over two pages). When set, the viewer shows exactly these pages. */
+  pages?: number[];
 }
 export interface GenerateResponse {
   questions: GenQuestion[];
