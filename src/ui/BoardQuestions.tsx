@@ -1,5 +1,6 @@
 import { useEffect, useState, type PointerEvent as ReactPointerEvent } from 'react';
 import Markdown, { Inline } from './Markdown';
+import Figure from './Figure';
 import { usePinned } from '../lib/pinned';
 import { usePractice } from '../lib/practice';
 import { useAnswers } from '../lib/answers';
@@ -136,6 +137,7 @@ export default function BoardQuestions() {
       <div className="thin-scroll max-h-[46vh] overflow-y-auto px-3 py-2.5">
         <div className="mb-1 text-[11px] font-semibold uppercase tracking-wide text-slate-400">{q.topic}</div>
         <Markdown text={q.prompt} />
+        {q.figure ? <Figure svg={q.figure} /> : null}
         {mcq ? (
           <div className="mt-2 space-y-1.5">
             {q.choices!.map((c, k) => {

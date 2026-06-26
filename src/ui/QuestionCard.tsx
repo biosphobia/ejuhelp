@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Markdown, { Inline } from './Markdown';
+import Figure from './Figure';
 import { useAnswers } from '../lib/answers';
 import { usePinned } from '../lib/pinned';
 import { explainQuestion } from '../lib/ask';
@@ -50,6 +51,8 @@ export default function QuestionCard({
         {q.topic}
       </div>
       <Markdown text={q.prompt} />
+
+      {q.figure ? <Figure svg={q.figure} /> : null}
 
       {!mcq && !(q.choices?.length) ? (
         <p className="mt-2 text-xs italic text-slate-400">✏️ {t('solveOnBoardHint')}</p>

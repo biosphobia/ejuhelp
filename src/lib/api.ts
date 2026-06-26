@@ -91,6 +91,8 @@ export interface GenQuestion {
   answerIndex: number; // 0-based correct choice, or -1 if not multiple-choice
   answer: string;
   explanation: string;
+  /** Optional simple SVG schematic of the setup, to copy onto the whiteboard. */
+  figure?: string;
 }
 export interface GenerateResponse {
   questions: GenQuestion[];

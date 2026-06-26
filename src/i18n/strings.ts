@@ -381,6 +381,12 @@ export const strings = {
   profileStyle: { en: 'Style', ja: 'スタイル', zh: '风格', tr: 'Stil' },
   profileStruggle: { en: 'Struggle', ja: '苦手', zh: '难点', tr: 'Zorluk' },
   profileStrength: { en: 'Strength', ja: '得意', zh: '强项', tr: 'Güçlü yön' },
+  figureHint: {
+    en: 'Rough sketch — copy it onto your whiteboard',
+    ja: '簡単な図 — ホワイトボードに写してください',
+    zh: '草图——请抄到你的白板上',
+    tr: 'Kaba taslak — beyaz tahtana kopyala',
+  },
   solveOnBoardHint: {
     en: 'No options — solve it by hand on the whiteboard, then use Check my work to grade it.',
     ja: '選択肢はありません。ホワイトボードに手書きで解いてから「答案チェック」で採点してください。',

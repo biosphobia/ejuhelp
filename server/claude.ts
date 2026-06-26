@@ -508,6 +508,21 @@ export interface GenQuestion {
   answerIndex: number;
   answer: string;
   explanation: string;
+  /** Optional simple SVG schematic of the setup, for the student to copy onto the whiteboard. */
+  figure?: string;
+}
+
+// Defence-in-depth for model-produced SVG (we also render it via an <img> data URI,
+// which can't execute scripts): keep it an <svg>, drop scripts/handlers, cap size.
+function sanitizeSvg(svg: unknown): string | undefined {
+  if (typeof svg !== 'string') return undefined;
+  const s = svg.trim();
+  if (!s.startsWith('<svg') || s.length > 8000) return undefined;
+  return s
+    .replace(/<script[\s\S]*?<\/script>/gi, '')
+    .replace(/\son\w+\s*=\s*"[^"]*"/gi, '')
+    .replace(/\son\w+\s*=\s*'[^']*'/gi, '')
+    .replace(/<foreignObject[\s\S]*?<\/foreignObject>/gi, '');
 }
 
 // Evenly spread n question slots across the chosen topics, in random order, so
@@ -563,6 +578,7 @@ export async function generate(args: {
     // Hard grounding in the analyzed past-paper patterns.
     'Ground every question in the documented past-paper archetypes, pattern tags, style notes, printed constants and answer formats in the knowledge base above: mirror the authentic EJU phrasing, structure, figure usage, choice design and difficulty.',
     'CRITICAL: do NOT copy or merely renumber any past question. Invent a genuinely new scenario — different context, values and framing — that tests the SAME underlying concept and fits the same archetype, i.e. the kind of question highly likely to appear on an upcoming EJU.',
+    'Draw on the BREADTH of patterns seen across a decade of EJU papers — the recurring setups, how each topic is typically tested, the phrasing, the multi-step structure and the difficulty curve — so the question genuinely feels like it belongs on the EJU. Capture the pattern and flavour faithfully, but you have real creative freedom in the scenario: do not mimic a single example, and never produce a thinly-disguised value-swap of a past question.',
     isMath
       ? 'FORMAT — EJU Mathematics is NOT multiple choice; it is fill-in-the-blank with single-character answer boxes. CRITICAL: every box holds exactly ONE character — a digit 0-9 or a minus sign — so a number needs one box PER character. Write a numeric blank as a single \\boxed{} whose label has one consecutive capital letter for EACH digit, plus a leading letter for the minus sign when the value can be negative. Examples: the value 14 → \\boxed{AB} (A=1, B=4); the value -3 → \\boxed{AB} (A is the minus sign, B=3); a single digit 5 → \\boxed{A}; a fraction 2/5 → \\dfrac{\\boxed{A}}{\\boxed{B}}. NEVER put a whole multi-digit number or an expression inside one single-letter box. ACCURACY IS PARAMOUNT: before you write a question, SOLVE it completely, then size every box to the EXACT number of characters in its computed value — a single-digit value MUST be a single-letter box (e.g. \\boxed{C}), never two letters; a two-digit or negative value gets two letters; and make sure the whole setup is mathematically consistent with one unique, correct answer (e.g. the intersection of two finite intervals is itself a finite interval, so an inequality describing it must be the bounded form). Label the boxes with consecutive letters A, B, C, … in reading order, exactly like the real example(s) above (which write multi-digit blanks as \\boxed{AB}, \\boxed{IJK}, etc.). Write each question as a clear, SELF-CONTAINED problem (a handful of boxes — not a whole 大問). A sub-part may ask the student to choose the correct expression for a box from a printed numbered list ⓪①②…; you may keep that style. Do NOT give multiple-choice options for the question itself — the student solves it by hand and writes each box.'
       : 'Prefer multiple-choice with 4-5 plausible options where each distractor reflects a realistic student mistake.',
@@ -598,13 +614,19 @@ export async function generate(args: {
     }
   }
 
+  if (!isMath) {
+    parts.push(
+      'If a question involves a spatial/physical setup that a diagram clarifies (forces, inclines, pulleys, circuits, optics/ray diagrams, waves, geometry, graphs), include a "figure": a SIMPLE, clean, LABELED SVG schematic — a rough map the student can copy onto their whiteboard, not a polished illustration. Use a viewBox (e.g. "0 0 320 200"), only basic <line>/<rect>/<circle>/<path>/<polygon>/<text> and small arrowheads, and label key quantities; no <script>, CSS, <image> or external refs. This matters most for PHYSICS. If no diagram is needed, set "figure" to "".'
+    );
+  }
+
   parts.push(`Write everything in ${writeLang(args.lang)}.`);
   parts.push(
     isMath
       ? 'Respond with ONLY a single JSON object, no other text or code fences: ' +
           '{"questions":[{"topic":"<sub-topic>","prompt":"<the full question with all math in LaTeX; write each numeric blank as one \\\\boxed{} whose label has one letter per digit (+ a leading letter for a minus sign), e.g. \\\\boxed{AB} for a two-digit or negative value>","choices":[],"answerIndex":-1,"answer":"<the value of EVERY box-group so the work can be graded, e.g. AB=14, C=5, DE=-3, F/G=2/5>","explanation":"<a clear, step-by-step worked solution that derives each box value>"}]}.'
       : 'Respond with ONLY a single JSON object, no other text or code fences: ' +
-          '{"questions":[{"topic":"<sub-topic>","prompt":"...","choices":["..."],"answerIndex":<0-based index of the correct choice, or -1 if not multiple-choice>,"answer":"<correct answer in words>","explanation":"<clear worked solution>"}]}.'
+          '{"questions":[{"topic":"<sub-topic>","prompt":"...","choices":["..."],"answerIndex":<0-based index of the correct choice, or -1 if not multiple-choice>,"answer":"<correct answer in words>","explanation":"<clear worked solution>","figure":"<optional simple labeled SVG schematic of the setup, or empty string>"}]}.'
   );
 
   const raw = await executeModelCall(
@@ -623,6 +645,7 @@ export async function generate(args: {
       answerIndex: choices && idx >= 0 && idx < choices.length ? idx : -1,
       answer: String(q.answer ?? ''),
       explanation: String(q.explanation ?? ''),
+      figure: sanitizeSvg(q.figure),
     };
   });
   // Math is digit-fill with strict box layouts where a wrong question teaches the
