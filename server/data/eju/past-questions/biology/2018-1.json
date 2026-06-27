@@ -1,0 +1,314 @@
+{
+ "id": "2018-1-biology",
+ "year": 2018,
+ "session": 1,
+ "subject": "biology",
+ "title": "EJU 2018 Biology (Session 1)",
+ "source": "JASSO EJU past paper",
+ "questions": [
+  {
+   "id": "2018-1-bio-1",
+   "answerRow": 1,
+   "en": {
+    "prompt": "EJU 2018 (Session 1) Biology — Question 1. The full question is shown on the exam paper."
+   },
+   "ja": {
+    "prompt": "2018年度（第1回）EJU 生物 問1。問題の全文は問題用紙に表示されています。"
+   },
+   "answerIndex": -1,
+   "answer": {
+    "en": "",
+    "ja": ""
+   },
+   "explanation": {
+    "en": "",
+    "ja": ""
+   }
+  },
+  {
+   "id": "2018-1-bio-2",
+   "answerRow": 2,
+   "en": {
+    "prompt": "EJU 2018 (Session 1) Biology — Question 2. The full question is shown on the exam paper."
+   },
+   "ja": {
+    "prompt": "2018年度（第1回）EJU 生物 問2。問題の全文は問題用紙に表示されています。"
+   },
+   "answerIndex": -1,
+   "answer": {
+    "en": "",
+    "ja": ""
+   },
+   "explanation": {
+    "en": "",
+    "ja": ""
+   }
+  },
+  {
+   "id": "2018-1-bio-3",
+   "answerRow": 3,
+   "en": {
+    "prompt": "EJU 2018 (Session 1) Biology — Question 3. The full question is shown on the exam paper."
+   },
+   "ja": {
+    "prompt": "2018年度（第1回）EJU 生物 問3。問題の全文は問題用紙に表示されています。"
+   },
+   "answerIndex": -1,
+   "answer": {
+    "en": "",
+    "ja": ""
+   },
+   "explanation": {
+    "en": "",
+    "ja": ""
+   }
+  },
+  {
+   "id": "2018-1-bio-4",
+   "answerRow": 4,
+   "en": {
+    "prompt": "EJU 2018 (Session 1) Biology — Question 4. The full question is shown on the exam paper."
+   },
+   "ja": {
+    "prompt": "2018年度（第1回）EJU 生物 問4。問題の全文は問題用紙に表示されています。"
+   },
+   "answerIndex": -1,
+   "answer": {
+    "en": "",
+    "ja": ""
+   },
+   "explanation": {
+    "en": "",
+    "ja": ""
+   }
+  },
+  {
+   "id": "2018-1-bio-5",
+   "answerRow": 5,
+   "en": {
+    "prompt": "EJU 2018 (Session 1) Biology — Question 5. The full question is shown on the exam paper."
+   },
+   "ja": {
+    "prompt": "2018年度（第1回）EJU 生物 問5。問題の全文は問題用紙に表示されています。"
+   },
+   "answerIndex": -1,
+   "answer": {
+    "en": "",
+    "ja": ""
+   },
+   "explanation": {
+    "en": "",
+    "ja": ""
+   }
+  },
+  {
+   "id": "2018-1-bio-6",
+   "answerRow": 6,
+   "en": {
+    "prompt": "EJU 2018 (Session 1) Biology — Question 6. The full question is shown on the exam paper."
+   },
+   "ja": {
+    "prompt": "2018年度（第1回）EJU 生物 問6。問題の全文は問題用紙に表示されています。"
+   },
+   "answerIndex": -1,
+   "answer": {
+    "en": "",
+    "ja": ""
+   },
+   "explanation": {
+    "en": "",
+    "ja": ""
+   }
+  },
+  {
+   "id": "2018-1-bio-7",
+   "answerRow": 7,
+   "en": {
+    "prompt": "EJU 2018 (Session 1) Biology — Question 7. The full question is shown on the exam paper."
+   },
+   "ja": {
+    "prompt": "2018年度（第1回）EJU 生物 問7。問題の全文は問題用紙に表示されています。"
+   },
+   "answerIndex": -1,
+   "answer": {
+    "en": "",
+    "ja": ""
+   },
+   "explanation": {
+    "en": "",
+    "ja": ""
+   }
+  },
+  {
+   "id": "2018-1-bio-8",
+   "answerRow": 8,
+   "en": {
+    "prompt": "EJU 2018 (Session 1) Biology — Question 8. The full question is shown on the exam paper."
+   },
+   "ja": {
+    "prompt": "2018年度（第1回）EJU 生物 問8。問題の全文は問題用紙に表示されています。"
+   },
+   "answerIndex": -1,
+   "answer": {
+    "en": "",
+    "ja": ""
+   },
+   "explanation": {
+    "en": "",
+    "ja": ""
+   }
+  },
+  {
+   "id": "2018-1-bio-9",
+   "answerRow": 9,
+   "en": {
+    "prompt": "EJU 2018 (Session 1) Biology — Question 9. The full question is shown on the exam paper."
+   },
+   "ja": {
+    "prompt": "2018年度（第1回）EJU 生物 問9。問題の全文は問題用紙に表示されています。"
+   },
+   "answerIndex": -1,
+   "answer": {
+    "en": "",
+    "ja": ""
+   },
+   "explanation": {
+    "en": "",
+    "ja": ""
+   }
+  },
+  {
+   "id": "2018-1-bio-10",
+   "answerRow": 10,
+   "en": {
+    "prompt": "EJU 2018 (Session 1) Biology — Question 10. The full question is shown on the exam paper."
+   },
+   "ja": {
+    "prompt": "2018年度（第1回）EJU 生物 問10。問題の全文は問題用紙に表示されています。"
+   },
+   "answerIndex": -1,
+   "answer": {
+    "en": "",
+    "ja": ""
+   },
+   "explanation": {
+    "en": "",
+    "ja": ""
+   }
+  },
+  {
+   "id": "2018-1-bio-11",
+   "answerRow": 11,
+   "en": {
+    "prompt": "EJU 2018 (Session 1) Biology — Question 11. The full question is shown on the exam paper."
+   },
+   "ja": {
+    "prompt": "2018年度（第1回）EJU 生物 問11。問題の全文は問題用紙に表示されています。"
+   },
+   "answerIndex": -1,
+   "answer": {
+    "en": "",
+    "ja": ""
+   },
+   "explanation": {
+    "en": "",
+    "ja": ""
+   }
+  },
+  {
+   "id": "2018-1-bio-12",
+   "answerRow": 12,
+   "en": {
+    "prompt": "EJU 2018 (Session 1) Biology — Question 12. The full question is shown on the exam paper."
+   },
+   "ja": {
+    "prompt": "2018年度（第1回）EJU 生物 問12。問題の全文は問題用紙に表示されています。"
+   },
+   "answerIndex": -1,
+   "answer": {
+    "en": "",
+    "ja": ""
+   },
+   "explanation": {
+    "en": "",
+    "ja": ""
+   }
+  },
+  {
+   "id": "2018-1-bio-13",
+   "answerRow": 13,
+   "en": {
+    "prompt": "EJU 2018 (Session 1) Biology — Question 13. The full question is shown on the exam paper."
+   },
+   "ja": {
+    "prompt": "2018年度（第1回）EJU 生物 問13。問題の全文は問題用紙に表示されています。"
+   },
+   "answerIndex": -1,
+   "answer": {
+    "en": "",
+    "ja": ""
+   },
+   "explanation": {
+    "en": "",
+    "ja": ""
+   }
+  },
+  {
+   "id": "2018-1-bio-14",
+   "answerRow": 14,
+   "en": {
+    "prompt": "EJU 2018 (Session 1) Biology — Question 14. The full question is shown on the exam paper."
+   },
+   "ja": {
+    "prompt": "2018年度（第1回）EJU 生物 問14。問題の全文は問題用紙に表示されています。"
+   },
+   "answerIndex": -1,
+   "answer": {
+    "en": "",
+    "ja": ""
+   },
+   "explanation": {
+    "en": "",
+    "ja": ""
+   }
+  },
+  {
+   "id": "2018-1-bio-15",
+   "answerRow": 15,
+   "en": {
+    "prompt": "EJU 2018 (Session 1) Biology — Question 15. The full question is shown on the exam paper."
+   },
+   "ja": {
+    "prompt": "2018年度（第1回）EJU 生物 問15。問題の全文は問題用紙に表示されています。"
+   },
+   "answerIndex": -1,
+   "answer": {
+    "en": "",
+    "ja": ""
+   },
+   "explanation": {
+    "en": "",
+    "ja": ""
+   }
+  },
+  {
+   "id": "2018-1-bio-16",
+   "answerRow": 16,
+   "en": {
+    "prompt": "EJU 2018 (Session 1) Biology — Question 16. The full question is shown on the exam paper."
+   },
+   "ja": {
+    "prompt": "2018年度（第1回）EJU 生物 問16。問題の全文は問題用紙に表示されています。"
+   },
+   "answerIndex": -1,
+   "answer": {
+    "en": "",
+    "ja": ""
+   },
+   "explanation": {
+    "en": "",
+    "ja": ""
+   }
+  }
+ ]
+}
