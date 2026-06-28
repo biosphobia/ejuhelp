@@ -11,15 +11,21 @@ function svgToDataUri(svg: string): string {
   return `data:image/svg+xml;base64,${btoa(bin)}`;
 }
 
-// Make sure the <svg> has a sizing hint. An <img> of an SVG with neither a viewBox nor
-// width/height has no intrinsic size and collapses to zero height (so the diagram shows
-// nothing). If both are missing we add a default viewBox.
-function ensureSized(svg: string): string {
+// Normalize the <svg> root so it renders inside an <img> data URI:
+//  - xmlns is REQUIRED — an SVG loaded via <img> is a standalone document, and without
+//    the namespace the browser refuses to render it (broken-image icon). Models routinely
+//    omit it (it's implicit for inline SVG), which made every figure fail.
+//  - a viewBox (or width+height) is needed so the <img> has an intrinsic size and doesn't
+//    collapse to zero height.
+function normalizeSvg(svg: string): string {
   const open = svg.match(/<svg\b[^>]*>/i);
   if (!open) return svg;
   const tag = open[0];
-  if (/\bviewBox\s*=/i.test(tag) || (/\bwidth\s*=/i.test(tag) && /\bheight\s*=/i.test(tag))) return svg;
-  return svg.replace(tag, tag.replace(/<svg\b/i, '<svg viewBox="0 0 320 200"'));
+  let next = tag;
+  if (!/\bxmlns\s*=/i.test(next)) next = next.replace(/<svg\b/i, '<svg xmlns="http://www.w3.org/2000/svg"');
+  if (!/\bviewBox\s*=/i.test(next) && !(/\bwidth\s*=/i.test(next) && /\bheight\s*=/i.test(next)))
+    next = next.replace(/<svg\b/i, '<svg viewBox="0 0 320 200"');
+  return next === tag ? svg : svg.replace(tag, next);
 }
 
 /** Renders a coach/generator-produced SVG schematic. We render it through an
@@ -27,7 +33,7 @@ function ensureSized(svg: string): string {
  *  cleanly. Meant as a rough map the student copies onto the whiteboard. */
 export default function Figure({ svg }: { svg: string }) {
   const t = useT();
-  const src = useMemo(() => svgToDataUri(ensureSized(svg)), [svg]);
+  const src = useMemo(() => svgToDataUri(normalizeSvg(svg)), [svg]);
   return (
     <figure className="my-2 overflow-hidden rounded-xl border border-slate-200 bg-white">
       <img

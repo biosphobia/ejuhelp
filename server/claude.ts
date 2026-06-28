@@ -527,12 +527,19 @@ function sanitizeSvg(svg: unknown): string | undefined {
   const end = s.toLowerCase().lastIndexOf('</svg>');
   if (end !== -1) s = s.slice(0, end + 6);
   if (s.length > 12000) return undefined;
-  return s
+  s = s
     .replace(/<script[\s\S]*?<\/script>/gi, '')
     .replace(/\son\w+\s*=\s*"[^"]*"/gi, '')
     .replace(/\son\w+\s*=\s*'[^']*'/gi, '')
     .replace(/<foreignObject[\s\S]*?<\/foreignObject>/gi, '')
     .trim();
+  // An <svg> shown via an <img> data URI MUST declare the SVG namespace or browsers
+  // refuse to render it (the diagram shows a broken-image icon). Models routinely omit
+  // it, so add it when missing.
+  if (!/<svg[^>]*\bxmlns\s*=/i.test(s)) {
+    s = s.replace(/<svg\b/i, '<svg xmlns="http://www.w3.org/2000/svg"');
+  }
+  return s;
 }
 
 // Evenly spread n question slots across the chosen topics, in random order, so
@@ -629,7 +636,7 @@ export async function generate(args: {
       'FIGURE: Decide per question whether a diagram is needed — do NOT force one on every question. ' +
         'A diagram IS needed when the setup is spatial/physical and hard to grasp from words alone (inclined planes, pulleys, blocks & forces/free-body, circuits, optics & ray diagrams, wave snapshots, projectile/geometry setups, labelled graphs). ' +
         'A diagram is NOT needed for purely numeric, conceptual or definition questions — for those set "figure" to "" (empty string). ' +
-        'When you DO include a figure, output a SIMPLE, clean, LABELED SVG schematic the student can copy onto their whiteboard (a rough map, not a polished illustration). Requirements so it renders: start the string with "<svg" (NO "<?xml ...?>" prologue), include a viewBox (e.g. viewBox="0 0 320 200") AND width="320" height="200", and draw with VISIBLE strokes — every shape needs stroke="#111" (and fill="none" or a light fill); never rely on a default/none color or it will be invisible. ' +
+        'When you DO include a figure, output a SIMPLE, clean, LABELED SVG schematic the student can copy onto their whiteboard (a rough map, not a polished illustration). Requirements so it renders: start the string with "<svg" (NO "<?xml ...?>" prologue), include xmlns="http://www.w3.org/2000/svg" (REQUIRED — it will not render without it), include a viewBox (e.g. viewBox="0 0 320 200") AND width="320" height="200", and draw with VISIBLE strokes — every shape needs stroke="#111" (and fill="none" or a light fill); never rely on a default/none color or it will be invisible. ' +
         'Use only <line>/<rect>/<circle>/<ellipse>/<path>/<polygon>/<polyline>/<text> plus small arrowheads, and label the key quantities. No <script>, <style>/CSS, <image>, <foreignObject> or external references. This matters most for PHYSICS.'
     );
   }
