@@ -55,7 +55,6 @@ export default function Whiteboard() {
     let drawKind: 'pen' | 'finger' | 'touch-pen' | null = null; 
     let activeStylusTouchId: number | null = null; 
     let touchPenStartTime = 0; // Ensures we don't upgrade stale/stuck touches
-    let liveLastIdx = 0; // last live stroke point already painted incrementally
 
     const touches = new Map<number, { x: number; y: number }>();
     let gestureActive = false;
@@ -166,7 +165,7 @@ export default function Whiteboard() {
       ctx.drawImage(cache, 0, 0);
       if (drawing && drawing.points.length) {
         setWorldTransform(ctx);
-        drawStroke(ctx, { id: 'tmp', color: drawing.color, size: drawing.size, points: drawing.points });
+        drawStroke(ctx, { id: 'tmp', color: drawing.color, size: drawing.size, points: drawing.points }, { live: true });
       }
       if (shapeDraft) {
         setWorldTransform(ctx);
@@ -341,29 +340,7 @@ export default function Whiteboard() {
         doErase(w.x, w.y);
       } else {
         drawing = { color, size, points: [{ x: w.x, y: w.y, p: pressureFor(e) }] };
-        liveLastIdx = 0;
       }
-    }
-
-    // Draw only the newest segment(s) of the in-progress stroke directly onto the
-    // canvas (no full clear/blit) — the lowest-latency path for live ink.
-    function drawLiveSegments() {
-      if (!drawing) return;
-      const pts = drawing.points;
-      if (pts.length < 2 || liveLastIdx >= pts.length - 1) {
-        liveLastIdx = Math.max(liveLastIdx, pts.length - 1);
-        return;
-      }
-      setWorldTransform(ctx);
-      ctx.strokeStyle = INK_HEX[drawing.color];
-      ctx.lineWidth = drawing.size;
-      ctx.lineCap = 'round';
-      ctx.lineJoin = 'round';
-      ctx.beginPath();
-      ctx.moveTo(pts[liveLastIdx].x, pts[liveLastIdx].y);
-      for (let i = liveLastIdx + 1; i < pts.length; i++) ctx.lineTo(pts[i].x, pts[i].y);
-      ctx.stroke();
-      liveLastIdx = pts.length - 1;
     }
 
     function endStroke() {
@@ -835,7 +812,7 @@ export default function Whiteboard() {
             const w = toWorld(e.clientX, e.clientY);
             if (drawing) {
                 drawing.points.push({ x: w.x, y: w.y, p: pressureFor(e) });
-                drawLiveSegments();
+                paintNow();
             }
             return;
         }
@@ -913,7 +890,7 @@ export default function Whiteboard() {
             const w = toWorld(ce.clientX, ce.clientY);
             drawing.points.push({ x: w.x, y: w.y, p: pressureFor(ce) });
           }
-          drawLiveSegments(); // incremental, low-latency
+          paintNow(); // re-render the freehand stroke (synchronous, low-latency)
         } else {
           eraserScreen = localPt(e.clientX, e.clientY);
           const w = toWorld(e.clientX, e.clientY);
@@ -979,7 +956,6 @@ export default function Whiteboard() {
                doErase(w.x, w.y);
            } else {
                drawing = { color, size, points: [w] };
-               liveLastIdx = 0;
            }
            drawId = t.identifier;
            drawKind = 'touch-pen';
@@ -1001,7 +977,7 @@ export default function Whiteboard() {
         if (t.identifier === activeStylusTouchId && drawKind === 'touch-pen') {
            if (drawing) {
                drawing.points.push(toWorldPt(t));
-               drawLiveSegments();
+               paintNow();
            } else if (erasing) {
                eraserScreen = localPt(t.clientX, t.clientY);
                const w = toWorldPt(t);
