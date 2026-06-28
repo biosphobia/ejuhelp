@@ -516,13 +516,23 @@ export interface GenQuestion {
 // which can't execute scripts): keep it an <svg>, drop scripts/handlers, cap size.
 function sanitizeSvg(svg: unknown): string | undefined {
   if (typeof svg !== 'string') return undefined;
-  const s = svg.trim();
-  if (!s.startsWith('<svg') || s.length > 8000) return undefined;
+  // Drop any leading XML declaration / DOCTYPE / BOM the model sometimes prepends,
+  // then require an actual <svg> root. (Without this, "<?xml …?><svg>" was rejected,
+  // so the diagram silently never appeared.)
+  let s = svg.replace(/^﻿/, '').trim();
+  s = s.replace(/^<\?xml[\s\S]*?\?>\s*/i, '').replace(/^<!DOCTYPE[\s\S]*?>\s*/i, '').trim();
+  const start = s.search(/<svg[\s>]/i);
+  if (start === -1) return undefined;
+  s = s.slice(start);
+  const end = s.toLowerCase().lastIndexOf('</svg>');
+  if (end !== -1) s = s.slice(0, end + 6);
+  if (s.length > 12000) return undefined;
   return s
     .replace(/<script[\s\S]*?<\/script>/gi, '')
     .replace(/\son\w+\s*=\s*"[^"]*"/gi, '')
     .replace(/\son\w+\s*=\s*'[^']*'/gi, '')
-    .replace(/<foreignObject[\s\S]*?<\/foreignObject>/gi, '');
+    .replace(/<foreignObject[\s\S]*?<\/foreignObject>/gi, '')
+    .trim();
 }
 
 // Evenly spread n question slots across the chosen topics, in random order, so
@@ -616,7 +626,11 @@ export async function generate(args: {
 
   if (!isMath) {
     parts.push(
-      'If a question involves a spatial/physical setup that a diagram clarifies (forces, inclines, pulleys, circuits, optics/ray diagrams, waves, geometry, graphs), include a "figure": a SIMPLE, clean, LABELED SVG schematic — a rough map the student can copy onto their whiteboard, not a polished illustration. Use a viewBox (e.g. "0 0 320 200"), only basic <line>/<rect>/<circle>/<path>/<polygon>/<text> and small arrowheads, and label key quantities; no <script>, CSS, <image> or external refs. This matters most for PHYSICS. If no diagram is needed, set "figure" to "".'
+      'FIGURE: Decide per question whether a diagram is needed — do NOT force one on every question. ' +
+        'A diagram IS needed when the setup is spatial/physical and hard to grasp from words alone (inclined planes, pulleys, blocks & forces/free-body, circuits, optics & ray diagrams, wave snapshots, projectile/geometry setups, labelled graphs). ' +
+        'A diagram is NOT needed for purely numeric, conceptual or definition questions — for those set "figure" to "" (empty string). ' +
+        'When you DO include a figure, output a SIMPLE, clean, LABELED SVG schematic the student can copy onto their whiteboard (a rough map, not a polished illustration). Requirements so it renders: start the string with "<svg" (NO "<?xml ...?>" prologue), include a viewBox (e.g. viewBox="0 0 320 200") AND width="320" height="200", and draw with VISIBLE strokes — every shape needs stroke="#111" (and fill="none" or a light fill); never rely on a default/none color or it will be invisible. ' +
+        'Use only <line>/<rect>/<circle>/<ellipse>/<path>/<polygon>/<polyline>/<text> plus small arrowheads, and label the key quantities. No <script>, <style>/CSS, <image>, <foreignObject> or external references. This matters most for PHYSICS.'
     );
   }
 
