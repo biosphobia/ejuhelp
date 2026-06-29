@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-import { fetchTopics, fetchStudySheet, fetchTopicMastery, type TopicAttemptDTO } from './api';
-import { useProgress, type Attempt } from './userdata';
+import { fetchTopics, fetchStudySheet, fetchTopicMastery, fetchLessonPlan, type TopicAttemptDTO, type LessonPlanPhaseDTO } from './api';
+import { useProgress, summarize, type Attempt } from './userdata';
 import { useUI, type Subject } from './ui';
 
 // ── Taxonomy tree (the Mindmap backbone) ──
@@ -52,9 +52,16 @@ interface StudyMapState {
   busy: Record<string, boolean>;
   rev: number;
 
+  // Lesson plan: ordered phases of node lessons, per subject, + per-lesson completion.
+  plans: Partial<Record<Subject, { phases: LessonPlanPhaseDTO[]; ts: number }>>;
+  planLang: Partial<Record<Subject, string>>;
+  done: Record<string, true>; // key `${subject}:${nodeId}`
+
   ensureTree: (subject: Subject) => Promise<void>;
   studySheet: (subject: Subject, nodeId: string, force?: boolean) => Promise<void>;
   masteryRead: (subject: Subject, nodeId: string, force?: boolean) => Promise<void>;
+  lessonPlan: (subject: Subject, force?: boolean) => Promise<void>;
+  toggleDone: (subject: Subject, nodeId: string) => void;
 }
 
 export const useStudyMap = create<StudyMapState>()(
@@ -69,6 +76,40 @@ export const useStudyMap = create<StudyMapState>()(
       reads: {},
       busy: {},
       rev: 0,
+      plans: {},
+      planLang: {},
+      done: {},
+
+      lessonPlan: async (subject, force) => {
+        const lang = useUI.getState().lang;
+        const st = get();
+        if (!force && st.plans[subject]?.phases.length && st.planLang[subject] === lang) return;
+        if (st.busy['plan:' + subject]) return;
+        set((s) => ({ busy: { ...s.busy, ['plan:' + subject]: true } }));
+        try {
+          // Prioritize the student's weak topics (English coach labels) in the ordering.
+          const attempts = useProgress.getState().attempts.filter((a) => (a.subject || subject) === subject);
+          const weak = summarize(attempts).topics.filter((t) => t.total >= 2 && t.acc < 0.6).slice(0, 6).map((t) => t.topic);
+          const r = await fetchLessonPlan({ subject, lang, weak });
+          set((s) => ({
+            plans: { ...s.plans, [subject]: { phases: r.phases, ts: Date.now() } },
+            planLang: { ...s.planLang, [subject]: lang },
+            busy: { ...s.busy, ['plan:' + subject]: false },
+            rev: s.rev + 1,
+          }));
+        } catch {
+          set((s) => ({ busy: { ...s.busy, ['plan:' + subject]: false } }));
+        }
+      },
+
+      toggleDone: (subject, nodeId) =>
+        set((s) => {
+          const k = key(subject, nodeId);
+          const done = { ...s.done };
+          if (done[k]) delete done[k];
+          else done[k] = true;
+          return { done, rev: s.rev + 1 };
+        }),
 
       ensureTree: async (subject) => {
         const lang = useUI.getState().lang;
@@ -147,8 +188,8 @@ export const useStudyMap = create<StudyMapState>()(
     }),
     {
       name: 'eju-studymap',
-      // Only the generated text caches are worth persisting; the tree/matcher are refetched.
-      partialize: (s) => ({ sheets: s.sheets, reads: s.reads }),
+      // Persist the generated caches + plan + completion; the tree/matcher are refetched.
+      partialize: (s) => ({ sheets: s.sheets, reads: s.reads, plans: s.plans, planLang: s.planLang, done: s.done }),
     }
   )
 );

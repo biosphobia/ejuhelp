@@ -345,6 +345,8 @@ export const strings = {
     tr: 'Zihin Haritandaki tüm kayıtlı {subject} kavramları silinsin mi? Bu geri alınamaz.',
   },
   mindmapTitle: { en: 'Mindmap', ja: 'マインドマップ', zh: '思维导图', tr: 'Zihin Haritası' },
+  mindmapMap: { en: 'Map', ja: 'マップ', zh: '地图', tr: 'Harita' },
+  mindmapPlan: { en: 'Plan', ja: '学習計画', zh: '学习计划', tr: 'Plan' },
   mindmapEmpty: {
     en: 'No topics available for this subject yet.',
     ja: 'この科目のトピックはまだありません。',

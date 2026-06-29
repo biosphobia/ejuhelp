@@ -9,6 +9,8 @@ import {
   chooseArchetypeExamples,
   randomArchetypeExamples,
   nodeContext,
+  topicsFor,
+  subtopicsFor,
   SUBJECTS,
   type PastExample,
   type Subject,
@@ -1124,6 +1126,68 @@ export async function topicMastery(args: {
     args.model, args.userKey, args.subject, args.lang, undefined, [{ role: 'user', content: userText }], 1500, false
   );
   return { text: raw.trim() };
+}
+
+// ─── Lesson plan ───
+// A structured, prioritized path through the taxonomy nodes that takes a student to a
+// high EJU score in a few months. Each lesson references a real node id, so the client
+// links it to that node's study sheet/practice.
+export interface LessonPlanLesson {
+  id: string;
+  label: string;
+  why: string;
+}
+export interface LessonPlanPhase {
+  title: string;
+  lessons: LessonPlanLesson[];
+}
+
+export async function lessonPlan(args: {
+  subject: Subject;
+  lang: Lang;
+  weak?: string[];
+  model?: string;
+  userKey?: string;
+}): Promise<{ phases: LessonPlanPhase[] }> {
+  const topics = topicsFor(args.subject, 'en');
+  const subs = subtopicsFor(args.subject, 'en');
+  if (!topics.length) return { phases: [] };
+  const catalog = [
+    ...topics.map((t) => `${t.id}: ${t.name} (major topic)`),
+    ...subs.map((s) => `${s.id}: ${s.name} (sub-topic of ${s.group})`),
+  ].join('\n');
+  const weak = (args.weak ?? []).map((w) => String(w).trim()).filter(Boolean).slice(0, 8);
+  const userText = [
+    `Build a structured, prioritized EJU ${args.subject} study plan that takes a motivated student from the basics to a HIGH EJU score in a few months of focused study.`,
+    'Organize it into 3–5 PHASES in a sensible learning order (e.g. foundations → core high-yield topics → advanced & integration → exam-readiness / weak-point cleanup). Give each phase a short, motivating title.',
+    'Each phase has an ORDERED list of lessons. Every lesson MUST be one of the taxonomy nodes in the catalog below, referenced by its EXACT id. Order lessons by what PROVABLY recurs most on real EJU papers AND by prerequisite order (foundational ideas before things that build on them).',
+    'Cover the EJU-relevant nodes (you may leave out clearly peripheral ones), each at most once. Do NOT invent nodes or ids, and do NOT output anything not in the catalog.',
+    weak.length
+      ? `The student is currently WEAK on: ${weak.join(', ')}. Give these extra priority — schedule them a little earlier and make sure they are included.`
+      : '',
+    'For each lesson give a ONE-LINE "why": what it covers and why it is high-yield on the EJU. Be concrete and exam-focused, not generic.',
+    `Write the phase titles and the "why" lines in ${writeLang(args.lang)}.`,
+    'Respond with ONLY JSON, no code fences: {"phases":[{"title":"...","lessons":[{"id":"<node id from the catalog>","why":"..."}]}]}.',
+    '',
+    'Taxonomy catalog (id: label):',
+    catalog,
+  ].join('\n');
+  const raw = await executeModelCall(
+    args.model, args.userKey, args.subject, args.lang, undefined, [{ role: 'user', content: userText }], 4000, false
+  );
+  const parsed = extractJson<{ phases?: any[] }>(raw, { phases: [] });
+  const valid = new Set<string>([...topics.map((t) => t.id), ...subs.map((s) => s.id)]);
+  const seen = new Set<string>();
+  const phases: LessonPlanPhase[] = (parsed.phases ?? [])
+    .map((p: any) => ({
+      title: String(p?.title ?? '').trim() || 'Study',
+      lessons: (Array.isArray(p?.lessons) ? p.lessons : [])
+        .map((l: any) => ({ id: String(l?.id ?? '').trim(), why: String(l?.why ?? '').trim() }))
+        .filter((l: any) => valid.has(l.id) && !seen.has(l.id) && (seen.add(l.id), true))
+        .map((l: any) => ({ id: l.id, label: labelFor(args.subject, l.id, args.lang), why: l.why })),
+    }))
+    .filter((p: LessonPlanPhase) => p.lessons.length);
+  return { phases };
 }
 
 // ─── Mindmap coach ───

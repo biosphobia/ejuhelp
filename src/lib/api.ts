@@ -214,6 +214,19 @@ export const fetchTopicMastery = (p: {
   history: TopicAttemptDTO[];
 }) => call<{ text: string }>('claude/topic-mastery', p);
 
+export interface LessonPlanLessonDTO {
+  id: string;
+  label: string;
+  why: string;
+}
+export interface LessonPlanPhaseDTO {
+  title: string;
+  lessons: LessonPlanLessonDTO[];
+}
+/** A structured, prioritized EJU study path (ordered phases of topic-node lessons). */
+export const fetchLessonPlan = (p: { subject: Subject; lang: Lang; weak?: string[] }) =>
+  call<{ phases: LessonPlanPhaseDTO[] }>('claude/lesson-plan', p);
+
 export interface ExamMeta {
   id: string;
   year: number;

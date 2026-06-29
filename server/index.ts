@@ -6,7 +6,7 @@ import { dirname, join } from 'node:path';
 import { existsSync } from 'node:fs';
 import { requireAuth } from './auth';
 import { topicsFor, subtopicsFor, mockExamList, mockExam, SUBJECTS, type Subject } from './eju';
-import { hasApiKey, ask, generate, check, explainBoard, keypoints, extractConcepts, mindmapCoach, topicStudySheet, topicMastery } from './claude';
+import { hasApiKey, ask, generate, check, explainBoard, keypoints, extractConcepts, mindmapCoach, topicStudySheet, topicMastery, lessonPlan } from './claude';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const app = express();
@@ -237,6 +237,26 @@ app.post('/api/claude/topic-mastery', requireAuth, async (req: Request, res: Res
         lang: toLang(lang),
         topicId,
         history: Array.isArray(history) ? history.slice(0, 30) : [],
+        model,
+        userKey,
+      })
+    );
+  } catch (e) {
+    handleErr(e, res);
+  }
+});
+
+// Structured, prioritized EJU lesson plan (ordered path through the topic nodes).
+app.post('/api/claude/lesson-plan', requireAuth, async (req: Request, res: Response) => {
+  try {
+    const { subject, lang, weak } = req.body ?? {};
+    const { model, userKey } = getAiContext(req);
+    if (!isSubject(subject)) return res.status(400).json({ error: 'bad_subject' });
+    res.json(
+      await lessonPlan({
+        subject,
+        lang: toLang(lang),
+        weak: Array.isArray(weak) ? weak.map(String).slice(0, 10) : [],
         model,
         userKey,
       })
