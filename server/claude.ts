@@ -264,6 +264,12 @@ function extractJson<T>(raw: string, fallback: T): T {
 
 const writeLang = (lang: Lang) => LANG_NAME[lang];
 
+// Questions are always GENERATED in one fixed base language so the generation method
+// (grounding, archetypes, difficulty, math verification) is identical regardless of the
+// user's language. The output is then translated to the selected language. EJU booklets
+// are themselves bilingual JA/EN, so English is a faithful base.
+const GEN_LANG: Lang = 'en';
+
 function cleanKeyPoints(arr: any): KeyPointDTO[] {
   if (!Array.isArray(arr)) return [];
   return arr
@@ -610,10 +616,10 @@ export async function generate(args: {
       );
   } else if (selected.length) {
     const assigned = sampleAssign(selected, n);
-    const examples = chooseArchetypeExamples(args.subject, assigned, args.lang);
+    const examples = chooseArchetypeExamples(args.subject, assigned, GEN_LANG);
     parts.push('Assign the questions to topics exactly as follows (chosen at random for you). Set each question\'s "topic" field to its assigned sub-topic:');
     assigned.forEach((id, i) => {
-      const label = labelFor(args.subject, id, args.lang);
+      const label = labelFor(args.subject, id, GEN_LANG);
       const ex = examples[i];
       parts.push(
         ex
@@ -622,7 +628,7 @@ export async function generate(args: {
       );
     });
   } else {
-    const examples = randomArchetypeExamples(args.subject, args.lang, n);
+    const examples = randomArchetypeExamples(args.subject, GEN_LANG, n);
     if (examples.length) {
       parts.push('Spread the questions across the most exam-relevant topics. Emulate the STYLE, STRUCTURE and DIFFICULTY of these real past questions, each on its own fresh scenario (do NOT reproduce them):');
       examples.forEach((ex, i) => parts.push(`${i + 1}. ${exampleToText(ex)}`));
@@ -641,7 +647,7 @@ export async function generate(args: {
     );
   }
 
-  parts.push(`Write everything in ${writeLang(args.lang)}.`);
+  parts.push(`Write everything in ${writeLang(GEN_LANG)}.`);
   parts.push(
     isMath
       ? 'Respond with ONLY a single JSON object, no other text or code fences: ' +
@@ -651,7 +657,7 @@ export async function generate(args: {
   );
 
   const raw = await executeModelCall(
-    args.model, args.userKey, args.subject, args.lang, undefined, [{ role: 'user', content: parts.join('\n') }], 16000
+    args.model, args.userKey, args.subject, GEN_LANG, undefined, [{ role: 'user', content: parts.join('\n') }], 16000
   );
 
   const parsed = extractJson<{ questions?: any[] }>(raw, { questions: [] });
@@ -671,9 +677,68 @@ export async function generate(args: {
   });
   // Math is digit-fill with strict box layouts where a wrong question teaches the
   // student wrong — run an independent verification pass that re-solves each one
-  // and fixes/drops it before returning.
-  if (isMath) return { questions: await verifyMathQuestions(args, questions) };
-  return { questions };
+  // and fixes/drops it before returning. (Verification runs in the base language too.)
+  const base = isMath ? await verifyMathQuestions({ ...args, lang: GEN_LANG }, questions) : questions;
+  // Generation is language-independent; the OUTPUT is translated to the student's
+  // chosen language as a separate step that leaves the math/figures untouched.
+  const translated = await translateQuestions(base, args.subject, args.lang, args.model, args.userKey);
+  return { questions: translated };
+}
+
+// Translate generated questions into the student's language WITHOUT changing the
+// problems. Only the natural-language wording is translated — all LaTeX, \boxed{} box
+// labels, numbers, units, formulas, choice order and figures are preserved verbatim, so
+// the generation method (and the math) is untouched.
+async function translateQuestions(
+  questions: GenQuestion[],
+  subject: Subject,
+  lang: Lang,
+  model?: string,
+  userKey?: string
+): Promise<GenQuestion[]> {
+  if (lang === GEN_LANG || !questions.length) return questions;
+  const payload = questions.map((q, i) => ({
+    n: i + 1,
+    topic: q.topic,
+    prompt: q.prompt,
+    choices: q.choices ?? null,
+    answer: q.answer,
+    explanation: q.explanation,
+  }));
+  const userText = [
+    `Translate these EJU ${subject} practice questions into ${LANG_NAME[lang]}. This is ONLY a translation — do NOT solve, change, add, remove, reorder or renumber anything; keep the exact same questions and meaning.`,
+    'PRESERVE VERBATIM, do not translate or alter: every LaTeX expression (anything between $...$ or $$...$$), every \\boxed{...} and the letters inside it, all numbers, variable names, units, chemical formulas, and the number and order of the choices. Keep answer-key strings such as "AB=14, C=5, DE=-3" exactly as given.',
+    `Translate only the surrounding natural-language wording (topic label, question prose, the wording of each choice, explanation prose) into ${LANG_NAME[lang]}.`,
+    'Respond with ONLY a JSON object, no code fences: {"questions":[{"n":1,"topic":"...","prompt":"...","choices":["..."] or null,"answer":"...","explanation":"..."}, ...]} — same order and count as the input.',
+    '',
+    JSON.stringify(payload),
+  ].join('\n');
+  try {
+    const raw = await executeModelCall(model, userKey, subject, lang, undefined, [{ role: 'user', content: userText }], 16000);
+    const parsed = extractJson<{ questions?: any[] }>(raw, { questions: [] });
+    const byN = new Map<number, any>();
+    for (const q of parsed.questions ?? []) if (q && Number.isInteger(q.n)) byN.set(Number(q.n), q);
+    return questions.map((q, i) => {
+      const tr = byN.get(i + 1);
+      if (!tr) return q;
+      const str = (v: any, fallback: string) => (typeof v === 'string' && v.trim() ? v : fallback);
+      // Only adopt translated choices if the count matches (keeps answerIndex valid).
+      const choices =
+        Array.isArray(tr.choices) && q.choices && tr.choices.length === q.choices.length
+          ? tr.choices.map(String)
+          : q.choices;
+      return {
+        ...q,
+        topic: str(tr.topic, q.topic),
+        prompt: str(tr.prompt, q.prompt),
+        choices,
+        answer: str(tr.answer, q.answer),
+        explanation: typeof tr.explanation === 'string' ? tr.explanation : q.explanation,
+      };
+    });
+  } catch {
+    return questions; // on any failure keep the base-language questions rather than nothing
+  }
 }
 
 // Independently re-solve each generated math question and correct it: enforce a
