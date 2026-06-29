@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-import { fetchTopics, fetchStudySheet, fetchTopicMastery, fetchLessonPlan, type TopicAttemptDTO, type LessonPlanPhaseDTO } from './api';
-import { useProgress, summarize, type Attempt } from './userdata';
+import { fetchTopics, fetchStudySheet, fetchTopicMastery, type TopicAttemptDTO } from './api';
+import { useProgress, type Attempt } from './userdata';
 import { useUI, type Subject } from './ui';
 
 // ── Taxonomy tree (the Mindmap backbone) ──
@@ -15,6 +15,15 @@ export interface TopicNode {
   subs: SubNode[];
 }
 export type SubjectTree = TopicNode[];
+
+/** What a tap on a node opens (the NodeDetail view). */
+export interface OpenNode {
+  subject: Subject;
+  id: string;
+  label: string;
+  isTopic: boolean;
+  subIds: string[];
+}
 
 const norm = (s: string) =>
   s.toLowerCase().replace(/[（(].*?[)）]/g, '').replace(/[^a-z0-9\s]/g, ' ').replace(/\s+/g, ' ').trim();
@@ -52,16 +61,17 @@ interface StudyMapState {
   busy: Record<string, boolean>;
   rev: number;
 
-  // Lesson plan: ordered phases of node lessons, per subject, + per-lesson completion.
-  plans: Partial<Record<Subject, { phases: LessonPlanPhaseDTO[]; ts: number }>>;
-  planLang: Partial<Record<Subject, string>>;
-  done: Record<string, true>; // key `${subject}:${nodeId}`
+  // Study calendar: the EJU date + which subjects to study, and which tasks are done.
+  // The day-by-day plan itself is computed locally (see lib/calendar.ts) — no API.
+  examDate: string | null; // 'YYYY-MM-DD'
+  planSubjects: Subject[];
+  done: Record<string, true>; // keyed by calendar task id
 
   ensureTree: (subject: Subject) => Promise<void>;
   studySheet: (subject: Subject, nodeId: string, force?: boolean) => Promise<void>;
   masteryRead: (subject: Subject, nodeId: string, force?: boolean) => Promise<void>;
-  lessonPlan: (subject: Subject, force?: boolean) => Promise<void>;
-  toggleDone: (subject: Subject, nodeId: string) => void;
+  setExam: (examDate: string | null, subjects: Subject[]) => void;
+  toggleTask: (taskId: string) => void;
 }
 
 export const useStudyMap = create<StudyMapState>()(
@@ -76,38 +86,17 @@ export const useStudyMap = create<StudyMapState>()(
       reads: {},
       busy: {},
       rev: 0,
-      plans: {},
-      planLang: {},
+      examDate: null,
+      planSubjects: [],
       done: {},
 
-      lessonPlan: async (subject, force) => {
-        const lang = useUI.getState().lang;
-        const st = get();
-        if (!force && st.plans[subject]?.phases.length && st.planLang[subject] === lang) return;
-        if (st.busy['plan:' + subject]) return;
-        set((s) => ({ busy: { ...s.busy, ['plan:' + subject]: true } }));
-        try {
-          // Prioritize the student's weak topics (English coach labels) in the ordering.
-          const attempts = useProgress.getState().attempts.filter((a) => (a.subject || subject) === subject);
-          const weak = summarize(attempts).topics.filter((t) => t.total >= 2 && t.acc < 0.6).slice(0, 6).map((t) => t.topic);
-          const r = await fetchLessonPlan({ subject, lang, weak });
-          set((s) => ({
-            plans: { ...s.plans, [subject]: { phases: r.phases, ts: Date.now() } },
-            planLang: { ...s.planLang, [subject]: lang },
-            busy: { ...s.busy, ['plan:' + subject]: false },
-            rev: s.rev + 1,
-          }));
-        } catch {
-          set((s) => ({ busy: { ...s.busy, ['plan:' + subject]: false } }));
-        }
-      },
+      setExam: (examDate, subjects) => set((s) => ({ examDate, planSubjects: subjects, rev: s.rev + 1 })),
 
-      toggleDone: (subject, nodeId) =>
+      toggleTask: (taskId) =>
         set((s) => {
-          const k = key(subject, nodeId);
           const done = { ...s.done };
-          if (done[k]) delete done[k];
-          else done[k] = true;
+          if (done[taskId]) delete done[taskId];
+          else done[taskId] = true;
           return { done, rev: s.rev + 1 };
         }),
 
@@ -188,8 +177,8 @@ export const useStudyMap = create<StudyMapState>()(
     }),
     {
       name: 'eju-studymap',
-      // Persist the generated caches + plan + completion; the tree/matcher are refetched.
-      partialize: (s) => ({ sheets: s.sheets, reads: s.reads, plans: s.plans, planLang: s.planLang, done: s.done }),
+      // Persist the generated caches + exam config + task completion; tree/matcher refetch.
+      partialize: (s) => ({ sheets: s.sheets, reads: s.reads, examDate: s.examDate, planSubjects: s.planSubjects, done: s.done }),
     }
   )
 );

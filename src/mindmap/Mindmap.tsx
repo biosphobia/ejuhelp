@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useUI, SUBJECTS, type Subject } from '../lib/ui';
 import { useProgress } from '../lib/userdata';
-import { useStudyMap, nodeStat, LEVEL_COLOR } from '../lib/studymap';
+import { useStudyMap, nodeStat, LEVEL_COLOR, type OpenNode } from '../lib/studymap';
 import { useT } from '../i18n';
 import { MindmapIcon, ChevronLeft, SpinnerIcon } from '../ui/icons';
 import NodeDetail from './NodeDetail';
-import LessonPlan, { type OpenNode } from './LessonPlan';
+import StudyCalendar from './StudyCalendar';
 
 /** The Mindmap: an EJU topic map. Major topics → sub-topics, each colored by how the
  *  student is doing on it. Tapping a node opens its study sheet, the student's own
@@ -72,7 +72,7 @@ export default function Mindmap() {
       {/* body */}
       <div className="thin-scroll min-h-0 flex-1 overflow-y-auto px-4 py-4">
         {view === 'plan' ? (
-          <LessonPlan subject={subject} onOpen={setOpen} />
+          <StudyCalendar onOpen={setOpen} />
         ) : loading && !tree ? (
           <div className="grid place-items-center py-16 text-slate-400">
             <SpinnerIcon className="h-6 w-6" />
@@ -87,7 +87,7 @@ export default function Mindmap() {
                 <div key={topic.id} className="overflow-hidden rounded-2xl bg-white/[0.04] ring-1 ring-white/10">
                   <button
                     type="button"
-                    onClick={() => setOpen({ id: topic.id, label: topic.label, isTopic: true, subIds: topic.subs.map((x) => x.id) })}
+                    onClick={() => setOpen({ subject, id: topic.id, label: topic.label, isTopic: true, subIds: topic.subs.map((x) => x.id) })}
                     className="flex w-full items-center gap-3 px-4 py-3 text-left hover:bg-white/5"
                   >
                     <span className={`h-2.5 w-2.5 shrink-0 rounded-full ${dot(ts.level)}`} />
@@ -102,7 +102,7 @@ export default function Mindmap() {
                           <button
                             key={sub.id}
                             type="button"
-                            onClick={() => setOpen({ id: sub.id, label: sub.label, isTopic: false, subIds: [] })}
+                            onClick={() => setOpen({ subject, id: sub.id, label: sub.label, isTopic: false, subIds: [] })}
                             className={`inline-flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-xs font-medium ring-1 transition hover:brightness-125 ${LEVEL_COLOR[ss.level]}`}
                           >
                             <span className={`h-1.5 w-1.5 rounded-full ${dot(ss.level)}`} />
@@ -121,7 +121,7 @@ export default function Mindmap() {
 
       {open ? (
         <NodeDetail
-          subject={subject}
+          subject={open.subject}
           nodeId={open.id}
           label={open.label}
           isTopic={open.isTopic}
