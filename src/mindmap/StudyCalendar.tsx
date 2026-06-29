@@ -3,10 +3,11 @@ import { useUI, SUBJECTS, type Subject } from '../lib/ui';
 import { useProgress } from '../lib/userdata';
 import { useGenerated } from '../lib/generated';
 import { useStudyMap, nodeStat, type OpenNode } from '../lib/studymap';
-import { buildDay, totalDays, phaseOf, type CalTask, type Phase } from '../lib/calendar';
+import { buildDay, totalDays, phaseOf, ejuExamDate, type CalTask, type Phase } from '../lib/calendar';
 import { useT } from '../i18n';
 import { ChevronLeft, ChevronRight, SpinnerIcon } from '../ui/icons';
 
+const DEFAULT_SUBJECTS: Subject[] = ['math', 'physics', 'chemistry'];
 const PHASE_LABEL: Record<Phase, string> = { learn: 'Learn & build', drill: 'Drill & master', sprint: 'Exam sprint' };
 const KIND_META: Record<CalTask['kind'], { label: string; cls: string }> = {
   learn: { label: 'Learn', cls: 'bg-sky-500/20 text-sky-200' },
@@ -16,14 +17,13 @@ const KIND_META: Record<CalTask['kind'], { label: string; cls: string }> = {
   mock: { label: 'Mock set', cls: 'bg-rose-500/20 text-rose-100' },
 };
 
-/** The EJU study calendar: a daily, progressive plan from today to the exam date,
+/** The EJU study calendar: a daily, progressive plan from today to the (fixed) EJU date,
  *  computed entirely on the client. Tapping a task opens the topic (study sheet +
  *  practice) or starts a mixed drill. */
 export default function StudyCalendar({ onOpen }: { onOpen: (n: OpenNode) => void }) {
   const t = useT();
-  const examDate = useStudyMap((s) => s.examDate);
   const planSubjects = useStudyMap((s) => s.planSubjects);
-  const setExam = useStudyMap((s) => s.setExam);
+  const setPlanSubjects = useStudyMap((s) => s.setPlanSubjects);
   const done = useStudyMap((s) => s.done);
   const toggleTask = useStudyMap((s) => s.toggleTask);
   const ensureTree = useStudyMap((s) => s.ensureTree);
@@ -36,35 +36,45 @@ export default function StudyCalendar({ onOpen }: { onOpen: (n: OpenNode) => voi
   const openPanel = useUI((s) => s.openPanel);
   const setSelected = useGenerated((s) => s.setSelected);
 
+  const examDate = useMemo(() => ejuExamDate(), []);
+  const subjects = planSubjects.length ? planSubjects : DEFAULT_SUBJECTS;
   const [dayIndex, setDayIndex] = useState(0);
-  const [setup, setSetup] = useState(false);
+
+  // Seed the default subjects once so the choice is persisted/adjustable.
+  useEffect(() => {
+    if (!planSubjects.length) setPlanSubjects(DEFAULT_SUBJECTS);
+  }, [planSubjects.length, setPlanSubjects]);
 
   useEffect(() => {
-    for (const s of planSubjects) void ensureTree(s);
-  }, [planSubjects, ensureTree]);
+    for (const s of subjects) void ensureTree(s);
+  }, [subjects, ensureTree]);
 
+  const rev = useStudyMap((s) => s.rev);
+  const prev = useProgress((s) => s.rev);
   // Weak nodes (for prioritizing drills/quizzes), keyed `${subject}:${id}`.
   const weakIds = useMemo(() => {
     const set = new Set<string>();
-    for (const s of planSubjects) {
+    for (const s of subjects) {
       for (const top of trees[s] ?? []) {
-        for (const sub of top.subs) {
-          if (nodeStat(s, sub.id).level === 'weak') set.add(`${s}:${sub.id}`);
-        }
+        for (const sub of top.subs) if (nodeStat(s, sub.id).level === 'weak') set.add(`${s}:${sub.id}`);
       }
     }
     return set;
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [planSubjects, trees, useStudyMap((s) => s.rev), useProgress((s) => s.rev)]);
+  }, [subjects, trees, rev, prev]);
 
-  if (!examDate || !planSubjects.length || setup) {
-    return <Setup initialDate={examDate} initialSubjects={planSubjects} onSave={(d, s) => { setExam(d, s); setSetup(false); setDayIndex(0); }} onCancel={examDate ? () => setSetup(false) : undefined} />;
-  }
+  const toggleSubject = (s: Subject) => {
+    const next = subjects.includes(s) ? subjects.filter((x) => x !== s) : [...subjects, s];
+    if (next.length) {
+      setPlanSubjects(next);
+      setDayIndex((i) => i);
+    }
+  };
 
   const D = totalDays(examDate);
-  const treesReady = planSubjects.every((s) => trees[s]);
-  const day = buildDay(dayIndex, examDate, planSubjects, trees, weakIds);
-  const dayDone = day.tasks.length > 0 && day.tasks.every((t) => done[t.id]);
+  const treesReady = subjects.every((s) => trees[s]);
+  const day = buildDay(dayIndex, examDate, subjects, trees, weakIds);
+  const dayDone = day.tasks.length > 0 && day.tasks.every((tk) => done[tk.id]);
 
   const resolve = (subject: Subject, id: string): OpenNode => {
     const tree = trees[subject];
@@ -80,7 +90,6 @@ export default function StudyCalendar({ onOpen }: { onOpen: (n: OpenNode) => voi
       onOpen(resolve(task.subject, task.nodeId));
       return;
     }
-    // mixed quiz / mock: open the generator on the board with the relevant topics.
     setSubject(task.subject);
     const ids = task.topicIds?.length ? task.topicIds : (trees[task.subject] ?? []).flatMap((tt) => tt.subs.map((x) => x.id));
     setSelected(task.subject, ids);
@@ -88,19 +97,35 @@ export default function StudyCalendar({ onOpen }: { onOpen: (n: OpenNode) => voi
     openPanel('generate');
   };
 
-  // overall progress across the whole plan (days whose tasks are all complete)
-  const daysComplete = countDoneDays(examDate, planSubjects, trees, weakIds, done, D);
+  const daysComplete = useMemo(() => {
+    let n = 0;
+    for (let i = 0; i < D; i++) {
+      const d = buildDay(i, examDate, subjects, trees, weakIds);
+      if (d.tasks.length > 0 && d.tasks.every((tk) => done[tk.id])) n++;
+    }
+    return n;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [D, examDate, subjects, trees, weakIds, done]);
+
+  const examLabel = new Date(examDate + 'T00:00:00').toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' });
 
   return (
     <div className="mx-auto max-w-3xl">
-      {/* exam countdown + progress */}
+      {/* exam countdown + subjects + progress */}
       <div className="mb-4 rounded-2xl bg-white/[0.04] p-4 ring-1 ring-white/10">
-        <div className="flex items-center gap-2">
-          <div className="flex-1">
-            <div className="text-2xl font-extrabold text-white">{day.daysToExam <= 0 ? 'Exam day!' : `${day.daysToExam} days to EJU`}</div>
-            <div className="text-xs text-slate-400">Exam {new Date(examDate + 'T00:00:00').toLocaleDateString()} · {planSubjects.map((s) => t(s)).join(' · ')}</div>
-          </div>
-          <button type="button" onClick={() => setSetup(true)} className="rounded-lg px-2.5 py-1.5 text-xs text-slate-300 ring-1 ring-white/15 hover:bg-white/5">Edit</button>
+        <div className="text-2xl font-extrabold text-white">{day.daysToExam <= 0 ? 'Exam day!' : `${day.daysToExam} days to the EJU`}</div>
+        <div className="text-xs text-slate-400">EJU {examLabel}</div>
+        <div className="mt-3 flex flex-wrap gap-1.5">
+          {SUBJECTS.map((s) => (
+            <button
+              key={s}
+              type="button"
+              onClick={() => toggleSubject(s)}
+              className={`rounded-full px-2.5 py-1 text-xs font-medium ring-1 transition ${subjects.includes(s) ? 'bg-indigo-500 text-white ring-indigo-400' : 'bg-white/5 text-slate-400 ring-white/10'}`}
+            >
+              {t(s)}
+            </button>
+          ))}
         </div>
         <div className="mt-3 h-2 overflow-hidden rounded-full bg-white/10">
           <div className="h-full rounded-full bg-emerald-500 transition-all" style={{ width: `${D ? (daysComplete / D) * 100 : 0}%` }} />
@@ -130,7 +155,7 @@ export default function StudyCalendar({ onOpen }: { onOpen: (n: OpenNode) => voi
         {Array.from({ length: Math.min(D, 21) }, (_, k) => {
           const di = Math.max(0, Math.min(D - 1, dayIndex - 3)) + k;
           if (di > D - 1) return null;
-          const dd = buildDay(di, examDate, planSubjects, trees, weakIds);
+          const dd = buildDay(di, examDate, subjects, trees, weakIds);
           const complete = dd.tasks.length > 0 && dd.tasks.every((tk) => done[tk.id]);
           return (
             <button
@@ -169,64 +194,6 @@ export default function StudyCalendar({ onOpen }: { onOpen: (n: OpenNode) => voi
           {day.tasks.length === 0 ? <p className="py-8 text-center text-sm italic text-slate-500">Rest day — review anything you like.</p> : null}
         </div>
       )}
-    </div>
-  );
-}
-
-function countDoneDays(
-  examDate: string,
-  subjects: Subject[],
-  trees: Parameters<typeof buildDay>[3],
-  weakIds: Set<string>,
-  done: Record<string, true>,
-  D: number
-): number {
-  let n = 0;
-  for (let i = 0; i < D; i++) {
-    const d = buildDay(i, examDate, subjects, trees, weakIds);
-    if (d.tasks.length > 0 && d.tasks.every((t) => done[t.id])) n++;
-  }
-  return n;
-}
-
-function Setup({
-  initialDate,
-  initialSubjects,
-  onSave,
-  onCancel,
-}: {
-  initialDate: string | null;
-  initialSubjects: Subject[];
-  onSave: (date: string, subjects: Subject[]) => void;
-  onCancel?: () => void;
-}) {
-  const t = useT();
-  const today = new Date().toISOString().slice(0, 10);
-  const [date, setDate] = useState(initialDate ?? '');
-  const [subs, setSubs] = useState<Subject[]>(initialSubjects.length ? initialSubjects : ['math', 'physics', 'chemistry']);
-  const toggle = (s: Subject) => setSubs((cur) => (cur.includes(s) ? cur.filter((x) => x !== s) : [...cur, s]));
-  const valid = date >= today && subs.length > 0;
-  return (
-    <div className="mx-auto max-w-md py-6">
-      <h2 className="text-lg font-bold">Set up your EJU plan</h2>
-      <p className="mt-1 text-sm text-slate-400">A daily, progressive plan from today to your exam — built to cover and reinforce every topic.</p>
-
-      <label className="mt-5 block text-sm font-medium text-slate-200">EJU exam date</label>
-      <input type="date" min={today} value={date} onChange={(e) => setDate(e.target.value)} className="mt-1 w-full rounded-xl bg-white/10 px-3 py-2 text-white outline-none ring-1 ring-white/10 focus:ring-indigo-400 [color-scheme:dark]" />
-
-      <div className="mt-4 text-sm font-medium text-slate-200">Subjects</div>
-      <div className="mt-2 flex flex-wrap gap-2">
-        {SUBJECTS.map((s) => (
-          <button key={s} type="button" onClick={() => toggle(s)} className={`rounded-full px-3 py-1.5 text-sm font-medium ring-1 transition ${subs.includes(s) ? 'bg-indigo-500 text-white ring-indigo-400' : 'bg-white/5 text-slate-300 ring-white/10'}`}>
-            {t(s)}
-          </button>
-        ))}
-      </div>
-
-      <div className="mt-6 flex gap-2">
-        <button type="button" disabled={!valid} onClick={() => onSave(date, subs)} className="flex-1 rounded-xl bg-indigo-500 px-4 py-2.5 text-sm font-semibold text-white disabled:opacity-40">Build my plan</button>
-        {onCancel ? <button type="button" onClick={onCancel} className="rounded-xl px-4 py-2.5 text-sm text-slate-300 ring-1 ring-white/15">Cancel</button> : null}
-      </div>
     </div>
   );
 }

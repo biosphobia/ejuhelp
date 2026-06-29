@@ -42,6 +42,18 @@ export const parseDate = (s: string): Date => startOfDay(new Date(s + 'T00:00:00
 export const addDays = (d: Date, n: number): Date => new Date(startOfDay(d).getTime() + n * MS);
 export const daysBetween = (a: Date, b: Date): number => Math.round((startOfDay(b).getTime() - startOfDay(a).getTime()) / MS);
 
+/** The EJU exam date is fixed (Nov 8). Use the next upcoming one so the plan always runs
+ *  from today to the exam without the student setting anything. */
+export function ejuExamDate(): string {
+  const now = startOfDay();
+  const y = now.getFullYear();
+  const thisYear = startOfDay(new Date(y, 10, 8)); // month 10 = November
+  const target = now.getTime() <= thisYear.getTime() ? thisYear : startOfDay(new Date(y + 1, 10, 8));
+  const mm = String(target.getMonth() + 1).padStart(2, '0');
+  const dd = String(target.getDate()).padStart(2, '0');
+  return `${target.getFullYear()}-${mm}-${dd}`;
+}
+
 /** Inclusive number of days from today through the exam day (>= 1). */
 export function totalDays(examDate: string): number {
   return Math.max(1, daysBetween(startOfDay(), parseDate(examDate)) + 1);
@@ -66,7 +78,9 @@ function buildUnits(subjects: Subject[], trees: Partial<Record<Subject, SubjectT
   return out;
 }
 
-const REVIEW_OFFSETS = [2, 6, 14]; // spaced-repetition revisit days after first learning
+// Spaced-repetition revisit days after first learning a topic — expanding intervals so a
+// topic learned early is refreshed again weeks later (long-term retention).
+const REVIEW_OFFSETS = [2, 6, 14, 30];
 
 export function phaseSplit(D: number): { learnDays: number; drillDays: number } {
   const learnDays = Math.max(1, Math.round(D * 0.6));
@@ -108,6 +122,15 @@ export function buildDay(
       if (d < index && REVIEW_OFFSETS.includes(index - d)) {
         const u = units[k];
         tasks.push({ id: tid('review', u.subject, u.id), kind: 'review', subject: u.subject, nodeId: u.id, label: u.label });
+      }
+    }
+    // Weekly consolidation: a cumulative mixed quiz per subject over everything learned so
+    // far — active recall across topics, which builds the transfer to new question types.
+    if (index > 0 && index % 7 === 6) {
+      for (const s of subjects) {
+        const learned: string[] = [];
+        for (let k = 0; k < units.length; k++) if (units[k].subject === s && introDay(k) <= index) learned.push(units[k].id);
+        if (learned.length >= 2) tasks.push({ id: tid('quiz', s, 'cum'), kind: 'quiz', subject: s, label: s, topicIds: learned.slice(-10) });
       }
     }
   } else if (units.length && phase === 'drill') {

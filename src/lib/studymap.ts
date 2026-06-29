@@ -61,16 +61,15 @@ interface StudyMapState {
   busy: Record<string, boolean>;
   rev: number;
 
-  // Study calendar: the EJU date + which subjects to study, and which tasks are done.
-  // The day-by-day plan itself is computed locally (see lib/calendar.ts) — no API.
-  examDate: string | null; // 'YYYY-MM-DD'
+  // Study calendar: which subjects to study, and which tasks are done. The exam date is
+  // fixed (EJU Nov 8) and the day-by-day plan is computed locally (lib/calendar.ts) — no API.
   planSubjects: Subject[];
   done: Record<string, true>; // keyed by calendar task id
 
   ensureTree: (subject: Subject) => Promise<void>;
   studySheet: (subject: Subject, nodeId: string, force?: boolean) => Promise<void>;
   masteryRead: (subject: Subject, nodeId: string, force?: boolean) => Promise<void>;
-  setExam: (examDate: string | null, subjects: Subject[]) => void;
+  setPlanSubjects: (subjects: Subject[]) => void;
   toggleTask: (taskId: string) => void;
 }
 
@@ -86,11 +85,10 @@ export const useStudyMap = create<StudyMapState>()(
       reads: {},
       busy: {},
       rev: 0,
-      examDate: null,
       planSubjects: [],
       done: {},
 
-      setExam: (examDate, subjects) => set((s) => ({ examDate, planSubjects: subjects, rev: s.rev + 1 })),
+      setPlanSubjects: (subjects) => set((s) => ({ planSubjects: subjects, rev: s.rev + 1 })),
 
       toggleTask: (taskId) =>
         set((s) => {
@@ -177,8 +175,8 @@ export const useStudyMap = create<StudyMapState>()(
     }),
     {
       name: 'eju-studymap',
-      // Persist the generated caches + exam config + task completion; tree/matcher refetch.
-      partialize: (s) => ({ sheets: s.sheets, reads: s.reads, examDate: s.examDate, planSubjects: s.planSubjects, done: s.done }),
+      // Persist the generated caches + chosen subjects + task completion; tree/matcher refetch.
+      partialize: (s) => ({ sheets: s.sheets, reads: s.reads, planSubjects: s.planSubjects, done: s.done }),
     }
   )
 );
