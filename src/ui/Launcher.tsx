@@ -18,7 +18,7 @@ const PRIMARY: Item[] = [
   { id: 'ask', label: 'askCoach', Icon: AskIcon },
   { id: 'generate', label: 'generate', Icon: GenerateIcon },
   { id: 'exams', label: 'exams', Icon: ExamIcon },
-  { id: 'progress', label: 'progress', Icon: ChartIcon },
+  // Weak-point/progress analysis now lives per-topic in the Mindmap.
   { id: 'timer', label: 'timer', Icon: TimerIcon },
 ];
 const SECONDARY: Item[] = [

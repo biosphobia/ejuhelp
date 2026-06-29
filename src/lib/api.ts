@@ -191,10 +191,28 @@ export const mindmapCoach = (p: {
 
 export interface TopicsResponse {
   topics: { id: string; name: string }[];
-  subtopics: { id: string; name: string; group: string }[];
+  subtopics: { id: string; name: string; group: string; topicId: string }[];
 }
 export const fetchTopics = (p: { subject: Subject; lang: Lang }) =>
   call<TopicsResponse>('eju/topics', p);
+
+// ── Mindmap node endpoints ──
+export interface TopicAttemptDTO {
+  prompt?: string;
+  correct?: boolean;
+  errorTags?: string[];
+  reasoning?: string;
+}
+/** Beginner-friendly EJU study sheet for one topic/subtopic (cached on the client). */
+export const fetchStudySheet = (p: { subject: Subject; lang: Lang; topicId: string }) =>
+  call<{ text: string }>('claude/study-sheet', p);
+/** Big-picture strength/weakness read for a node, from the student's attempts on it. */
+export const fetchTopicMastery = (p: {
+  subject: Subject;
+  lang: Lang;
+  topicId: string;
+  history: TopicAttemptDTO[];
+}) => call<{ text: string }>('claude/topic-mastery', p);
 
 export interface ExamMeta {
   id: string;

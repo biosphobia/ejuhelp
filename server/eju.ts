@@ -87,18 +87,56 @@ export function categoryChoicesFor(subject: Subject): { id: string; label: strin
   return topicsFor(subject, 'en').map((t) => ({ id: t.id, label: t.name }));
 }
 
-/** Flattened subtopics with their parent topic name as `group` (for grouped selects). */
+/** Flattened subtopics with their parent topic name as `group` (for grouped selects)
+ *  and parent id `topicId` (for building the Mindmap tree). */
 export function subtopicsFor(subject: Subject, lang: Lang) {
   const kb = getKB(subject);
   if (!kb) return [];
-  const out: { id: string; name: string; group: string }[] = [];
+  const out: { id: string; name: string; group: string; topicId: string }[] = [];
   for (const t of kb.topics) {
     const group = pick(t.name, lang);
     for (const s of t.subtopics ?? []) {
-      out.push({ id: s.id, name: pick(s.name, lang), group });
+      out.push({ id: s.id, name: pick(s.name, lang), group, topicId: t.id });
     }
   }
   return out;
+}
+
+/** Context for a single Mindmap node (a topic or subtopic): its label, its parent
+ *  topic label, sibling/child labels and keywords — enough to ground a study sheet or
+ *  mastery read without shipping the whole knowledge base. */
+export function nodeContext(subject: Subject, id: string, lang: Lang): {
+  id: string;
+  label: string;
+  kind: 'topic' | 'subtopic';
+  parentLabel?: string;
+  children?: string[];
+  keywords?: string[];
+} | null {
+  const kb = getKB(subject);
+  if (!kb) return null;
+  for (const t of kb.topics) {
+    if (t.id === id) {
+      return {
+        id,
+        label: pick(t.name, lang),
+        kind: 'topic',
+        children: (t.subtopics ?? []).map((s) => pick(s.name, lang)),
+      };
+    }
+    for (const s of t.subtopics ?? []) {
+      if (s.id === id) {
+        return {
+          id,
+          label: pick(s.name, lang),
+          kind: 'subtopic',
+          parentLabel: pick(t.name, lang),
+          keywords: s.keywords,
+        };
+      }
+    }
+  }
+  return null;
 }
 
 /** Resolve a topic OR subtopic id to a human label. */

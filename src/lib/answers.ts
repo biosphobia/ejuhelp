@@ -64,8 +64,8 @@ export const useAnswers = create<AnswersState>()(
           topic: q.topic || subject,
           correct: idx === q.answerIndex,
           source: 'quiz',
+          prompt: q.prompt?.slice(0, 400) || undefined,
         });
-        captureQuestionConcepts(subject, q); // mine the concept(s) it tests for the Mindmap
       },
       mark: (id, idx) => set((s) => ({ picked: { ...s.picked, [id]: idx } })),
       clear: () => set({ picked: {} }),

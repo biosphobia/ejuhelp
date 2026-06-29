@@ -6,7 +6,7 @@ import { dirname, join } from 'node:path';
 import { existsSync } from 'node:fs';
 import { requireAuth } from './auth';
 import { topicsFor, subtopicsFor, mockExamList, mockExam, SUBJECTS, type Subject } from './eju';
-import { hasApiKey, ask, generate, check, explainBoard, keypoints, extractConcepts, mindmapCoach } from './claude';
+import { hasApiKey, ask, generate, check, explainBoard, keypoints, extractConcepts, mindmapCoach, topicStudySheet, topicMastery } from './claude';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const app = express();
@@ -206,6 +206,41 @@ app.post('/api/claude/keypoints', requireAuth, async (req: Request, res: Respons
       userKey
     });
     res.json(result);
+  } catch (e) {
+    handleErr(e, res);
+  }
+});
+
+// Mindmap node: EJU study sheet for a topic/subtopic (general, cached on the client).
+app.post('/api/claude/study-sheet', requireAuth, async (req: Request, res: Response) => {
+  try {
+    const { subject, lang, topicId } = req.body ?? {};
+    const { model, userKey } = getAiContext(req);
+    if (!isSubject(subject)) return res.status(400).json({ error: 'bad_subject' });
+    if (typeof topicId !== 'string' || !topicId) return res.status(400).json({ error: 'bad_topic' });
+    res.json(await topicStudySheet({ subject, lang: toLang(lang), topicId, model, userKey }));
+  } catch (e) {
+    handleErr(e, res);
+  }
+});
+
+// Mindmap node: big-picture strength/weakness read from the student's attempts on it.
+app.post('/api/claude/topic-mastery', requireAuth, async (req: Request, res: Response) => {
+  try {
+    const { subject, lang, topicId, history } = req.body ?? {};
+    const { model, userKey } = getAiContext(req);
+    if (!isSubject(subject)) return res.status(400).json({ error: 'bad_subject' });
+    if (typeof topicId !== 'string' || !topicId) return res.status(400).json({ error: 'bad_topic' });
+    res.json(
+      await topicMastery({
+        subject,
+        lang: toLang(lang),
+        topicId,
+        history: Array.isArray(history) ? history.slice(0, 30) : [],
+        model,
+        userKey,
+      })
+    );
   } catch (e) {
     handleErr(e, res);
   }

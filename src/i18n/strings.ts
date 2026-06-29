@@ -344,6 +344,13 @@ export const strings = {
     zh: '从思维导图中清空所有已保存的{subject}概念？此操作无法撤销。',
     tr: 'Zihin Haritandaki tüm kayıtlı {subject} kavramları silinsin mi? Bu geri alınamaz.',
   },
+  mindmapTitle: { en: 'Mindmap', ja: 'マインドマップ', zh: '思维导图', tr: 'Zihin Haritası' },
+  mindmapEmpty: {
+    en: 'No topics available for this subject yet.',
+    ja: 'この科目のトピックはまだありません。',
+    zh: '该科目暂无主题。',
+    tr: 'Bu ders için henüz konu yok.',
+  },
   mindmapEmptyTitle: { en: 'Your Mindmap is empty', ja: 'マインドマップは空です', zh: '思维导图为空', tr: 'Zihin Haritan boş' },
   mindmapEmptyHint: {
     en: 'Concepts you come across while studying — from Coach answers and whiteboard help — are summarized and added here automatically.',

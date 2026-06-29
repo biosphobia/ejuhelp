@@ -67,59 +67,6 @@ export default function AccountPanel() {
           <PrimaryButton onClick={() => void signIn()}>{t('signInGoogle')}</PrimaryButton>
         </div>
       )}
-
-      {/* Coach diagnostics — what the coach has worked out about how you learn. */}
-      <div className="mt-6 border-t border-slate-100 pt-4">
-        <button
-          type="button"
-          onClick={() => setShowDiag((v) => !v)}
-          className="flex w-full items-center gap-2 rounded-xl bg-slate-100 px-3 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-200"
-        >
-          <ChartIcon className="h-4 w-4 shrink-0" />
-          <span className="flex-1 text-left">{t('coachDiagnostics')}</span>
-          <span className="rounded-full bg-white px-1.5 text-xs font-bold text-slate-500">{notes.length}</span>
-          <span className="text-slate-400">{showDiag ? '▴' : '▾'}</span>
-        </button>
-
-        {showDiag ? (
-          <div className="mt-3">
-            <div className="mb-2 flex items-center justify-between gap-2">
-              <p className="text-xs leading-relaxed text-slate-500">{t('coachDiagnosticsHint')}</p>
-              {notes.length ? (
-                <button
-                  type="button"
-                  onClick={clearProfile}
-                  className="shrink-0 text-xs font-semibold text-slate-400 hover:text-red-600"
-                >
-                  {t('clearAll')}
-                </button>
-              ) : null}
-            </div>
-            {notes.length === 0 ? (
-              <p className="text-sm italic text-slate-400">{t('coachMemoryEmpty')}</p>
-            ) : (
-              <ul className="space-y-1.5">
-                {notes.map((n) => (
-                  <li key={n.id} className="flex items-start gap-2 rounded-xl border border-slate-200 p-2.5">
-                    <span className={`mt-0.5 shrink-0 rounded-md px-1.5 py-0.5 text-[10px] font-bold uppercase ${KIND_CLS[n.kind]}`}>
-                      {t(KIND_LABEL[n.kind])}
-                    </span>
-                    <span className="min-w-0 flex-1 break-words text-sm text-slate-800">{n.text}</span>
-                    <button
-                      type="button"
-                      aria-label="remove"
-                      onClick={() => removeNote(n.id)}
-                      className="shrink-0 rounded-md px-1.5 text-slate-300 hover:text-red-500"
-                    >
-                      ✕
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
-        ) : null}
-      </div>
     </Panel>
   );
 }

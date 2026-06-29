@@ -153,6 +153,8 @@ export const useAsk = create<AskState>((set, get) => ({
           correct: res.correct === 'yes',
           source: 'check',
           errorTags: res.errorTags,
+          prompt: activeQuestion?.slice(0, 400) || undefined,
+          reasoning: res.feedback?.replace(/\s+/g, ' ').slice(0, 500) || undefined,
         });
       }
       // Capture the concepts this problem tests into the Mindmap, and any durable

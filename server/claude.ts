@@ -8,6 +8,7 @@ import {
   categoryChoicesFor,
   chooseArchetypeExamples,
   randomArchetypeExamples,
+  nodeContext,
   SUBJECTS,
   type PastExample,
   type Subject,
@@ -1037,6 +1038,87 @@ export async function extractConcepts(args: {
   const parsed = extractJson<{ concepts?: any }>(raw, {});
   const kps = cleanKeyPoints(parsed.concepts);
   return { concepts: finalizeConcepts(args.subject, kps) };
+}
+
+// ─── Mindmap nodes: per-topic study sheet + mastery read ───
+
+/** A beginner-friendly, EJU-focused study sheet for one taxonomy node (topic/subtopic):
+ *  what it is, must-memorize formulas, core concepts, what the EJU actually tests, and
+ *  pitfalls. Topic-general (same for everyone) so the client caches it. */
+export async function topicStudySheet(args: {
+  subject: Subject;
+  lang: Lang;
+  topicId: string;
+  model?: string;
+  userKey?: string;
+}): Promise<{ text: string }> {
+  const node = nodeContext(args.subject, args.topicId, args.lang);
+  if (!node) return { text: '' };
+  const scope =
+    node.kind === 'subtopic'
+      ? `the EJU ${args.subject} sub-topic "${node.label}" (part of "${node.parentLabel}")${node.keywords?.length ? `, covering: ${node.keywords.join(', ')}` : ''}`
+      : `the EJU ${args.subject} topic "${node.label}"${node.children?.length ? `, which includes: ${node.children.join(', ')}` : ''}`;
+  const userText = [
+    `Write a concise EJU study sheet for ${scope}.`,
+    'Audience: a student preparing for the EJU who may be NEW to this topic. Make it genuinely easy to understand — define terms in plain language — while staying exam-focused and complete enough to score well.',
+    'Ground it in what PROVABLY recurs on real EJU papers (the archetypes, patterns, printed constants and style notes in the knowledge base above). Include, as relevant:',
+    '- a one or two sentence plain-language intro: what this topic is and why it matters on the EJU;',
+    '- the must-MEMORIZE formulas (as $...$ LaTeX) with a few words on what each symbol means;',
+    '- the core concepts/facts the exam tests;',
+    '- what the EJU actually ASKS here — the recurring question types/setups (the trends), so the student knows what to expect;',
+    '- the common mistakes/pitfalls to avoid.',
+    'Be PROMPT and tight — short bullet lines, no padding. Use Markdown headings/bullets and LaTeX for ALL math.',
+    `Write it in ${writeLang(args.lang)}.`,
+    'Respond with ONLY the study sheet as Markdown (no preamble, no code fences).',
+  ].join('\n');
+  const raw = await executeModelCall(
+    args.model, args.userKey, args.subject, args.lang, undefined, [{ role: 'user', content: userText }], 3000, false
+  );
+  return { text: raw.trim() };
+}
+
+export interface TopicAttempt {
+  prompt?: string;
+  correct?: boolean;
+  errorTags?: string[];
+  /** The coach's read of the student's working (their "thinking process"), if any. */
+  reasoning?: string;
+}
+
+/** A big-picture strength/weakness read for one node, distilled from the student's own
+ *  attempts on it. User-specific, so the client regenerates it when the node is opened. */
+export async function topicMastery(args: {
+  subject: Subject;
+  lang: Lang;
+  topicId: string;
+  history: TopicAttempt[];
+  model?: string;
+  userKey?: string;
+}): Promise<{ text: string }> {
+  const node = nodeContext(args.subject, args.topicId, args.lang);
+  if (!node) return { text: '' };
+  const hist = (args.history ?? []).slice(-20);
+  if (!hist.length) return { text: '' };
+  const lines = hist.map((h, i) => {
+    const v = h.correct === true ? 'correct' : h.correct === false ? 'wrong' : 'attempted';
+    const tags = h.errorTags?.length ? ` [${h.errorTags.join(', ')}]` : '';
+    const q = (h.prompt ?? '').replace(/\s+/g, ' ').slice(0, 160);
+    const r = (h.reasoning ?? '').replace(/\s+/g, ' ').slice(0, 220);
+    return `${i + 1}. (${v})${tags} Q: ${q}${r ? ` — their work: ${r}` : ''}`;
+  });
+  const userText = [
+    `Analyze this student's performance on the EJU ${args.subject} topic "${node.label}"${node.parentLabel ? ` (under "${node.parentLabel}")` : ''} and give a BIG-PICTURE read of their strengths and weaknesses on it.`,
+    'Here is a log of their recent attempts on this topic — whether each was right or wrong, the error tags, and notes on their working:',
+    ...lines,
+    '',
+    'Write a short, plain-language read (for the student to see and the coach to use): what they are doing WELL here, what they consistently STRUGGLE with (recurring patterns, not one-off slips), and the 1-3 most useful things to focus on next. Be specific and encouraging; do not just restate individual questions. If there is too little data to judge, say so in one line.',
+    `Write it in ${writeLang(args.lang)} as short Markdown (a few bullets).`,
+    'Respond with ONLY the read (no preamble, no code fences).',
+  ].join('\n');
+  const raw = await executeModelCall(
+    args.model, args.userKey, args.subject, args.lang, undefined, [{ role: 'user', content: userText }], 1500, false
+  );
+  return { text: raw.trim() };
 }
 
 // ─── Mindmap coach ───

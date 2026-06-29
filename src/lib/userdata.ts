@@ -18,6 +18,10 @@ export interface Attempt {
   correct: boolean;
   source: 'quiz' | 'check';
   errorTags?: string[];
+  /** The question prompt and the coach's read of the student's working — so the Mindmap
+   *  node can show the real question and their thinking process, not just a tally. */
+  prompt?: string;
+  reasoning?: string;
 }
 
 interface ProgressState {
