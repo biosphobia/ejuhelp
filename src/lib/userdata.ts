@@ -92,6 +92,24 @@ export function focusFromSummary(s: ProgressSummary): { topics: string[]; tags: 
   };
 }
 
+/** A compact, attempt-derived read of the student's strengths/weaknesses for the coach
+ *  to personalize against — overall accuracy, weak/strong topics, recurring mistakes.
+ *  Tagged so the server directive can act on each line. Empty until there's enough data. */
+export function learnerSnapshotLines(subject?: Subject): string[] {
+  const attempts = useProgress.getState().attempts.filter((a) => !subject || (a.subject || subject) === subject);
+  if (attempts.length < 3) return [];
+  const s = summarize(attempts);
+  const pct = (n: number) => Math.round(n * 100);
+  const lines: string[] = [`(performance) overall accuracy ${pct(s.correct / Math.max(1, s.total))}% over ${s.total} graded questions`];
+  const weak = s.topics.filter((t) => t.total >= 2 && t.acc < 0.6).slice(0, 5).map((t) => `${t.topic} (${pct(t.acc)}%)`);
+  if (weak.length) lines.push(`(struggle) weaker topics — needs fuller, simpler explanations: ${weak.join(', ')}`);
+  const strong = s.topics.filter((t) => t.total >= 2 && t.acc >= 0.8).slice(0, 4).map((t) => t.topic);
+  if (strong.length) lines.push(`(strength) strong topics — can be concise and go deeper: ${strong.join(', ')}`);
+  const tags = s.tags.slice(0, 3).map((t) => t.tag);
+  if (tags.length) lines.push(`(struggle) recurring mistake types to watch for and pre-empt: ${tags.join(', ')}`);
+  return lines;
+}
+
 // ─────────────────────────── Sync (localStorage + Firestore) ───────────────────────────
 type AnyStore<S> = {
   getState: () => S;

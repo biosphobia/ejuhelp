@@ -329,10 +329,15 @@ function learnerProfileDirective(profile?: string[]): string | undefined {
   const list = (profile ?? []).map((s) => String(s).trim()).filter(Boolean).slice(0, 30);
   if (!list.length) return undefined;
   return (
-    'What you have learned about THIS student from past sessions — adapt your teaching to it (e.g. if they prefer ' +
-    'simple explanations, keep it simple and build intuition; if they keep asking for an easier explanation, slow ' +
-    'down and use analogies; spend extra care on topics they struggle with; match their preferred style and language). ' +
-    'Do not mention this profile to the student:\n' +
+    'What you know about THIS student — their measured performance and how they learn. TUNE your answer to it:\n' +
+    '- On their WEAKER topics (low accuracy / listed as struggles): explain more thoroughly, in simpler language, with ' +
+    'more scaffolding, intuition and worked detail; do not assume prior fluency.\n' +
+    '- On their STRONGER topics: be more concise and you can go deeper/faster.\n' +
+    '- Pre-empt their RECURRING mistake types (e.g. if they make sign or unit errors, call out exactly where those ' +
+    'slips happen and how to avoid them).\n' +
+    '- Match their preferred communication style and language (e.g. if they keep asking for an easier explanation, ' +
+    'slow down and use analogies).\n' +
+    'Adapt naturally — never mention or quote this profile to the student:\n' +
     list.map((s) => `- ${s}`).join('\n')
   );
 }

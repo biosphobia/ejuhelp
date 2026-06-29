@@ -3,24 +3,17 @@ import { askClaude, checkWork, explainBoard, EmptyBoardError, type ChatMessage }
 import { useUI, type Lang } from './ui';
 import { usePractice } from './practice';
 import { useAnswers } from './answers';
-import { useProgress, summarize } from './userdata';
+import { useProgress, learnerSnapshotLines } from './userdata';
 import { useMindmap } from './mindmap';
 import { useLearnerProfile, learnerProfileLines } from './profile';
 import { useBoard } from './board';
 import { useSelection } from './selection';
 import { exportPagePng } from '../whiteboard/export';
 
-/** Compact learner-profile lines (saved preferences + measured weak topics) sent
- *  to the coach so it adapts to how this student learns. */
+/** Compact learner-profile lines (saved style preferences + a measured strengths/
+ *  weaknesses snapshot) sent to the coach so it adapts how it teaches this student. */
 function coachProfile(): string[] {
-  const lines = learnerProfileLines();
-  const sum = summarize(useProgress.getState().attempts);
-  const weak = sum.topics
-    .filter((t) => t.total >= 2 && t.acc < 0.6)
-    .slice(0, 4)
-    .map((t) => t.topic);
-  if (weak.length) lines.push(`(struggle) lower quiz accuracy on: ${weak.join(', ')}`);
-  return lines;
+  return [...learnerProfileLines(), ...learnerSnapshotLines()];
 }
 
 /** Verdict metadata attached to the assistant message produced by "Check my work". */

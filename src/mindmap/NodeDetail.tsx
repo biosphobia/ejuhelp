@@ -1,7 +1,9 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useUI, type Subject } from '../lib/ui';
-import { useStudyMap, attemptsForNode, nodeStat, LEVEL_COLOR } from '../lib/studymap';
+import { useStudyMap, attemptsForNode, nodeStat, LEVEL_COLOR, type NodeStat } from '../lib/studymap';
 import { useGenerated } from '../lib/generated';
+import { learnerProfileLines } from '../lib/profile';
+import { learnerSnapshotLines } from '../lib/userdata';
 import { askClaude, type ChatMessage } from '../lib/api';
 import Markdown from '../ui/Markdown';
 import { CloseIcon, SpinnerIcon, ResetIcon } from '../ui/icons';
@@ -138,7 +140,7 @@ export default function NodeDetail({
             </Section>
           )}
 
-          {tab === 'ask' && <AskTab subject={subject} label={label} context={sheet?.text} />}
+          {tab === 'ask' && <AskTab subject={subject} label={label} context={sheet?.text} read={read?.text} stat={stat} />}
         </div>
 
         {/* footer */}
@@ -179,7 +181,7 @@ function Empty({ children }: { children: React.ReactNode }) {
   return <p className="py-8 text-center text-sm italic text-slate-500">{children}</p>;
 }
 
-function AskTab({ subject, label, context }: { subject: Subject; label: string; context?: string }) {
+function AskTab({ subject, label, context, read, stat }: { subject: Subject; label: string; context?: string; read?: string; stat: NodeStat }) {
   const lang = useUI((s) => s.lang);
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [input, setInput] = useState('');
@@ -193,8 +195,14 @@ function AskTab({ subject, label, context }: { subject: Subject; label: string; 
     setInput('');
     setBusy(true);
     try {
-      const ctx = `The student is studying the EJU ${subject} topic "${label}".${context ? `\n\nStudy sheet for reference:\n${context.slice(0, 2000)}` : ''}`;
-      const res = await askClaude({ subject, lang, messages: next, context: ctx });
+      const lvl =
+        stat.total > 0 ? `On THIS topic the student is "${stat.level}" (${stat.correct}/${stat.total} correct) — tune your depth to that.` : '';
+      const ctx =
+        `The student is studying the EJU ${subject} topic "${label}". ${lvl}` +
+        (read ? `\n\nThe coach's read of this student on this topic:\n${read.slice(0, 800)}` : '') +
+        (context ? `\n\nStudy sheet for reference:\n${context.slice(0, 1800)}` : '');
+      const profile = [...learnerProfileLines(), ...learnerSnapshotLines(subject)];
+      const res = await askClaude({ subject, lang, messages: next, context: ctx, profile });
       setMessages([...next, { role: 'assistant', content: res.text }]);
     } catch {
       setMessages([...next, { role: 'assistant', content: 'Sorry — something went wrong. Please try again.' }]);
