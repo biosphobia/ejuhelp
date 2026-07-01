@@ -57,6 +57,7 @@ export default function NodeDetail({
     setSelected(subject, isTopic ? (subIds.length ? subIds : [nodeId]) : [nodeId]);
     setMode('board');
     openPanel('generate');
+    onClose(); // close this overlay so the generator panel is visible on the board
   };
 
   const TABS: { id: Tab; label: string }[] = [

@@ -66,11 +66,16 @@ interface StudyMapState {
   planSubjects: Subject[];
   done: Record<string, true>; // keyed by calendar task id
 
+  // The node whose detail (study sheet / practice) is open, rendered globally so it can be
+  // opened from the calendar OR the whiteboard side menu. Transient (not persisted).
+  openNode: OpenNode | null;
+
   ensureTree: (subject: Subject) => Promise<void>;
   studySheet: (subject: Subject, nodeId: string, force?: boolean) => Promise<void>;
   masteryRead: (subject: Subject, nodeId: string, force?: boolean) => Promise<void>;
   setPlanSubjects: (subjects: Subject[]) => void;
   toggleTask: (taskId: string) => void;
+  setOpenNode: (n: OpenNode | null) => void;
 }
 
 export const useStudyMap = create<StudyMapState>()(
@@ -87,8 +92,11 @@ export const useStudyMap = create<StudyMapState>()(
       rev: 0,
       planSubjects: [],
       done: {},
+      openNode: null,
 
       setPlanSubjects: (subjects) => set((s) => ({ planSubjects: subjects, rev: s.rev + 1 })),
+
+      setOpenNode: (openNode) => set({ openNode }),
 
       toggleTask: (taskId) =>
         set((s) => {
@@ -217,6 +225,17 @@ export function nodeStat(subject: Subject, nodeId: string): NodeStat {
     level = total < 2 ? 'weak' : acc >= 0.8 ? 'strong' : acc >= 0.5 ? 'improving' : 'weak';
   }
   return { total, correct, level, lastTs };
+}
+
+/** Subtopic ids the student is weak on, as a `${subject}:${id}` set — used by the study
+ *  calendar to prioritize drills/quizzes. Reads live tree + attempt state. */
+export function weakNodeIds(subjects: Subject[]): Set<string> {
+  const st = useStudyMap.getState();
+  const set = new Set<string>();
+  for (const s of subjects)
+    for (const top of st.trees[s] ?? [])
+      for (const sub of top.subs) if (nodeStat(s, sub.id).level === 'weak') set.add(`${s}:${sub.id}`);
+  return set;
 }
 
 export const LEVEL_COLOR: Record<NodeStat['level'], string> = {

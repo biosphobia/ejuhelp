@@ -9,7 +9,7 @@ import {
   PlusIcon,
   TrashIcon,
   ResetIcon,
-  MindmapIcon,
+  CalendarIcon,
 } from './icons';
 
 export default function PageBar() {
@@ -33,12 +33,12 @@ export default function PageBar() {
     <div className="bottom-bar-safe pointer-events-auto absolute left-1/2 flex max-w-[96vw] -translate-x-1/2 items-center gap-1 rounded-2xl bg-white/90 p-1.5 shadow-lg ring-1 ring-black/5 backdrop-blur">
       <button
         type="button"
-        title={t('mindmap')}
-        aria-label={t('mindmap')}
+        title={t('studyPlan')}
+        aria-label={t('studyPlan')}
         onClick={toggleMindmap}
         className="grid h-10 w-10 place-items-center rounded-xl text-slate-600 hover:bg-slate-100"
       >
-        <MindmapIcon />
+        <CalendarIcon />
       </button>
 
       <span className="mx-1 h-7 w-px bg-slate-200" />

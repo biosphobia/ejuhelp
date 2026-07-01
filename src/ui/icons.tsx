@@ -200,6 +200,13 @@ export const MindmapIcon = (p: SVGProps<SVGSVGElement>) => (
     <path d="M9.9 9.9 6.4 6.4M14.3 10.4 17.2 7.4M13.7 14.1l2.2 2.4" />
   </svg>
 );
+export const CalendarIcon = (p: SVGProps<SVGSVGElement>) => (
+  <svg {...base(p)}>
+    <rect x="3" y="4.5" width="18" height="16" rx="2" />
+    <path d="M3 9h18M8 3v3M16 3v3" />
+    <path d="M7.5 13h2M11 13h2M14.5 13h2M7.5 16.5h2M11 16.5h2" />
+  </svg>
+);
 // Pass fill="currentColor" to render a filled (starred) star.
 export const StarIcon = (p: SVGProps<SVGSVGElement>) => (
   <svg {...base(p)}>

@@ -9,13 +9,17 @@ import BoardExam from './ui/BoardExam';
 import BoardTimer from './ui/BoardTimer';
 import DebugHud from './ui/DebugHud';
 import Mindmap from './mindmap/Mindmap';
+import NodeDetail from './mindmap/NodeDetail';
 import { useUI } from './lib/ui';
+import { useStudyMap } from './lib/studymap';
 import { initPersistence } from './lib/persistence';
 import { initUserData } from './lib/userdata';
 import './lib/auth'; // registers the Firebase auth listener on load
 
 export default function App() {
   const mode = useUI((s) => s.mode);
+  const openNode = useStudyMap((s) => s.openNode);
+  const setOpenNode = useStudyMap((s) => s.setOpenNode);
 
   useEffect(() => {
     initPersistence();
@@ -43,6 +47,17 @@ export default function App() {
         )}
         {/* Panels (e.g. the coach) float above either surface */}
         <PanelHost />
+        {/* Node detail (study sheet + practice), openable from the calendar or the side menu */}
+        {openNode ? (
+          <NodeDetail
+            subject={openNode.subject}
+            nodeId={openNode.id}
+            label={openNode.label}
+            isTopic={openNode.isTopic}
+            subIds={openNode.subIds}
+            onClose={() => setOpenNode(null)}
+          />
+        ) : null}
         <DebugHud />
       </div>
     </div>
