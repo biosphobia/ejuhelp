@@ -11,6 +11,7 @@ import {
   nodeContext,
   topicsFor,
   subtopicsFor,
+  staticStudySheet,
   SUBJECTS,
   type PastExample,
   type Subject,
@@ -1059,6 +1060,10 @@ export async function topicStudySheet(args: {
   model?: string;
   userKey?: string;
 }): Promise<{ text: string }> {
+  // Prefer the pre-authored static sheet: instant, no API tokens. Only generate for nodes
+  // that haven't been baked yet.
+  const baked = staticStudySheet(args.subject, args.topicId);
+  if (baked) return { text: baked };
   const node = nodeContext(args.subject, args.topicId, args.lang);
   if (!node) return { text: '' };
   const scope =

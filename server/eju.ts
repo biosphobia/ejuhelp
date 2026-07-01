@@ -155,6 +155,24 @@ export function labelFor(subject: Subject, id: string, lang: Lang): string {
 // Backwards-compatible alias.
 export const topicName = labelFor;
 
+// Pre-authored, static study sheets baked into the app (data/eju/sheets/<subject>.json,
+// keyed by topic/subtopic id). Served as-is so a node's lesson loads instantly and costs
+// zero API tokens; the model is only used to fill nodes that aren't baked yet.
+const sheetCache = new Map<Subject, Record<string, string>>();
+export function staticStudySheet(subject: Subject, nodeId: string): string | undefined {
+  if (!sheetCache.has(subject)) {
+    let data: Record<string, string> = {};
+    try {
+      data = JSON.parse(readFileSync(join(DATA_DIR, 'sheets', `${subject}.json`), 'utf8')) as Record<string, string>;
+    } catch {
+      data = {};
+    }
+    sheetCache.set(subject, data);
+  }
+  const t = sheetCache.get(subject)?.[nodeId];
+  return typeof t === 'string' && t.trim() ? t : undefined;
+}
+
 // ─────────────────────────── Mock exams (past-paper review) ───────────────────────────
 export interface MockQuestion {
   id: string;
