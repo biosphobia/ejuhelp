@@ -144,15 +144,18 @@ export const useStudyMap = create<StudyMapState>()(
 
       studySheet: async (subject, nodeId, force) => {
         const k = key(subject, nodeId);
-        const st = get();
-        if (!force && st.sheets[k]?.text) return;
-        // Instant path: the sheet is baked into the client (a per-subject chunk loaded on
-        // demand) — no network/auth/API. Only nodes that haven't been baked fall through.
+        // Baked sheets are the source of truth: always prefer the bundled static content and
+        // overwrite any (possibly stale) previously-cached copy. Instant, no network/API.
+        // Only nodes that haven't been baked fall through to the server + cache.
         const local = await loadStaticSheet(subject, nodeId);
         if (local) {
-          set((s) => ({ sheets: { ...s.sheets, [k]: { text: local, ts: Date.now() } }, rev: s.rev + 1 }));
+          if (get().sheets[k]?.text !== local) {
+            set((s) => ({ sheets: { ...s.sheets, [k]: { text: local, ts: Date.now() } }, rev: s.rev + 1 }));
+          }
           return;
         }
+        const st = get();
+        if (!force && st.sheets[k]?.text) return;
         if (st.busy['sheet:' + k]) return;
         set((s) => ({ busy: { ...s.busy, ['sheet:' + k]: true } }));
         try {
@@ -191,8 +194,16 @@ export const useStudyMap = create<StudyMapState>()(
     }),
     {
       name: 'eju-studymap',
-      // Persist the generated caches + chosen subjects + task completion; tree/matcher refetch.
-      partialize: (s) => ({ sheets: s.sheets, reads: s.reads, planSubjects: s.planSubjects, done: s.done }),
+      version: 1,
+      // Study sheets are now static/bundled (instant), so we no longer persist their text —
+      // that only risked serving a stale cached copy after the sheets are updated. We still
+      // persist the personalized coach reads, chosen subjects, and task completion.
+      partialize: (s) => ({ reads: s.reads, planSubjects: s.planSubjects, done: s.done }),
+      // v1: drop any sheet text cached by an older build so the fresh static sheets are used.
+      migrate: (persisted: any, version: number) => {
+        if (persisted && version < 1) delete persisted.sheets;
+        return persisted;
+      },
     }
   )
 );
