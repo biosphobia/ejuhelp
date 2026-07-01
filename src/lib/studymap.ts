@@ -1,6 +1,7 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import { fetchTopics, fetchStudySheet, fetchTopicMastery, type TopicAttemptDTO } from './api';
+import { staticSheet } from './sheets';
 import { useProgress, type Attempt } from './userdata';
 import { useUI, type Subject } from './ui';
 
@@ -145,6 +146,13 @@ export const useStudyMap = create<StudyMapState>()(
         const k = key(subject, nodeId);
         const st = get();
         if (!force && st.sheets[k]?.text) return;
+        // Instant path: the sheet is bundled into the client, so serve it synchronously with
+        // no network/auth/API. Only nodes that haven't been baked fall through to the server.
+        const local = staticSheet(subject, nodeId);
+        if (local) {
+          set((s) => ({ sheets: { ...s.sheets, [k]: { text: local, ts: Date.now() } }, rev: s.rev + 1 }));
+          return;
+        }
         if (st.busy['sheet:' + k]) return;
         set((s) => ({ busy: { ...s.busy, ['sheet:' + k]: true } }));
         try {

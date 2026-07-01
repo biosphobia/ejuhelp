@@ -47,10 +47,14 @@ export default function NodeDetail({
   const history = useMemo(() => attemptsForNode(subject, nodeId).slice().reverse(), [subject, nodeId]);
   const stat = nodeStat(subject, nodeId);
 
+  // The study sheet is bundled/instant, so load it immediately. The coach's read is
+  // personalized (an API call), so defer it until the student actually opens that tab.
   useEffect(() => {
     void studySheet(subject, nodeId);
-    void masteryRead(subject, nodeId);
-  }, [subject, nodeId, studySheet, masteryRead]);
+  }, [subject, nodeId, studySheet]);
+  useEffect(() => {
+    if (tab === 'read') void masteryRead(subject, nodeId);
+  }, [tab, subject, nodeId, masteryRead]);
 
   const practice = () => {
     setSubject(subject);
