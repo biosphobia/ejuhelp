@@ -1,21 +1,32 @@
 import type { Subject } from './ui';
-import chemistry from '../../server/data/eju/sheets/chemistry.json';
-import physics from '../../server/data/eju/sheets/physics.json';
-import math from '../../server/data/eju/sheets/math.json';
-import biology from '../../server/data/eju/sheets/biology.json';
 
-// The pre-authored study sheets are bundled straight into the client so a lesson renders
-// instantly — no network request, no auth round-trip, no API tokens. (The server keeps its
-// own copy only as a fallback for any node that hasn't been baked yet.)
-const SHEETS: Record<Subject, Record<string, string>> = {
-  chemistry: chemistry as Record<string, string>,
-  physics: physics as Record<string, string>,
-  math: math as Record<string, string>,
-  biology: biology as Record<string, string>,
+// The pre-authored study sheets are substantial (a condensed EJU textbook per node), so
+// rather than bundle all four subjects into the initial JS, each subject's sheet map is a
+// separate chunk loaded on demand the first time a topic in that subject is opened, then
+// cached in memory. No API, no auth — just a small static asset the service worker caches.
+type SheetMap = Record<string, string>;
+
+const loaders: Record<Subject, () => Promise<{ default: SheetMap }>> = {
+  math: () => import('../../server/data/eju/sheets/math.json'),
+  physics: () => import('../../server/data/eju/sheets/physics.json'),
+  chemistry: () => import('../../server/data/eju/sheets/chemistry.json'),
+  biology: () => import('../../server/data/eju/sheets/biology.json'),
 };
 
-/** The pre-authored EJU study sheet for a taxonomy node, or undefined if it isn't baked. */
-export function staticSheet(subject: Subject, nodeId: string): string | undefined {
-  const t = SHEETS[subject]?.[nodeId];
+const cache: Partial<Record<Subject, SheetMap>> = {};
+
+/** The pre-authored EJU study sheet for a taxonomy node, or undefined if it isn't baked.
+ *  Loads (and caches) the subject's sheet chunk on first use. */
+export async function loadStaticSheet(subject: Subject, nodeId: string): Promise<string | undefined> {
+  let map = cache[subject];
+  if (!map) {
+    try {
+      map = (await loaders[subject]()).default as SheetMap;
+      cache[subject] = map;
+    } catch {
+      return undefined;
+    }
+  }
+  const t = map[nodeId];
   return typeof t === 'string' && t.trim() ? t : undefined;
 }
