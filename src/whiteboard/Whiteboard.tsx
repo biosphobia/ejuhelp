@@ -250,6 +250,7 @@ export default function Whiteboard() {
           ctx.stroke();
           drawHandle(g.rotate, true);
           drawDelete(g.del);
+          drawDuplicate(g.dup);
         }
       }
     }
@@ -277,6 +278,17 @@ export default function Whiteboard() {
       ctx.moveTo(c2.x + 4, c2.y - 4);
       ctx.lineTo(c2.x - 4, c2.y + 4);
       ctx.stroke();
+    }
+    function drawDuplicate(c2: { x: number; y: number }) {
+      ctx.fillStyle = '#2563eb';
+      ctx.beginPath();
+      ctx.arc(c2.x, c2.y, 11, 0, Math.PI * 2);
+      ctx.fill();
+      // two offset squares — the "copy" glyph
+      ctx.strokeStyle = '#ffffff';
+      ctx.lineWidth = 1.6;
+      ctx.strokeRect(c2.x - 4.5, c2.y - 1.5, 6, 6);
+      ctx.strokeRect(c2.x - 1.5, c2.y - 4.5, 6, 6);
     }
 
     // Synchronous paint — lowest latency for the active stroke (no rAF wait).
@@ -548,7 +560,8 @@ export default function Whiteboard() {
       dy /= L;
       const rotate = { x: topMid.x + dx * 34, y: topMid.y + dy * 34 };
       const del = { x: corners[1].x + 16, y: corners[1].y - 16 };
-      return { corners, topMid, rotate, del };
+      const dup = { x: corners[0].x - 16, y: corners[0].y - 16 };
+      return { corners, topMid, rotate, del, dup };
     }
     // The single selected shape whose corners can be edited individually.
     // Circles are sampled polygons (too many points to edit by hand), so they
@@ -569,6 +582,29 @@ export default function Whiteboard() {
     }
     function clearSelection() {
       resetSelection();
+      invalidate();
+    }
+    // Clone the selected strokes with a small offset, add them as one undoable step, and
+    // move the selection onto the copies so they can be dragged away immediately.
+    function duplicateSelection() {
+      if (!selectedIds.length) return;
+      const idset = new Set(selectedIds);
+      const off = 24 / vp.scale; // ~24 screen px, in world units
+      const clones = [];
+      const newIds: string[] = [];
+      for (const s of useBoard.getState().getCurrentPage().strokes) {
+        if (!idset.has(s.id)) continue;
+        const nid = newId();
+        newIds.push(nid);
+        clones.push({ ...s, id: nid, points: s.points.map((p) => ({ x: p.x + off, y: p.y + off, p: p.p })) });
+      }
+      if (!clones.length) return;
+      useBoard.getState().addStrokes(clones);
+      manip = null;
+      manipHidden.clear();
+      selectedIds = newIds;
+      selBox = computeSelBox(selectedIds);
+      useSelection.getState().set(selectedIds.slice());
       invalidate();
     }
     function cancelManip() {
@@ -627,6 +663,10 @@ export default function Whiteboard() {
         const g = selScreenGeom();
         if (g) {
           const near = (h: { x: number; y: number }) => Math.hypot(local.x - h.x, local.y - h.y) <= HANDLE_HIT;
+          if (near(g.dup)) {
+            duplicateSelection();
+            return;
+          }
           if (near(g.del)) {
             useBoard.getState().eraseStrokes(selectedIds);
             clearSelection();
@@ -1077,6 +1117,19 @@ export default function Whiteboard() {
     };
     boardEvents.addEventListener('reset', onReset);
 
+    // Cmd/Ctrl+D duplicates the current selection (desktop convenience alongside the handle).
+    const onKeyDown = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && (e.key === 'd' || e.key === 'D')) {
+        const t = e.target as HTMLElement | null;
+        if (t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.isContentEditable)) return;
+        if (useBoard.getState().tool === 'select' && selectedIds.length) {
+          e.preventDefault();
+          duplicateSelection();
+        }
+      }
+    };
+    window.addEventListener('keydown', onKeyDown);
+
     const unsub = useBoard.subscribe((st) => {
       if (st.currentPageId !== lastPageId) {
         lastPageId = st.currentPageId;
@@ -1133,6 +1186,7 @@ export default function Whiteboard() {
       canvas.removeEventListener('gesturechange', stop as EventListener);
       canvas.removeEventListener('gestureend', stop as EventListener);
       boardEvents.removeEventListener('reset', onReset);
+      window.removeEventListener('keydown', onKeyDown);
       unsub();
       ro.disconnect();
       if (rafId) cancelAnimationFrame(rafId);

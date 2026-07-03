@@ -71,6 +71,7 @@ interface BoardState {
   setShape: (s: ShapeKind) => void;
 
   addStroke: (s: Stroke) => void;
+  addStrokes: (strokes: Stroke[]) => void;
   eraseStrokes: (ids: string[]) => void;
   updateStrokes: (updates: { id: string; points: Pt[] }[]) => void;
   setViewport: (v: Viewport) => void;
@@ -121,6 +122,17 @@ export const useBoard = create<BoardState>((set, get) => {
           pg.id === id ? { ...pg, strokes: [...pg.strokes, stroke] } : pg
         );
         const prev = st.pages.find((p) => p.id === id)?.strokes ?? [];
+        return { pages, undo: pushUndo(st.undo, id, prev), rev: st.rev + 1 };
+      }),
+
+    addStrokes: (strokes) =>
+      set((st) => {
+        if (strokes.length === 0) return st;
+        const id = st.currentPageId;
+        const prev = st.pages.find((p) => p.id === id)?.strokes ?? [];
+        const pages = st.pages.map((pg) =>
+          pg.id === id ? { ...pg, strokes: [...pg.strokes, ...strokes] } : pg
+        );
         return { pages, undo: pushUndo(st.undo, id, prev), rev: st.rev + 1 };
       }),
 
