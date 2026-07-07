@@ -19,6 +19,8 @@ interface StoredBook {
 interface StoredNotebooks {
   active: NotebookId;
   books: Partial<Record<NotebookId, StoredBook>>;
+  /** Top-level stamp, set on every write, so the durable stores can be compared by recency. */
+  updatedAt?: number;
 }
 
 const round = (n: number, d: number) => {
@@ -54,12 +56,75 @@ function decode(cps: CPage[]): Page[] {
   }));
 }
 
+// ── Durable local storage ─────────────────────────────────────────────────────────────
+// IndexedDB is the PRIMARY durable store: it has a large quota (ink can exceed the ~5MB
+// localStorage cap, which would make setItem throw and silently drop saves) and, together
+// with navigator.storage.persist(), is far less likely to be evicted by iOS/Safari than
+// localStorage. localStorage is kept as a second copy because it hydrates synchronously on
+// startup (instant paint) and — crucially — can be written synchronously inside an unload
+// handler, which IndexedDB (async) cannot guarantee. On load we read whichever is newer.
+const IDB_NAME = 'eju-board';
+const IDB_STORE = 'kv';
+const IDB_KEY = 'notebooks';
+
+function idbOpen(): Promise<IDBDatabase> {
+  return new Promise((resolve, reject) => {
+    if (typeof indexedDB === 'undefined') return reject(new Error('no-idb'));
+    const req = indexedDB.open(IDB_NAME, 1);
+    req.onupgradeneeded = () => {
+      if (!req.result.objectStoreNames.contains(IDB_STORE)) req.result.createObjectStore(IDB_STORE);
+    };
+    req.onsuccess = () => resolve(req.result);
+    req.onerror = () => reject(req.error);
+  });
+}
+
+async function idbGet<T>(key: string): Promise<T | undefined> {
+  try {
+    const idb = await idbOpen();
+    return await new Promise<T | undefined>((resolve, reject) => {
+      const tx = idb.transaction(IDB_STORE, 'readonly');
+      const rq = tx.objectStore(IDB_STORE).get(key);
+      rq.onsuccess = () => resolve(rq.result as T | undefined);
+      rq.onerror = () => reject(rq.error);
+    });
+  } catch {
+    return undefined;
+  }
+}
+
+async function idbSet(key: string, val: unknown): Promise<boolean> {
+  try {
+    const idb = await idbOpen();
+    return await new Promise<boolean>((resolve) => {
+      const tx = idb.transaction(IDB_STORE, 'readwrite');
+      tx.objectStore(IDB_STORE).put(val, key);
+      tx.oncomplete = () => resolve(true);
+      tx.onerror = () => resolve(false);
+      tx.onabort = () => resolve(false);
+    });
+  } catch {
+    return false;
+  }
+}
+
 // In-memory snapshot of every notebook. The ACTIVE notebook's live content lives
 // in the board store; the others are authoritative here until switched to.
 let books: Partial<Record<NotebookId, StoredBook>> = {};
 
 const validId = (id: unknown): id is NotebookId =>
   typeof id === 'string' && (NOTEBOOKS as string[]).includes(id);
+
+/** Newest write stamp across a stored blob (top-level, else the freshest book). */
+function stampOf(data: StoredNotebooks | null | undefined): number {
+  if (!data) return 0;
+  let m = data.updatedAt ?? 0;
+  for (const id of NOTEBOOKS) {
+    const t = data.books?.[id]?.updatedAt ?? 0;
+    if (t > m) m = t;
+  }
+  return m;
+}
 
 /** Copy the live board into books[active] so a save/switch captures current edits. */
 function snapshotActive() {
@@ -75,14 +140,22 @@ function loadBookIntoBoard(id: NotebookId) {
   useBoard.getState().loadPages(pages, b?.currentPageId);
 }
 
+/** Write the current notebook set to BOTH durable stores. IndexedDB is the primary
+ *  (large, eviction-resistant); localStorage is a synchronous best-effort second copy
+ *  (may throw on quota for very large ink — that's fine, IndexedDB still has it). */
 function saveLocal() {
+  const data: StoredNotebooks = {
+    active: useNotebook.getState().active,
+    books,
+    updatedAt: Date.now(),
+  };
+  void idbSet(IDB_KEY, data); // durable primary
   try {
-    const data: StoredNotebooks = { active: useNotebook.getState().active, books };
-    localStorage.setItem(LS_KEY, JSON.stringify(data));
-    lastWrittenRev = useBoard.getState().rev;
+    localStorage.setItem(LS_KEY, JSON.stringify(data)); // sync copy for instant hydrate / unload
   } catch (e) {
-    console.warn('[persistence] local save failed', e);
+    console.warn('[persistence] localStorage save failed (quota?) — relying on IndexedDB', e);
   }
+  lastWrittenRev = useBoard.getState().rev;
 }
 
 async function saveCloud() {
@@ -189,9 +262,14 @@ function mergeCloud(cloud: StoredNotebooks) {
   books = merged;
 }
 
+let inited = false;
+
 /** Wire up local + cloud autosave and notebook switching. Call once at startup. */
 export function initPersistence() {
-  // 1) hydrate from localStorage (migrating the legacy single-board format)
+  if (inited) return; // guard against accidental double-invoke
+  inited = true;
+
+  // 1) hydrate synchronously from localStorage (instant paint), migrating legacy format
   let data: StoredNotebooks | null = null;
   try {
     const raw = localStorage.getItem(LS_KEY);
@@ -200,10 +278,26 @@ export function initPersistence() {
     console.warn('[persistence] local hydrate failed', e);
   }
   if (!data) data = migrateLegacyLocal();
-  if (data) {
-    applyStored(data);
-    saveLocal(); // persist the (possibly migrated) shape
-  }
+  if (data) applyStored(data);
+  // Baseline "saved" rev so the reconcile below can tell whether the user has drawn yet.
+  lastSavedRev = useBoard.getState().rev;
+  const localStamp = stampOf(data);
+
+  // Seed both durable stores with whatever we hydrated (this also migrates an existing
+  // localStorage-only board into IndexedDB on the first run after this change).
+  if (data) saveLocal();
+
+  // 1b) reconcile with IndexedDB (the durable primary). If it holds a newer copy — e.g.
+  // localStorage was evicted by the OS, or a previous quota error dropped a localStorage
+  // write — adopt it, unless the user has already drawn this session (don't clobber).
+  void idbGet<StoredNotebooks>(IDB_KEY).then((idbData) => {
+    if (!idbData?.books) return;
+    const fresh = useBoard.getState().rev === lastSavedRev; // no edits since hydrate
+    if (fresh && stampOf(idbData) > localStamp) {
+      applyStored(idbData);
+      saveLocal();
+    }
+  });
 
   // 2) autosave whenever board content changes (rev bumps)
   useBoard.subscribe((st) => {
@@ -226,7 +320,7 @@ export function initPersistence() {
   }
 
   // 3a) Ask the browser to keep our storage durable. Without this, iOS/Safari can
-  // EVICT a PWA's localStorage, which silently wipes saved notes between sessions.
+  // EVICT a PWA's storage, which silently wipes saved notes between sessions.
   if (typeof navigator !== 'undefined' && navigator.storage?.persist) {
     void navigator.storage
       .persisted?.()
