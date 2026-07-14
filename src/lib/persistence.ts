@@ -67,8 +67,11 @@ const IDB_NAME = 'eju-board';
 const IDB_STORE = 'kv';
 const IDB_KEY = 'notebooks';
 
+let idbConn: Promise<IDBDatabase> | null = null;
 function idbOpen(): Promise<IDBDatabase> {
-  return new Promise((resolve, reject) => {
+  // Cache the connection so per-stroke writes don't reopen the database every time.
+  if (idbConn) return idbConn;
+  idbConn = new Promise((resolve, reject) => {
     if (typeof indexedDB === 'undefined') return reject(new Error('no-idb'));
     const req = indexedDB.open(IDB_NAME, 1);
     req.onupgradeneeded = () => {
@@ -77,6 +80,11 @@ function idbOpen(): Promise<IDBDatabase> {
     req.onsuccess = () => resolve(req.result);
     req.onerror = () => reject(req.error);
   });
+  // If the connection drops or fails, allow a fresh open next time.
+  idbConn.then((idb) => {
+    idb.onclose = () => { idbConn = null; };
+  }).catch(() => { idbConn = null; });
+  return idbConn;
 }
 
 async function idbGet<T>(key: string): Promise<T | undefined> {
@@ -172,28 +180,28 @@ async function saveCloud() {
   }
 }
 
-let saveTimer: ReturnType<typeof setTimeout> | undefined;
+let cloudTimer: ReturnType<typeof setTimeout> | undefined;
 let lastSavedRev = -1;
-// The board rev actually written to storage, so a periodic backstop can tell when
-// there are unsaved changes even if the debounce/unload events never fire.
+// The board rev actually written to local storage, so a periodic backstop can tell when
+// there are unsaved changes even if lifecycle events never fire.
 let lastWrittenRev = -1;
 
-function scheduleSave() {
-  if (saveTimer) clearTimeout(saveTimer);
-  saveTimer = setTimeout(() => {
-    saveTimer = undefined;
-    snapshotActive();
-    saveLocal();
+/** Debounce ONLY the network (cloud) write — local storage is written immediately. */
+function scheduleCloud() {
+  if (cloudTimer) clearTimeout(cloudTimer);
+  cloudTimer = setTimeout(() => {
+    cloudTimer = undefined;
     void saveCloud();
-  }, 600);
+  }, 800);
 }
 
-/** Persist immediately — used when the app is being hidden/closed so a pending
- *  debounce can't drop the last strokes (the main cause of "notes lost sometimes"). */
+/** Persist immediately — used when the app is being hidden/closed so nothing can drop the
+ *  last strokes. Local storage is already written on every change (below); this also
+ *  forces the pending cloud write out. */
 function flush() {
-  if (saveTimer) {
-    clearTimeout(saveTimer);
-    saveTimer = undefined;
+  if (cloudTimer) {
+    clearTimeout(cloudTimer);
+    cloudTimer = undefined;
   }
   snapshotActive();
   saveLocal();
@@ -299,14 +307,21 @@ export function initPersistence() {
     }
   });
 
-  // 2) autosave whenever board content changes (rev bumps)
+  // 2) autosave whenever board content changes (rev bumps). The local write happens
+  //    IMMEDIATELY and synchronously — the zustand subscription fires synchronously when a
+  //    stroke is committed, so by the time the pointer-up handler returns the drawing is
+  //    already in localStorage (and queued to IndexedDB). This removes any dependence on a
+  //    debounce timer or lifecycle event for the local copy, so closing the tab can never
+  //    drop committed work. Only the network write is debounced.
   useBoard.subscribe((st) => {
     if (st.rev === lastSavedRev) return;
     lastSavedRev = st.rev;
-    scheduleSave();
+    snapshotActive();
+    saveLocal();
+    scheduleCloud();
   });
 
-  // 3) flush on hide/close so the debounce can't lose the last edits (mobile-safe)
+  // 3) flush on hide/close as extra insurance and to force the pending cloud write out
   if (typeof document !== 'undefined') {
     document.addEventListener('visibilitychange', () => {
       if (document.visibilityState === 'hidden') flush();
