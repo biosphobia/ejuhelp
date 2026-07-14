@@ -166,9 +166,15 @@ function saveLocal() {
   lastWrittenRev = useBoard.getState().rev;
 }
 
+// True once we've fetched & reconciled the signed-in user's cloud copy this session. Until
+// then we must NOT write to the cloud — otherwise a blank/partial board (e.g. on a device
+// whose local storage was purged) could overwrite the real backup before we've read it.
+let cloudLoaded = false;
+
 async function saveCloud() {
   const { user } = useAuth.getState();
   if (!user || !db) return;
+  if (!cloudLoaded) return; // don't overwrite the cloud until we've reconciled with it
   try {
     await setDoc(doc(db, 'users', user.uid, 'board', 'notebooks'), {
       active: useNotebook.getState().active,
@@ -358,43 +364,69 @@ export function initPersistence() {
     }, 5000);
   }
 
-  // 4) on sign-in, merge the cloud copy (migrating the legacy single-board doc)
-  useAuth.subscribe((st, prev) => {
-    if (st.user && st.user !== prev.user && db) {
-      void (async () => {
-        try {
-          snapshotActive(); // include current local edits in the merge base
-          const snap = await getDoc(doc(db!, 'users', st.user!.uid, 'board', 'notebooks'));
-          let cloud = snap.exists() ? (snap.data() as StoredNotebooks) : null;
-          if (!cloud?.books) {
-            const legacy = await getDoc(doc(db!, 'users', st.user!.uid, 'board', 'main'));
-            const ld = legacy.data() as { pages?: CPage[]; currentPageId?: string; updatedAt?: number } | undefined;
-            if (ld?.pages?.length) {
-              cloud = {
-                active: DEFAULT_NOTEBOOK,
-                books: { general: { pages: ld.pages, currentPageId: ld.currentPageId, updatedAt: ld.updatedAt ?? 0 } },
-              };
-            }
-          }
-          if (cloud?.books) {
-            mergeCloud(cloud);
-            // On a fresh device (current notebook empty), jump to the notebook the
-            // user was last on elsewhere so their work is visible immediately.
-            const cur = useNotebook.getState().active;
-            const next =
-              !hasInk(books[cur]) && validId(cloud.active) && hasInk(books[cloud.active])
-                ? cloud.active
-                : cur;
-            useNotebook.getState()._setActive(next);
-            loadBookIntoBoard(next);
-            lastSavedRev = useBoard.getState().rev;
-            saveLocal();
-          }
-          void saveCloud(); // push the merged result (also seeds an empty cloud)
-        } catch (e) {
-          console.warn('[persistence] cloud hydrate failed', e);
-        }
-      })();
+  // 4) Reconcile with the signed-in user's cloud copy. This must run whether Firebase
+  //    restored the session BEFORE this code attached (so we check the current user now) or
+  //    AFTER (so we also subscribe) — a subscribe alone misses an already-restored session,
+  //    which on a purged device leaves the board blank and the cloud backup never fetched.
+  maybeReconcileCloud(useAuth.getState().user?.uid ?? null);
+  useAuth.subscribe((st) => {
+    if (st.user) maybeReconcileCloud(st.user.uid);
+    else {
+      reconciledUid = null;
+      cloudLoaded = false; // signed out → block cloud writes until a new reconcile
     }
   });
+}
+
+// Which uid we've already started reconciling, so we run the cloud fetch once per user.
+let reconciledUid: string | null = null;
+
+function maybeReconcileCloud(uid: string | null) {
+  if (!db || !uid || reconciledUid === uid) return;
+  reconciledUid = uid;
+  cloudLoaded = false;
+  void reconcileCloud(uid, 0);
+}
+
+/** Fetch the user's cloud board, merge it with local (content beats empty; else newest
+ *  wins), and only THEN allow cloud writes. On failure we retry with backoff and keep cloud
+ *  writes blocked, so a transient error never overwrites a backup we couldn't read. */
+async function reconcileCloud(uid: string, attempt: number) {
+  if (!db) return;
+  try {
+    snapshotActive(); // include current local edits in the merge base
+    const snap = await getDoc(doc(db, 'users', uid, 'board', 'notebooks'));
+    let cloud = snap.exists() ? (snap.data() as StoredNotebooks) : null;
+    if (!cloud?.books) {
+      const legacy = await getDoc(doc(db, 'users', uid, 'board', 'main'));
+      const ld = legacy.data() as { pages?: CPage[]; currentPageId?: string; updatedAt?: number } | undefined;
+      if (ld?.pages?.length) {
+        cloud = {
+          active: DEFAULT_NOTEBOOK,
+          books: { general: { pages: ld.pages, currentPageId: ld.currentPageId, updatedAt: ld.updatedAt ?? 0 } },
+        };
+      }
+    }
+    if (uid !== reconciledUid) return; // user changed while we were fetching — abort
+    if (cloud?.books) {
+      mergeCloud(cloud);
+      // On a fresh/purged device (current notebook empty), jump to the notebook the user
+      // was last on elsewhere so their work is visible immediately.
+      const cur = useNotebook.getState().active;
+      const next =
+        !hasInk(books[cur]) && validId(cloud.active) && hasInk(books[cloud.active]) ? cloud.active : cur;
+      useNotebook.getState()._setActive(next);
+      loadBookIntoBoard(next);
+      lastSavedRev = useBoard.getState().rev;
+      saveLocal();
+    }
+    cloudLoaded = true; // reconciled — cloud writes are now safe
+    void saveCloud(); // push the merged result (also seeds an empty cloud)
+  } catch (e) {
+    console.warn('[persistence] cloud reconcile failed', e);
+    // Keep cloudLoaded=false so we never clobber a cloud we couldn't read; retry.
+    if (attempt < 5 && uid === reconciledUid) {
+      setTimeout(() => void reconcileCloud(uid, attempt + 1), Math.min(1000 * 2 ** attempt, 15000));
+    }
+  }
 }
