@@ -11,6 +11,7 @@ import { useUI } from '../../lib/ui';
 import { useBoard } from '../../lib/board';
 import { fetchNoteSummary } from '../../lib/api';
 import { makeTextNotes, makeImageStroke } from '../../whiteboard/textnote';
+import { noteHasMath, ensureMath } from '../../whiteboard/mathnote';
 import { useSelection } from '../../lib/selection';
 import { loadImageFile } from '../../lib/imageutil';
 
@@ -114,14 +115,23 @@ export default function AskPanel() {
     if (noteIdx !== null) return;
     setNoteIdx(i);
     try {
+      // Notes already on the board, so the summary adds new points instead of repeating them.
+      const existing = useBoard
+        .getState()
+        .getCurrentPage()
+        .strokes.filter((s) => s.text != null && s.text.trim())
+        .map((s) => s.text as string);
       let noteText = '';
       try {
-        const r = await fetchNoteSummary({ subject, lang, text: content });
+        const r = await fetchNoteSummary({ subject, lang, text: content, existing });
         noteText = (r.text || '').trim();
       } catch {
         /* fall back to a plain-text version of the reply below */
       }
       if (!noteText) noteText = toPlainNote(content).slice(0, 400) || '…';
+      // Load the LaTeX renderer BEFORE building the notes so any $…$ note is sized to its
+      // rendered math (otherwise it's sized as plain text and the math draws distorted).
+      if (noteHasMath(noteText)) await ensureMath();
       // One selectable text object per row, so individual lines can be moved/revised.
       useBoard.getState().addStrokes(makeTextNotes(noteText, useBoard.getState().color, viewCenter()));
       closePanel(); // reveal the board so the new note is visible

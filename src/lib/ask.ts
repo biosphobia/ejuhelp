@@ -10,6 +10,7 @@ import { useBoard, type Stroke } from './board';
 import { useSelection } from './selection';
 import { exportPagePng } from '../whiteboard/export';
 import { makeTextNotes } from '../whiteboard/textnote';
+import { noteHasMath, ensureMath } from '../whiteboard/mathnote';
 import { clearBoardSelection } from '../whiteboard/view';
 
 /** The selected strokes that are text notes (so a coach message can revise them). */
@@ -131,6 +132,7 @@ export const useAsk = create<AskState>((set, get) => ({
           /* handled below */
         }
         if (revised) {
+          if (noteHasMath(revised)) await ensureMath(); // size $…$ notes to their rendered math
           const rows = makeTextNotes(revised, notes[0].color, notesCenter(notes));
           useBoard.getState().eraseStrokes(notes.map((n) => n.id));
           useBoard.getState().addStrokes(rows);

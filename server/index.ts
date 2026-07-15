@@ -227,11 +227,12 @@ app.post('/api/claude/study-sheet', requireAuth, async (req: Request, res: Respo
 // Condense a coach reply into a short plain-text note for the whiteboard.
 app.post('/api/claude/note-summary', requireAuth, async (req: Request, res: Response) => {
   try {
-    const { subject, lang, text } = req.body ?? {};
+    const { subject, lang, text, existing } = req.body ?? {};
     const { model, userKey } = getAiContext(req);
     if (!isSubject(subject)) return res.status(400).json({ error: 'bad_subject' });
     if (typeof text !== 'string' || !text.trim()) return res.status(400).json({ error: 'bad_text' });
-    res.json(await noteSummary({ subject, lang: toLang(lang), text, model, userKey }));
+    const ex = Array.isArray(existing) ? existing.map(String).slice(0, 80) : undefined;
+    res.json(await noteSummary({ subject, lang: toLang(lang), text, existing: ex, model, userKey }));
   } catch (e) {
     handleErr(e, res);
   }

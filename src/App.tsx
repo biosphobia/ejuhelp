@@ -10,7 +10,6 @@ import BoardTimer from './ui/BoardTimer';
 import DebugHud from './ui/DebugHud';
 import Mindmap from './mindmap/Mindmap';
 import NodeDetail from './mindmap/NodeDetail';
-import MathInput from './ui/MathInput';
 import { useUI } from './lib/ui';
 import { useStudyMap } from './lib/studymap';
 import { initPersistence } from './lib/persistence';
@@ -48,8 +47,6 @@ export default function App() {
         )}
         {/* Panels (e.g. the coach) float above either surface */}
         <PanelHost />
-        {/* LaTeX/equation input modal */}
-        <MathInput />
         {/* Node detail (study sheet + practice), openable from the calendar or the side menu */}
         {openNode ? (
           <NodeDetail

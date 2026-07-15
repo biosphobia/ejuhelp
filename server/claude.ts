@@ -1095,23 +1095,35 @@ export async function noteSummary(args: {
   subject: Subject;
   lang: Lang;
   text: string;
+  /** Notes already on the whiteboard, so the summary doesn't repeat them. */
+  existing?: string[];
   model?: string;
   userKey?: string;
 }): Promise<{ text: string }> {
   const src = (args.text ?? '').trim();
   if (!src) return { text: '' };
+  const existing = (args.existing ?? [])
+    .map((s) => String(s).replace(/\s+/g, ' ').trim())
+    .filter(Boolean)
+    .slice(0, 60);
   const userText = [
     'Condense the material below into a compact study NOTE to hand-write on a whiteboard.',
     'Rules:',
     '- No Markdown (no #, *, -, backticks, tables). Write MATH as inline LaTeX between $...$ (e.g. $v = v_0 + at$, $\\frac{a}{b}$, $\\sqrt{2}$, $\\theta$, $\\mathrm{H_2SO_4}$); everything else plain text.',
     '- First line: a short title (a few words). Then 2 to 6 very concise point lines, one idea each.',
     '- Keep the whole note under ~50 words. Capture only the key takeaways a student should remember.',
+    existing.length
+      ? '- The whiteboard ALREADY has the notes listed below. Do NOT repeat any point that is already there — only add NEW, complementary points. If everything important is already noted, reply with just a title line and nothing else.'
+      : '',
     `- Write it in ${writeLang(args.lang)}.`,
     'Respond with ONLY the note text (no preamble).',
+    existing.length ? '\nAlready on the whiteboard (do not repeat):\n' + existing.map((e) => `• ${e}`).join('\n') : '',
     '',
     'Material:',
     src.slice(0, 4000),
-  ].join('\n');
+  ]
+    .filter(Boolean)
+    .join('\n');
   const raw = await executeModelCall(
     args.model, args.userKey, args.subject, args.lang, undefined, [{ role: 'user', content: userText }], 600, false
   );

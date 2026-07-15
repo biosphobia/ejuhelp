@@ -206,8 +206,9 @@ export interface TopicAttemptDTO {
 /** Beginner-friendly EJU study sheet for one topic/subtopic (cached on the client). */
 export const fetchStudySheet = (p: { subject: Subject; lang: Lang; topicId: string }) =>
   call<{ text: string }>('claude/study-sheet', p);
-/** Condense a coach reply into a short plain-text note for the whiteboard. */
-export const fetchNoteSummary = (p: { subject: Subject; lang: Lang; text: string }) =>
+/** Condense a coach reply into a short note for the whiteboard. `existing` are notes
+ *  already on the board, so the summary adds new points instead of repeating them. */
+export const fetchNoteSummary = (p: { subject: Subject; lang: Lang; text: string; existing?: string[] }) =>
   call<{ text: string }>('claude/note-summary', p);
 /** Revise a selected whiteboard note per the student's instruction. */
 export const fetchNoteRevise = (p: { subject: Subject; lang: Lang; note: string; instruction: string }) =>
