@@ -1118,6 +1118,15 @@ export default function Whiteboard() {
     };
     boardEvents.addEventListener('reset', onReset);
 
+    // External deselect (e.g. the coach replaced a selected note's strokes).
+    const onDeselect = () => {
+      if (selectedIds.length || selBox || marquee || manip) {
+        resetSelection();
+        invalidate();
+      }
+    };
+    boardEvents.addEventListener('deselect', onDeselect);
+
     // Cmd/Ctrl+D duplicates the current selection (desktop convenience alongside the handle).
     const onKeyDown = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && (e.key === 'd' || e.key === 'D')) {
@@ -1187,6 +1196,7 @@ export default function Whiteboard() {
       canvas.removeEventListener('gesturechange', stop as EventListener);
       canvas.removeEventListener('gestureend', stop as EventListener);
       boardEvents.removeEventListener('reset', onReset);
+      boardEvents.removeEventListener('deselect', onDeselect);
       window.removeEventListener('keydown', onKeyDown);
       unsub();
       ro.disconnect();

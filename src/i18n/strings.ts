@@ -327,6 +327,18 @@ export const strings = {
 
   // Mindmap
   saveAsNote: { en: 'Save as note', ja: 'メモとして保存', zh: '保存为笔记', tr: 'Not olarak kaydet' },
+  noteEditBanner: {
+    en: 'Editing {n} selected note row(s) — your message will revise them.',
+    ja: '選択中の{n}行のメモを編集中 — 送信した内容で書き換えます。',
+    zh: '正在编辑所选的 {n} 行笔记——你发送的内容将用于修改它们。',
+    tr: 'Seçili {n} not satırı düzenleniyor — mesajın onları güncelleyecek.',
+  },
+  noteEditPlaceholder: {
+    en: 'Tell the coach how to change the selected note…',
+    ja: '選択したメモの変更方法をコーチに伝えてください…',
+    zh: '告诉教练如何修改所选笔记……',
+    tr: 'Seçili notu nasıl değiştireceğini koça söyle…',
+  },
   mindmap: { en: 'Mindmap', ja: 'マインドマップ', zh: '思维导图', tr: 'Zihin Haritası' },
   backToBoard: { en: 'Back to board', ja: 'ボードに戻る', zh: '返回白板', tr: 'Tahtaya dön' },
   recenter: { en: 'Recenter', ja: '中央に戻す', zh: '回到中心', tr: 'Ortala' },

@@ -1118,6 +1118,38 @@ export async function noteSummary(args: {
   return { text: raw.trim() };
 }
 
+/** Revise an existing whiteboard note per the student's request, returning fresh plain
+ *  note text (one idea per line) that replaces the selected rows. */
+export async function noteRevise(args: {
+  subject: Subject;
+  lang: Lang;
+  note: string;
+  instruction: string;
+  model?: string;
+  userKey?: string;
+}): Promise<{ text: string }> {
+  const note = (args.note ?? '').trim();
+  if (!note) return { text: '' };
+  const instr = (args.instruction ?? '').trim();
+  const userText = [
+    'A student has this study note selected on their whiteboard:',
+    '"""',
+    note,
+    '"""',
+    `Their request: ${instr || 'Improve and clarify this note.'}`,
+    'Rewrite the note to satisfy the request, as a compact whiteboard note. Rules:',
+    '- PLAIN TEXT ONLY. No Markdown, no LaTeX. Write math plainly: v = v0 + a·t, x², √2, H₂SO₄, θ.',
+    '- One idea per line (each line becomes its own row). Optionally a short title line first.',
+    '- Keep it tight — under ~60 words. Answer the request; do not just restate the old note.',
+    `- Write it in ${writeLang(args.lang)}.`,
+    'Respond with ONLY the revised note text.',
+  ].join('\n');
+  const raw = await executeModelCall(
+    args.model, args.userKey, args.subject, args.lang, undefined, [{ role: 'user', content: userText }], 700, false
+  );
+  return { text: raw.trim() };
+}
+
 export interface TopicAttempt {
   prompt?: string;
   correct?: boolean;

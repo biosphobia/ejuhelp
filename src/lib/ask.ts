@@ -1,14 +1,45 @@
 import { create } from 'zustand';
-import { askClaude, checkWork, explainBoard, EmptyBoardError, type ChatMessage } from './api';
+import { askClaude, checkWork, explainBoard, fetchNoteRevise, EmptyBoardError, type ChatMessage } from './api';
 import { useUI, type Lang } from './ui';
 import { usePractice } from './practice';
 import { useAnswers } from './answers';
 import { useProgress, learnerSnapshotLines } from './userdata';
 import { useMindmap } from './mindmap';
 import { useLearnerProfile, learnerProfileLines } from './profile';
-import { useBoard } from './board';
+import { useBoard, type Stroke } from './board';
 import { useSelection } from './selection';
 import { exportPagePng } from '../whiteboard/export';
+import { makeTextNotes } from '../whiteboard/textnote';
+import { clearBoardSelection } from '../whiteboard/view';
+
+/** The selected strokes that are text notes (so a coach message can revise them). */
+function selectedTextNotes(): Stroke[] {
+  const ids = new Set(useSelection.getState().ids);
+  return useBoard.getState().getCurrentPage().strokes.filter((s) => ids.has(s.id) && s.text != null);
+}
+function notesCenter(notes: Stroke[]): { x: number; y: number } {
+  let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
+  for (const n of notes)
+    for (const p of n.points) {
+      minX = Math.min(minX, p.x);
+      minY = Math.min(minY, p.y);
+      maxX = Math.max(maxX, p.x);
+      maxY = Math.max(maxY, p.y);
+    }
+  return minX === Infinity ? { x: 0, y: 0 } : { x: (minX + maxX) / 2, y: (minY + maxY) / 2 };
+}
+const NOTE_UPDATED: Record<Lang, string> = {
+  en: '✓ Updated your note on the whiteboard.',
+  ja: '✓ ホワイトボードのメモを更新しました。',
+  zh: '✓ 已更新白板上的笔记。',
+  tr: '✓ Beyaz tahtadaki notun güncellendi.',
+};
+const NOTE_UPDATE_FAILED: Record<Lang, string> = {
+  en: "Sorry — I couldn't update that note. Please try again.",
+  ja: 'メモを更新できませんでした。もう一度お試しください。',
+  zh: '抱歉，无法更新该笔记，请重试。',
+  tr: 'Üzgünüm, o notu güncelleyemedim. Lütfen tekrar dene.',
+};
 
 /** Compact learner-profile lines (saved style preferences + a measured strengths/
  *  weaknesses snapshot) sent to the coach so it adapts how it teaches this student. */
@@ -81,6 +112,40 @@ export const useAsk = create<AskState>((set, get) => ({
     const t = text.trim();
     if (!t || get().busy) return;
     const { subject, lang } = useUI.getState();
+
+    // If text notes are selected, treat the message as an instruction to REVISE them:
+    // the coach rewrites the selected rows and they're replaced on the whiteboard.
+    const notes = selectedTextNotes();
+    if (notes.length) {
+      const revNext: Message[] = [...get().messages, { role: 'user', content: t }];
+      set({ messages: revNext, busy: true, error: null, lastSaved: 0, lastAutoAnswered: false });
+      try {
+        const combined = notes.map((n) => n.text ?? '').join('\n');
+        let revised = '';
+        try {
+          const r = await fetchNoteRevise({ subject, lang, note: combined, instruction: t });
+          revised = (r.text || '').trim();
+        } catch {
+          /* handled below */
+        }
+        if (revised) {
+          const rows = makeTextNotes(revised, notes[0].color, notesCenter(notes));
+          useBoard.getState().eraseStrokes(notes.map((n) => n.id));
+          useBoard.getState().addStrokes(rows);
+          useSelection.getState().set([]);
+          clearBoardSelection();
+          set({ messages: [...revNext, { role: 'assistant', content: NOTE_UPDATED[lang] }] });
+        } else {
+          set({ messages: [...revNext, { role: 'assistant', content: NOTE_UPDATE_FAILED[lang] }] });
+        }
+      } catch (e) {
+        set({ error: e });
+      } finally {
+        set({ busy: false });
+      }
+      return;
+    }
+
     const { activeQuestion } = usePractice.getState();
     const next: Message[] = [...get().messages, { role: 'user', content: t }];
     set({ messages: next, busy: true, error: null, lastSaved: 0, lastAutoAnswered: false });

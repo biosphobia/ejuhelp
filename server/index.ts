@@ -6,7 +6,7 @@ import { dirname, join } from 'node:path';
 import { existsSync } from 'node:fs';
 import { requireAuth } from './auth';
 import { topicsFor, subtopicsFor, mockExamList, mockExam, SUBJECTS, type Subject } from './eju';
-import { hasApiKey, ask, generate, check, explainBoard, keypoints, extractConcepts, mindmapCoach, topicStudySheet, topicMastery, lessonPlan, noteSummary } from './claude';
+import { hasApiKey, ask, generate, check, explainBoard, keypoints, extractConcepts, mindmapCoach, topicStudySheet, topicMastery, lessonPlan, noteSummary, noteRevise } from './claude';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const app = express();
@@ -232,6 +232,19 @@ app.post('/api/claude/note-summary', requireAuth, async (req: Request, res: Resp
     if (!isSubject(subject)) return res.status(400).json({ error: 'bad_subject' });
     if (typeof text !== 'string' || !text.trim()) return res.status(400).json({ error: 'bad_text' });
     res.json(await noteSummary({ subject, lang: toLang(lang), text, model, userKey }));
+  } catch (e) {
+    handleErr(e, res);
+  }
+});
+
+// Revise a selected whiteboard note per the student's request.
+app.post('/api/claude/note-revise', requireAuth, async (req: Request, res: Response) => {
+  try {
+    const { subject, lang, note, instruction } = req.body ?? {};
+    const { model, userKey } = getAiContext(req);
+    if (!isSubject(subject)) return res.status(400).json({ error: 'bad_subject' });
+    if (typeof note !== 'string' || !note.trim()) return res.status(400).json({ error: 'bad_note' });
+    res.json(await noteRevise({ subject, lang: toLang(lang), note, instruction: String(instruction ?? ''), model, userKey }));
   } catch (e) {
     handleErr(e, res);
   }

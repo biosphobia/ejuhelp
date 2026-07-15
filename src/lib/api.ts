@@ -209,6 +209,9 @@ export const fetchStudySheet = (p: { subject: Subject; lang: Lang; topicId: stri
 /** Condense a coach reply into a short plain-text note for the whiteboard. */
 export const fetchNoteSummary = (p: { subject: Subject; lang: Lang; text: string }) =>
   call<{ text: string }>('claude/note-summary', p);
+/** Revise a selected whiteboard note per the student's instruction. */
+export const fetchNoteRevise = (p: { subject: Subject; lang: Lang; note: string; instruction: string }) =>
+  call<{ text: string }>('claude/note-revise', p);
 /** Big-picture strength/weakness read for a node, from the student's attempts on it. */
 export const fetchTopicMastery = (p: {
   subject: Subject;

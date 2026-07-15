@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import Panel from '../Panel';
 import Markdown from '../Markdown';
 import { ErrorNote, errorMessage } from '../atoms';
@@ -10,7 +10,8 @@ import { useT, type TFunc } from '../../i18n';
 import { useUI } from '../../lib/ui';
 import { useBoard } from '../../lib/board';
 import { fetchNoteSummary } from '../../lib/api';
-import { makeTextNote } from '../../whiteboard/textnote';
+import { makeTextNotes } from '../../whiteboard/textnote';
+import { useSelection } from '../../lib/selection';
 
 /** Strip Markdown/LaTeX to plain text — the fallback when summarization is unavailable. */
 function toPlainNote(md: string): string {
@@ -65,6 +66,15 @@ export default function AskPanel() {
   const lang = useUI((s) => s.lang);
   const closePanel = useUI((s) => s.closePanel);
 
+  // How many selected strokes are text notes — when >0, a sent message revises them.
+  const selIds = useSelection((s) => s.ids);
+  const boardRev = useBoard((s) => s.rev);
+  const selectedNotes = useMemo(() => {
+    const ids = new Set(selIds);
+    return useBoard.getState().getCurrentPage().strokes.filter((s) => ids.has(s.id) && s.text != null).length;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selIds, boardRev]);
+
   const [input, setInput] = useState('');
   const [checking, setChecking] = useState(false);
   const [explaining, setExplaining] = useState(false);
@@ -91,7 +101,8 @@ export default function AskPanel() {
         x: (window.innerWidth / 2 - vp.x) / vp.scale,
         y: (window.innerHeight / 2 - vp.y) / vp.scale,
       };
-      useBoard.getState().addStroke(makeTextNote(noteText, useBoard.getState().color, center));
+      // One selectable text object per row, so individual lines can be moved/revised.
+      useBoard.getState().addStrokes(makeTextNotes(noteText, useBoard.getState().color, center));
       closePanel(); // reveal the board so the new note is visible
     } finally {
       setNoteIdx(null);
@@ -165,8 +176,8 @@ export default function AskPanel() {
                 }
               }}
               rows={2}
-              placeholder={t('askPlaceholder')}
-              className="thin-scroll max-h-32 flex-1 resize-none rounded-xl border border-slate-200 px-3 py-2 text-sm outline-none focus:border-slate-400"
+              placeholder={selectedNotes > 0 ? t('noteEditPlaceholder') : t('askPlaceholder')}
+              className={`thin-scroll max-h-32 flex-1 resize-none rounded-xl border px-3 py-2 text-sm outline-none focus:border-slate-400 ${selectedNotes > 0 ? 'border-indigo-300 bg-indigo-50/40' : 'border-slate-200'}`}
             />
             <button
               type="button"
@@ -211,6 +222,13 @@ export default function AskPanel() {
           <div className="max-h-24 overflow-y-auto text-sm text-amber-900">
             <Markdown text={activeQuestion} />
           </div>
+        </div>
+      ) : null}
+
+      {selectedNotes > 0 ? (
+        <div className="mb-3 flex items-center gap-2 rounded-xl bg-indigo-50 px-3 py-2 text-xs font-medium text-indigo-800 ring-1 ring-indigo-100">
+          <NotesIcon className="h-4 w-4 shrink-0" />
+          <span>{t('noteEditBanner', { n: selectedNotes })}</span>
         </div>
       ) : null}
 

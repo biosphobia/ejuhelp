@@ -76,6 +76,30 @@ export function makeTextNote(text: string, color: InkColor, center: { x: number;
   };
 }
 
+function shiftNote(n: Stroke, dx: number, dy: number): Stroke {
+  return { ...n, points: n.points.map((p) => ({ ...p, x: p.x + dx, y: p.y + dy })) };
+}
+
+/** Build ONE text note per line, stacked vertically and centered on `center`, so each row
+ *  is an independent object the selection tool can move / edit on its own. */
+export function makeTextNotes(text: string, color: InkColor, center: { x: number; y: number }): Stroke[] {
+  const lines = (text || '').replace(/\r/g, '').split('\n').map((l) => l.trim()).filter(Boolean);
+  if (lines.length <= 1) return [makeTextNote(lines[0] ?? '…', color, center)];
+  const gap = BASE_FONT * 0.3;
+  // Build each row at the origin first, measure its height, then stack.
+  const built = lines.map((l) => makeTextNote(l, color, { x: 0, y: 0 }));
+  const heights = built.map((n) => textNoteGeom(n)?.boxH ?? BASE_FONT);
+  const total = heights.reduce((a, b) => a + b, 0) + gap * (built.length - 1);
+  let y = center.y - total / 2;
+  const out: Stroke[] = [];
+  for (let i = 0; i < built.length; i++) {
+    const cy = y + heights[i] / 2;
+    y += heights[i] + gap;
+    out.push(shiftNote(built[i], center.x, cy));
+  }
+  return out;
+}
+
 interface NoteGeom {
   ox: number;
   oy: number;
