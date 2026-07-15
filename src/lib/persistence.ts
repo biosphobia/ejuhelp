@@ -180,10 +180,14 @@ async function saveCloud() {
   if (!user || !db) return;
   if (!cloudLoaded) return; // don't overwrite the cloud until we've reconciled with it
   try {
+    // Store the board as a JSON STRING. Firestore rejects directly-nested arrays, and each
+    // stroke's points are number[][] — writing the object verbatim throws "Nested arrays are
+    // not supported", so cloud saves were silently failing for every stroke. A string is
+    // exempt from that rule (and stays well under the 1MB doc limit for normal boards).
     await setDoc(doc(db, 'users', user.uid, 'board', 'notebooks'), {
-      active: useNotebook.getState().active,
-      books,
+      data: JSON.stringify({ active: useNotebook.getState().active, books }),
       updatedAt: Date.now(),
+      v: 2,
     });
   } catch (e) {
     console.warn('[persistence] cloud save failed', e);
@@ -400,7 +404,21 @@ async function reconcileCloud(uid: string, attempt: number) {
   try {
     snapshotActive(); // include current local edits in the merge base
     const snap = await getDoc(doc(db, 'users', uid, 'board', 'notebooks'));
-    let cloud = snap.exists() ? (snap.data() as StoredNotebooks) : null;
+    let cloud: StoredNotebooks | null = null;
+    if (snap.exists()) {
+      const raw = snap.data() as { data?: string; books?: StoredNotebooks['books']; active?: NotebookId; updatedAt?: number };
+      if (typeof raw.data === 'string') {
+        // Current format: the board is a JSON string.
+        try {
+          const parsed = JSON.parse(raw.data) as StoredNotebooks;
+          if (parsed?.books) cloud = { active: parsed.active, books: parsed.books, updatedAt: raw.updatedAt };
+        } catch {
+          /* corrupt cloud copy — ignore, keep local */
+        }
+      } else if (raw.books) {
+        cloud = { active: raw.active ?? DEFAULT_NOTEBOOK, books: raw.books, updatedAt: raw.updatedAt };
+      }
+    }
     if (!cloud?.books) {
       const legacy = await getDoc(doc(db, 'users', uid, 'board', 'main'));
       const ld = legacy.data() as { pages?: CPage[]; currentPageId?: string; updatedAt?: number } | undefined;
