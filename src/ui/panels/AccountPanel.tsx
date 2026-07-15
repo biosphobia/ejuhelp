@@ -25,6 +25,7 @@ export default function AccountPanel() {
   const signIn = useAuth((s) => s.signIn);
   const signOut = useAuth((s) => s.signOut);
   const cloud = useSync((s) => s.cloud);
+  const cloudDetail = useSync((s) => s.detail);
 
   const notes = useLearnerProfile((s) => s.notes);
   const removeNote = useLearnerProfile((s) => s.remove);
@@ -64,15 +65,20 @@ export default function AccountPanel() {
             }`}
           >
             {cloud === 'saving' ? <SpinnerIcon className="h-4 w-4 shrink-0" /> : null}
-            <span>
-              {cloud === 'saving'
-                ? t('cloudSaving')
-                : cloud === 'error'
-                ? t('cloudError')
-                : cloud === 'local'
-                ? t('cloudLocalOnly')
-                : t('cloudSaved')}
-            </span>
+            <div className="min-w-0">
+              <div>
+                {cloud === 'saving'
+                  ? t('cloudSaving')
+                  : cloud === 'error'
+                  ? t('cloudError')
+                  : cloud === 'local'
+                  ? t('cloudLocalOnly')
+                  : t('cloudSaved')}
+              </div>
+              {cloud === 'error' && cloudDetail ? (
+                <div className="mt-0.5 break-words font-mono text-[11px] font-normal text-amber-700/80">{cloudDetail}</div>
+              ) : null}
+            </div>
           </div>
           <button
             type="button"

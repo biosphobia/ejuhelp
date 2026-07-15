@@ -176,6 +176,25 @@ function saveLocal() {
 // whose local storage was purged) could overwrite the real backup before we've read it.
 let cloudLoaded = false;
 
+/** Deep-copy the books with image DATA removed (placeholder ''), so the cloud doc stays
+ *  small. Photos are large base64 blobs; a couple would blow Firestore's 1MB doc limit and
+ *  block ALL cloud sync. Images stay local (IndexedDB-durable) and are restored on merge. */
+function stripImageData(bks: Partial<Record<NotebookId, StoredBook>>): Partial<Record<NotebookId, StoredBook>> {
+  const out: Partial<Record<NotebookId, StoredBook>> = {};
+  for (const id of NOTEBOOKS) {
+    const b = bks[id];
+    if (!b) continue;
+    out[id] = {
+      ...b,
+      pages: b.pages.map((pg) => ({
+        ...pg,
+        st: pg.st.map((s) => (s.im != null && s.im !== '' ? { ...s, im: '' } : s)),
+      })),
+    };
+  }
+  return out;
+}
+
 async function saveCloud() {
   const { user } = useAuth.getState();
   if (!user || !db) {
@@ -185,18 +204,18 @@ async function saveCloud() {
   if (!cloudLoaded) return; // don't overwrite the cloud until we've reconciled with it
   useSync.getState().setCloud('saving');
   try {
-    // Store the board as a JSON STRING. Firestore rejects directly-nested arrays, and each
-    // stroke's points are number[][] — writing the object verbatim throws "Nested arrays are
-    // not supported", so cloud saves were silently failing for every stroke. A string is
-    // exempt from that rule (and stays well under the 1MB doc limit for normal boards).
+    // Store the board as a JSON STRING (Firestore rejects the nested number[][] point
+    // arrays), with image data stripped so the doc stays under the 1MB limit.
     await setDoc(doc(db, 'users', user.uid, 'board', 'notebooks'), {
-      data: JSON.stringify({ active: useNotebook.getState().active, books }),
+      data: JSON.stringify({ active: useNotebook.getState().active, books: stripImageData(books) }),
       updatedAt: Date.now(),
       v: 2,
     });
     useSync.getState().setCloud('saved');
   } catch (e) {
-    useSync.getState().setCloud('error');
+    const code = (e as { code?: string })?.code;
+    const msg = (e as { message?: string })?.message;
+    useSync.getState().setCloud('error', code || msg || 'unknown');
     console.warn('[persistence] cloud save failed', e);
   }
 }
@@ -285,6 +304,22 @@ const hasInk = (b?: StoredBook) => !!b && b.pages.some((p) => p.st.length > 0);
  *  among non-empty (or both-empty) copies the newer one wins. This keeps unsynced
  *  local work from being clobbered, without letting a fresh device's empty page
  *  clobber real cloud content. */
+/** Cloud copies have image data stripped; when we adopt a cloud book, put back any image
+ *  data we still have locally (matched by stroke id) so a sync never wipes local images. */
+function restoreLocalImages(book: StoredBook, localBook?: StoredBook): StoredBook {
+  if (!localBook) return book;
+  const byId = new Map<string, string>();
+  for (const pg of localBook.pages) for (const s of pg.st) if (s.im) byId.set(s.i, s.im);
+  if (!byId.size) return book;
+  return {
+    ...book,
+    pages: book.pages.map((pg) => ({
+      ...pg,
+      st: pg.st.map((s) => (!s.im && byId.has(s.i) ? { ...s, im: byId.get(s.i)! } : s)),
+    })),
+  };
+}
+
 function mergeCloud(cloud: StoredNotebooks, preferCloud = false) {
   const merged: Partial<Record<NotebookId, StoredBook>> = { ...books };
   for (const id of NOTEBOOKS) {
@@ -300,9 +335,9 @@ function mergeCloud(cloud: StoredNotebooks, preferCloud = false) {
     // preferCloud: this device had NO local content at launch (e.g. an iPad PWA whose
     // storage was purged), so the cloud is authoritative — take it whenever it has ink,
     // even if a stroke was drawn on the blank board while the cloud fetch was in flight.
-    if (preferCloud && ci) merged[id] = c;
-    else if (ci !== li) merged[id] = ci ? c : l;
-    else merged[id] = (c.updatedAt ?? 0) > (l.updatedAt ?? 0) ? c : l;
+    if (preferCloud && ci) merged[id] = restoreLocalImages(c, l);
+    else if (ci !== li) merged[id] = ci ? restoreLocalImages(c, l) : l;
+    else merged[id] = (c.updatedAt ?? 0) > (l.updatedAt ?? 0) ? restoreLocalImages(c, l) : l;
   }
   books = merged;
 }

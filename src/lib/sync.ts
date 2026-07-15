@@ -6,12 +6,14 @@ export type CloudSync = 'local' | 'saving' | 'saved' | 'error';
 
 interface SyncState {
   cloud: CloudSync;
+  detail?: string; // error code/message when cloud === 'error'
   at: number; // last state change (ms)
-  setCloud: (c: CloudSync) => void;
+  setCloud: (c: CloudSync, detail?: string) => void;
 }
 
 export const useSync = create<SyncState>((set) => ({
   cloud: 'local',
+  detail: undefined,
   at: 0,
-  setCloud: (cloud) => set({ cloud, at: Date.now() }),
+  setCloud: (cloud, detail) => set({ cloud, detail, at: Date.now() }),
 }));
