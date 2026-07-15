@@ -9,7 +9,7 @@ const OLD_LS_KEY = 'eju-board-v1'; // legacy single-board format → migrated in
 
 // Compact wire format: points stored as [x, y, pressure] tuples to save space
 // (Firestore docs are capped at ~1MB; ink can be large).
-type CStroke = { i: string; c: InkColor; s: number; p: number[][]; sh?: ShapeKind };
+type CStroke = { i: string; c: InkColor; s: number; p: number[][]; sh?: ShapeKind; tx?: string };
 type CPage = { id: string; v: [number, number, number]; st: CStroke[] };
 interface StoredBook {
   pages: CPage[];
@@ -38,6 +38,7 @@ function encode(pages: Page[]): CPage[] {
       s: s.size,
       p: s.points.map((pt) => [Math.round(pt.x), Math.round(pt.y), round(pt.p, 2)]),
       ...(s.shape ? { sh: s.shape } : {}),
+      ...(s.text != null ? { tx: s.text } : {}),
     })),
   }));
 }
@@ -52,6 +53,7 @@ function decode(cps: CPage[]): Page[] {
       size: cs.s,
       points: cs.p.map((t) => ({ x: t[0], y: t[1], p: t[2] })),
       ...(cs.sh ? { shape: cs.sh } : {}),
+      ...(cs.tx != null ? { text: cs.tx } : {}),
     })),
   }));
 }

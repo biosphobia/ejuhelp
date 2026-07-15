@@ -18,6 +18,10 @@ export interface Stroke {
   points: Pt[];
   /** When set, the stroke is a closed, lightly-filled shape rather than freehand ink. */
   shape?: ShapeKind;
+  /** When set, the stroke is a text note. `points` are its 4 bounding-box corners
+   *  (top-left, top-right, bottom-right, bottom-left); font size and rotation are derived
+   *  from them, so the selection tool moves/scales/rotates it like any other object. */
+  text?: string;
 }
 export interface Viewport {
   scale: number;

@@ -68,7 +68,7 @@ export default function Whiteboard() {
     let selBox: { minX: number; minY: number; maxX: number; maxY: number } | null = null;
     let marquee: { x0: number; y0: number; x1: number; y1: number } | null = null; // world coords
     const manipHidden = new Set<string>();
-    type SnapVal = { color: InkColor; size: number; points: Pt[]; shape?: ShapeKind };
+    type SnapVal = { color: InkColor; size: number; points: Pt[]; shape?: ShapeKind; text?: string };
     let manip:
       | {
           type: 'marquee' | 'move' | 'scale' | 'rotate' | 'vertex';
@@ -200,6 +200,7 @@ export default function Whiteboard() {
               color: s.color,
               size: s.size,
               shape: s.shape,
+              text: s.text,
               points: s.points.map((p) => transformPoint(p, mp.center, mp.live)),
             });
           }
@@ -618,7 +619,7 @@ export default function Whiteboard() {
       const snapshot = new Map<string, SnapVal>();
       const idset = new Set(selectedIds);
       for (const s of useBoard.getState().getCurrentPage().strokes) {
-        if (idset.has(s.id)) snapshot.set(s.id, { color: s.color, size: s.size, points: s.points, shape: s.shape });
+        if (idset.has(s.id)) snapshot.set(s.id, { color: s.color, size: s.size, points: s.points, shape: s.shape, text: s.text });
       }
       manipHidden.clear();
       for (const id of selectedIds) manipHidden.add(id);

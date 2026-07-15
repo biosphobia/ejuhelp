@@ -326,6 +326,7 @@ export const strings = {
   saveKeyPoints: { en: 'Save key points', ja: '要点を保存', zh: '保存要点', tr: 'Önemli noktaları kaydet' },
 
   // Mindmap
+  saveAsNote: { en: 'Save as note', ja: 'メモとして保存', zh: '保存为笔记', tr: 'Not olarak kaydet' },
   mindmap: { en: 'Mindmap', ja: 'マインドマップ', zh: '思维导图', tr: 'Zihin Haritası' },
   backToBoard: { en: 'Back to board', ja: 'ボードに戻る', zh: '返回白板', tr: 'Tahtaya dön' },
   recenter: { en: 'Recenter', ja: '中央に戻す', zh: '回到中心', tr: 'Ortala' },

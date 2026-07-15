@@ -2,11 +2,32 @@ import { useEffect, useRef, useState } from 'react';
 import Panel from '../Panel';
 import Markdown from '../Markdown';
 import { ErrorNote, errorMessage } from '../atoms';
-import { SpinnerIcon, CheckIcon, AskIcon, TrashIcon } from '../icons';
+import { SpinnerIcon, CheckIcon, AskIcon, TrashIcon, NotesIcon } from '../icons';
 import { useAsk, type CheckMeta } from '../../lib/ask';
 import { usePractice } from '../../lib/practice';
 import { errorTagLabel } from '../../lib/labels';
 import { useT, type TFunc } from '../../i18n';
+import { useUI } from '../../lib/ui';
+import { useBoard } from '../../lib/board';
+import { fetchNoteSummary } from '../../lib/api';
+import { makeTextNote } from '../../whiteboard/textnote';
+
+/** Strip Markdown/LaTeX to plain text — the fallback when summarization is unavailable. */
+function toPlainNote(md: string): string {
+  return md
+    .replace(/```[\s\S]*?```/g, '')
+    .replace(/`([^`]*)`/g, '$1')
+    .replace(/\$\$?([^$]*?)\$\$?/g, '$1')
+    .replace(/!\[[^\]]*\]\([^)]*\)/g, '')
+    .replace(/\[([^\]]*)\]\([^)]*\)/g, '$1')
+    .replace(/^#{1,6}\s*/gm, '')
+    .replace(/^\s*[-*+]\s+/gm, '• ')
+    .replace(/\*\*([^*]*)\*\*/g, '$1')
+    .replace(/\*([^*]*)\*/g, '$1')
+    .replace(/_{1,2}([^_]*)_{1,2}/g, '$1')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
+}
 
 function CheckVerdict({ meta, t }: { meta: CheckMeta; t: TFunc }) {
   if (meta.correct === 'unknown') return null; // nothing definitive to show
@@ -40,10 +61,42 @@ export default function AskPanel() {
   const activeQuestion = usePractice((s) => s.activeQuestion);
   const setActiveQuestion = usePractice((s) => s.setActiveQuestion);
 
+  const subject = useUI((s) => s.subject);
+  const lang = useUI((s) => s.lang);
+  const closePanel = useUI((s) => s.closePanel);
+
   const [input, setInput] = useState('');
   const [checking, setChecking] = useState(false);
   const [explaining, setExplaining] = useState(false);
+  const [noteIdx, setNoteIdx] = useState<number | null>(null);
   const bottomRef = useRef<HTMLDivElement>(null);
+
+  // Summarize a coach reply into a short note and drop it on the whiteboard as a text
+  // object (which the selection tool can then move / scale / rotate / duplicate / delete).
+  const saveNote = async (i: number, content: string) => {
+    if (noteIdx !== null) return;
+    setNoteIdx(i);
+    try {
+      let noteText = '';
+      try {
+        const r = await fetchNoteSummary({ subject, lang, text: content });
+        noteText = (r.text || '').trim();
+      } catch {
+        /* fall back to a plain-text version of the reply below */
+      }
+      if (!noteText) noteText = toPlainNote(content).slice(0, 400) || '…';
+      // Drop it centered on the current view (screen center → world coords).
+      const vp = useBoard.getState().getCurrentPage().viewport;
+      const center = {
+        x: (window.innerWidth / 2 - vp.x) / vp.scale,
+        y: (window.innerHeight / 2 - vp.y) / vp.scale,
+      };
+      useBoard.getState().addStroke(makeTextNote(noteText, useBoard.getState().color, center));
+      closePanel(); // reveal the board so the new note is visible
+    } finally {
+      setNoteIdx(null);
+    }
+  };
 
   // Keep the conversation pinned to the latest message — including on re-entry,
   // since the panel remounts each time it is opened.
@@ -175,6 +228,18 @@ export default function AskPanel() {
                 <>
                   {m.check ? <CheckVerdict meta={m.check} t={t} /> : null}
                   <Markdown text={m.content} />
+                  <div className="mt-1.5 flex">
+                    <button
+                      type="button"
+                      onClick={() => void saveNote(i, m.content)}
+                      disabled={noteIdx !== null}
+                      title={t('saveAsNote')}
+                      className="inline-flex items-center gap-1 rounded-lg px-2 py-1 text-xs font-semibold text-slate-500 ring-1 ring-slate-200 transition hover:bg-white hover:text-slate-800 disabled:opacity-40"
+                    >
+                      {noteIdx === i ? <SpinnerIcon className="h-3.5 w-3.5" /> : <NotesIcon className="h-3.5 w-3.5" />}
+                      {t('saveAsNote')}
+                    </button>
+                  </div>
                 </>
               )}
             </div>

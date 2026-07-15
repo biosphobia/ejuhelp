@@ -1089,6 +1089,35 @@ export async function topicStudySheet(args: {
   return { text: raw.trim() };
 }
 
+/** Condense a coach reply into a short, whiteboard-friendly plain-text note. Plain text
+ *  only (no Markdown/LaTeX) since it's drawn on the canvas, not rendered as rich text. */
+export async function noteSummary(args: {
+  subject: Subject;
+  lang: Lang;
+  text: string;
+  model?: string;
+  userKey?: string;
+}): Promise<{ text: string }> {
+  const src = (args.text ?? '').trim();
+  if (!src) return { text: '' };
+  const userText = [
+    'Condense the material below into a compact study NOTE to hand-write on a whiteboard.',
+    'Rules:',
+    '- PLAIN TEXT ONLY. No Markdown (no #, *, -, backticks, tables) and NO LaTeX. Write math in plain form: v = v0 + a·t, x², √2, H₂SO₄, θ.',
+    '- First line: a short title (a few words). Then 2 to 6 very concise point lines, one idea each.',
+    '- Keep the whole note under ~50 words. Capture only the key takeaways a student should remember.',
+    `- Write it in ${writeLang(args.lang)}.`,
+    'Respond with ONLY the note text (no preamble).',
+    '',
+    'Material:',
+    src.slice(0, 4000),
+  ].join('\n');
+  const raw = await executeModelCall(
+    args.model, args.userKey, args.subject, args.lang, undefined, [{ role: 'user', content: userText }], 600, false
+  );
+  return { text: raw.trim() };
+}
+
 export interface TopicAttempt {
   prompt?: string;
   correct?: boolean;

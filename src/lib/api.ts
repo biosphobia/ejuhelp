@@ -206,6 +206,9 @@ export interface TopicAttemptDTO {
 /** Beginner-friendly EJU study sheet for one topic/subtopic (cached on the client). */
 export const fetchStudySheet = (p: { subject: Subject; lang: Lang; topicId: string }) =>
   call<{ text: string }>('claude/study-sheet', p);
+/** Condense a coach reply into a short plain-text note for the whiteboard. */
+export const fetchNoteSummary = (p: { subject: Subject; lang: Lang; text: string }) =>
+  call<{ text: string }>('claude/note-summary', p);
 /** Big-picture strength/weakness read for a node, from the student's attempts on it. */
 export const fetchTopicMastery = (p: {
   subject: Subject;

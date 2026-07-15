@@ -1,5 +1,6 @@
 import { getStroke } from 'perfect-freehand';
 import { INK_HEX, type Pt, type Stroke } from '../lib/board';
+import { drawTextNote, textNoteHit } from './textnote';
 
 // Translate one of the ink hex colors to an rgba string at the given alpha — used
 // for the light interior fill of shapes.
@@ -74,6 +75,10 @@ function fillOutline(ctx: CanvasRenderingContext2D, outline: number[][]) {
 export function drawStroke(ctx: CanvasRenderingContext2D, stroke: Stroke, opts?: { live?: boolean }) {
   const pts = stroke.points;
   if (!pts.length) return;
+  if (stroke.text != null) {
+    drawTextNote(ctx, stroke);
+    return;
+  }
   if (stroke.shape) {
     drawShape(ctx, stroke);
     return;
@@ -109,6 +114,7 @@ function distToSegment(px: number, py: number, a: Pt, b: Pt): number {
 
 /** True if the eraser circle (world coords, radius r) touches the stroke. */
 export function strokeHit(stroke: Stroke, x: number, y: number, r: number): boolean {
+  if (stroke.text != null) return textNoteHit(stroke, x, y, r);
   const reach = r + stroke.size / 2;
   const pts = stroke.points;
   if (pts.length === 1) return Math.hypot(pts[0].x - x, pts[0].y - y) <= reach;

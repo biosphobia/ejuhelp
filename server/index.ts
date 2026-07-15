@@ -6,7 +6,7 @@ import { dirname, join } from 'node:path';
 import { existsSync } from 'node:fs';
 import { requireAuth } from './auth';
 import { topicsFor, subtopicsFor, mockExamList, mockExam, SUBJECTS, type Subject } from './eju';
-import { hasApiKey, ask, generate, check, explainBoard, keypoints, extractConcepts, mindmapCoach, topicStudySheet, topicMastery, lessonPlan } from './claude';
+import { hasApiKey, ask, generate, check, explainBoard, keypoints, extractConcepts, mindmapCoach, topicStudySheet, topicMastery, lessonPlan, noteSummary } from './claude';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const app = express();
@@ -219,6 +219,19 @@ app.post('/api/claude/study-sheet', requireAuth, async (req: Request, res: Respo
     if (!isSubject(subject)) return res.status(400).json({ error: 'bad_subject' });
     if (typeof topicId !== 'string' || !topicId) return res.status(400).json({ error: 'bad_topic' });
     res.json(await topicStudySheet({ subject, lang: toLang(lang), topicId, model, userKey }));
+  } catch (e) {
+    handleErr(e, res);
+  }
+});
+
+// Condense a coach reply into a short plain-text note for the whiteboard.
+app.post('/api/claude/note-summary', requireAuth, async (req: Request, res: Response) => {
+  try {
+    const { subject, lang, text } = req.body ?? {};
+    const { model, userKey } = getAiContext(req);
+    if (!isSubject(subject)) return res.status(400).json({ error: 'bad_subject' });
+    if (typeof text !== 'string' || !text.trim()) return res.status(400).json({ error: 'bad_text' });
+    res.json(await noteSummary({ subject, lang: toLang(lang), text, model, userKey }));
   } catch (e) {
     handleErr(e, res);
   }
