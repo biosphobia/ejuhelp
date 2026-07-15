@@ -11,7 +11,6 @@ import {
   PenIcon,
   EraserIcon,
   UndoIcon,
-  TrashIcon,
   HandIcon,
   SelectIcon,
   ShapesIcon,
@@ -65,7 +64,6 @@ export default function Toolbar() {
   const setSize = useBoard((s) => s.setSize);
   const setShape = useBoard((s) => s.setShape);
   const undoLast = useBoard((s) => s.undoLast);
-  const clearCurrentPage = useBoard((s) => s.clearCurrentPage);
   const fingerDraw = useUI((s) => s.fingerDraw);
   const setFingerDraw = useUI((s) => s.setFingerDraw);
 
@@ -145,9 +143,6 @@ export default function Toolbar() {
 
       <IconBtn onClick={undoLast} title={t('undo')}>
         <UndoIcon />
-      </IconBtn>
-      <IconBtn onClick={clearCurrentPage} title={t('clearPage')}>
-        <TrashIcon />
       </IconBtn>
 
       <span className="mx-1 h-7 w-px bg-slate-200" />
