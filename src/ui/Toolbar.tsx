@@ -18,6 +18,7 @@ import {
   TriangleIcon,
   SquareIcon,
   CircleIcon,
+  MathIcon,
 } from './icons';
 import type { StringKey } from '../i18n';
 
@@ -68,6 +69,7 @@ export default function Toolbar() {
   const clearCurrentPage = useBoard((s) => s.clearCurrentPage);
   const fingerDraw = useUI((s) => s.fingerDraw);
   const setFingerDraw = useUI((s) => s.setFingerDraw);
+  const setMathOpen = useUI((s) => s.setMathOpen);
 
   return (
     <div className="pointer-events-auto absolute left-3 top-3 flex max-w-[92vw] flex-wrap items-center gap-1 rounded-2xl bg-white/90 p-1.5 shadow-lg ring-1 ring-black/5 backdrop-blur safe-pad-top">
@@ -82,6 +84,9 @@ export default function Toolbar() {
       </IconBtn>
       <IconBtn active={tool === 'shapes'} onClick={() => setTool('shapes')} title={t('shapes')}>
         <ShapesIcon />
+      </IconBtn>
+      <IconBtn onClick={() => setMathOpen(true)} title={t('addEquation')}>
+        <MathIcon />
       </IconBtn>
 
       {tool === 'shapes' && (

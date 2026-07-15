@@ -26,6 +26,8 @@ interface UIState {
   /** Which top-level surface is showing. Not persisted — the app always opens on the board. */
   mode: Mode;
   launcherOpen: boolean;
+  /** The LaTeX/equation input modal is open. */
+  mathOpen: boolean;
   /** When true, a single finger (or a Pencil that reports as touch) draws; two fingers pan/zoom.
    *  When false, only a real pen/stylus draws and any touch navigates (palm rejection). */
   fingerDraw: boolean;
@@ -38,6 +40,7 @@ interface UIState {
   /** Flip between the board and the Mindmap, closing any open menu/panel. */
   toggleMindmap: () => void;
   setLauncherOpen: (b: boolean) => void;
+  setMathOpen: (b: boolean) => void;
   setFingerDraw: (b: boolean) => void;
 }
 
@@ -49,6 +52,7 @@ export const useUI = create<UIState>()(
       panel: null,
       mode: 'board',
       launcherOpen: false,
+      mathOpen: false,
       fingerDraw: false, // default: pen draws, fingers navigate (pan / pinch-zoom)
       setLang: (lang) => set({ lang }),
       toggleLang: () => set({ lang: LANGS[(LANGS.indexOf(get().lang) + 1) % LANGS.length] }),
@@ -59,6 +63,7 @@ export const useUI = create<UIState>()(
       toggleMindmap: () =>
         set((s) => ({ mode: s.mode === 'mindmap' ? 'board' : 'mindmap', panel: null, launcherOpen: false })),
       setLauncherOpen: (launcherOpen) => set({ launcherOpen }),
+      setMathOpen: (mathOpen) => set({ mathOpen }),
       setFingerDraw: (fingerDraw) => set({ fingerDraw }),
     }),
     {

@@ -200,6 +200,13 @@ export const MindmapIcon = (p: SVGProps<SVGSVGElement>) => (
     <path d="M9.9 9.9 6.4 6.4M14.3 10.4 17.2 7.4M13.7 14.1l2.2 2.4" />
   </svg>
 );
+export const MathIcon = (p: SVGProps<SVGSVGElement>) => (
+  <svg {...base(p)}>
+    {/* a radical √ with a fraction bar — reads as "formula" */}
+    <path d="M3 13l2.4 4L9 6h11" />
+    <path d="M13 11h5M13.5 15.2h4" />
+  </svg>
+);
 export const CameraIcon = (p: SVGProps<SVGSVGElement>) => (
   <svg {...base(p)}>
     <path d="M4 8.5a2 2 0 0 1 2-2h1.2l1-1.6a1 1 0 0 1 .85-.47h5.9a1 1 0 0 1 .85.47l1 1.6H18a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z" />

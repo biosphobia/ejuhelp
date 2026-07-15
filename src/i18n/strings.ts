@@ -327,6 +327,15 @@ export const strings = {
 
   // Mindmap
   saveAsNote: { en: 'Save as note', ja: 'メモとして保存', zh: '保存为笔记', tr: 'Not olarak kaydet' },
+  addEquation: { en: 'Add equation', ja: '数式を追加', zh: '添加公式', tr: 'Denklem ekle' },
+  addToBoard: { en: 'Add to whiteboard', ja: 'ホワイトボードに追加', zh: '添加到白板', tr: 'Tahtaya ekle' },
+  equationPlaceholder: {
+    en: 'Type LaTeX, e.g. E = mc^2, \\frac{a}{b}, \\int_0^1 x\\,dx',
+    ja: 'LaTeXを入力： E = mc^2, \\frac{a}{b}, \\int_0^1 x\\,dx など',
+    zh: '输入 LaTeX，例如 E = mc^2, \\frac{a}{b}, \\int_0^1 x\\,dx',
+    tr: 'LaTeX yaz, örn. E = mc^2, \\frac{a}{b}, \\int_0^1 x\\,dx',
+  },
+  equationPreviewHint: { en: 'Preview appears here', ja: 'ここにプレビューが表示されます', zh: '预览显示在此处', tr: 'Önizleme burada görünür' },
   cloudSaved: { en: '✓ Backed up to the cloud', ja: '✓ クラウドに保存済み', zh: '✓ 已备份到云端', tr: '✓ Buluta yedeklendi' },
   cloudSaving: { en: 'Saving to the cloud…', ja: 'クラウドに保存中…', zh: '正在保存到云端…', tr: 'Buluta kaydediliyor…' },
   cloudError: {
