@@ -195,6 +195,33 @@ function stripImageData(bks: Partial<Record<NotebookId, StoredBook>>): Partial<R
   return out;
 }
 
+// gzip a string to a base64 payload (and back), when the browser supports it. Dense ink
+// JSON compresses ~8×, which keeps large boards under Firestore's 1MB per-document limit.
+async function gzipB64(str: string): Promise<string | null> {
+  try {
+    if (typeof CompressionStream === 'undefined') return null;
+    const stream = new Blob([str]).stream().pipeThrough(new CompressionStream('gzip'));
+    const buf = new Uint8Array(await new Response(stream).arrayBuffer());
+    let bin = '';
+    for (let i = 0; i < buf.length; i++) bin += String.fromCharCode(buf[i]);
+    return btoa(bin);
+  } catch {
+    return null;
+  }
+}
+async function gunzipB64(b64: string): Promise<string | null> {
+  try {
+    if (typeof DecompressionStream === 'undefined') return null;
+    const bin = atob(b64);
+    const bytes = new Uint8Array(bin.length);
+    for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+    const stream = new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'));
+    return await new Response(stream).text();
+  } catch {
+    return null;
+  }
+}
+
 async function saveCloud() {
   const { user } = useAuth.getState();
   if (!user || !db) {
@@ -204,13 +231,20 @@ async function saveCloud() {
   if (!cloudLoaded) return; // don't overwrite the cloud until we've reconciled with it
   useSync.getState().setCloud('saving');
   try {
-    // Store the board as a JSON STRING (Firestore rejects the nested number[][] point
-    // arrays), with image data stripped so the doc stays under the 1MB limit.
-    await setDoc(doc(db, 'users', user.uid, 'board', 'notebooks'), {
-      data: JSON.stringify({ active: useNotebook.getState().active, books: stripImageData(books) }),
-      updatedAt: Date.now(),
-      v: 2,
-    });
+    // Board as a JSON string (Firestore rejects the nested number[][] points), image data
+    // stripped, then gzip-compressed so even a large ink board fits the 1MB doc limit.
+    const json = JSON.stringify({ active: useNotebook.getState().active, books: stripImageData(books) });
+    const gz = await gzipB64(json);
+    const payload = gz
+      ? { data: gz, enc: 'gz', updatedAt: Date.now(), v: 2 }
+      : { data: json, updatedAt: Date.now(), v: 2 };
+    // Firestore's hard doc limit is ~1,048,576 bytes; bail early with a clear message if the
+    // (compressed) board still exceeds it, rather than throwing an opaque invalid-argument.
+    if ((gz ?? json).length > 1_040_000) {
+      useSync.getState().setCloud('error', 'board too large for cloud (even compressed)');
+      return;
+    }
+    await setDoc(doc(db, 'users', user.uid, 'board', 'notebooks'), payload);
     useSync.getState().setCloud('saved');
   } catch (e) {
     const code = (e as { code?: string })?.code;
@@ -473,12 +507,21 @@ async function reconcileCloud(uid: string, attempt: number) {
     const snap = await getDoc(doc(db, 'users', uid, 'board', 'notebooks'));
     let cloud: StoredNotebooks | null = null;
     if (snap.exists()) {
-      const raw = snap.data() as { data?: string; books?: StoredNotebooks['books']; active?: NotebookId; updatedAt?: number };
+      const raw = snap.data() as {
+        data?: string;
+        enc?: string;
+        books?: StoredNotebooks['books'];
+        active?: NotebookId;
+        updatedAt?: number;
+      };
       if (typeof raw.data === 'string') {
-        // Current format: the board is a JSON string.
+        // Current format: the board is a JSON string, optionally gzip+base64 (enc:'gz').
+        const jsonStr = raw.enc === 'gz' ? await gunzipB64(raw.data) : raw.data;
         try {
-          const parsed = JSON.parse(raw.data) as StoredNotebooks;
-          if (parsed?.books) cloud = { active: parsed.active, books: parsed.books, updatedAt: raw.updatedAt };
+          if (jsonStr) {
+            const parsed = JSON.parse(jsonStr) as StoredNotebooks;
+            if (parsed?.books) cloud = { active: parsed.active, books: parsed.books, updatedAt: raw.updatedAt };
+          }
         } catch {
           /* corrupt cloud copy — ignore, keep local */
         }
