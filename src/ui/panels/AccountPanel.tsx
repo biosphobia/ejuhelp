@@ -2,9 +2,10 @@ import { useState } from 'react';
 import Panel from '../Panel';
 import { PrimaryButton } from '../atoms';
 import { useAuth } from '../../lib/auth';
+import { useSync } from '../../lib/sync';
 import { useLearnerProfile, type ProfileKind } from '../../lib/profile';
 import { useT, type StringKey } from '../../i18n';
-import { UserIcon, ChartIcon } from '../icons';
+import { UserIcon, ChartIcon, SpinnerIcon } from '../icons';
 
 const KIND_LABEL: Record<ProfileKind, StringKey> = {
   style: 'profileStyle',
@@ -23,6 +24,7 @@ export default function AccountPanel() {
   const user = useAuth((s) => s.user);
   const signIn = useAuth((s) => s.signIn);
   const signOut = useAuth((s) => s.signOut);
+  const cloud = useSync((s) => s.cloud);
 
   const notes = useLearnerProfile((s) => s.notes);
   const removeNote = useLearnerProfile((s) => s.remove);
@@ -52,7 +54,26 @@ export default function AccountPanel() {
               </div>
             </div>
           </div>
-          <p className="text-sm text-emerald-700">{t('syncOn')}</p>
+          <div
+            className={`flex items-center gap-2 rounded-xl px-3 py-2 text-sm font-medium ${
+              cloud === 'error'
+                ? 'bg-amber-50 text-amber-800 ring-1 ring-amber-100'
+                : cloud === 'saving'
+                ? 'bg-slate-50 text-slate-600 ring-1 ring-slate-100'
+                : 'bg-emerald-50 text-emerald-700 ring-1 ring-emerald-100'
+            }`}
+          >
+            {cloud === 'saving' ? <SpinnerIcon className="h-4 w-4 shrink-0" /> : null}
+            <span>
+              {cloud === 'saving'
+                ? t('cloudSaving')
+                : cloud === 'error'
+                ? t('cloudError')
+                : cloud === 'local'
+                ? t('cloudLocalOnly')
+                : t('cloudSaved')}
+            </span>
+          </div>
           <button
             type="button"
             onClick={() => void signOut()}

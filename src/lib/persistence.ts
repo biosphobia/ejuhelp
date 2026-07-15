@@ -1,6 +1,7 @@
 import { doc, getDoc, setDoc } from 'firebase/firestore';
 import { useBoard, blankPage, type Page, type InkColor, type ShapeKind } from './board';
-import { useAuth } from './auth';
+import { useAuth, onBeforeSignOut } from './auth';
+import { useSync } from './sync';
 import { db } from './firebase';
 import { useNotebook, NOTEBOOKS, DEFAULT_NOTEBOOK, type NotebookId } from './notebooks';
 
@@ -177,8 +178,12 @@ let cloudLoaded = false;
 
 async function saveCloud() {
   const { user } = useAuth.getState();
-  if (!user || !db) return;
+  if (!user || !db) {
+    useSync.getState().setCloud('local');
+    return;
+  }
   if (!cloudLoaded) return; // don't overwrite the cloud until we've reconciled with it
+  useSync.getState().setCloud('saving');
   try {
     // Store the board as a JSON STRING. Firestore rejects directly-nested arrays, and each
     // stroke's points are number[][] — writing the object verbatim throws "Nested arrays are
@@ -189,7 +194,9 @@ async function saveCloud() {
       updatedAt: Date.now(),
       v: 2,
     });
+    useSync.getState().setCloud('saved');
   } catch (e) {
+    useSync.getState().setCloud('error');
     console.warn('[persistence] cloud save failed', e);
   }
 }
@@ -220,6 +227,18 @@ function flush() {
   snapshotActive();
   saveLocal();
   void saveCloud();
+}
+
+/** Await a final cloud write — used right before sign-out so the last edits reach the
+ *  account before it's signed out (an unblocked saveCloud checks user/cloudLoaded itself). */
+async function flushCloudNow() {
+  if (cloudTimer) {
+    clearTimeout(cloudTimer);
+    cloudTimer = undefined;
+  }
+  snapshotActive();
+  saveLocal();
+  await saveCloud();
 }
 
 /** Switch the active whiteboard, saving the current one first. */
@@ -266,7 +285,7 @@ const hasInk = (b?: StoredBook) => !!b && b.pages.some((p) => p.st.length > 0);
  *  among non-empty (or both-empty) copies the newer one wins. This keeps unsynced
  *  local work from being clobbered, without letting a fresh device's empty page
  *  clobber real cloud content. */
-function mergeCloud(cloud: StoredNotebooks) {
+function mergeCloud(cloud: StoredNotebooks, preferCloud = false) {
   const merged: Partial<Record<NotebookId, StoredBook>> = { ...books };
   for (const id of NOTEBOOKS) {
     const c = cloud.books?.[id];
@@ -278,11 +297,19 @@ function mergeCloud(cloud: StoredNotebooks) {
     }
     const ci = hasInk(c);
     const li = hasInk(l);
-    if (ci !== li) merged[id] = ci ? c : l;
+    // preferCloud: this device had NO local content at launch (e.g. an iPad PWA whose
+    // storage was purged), so the cloud is authoritative — take it whenever it has ink,
+    // even if a stroke was drawn on the blank board while the cloud fetch was in flight.
+    if (preferCloud && ci) merged[id] = c;
+    else if (ci !== li) merged[id] = ci ? c : l;
     else merged[id] = (c.updatedAt ?? 0) > (l.updatedAt ?? 0) ? c : l;
   }
   books = merged;
 }
+
+// Whether this launch hydrated any real (inked) content from local storage. When false, a
+// signed-in user's cloud copy is treated as authoritative on reconcile (purged-device case).
+let hadContentAtLaunch = false;
 
 let inited = false;
 
@@ -290,6 +317,10 @@ let inited = false;
 export function initPersistence() {
   if (inited) return; // guard against accidental double-invoke
   inited = true;
+
+  // Flush the board to the cloud before a sign-out completes, so the last edits are saved
+  // under the account rather than lost when it goes away.
+  onBeforeSignOut(flushCloudNow);
 
   // 1) hydrate synchronously from localStorage (instant paint), migrating legacy format
   let data: StoredNotebooks | null = null;
@@ -301,6 +332,7 @@ export function initPersistence() {
   }
   if (!data) data = migrateLegacyLocal();
   if (data) applyStored(data);
+  hadContentAtLaunch = NOTEBOOKS.some((id) => hasInk(books[id]));
   // Baseline "saved" rev so the reconcile below can tell whether the user has drawn yet.
   lastSavedRev = useBoard.getState().rev;
   const localStamp = stampOf(data);
@@ -431,7 +463,7 @@ async function reconcileCloud(uid: string, attempt: number) {
     }
     if (uid !== reconciledUid) return; // user changed while we were fetching — abort
     if (cloud?.books) {
-      mergeCloud(cloud);
+      mergeCloud(cloud, !hadContentAtLaunch);
       // On a fresh/purged device (current notebook empty), jump to the notebook the user
       // was last on elsewhere so their work is visible immediately.
       const cur = useNotebook.getState().active;

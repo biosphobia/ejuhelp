@@ -15,6 +15,13 @@ interface AuthState {
   signOut: () => Promise<void>;
 }
 
+// Hooks run (awaited) right before sign-out — e.g. flush the board to the cloud so the
+// last edits aren't lost when the account they'd be saved under goes away.
+const beforeSignOutHooks: Array<() => Promise<void> | void> = [];
+export function onBeforeSignOut(fn: () => Promise<void> | void) {
+  beforeSignOutHooks.push(fn);
+}
+
 export const useAuth = create<AuthState>((set) => ({
   user: null,
   // When Firebase isn't configured we are immediately "ready" in anonymous mode.
@@ -26,6 +33,13 @@ export const useAuth = create<AuthState>((set) => ({
   },
   signOut: async () => {
     if (!auth) return;
+    for (const h of beforeSignOutHooks) {
+      try {
+        await h();
+      } catch {
+        /* never block sign-out on a flush error */
+      }
+    }
     await fbSignOut(auth);
   },
 }));

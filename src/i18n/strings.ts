@@ -327,6 +327,20 @@ export const strings = {
 
   // Mindmap
   saveAsNote: { en: 'Save as note', ja: 'メモとして保存', zh: '保存为笔记', tr: 'Not olarak kaydet' },
+  cloudSaved: { en: '✓ Backed up to the cloud', ja: '✓ クラウドに保存済み', zh: '✓ 已备份到云端', tr: '✓ Buluta yedeklendi' },
+  cloudSaving: { en: 'Saving to the cloud…', ja: 'クラウドに保存中…', zh: '正在保存到云端…', tr: 'Buluta kaydediliyor…' },
+  cloudError: {
+    en: '⚠ Cloud backup failed — your work is still saved on this device.',
+    ja: '⚠ クラウド保存に失敗 — この端末には保存されています。',
+    zh: '⚠ 云备份失败——你的内容仍保存在本设备上。',
+    tr: '⚠ Bulut yedeği başarısız — çalışman yine de bu cihazda kayıtlı.',
+  },
+  cloudLocalOnly: {
+    en: 'Saved on this device only. Sign in to back up to the cloud.',
+    ja: 'この端末のみに保存。ログインするとクラウドに保存されます。',
+    zh: '仅保存在本设备。登录后可备份到云端。',
+    tr: 'Yalnızca bu cihazda kayıtlı. Buluta yedeklemek için giriş yap.',
+  },
   addPhoto: { en: 'Add photo', ja: '写真を追加', zh: '添加照片', tr: 'Fotoğraf ekle' },
   saveToCanvas: { en: 'Add to whiteboard', ja: 'ホワイトボードに追加', zh: '添加到白板', tr: 'Tahtaya ekle' },
   removePhoto: { en: 'Remove', ja: '削除', zh: '移除', tr: 'Kaldır' },
