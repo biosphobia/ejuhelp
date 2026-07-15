@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import Panel from '../Panel';
 import Markdown from '../Markdown';
 import { ErrorNote, errorMessage } from '../atoms';
-import { SpinnerIcon, CheckIcon, AskIcon, TrashIcon, NotesIcon } from '../icons';
+import { SpinnerIcon, CheckIcon, AskIcon, TrashIcon, NotesIcon, CameraIcon, CloseIcon } from '../icons';
 import { useAsk, type CheckMeta } from '../../lib/ask';
 import { usePractice } from '../../lib/practice';
 import { errorTagLabel } from '../../lib/labels';
@@ -10,8 +10,15 @@ import { useT, type TFunc } from '../../i18n';
 import { useUI } from '../../lib/ui';
 import { useBoard } from '../../lib/board';
 import { fetchNoteSummary } from '../../lib/api';
-import { makeTextNotes } from '../../whiteboard/textnote';
+import { makeTextNotes, makeImageStroke } from '../../whiteboard/textnote';
 import { useSelection } from '../../lib/selection';
+import { loadImageFile } from '../../lib/imageutil';
+
+/** Screen center → world coords, for dropping something on the current view. */
+function viewCenter() {
+  const vp = useBoard.getState().getCurrentPage().viewport;
+  return { x: (window.innerWidth / 2 - vp.x) / vp.scale, y: (window.innerHeight / 2 - vp.y) / vp.scale };
+}
 
 /** Strip Markdown/LaTeX to plain text — the fallback when summarization is unavailable. */
 function toPlainNote(md: string): string {
@@ -56,6 +63,7 @@ export default function AskPanel() {
   const savedCount = useAsk((s) => s.lastSaved);
   const autoAnswered = useAsk((s) => s.lastAutoAnswered);
   const send = useAsk((s) => s.send);
+  const sendPhoto = useAsk((s) => s.sendPhoto);
   const check = useAsk((s) => s.check);
   const explain = useAsk((s) => s.explain);
   const reset = useAsk((s) => s.reset);
@@ -79,7 +87,26 @@ export default function AskPanel() {
   const [checking, setChecking] = useState(false);
   const [explaining, setExplaining] = useState(false);
   const [noteIdx, setNoteIdx] = useState<number | null>(null);
+  const [photo, setPhoto] = useState<{ dataUrl: string; width: number; height: number } | null>(null);
+  const fileRef = useRef<HTMLInputElement>(null);
   const bottomRef = useRef<HTMLDivElement>(null);
+
+  const onPickFile = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    e.target.value = ''; // allow re-picking the same file
+    if (!file) return;
+    try {
+      setPhoto(await loadImageFile(file));
+    } catch {
+      /* ignore unreadable files */
+    }
+  };
+  const saveImageToCanvas = () => {
+    if (!photo) return;
+    useBoard.getState().addStroke(makeImageStroke(photo.dataUrl, photo.width, photo.height, viewCenter()));
+    setPhoto(null);
+    closePanel();
+  };
 
   // Summarize a coach reply into a short note and drop it on the whiteboard as a text
   // object (which the selection tool can then move / scale / rotate / duplicate / delete).
@@ -95,14 +122,8 @@ export default function AskPanel() {
         /* fall back to a plain-text version of the reply below */
       }
       if (!noteText) noteText = toPlainNote(content).slice(0, 400) || '…';
-      // Drop it centered on the current view (screen center → world coords).
-      const vp = useBoard.getState().getCurrentPage().viewport;
-      const center = {
-        x: (window.innerWidth / 2 - vp.x) / vp.scale,
-        y: (window.innerHeight / 2 - vp.y) / vp.scale,
-      };
       // One selectable text object per row, so individual lines can be moved/revised.
-      useBoard.getState().addStrokes(makeTextNotes(noteText, useBoard.getState().color, center));
+      useBoard.getState().addStrokes(makeTextNotes(noteText, useBoard.getState().color, viewCenter()));
       closePanel(); // reveal the board so the new note is visible
     } finally {
       setNoteIdx(null);
@@ -117,8 +138,17 @@ export default function AskPanel() {
   }, [messages, busy]);
 
   const submit = () => {
+    if (busy) return;
     const text = input.trim();
-    if (!text || busy) return;
+    if (photo) {
+      // A photo is attached → ask the coach about the photo (a question is optional).
+      const p = photo;
+      setInput('');
+      setPhoto(null);
+      void sendPhoto(text, p.dataUrl);
+      return;
+    }
+    if (!text) return;
     setInput('');
     void send(text);
   };
@@ -165,7 +195,34 @@ export default function AskPanel() {
               {explaining ? t('loading') : t('explainBoard')}
             </button>
           </div>
+          {photo ? (
+            <div className="flex items-center gap-2 rounded-xl bg-slate-50 p-2 ring-1 ring-slate-200">
+              <img src={photo.dataUrl} alt="" className="h-12 w-12 shrink-0 rounded-lg object-cover ring-1 ring-slate-200" />
+              <span className="min-w-0 flex-1 truncate text-xs font-medium text-slate-600">{t('photoAttached')}</span>
+              <button
+                type="button"
+                onClick={saveImageToCanvas}
+                className="shrink-0 rounded-lg bg-white px-2 py-1 text-xs font-semibold text-slate-700 ring-1 ring-slate-300 hover:bg-slate-50"
+              >
+                {t('saveToCanvas')}
+              </button>
+              <button type="button" onClick={() => setPhoto(null)} aria-label={t('removePhoto')} className="grid h-6 w-6 shrink-0 place-items-center rounded-lg text-slate-400 hover:bg-slate-200">
+                <CloseIcon className="h-4 w-4" />
+              </button>
+            </div>
+          ) : null}
           <div className="flex items-end gap-2">
+            <input ref={fileRef} type="file" accept="image/*" className="hidden" onChange={onPickFile} />
+            <button
+              type="button"
+              onClick={() => fileRef.current?.click()}
+              disabled={busy}
+              aria-label={t('addPhoto')}
+              title={t('addPhoto')}
+              className="grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-slate-300 bg-white text-slate-600 transition hover:bg-slate-50 disabled:opacity-40"
+            >
+              <CameraIcon className="h-5 w-5" />
+            </button>
             <textarea
               value={input}
               onChange={(e) => setInput(e.target.value)}
@@ -182,7 +239,7 @@ export default function AskPanel() {
             <button
               type="button"
               onClick={submit}
-              disabled={busy || !input.trim()}
+              disabled={busy || (!input.trim() && !photo)}
               className="grid h-10 shrink-0 place-items-center rounded-xl bg-slate-900 px-4 text-sm font-semibold text-white disabled:opacity-40"
             >
               {busy && !checking && !explaining ? <SpinnerIcon className="h-4 w-4" /> : t('send')}

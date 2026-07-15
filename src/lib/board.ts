@@ -22,6 +22,9 @@ export interface Stroke {
    *  (top-left, top-right, bottom-right, bottom-left); font size and rotation are derived
    *  from them, so the selection tool moves/scales/rotates it like any other object. */
   text?: string;
+  /** When set, the stroke is an image (a data URL). Like a text note, `points` are its 4
+   *  box corners, so the selection tool moves/scales/rotates it too. */
+  image?: string;
 }
 export interface Viewport {
   scale: number;

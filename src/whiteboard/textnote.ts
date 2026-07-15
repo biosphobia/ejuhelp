@@ -1,4 +1,6 @@
 import { INK_HEX, type InkColor, type Pt, type Stroke, newId } from '../lib/board';
+import { getRasterImage } from './assets';
+import { noteHasMath, mathNoteSize, mathBitmap } from './mathnote';
 
 // A text note is a Stroke with `text` set. Its `points` are the 4 corners of the note's
 // box (TL, TR, BR, BL) in world coordinates. Because the whole object is just those 4
@@ -49,31 +51,48 @@ function wrap(text: string, font: number, maxWidth: number): string[] {
   return out.length ? out : [''];
 }
 
-/** Build a text-note stroke, wrapped and centered on `center` (world coords). */
-export function makeTextNote(text: string, color: InkColor, center: { x: number; y: number }): Stroke {
-  const clean = (text || '').trim() || '…';
-  const lines = wrap(clean, BASE_FONT, MAX_WIDTH);
-  const pad = BASE_FONT * NOTE_PAD;
-  const contentW = Math.max(1, ...lines.map((l) => measure(l, BASE_FONT)));
-  const boxW = contentW + pad * 2;
-  const boxH = lines.length * BASE_FONT * NOTE_LINE_H + pad * 2;
+/** The 4 corners (TL, TR, BR, BL) of an axis-aligned box centered at (cx,cy). */
+function boxCorners(cx: number, cy: number, boxW: number, boxH: number): Pt[] {
   const hw = boxW / 2;
   const hh = boxH / 2;
-  const cx = center.x;
-  const cy = center.y;
-  const corner = (x: number, y: number): Pt => ({ x, y, p: 0.5 });
-  return {
-    id: newId(),
-    color,
-    size: BASE_FONT,
-    text: lines.join('\n'),
-    points: [
-      corner(cx - hw, cy - hh), // TL
-      corner(cx + hw, cy - hh), // TR
-      corner(cx + hw, cy + hh), // BR
-      corner(cx - hw, cy + hh), // BL
-    ],
-  };
+  const c = (x: number, y: number): Pt => ({ x, y, p: 0.5 });
+  return [c(cx - hw, cy - hh), c(cx + hw, cy - hh), c(cx + hw, cy + hh), c(cx - hw, cy + hh)];
+}
+
+/** Build a text-note stroke, wrapped and centered on `center` (world coords). Notes that
+ *  contain `$…$` LaTeX are sized to their rendered math (measured via the DOM). */
+export function makeTextNote(text: string, color: InkColor, center: { x: number; y: number }): Stroke {
+  const clean = (text || '').trim() || '…';
+  let boxW: number;
+  let boxH: number;
+  let stored = clean;
+  const math = noteHasMath(clean) ? mathNoteSize(clean) : null;
+  if (math) {
+    boxW = math.w;
+    boxH = math.h;
+  } else {
+    const lines = wrap(clean, BASE_FONT, MAX_WIDTH);
+    const pad = BASE_FONT * NOTE_PAD;
+    const contentW = Math.max(1, ...lines.map((l) => measure(l, BASE_FONT)));
+    boxW = contentW + pad * 2;
+    boxH = lines.length * BASE_FONT * NOTE_LINE_H + pad * 2;
+    stored = lines.join('\n');
+  }
+  return { id: newId(), color, size: BASE_FONT, text: stored, points: boxCorners(center.x, center.y, boxW, boxH) };
+}
+
+/** Build an image stroke (a photo etc.) sized to `worldWidth`, preserving aspect. */
+export function makeImageStroke(
+  dataUrl: string,
+  imgW: number,
+  imgH: number,
+  center: { x: number; y: number },
+  worldWidth = 320
+): Stroke {
+  const aspect = imgW > 0 && imgH > 0 ? imgH / imgW : 0.75;
+  const boxW = worldWidth;
+  const boxH = worldWidth * aspect;
+  return { id: newId(), color: 'black', size: 1, image: dataUrl, points: boxCorners(center.x, center.y, boxW, boxH) };
 }
 
 function shiftNote(n: Stroke, dx: number, dy: number): Stroke {
@@ -124,6 +143,41 @@ export function textNoteGeom(stroke: Stroke): NoteGeom | null {
   return { ox: tl.x, oy: tl.y, angle, boxW, boxH, font, lines };
 }
 
+/** Origin/rotation/size of ANY 4-corner box stroke (text note or image). */
+export function boxGeom(stroke: Stroke): { ox: number; oy: number; angle: number; boxW: number; boxH: number } | null {
+  const p = stroke.points;
+  if (p.length < 4) return null;
+  const [tl, tr, , bl] = p;
+  return {
+    ox: tl.x,
+    oy: tl.y,
+    angle: Math.atan2(tr.y - tl.y, tr.x - tl.x),
+    boxW: Math.hypot(tr.x - tl.x, tr.y - tl.y),
+    boxH: Math.hypot(bl.x - tl.x, bl.y - tl.y),
+  };
+}
+
+/** Draw an image stroke, fitted into its (possibly rotated/scaled) box. */
+export function drawImageStroke(ctx: CanvasRenderingContext2D, stroke: Stroke) {
+  const g = boxGeom(stroke);
+  if (!g || !stroke.image) return;
+  const img = getRasterImage(stroke.image);
+  ctx.save();
+  ctx.translate(g.ox, g.oy);
+  ctx.rotate(g.angle);
+  if (img) {
+    ctx.drawImage(img, 0, 0, g.boxW, g.boxH);
+  } else {
+    // placeholder while the image decodes
+    ctx.fillStyle = 'rgba(100,116,139,0.12)';
+    ctx.fillRect(0, 0, g.boxW, g.boxH);
+    ctx.strokeStyle = 'rgba(100,116,139,0.4)';
+    ctx.lineWidth = 1;
+    ctx.strokeRect(0, 0, g.boxW, g.boxH);
+  }
+  ctx.restore();
+}
+
 const FILL_RGB: Record<string, string> = {
   '#111827': '17,24,39',
   '#dc2626': '220,38,38',
@@ -131,8 +185,22 @@ const FILL_RGB: Record<string, string> = {
   '#16a34a': '22,163,74',
 };
 
-/** Draw a text note: a lightly-tinted rounded card with the wrapped text. */
+/** Draw a text note. Notes with `$…$` render their LaTeX via a cached bitmap; plain notes
+ *  draw as a lightly-tinted card with canvas text. */
 export function drawTextNote(ctx: CanvasRenderingContext2D, stroke: Stroke) {
+  if (stroke.text != null && noteHasMath(stroke.text)) {
+    const bg = boxGeom(stroke);
+    const bmp = mathBitmap(stroke.text, stroke.color);
+    if (bg && bmp) {
+      ctx.save();
+      ctx.translate(bg.ox, bg.oy);
+      ctx.rotate(bg.angle);
+      ctx.drawImage(bmp, 0, 0, bg.boxW, bg.boxH);
+      ctx.restore();
+      return;
+    }
+    // else fall through to the plain-text renderer while the bitmap loads
+  }
   const g = textNoteGeom(stroke);
   if (!g || g.font <= 0) return;
   const hex = INK_HEX[stroke.color];
@@ -173,9 +241,10 @@ function roundRect(ctx: CanvasRenderingContext2D, x: number, y: number, w: numbe
   ctx.closePath();
 }
 
-/** Eraser hit-test: is (x,y) within `r` of the note's (possibly rotated) box? */
-export function textNoteHit(stroke: Stroke, x: number, y: number, r: number): boolean {
-  const g = textNoteGeom(stroke);
+/** Eraser hit-test: is (x,y) within `r` of a box stroke's (possibly rotated) box? Works for
+ *  both text notes and images. */
+export function boxHit(stroke: Stroke, x: number, y: number, r: number): boolean {
+  const g = boxGeom(stroke);
   if (!g) return false;
   // transform the query point into the box's local frame
   const dx = x - g.ox;

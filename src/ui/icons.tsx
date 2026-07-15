@@ -200,6 +200,12 @@ export const MindmapIcon = (p: SVGProps<SVGSVGElement>) => (
     <path d="M9.9 9.9 6.4 6.4M14.3 10.4 17.2 7.4M13.7 14.1l2.2 2.4" />
   </svg>
 );
+export const CameraIcon = (p: SVGProps<SVGSVGElement>) => (
+  <svg {...base(p)}>
+    <path d="M4 8.5a2 2 0 0 1 2-2h1.2l1-1.6a1 1 0 0 1 .85-.47h5.9a1 1 0 0 1 .85.47l1 1.6H18a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z" />
+    <circle cx="12" cy="12.5" r="3.2" />
+  </svg>
+);
 export const CalendarIcon = (p: SVGProps<SVGSVGElement>) => (
   <svg {...base(p)}>
     <rect x="3" y="4.5" width="18" height="16" rx="2" />

@@ -1103,7 +1103,7 @@ export async function noteSummary(args: {
   const userText = [
     'Condense the material below into a compact study NOTE to hand-write on a whiteboard.',
     'Rules:',
-    '- PLAIN TEXT ONLY. No Markdown (no #, *, -, backticks, tables) and NO LaTeX. Write math in plain form: v = v0 + a·t, x², √2, H₂SO₄, θ.',
+    '- No Markdown (no #, *, -, backticks, tables). Write MATH as inline LaTeX between $...$ (e.g. $v = v_0 + at$, $\\frac{a}{b}$, $\\sqrt{2}$, $\\theta$, $\\mathrm{H_2SO_4}$); everything else plain text.',
     '- First line: a short title (a few words). Then 2 to 6 very concise point lines, one idea each.',
     '- Keep the whole note under ~50 words. Capture only the key takeaways a student should remember.',
     `- Write it in ${writeLang(args.lang)}.`,
@@ -1138,7 +1138,7 @@ export async function noteRevise(args: {
     '"""',
     `Their request: ${instr || 'Improve and clarify this note.'}`,
     'Rewrite the note to satisfy the request, as a compact whiteboard note. Rules:',
-    '- PLAIN TEXT ONLY. No Markdown, no LaTeX. Write math plainly: v = v0 + a·t, x², √2, H₂SO₄, θ.',
+    '- No Markdown. Write MATH as inline LaTeX between $...$ (e.g. $v = v_0 + at$, $\\frac{a}{b}$, $\\sqrt{2}$, $\\theta$); everything else plain text.',
     '- One idea per line (each line becomes its own row). Optionally a short title line first.',
     '- Keep it tight — under ~60 words. Answer the request; do not just restate the old note.',
     `- Write it in ${writeLang(args.lang)}.`,

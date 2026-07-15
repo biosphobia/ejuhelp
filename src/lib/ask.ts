@@ -93,6 +93,8 @@ interface AskState {
   lastSaved: number; // concepts auto-added to the Mindmap from the latest answer
   lastAutoAnswered: boolean; // the latest check read a final answer onto a pinned question
   send: (text: string) => Promise<void>;
+  /** Send a photo (data URL) the student attached, with an optional question, to the coach. */
+  sendPhoto: (note: string, imageDataUrl: string) => Promise<void>;
   /** Capture the current page and have the coach grade it, in-line with the chat.
    *  `note` is the student's optional textbox message, sent to steer the grading. */
   check: (note?: string) => Promise<void>;
@@ -155,6 +157,31 @@ export const useAsk = create<AskState>((set, get) => ({
         lang,
         messages: next,
         context: activeQuestion ?? undefined,
+        profile: coachProfile(),
+      });
+      const added = useMindmap.getState().addMany(subject, res.keyPoints ?? []);
+      useLearnerProfile.getState().addNotes(res.profile ?? []);
+      set({ messages: [...next, { role: 'assistant', content: res.text }], lastSaved: added });
+    } catch (e) {
+      set({ error: e });
+    } finally {
+      set({ busy: false });
+    }
+  },
+  sendPhoto: async (note, imageDataUrl) => {
+    if (get().busy || !imageDataUrl) return;
+    const { subject, lang } = useUI.getState();
+    const trimmed = note?.trim() || '';
+    const prior = get().messages;
+    const next: Message[] = [...prior, { role: 'user', content: trimmed || '📷 (photo)' }];
+    set({ messages: next, busy: true, error: null, lastSaved: 0, lastAutoAnswered: false });
+    try {
+      const res = await explainBoard({
+        subject,
+        lang,
+        imageDataUrl,
+        note: trimmed || undefined,
+        messages: prior,
         profile: coachProfile(),
       });
       const added = useMindmap.getState().addMany(subject, res.keyPoints ?? []);

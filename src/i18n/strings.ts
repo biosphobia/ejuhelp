@@ -327,6 +327,10 @@ export const strings = {
 
   // Mindmap
   saveAsNote: { en: 'Save as note', ja: 'メモとして保存', zh: '保存为笔记', tr: 'Not olarak kaydet' },
+  addPhoto: { en: 'Add photo', ja: '写真を追加', zh: '添加照片', tr: 'Fotoğraf ekle' },
+  saveToCanvas: { en: 'Add to whiteboard', ja: 'ホワイトボードに追加', zh: '添加到白板', tr: 'Tahtaya ekle' },
+  removePhoto: { en: 'Remove', ja: '削除', zh: '移除', tr: 'Kaldır' },
+  photoAttached: { en: 'Photo attached', ja: '写真を添付しました', zh: '已附加照片', tr: 'Fotoğraf eklendi' },
   noteEditBanner: {
     en: 'Editing {n} selected note row(s) — your message will revise them.',
     ja: '選択中の{n}行のメモを編集中 — 送信した内容で書き換えます。',
