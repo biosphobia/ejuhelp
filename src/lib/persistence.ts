@@ -176,25 +176,6 @@ function saveLocal() {
 // whose local storage was purged) could overwrite the real backup before we've read it.
 let cloudLoaded = false;
 
-/** Deep-copy the books with image DATA removed (placeholder ''), so the cloud doc stays
- *  small. Photos are large base64 blobs; a couple would blow Firestore's 1MB doc limit and
- *  block ALL cloud sync. Images stay local (IndexedDB-durable) and are restored on merge. */
-function stripImageData(bks: Partial<Record<NotebookId, StoredBook>>): Partial<Record<NotebookId, StoredBook>> {
-  const out: Partial<Record<NotebookId, StoredBook>> = {};
-  for (const id of NOTEBOOKS) {
-    const b = bks[id];
-    if (!b) continue;
-    out[id] = {
-      ...b,
-      pages: b.pages.map((pg) => ({
-        ...pg,
-        st: pg.st.map((s) => (s.im != null && s.im !== '' ? { ...s, im: '' } : s)),
-      })),
-    };
-  }
-  return out;
-}
-
 // gzip a string to a base64 payload (and back), when the browser supports it. Dense ink
 // JSON compresses ~8×, which keeps large boards under Firestore's 1MB per-document limit.
 async function gzipB64(str: string): Promise<string | null> {
@@ -222,6 +203,21 @@ async function gunzipB64(b64: string): Promise<string | null> {
   }
 }
 
+function stripBookImages(b: StoredBook): StoredBook {
+  return {
+    ...b,
+    pages: b.pages.map((pg) => ({
+      ...pg,
+      st: pg.st.map((s) => (s.im != null && s.im !== '' ? { ...s, im: '' } : s)),
+    })),
+  };
+}
+
+// Per-notebook serialized copy last written to the cloud, so we only re-upload notebooks
+// that actually changed (and detect that nothing changed).
+const cloudCache: Partial<Record<NotebookId, string>> = {};
+const EMPTY_MARK = ' empty';
+
 async function saveCloud() {
   const { user } = useAuth.getState();
   if (!user || !db) {
@@ -231,21 +227,37 @@ async function saveCloud() {
   if (!cloudLoaded) return; // don't overwrite the cloud until we've reconciled with it
   useSync.getState().setCloud('saving');
   try {
-    // Board as a JSON string (Firestore rejects the nested number[][] points), image data
-    // stripped, then gzip-compressed so even a large ink board fits the 1MB doc limit.
-    const json = JSON.stringify({ active: useNotebook.getState().active, books: stripImageData(books) });
-    const gz = await gzipB64(json);
-    const payload = gz
-      ? { data: gz, enc: 'gz', updatedAt: Date.now(), v: 2 }
-      : { data: json, updatedAt: Date.now(), v: 2 };
-    // Firestore's hard doc limit is ~1,048,576 bytes; bail early with a clear message if the
-    // (compressed) board still exceeds it, rather than throwing an opaque invalid-argument.
-    if ((gz ?? json).length > 1_040_000) {
-      useSync.getState().setCloud('error', 'board too large for cloud (even compressed)');
-      return;
+    const now = Date.now();
+    let tooBig = false;
+    // ONE document per notebook — a large board (lots of handwriting across notebooks)
+    // otherwise blows Firestore's 1MB PER-DOCUMENT limit and fails the whole save. Image
+    // data is stripped and the JSON gzip-compressed; each notebook is well under 1MB.
+    for (const id of NOTEBOOKS) {
+      const ref = doc(db, 'users', user.uid, 'board', `nb-${id}`);
+      const book = books[id];
+      if (!book || !hasInk(book)) {
+        if (cloudCache[id] !== undefined && cloudCache[id] !== EMPTY_MARK) {
+          await setDoc(ref, { data: '', updatedAt: now, v: 3 });
+          cloudCache[id] = EMPTY_MARK;
+        }
+        continue;
+      }
+      const json = JSON.stringify(stripBookImages(book));
+      if (cloudCache[id] === json) continue; // unchanged → skip
+      const gz = await gzipB64(json);
+      if ((gz ?? json).length > 1_040_000) {
+        tooBig = true; // this one notebook is too big — skip it, still save the others
+        continue;
+      }
+      await setDoc(ref, gz ? { data: gz, enc: 'gz', updatedAt: now, v: 3 } : { data: json, updatedAt: now, v: 3 });
+      cloudCache[id] = json;
     }
-    await setDoc(doc(db, 'users', user.uid, 'board', 'notebooks'), payload);
-    useSync.getState().setCloud('saved');
+    await setDoc(doc(db, 'users', user.uid, 'board', '_meta'), {
+      active: useNotebook.getState().active,
+      updatedAt: now,
+      v: 3,
+    });
+    useSync.getState().setCloud(tooBig ? 'error' : 'saved', tooBig ? 'one notebook too large; the rest are backed up' : undefined);
   } catch (e) {
     const code = (e as { code?: string })?.code;
     const msg = (e as { message?: string })?.message;
@@ -529,67 +541,97 @@ async function reconcileCloud(uid: string, attempt: number) {
   if (attempt === 0) useSync.getState().setCloud('saving'); // "checking cloud…"
   try {
     snapshotActive(); // include current local edits in the merge base
-    const snap = await getDoc(doc(db, 'users', uid, 'board', 'notebooks'));
-    let cloud: StoredNotebooks | null = null;
-    if (snap.exists()) {
-      const raw = snap.data() as {
-        data?: string;
-        enc?: string;
-        books?: StoredNotebooks['books'];
-        active?: NotebookId;
-        updatedAt?: number;
-      };
-      if (typeof raw.data === 'string') {
-        // Current format: the board is a JSON string, optionally gzip+base64 (enc:'gz').
+    const cloudBooks: Partial<Record<NotebookId, StoredBook>> = {};
+    let cloudActive: NotebookId | undefined;
+    let sawV3 = false; // at least one per-notebook doc exists
+    let readFailure = false; // an existing doc we couldn't parse — must NOT clobber it
+
+    // v3: one document per notebook (nb-<id>) + a _meta doc for the active notebook.
+    for (const id of NOTEBOOKS) {
+      const snap = await getDoc(doc(db, 'users', uid, 'board', `nb-${id}`));
+      if (!snap.exists()) continue;
+      sawV3 = true;
+      const raw = snap.data() as { data?: string; enc?: string };
+      if (typeof raw.data === 'string' && raw.data) {
         const jsonStr = raw.enc === 'gz' ? await gunzipB64(raw.data) : raw.data;
-        try {
-          if (jsonStr) {
-            const parsed = JSON.parse(jsonStr) as StoredNotebooks;
-            if (parsed?.books) cloud = { active: parsed.active, books: parsed.books, updatedAt: raw.updatedAt };
-          }
-        } catch {
-          /* corrupt cloud copy — ignore, keep local */
+        if (!jsonStr) {
+          readFailure = true;
+          continue;
         }
-      } else if (raw.books) {
-        cloud = { active: raw.active ?? DEFAULT_NOTEBOOK, books: raw.books, updatedAt: raw.updatedAt };
+        try {
+          const b = JSON.parse(jsonStr) as StoredBook;
+          if (b?.pages) cloudBooks[id] = b;
+        } catch {
+          readFailure = true;
+        }
+      }
+      // raw.data === '' is an intentionally-empty notebook — leave it out.
+    }
+    if (sawV3) {
+      const meta = await getDoc(doc(db, 'users', uid, 'board', '_meta'));
+      const md = meta.data() as { active?: NotebookId } | undefined;
+      if (md && validId(md.active)) cloudActive = md.active;
+    }
+
+    // v2 migration: a single 'notebooks' doc holding all books.
+    if (!sawV3) {
+      const snap = await getDoc(doc(db, 'users', uid, 'board', 'notebooks'));
+      if (snap.exists()) {
+        const raw = snap.data() as { data?: string; enc?: string; books?: StoredNotebooks['books']; active?: NotebookId };
+        let parsed: StoredNotebooks['books'] | undefined;
+        if (typeof raw.data === 'string' && raw.data) {
+          const jsonStr = raw.enc === 'gz' ? await gunzipB64(raw.data) : raw.data;
+          if (!jsonStr) readFailure = true;
+          else
+            try {
+              const p = JSON.parse(jsonStr) as StoredNotebooks;
+              parsed = p?.books;
+              if (validId(p?.active)) cloudActive = p.active;
+            } catch {
+              readFailure = true;
+            }
+        } else if (raw.books) {
+          parsed = raw.books;
+          if (validId(raw.active)) cloudActive = raw.active;
+        }
+        if (parsed) for (const id of NOTEBOOKS) if (parsed[id]) cloudBooks[id] = parsed[id]!;
       }
     }
-    if (!cloud?.books) {
-      // Best-effort read of the legacy single-board doc; a failure here must NOT block sync.
+
+    // v1 migration: the oldest single-board 'main' doc (best-effort).
+    if (!sawV3 && !Object.keys(cloudBooks).length && !readFailure) {
       try {
         const legacy = await getDoc(doc(db, 'users', uid, 'board', 'main'));
         const ld = legacy.data() as { pages?: CPage[]; currentPageId?: string; updatedAt?: number } | undefined;
-        if (ld?.pages?.length) {
-          cloud = {
-            active: DEFAULT_NOTEBOOK,
-            books: { general: { pages: ld.pages, currentPageId: ld.currentPageId, updatedAt: ld.updatedAt ?? 0 } },
-          };
-        }
+        if (ld?.pages?.length) cloudBooks.general = { pages: ld.pages, currentPageId: ld.currentPageId, updatedAt: ld.updatedAt ?? 0 };
       } catch {
-        /* ignore legacy-doc read errors */
+        /* ignore legacy read errors */
       }
     }
+
     if (uid !== reconciledUid) return; // user changed while we were fetching — abort
-    // CRITICAL: if the cloud doc EXISTS but we couldn't read a board out of it (parse /
-    // decompress failed), do NOT proceed — otherwise cloudLoaded=true would let us push the
-    // blank board over real cloud data. Treat it as a read failure and retry.
-    if (snap.exists() && !cloud?.books) {
-      throw new Error('cloud-doc-present-but-unreadable');
-    }
+    // CRITICAL: never push over a cloud copy we couldn't read — retry instead of clobbering.
+    if (readFailure) throw new Error('cloud-present-but-unreadable');
+
+    const cloud: StoredNotebooks | null = Object.keys(cloudBooks).length
+      ? { active: cloudActive ?? DEFAULT_NOTEBOOK, books: cloudBooks }
+      : null;
     if (cloud?.books) {
       mergeCloud(cloud, !hadContentAtLaunch);
       // On a fresh/purged device (current notebook empty), jump to the notebook the user
       // was last on elsewhere so their work is visible immediately.
       const cur = useNotebook.getState().active;
-      const next =
-        !hasInk(books[cur]) && validId(cloud.active) && hasInk(books[cloud.active]) ? cloud.active : cur;
+      const next = !hasInk(books[cur]) && validId(cloud.active) && hasInk(books[cloud.active]) ? cloud.active! : cur;
       useNotebook.getState()._setActive(next);
       loadBookIntoBoard(next);
       lastSavedRev = useBoard.getState().rev;
       saveLocal();
     }
+    // Seed the per-notebook change cache with what's actually IN the cloud, so the first
+    // save only writes notebooks that differ (local-newer or local-only).
+    for (const id of NOTEBOOKS) cloudCache[id] = cloudBooks[id] ? JSON.stringify(cloudBooks[id]) : EMPTY_MARK;
     cloudLoaded = true; // reconciled — cloud writes are now safe
-    void saveCloud(); // push the merged result (also seeds an empty cloud)
+    void saveCloud(); // push any local notebooks the cloud didn't have
   } catch (e) {
     console.warn('[persistence] cloud reconcile failed', e);
     const code = (e as { code?: string })?.code;
