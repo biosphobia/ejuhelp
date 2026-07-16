@@ -338,6 +338,17 @@ export const strings = {
   equationPreviewHint: { en: 'Preview appears here', ja: 'ここにプレビューが表示されます', zh: '预览显示在此处', tr: 'Önizleme burada görünür' },
   cloudSaved: { en: '✓ Backed up to the cloud', ja: '✓ クラウドに保存済み', zh: '✓ 已备份到云端', tr: '✓ Buluta yedeklendi' },
   cloudChecking: { en: 'Checking cloud backup…', ja: 'クラウド確認中…', zh: '正在检查云备份…', tr: 'Bulut yedeği kontrol ediliyor…' },
+  backupTitle: { en: 'Manual backup', ja: '手動バックアップ', zh: '手动备份', tr: 'Elle yedekleme' },
+  backupHint: {
+    en: 'Save all your notebooks to a file (e.g. in Files/iCloud). Works even if the cloud or device storage fails — keep a copy before your exam.',
+    ja: 'すべてのノートをファイル（Files/iCloudなど）に保存します。クラウドや端末が失敗しても安全 — 試験前にコピーを取っておきましょう。',
+    zh: '将所有笔记本保存为文件（如 Files/iCloud）。即使云端或设备存储失败也安全——考试前请保留副本。',
+    tr: 'Tüm defterlerini bir dosyaya kaydet (Files/iCloud vb.). Bulut ya da cihaz belleği başarısız olsa bile çalışır — sınavdan önce bir kopya sakla.',
+  },
+  downloadBackup: { en: 'Download backup', ja: 'バックアップを保存', zh: '下载备份', tr: 'Yedeği indir' },
+  restoreBackup: { en: 'Restore from file', ja: 'ファイルから復元', zh: '从文件恢复', tr: 'Dosyadan geri yükle' },
+  restoreDone: { en: '✓ Restored from backup.', ja: '✓ バックアップから復元しました。', zh: '✓ 已从备份恢复。', tr: '✓ Yedekten geri yüklendi.' },
+  restoreFailed: { en: "Couldn't read that backup file.", ja: 'そのバックアップを読み込めませんでした。', zh: '无法读取该备份文件。', tr: 'O yedek dosyası okunamadı.' },
   cloudSaving: { en: 'Saving to the cloud…', ja: 'クラウドに保存中…', zh: '正在保存到云端…', tr: 'Buluta kaydediliyor…' },
   cloudError: {
     en: '⚠ Cloud backup failed — your work is still saved on this device.',

@@ -294,6 +294,27 @@ async function flushCloudNow() {
   await saveCloud();
 }
 
+/** A JSON string of ALL notebooks — a manual backup the user can download to a file. This
+ *  is storage-independent (survives iOS storage purges, cloud outages, everything). */
+export function exportBackup(): string {
+  snapshotActive();
+  return JSON.stringify({ active: useNotebook.getState().active, books, exportedAt: Date.now(), v: 2 });
+}
+
+/** Restore all notebooks from a manual backup file. Returns true on success. */
+export function importBackup(text: string): boolean {
+  try {
+    const data = JSON.parse(text) as StoredNotebooks;
+    if (!data || typeof data !== 'object' || !data.books) return false;
+    applyStored(data);
+    saveLocal();
+    if (cloudLoaded) void saveCloud();
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 /** Switch the active whiteboard, saving the current one first. */
 export function switchNotebook(target: NotebookId) {
   if (!validId(target)) return;
@@ -549,6 +570,12 @@ async function reconcileCloud(uid: string, attempt: number) {
       }
     }
     if (uid !== reconciledUid) return; // user changed while we were fetching — abort
+    // CRITICAL: if the cloud doc EXISTS but we couldn't read a board out of it (parse /
+    // decompress failed), do NOT proceed — otherwise cloudLoaded=true would let us push the
+    // blank board over real cloud data. Treat it as a read failure and retry.
+    if (snap.exists() && !cloud?.books) {
+      throw new Error('cloud-doc-present-but-unreadable');
+    }
     if (cloud?.books) {
       mergeCloud(cloud, !hadContentAtLaunch);
       // On a fresh/purged device (current notebook empty), jump to the notebook the user

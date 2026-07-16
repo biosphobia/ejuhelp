@@ -1,11 +1,64 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import Panel from '../Panel';
 import { PrimaryButton } from '../atoms';
 import { useAuth } from '../../lib/auth';
 import { useSync } from '../../lib/sync';
+import { exportBackup, importBackup } from '../../lib/persistence';
 import { useLearnerProfile, type ProfileKind } from '../../lib/profile';
 import { useT, type StringKey } from '../../i18n';
 import { UserIcon, ChartIcon, SpinnerIcon } from '../icons';
+
+/** Storage-independent manual backup: download all notebooks to a file, or restore from one. */
+function BackupControls({ t }: { t: ReturnType<typeof useT> }) {
+  const fileRef = useRef<HTMLInputElement>(null);
+  const [msg, setMsg] = useState<string | null>(null);
+
+  const download = () => {
+    try {
+      const blob = new Blob([exportBackup()], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      const d = new Date();
+      const stamp = `${d.getFullYear()}${String(d.getMonth() + 1).padStart(2, '0')}${String(d.getDate()).padStart(2, '0')}`;
+      a.href = url;
+      a.download = `ejustudy-backup-${stamp}.json`;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 2000);
+    } catch {
+      /* ignore */
+    }
+  };
+  const onFile = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    e.target.value = '';
+    if (!file) return;
+    try {
+      const ok = importBackup(await file.text());
+      setMsg(ok ? t('restoreDone') : t('restoreFailed'));
+    } catch {
+      setMsg(t('restoreFailed'));
+    }
+  };
+
+  return (
+    <div className="space-y-2 rounded-2xl bg-slate-50 p-4 ring-1 ring-slate-100">
+      <div className="text-sm font-semibold text-slate-700">{t('backupTitle')}</div>
+      <p className="text-xs text-slate-500">{t('backupHint')}</p>
+      <div className="flex gap-2">
+        <button type="button" onClick={download} className="flex-1 rounded-xl bg-slate-900 px-3 py-2 text-sm font-semibold text-white hover:bg-slate-800">
+          {t('downloadBackup')}
+        </button>
+        <button type="button" onClick={() => fileRef.current?.click()} className="flex-1 rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50">
+          {t('restoreBackup')}
+        </button>
+      </div>
+      <input ref={fileRef} type="file" accept="application/json,.json" className="hidden" onChange={onFile} />
+      {msg ? <p className="text-xs font-medium text-emerald-700">{msg}</p> : null}
+    </div>
+  );
+}
 
 const KIND_LABEL: Record<ProfileKind, StringKey> = {
   style: 'profileStyle',
@@ -94,6 +147,11 @@ export default function AccountPanel() {
           <PrimaryButton onClick={() => void signIn()}>{t('signInGoogle')}</PrimaryButton>
         </div>
       )}
+
+      {/* Manual backup — works regardless of cloud/sign-in, so work is never unrecoverable. */}
+      <div className="mt-4">
+        <BackupControls t={t} />
+      </div>
     </Panel>
   );
 }
