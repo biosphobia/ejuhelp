@@ -337,6 +337,7 @@ export const strings = {
   },
   equationPreviewHint: { en: 'Preview appears here', ja: 'ここにプレビューが表示されます', zh: '预览显示在此处', tr: 'Önizleme burada görünür' },
   cloudSaved: { en: '✓ Backed up to the cloud', ja: '✓ クラウドに保存済み', zh: '✓ 已备份到云端', tr: '✓ Buluta yedeklendi' },
+  cloudChecking: { en: 'Checking cloud backup…', ja: 'クラウド確認中…', zh: '正在检查云备份…', tr: 'Bulut yedeği kontrol ediliyor…' },
   cloudSaving: { en: 'Saving to the cloud…', ja: 'クラウドに保存中…', zh: '正在保存到云端…', tr: 'Buluta kaydediliyor…' },
   cloudError: {
     en: '⚠ Cloud backup failed — your work is still saved on this device.',

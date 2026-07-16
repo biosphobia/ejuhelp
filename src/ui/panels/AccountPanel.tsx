@@ -64,16 +64,16 @@ export default function AccountPanel() {
                 : 'bg-emerald-50 text-emerald-700 ring-1 ring-emerald-100'
             }`}
           >
-            {cloud === 'saving' ? <SpinnerIcon className="h-4 w-4 shrink-0" /> : null}
+            {cloud === 'saving' || cloud === 'local' ? <SpinnerIcon className="h-4 w-4 shrink-0" /> : null}
             <div className="min-w-0">
               <div>
                 {cloud === 'saving'
                   ? t('cloudSaving')
                   : cloud === 'error'
                   ? t('cloudError')
-                  : cloud === 'local'
-                  ? t('cloudLocalOnly')
-                  : t('cloudSaved')}
+                  : cloud === 'saved'
+                  ? t('cloudSaved')
+                  : /* signed in but not reconciled yet */ t('cloudChecking')}
               </div>
               {cloud === 'error' && cloudDetail ? (
                 <div className="mt-0.5 break-words font-mono text-[11px] font-normal text-amber-700/80">{cloudDetail}</div>

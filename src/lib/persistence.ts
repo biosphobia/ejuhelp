@@ -501,7 +501,11 @@ function maybeReconcileCloud(uid: string | null) {
  *  wins), and only THEN allow cloud writes. On failure we retry with backoff and keep cloud
  *  writes blocked, so a transient error never overwrites a backup we couldn't read. */
 async function reconcileCloud(uid: string, attempt: number) {
-  if (!db) return;
+  if (!db) {
+    useSync.getState().setCloud('error', 'firestore-unavailable');
+    return;
+  }
+  if (attempt === 0) useSync.getState().setCloud('saving'); // "checking cloud…"
   try {
     snapshotActive(); // include current local edits in the merge base
     const snap = await getDoc(doc(db, 'users', uid, 'board', 'notebooks'));
@@ -530,13 +534,18 @@ async function reconcileCloud(uid: string, attempt: number) {
       }
     }
     if (!cloud?.books) {
-      const legacy = await getDoc(doc(db, 'users', uid, 'board', 'main'));
-      const ld = legacy.data() as { pages?: CPage[]; currentPageId?: string; updatedAt?: number } | undefined;
-      if (ld?.pages?.length) {
-        cloud = {
-          active: DEFAULT_NOTEBOOK,
-          books: { general: { pages: ld.pages, currentPageId: ld.currentPageId, updatedAt: ld.updatedAt ?? 0 } },
-        };
+      // Best-effort read of the legacy single-board doc; a failure here must NOT block sync.
+      try {
+        const legacy = await getDoc(doc(db, 'users', uid, 'board', 'main'));
+        const ld = legacy.data() as { pages?: CPage[]; currentPageId?: string; updatedAt?: number } | undefined;
+        if (ld?.pages?.length) {
+          cloud = {
+            active: DEFAULT_NOTEBOOK,
+            books: { general: { pages: ld.pages, currentPageId: ld.currentPageId, updatedAt: ld.updatedAt ?? 0 } },
+          };
+        }
+      } catch {
+        /* ignore legacy-doc read errors */
       }
     }
     if (uid !== reconciledUid) return; // user changed while we were fetching — abort
@@ -556,6 +565,9 @@ async function reconcileCloud(uid: string, attempt: number) {
     void saveCloud(); // push the merged result (also seeds an empty cloud)
   } catch (e) {
     console.warn('[persistence] cloud reconcile failed', e);
+    const code = (e as { code?: string })?.code;
+    const msg = (e as { message?: string })?.message;
+    useSync.getState().setCloud('error', code || msg || 'reconcile-failed');
     // Keep cloudLoaded=false so we never clobber a cloud we couldn't read; retry.
     if (attempt < 5 && uid === reconciledUid) {
       setTimeout(() => void reconcileCloud(uid, attempt + 1), Math.min(1000 * 2 ** attempt, 15000));
