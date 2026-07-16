@@ -1,5 +1,12 @@
 import { initializeApp, type FirebaseApp } from 'firebase/app';
-import { getAuth, GoogleAuthProvider, type Auth } from 'firebase/auth';
+import {
+  initializeAuth,
+  getAuth,
+  indexedDBLocalPersistence,
+  browserLocalPersistence,
+  GoogleAuthProvider,
+  type Auth,
+} from 'firebase/auth';
 import { getFirestore, type Firestore } from 'firebase/firestore';
 
 const cfg = {
@@ -20,7 +27,15 @@ let db: Firestore | undefined;
 
 if (isFirebaseConfigured) {
   app = initializeApp(cfg as Required<typeof cfg>);
-  auth = getAuth(app);
+  // Persist the login across reloads with a fallback chain: IndexedDB first, then
+  // localStorage — so the session survives even if one store is unavailable/evicted.
+  try {
+    auth = initializeAuth(app, {
+      persistence: [indexedDBLocalPersistence, browserLocalPersistence],
+    });
+  } catch {
+    auth = getAuth(app); // already initialized elsewhere, or init failed → default
+  }
   db = getFirestore(app);
 }
 
