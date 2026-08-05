@@ -7,6 +7,9 @@ services:
     plan: free
     buildCommand: npm install && npm run build
     startCommand: npm start
+    # Lets Render confirm the instance is actually up (and pairs with the server's
+    # keep-warm self-ping that stops the free tier spinning down between visits).
+    healthCheckPath: /api/health
     envVars:
       - key: NODE_VERSION
         value: '22'

@@ -360,3 +360,21 @@ const port = Number(process.env.PORT || 8787);
 app.listen(port, () => {
   console.log(`[eju] API listening on :${port}${servingDist ? ' (also serving dist/)' : ''}`);
 });
+
+// Keep-warm: Render's free tier spins the instance down after ~15 min of inactivity,
+// then shows its ~1-minute "waking up" cold-start page on the next visit — which makes
+// the app feel stuck/looping every time it's opened. Since this one service serves BOTH
+// the app shell and the API, that wake-up gates the whole app. Render injects the public
+// URL as RENDER_EXTERNAL_URL; hitting our own /api/health every ~10 min counts as inbound
+// traffic and resets the idle timer, so the instance stays awake and the app loads
+// instantly. A single always-on free web service fits within the 750 instance-hours/month
+// free budget. (No-op locally, where RENDER_EXTERNAL_URL is undefined.)
+const selfUrl = process.env.RENDER_EXTERNAL_URL;
+if (selfUrl) {
+  const KEEP_WARM_MS = 10 * 60 * 1000;
+  const timer = setInterval(() => {
+    fetch(`${selfUrl}/api/health`).catch(() => {});
+  }, KEEP_WARM_MS);
+  timer.unref?.(); // don't let the ping timer alone hold the process open
+  console.log(`[eju] keep-warm self-ping enabled → ${selfUrl}/api/health every 10m`);
+}
