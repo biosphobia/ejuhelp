@@ -266,7 +266,7 @@ export function initUserData() {
     'mindmap-v3',
     (s) => ({ concepts: s.concepts }),
     (s, data) => s.load(data?.concepts ?? []),
-    (l, c) => ({ concepts: unionById(l?.concepts, c?.concepts, (x: { ts?: number }) => x.ts ?? 0) })
+    (l, c) => ({ concepts: unionById(l?.concepts, c?.concepts, (x: { id: string; ts?: number }) => x.ts ?? 0) })
   );
   attachSync(
     useLearnerProfile,
@@ -274,7 +274,7 @@ export function initUserData() {
     'profile',
     (s) => ({ notes: s.notes }),
     (s, data) => s.load(data?.notes ?? []),
-    (l, c) => ({ notes: unionById(l?.notes, c?.notes, (n: { ts?: number }) => n.ts ?? 0, 100) })
+    (l, c) => ({ notes: unionById(l?.notes, c?.notes, (n: { id: string; ts?: number }) => n.ts ?? 0, 100) })
   );
   attachSync(
     useGenerated,
