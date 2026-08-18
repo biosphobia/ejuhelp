@@ -4,6 +4,7 @@ import {
   getAuth,
   indexedDBLocalPersistence,
   browserLocalPersistence,
+  browserPopupRedirectResolver,
   GoogleAuthProvider,
   type Auth,
 } from 'firebase/auth';
@@ -38,6 +39,10 @@ if (isFirebaseConfigured) {
   try {
     auth = initializeAuth(app, {
       persistence: [indexedDBLocalPersistence, browserLocalPersistence],
+      // REQUIRED for any popup/redirect sign-in: unlike getAuth(), initializeAuth does
+      // NOT bundle the resolver — without it every signInWithPopup/Redirect call throws
+      // auth/argument-error, i.e. Google sign-in is dead on arrival.
+      popupRedirectResolver: browserPopupRedirectResolver,
     });
   } catch {
     auth = getAuth(app); // already initialized elsewhere, or init failed → default

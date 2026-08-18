@@ -52,6 +52,17 @@ const POPUP_FALLBACK_CODES = new Set([
 const codeOf = (e: unknown): string =>
   (e as { code?: string })?.code ?? (e as Error)?.message ?? 'sign-in-failed';
 
+/** Credential carried by a link/sign-in failure (credential-already-in-use etc.), or
+ *  null. credentialFromError itself throws on non-Firebase errors — never let that
+ *  mask the original failure. */
+function credentialFrom(e: unknown) {
+  try {
+    return GoogleAuthProvider.credentialFromError(e as Parameters<typeof GoogleAuthProvider.credentialFromError>[0]);
+  } catch {
+    return null;
+  }
+}
+
 export const useAuth = create<AuthState>((set) => ({
   user: null,
   // When Firebase isn't configured we are immediately "ready" in anonymous mode.
@@ -85,7 +96,7 @@ export const useAuth = create<AuthState>((set) => ({
           // valid Google credential — sign in with it directly. Never open a second
           // popup here: outside the original click gesture it would be blocked, which
           // is exactly how sign-in used to die silently.
-          const cred = GoogleAuthProvider.credentialFromError(e as Parameters<typeof GoogleAuthProvider.credentialFromError>[0]);
+          const cred = credentialFrom(e);
           if (cred) {
             await signInWithCredential(auth, cred);
             return;
@@ -150,7 +161,7 @@ if (isFirebaseConfigured && auth) {
   getRedirectResult(auth).catch(async (e) => {
     // linkWithRedirect against an already-existing Google account: finish by signing
     // into that account with the credential the redirect brought back.
-    const cred = GoogleAuthProvider.credentialFromError(e as Parameters<typeof GoogleAuthProvider.credentialFromError>[0]);
+    const cred = credentialFrom(e);
     if (cred && auth) {
       try {
         await signInWithCredential(auth, cred);
