@@ -2,7 +2,7 @@ import 'dotenv/config';
 import express, { type Request, type Response, type NextFunction } from 'express';
 import cors from 'cors';
 import { fileURLToPath } from 'node:url';
-import { dirname, join } from 'node:path';
+import { basename, dirname, join } from 'node:path';
 import { existsSync } from 'node:fs';
 import { requireAuth } from './auth';
 import { setupLive } from './live';
@@ -353,7 +353,18 @@ app.post('/api/claude/mindmap-coach', requireAuth, async (req: Request, res: Res
 const distDir = join(here, '..', 'dist');
 const servingDist = existsSync(join(distDir, 'index.html'));
 if (servingDist) {
-  app.use(express.static(distDir));
+  app.use(
+    express.static(distDir, {
+      setHeaders: (res, filePath) => {
+        // Anki deck packages must arrive byte-exact as a plain download — never as
+        // text (mobile Anki then mis-parses them and fails with a UTF-8 error).
+        if (filePath.endsWith('.apkg')) {
+          res.setHeader('Content-Type', 'application/octet-stream');
+          res.setHeader('Content-Disposition', `attachment; filename="${basename(filePath)}"`);
+        }
+      },
+    })
+  );
   app.get(/^(?!\/api\/).*/, (_req, res) => res.sendFile(join(distDir, 'index.html')));
 }
 
