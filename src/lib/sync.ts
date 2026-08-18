@@ -17,8 +17,11 @@ interface SyncState {
   localDetail?: string;
   /** ms timestamp of the last successful durable local write (0 = none yet). */
   localSavedAt: number;
+  /** Other devices of the SAME account currently connected to the live-sync channel. */
+  peers: number;
   setCloud: (c: CloudSync, detail?: string) => void;
   setLocal: (l: LocalHealth, detail?: string) => void;
+  setPeers: (n: number) => void;
 }
 
 export const useSync = create<SyncState>((set) => ({
@@ -28,6 +31,8 @@ export const useSync = create<SyncState>((set) => ({
   local: 'ok',
   localDetail: undefined,
   localSavedAt: 0,
+  peers: 0,
+  setPeers: (peers) => set({ peers }),
   setCloud: (cloud, detail) => set({ cloud, detail, at: Date.now() }),
   setLocal: (local, detail) =>
     set((s) => ({

@@ -15,6 +15,7 @@ import { useStudyMap } from './lib/studymap';
 import { useSync } from './lib/sync';
 import { initPersistence } from './lib/persistence';
 import { initUserData } from './lib/userdata';
+import { initLive } from './lib/live';
 import { useT } from './i18n';
 import './lib/auth'; // registers the Firebase auth listener on load
 
@@ -32,6 +33,17 @@ function StorageAlarm() {
   );
 }
 
+/** Small badge shown while another device of the same account is mirrored live. */
+function LiveBadge() {
+  const peers = useSync((s) => s.peers);
+  if (peers <= 0) return null;
+  return (
+    <div className="pointer-events-none absolute left-1/2 top-2 z-40 -translate-x-1/2 rounded-full bg-emerald-500/90 px-2.5 py-0.5 text-[11px] font-bold tracking-wide text-white shadow safe-pad-top">
+      ● LIVE{peers > 1 ? ` ×${peers + 1}` : ''}
+    </div>
+  );
+}
+
 export default function App() {
   const mode = useUI((s) => s.mode);
   const openNode = useStudyMap((s) => s.openNode);
@@ -40,6 +52,7 @@ export default function App() {
   useEffect(() => {
     initPersistence();
     initUserData();
+    initLive();
   }, []);
 
   return (
@@ -75,6 +88,7 @@ export default function App() {
           />
         ) : null}
         <DebugHud />
+        <LiveBadge />
         <StorageAlarm />
       </div>
     </div>

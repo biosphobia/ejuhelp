@@ -29,6 +29,21 @@ export interface AuthedRequest extends Request {
   uid?: string;
 }
 
+/** Verify a Firebase ID token → uid, for non-Express callers (the live-sync WebSocket).
+ *  Returns the uid, or null when the token is invalid/absent. `available` is false when
+ *  Firebase Admin isn't configured at all (open mode — same policy as requireAuth). */
+export async function verifyIdToken(token: string): Promise<{ available: boolean; uid: string | null }> {
+  initAdmin();
+  if (!adminAvailable) return { available: false, uid: null };
+  if (!token) return { available: true, uid: null };
+  try {
+    const decoded = await admin.auth().verifyIdToken(token);
+    return { available: true, uid: decoded.uid };
+  } catch {
+    return { available: true, uid: null };
+  }
+}
+
 /**
  * Verify the caller's Firebase ID token. In local dev (ALLOW_ANON=true) or when
  * Firebase Admin isn't configured, requests pass through anonymously.

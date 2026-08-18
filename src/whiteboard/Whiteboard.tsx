@@ -15,6 +15,7 @@ import { useSelection } from '../lib/selection';
 import { drawStroke, strokeHit } from './render';
 import { boardEvents } from './view';
 import { setAssetRepaint } from './assets';
+import { setLiveRepaint, remoteGhosts, inkProgress, inkEnd, viewportProgress, liveActive } from '../lib/live';
 
 const ERASER_RADIUS = 14; // screen px
 const STYLUS_MAX = 14; // px: a lone touch this tiny (and positive) is treated as a stylus tip
@@ -44,6 +45,23 @@ export default function Whiteboard() {
 
     // interaction state
     let drawing: { color: InkColor; size: number; points: Pt[] } | null = null;
+    // live-sync ink stream: id of the in-progress stroke + how many points already sent
+    let liveSid: string | null = null;
+    let liveSent = 0;
+    let lastInkSend = 0;
+    let lastVpSend = 0;
+
+    /** Stream the not-yet-sent points of the in-progress stroke to peer devices (~25/s). */
+    function streamInk(final = false) {
+      if (!drawing || !liveSid) return;
+      const now = performance.now();
+      if (!final && now - lastInkSend < 40) return;
+      const pts = drawing.points.slice(liveSent);
+      if (!pts.length) return;
+      lastInkSend = now;
+      liveSent = drawing.points.length;
+      inkProgress(liveSid, useBoard.getState().currentPageId, drawing.color, drawing.size, pts);
+    }
     // shapes tool: rubber-band a shape between two world points, commit on release
     let shapeDraft:
       | { kind: ShapeKind; color: InkColor; size: number; start: { x: number; y: number }; cur: { x: number; y: number } }
@@ -164,6 +182,12 @@ export default function Whiteboard() {
       ctx.setTransform(1, 0, 0, 1, 0, 0);
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       ctx.drawImage(cache, 0, 0);
+      // Ink being drawn RIGHT NOW on the user's other devices (live mirroring).
+      const ghostStrokes = remoteGhosts(useBoard.getState().currentPageId);
+      if (ghostStrokes.length) {
+        setWorldTransform(ctx);
+        for (const g of ghostStrokes) drawStroke(ctx, g, { live: true });
+      }
       if (drawing && drawing.points.length) {
         setWorldTransform(ctx);
         drawStroke(ctx, { id: 'tmp', color: drawing.color, size: drawing.size, points: drawing.points }, { live: true });
@@ -355,6 +379,8 @@ export default function Whiteboard() {
         doErase(w.x, w.y);
       } else {
         drawing = { color, size, points: [{ x: w.x, y: w.y, p: pressureFor(e) }] };
+        liveSid = newId();
+        liveSent = 0;
       }
     }
 
@@ -367,6 +393,10 @@ export default function Whiteboard() {
           skipInvalidate = true;
           useBoard.getState().addStroke(committed);
           skipInvalidate = false;
+        }
+        if (liveSid) {
+          inkEnd(liveSid, useBoard.getState().currentPageId); // peers drop the ghost — the committed stroke just arrived as an op
+          liveSid = null;
         }
         drawing = null;
         drawId = null;
@@ -390,6 +420,10 @@ export default function Whiteboard() {
     }
 
     function abortStroke() {
+      if (liveSid) {
+        inkEnd(liveSid, useBoard.getState().currentPageId);
+        liveSid = null;
+      }
       drawing = null;
       erasing = false;
       eraserScreen = null;
@@ -495,6 +529,13 @@ export default function Whiteboard() {
       vp.scale = scale;
       vp.x = g.cx - anchorX * scale;
       vp.y = g.cy - anchorY * scale;
+      // Mid-gesture live mirroring: peers' views glide with the pan/pinch instead of
+      // jumping when the gesture ends.
+      const now = performance.now();
+      if (now - lastVpSend > 33 && liveActive()) {
+        lastVpSend = now;
+        viewportProgress(useBoard.getState().currentPageId, { scale: vp.scale, x: vp.x, y: vp.y });
+      }
       invalidate();
     }
     function commitViewport() {
@@ -933,6 +974,7 @@ export default function Whiteboard() {
             const w = toWorld(ce.clientX, ce.clientY);
             drawing.points.push({ x: w.x, y: w.y, p: pressureFor(ce) });
           }
+          streamInk(); // mirror the in-progress ink to peer devices
           paintNow(); // re-render the freehand stroke (synchronous, low-latency)
         } else {
           eraserScreen = localPt(e.clientX, e.clientY);
@@ -999,6 +1041,8 @@ export default function Whiteboard() {
                doErase(w.x, w.y);
            } else {
                drawing = { color, size, points: [w] };
+               liveSid = newId();
+               liveSent = 0;
            }
            drawId = t.identifier;
            drawKind = 'touch-pen';
@@ -1020,6 +1064,7 @@ export default function Whiteboard() {
         if (t.identifier === activeStylusTouchId && drawKind === 'touch-pen') {
            if (drawing) {
                drawing.points.push(toWorldPt(t));
+               streamInk();
                paintNow();
            } else if (erasing) {
                eraserScreen = localPt(t.clientX, t.clientY);
@@ -1121,6 +1166,21 @@ export default function Whiteboard() {
     boardEvents.addEventListener('reset', onReset);
     // Redraw when an async asset (a photo, or a rendered-LaTeX bitmap) finishes decoding.
     setAssetRepaint(invalidate);
+    // Ghost-ink updates from other devices only need a compositing pass (they're drawn
+    // over the cache), not a cache rebuild.
+    setLiveRepaint(() => schedule());
+
+    // Another device panned/zoomed: glide this view along with it — unless the user is
+    // actively drawing or gesturing HERE (never fight live local input).
+    const onRemoteVp = (e: Event) => {
+      const v = (e as CustomEvent).detail as { scale: number; x: number; y: number } | undefined;
+      if (!v || gestureActive || drawId !== null || manip || shapeDraft) return;
+      vp.scale = v.scale;
+      vp.x = v.x;
+      vp.y = v.y;
+      invalidate();
+    };
+    boardEvents.addEventListener('remote-viewport', onRemoteVp);
 
     // External deselect (e.g. the coach replaced a selected note's strokes).
     const onDeselect = () => {
@@ -1201,6 +1261,8 @@ export default function Whiteboard() {
       canvas.removeEventListener('gestureend', stop as EventListener);
       boardEvents.removeEventListener('reset', onReset);
       boardEvents.removeEventListener('deselect', onDeselect);
+      boardEvents.removeEventListener('remote-viewport', onRemoteVp);
+      setLiveRepaint(() => {});
       window.removeEventListener('keydown', onKeyDown);
       unsub();
       ro.disconnect();

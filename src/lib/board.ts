@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import { emitOp } from './liveBus';
 
 export type InkColor = 'black' | 'red' | 'blue' | 'green';
 export type Tool = 'pen' | 'eraser' | 'select' | 'shapes';
@@ -83,7 +84,9 @@ interface BoardState {
   updateStrokes: (updates: { id: string; points: Pt[] }[]) => void;
   setViewport: (v: Viewport) => void;
 
-  addPage: () => void;
+  /** id/afterId are provided when replaying a remote device's page-add, so both devices
+   *  create the SAME page in the same position. */
+  addPage: (id?: string, afterId?: string | null) => void;
   deletePage: (id: string) => void;
   goToPage: (id: string) => void;
   clearCurrentPage: () => void;
@@ -122,7 +125,8 @@ export const useBoard = create<BoardState>((set, get) => {
     setSize: (size) => set({ size }),
     setShape: (shape) => set({ shape, tool: 'shapes' }),
 
-    addStroke: (stroke) =>
+    addStroke: (stroke) => {
+      const pageId = get().currentPageId;
       set((st) => {
         const id = st.currentPageId;
         const pages = st.pages.map((pg) =>
@@ -130,22 +134,29 @@ export const useBoard = create<BoardState>((set, get) => {
         );
         const prev = st.pages.find((p) => p.id === id)?.strokes ?? [];
         return { pages, undo: pushUndo(st.undo, id, prev), rev: st.rev + 1 };
-      }),
+      });
+      emitOp({ t: 'stroke-add', pageId, strokes: [stroke] });
+    },
 
-    addStrokes: (strokes) =>
+    addStrokes: (strokes) => {
+      if (strokes.length === 0) return;
+      const pageId = get().currentPageId;
       set((st) => {
-        if (strokes.length === 0) return st;
         const id = st.currentPageId;
         const prev = st.pages.find((p) => p.id === id)?.strokes ?? [];
         const pages = st.pages.map((pg) =>
           pg.id === id ? { ...pg, strokes: [...pg.strokes, ...strokes] } : pg
         );
         return { pages, undo: pushUndo(st.undo, id, prev), rev: st.rev + 1 };
-      }),
+      });
+      emitOp({ t: 'stroke-add', pageId, strokes });
+    },
 
-    eraseStrokes: (ids) =>
+    eraseStrokes: (ids) => {
+      if (ids.length === 0) return;
+      const pageId = get().currentPageId;
+      const before = get().rev;
       set((st) => {
-        if (ids.length === 0) return st;
         const id = st.currentPageId;
         const set_ = new Set(ids);
         const prev = st.pages.find((p) => p.id === id)?.strokes ?? [];
@@ -156,11 +167,14 @@ export const useBoard = create<BoardState>((set, get) => {
             : pg
         );
         return { pages, undo: pushUndo(st.undo, id, prev), rev: st.rev + 1 };
-      }),
+      });
+      if (get().rev !== before) emitOp({ t: 'stroke-erase', pageId, ids });
+    },
 
-    updateStrokes: (updates) =>
+    updateStrokes: (updates) => {
+      if (updates.length === 0) return;
+      const pageId = get().currentPageId;
       set((st) => {
-        if (updates.length === 0) return st;
         const id = st.currentPageId;
         const prev = st.pages.find((p) => p.id === id)?.strokes ?? [];
         const map = new Map(updates.map((u) => [u.id, u.points]));
@@ -170,26 +184,38 @@ export const useBoard = create<BoardState>((set, get) => {
           undo: pushUndo(st.undo, id, prev),
           rev: st.rev + 1,
         };
-      }),
+      });
+      emitOp({ t: 'stroke-update', pageId, updates });
+    },
 
-    setViewport: (viewport) =>
+    setViewport: (viewport) => {
+      const pageId = get().currentPageId;
       set((st) => ({
         pages: st.pages.map((pg) =>
           pg.id === st.currentPageId ? { ...pg, viewport } : pg
         ),
-      })),
+      }));
+      emitOp({ t: 'viewport', pageId, v: viewport });
+    },
 
-    addPage: () =>
+    addPage: (id, afterId) => {
+      const pg = { ...blankPage(), ...(id ? { id } : {}) };
+      const anchor = afterId === undefined ? get().currentPageId : afterId;
+      const before = get().rev;
       set((st) => {
-        const pg = blankPage();
-        const idx = st.pages.findIndex((p) => p.id === st.currentPageId);
+        if (st.pages.some((p) => p.id === pg.id)) return st; // replay of a page we have
+        const idx = anchor == null ? -1 : st.pages.findIndex((p) => p.id === anchor);
         const pages = [...st.pages];
-        pages.splice(idx + 1, 0, pg);
+        pages.splice((idx < 0 ? pages.length - 1 : idx) + 1, 0, pg);
         return { pages, currentPageId: pg.id, rev: st.rev + 1 };
-      }),
+      });
+      if (get().rev !== before) emitOp({ t: 'page-add', pageId: pg.id, afterId: anchor ?? null });
+    },
 
-    deletePage: (id) =>
+    deletePage: (id) => {
+      const before = get().rev;
       set((st) => {
+        if (!st.pages.some((p) => p.id === id)) return st; // replay of a page already gone
         if (st.pages.length <= 1) {
           // never leave zero pages — reset the only page instead
           const pg = blankPage();
@@ -202,11 +228,18 @@ export const useBoard = create<BoardState>((set, get) => {
             ? pages[Math.min(idx, pages.length - 1)].id
             : st.currentPageId;
         return { pages, currentPageId: nextId, rev: st.rev + 1 };
-      }),
+      });
+      if (get().rev !== before) emitOp({ t: 'page-del', pageId: id });
+    },
 
-    goToPage: (id) => set({ currentPageId: id }),
+    goToPage: (id) => {
+      set({ currentPageId: id });
+      emitOp({ t: 'page-go', pageId: id });
+    },
 
-    clearCurrentPage: () =>
+    clearCurrentPage: () => {
+      const pageId = get().currentPageId;
+      const before = get().rev;
       set((st) => {
         const id = st.currentPageId;
         const prev = st.pages.find((p) => p.id === id)?.strokes ?? [];
@@ -215,9 +248,13 @@ export const useBoard = create<BoardState>((set, get) => {
           pg.id === id ? { ...pg, strokes: [] } : pg
         );
         return { pages, undo: pushUndo(st.undo, id, prev), rev: st.rev + 1 };
-      }),
+      });
+      if (get().rev !== before) emitOp({ t: 'page-set', pageId, strokes: [] });
+    },
 
-    undoLast: () =>
+    undoLast: () => {
+      const pageId = get().currentPageId;
+      const before = get().rev;
       set((st) => {
         const id = st.currentPageId;
         const stack = st.undo[id] ?? [];
@@ -231,7 +268,12 @@ export const useBoard = create<BoardState>((set, get) => {
           undo: { ...st.undo, [id]: stack.slice(0, -1) },
           rev: st.rev + 1,
         };
-      }),
+      });
+      if (get().rev !== before) {
+        const strokes = get().pages.find((p) => p.id === pageId)?.strokes ?? [];
+        emitOp({ t: 'page-set', pageId, strokes });
+      }
+    },
 
     loadPages: (pages, currentId) =>
       set(() => ({

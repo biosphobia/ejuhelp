@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { existsSync } from 'node:fs';
 import { requireAuth } from './auth';
+import { setupLive } from './live';
 import { topicsFor, subtopicsFor, mockExamList, mockExam, SUBJECTS, type Subject } from './eju';
 import { hasApiKey, ask, generate, check, explainBoard, keypoints, extractConcepts, mindmapCoach, topicStudySheet, topicMastery, lessonPlan, noteSummary, noteRevise } from './claude';
 
@@ -357,9 +358,12 @@ if (servingDist) {
 }
 
 const port = Number(process.env.PORT || 8787);
-app.listen(port, () => {
+const server = app.listen(port, () => {
   console.log(`[eju] API listening on :${port}${servingDist ? ' (also serving dist/)' : ''}`);
 });
+
+// Live device mirroring (iPad ↔ PC): WebSocket relay on /ws/live.
+setupLive(server);
 
 // Keep-warm: Render's free tier spins the instance down after ~15 min of inactivity,
 // then shows its ~1-minute "waking up" cold-start page on the next visit — which makes

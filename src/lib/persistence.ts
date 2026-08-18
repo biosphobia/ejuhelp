@@ -5,6 +5,7 @@ import { useSync } from './sync';
 import { db } from './firebase';
 import { useNotebook, NOTEBOOKS, DEFAULT_NOTEBOOK, type NotebookId } from './notebooks';
 import { idbGet, idbSet, idbDel, idbKeys, KV_STORE, SNAP_STORE } from './idb';
+import { emitOp, isRemoteApply } from './liveBus';
 
 const LS_KEY = 'eju-notebooks-v1';
 const OLD_LS_KEY = 'eju-board-v1'; // legacy single-board format → migrated into "general"
@@ -14,7 +15,7 @@ const IDB_KEY = 'notebooks';
 // (Firestore docs are capped at ~1MB; ink can be large).
 type CStroke = { i: string; c: InkColor; s: number; p: number[][]; sh?: ShapeKind; tx?: string; im?: string };
 type CPage = { id: string; v: [number, number, number]; st: CStroke[] };
-interface StoredBook {
+export interface StoredBook {
   pages: CPage[];
   currentPageId?: string;
   updatedAt: number;
@@ -388,6 +389,56 @@ export function switchNotebook(target: NotebookId) {
   lastSavedRev = useBoard.getState().rev; // loadPages reset rev; don't double-save it
   saveLocal();
   void saveCloud();
+  emitOp({ t: 'notebook', id: target }); // mirror the switch on the user's other devices
+}
+
+// ── Live device-mirroring hooks (lib/live.ts) ────────────────────────────────────────
+
+/** The active notebook's full current state, for the connect-time exchange between a
+ *  user's devices (heals any ops missed while a device was offline/asleep). */
+export function liveSnapshot(): { active: NotebookId; book: StoredBook | null; stamp: number } {
+  snapshotActive();
+  const active = useNotebook.getState().active;
+  const book = books[active] ?? null;
+  return { active, book, stamp: book?.updatedAt ?? 0 };
+}
+
+/** Adopt a peer device's notebook state if it beats ours (content beats empty, else
+ *  newer wins — the same rules as the cloud merge, so all copies converge). */
+export function adoptLiveBook(id: NotebookId, book: StoredBook): boolean {
+  if (!validId(id) || !book?.pages) return false;
+  if (id === useNotebook.getState().active) snapshotActive();
+  const l = books[id];
+  const ci = hasInk(book);
+  const li = hasInk(l);
+  const adopt = !l || (ci !== li ? ci : (book.updatedAt ?? 0) > (l.updatedAt ?? 0));
+  if (!adopt) return false;
+  books[id] = restoreImages(book, l);
+  if (id === useNotebook.getState().active) {
+    loadBookIntoBoard(id);
+    lastSavedRev = useBoard.getState().rev;
+  }
+  saveLocal();
+  if (cloudLoaded) void saveCloud();
+  return true;
+}
+
+/** Follow a peer's notebook switch (remote apply — no re-broadcast; liveBus suppresses
+ *  the emitOp inside switchNotebook because the caller wraps this in applyingRemote). */
+export function applyRemoteNotebook(target: NotebookId) {
+  if (!validId(target)) return;
+  if (isRemoteApply()) {
+    // same flow as switchNotebook, minus the echo
+    const cur = useNotebook.getState().active;
+    if (cur === target) return;
+    snapshotActive();
+    useNotebook.getState()._setActive(target);
+    loadBookIntoBoard(target);
+    lastSavedRev = useBoard.getState().rev;
+    saveLocal();
+  } else {
+    switchNotebook(target);
+  }
 }
 
 function migrateLegacyLocal(): StoredNotebooks | null {

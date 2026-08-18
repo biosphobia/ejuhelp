@@ -91,7 +91,7 @@ export default function PageBar() {
         type="button"
         title={t('addPage')}
         aria-label={t('addPage')}
-        onClick={addPage}
+        onClick={() => addPage()}
         className="grid h-10 w-10 place-items-center rounded-xl text-slate-600 hover:bg-slate-100"
       >
         <PlusIcon />

@@ -20,6 +20,11 @@ export default defineConfig({
         target: 'http://localhost:8787',
         changeOrigin: true,
       },
+      // Live device-mirroring WebSocket (server/live.ts)
+      '/ws': {
+        target: 'http://localhost:8787',
+        ws: true,
+      },
     },
   },
   build: {
