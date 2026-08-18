@@ -81,6 +81,21 @@ body {
   bottom: calc(1rem + env(safe-area-inset-bottom));
 }
 
+/* Panel scroll areas must NOT chain their overscroll to the page — reaching the end of
+   a panel list and continuing to drag would rubber-band the document, which is how a
+   stray palm press could still trigger a page refresh/bounce. */
+.thin-scroll,
+[class*='overflow-y-auto'],
+[class*='overflow-auto'] {
+  overscroll-behavior: contain;
+}
+
+/* No double-tap-to-zoom on controls (also removes the 300ms tap delay). */
+button,
+a {
+  touch-action: manipulation;
+}
+
 /* Thin scrollbars inside panels */
 .thin-scroll::-webkit-scrollbar {
   width: 8px;

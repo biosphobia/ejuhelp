@@ -23,6 +23,7 @@ import { useNotebook, type NotebookId } from './notebooks';
 import { liveSnapshot, adoptLiveBook, applyRemoteNotebook, type StoredBook } from './persistence';
 import { usePractice, type ActiveItem } from './practice';
 import { usePinned, type PinnedQuestion } from './pinned';
+import { useGenerated, mergeGeneratedData, type SavedQuestion } from './generated';
 import { useAuth, getIdToken } from './auth';
 import { useSync } from './sync';
 import { boardEvents } from '../whiteboard/view';
@@ -36,6 +37,8 @@ type PinnedWire = {
   pos: { x: number; y: number } | null;
 };
 
+type GenWire = { questions: SavedQuestion[]; selected: Record<string, string[]> };
+
 type WireMsg =
   | { k: 'peers'; n: number }
   | { k: 'op'; from: string; nb: NotebookId; op: BoardOp }
@@ -43,8 +46,9 @@ type WireMsg =
   | { k: 'vp'; from: string; nb: NotebookId; pageId: string; v: Viewport }
   | { k: 'practice'; from: string; q: string | null; item: ActiveItem | null }
   | { k: 'pinned'; from: string; st: PinnedWire }
+  | { k: 'gen'; from: string; st: GenWire }
   | { k: 'sync-req'; from: string }
-  | { k: 'sync-res'; from: string; nb: NotebookId; book: StoredBook | null; stamp: number; practice: { q: string | null; item: ActiveItem | null }; pinned: PinnedWire };
+  | { k: 'sync-res'; from: string; nb: NotebookId; book: StoredBook | null; stamp: number; practice: { q: string | null; item: ActiveItem | null }; pinned: PinnedWire; gen?: GenWire };
 
 let ws: WebSocket | null = null;
 let wsUid: string | null = null;
@@ -261,6 +265,20 @@ function applyPractice(q: string | null, item: ActiveItem | null) {
   applyingRemote(() => usePractice.getState().setActiveQuestion(q ?? null, item ?? null));
 }
 
+function currentGen(): GenWire {
+  const g = useGenerated.getState();
+  return { questions: g.questions, selected: g.selected as GenWire['selected'] };
+}
+
+/** Merge a peer's generated-question pool into ours (union by id — never lossy). */
+function applyGen(st: GenWire | undefined) {
+  if (!st || !Array.isArray(st.questions)) return;
+  const merged = mergeGeneratedData(currentGen(), st);
+  const cur = useGenerated.getState();
+  if (merged.questions.length === cur.questions.length && merged.questions.every((q, i) => q.id === cur.questions[i]?.id)) return; // nothing new
+  applyingRemote(() => cur.load(merged));
+}
+
 function sendSyncRes() {
   const snap = liveSnapshot();
   let book = snap.book;
@@ -283,6 +301,7 @@ function sendSyncRes() {
     stamp: snap.stamp,
     practice: { q: pr.activeQuestion, item: pr.activeItem },
     pinned: currentPinned(),
+    gen: currentGen(),
   } as Omit<WireMsg, 'from'>);
 }
 
@@ -314,11 +333,15 @@ function onMessage(raw: string) {
     case 'pinned':
       applyPinned(m.st);
       break;
+    case 'gen':
+      applyGen(m.st);
+      break;
     case 'sync-req':
       sendSyncRes();
       break;
     case 'sync-res': {
       if (m.book) adoptLiveBook(m.nb, m.book);
+      applyGen(m.gen); // union merge — safe to apply from every peer
       if (wantPeerState) {
         // We just joined: also take the peer's session state (active notebook, question).
         wantPeerState = false;
@@ -435,9 +458,12 @@ export function initLive() {
       return;
     }
     try {
-      const wire = { k: 'op', nb, op } as Omit<WireMsg, 'from'>;
-      if (op.t === 'stroke-add' && JSON.stringify(op).length > 7_500_000) return; // huge image — let sync heal it
-      send(wire);
+      // Size-guard ONLY strokes that carry image data — serializing every ink stroke
+      // twice just to measure it added a needless pen-up hitch.
+      if (op.t === 'stroke-add' && op.strokes.some((s) => s.image) && JSON.stringify(op).length > 7_500_000) {
+        return; // huge image — the connect-time snapshot exchange heals it
+      }
+      send({ k: 'op', nb, op } as Omit<WireMsg, 'from'>);
     } catch {
       /* ignore */
     }
@@ -450,6 +476,19 @@ export function initLive() {
     if (!liveActive()) return;
     send({ k: 'practice', q: s.activeQuestion, item: s.activeItem } as Omit<WireMsg, 'from'>);
   });
+  // Mirror the generated-question pool (union-merged on the receiving side).
+  let genTimer: ReturnType<typeof setTimeout> | undefined;
+  useGenerated.subscribe((s, prev) => {
+    if (isRemoteApply()) return;
+    if (s.rev === prev.rev) return;
+    if (!liveActive()) return;
+    if (genTimer) clearTimeout(genTimer);
+    genTimer = setTimeout(() => {
+      genTimer = undefined;
+      if (liveActive()) send({ k: 'gen', st: currentGen() } as Omit<WireMsg, 'from'>);
+    }, 300);
+  });
+
   let pinnedTimer: ReturnType<typeof setTimeout> | undefined;
   usePinned.subscribe((s, prev) => {
     if (isRemoteApply()) return;

@@ -51,9 +51,10 @@ export default function Whiteboard() {
     let lastInkSend = 0;
     let lastVpSend = 0;
 
-    /** Stream the not-yet-sent points of the in-progress stroke to peer devices (~25/s). */
+    /** Stream the not-yet-sent points of the in-progress stroke to peer devices (~25/s).
+     *  MUST cost ~nothing when no peer is watching — this sits on the pen's move path. */
     function streamInk(final = false) {
-      if (!drawing || !liveSid) return;
+      if (!drawing || !liveSid || !liveActive()) return;
       const now = performance.now();
       if (!final && now - lastInkSend < 40) return;
       const pts = drawing.points.slice(liveSent);

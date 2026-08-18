@@ -38,6 +38,24 @@ interface GeneratedState {
   load: (data: { questions?: SavedQuestion[]; selected?: Partial<Record<Subject, string[]>> }) => void;
 }
 
+/** Item-level union of two saved-question payloads: every question present on EITHER
+ *  side survives (deduped by id, newest first, capped). Used for cloud reconcile AND
+ *  live device sync — a stale device can therefore never erase the other's pool, which
+ *  whole-array "newest copy wins" allowed (its innocent save stamped the cloud newer
+ *  and wiped questions generated elsewhere). `a`'s topic selection wins ties. */
+export function mergeGeneratedData(
+  a: { questions?: SavedQuestion[]; selected?: Partial<Record<Subject, string[]>> } | null | undefined,
+  b: { questions?: SavedQuestion[]; selected?: Partial<Record<Subject, string[]>> } | null | undefined
+): { questions: SavedQuestion[]; selected: Partial<Record<Subject, string[]>> } {
+  const qa = Array.isArray(a?.questions) ? a!.questions! : [];
+  const qb = Array.isArray(b?.questions) ? b!.questions! : [];
+  const have = new Set(qa.map((q) => q.id));
+  const questions = [...qa, ...qb.filter((q) => q && q.id && !have.has(q.id))]
+    .sort((x, y) => (y.addedAt ?? 0) - (x.addedAt ?? 0))
+    .slice(0, MAX_SAVED);
+  return { questions, selected: { ...(b?.selected ?? {}), ...(a?.selected ?? {}) } };
+}
+
 export const useGenerated = create<GeneratedState>((set, get) => ({
   questions: [],
   selected: {},

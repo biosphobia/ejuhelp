@@ -3,7 +3,7 @@ import { doc, getDoc, setDoc } from 'firebase/firestore';
 import type { Subject } from './ui';
 import { useAuth } from './auth';
 import { db } from './firebase';
-import { useGenerated } from './generated';
+import { useGenerated, mergeGeneratedData } from './generated';
 import { useMindmap } from './mindmap';
 import { useLearnerProfile } from './profile';
 
@@ -127,12 +127,25 @@ function looksNonEmpty(data: unknown): boolean {
   return false;
 }
 
+/** Union two item arrays by id — items on EITHER side survive. */
+function unionById<T extends { id: string }>(a: T[], b: T[], stamp: (x: T) => number, cap?: number): T[] {
+  const la = Array.isArray(a) ? a : [];
+  const lb = Array.isArray(b) ? b : [];
+  const have = new Set(la.map((x) => x?.id));
+  const merged = [...la, ...lb.filter((x) => x && x.id && !have.has(x.id))].sort((x, y) => stamp(y) - stamp(x));
+  return cap ? merged.slice(0, cap) : merged;
+}
+
 function attachSync<S extends { rev: number }>(
   store: AnyStore<S>,
   lsKey: string,
   docId: string,
   getData: (s: S) => unknown,
-  setData: (s: S, data: any) => void
+  setData: (s: S, data: any) => void,
+  /** Item-level merge of local + cloud payloads. When provided, the cloud reconcile
+   *  MERGES instead of picking a whole winner — so a stale device can never erase items
+   *  created elsewhere just because its own copy carried a newer write stamp. */
+  merge?: (local: any, cloud: any) => any
 ) {
   // Freshness stamp of what this device currently holds. The cloud copy may only
   // REPLACE local state when it is strictly newer — before this, signing in (which now
@@ -211,7 +224,11 @@ function attachSync<S extends { rev: number }>(
           const snap = await getDoc(doc(db!, 'users', s.user!.uid, 'data', docId));
           const cloudData = snap.exists() ? snap.data() : null;
           const cloudStamp = typeof (cloudData as { updatedAt?: number } | null)?.updatedAt === 'number' ? (cloudData as { updatedAt: number }).updatedAt : 0;
-          if (cloudData && cloudStamp > localStamp) {
+          if (cloudData && merge) {
+            // Item-level union: nothing on either side can be lost. The setData → rev
+            // bump makes the save loop persist the merged result locally AND to cloud.
+            setData(store.getState(), merge(getData(store.getState()), cloudData));
+          } else if (cloudData && cloudStamp > localStamp) {
             // Cloud is genuinely newer (another device worked more recently) → adopt it.
             setData(store.getState(), cloudData);
             localStamp = cloudStamp;
@@ -237,7 +254,8 @@ export function initUserData() {
     'eju-progress',
     'progress',
     (s) => ({ attempts: s.attempts }),
-    (s, data) => s.loadAttempts(data?.attempts ?? [])
+    (s, data) => s.loadAttempts(data?.attempts ?? []),
+    (l, c) => ({ attempts: unionById(l?.attempts, c?.attempts, (a: Attempt) => a.ts ?? 0, ATTEMPT_LIMIT) })
   );
   // NOTE: the storage keys carry a version suffix. Bumping it abandons the old
   // localStorage/Firestore data, cleanly wiping Mindmaps built before the
@@ -247,20 +265,23 @@ export function initUserData() {
     'eju-mindmap-v3',
     'mindmap-v3',
     (s) => ({ concepts: s.concepts }),
-    (s, data) => s.load(data?.concepts ?? [])
+    (s, data) => s.load(data?.concepts ?? []),
+    (l, c) => ({ concepts: unionById(l?.concepts, c?.concepts, (x: { ts?: number }) => x.ts ?? 0) })
   );
   attachSync(
     useLearnerProfile,
     'eju-profile',
     'profile',
     (s) => ({ notes: s.notes }),
-    (s, data) => s.load(data?.notes ?? [])
+    (s, data) => s.load(data?.notes ?? []),
+    (l, c) => ({ notes: unionById(l?.notes, c?.notes, (n: { ts?: number }) => n.ts ?? 0, 100) })
   );
   attachSync(
     useGenerated,
     'eju-generated-v2',
     'generated',
     (s) => ({ questions: s.questions, selected: s.selected }),
-    (s, data) => s.load(data ?? {})
+    (s, data) => s.load(data ?? {}),
+    (l, c) => mergeGeneratedData(l, c)
   );
 }

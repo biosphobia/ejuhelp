@@ -32,20 +32,32 @@ const round = (n: number, d: number) => {
   return Math.round(n * f) / f;
 };
 
+// Per-page encode memo, keyed by Page object identity: the board store replaces a page
+// object whenever its strokes OR viewport change, so identity is a correct cache key.
+// Without this, EVERY pen-up re-encoded every page of the notebook (O(all points)) on
+// the synchronous save path — the cost that shows up as pen lag on big notebooks.
+const pageEncodeMemo = new WeakMap<Page, CPage>();
+
 function encode(pages: Page[]): CPage[] {
-  return pages.map((pg) => ({
-    id: pg.id,
-    v: [round(pg.viewport.scale, 3), Math.round(pg.viewport.x), Math.round(pg.viewport.y)],
-    st: pg.strokes.map((s) => ({
-      i: s.id,
-      c: s.color,
-      s: s.size,
-      p: s.points.map((pt) => [Math.round(pt.x), Math.round(pt.y), round(pt.p, 2)]),
-      ...(s.shape ? { sh: s.shape } : {}),
-      ...(s.text != null ? { tx: s.text } : {}),
-      ...(s.image != null ? { im: s.image } : {}),
-    })),
-  }));
+  return pages.map((pg) => {
+    const hit = pageEncodeMemo.get(pg);
+    if (hit) return hit;
+    const cp: CPage = {
+      id: pg.id,
+      v: [round(pg.viewport.scale, 3), Math.round(pg.viewport.x), Math.round(pg.viewport.y)],
+      st: pg.strokes.map((s) => ({
+        i: s.id,
+        c: s.color,
+        s: s.size,
+        p: s.points.map((pt) => [Math.round(pt.x), Math.round(pt.y), round(pt.p, 2)]),
+        ...(s.shape ? { sh: s.shape } : {}),
+        ...(s.text != null ? { tx: s.text } : {}),
+        ...(s.image != null ? { im: s.image } : {}),
+      })),
+    };
+    pageEncodeMemo.set(pg, cp);
+    return cp;
+  });
 }
 
 function decode(cps: CPage[]): Page[] {
@@ -119,6 +131,18 @@ function stripBookImages(b: StoredBook): StoredBook {
 }
 
 function stripAllImages(data: StoredNotebooks): StoredNotebooks {
+  // Fast path: no image anywhere → nothing to strip. Rebuilding every page array on
+  // every pen-up (the common no-image case) was pure allocation churn on the
+  // synchronous save path.
+  let any = false;
+  for (const id of NOTEBOOKS) {
+    const b = data.books?.[id];
+    if (b?.pages.some((pg) => pg.st.some((s) => s.im))) {
+      any = true;
+      break;
+    }
+  }
+  if (!any) return data;
   const out: StoredNotebooks = { ...data, books: {} };
   for (const id of NOTEBOOKS) {
     const b = data.books?.[id];

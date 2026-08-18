@@ -55,6 +55,21 @@ export default function App() {
     initLive();
   }, []);
 
+  // Safari-only pinch events: block page zoom EVERYWHERE, not just on the canvas — a
+  // pinch starting on floating UI (or a stray palm) could zoom/bounce the whole page,
+  // which reads as "everything refreshed" mid-study.
+  useEffect(() => {
+    const stop = (e: Event) => e.preventDefault();
+    document.addEventListener('gesturestart', stop as EventListener);
+    document.addEventListener('gesturechange', stop as EventListener);
+    document.addEventListener('gestureend', stop as EventListener);
+    return () => {
+      document.removeEventListener('gesturestart', stop as EventListener);
+      document.removeEventListener('gesturechange', stop as EventListener);
+      document.removeEventListener('gestureend', stop as EventListener);
+    };
+  }, []);
+
   return (
     <div className="relative h-full w-full overflow-hidden">
       {/* Full-screen drawing surface (always mounted so its state/persistence is preserved) */}
