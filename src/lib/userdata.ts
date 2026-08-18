@@ -116,6 +116,17 @@ type AnyStore<S> = {
   subscribe: (l: (s: S, p: S) => void) => () => void;
 };
 
+/** Does a store payload hold any real content (a non-empty array/object value)? Used to
+ *  stamp legacy local payloads that predate updatedAt. */
+function looksNonEmpty(data: unknown): boolean {
+  if (!data || typeof data !== 'object') return false;
+  for (const v of Object.values(data as Record<string, unknown>)) {
+    if (Array.isArray(v) && v.length) return true;
+    if (v && typeof v === 'object' && Object.keys(v).length) return true;
+  }
+  return false;
+}
+
 function attachSync<S extends { rev: number }>(
   store: AnyStore<S>,
   lsKey: string,
@@ -123,9 +134,21 @@ function attachSync<S extends { rev: number }>(
   getData: (s: S) => unknown,
   setData: (s: S, data: any) => void
 ) {
+  // Freshness stamp of what this device currently holds. The cloud copy may only
+  // REPLACE local state when it is strictly newer — before this, signing in (which now
+  // happens automatically ~1s after launch via the anonymous backup account) blindly
+  // overwrote just-hydrated local data with a stale cloud copy. Close the tab within
+  // the cloud debounce and your newest generated questions/attempts were gone for good.
+  let localStamp = 0;
   try {
     const raw = localStorage.getItem(lsKey);
-    if (raw) setData(store.getState(), JSON.parse(raw));
+    if (raw) {
+      const parsed = JSON.parse(raw);
+      setData(store.getState(), parsed);
+      // Legacy payloads predate the stamp: local saves are synchronous/immediate, so
+      // treat existing local content as current rather than letting old cloud win.
+      localStamp = typeof parsed?.updatedAt === 'number' ? parsed.updatedAt : looksNonEmpty(parsed) ? Date.now() : 0;
+    }
   } catch (e) {
     console.warn(`[userdata] local hydrate ${lsKey} failed`, e);
   }
@@ -134,7 +157,8 @@ function attachSync<S extends { rev: number }>(
 
   const saveLocal = () => {
     try {
-      localStorage.setItem(lsKey, JSON.stringify(getData(store.getState())));
+      localStamp = Date.now();
+      localStorage.setItem(lsKey, JSON.stringify({ ...(getData(store.getState()) as object), updatedAt: localStamp }));
     } catch (e) {
       console.warn(`[userdata] local save ${lsKey} failed`, e);
     }
@@ -164,24 +188,38 @@ function attachSync<S extends { rev: number }>(
     }, 1000);
   });
 
-  // Force the pending cloud write out when the app is hidden/closed.
+  // Force the pending cloud write out when the app is hidden/closed. (Firestore's
+  // persistent cache journals it even if the network send can't finish in time.)
+  const flushCloud = () => {
+    if (timer) {
+      clearTimeout(timer);
+      timer = undefined;
+      void saveCloud();
+    }
+  };
   if (typeof document !== 'undefined') {
     document.addEventListener('visibilitychange', () => {
-      if (document.visibilityState === 'hidden' && timer) {
-        clearTimeout(timer);
-        timer = undefined;
-        void saveCloud();
-      }
+      if (document.visibilityState === 'hidden') flushCloud();
     });
   }
+  if (typeof window !== 'undefined') window.addEventListener('pagehide', flushCloud);
 
   useAuth.subscribe((s, prev) => {
     if (s.user && s.user !== prev.user && db) {
       void (async () => {
         try {
           const snap = await getDoc(doc(db!, 'users', s.user!.uid, 'data', docId));
-          if (snap.exists()) setData(store.getState(), snap.data());
-          else void saveCloud();
+          const cloudData = snap.exists() ? snap.data() : null;
+          const cloudStamp = typeof (cloudData as { updatedAt?: number } | null)?.updatedAt === 'number' ? (cloudData as { updatedAt: number }).updatedAt : 0;
+          if (cloudData && cloudStamp > localStamp) {
+            // Cloud is genuinely newer (another device worked more recently) → adopt it.
+            setData(store.getState(), cloudData);
+            localStamp = cloudStamp;
+          } else {
+            // Local is newer (or the cloud copy doesn't exist) → push local up instead
+            // of letting a stale cloud copy erase it.
+            void saveCloud();
+          }
         } catch (e) {
           console.warn(`[userdata] cloud hydrate ${docId} failed`, e);
         }
