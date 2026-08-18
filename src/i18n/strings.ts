@@ -581,6 +581,12 @@ export const strings = {
     tr: '{pages} sayfa · {strokes} öğe',
   },
   planRange: { en: 'Plan: {start} → exam', ja: '計画：{start} → 試験日', zh: '计划：{start} → 考试', tr: 'Plan: {start} → sınav' },
+  signInFailed: {
+    en: 'Sign-in failed:',
+    ja: 'ログインに失敗しました：',
+    zh: '登录失败：',
+    tr: 'Giriş başarısız:',
+  },
   restartPlan: { en: 'Restart plan from today', ja: '今日から計画を再開', zh: '从今天重新开始计划', tr: 'Planı bugünden yeniden başlat' },
 } as const;
 

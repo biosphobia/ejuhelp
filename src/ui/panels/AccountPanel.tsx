@@ -141,6 +141,11 @@ export default function AccountPanel() {
   const user = useAuth((s) => s.user);
   const signIn = useAuth((s) => s.signIn);
   const signOut = useAuth((s) => s.signOut);
+  const authError = useAuth((s) => s.authError);
+  // Re-render on every auth event: linking the anonymous account to Google keeps the
+  // same user OBJECT (mutated in place), so subscribing to `user` alone would leave the
+  // panel stuck on the sign-in screen after a successful sign-in.
+  useAuth((s) => s.authStamp);
   const cloud = useSync((s) => s.cloud);
   const cloudDetail = useSync((s) => s.detail);
 
@@ -186,6 +191,11 @@ export default function AccountPanel() {
           </div>
           <p className="text-sm text-slate-600">{t('anonBackupActive')}</p>
           <PrimaryButton onClick={() => void signIn()}>{t('signInGoogle')}</PrimaryButton>
+          {authError ? (
+            <p className="break-words text-xs font-medium text-red-600">
+              {t('signInFailed')} <span className="font-mono">{authError}</span>
+            </p>
+          ) : null}
         </div>
       ) : user ? (
         <div className="space-y-4">
@@ -241,6 +251,11 @@ export default function AccountPanel() {
         <div className="space-y-4">
           <p className="text-sm text-slate-600">{t('syncOff')}</p>
           <PrimaryButton onClick={() => void signIn()}>{t('signInGoogle')}</PrimaryButton>
+          {authError ? (
+            <p className="break-words text-xs font-medium text-red-600">
+              {t('signInFailed')} <span className="font-mono">{authError}</span>
+            </p>
+          ) : null}
         </div>
       )}
 
