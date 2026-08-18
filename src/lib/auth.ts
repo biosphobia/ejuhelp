@@ -2,6 +2,8 @@ import { create } from 'zustand';
 import {
   onAuthStateChanged,
   signInWithPopup,
+  signInAnonymously,
+  linkWithPopup,
   signOut as fbSignOut,
   type User,
 } from 'firebase/auth';
@@ -29,6 +31,21 @@ export const useAuth = create<AuthState>((set) => ({
   configured: isFirebaseConfigured,
   signIn: async () => {
     if (!auth) return;
+    const cur = auth.currentUser;
+    if (cur?.isAnonymous) {
+      // Upgrade the anonymous backup account in place: linking keeps the SAME uid, so
+      // everything already saved to the cloud under it is instantly owned by the Google
+      // sign-in — no copy needed. If the Google account was already used before (can't
+      // link), fall back to a normal sign-in; the board reconcile then merges local work
+      // into that account's cloud copy.
+      try {
+        await linkWithPopup(cur, googleProvider);
+        set({ user: auth.currentUser });
+        return;
+      } catch {
+        /* fall through to a regular sign-in */
+      }
+    }
     await signInWithPopup(auth, googleProvider);
   },
   signOut: async () => {
@@ -47,6 +64,15 @@ export const useAuth = create<AuthState>((set) => ({
 if (isFirebaseConfigured && auth) {
   onAuthStateChanged(auth, (user) => {
     useAuth.setState({ user, ready: true });
+    // No account at all → create an anonymous one, so the cloud backup runs from the very
+    // first launch instead of only after the user signs in. (Requires the Anonymous
+    // provider to be enabled in the Firebase console; if it isn't, this quietly no-ops
+    // and the app keeps working local-only until a real sign-in.)
+    if (!user && auth) {
+      signInAnonymously(auth).catch((e) => {
+        console.warn('[auth] anonymous backup sign-in unavailable', e?.code ?? e);
+      });
+    }
   });
 }
 

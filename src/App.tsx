@@ -12,9 +12,25 @@ import Mindmap from './mindmap/Mindmap';
 import NodeDetail from './mindmap/NodeDetail';
 import { useUI } from './lib/ui';
 import { useStudyMap } from './lib/studymap';
+import { useSync } from './lib/sync';
 import { initPersistence } from './lib/persistence';
 import { initUserData } from './lib/userdata';
+import { useT } from './i18n';
 import './lib/auth'; // registers the Firebase auth listener on load
+
+/** Impossible-to-miss warning when work cannot be committed to ANY on-device store —
+ *  from that moment new notes exist only in memory, so the user must act, not find
+ *  out after the next reload. */
+function StorageAlarm() {
+  const t = useT();
+  const local = useSync((s) => s.local);
+  if (local !== 'failing') return null;
+  return (
+    <div className="pointer-events-auto absolute inset-x-0 top-0 z-50 bg-red-600 px-4 py-2 text-center text-sm font-semibold text-white shadow-lg safe-pad-top">
+      {t('localSaveFailing')}
+    </div>
+  );
+}
 
 export default function App() {
   const mode = useUI((s) => s.mode);
@@ -59,6 +75,7 @@ export default function App() {
           />
         ) : null}
         <DebugHud />
+        <StorageAlarm />
       </div>
     </div>
   );

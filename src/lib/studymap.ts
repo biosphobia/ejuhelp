@@ -65,6 +65,9 @@ interface StudyMapState {
   // Study calendar: which subjects to study, and which tasks are done. The exam date is
   // fixed (EJU Nov 8) and the day-by-day plan is computed locally (lib/calendar.ts) — no API.
   planSubjects: Subject[];
+  /** The plan's fixed first day (YYYY-MM-DD). Set once, so the schedule advances instead
+   *  of re-basing to "today" on every open; "restart plan" re-anchors it deliberately. */
+  planStart: string | null;
   done: Record<string, true>; // keyed by calendar task id
 
   // The node whose detail (study sheet / practice) is open, rendered globally so it can be
@@ -75,6 +78,7 @@ interface StudyMapState {
   studySheet: (subject: Subject, nodeId: string, force?: boolean) => Promise<void>;
   masteryRead: (subject: Subject, nodeId: string, force?: boolean) => Promise<void>;
   setPlanSubjects: (subjects: Subject[]) => void;
+  setPlanStart: (date: string) => void;
   toggleTask: (taskId: string) => void;
   setOpenNode: (n: OpenNode | null) => void;
 }
@@ -92,10 +96,13 @@ export const useStudyMap = create<StudyMapState>()(
       busy: {},
       rev: 0,
       planSubjects: [],
+      planStart: null,
       done: {},
       openNode: null,
 
       setPlanSubjects: (subjects) => set((s) => ({ planSubjects: subjects, rev: s.rev + 1 })),
+
+      setPlanStart: (planStart) => set((s) => ({ planStart, rev: s.rev + 1 })),
 
       setOpenNode: (openNode) => set({ openNode }),
 
@@ -198,7 +205,7 @@ export const useStudyMap = create<StudyMapState>()(
       // Study sheets are now static/bundled (instant), so we no longer persist their text —
       // that only risked serving a stale cached copy after the sheets are updated. We still
       // persist the personalized coach reads, chosen subjects, and task completion.
-      partialize: (s) => ({ reads: s.reads, planSubjects: s.planSubjects, done: s.done }),
+      partialize: (s) => ({ reads: s.reads, planSubjects: s.planSubjects, planStart: s.planStart, done: s.done }),
       // v1: drop any sheet text cached by an older build so the fresh static sheets are used.
       migrate: (persisted: any, version: number) => {
         if (persisted && version < 1) delete persisted.sheets;

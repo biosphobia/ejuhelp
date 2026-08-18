@@ -7,7 +7,13 @@ import {
   GoogleAuthProvider,
   type Auth,
 } from 'firebase/auth';
-import { getFirestore, type Firestore } from 'firebase/firestore';
+import {
+  initializeFirestore,
+  getFirestore,
+  persistentLocalCache,
+  persistentMultipleTabManager,
+  type Firestore,
+} from 'firebase/firestore';
 
 const cfg = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
@@ -36,7 +42,17 @@ if (isFirebaseConfigured) {
   } catch {
     auth = getAuth(app); // already initialized elsewhere, or init failed → default
   }
-  db = getFirestore(app);
+  // Persistent local cache: setDoc calls are journaled in IndexedDB and re-sent when the
+  // network returns, so a cloud save started offline (or interrupted by a reload) is NOT
+  // lost — it flushes on the next launch. This is what makes "saved to the cloud in real
+  // time" hold up on a train, in airplane mode, or through a flaky connection.
+  try {
+    db = initializeFirestore(app, {
+      localCache: persistentLocalCache({ tabManager: persistentMultipleTabManager() }),
+    });
+  } catch {
+    db = getFirestore(app); // already initialized, or persistence unavailable → default
+  }
 }
 
 export const googleProvider = new GoogleAuthProvider();

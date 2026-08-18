@@ -552,6 +552,36 @@ export const strings = {
     zh: '页面好像是空的——请先写下你的解答。',
     tr: 'Sayfan boş görünüyor — önce çözümünü yaz.',
   },
+  anonBackupActive: {
+    en: 'Your notes are backed up to the cloud under a temporary account tied to this device. Sign in with Google to keep them under your own account and access them anywhere.',
+    ja: 'ノートはこの端末に紐づく一時アカウントでクラウドにバックアップされています。Googleでログインすると自分のアカウントに保存され、他の端末からも使えます。',
+    zh: '你的笔记正通过与此设备绑定的临时账号备份到云端。使用 Google 登录即可保存到自己的账号，并在任何设备上访问。',
+    tr: 'Notların bu cihaza bağlı geçici bir hesapla buluta yedekleniyor. Google ile giriş yaparsan kendi hesabında saklanır ve her yerden erişebilirsin.',
+  },
+  localSaveFailing: {
+    en: '⚠ Saving to this device is FAILING — new work is not being stored. Download a backup now (Account → Manual backup) and free up storage.',
+    ja: '⚠ この端末への保存に失敗しています。新しい内容が保存されていません。今すぐバックアップをダウンロードし（アカウント→手動バックアップ）、空き容量を確保してください。',
+    zh: '⚠ 无法保存到此设备——新内容没有被存储。请立即下载备份（账户→手动备份）并清理存储空间。',
+    tr: '⚠ Bu cihaza kaydetme BAŞARISIZ — yeni çalışmalar saklanmıyor. Hemen yedek indir (Hesap → Elle yedekleme) ve depolama alanı aç.',
+  },
+  recoveryTitle: { en: 'Recover earlier versions', ja: '以前のバージョンを復元', zh: '恢复较早版本', tr: 'Önceki sürümleri kurtar' },
+  recoveryHint: {
+    en: 'The app keeps automatic snapshots of all notebooks. If anything ever goes missing, restore a snapshot from here — restoring is reversible.',
+    ja: '全ノートの自動スナップショットを保存しています。内容が消えた場合はここから復元できます（復元は元に戻せます）。',
+    zh: '应用会自动保存所有笔记本的快照。如果内容丢失，可在此恢复快照——恢复操作可撤销。',
+    tr: 'Uygulama tüm defterlerin otomatik anlık görüntülerini tutar. Bir şey kaybolursa buradan geri yükle — geri yükleme geri alınabilir.',
+  },
+  recoveryRestore: { en: 'Restore', ja: '復元', zh: '恢复', tr: 'Geri yükle' },
+  recoveryEmpty: { en: 'No snapshots yet.', ja: 'スナップショットはまだありません。', zh: '暂无快照。', tr: 'Henüz anlık görüntü yok.' },
+  recoveryDone: { en: '✓ Snapshot restored.', ja: '✓ スナップショットを復元しました。', zh: '✓ 已恢复快照。', tr: '✓ Anlık görüntü geri yüklendi.' },
+  recoveryMeta: {
+    en: '{pages} pages · {strokes} items',
+    ja: '{pages}ページ · {strokes}項目',
+    zh: '{pages} 页 · {strokes} 项',
+    tr: '{pages} sayfa · {strokes} öğe',
+  },
+  planRange: { en: 'Plan: {start} → exam', ja: '計画：{start} → 試験日', zh: '计划：{start} → 考试', tr: 'Plan: {start} → sınav' },
+  restartPlan: { en: 'Restart plan from today', ja: '今日から計画を再開', zh: '从今天重新开始计划', tr: 'Planı bugünden yeniden başlat' },
 } as const;
 
 export type StringKey = keyof typeof strings;

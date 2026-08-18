@@ -155,12 +155,25 @@ function attachSync<S extends { rev: number }>(
   store.subscribe((s) => {
     if (s.rev === last) return;
     last = s.rev;
+    // Local write is IMMEDIATE and synchronous — a reload right after an answer/attempt
+    // can therefore never drop it. Only the network write is debounced.
+    saveLocal();
     if (timer) clearTimeout(timer);
     timer = setTimeout(() => {
-      saveLocal();
       void saveCloud();
     }, 1000);
   });
+
+  // Force the pending cloud write out when the app is hidden/closed.
+  if (typeof document !== 'undefined') {
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'hidden' && timer) {
+        clearTimeout(timer);
+        timer = undefined;
+        void saveCloud();
+      }
+    });
+  }
 
   useAuth.subscribe((s, prev) => {
     if (s.user && s.user !== prev.user && db) {

@@ -42,21 +42,45 @@ export const parseDate = (s: string): Date => startOfDay(new Date(s + 'T00:00:00
 export const addDays = (d: Date, n: number): Date => new Date(startOfDay(d).getTime() + n * MS);
 export const daysBetween = (a: Date, b: Date): number => Math.round((startOfDay(b).getTime() - startOfDay(a).getTime()) / MS);
 
+const fmtDate = (d: Date): string => {
+  const mm = String(d.getMonth() + 1).padStart(2, '0');
+  const dd = String(d.getDate()).padStart(2, '0');
+  return `${d.getFullYear()}-${mm}-${dd}`;
+};
+
 /** The EJU exam date is fixed (Nov 8). Use the next upcoming one so the plan always runs
- *  from today to the exam without the student setting anything. */
+ *  through the exam without the student setting anything. */
 export function ejuExamDate(): string {
   const now = startOfDay();
   const y = now.getFullYear();
   const thisYear = startOfDay(new Date(y, 10, 8)); // month 10 = November
   const target = now.getTime() <= thisYear.getTime() ? thisYear : startOfDay(new Date(y + 1, 10, 8));
-  const mm = String(target.getMonth() + 1).padStart(2, '0');
-  const dd = String(target.getDate()).padStart(2, '0');
-  return `${target.getFullYear()}-${mm}-${dd}`;
+  return fmtDate(target);
 }
 
-/** Inclusive number of days from today through the exam day (>= 1). */
-export function totalDays(examDate: string): number {
-  return Math.max(1, daysBetween(startOfDay(), parseDate(examDate)) + 1);
+/** The plan's FIXED first day. Once stored it never moves, so the schedule actually
+ *  advances day by day (before this, day 0 was always "today": the plan silently
+ *  re-based itself every morning, repeated the first topics forever, and could never
+ *  finish the syllabus). Falls back to today for a fresh install. */
+export function effectivePlanStart(stored: string | null | undefined, examDate: string): string {
+  if (stored && /^\d{4}-\d{2}-\d{2}$/.test(stored)) {
+    // A start after the exam would produce a negative-length plan — reset to today.
+    if (parseDate(stored).getTime() <= parseDate(examDate).getTime()) return stored;
+  }
+  return fmtDate(startOfDay());
+}
+
+export const todayStr = (): string => fmtDate(startOfDay());
+
+/** Inclusive number of days from the plan start through the exam day (>= 1). */
+export function totalDays(examDate: string, planStart: string): number {
+  return Math.max(1, daysBetween(parseDate(planStart), parseDate(examDate)) + 1);
+}
+
+/** Today's index within the plan, clamped into [0, D-1]. */
+export function todayIndex(examDate: string, planStart: string): number {
+  const D = totalDays(examDate, planStart);
+  return Math.min(Math.max(0, daysBetween(parseDate(planStart), startOfDay())), D - 1);
 }
 
 /** Every subtopic across the chosen subjects, interleaved round-robin so each subject is
@@ -93,16 +117,17 @@ export function phaseOf(index: number, D: number): Phase {
   return index < learnDays ? 'learn' : index < learnDays + drillDays ? 'drill' : 'sprint';
 }
 
-/** Build one day's plan deterministically. */
+/** Build one day's plan deterministically, anchored to the FIXED plan start date. */
 export function buildDay(
   index: number,
   examDate: string,
+  planStart: string,
   subjects: Subject[],
   trees: Partial<Record<Subject, SubjectTree>>,
   weakIds: Set<string>
 ): DayPlan {
-  const D = totalDays(examDate);
-  const date = addDays(startOfDay(), index);
+  const D = totalDays(examDate, planStart);
+  const date = addDays(parseDate(planStart), index);
   const units = buildUnits(subjects, trees);
   const U = Math.max(1, units.length);
   const { learnDays, drillDays } = phaseSplit(D);
@@ -110,7 +135,9 @@ export function buildDay(
   const newPerDay = Math.max(1, Math.ceil(U / learnDays));
   const introDay = (k: number) => Math.floor(k / newPerDay);
   const tasks: CalTask[] = [];
-  const tid = (kind: TaskKind, subj: Subject, key: string) => `${examDate}|${index}|${kind}|${subj}|${key}`;
+  // Task ids embed the plan anchor, so completed-marks stay valid day after day and a
+  // deliberate "restart plan" cleanly invalidates the old ones.
+  const tid = (kind: TaskKind, subj: Subject, key: string) => `${planStart}|${examDate}|${index}|${kind}|${subj}|${key}`;
 
   if (units.length && phase === 'learn') {
     for (let k = index * newPerDay; k < Math.min(units.length, (index + 1) * newPerDay); k++) {

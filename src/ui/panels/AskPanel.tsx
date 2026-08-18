@@ -84,7 +84,23 @@ export default function AskPanel() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selIds, boardRev]);
 
-  const [input, setInput] = useState('');
+  // The draft survives panel close, accidental reloads, and crashes: it hydrates from
+  // localStorage and is written back on every keystroke (cleared naturally on submit,
+  // because submitting sets the input to '').
+  const [input, setInput] = useState(() => {
+    try {
+      return localStorage.getItem('eju-draft-ask') ?? '';
+    } catch {
+      return '';
+    }
+  });
+  useEffect(() => {
+    try {
+      localStorage.setItem('eju-draft-ask', input);
+    } catch {
+      /* draft only — never block typing on storage */
+    }
+  }, [input]);
   const [checking, setChecking] = useState(false);
   const [explaining, setExplaining] = useState(false);
   const [noteIdx, setNoteIdx] = useState<number | null>(null);

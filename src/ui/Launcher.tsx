@@ -2,7 +2,7 @@ import { useEffect, useMemo } from 'react';
 import { useUI, type PanelId, type Subject } from '../lib/ui';
 import { useProgress } from '../lib/userdata';
 import { useStudyMap, weakNodeIds } from '../lib/studymap';
-import { buildDay, ejuExamDate, type CalTask } from '../lib/calendar';
+import { buildDay, ejuExamDate, effectivePlanStart, todayIndex, type CalTask } from '../lib/calendar';
 import { runTask } from '../mindmap/runTask';
 import { useT, type StringKey } from '../i18n';
 import {
@@ -65,6 +65,10 @@ export default function Launcher() {
 
   const subjects = planSubjects.length ? planSubjects : DEFAULT_SUBJECTS;
   const examDate = useMemo(ejuExamDate, []);
+  const storedStart = useStudyMap((s) => s.planStart);
+  // Same fixed anchor as the calendar, so "today's tasks" is the plan's ACTUAL current
+  // day — not day 0 over and over.
+  const planStart = useMemo(() => effectivePlanStart(storedStart, examDate), [storedStart, examDate]);
 
   // Load the taxonomy for the plan subjects so today's tasks can be built.
   useEffect(() => {
@@ -76,12 +80,12 @@ export default function Launcher() {
   const { shown, remaining, total } = useMemo(() => {
     if (!treesReady) return { shown: [] as CalTask[], remaining: 0, total: 0 };
     const weak = weakNodeIds(subjects);
-    const tasks = buildDay(0, examDate, subjects, trees, weak).tasks;
+    const tasks = buildDay(todayIndex(examDate, planStart), examDate, planStart, subjects, trees, weak).tasks;
     const todo = tasks.filter((tk) => !done[tk.id]);
     const doneList = tasks.filter((tk) => done[tk.id]);
     return { shown: [...todo, ...doneList].slice(0, 4), remaining: todo.length, total: tasks.length };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [treesReady, subjects, trees, examDate, done, rev, prev]);
+  }, [treesReady, subjects, trees, examDate, planStart, done, rev, prev]);
 
   const runAndClose = (task: CalTask) => {
     runTask(task);

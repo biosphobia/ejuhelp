@@ -5,6 +5,9 @@ import { useStudyMap, weakNodeIds } from '../lib/studymap';
 import {
   buildDay,
   totalDays,
+  todayIndex,
+  effectivePlanStart,
+  todayStr,
   phaseOf,
   ejuExamDate,
   startOfDay,
@@ -51,19 +54,35 @@ export default function StudyCalendar() {
   const rev = useStudyMap((s) => s.rev);
   const prev = useProgress((s) => s.rev);
 
+  const storedStart = useStudyMap((s) => s.planStart);
+  const setPlanStart = useStudyMap((s) => s.setPlanStart);
+
   const today = useMemo(() => startOfDay(), []);
   const examDate = useMemo(() => ejuExamDate(), []);
   const examD = useMemo(() => parseDate(examDate), [examDate]);
-  const D = totalDays(examDate);
+  // The plan is anchored to a FIXED start date so it advances day by day and covers the
+  // whole syllabus by the exam (a plan re-based to "today" can never finish).
+  const planStart = useMemo(() => effectivePlanStart(storedStart, examDate), [storedStart, examDate]);
+  const planStartD = useMemo(() => parseDate(planStart), [planStart]);
+  const D = totalDays(examDate, planStart);
   const subjects = planSubjects.length ? planSubjects : DEFAULT_SUBJECTS;
 
-  const [selectedIdx, setSelectedIdx] = useState(0);
+  const [selectedIdx, setSelectedIdx] = useState(() => todayIndex(examDate, planStart));
   const [cursor, setCursor] = useState(() => ({ y: today.getFullYear(), m: today.getMonth() }));
 
-  // Seed the default subjects once so the choice is persisted/adjustable.
+  // Seed the default subjects and the fixed plan anchor once, so both persist.
   useEffect(() => {
     if (!planSubjects.length) setPlanSubjects(DEFAULT_SUBJECTS);
   }, [planSubjects.length, setPlanSubjects]);
+  useEffect(() => {
+    if (!storedStart || storedStart !== planStart) setPlanStart(planStart);
+  }, [storedStart, planStart, setPlanStart]);
+
+  const restartPlan = () => {
+    setPlanStart(todayStr());
+    setSelectedIdx(0);
+    setCursor({ y: today.getFullYear(), m: today.getMonth() });
+  };
 
   useEffect(() => {
     for (const s of subjects) void ensureTree(s);
@@ -93,14 +112,14 @@ export default function StudyCalendar() {
   const weekdayNames = Array.from({ length: 7 }, (_, i) => addDays(WEEK_REF, i).toLocaleDateString(undefined, { weekday: 'narrow' }));
 
   const cmp = (a: { y: number; m: number }, b: { y: number; m: number }) => a.y - b.y || a.m - b.m;
-  const minCursor = { y: today.getFullYear(), m: today.getMonth() };
+  const minCursor = { y: planStartD.getFullYear(), m: planStartD.getMonth() };
   const maxCursor = { y: examD.getFullYear(), m: examD.getMonth() };
   const canPrev = cmp(cursor, minCursor) > 0;
   const canNext = cmp(cursor, maxCursor) < 0;
 
   const firstPlanIdxInMonth = (y: number, m: number): number | null => {
-    const a = Math.max(0, daysBetween(today, new Date(y, m, 1)));
-    const b = Math.min(D - 1, daysBetween(today, new Date(y, m + 1, 0)));
+    const a = Math.max(0, daysBetween(planStartD, new Date(y, m, 1)));
+    const b = Math.min(D - 1, daysBetween(planStartD, new Date(y, m + 1, 0)));
     return a <= b ? a : null;
   };
   const shiftMonth = (delta: number) => {
@@ -111,14 +130,14 @@ export default function StudyCalendar() {
     if (idx != null) setSelectedIdx(idx);
   };
   const selectDay = (date: Date) => {
-    const idx = daysBetween(today, date);
+    const idx = daysBetween(planStartD, date);
     if (idx < 0 || idx >= D) return;
     setSelectedIdx(idx);
     if (date.getMonth() !== cursor.m || date.getFullYear() !== cursor.y) setCursor({ y: date.getFullYear(), m: date.getMonth() });
   };
 
   const dayTasksDone = (idx: number): { total: number; doneCount: number } => {
-    const dp = buildDay(idx, examDate, subjects, trees, weak);
+    const dp = buildDay(idx, examDate, planStart, subjects, trees, weak);
     return { total: dp.tasks.length, doneCount: dp.tasks.filter((tk) => done[tk.id]).length };
   };
 
@@ -133,9 +152,10 @@ export default function StudyCalendar() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [D, examDate, subjects, trees, weak, done, treesReady]);
 
-  const selDate = addDays(today, selectedIdx);
-  const day = buildDay(selectedIdx, examDate, subjects, trees, weak);
+  const selDate = addDays(planStartD, selectedIdx);
+  const day = buildDay(selectedIdx, examDate, planStart, subjects, trees, weak);
   const selStats = dayTasksDone(selectedIdx);
+  const todayIdx = todayIndex(examDate, planStart);
   const monthLabel = monthStart.toLocaleDateString(undefined, { month: 'long', year: 'numeric' });
   const examLabel = examD.toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' });
 
@@ -145,6 +165,14 @@ export default function StudyCalendar() {
       <div className="mb-4 rounded-2xl bg-white/[0.04] p-4 ring-1 ring-white/10">
         <div className="text-2xl font-extrabold text-white">{dte <= 0 ? t('examDayLabel') : t('daysToExamLabel', { n: dte })}</div>
         <div className="text-xs text-slate-400">EJU · {examLabel}</div>
+        <div className="mt-1 flex items-center gap-2 text-[11px] text-slate-500">
+          <span>{t('planRange', { start: planStartD.toLocaleDateString(undefined, { month: 'short', day: 'numeric' }) })}</span>
+          {todayIdx > 0 ? (
+            <button type="button" onClick={restartPlan} className="rounded-full bg-white/5 px-2 py-0.5 font-medium text-slate-400 ring-1 ring-white/10 hover:bg-white/10">
+              {t('restartPlan')}
+            </button>
+          ) : null}
+        </div>
         <div className="mt-3 flex flex-wrap gap-1.5">
           {SUBJECTS.map((s) => (
             <button
@@ -187,12 +215,12 @@ export default function StudyCalendar() {
       ) : (
         <div className="grid grid-cols-7 gap-1">
           {cells.map((date, i) => {
-            const idx = daysBetween(today, date);
+            const idx = daysBetween(planStartD, date);
             const inMonth = date.getMonth() === cursor.m;
             const inPlan = idx >= 0 && idx < D;
             const { total, doneCount } = inPlan ? dayTasksDone(idx) : { total: 0, doneCount: 0 };
             const complete = total > 0 && doneCount === total;
-            const isToday = idx === 0;
+            const isToday = daysBetween(today, date) === 0;
             const selected = inPlan && idx === selectedIdx;
             const numCls = !inMonth ? 'text-slate-700' : inPlan ? 'text-slate-100' : 'text-slate-600';
             const box = selected
@@ -231,7 +259,7 @@ export default function StudyCalendar() {
         <div className="mt-5">
           <div className="mb-2 flex items-baseline justify-between">
             <div>
-              <div className="text-sm font-bold">{selectedIdx === 0 ? t('planToday') : selDate.toLocaleDateString(undefined, { weekday: 'short', month: 'short', day: 'numeric' })}</div>
+              <div className="text-sm font-bold">{selectedIdx === todayIdx && daysBetween(today, selDate) === 0 ? t('planToday') : selDate.toLocaleDateString(undefined, { weekday: 'short', month: 'short', day: 'numeric' })}</div>
               <div className="text-[11px] uppercase tracking-wide text-indigo-300">{t(PHASE_KEY[phaseOf(selectedIdx, D)])}</div>
             </div>
             {selStats.total ? <span className="text-[11px] text-slate-500">{selStats.doneCount}/{selStats.total}</span> : null}

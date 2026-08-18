@@ -26,10 +26,22 @@ html {
      any safe-area region — so keep it the dark app/theme colour, never a light
      strip. (Also avoids a light flash before React mounts, matching the splash.) */
   background-color: #0f172a;
+  /* Pull-to-refresh / rubber-band overscroll is intercepted by the ROOT scroller —
+     setting it only on body is not enough in Safari/Chrome. Without this, an
+     accidental pull at the screen edge can reload the whole app mid-note. */
+  overscroll-behavior: none;
+  overflow: hidden;
 }
 
 body {
   overscroll-behavior: none;
+  /* Lock the page itself: the app is a fixed full-screen surface; anything that
+     scrolls does so inside its own panel. A fixed body gives iOS Safari nothing
+     to rubber-band, so edge-pulls can't trigger a native refresh/navigation. */
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  overflow: hidden;
   -webkit-user-select: none;
   user-select: none;
   -webkit-touch-callout: none;

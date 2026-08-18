@@ -4,9 +4,11 @@ import { useAuth, onBeforeSignOut } from './auth';
 import { useSync } from './sync';
 import { db } from './firebase';
 import { useNotebook, NOTEBOOKS, DEFAULT_NOTEBOOK, type NotebookId } from './notebooks';
+import { idbGet, idbSet, idbDel, idbKeys, KV_STORE, SNAP_STORE } from './idb';
 
 const LS_KEY = 'eju-notebooks-v1';
 const OLD_LS_KEY = 'eju-board-v1'; // legacy single-board format → migrated into "general"
+const IDB_KEY = 'notebooks';
 
 // Compact wire format: points stored as [x, y, pressure] tuples to save space
 // (Firestore docs are capped at ~1MB; ink can be large).
@@ -62,64 +64,16 @@ function decode(cps: CPage[]): Page[] {
 }
 
 // ── Durable local storage ─────────────────────────────────────────────────────────────
-// IndexedDB is the PRIMARY durable store: it has a large quota (ink can exceed the ~5MB
-// localStorage cap, which would make setItem throw and silently drop saves) and, together
-// with navigator.storage.persist(), is far less likely to be evicted by iOS/Safari than
-// localStorage. localStorage is kept as a second copy because it hydrates synchronously on
-// startup (instant paint) and — crucially — can be written synchronously inside an unload
-// handler, which IndexedDB (async) cannot guarantee. On load we read whichever is newer.
-const IDB_NAME = 'eju-board';
-const IDB_STORE = 'kv';
-const IDB_KEY = 'notebooks';
-
-let idbConn: Promise<IDBDatabase> | null = null;
-function idbOpen(): Promise<IDBDatabase> {
-  // Cache the connection so per-stroke writes don't reopen the database every time.
-  if (idbConn) return idbConn;
-  idbConn = new Promise((resolve, reject) => {
-    if (typeof indexedDB === 'undefined') return reject(new Error('no-idb'));
-    const req = indexedDB.open(IDB_NAME, 1);
-    req.onupgradeneeded = () => {
-      if (!req.result.objectStoreNames.contains(IDB_STORE)) req.result.createObjectStore(IDB_STORE);
-    };
-    req.onsuccess = () => resolve(req.result);
-    req.onerror = () => reject(req.error);
-  });
-  // If the connection drops or fails, allow a fresh open next time.
-  idbConn.then((idb) => {
-    idb.onclose = () => { idbConn = null; };
-  }).catch(() => { idbConn = null; });
-  return idbConn;
-}
-
-async function idbGet<T>(key: string): Promise<T | undefined> {
-  try {
-    const idb = await idbOpen();
-    return await new Promise<T | undefined>((resolve, reject) => {
-      const tx = idb.transaction(IDB_STORE, 'readonly');
-      const rq = tx.objectStore(IDB_STORE).get(key);
-      rq.onsuccess = () => resolve(rq.result as T | undefined);
-      rq.onerror = () => reject(rq.error);
-    });
-  } catch {
-    return undefined;
-  }
-}
-
-async function idbSet(key: string, val: unknown): Promise<boolean> {
-  try {
-    const idb = await idbOpen();
-    return await new Promise<boolean>((resolve) => {
-      const tx = idb.transaction(IDB_STORE, 'readwrite');
-      tx.objectStore(IDB_STORE).put(val, key);
-      tx.oncomplete = () => resolve(true);
-      tx.onerror = () => resolve(false);
-      tx.onabort = () => resolve(false);
-    });
-  } catch {
-    return false;
-  }
-}
+// IndexedDB is the PRIMARY durable store (large quota, holds the full copy INCLUDING
+// image data). localStorage carries a second, image-STRIPPED copy: stripping the base64
+// images keeps it far below the ~5MB quota, so the synchronous write can never start
+// failing just because the user pasted photos — which previously could silently disable
+// the localStorage copy for the rest of the session. On load we take whichever store is
+// newer and re-attach image data from the other (matched by stroke id).
+//
+// The IDB layer (lib/idb.ts) self-heals from iOS Safari's zombie-connection failure and
+// reports honest success/failure, which we surface in the sync store: if a save cannot
+// be committed ANYWHERE, the app shows a loud warning instead of losing work silently.
 
 // In-memory snapshot of every notebook. The ACTIVE notebook's live content lives
 // in the board store; the others are authoritative here until switched to.
@@ -153,28 +107,135 @@ function loadBookIntoBoard(id: NotebookId) {
   useBoard.getState().loadPages(pages, b?.currentPageId);
 }
 
-/** Write the current notebook set to BOTH durable stores. IndexedDB is the primary
- *  (large, eviction-resistant); localStorage is a synchronous best-effort second copy
- *  (may throw on quota for very large ink — that's fine, IndexedDB still has it). */
-function saveLocal() {
-  const data: StoredNotebooks = {
-    active: useNotebook.getState().active,
-    books,
-    updatedAt: Date.now(),
+function stripBookImages(b: StoredBook): StoredBook {
+  return {
+    ...b,
+    pages: b.pages.map((pg) => ({
+      ...pg,
+      st: pg.st.map((s) => (s.im != null && s.im !== '' ? { ...s, im: '' } : s)),
+    })),
   };
-  void idbSet(IDB_KEY, data); // durable primary
-  try {
-    localStorage.setItem(LS_KEY, JSON.stringify(data)); // sync copy for instant hydrate / unload
-  } catch (e) {
-    console.warn('[persistence] localStorage save failed (quota?) — relying on IndexedDB', e);
+}
+
+function stripAllImages(data: StoredNotebooks): StoredNotebooks {
+  const out: StoredNotebooks = { ...data, books: {} };
+  for (const id of NOTEBOOKS) {
+    const b = data.books?.[id];
+    if (b) out.books[id] = stripBookImages(b);
   }
-  lastWrittenRev = useBoard.getState().rev;
+  return out;
+}
+
+// ── Rolling snapshot history ──────────────────────────────────────────────────────────
+// Every few minutes of active work (and at key moments: notebook switch, import, cloud
+// merge, restore) the full notebook set is ALSO written as an immutable `<timestamp>`
+// record in the 'snaps' store. Nothing ever overwrites a snapshot, so even a bad merge,
+// a bug, or user error can be rolled back from Account → recovery. Pruned to the newest
+// SNAP_KEEP records.
+const SNAP_MIN_INTERVAL = 3 * 60_000;
+const SNAP_KEEP = 40;
+let lastSnapAt = 0;
+
+async function writeSnapshot(reason: string, force = false) {
+  const now = Date.now();
+  if (!force && now - lastSnapAt < SNAP_MIN_INTERVAL) return;
+  const hasAny = NOTEBOOKS.some((id) => hasInk(books[id]));
+  if (!hasAny) return; // never snapshot an empty state — worthless and can churn the prune
+  lastSnapAt = now;
+  const data: StoredNotebooks = { active: useNotebook.getState().active, books, updatedAt: now };
+  const ok = await idbSet(SNAP_STORE, String(now), { ...data, reason });
+  if (!ok) return;
+  // prune oldest beyond SNAP_KEEP
+  const keys = (await idbKeys(SNAP_STORE)).map(Number).filter((n) => !Number.isNaN(n)).sort((a, b) => b - a);
+  for (const k of keys.slice(SNAP_KEEP)) void idbDel(SNAP_STORE, String(k));
+}
+
+export interface SnapshotInfo {
+  ts: number;
+  reason?: string;
+  books: number;
+  pages: number;
+  strokes: number;
+}
+
+/** List recovery snapshots, newest first. */
+export async function listSnapshots(): Promise<SnapshotInfo[]> {
+  const keys = (await idbKeys(SNAP_STORE)).map(Number).filter((n) => !Number.isNaN(n)).sort((a, b) => b - a);
+  const out: SnapshotInfo[] = [];
+  for (const ts of keys) {
+    const d = await idbGet<StoredNotebooks & { reason?: string }>(SNAP_STORE, String(ts));
+    if (!d?.books) continue;
+    let pages = 0;
+    let strokes = 0;
+    let bookCount = 0;
+    for (const id of NOTEBOOKS) {
+      const b = d.books[id];
+      if (!b?.pages?.length) continue;
+      bookCount++;
+      pages += b.pages.length;
+      for (const p of b.pages) strokes += p.st.length;
+    }
+    out.push({ ts, reason: d.reason, books: bookCount, pages, strokes });
+  }
+  return out;
+}
+
+/** Restore a snapshot (the current state is snapshotted first, so this is reversible). */
+export async function restoreSnapshot(ts: number): Promise<boolean> {
+  const d = await idbGet<StoredNotebooks>(SNAP_STORE, String(ts));
+  if (!d?.books) return false;
+  snapshotActive();
+  await writeSnapshot('before-restore', true);
+  applyStored(d);
+  saveLocal();
+  if (cloudLoaded) void saveCloud();
+  return true;
 }
 
 // True once we've fetched & reconciled the signed-in user's cloud copy this session. Until
 // then we must NOT write to the cloud — otherwise a blank/partial board (e.g. on a device
 // whose local storage was purged) could overwrite the real backup before we've read it.
 let cloudLoaded = false;
+
+// ── Local save pipeline ───────────────────────────────────────────────────────────────
+let lastSavedRev = -1; // last rev pushed through saveLocal (dedupes the subscription)
+let lastWrittenRev = -1; // last rev CONFIRMED committed to a durable local store
+
+/** Write the current notebook set to both local stores and report honest health.
+ *  localStorage gets the image-stripped copy synchronously; IndexedDB gets the full
+ *  copy asynchronously. `lastWrittenRev` only advances when at least one commit is
+ *  CONFIRMED, so the periodic backstop keeps retrying after failures. */
+function saveLocal() {
+  const rev = useBoard.getState().rev;
+  const data: StoredNotebooks = {
+    active: useNotebook.getState().active,
+    books,
+    updatedAt: Date.now(),
+  };
+  let lsOk = false;
+  try {
+    localStorage.setItem(LS_KEY, JSON.stringify(stripAllImages(data)));
+    lsOk = true;
+  } catch (e) {
+    console.warn('[persistence] localStorage save failed', e);
+  }
+  if (lsOk) {
+    lastWrittenRev = rev;
+    useSync.getState().setLocal('ok');
+  }
+  void idbSet(KV_STORE, IDB_KEY, data).then((idbOk) => {
+    if (idbOk) {
+      // Only mark THIS rev as committed if the board hasn't moved on meanwhile —
+      // a newer edit has its own save in flight (and the backstop retries regardless).
+      if (useBoard.getState().rev === rev) lastWrittenRev = rev;
+      useSync.getState().setLocal('ok');
+      void writeSnapshot('autosave');
+    } else if (!lsOk) {
+      // NEITHER store committed — the work is memory-only. Say so loudly.
+      useSync.getState().setLocal('failing', 'local-write-failed');
+    }
+  });
+}
 
 // gzip a string to a base64 payload (and back), when the browser supports it. Dense ink
 // JSON compresses ~8×, which keeps large boards under Firestore's 1MB per-document limit.
@@ -203,20 +264,10 @@ async function gunzipB64(b64: string): Promise<string | null> {
   }
 }
 
-function stripBookImages(b: StoredBook): StoredBook {
-  return {
-    ...b,
-    pages: b.pages.map((pg) => ({
-      ...pg,
-      st: pg.st.map((s) => (s.im != null && s.im !== '' ? { ...s, im: '' } : s)),
-    })),
-  };
-}
-
 // Per-notebook serialized copy last written to the cloud, so we only re-upload notebooks
 // that actually changed (and detect that nothing changed).
 const cloudCache: Partial<Record<NotebookId, string>> = {};
-const EMPTY_MARK = ' empty';
+const EMPTY_MARK = ' empty';
 
 async function saveCloud() {
   const { user } = useAuth.getState();
@@ -267,10 +318,6 @@ async function saveCloud() {
 }
 
 let cloudTimer: ReturnType<typeof setTimeout> | undefined;
-let lastSavedRev = -1;
-// The board rev actually written to local storage, so a periodic backstop can tell when
-// there are unsaved changes even if lifecycle events never fire.
-let lastWrittenRev = -1;
 
 /** Debounce ONLY the network (cloud) write — local storage is written immediately. */
 function scheduleCloud() {
@@ -318,6 +365,8 @@ export function importBackup(text: string): boolean {
   try {
     const data = JSON.parse(text) as StoredNotebooks;
     if (!data || typeof data !== 'object' || !data.books) return false;
+    snapshotActive();
+    void writeSnapshot('before-import', true); // current state is recoverable after a bad import
     applyStored(data);
     saveLocal();
     if (cloudLoaded) void saveCloud();
@@ -333,6 +382,7 @@ export function switchNotebook(target: NotebookId) {
   const cur = useNotebook.getState().active;
   if (cur === target) return;
   snapshotActive(); // capture edits on the notebook we're leaving
+  void writeSnapshot('switch');
   useNotebook.getState()._setActive(target);
   loadBookIntoBoard(target);
   lastSavedRev = useBoard.getState().rev; // loadPages reset rev; don't double-save it
@@ -367,26 +417,35 @@ function applyStored(data: StoredNotebooks) {
 
 const hasInk = (b?: StoredBook) => !!b && b.pages.some((p) => p.st.length > 0);
 
+/** Copy image data (matched by stroke id) from `source` into strokes of `book` that are
+ *  missing it. Used because the localStorage and cloud copies strip images — only the
+ *  IndexedDB copy (and the live board) carry them. */
+function restoreImages(book: StoredBook, source?: StoredBook): StoredBook {
+  if (!source) return book;
+  const byId = new Map<string, string>();
+  for (const pg of source.pages) for (const s of pg.st) if (s.im) byId.set(s.i, s.im);
+  if (!byId.size) return book;
+  let changed = false;
+  const pages = book.pages.map((pg) => {
+    let pgChanged = false;
+    const st = pg.st.map((s) => {
+      if (!s.im && byId.has(s.i)) {
+        pgChanged = true;
+        return { ...s, im: byId.get(s.i)! };
+      }
+      return s;
+    });
+    if (!pgChanged) return pg;
+    changed = true;
+    return { ...pg, st };
+  });
+  return changed ? { ...book, pages } : book;
+}
+
 /** Merge cloud notebooks into local: content always beats an empty notebook, and
  *  among non-empty (or both-empty) copies the newer one wins. This keeps unsynced
  *  local work from being clobbered, without letting a fresh device's empty page
  *  clobber real cloud content. */
-/** Cloud copies have image data stripped; when we adopt a cloud book, put back any image
- *  data we still have locally (matched by stroke id) so a sync never wipes local images. */
-function restoreLocalImages(book: StoredBook, localBook?: StoredBook): StoredBook {
-  if (!localBook) return book;
-  const byId = new Map<string, string>();
-  for (const pg of localBook.pages) for (const s of pg.st) if (s.im) byId.set(s.i, s.im);
-  if (!byId.size) return book;
-  return {
-    ...book,
-    pages: book.pages.map((pg) => ({
-      ...pg,
-      st: pg.st.map((s) => (!s.im && byId.has(s.i) ? { ...s, im: byId.get(s.i)! } : s)),
-    })),
-  };
-}
-
 function mergeCloud(cloud: StoredNotebooks, preferCloud = false) {
   const merged: Partial<Record<NotebookId, StoredBook>> = { ...books };
   for (const id of NOTEBOOKS) {
@@ -402,9 +461,9 @@ function mergeCloud(cloud: StoredNotebooks, preferCloud = false) {
     // preferCloud: this device had NO local content at launch (e.g. an iPad PWA whose
     // storage was purged), so the cloud is authoritative — take it whenever it has ink,
     // even if a stroke was drawn on the blank board while the cloud fetch was in flight.
-    if (preferCloud && ci) merged[id] = restoreLocalImages(c, l);
-    else if (ci !== li) merged[id] = ci ? restoreLocalImages(c, l) : l;
-    else merged[id] = (c.updatedAt ?? 0) > (l.updatedAt ?? 0) ? restoreLocalImages(c, l) : l;
+    if (preferCloud && ci) merged[id] = restoreImages(c, l);
+    else if (ci !== li) merged[id] = ci ? restoreImages(c, l) : l;
+    else merged[id] = (c.updatedAt ?? 0) > (l.updatedAt ?? 0) ? restoreImages(c, l) : l;
   }
   books = merged;
 }
@@ -424,7 +483,8 @@ export function initPersistence() {
   // under the account rather than lost when it goes away.
   onBeforeSignOut(flushCloudNow);
 
-  // 1) hydrate synchronously from localStorage (instant paint), migrating legacy format
+  // 1) hydrate synchronously from localStorage (instant paint), migrating legacy format.
+  //    NOTE: this copy is image-stripped — images are re-attached from IndexedDB below.
   let data: StoredNotebooks | null = null;
   try {
     const raw = localStorage.getItem(LS_KEY);
@@ -439,20 +499,40 @@ export function initPersistence() {
   lastSavedRev = useBoard.getState().rev;
   const localStamp = stampOf(data);
 
-  // Seed both durable stores with whatever we hydrated (this also migrates an existing
-  // localStorage-only board into IndexedDB on the first run after this change).
-  if (data) saveLocal();
-
-  // 1b) reconcile with IndexedDB (the durable primary). If it holds a newer copy — e.g.
-  // localStorage was evicted by the OS, or a previous quota error dropped a localStorage
-  // write — adopt it, unless the user has already drawn this session (don't clobber).
-  void idbGet<StoredNotebooks>(IDB_KEY).then((idbData) => {
-    if (!idbData?.books) return;
+  // 1b) reconcile with IndexedDB (the durable primary, and the only local store that
+  // carries image data). If it holds a newer copy — e.g. localStorage was evicted by the
+  // OS, or a previous quota error dropped a localStorage write — adopt it wholesale;
+  // otherwise merge its image data back into the (stripped) localStorage copy.
+  void idbGet<StoredNotebooks>(KV_STORE, IDB_KEY).then((idbData) => {
+    if (!idbData?.books) {
+      if (data) saveLocal(); // seed IDB from the localStorage copy on first run
+      return;
+    }
     const fresh = useBoard.getState().rev === lastSavedRev; // no edits since hydrate
     if (fresh && stampOf(idbData) > localStamp) {
       applyStored(idbData);
+      hadContentAtLaunch = hadContentAtLaunch || NOTEBOOKS.some((id) => hasInk(books[id]));
       saveLocal();
+      return;
     }
+    // Same-or-older IDB copy: keep current content but re-attach its image data.
+    let activeChanged = false;
+    const active = useNotebook.getState().active;
+    for (const id of NOTEBOOKS) {
+      const l = books[id];
+      const src = idbData.books?.[id];
+      if (!l || !src) continue;
+      const withImages = restoreImages(l, src);
+      if (withImages !== l) {
+        books[id] = withImages;
+        if (id === active) activeChanged = true;
+      }
+    }
+    if (activeChanged && fresh) {
+      loadBookIntoBoard(active);
+      lastSavedRev = useBoard.getState().rev;
+    }
+    saveLocal();
   });
 
   // 2) autosave whenever board content changes (rev bumps). The local write happens
@@ -493,9 +573,9 @@ export function initPersistence() {
       .catch(() => {});
   }
 
-  // 3b) Periodic backstop: if the board has changed since the last write (e.g. the
-  // user is drawing continuously, or an unload event was missed), persist it. This
-  // guarantees saves don't depend solely on pauses or lifecycle events.
+  // 3b) Periodic backstop: if the board has changes not yet CONFIRMED committed (e.g. a
+  // local write failed, or an unload event was missed), persist again. Saves therefore
+  // retry automatically until a durable store accepts them.
   if (typeof window !== 'undefined') {
     window.setInterval(() => {
       if (useBoard.getState().rev !== lastWrittenRev) {
@@ -617,6 +697,9 @@ async function reconcileCloud(uid: string, attempt: number) {
       ? { active: cloudActive ?? DEFAULT_NOTEBOOK, books: cloudBooks }
       : null;
     if (cloud?.books) {
+      // The local state is snapshotted BEFORE the merge, so even a pathological merge
+      // outcome is recoverable from Account → recovery.
+      await writeSnapshot('before-cloud-merge', true);
       mergeCloud(cloud, !hadContentAtLaunch);
       // On a fresh/purged device (current notebook empty), jump to the notebook the user
       // was last on elsewhere so their work is visible immediately.
