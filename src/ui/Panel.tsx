@@ -24,7 +24,7 @@ export default function Panel({
 
   return (
     <div
-      className={`selectable pointer-events-auto absolute inset-y-0 right-0 z-30 flex w-full flex-col bg-white shadow-[0_0_0_1px_rgba(15,23,42,0.06),0_20px_50px_-20px_rgba(15,23,42,0.35)] transition-[max-width] duration-200 safe-pad-top sm:right-14 sm:my-2 sm:h-[calc(100%-1rem)] sm:rounded-2xl ${
+      className={`selectable pointer-events-auto absolute inset-y-0 right-0 z-30 flex w-full flex-col bg-white shadow-[0_0_0_1px_rgba(15,23,42,0.06),0_20px_50px_-20px_rgba(15,23,42,0.35)] transition-[max-width] duration-200 safe-pad-top ${
         wide ? 'sm:max-w-[720px]' : 'sm:max-w-[420px]'
       }`}
     >

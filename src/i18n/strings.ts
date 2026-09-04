@@ -137,7 +137,7 @@ export const strings = {
     tr: 'Token tasarrufu için yapay zekânın bu sohbete dair bağlamını da siler.',
   },
   // EJU calendar / study plan
-  plan: { en: 'Notebook', ja: 'ノート', zh: '笔记本', tr: 'Defter' },
+  plan: { en: 'EJU calendar', ja: 'EJUカレンダー', zh: 'EJU 日历', tr: 'EJU takvimi' },
   planHint: {
     en: 'Open a topic to read its notes, ask the coach follow-ups, and mark it reviewed. Reviewed topics come back on a spaced schedule (1, 3, 7, 14, 30 days).',
     ja: 'トピックを開いてノートを読み、コーチに質問し、「復習済み」にしましょう。復習したトピックは間隔をあけて（1・3・7・14・30日後）また出てきます。',
@@ -526,6 +526,27 @@ export const strings = {
   ptShort: { en: 'Periodic table', ja: '周期表', zh: '周期表', tr: 'Periyodik tablo' },
   daysToExam: { en: '{n} days to the EJU', ja: 'EJUまで {n} 日', zh: '距 EJU 还有 {n} 天', tr: 'EJU’ya {n} gün' },
   calendar: { en: 'Calendar', ja: 'カレンダー', zh: '日历', tr: 'Takvim' },
+  pages: { en: 'Pages', ja: 'ページ一覧', zh: '页面列表', tr: 'Sayfalar' },
+  pageTitlePlaceholder: { en: 'Name this page (e.g. Lecture 3 – titration)', ja: 'このページに名前を付ける（例：第3回 滴定）', zh: '给此页命名（例如：第3讲 滴定）', tr: 'Bu sayfayı adlandır (örn. Ders 3 – titrasyon)' },
+  untitledPage: { en: 'Untitled page', ja: '無題のページ', zh: '未命名页面', tr: 'Adsız sayfa' },
+  emptyPage: { en: 'empty', ja: '空白', zh: '空白', tr: 'boş' },
+  strokesCount: { en: '{n} strokes', ja: '{n} ストローク', zh: '{n} 笔', tr: '{n} çizgi' },
+  attachPage: { en: 'Attach this page', ja: 'このページを添付', zh: '附上此页', tr: 'Bu sayfayı ekle' },
+  pageAttached: { en: 'Page attached — the coach will read your handwriting.', ja: 'ページを添付しました。コーチが手書きを読み取ります。', zh: '已附上页面，教练会读取你的手写内容。', tr: 'Sayfa eklendi; koç el yazını okuyacak.' },
+  tidyNotes: { en: 'Tidy up my notes', ja: 'ノートを清書して', zh: '整理我的笔记', tr: 'Notlarımı düzenle' },
+  tidyNotesPrompt: {
+    en: 'These are my rough class notes on this page. Rewrite them as clean, well-organised study notes: keep my structure where it makes sense, fix any mistakes, fill in what is missing, and end with the formulas to memorise and two things I should ask about next.',
+    ja: 'このページは授業中に取った走り書きのノートです。きれいで整理された学習ノートに書き直してください：私の構成を活かしつつ、間違いを直し、足りない部分を補い、最後に覚えるべき公式と、次に質問すべきことを2つ挙げてください。',
+    zh: '这一页是我上课时记的草稿笔记。请把它改写成干净、有条理的学习笔记：尽量保留我的结构，纠正错误，补充遗漏，最后列出需要背的公式和我接下来应该问的两个问题。',
+    tr: 'Bu sayfa derste tuttuğum kabataslak notlar. Bunları temiz ve düzenli çalışma notlarına dönüştür: mantıklı olduğu yerde yapımı koru, hataları düzelt, eksikleri tamamla ve sonunda ezberlenecek formüller ile sonra sormam gereken iki şeyi yaz.',
+  },
+  explainPagePrompt: {
+    en: 'Explain what is on this page of my notes in simple terms, and point out anything wrong or missing.',
+    ja: 'このページのノートの内容をやさしく説明して、間違いや抜けがあれば指摘してください。',
+    zh: '请用简单的话解释我这页笔记的内容，并指出错误或遗漏。',
+    tr: 'Notlarımın bu sayfasında ne olduğunu basitçe açıkla ve yanlış ya da eksik olan her şeyi belirt.',
+  },
+  explainPage: { en: 'Explain this page', ja: 'このページを解説', zh: '讲解这一页', tr: 'Bu sayfayı açıkla' },
 } as const;
 
 export type StringKey = keyof typeof strings;

@@ -15,6 +15,8 @@ export interface CheckMeta {
 
 export interface Message extends ChatMessage {
   check?: CheckMeta;
+  /** The user attached a capture of their notebook page to this message (image itself is not stored). */
+  attached?: boolean;
   /** Takeaway card (key idea, formulas, traps, next questions) for assistant replies. */
   summary?: AskSummary | null;
 }
@@ -58,7 +60,7 @@ interface AskState {
   error: unknown | null;
   lastSaved: number; // key points auto-saved from the latest answer
   lastAutoAnswered: boolean; // the latest check read a final answer onto a pinned question
-  send: (text: string, opts?: { notes?: string }) => Promise<void>;
+  send: (text: string, opts?: { notes?: string; attachPage?: boolean }) => Promise<void>;
   /** Capture the current page and have the coach grade it, in-line with the chat. */
   check: () => Promise<void>;
   /** Wipe the conversation (locally and in the cloud). */
@@ -88,15 +90,25 @@ export const useAsk = create<AskState>((set, get) => ({
     if (!t || get().busy) return;
     const { subject, lang } = useUI.getState();
     const { activeQuestion } = usePractice.getState();
-    const next: Message[] = trimMessages([...get().messages, { role: 'user', content: t }]);
+    let image: string | undefined;
+    if (opts?.attachPage) {
+      const png = exportPagePng(useBoard.getState().getCurrentPage());
+      if (!png) {
+        set({ error: new EmptyBoardError() });
+        return;
+      }
+      image = png;
+    }
+    const next: Message[] = trimMessages([...get().messages, { role: 'user', content: t, ...(image ? { attached: true } : {}) }]);
     set((s) => ({ messages: next, rev: s.rev + 1, busy: true, error: null, lastSaved: 0, lastAutoAnswered: false }));
     try {
       const res = await askClaude({
         subject,
         lang,
-        messages: next,
+        messages: next.map(({ role, content }) => ({ role, content })),
         context: activeQuestion ?? undefined,
         notes: opts?.notes,
+        imageDataUrl: image,
       });
       const added = useKeyPoints.getState().addMany(subject, res.keyPoints ?? []);
       set((s) => ({

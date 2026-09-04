@@ -412,13 +412,31 @@ export async function ask(args: {
   context?: string;
   /** Study notes the student is reviewing, so follow-ups build on them. */
   notes?: string;
+  /** A capture of the student's own handwritten page, attached to the latest message. */
+  imageDataUrl?: string;
   model?: string;
   userKey?: string;
 }): Promise<{ text: string; keyPoints: KeyPointDTO[]; summary: AskSummary | null }> {
-  const messages = args.messages
+  const messages: any[] = args.messages
     .filter((m) => m && typeof m.content === 'string' && m.content.trim())
     .map((m) => ({ role: m.role === 'assistant' ? 'assistant' : 'user', content: m.content }));
   if (!messages.length) return { text: '', keyPoints: [], summary: null };
+
+  let imageCtx: string | undefined;
+  const im = /^data:(image\/[a-zA-Z0-9.+-]+);base64,(.+)$/s.exec(args.imageDataUrl ?? '');
+  if (im && messages[messages.length - 1].role === 'user') {
+    const [, media_type, data] = im;
+    const last = messages[messages.length - 1];
+    last.content = [
+      { type: 'image', source: { type: 'base64', media_type, data } },
+      { type: 'text', text: last.content },
+    ];
+    imageCtx =
+      "The image attached to the latest message is a capture of the student's OWN handwritten notebook page. " +
+      'Read the handwriting carefully (it may be rough, abbreviated or partly in Japanese). Work from what is actually written; ' +
+      'if something is illegible, say which part rather than guessing. When asked to tidy or rewrite the notes, produce clean, ' +
+      'well-structured study notes in Markdown that keep the student\'s own order of ideas where sensible.';
+  }
 
   const ctx = args.context?.trim()
     ? `The student is currently looking at this specific question:\n${TRIPLE}\n${args.context.trim()}\n${TRIPLE}\n` +
@@ -434,7 +452,7 @@ export async function ask(args: {
     'Subtopic ids you may use for "topicId" (id = name): ' +
     subtopicsFor(args.subject, 'en').map((s) => `${s.id} = ${s.name}`).join('; ') +
     '.';
-  const extra = [ctx, notesCtx, formatDirective(args.subject), ASK_DIRECTIVE, ids].filter(Boolean).join('\n\n');
+  const extra = [ctx, notesCtx, imageCtx, formatDirective(args.subject), ASK_DIRECTIVE, ids].filter(Boolean).join('\n\n');
 
   const raw = await executeModelCall(args.model, args.userKey, args.subject, args.lang, extra, messages, 8000);
 

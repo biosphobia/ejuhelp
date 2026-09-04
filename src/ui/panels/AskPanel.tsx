@@ -115,6 +115,7 @@ export default function AskPanel() {
 
   const [input, setInput] = useState('');
   const [checking, setChecking] = useState(false);
+  const [attach, setAttach] = useState(false);
   const [wide, setWide] = useState(() => {
     try {
       return localStorage.getItem('eju-ask-wide') === '1';
@@ -143,7 +144,13 @@ export default function AskPanel() {
     const text = input.trim();
     if (!text || busy) return;
     setInput('');
-    void send(text);
+    setAttach(false);
+    void send(text, attach ? { attachPage: true } : undefined);
+  };
+  const sendWithPage = (text: string) => {
+    if (busy) return;
+    setAttach(false);
+    void send(text, { attachPage: true });
   };
 
   const runCheck = async () => {
@@ -189,15 +196,41 @@ export default function AskPanel() {
       }
       footer={
         <div className="space-y-2">
-          <button
-            type="button"
-            onClick={() => void runCheck()}
-            disabled={busy}
-            className="flex w-full items-center justify-center gap-2 rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-50 disabled:opacity-40"
-          >
-            {checking ? <SpinnerIcon className="h-4 w-4" /> : <CheckIcon className="h-4 w-4" />}
-            {checking ? t('checking') : t('check')}
-          </button>
+          <div className="flex gap-2">
+            <button
+              type="button"
+              onClick={() => void runCheck()}
+              disabled={busy}
+              className="flex flex-1 items-center justify-center gap-1.5 rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-50 disabled:opacity-40"
+            >
+              {checking ? <SpinnerIcon className="h-4 w-4" /> : <CheckIcon className="h-4 w-4" />}
+              {checking ? t('checking') : t('check')}
+            </button>
+            <button
+              type="button"
+              onClick={() => setAttach((v) => !v)}
+              disabled={busy}
+              aria-pressed={attach}
+              className={`flex flex-1 items-center justify-center gap-1.5 rounded-xl border px-3 py-2 text-sm font-semibold transition disabled:opacity-40 ${
+                attach ? 'border-indigo-300 bg-indigo-50 text-indigo-800' : 'border-slate-200 bg-white text-slate-700 hover:bg-slate-50'
+              }`}
+            >
+              📎 {t('attachPage')}
+            </button>
+          </div>
+          {attach ? (
+            <div className="rounded-xl bg-indigo-50 px-3 py-2 text-xs text-indigo-800 ring-1 ring-indigo-100">
+              <div>{t('pageAttached')}</div>
+              <div className="mt-1.5 flex flex-wrap gap-1.5">
+                <button type="button" onClick={() => sendWithPage(t('tidyNotesPrompt'))} className="rounded-full bg-white px-2.5 py-1 text-xs font-semibold text-indigo-800 ring-1 ring-indigo-200 hover:bg-indigo-100">
+                  ✨ {t('tidyNotes')}
+                </button>
+                <button type="button" onClick={() => sendWithPage(t('explainPagePrompt'))} className="rounded-full bg-white px-2.5 py-1 text-xs font-semibold text-indigo-800 ring-1 ring-indigo-200 hover:bg-indigo-100">
+                  💡 {t('explainPage')}
+                </button>
+              </div>
+            </div>
+          ) : null}
           <div className="flex items-end gap-2">
             <textarea
               value={input}
@@ -284,7 +317,10 @@ export default function AskPanel() {
               }`}
             >
               {m.role === 'user' ? (
-                <span className="whitespace-pre-wrap text-sm">{m.content}</span>
+                <span className="whitespace-pre-wrap text-sm">
+                  {m.attached ? <span className="mr-1 rounded-md bg-white/15 px-1.5 py-0.5 text-[11px]">📎 {t('attachPage')}</span> : null}
+                  {m.content}
+                </span>
               ) : (
                 <>
                   {m.check ? <CheckVerdict meta={m.check} t={t} /> : null}

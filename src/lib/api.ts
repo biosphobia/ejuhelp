@@ -81,6 +81,8 @@ export const askClaude = (p: {
   context?: string;
   /** Study notes the student is currently reading (from the EJU calendar). */
   notes?: string;
+  /** PNG capture of the current whiteboard page, so the coach can read handwritten notes. */
+  imageDataUrl?: string;
 }) =>
   call<AskResponse>('claude/ask', p);
 

@@ -6,7 +6,6 @@ import { useReview, keyOf, statusOf, daysUntil, startOfDay, type ReviewStatus } 
 import { TREES, loadNotes, findSubtopic } from '../../data/notes';
 import type { SubjectNotes } from '../../data/notes/types';
 import NoteReader from '../NoteReader';
-import PeriodicTable from '../PeriodicTable';
 import { usePractice } from '../../lib/practice';
 import { useT } from '../../i18n';
 
@@ -32,7 +31,6 @@ export default function PlanPanel() {
   const [reading, setReading] = useState<{ subject: Subject; id: string } | null>(null);
   const [notes, setNotes] = useState<SubjectNotes | null>(null);
   const [showCal, setShowCal] = useState(false);
-  const [showTable, setShowTable] = useState(false);
   const [month, setMonth] = useState(() => {
     const d = new Date();
     return new Date(d.getFullYear(), d.getMonth(), 1);
@@ -261,24 +259,7 @@ export default function PlanPanel() {
           </div>
         ) : null}
       </div>
-      <SubjectChips
-        extra={
-          subject === 'chemistry' ? (
-            <button
-              type="button"
-              onClick={() => setShowTable(true)}
-              title={t('periodicTable')}
-              aria-label={t('periodicTable')}
-              className="ml-auto grid h-8 w-8 place-items-center rounded-xl border border-slate-200 bg-white hover:border-sky-300 hover:bg-sky-50"
-            >
-              <span className="grid h-6 w-6 place-items-center rounded-md bg-sky-100 text-[10px] font-bold text-sky-900" aria-hidden>
-                Na
-              </span>
-            </button>
-          ) : null
-        }
-      />
-      {showTable ? <PeriodicTable onClose={() => setShowTable(false)} /> : null}
+      <SubjectChips />
       {tree.length === 0 ? (
         <p className="rounded-xl bg-slate-50 px-3 py-2 text-sm text-slate-500">{t('notesComingSoon')}</p>
       ) : (
