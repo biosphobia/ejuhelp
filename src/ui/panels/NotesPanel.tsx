@@ -6,6 +6,7 @@ import { fetchTopics, generateKeyPoints } from '../../lib/api';
 import { useUI } from '../../lib/ui';
 import { useKeyPoints } from '../../lib/userdata';
 import { useT } from '../../i18n';
+import PeriodicTable from '../PeriodicTable';
 
 export default function NotesPanel() {
   const t = useT();
@@ -20,6 +21,7 @@ export default function NotesPanel() {
   const [busy, setBusy] = useState(false);
   const [err, setErr] = useState<string | null>(null);
   const [added, setAdded] = useState<number | null>(null);
+  const [showTable, setShowTable] = useState(false);
 
   const mine = useMemo(
     () => items.filter((i) => i.subject === subject).sort((a, b) => b.ts - a.ts),
@@ -80,6 +82,28 @@ export default function NotesPanel() {
     >
       <SubjectChips />
       <p className="mb-3 text-xs text-slate-500">{t('keyPointsHint')}</p>
+
+      {subject === 'chemistry' ? (
+        <>
+          <button
+            type="button"
+            onClick={() => setShowTable(true)}
+            className="mb-3 flex w-full items-center gap-3 rounded-2xl border border-slate-200 bg-gradient-to-r from-sky-50 to-violet-50 p-3 text-left transition hover:border-slate-300"
+          >
+            <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-white text-lg font-bold text-slate-800 shadow-sm ring-1 ring-slate-200" aria-hidden>
+              Na
+            </span>
+            <span className="min-w-0 flex-1">
+              <span className="block text-sm font-semibold text-slate-900">{t('periodicTable')}</span>
+              <span className="block text-xs text-slate-500">{t('periodicTableHint')}</span>
+            </span>
+            <span className="text-slate-400" aria-hidden>
+              →
+            </span>
+          </button>
+          {showTable ? <PeriodicTable onClose={() => setShowTable(false)} /> : null}
+        </>
+      ) : null}
 
       {err ? <ErrorNote>{err}</ErrorNote> : null}
       {added !== null ? (

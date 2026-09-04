@@ -3,7 +3,7 @@ import OpenAI from 'openai';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import { systemContextFor, labelFor, type Subject } from './eju';
 
-const MODEL = process.env.ANTHROPIC_MODEL || 'claude-opus-4-8';
+const MODEL = process.env.ANTHROPIC_MODEL || 'claude-opus-5';
 const USE_THINKING = process.env.ANTHROPIC_THINKING !== 'off';
 const GEMINI_MODEL = process.env.GEMINI_MODEL || 'gemini-3.1-flash-lite';
 const OPENAI_MODEL = process.env.OPENAI_MODEL || 'gpt-4o';

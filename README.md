@@ -109,6 +109,7 @@ Any other Node host (Railway, Fly.io, a VPS) works the same: `npm run build` the
 - **Apple Pencil draws** (with pressure); **one finger pans, two fingers pinch‑to‑scale** (never rotates). The page is an infinite, zoomable canvas.
 - Tools: pen, eraser (removes whole strokes), 4 easy‑to‑read inks (black / red / blue / green), pen sizes, undo, clear. Add/switch pages from the bottom bar; reset zoom from the same bar.
 - Notes autosave on‑device immediately and sync to the cloud when you're signed in.
+- **Chemistry → Key points → Periodic table** opens a full-screen, tappable table of all 118 elements with EJU study notes per element (ions, colours, tests, reactions), colour modes (element type, electronegativity, state, block, EJU importance), and a Trends & exceptions tab. Notes are written in English and Japanese; other UI languages read the English notes.
 - The Ask Coach conversation and your generated practice questions are saved the moment they change — on‑device and, when signed in, to Firestore (`users/{uid}/data/chat` and `users/{uid}/data/generated`). They come back after a reload or on another device, and stay until you press **Clear** in the panel.
 
 ---
@@ -126,7 +127,7 @@ Any other Node host (Railway, Fly.io, a VPS) works the same: `npm run build` the
 | Variable | Where | Purpose |
 |---|---|---|
 | `ANTHROPIC_API_KEY` | backend | Your Claude API key (required for AI features). |
-| `ANTHROPIC_MODEL` | backend | Optional model override. Default `claude-opus-4-8`. For lower cost/latency, `claude-sonnet-4-6`. |
+| `ANTHROPIC_MODEL` | backend | Optional model override. Default `claude-opus-5`. For lower cost/latency, `claude-sonnet-5`. |
 | `ANTHROPIC_EFFORT` | backend | `low`/`medium`/`high`/`max` thinking effort. Default `medium`. |
 | `ALLOW_ANON` | backend | `true` lets the API work without login (local/dev). Set `false` in production. |
 | `GOOGLE_APPLICATION_CREDENTIALS` / `FIREBASE_SERVICE_ACCOUNT` | backend | Firebase Admin credentials to verify logins. |
