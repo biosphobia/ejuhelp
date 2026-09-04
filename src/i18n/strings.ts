@@ -527,7 +527,7 @@ export const strings = {
   daysToExam: { en: '{n} days to the EJU', ja: 'EJUまで {n} 日', zh: '距 EJU 还有 {n} 天', tr: 'EJU’ya {n} gün' },
   calendar: { en: 'Calendar', ja: 'カレンダー', zh: '日历', tr: 'Takvim' },
   pages: { en: 'Pages', ja: 'ページ一覧', zh: '页面列表', tr: 'Sayfalar' },
-  pageTitlePlaceholder: { en: 'Name this page (e.g. Lecture 3 – titration)', ja: 'このページに名前を付ける（例：第3回 滴定）', zh: '给此页命名（例如：第3讲 滴定）', tr: 'Bu sayfayı adlandır (örn. Ders 3 – titrasyon)' },
+  pageTitlePlaceholder: { en: 'Page title', ja: 'ページ名', zh: '页面标题', tr: 'Sayfa adı' },
   untitledPage: { en: 'Untitled page', ja: '無題のページ', zh: '未命名页面', tr: 'Adsız sayfa' },
   emptyPage: { en: 'empty', ja: '空白', zh: '空白', tr: 'boş' },
   strokesCount: { en: '{n} strokes', ja: '{n} ストローク', zh: '{n} 笔', tr: '{n} çizgi' },
@@ -573,6 +573,8 @@ export const strings = {
   deleteNotebook: { en: 'Delete (pages move to the subject notebook)', ja: '削除（ページは科目のノートへ移動）', zh: '删除（页面移到科目笔记本）', tr: 'Sil (sayfalar ders defterine taşınır)' },
   rename: { en: 'Rename', ja: '名前変更', zh: '重命名', tr: 'Yeniden adlandır' },
   done: { en: 'Done', ja: '完了', zh: '完成', tr: 'Bitti' },
+  handwritingProfile: { en: 'Handwriting profile', ja: '手書きの癖', zh: '手写习惯', tr: 'El yazısı profili' },
+  handwritingEmpty: { en: 'Learned from pages you tidy or check. Nothing yet.', ja: '清書や答案チェックから学習します。まだありません。', zh: '从整理或检查过的页面中学习。暂无。', tr: 'Düzenlediğin veya kontrol ettiğin sayfalardan öğrenilir. Henüz yok.' },
 } as const;
 
 export type StringKey = keyof typeof strings;

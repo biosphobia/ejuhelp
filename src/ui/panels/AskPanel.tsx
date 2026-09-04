@@ -5,7 +5,6 @@ import { ErrorNote, errorMessage } from '../atoms';
 import { SpinnerIcon, CheckIcon, TrashIcon } from '../icons';
 import { useAsk, type CheckMeta } from '../../lib/ask';
 import { usePractice } from '../../lib/practice';
-import { useUI } from '../../lib/ui';
 import { errorTagLabel } from '../../lib/labels';
 import type { AskSummary } from '../../lib/api';
 import { useT, type TFunc } from '../../i18n';
@@ -111,7 +110,6 @@ export default function AskPanel() {
   const reset = useAsk((s) => s.reset);
   const activeQuestion = usePractice((s) => s.activeQuestion);
   const setActiveQuestion = usePractice((s) => s.setActiveQuestion);
-  const subject = useUI((s) => s.subject);
 
   const [input, setInput] = useState('');
   const [checking, setChecking] = useState(false);
@@ -163,7 +161,6 @@ export default function AskPanel() {
     }
   };
 
-  const starters = [t('starterTopics', { s: t(subject) }), t('starterFormulas', { s: t(subject) }), t('starterQuiz')];
   const lastAssistant = [...messages].reverse().findIndex((m) => m.role === 'assistant');
   const lastAssistantIdx = lastAssistant >= 0 ? messages.length - 1 - lastAssistant : -1;
 
@@ -220,8 +217,7 @@ export default function AskPanel() {
           </div>
           {attach ? (
             <div className="rounded-xl bg-indigo-50 px-3 py-2 text-xs text-indigo-800 ring-1 ring-indigo-100">
-              <div>{t('pageAttached')}</div>
-              <div className="mt-1.5 flex flex-wrap gap-1.5">
+              <div className="flex flex-wrap gap-1.5">
                 <button type="button" onClick={() => sendWithPage(t('tidyNotesPrompt'))} className="rounded-full bg-white px-2.5 py-1 text-xs font-semibold text-indigo-800 ring-1 ring-indigo-200 hover:bg-indigo-100">
                   ✨ {t('tidyNotes')}
                 </button>
@@ -288,21 +284,6 @@ export default function AskPanel() {
           <div className="max-h-24 overflow-y-auto text-sm text-amber-900">
             <Markdown text={activeQuestion} />
           </div>
-        </div>
-      ) : null}
-
-      {!messages.length && !busy ? (
-        <div className="mb-3 flex flex-wrap gap-1.5">
-          {starters.map((q, i) => (
-            <button
-              key={i}
-              type="button"
-              onClick={() => void send(q)}
-              className="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-left text-[13px] text-slate-700 hover:border-slate-400 hover:bg-slate-50"
-            >
-              {q}
-            </button>
-          ))}
         </div>
       ) : null}
 

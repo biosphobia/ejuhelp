@@ -2,6 +2,7 @@ import { attachSync } from './userdata';
 import { useAsk } from './ask';
 import { useGenerated } from './generated';
 import { useReview } from './review';
+import { useProfile } from './profile';
 
 let started = false;
 
@@ -28,8 +29,16 @@ export function initSync() {
     useReview,
     'eju-review',
     'review',
-    (s) => ({ reviews: s.reviews, examDate: s.examDate, planSubjects: s.planSubjects }),
+    (s) => ({ reviews: s.reviews, examDate: s.examDate, planSubjects: s.planSubjects, planV: 2 }),
     (s, data) => s.load(data ?? {}),
+    0
+  );
+  attachSync(
+    useProfile,
+    'eju-profile',
+    'profile',
+    (s) => ({ habits: s.habits }),
+    (s, data) => s.load(data?.habits ?? []),
     0
   );
   attachSync(

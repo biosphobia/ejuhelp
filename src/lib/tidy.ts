@@ -2,6 +2,7 @@ import { create } from 'zustand';
 import { tidyPage, EmptyBoardError, type TidyBlock } from './api';
 import { useBoard, newId, type TextBlock } from './board';
 import { useUI } from './ui';
+import { useProfile, profileTexts } from './profile';
 import { exportPagePng } from '../whiteboard/export';
 
 /** Layout of a tidied page: world units, a comfortable "A4-ish" column. */
@@ -46,7 +47,8 @@ export const useTidy = create<TidyState>((set, get) => ({
     set({ busy: true, error: null, note: null });
     try {
       const { subject, lang } = useUI.getState();
-      const res = await tidyPage({ subject, lang, imageDataUrl: png, hint: page.title });
+      const res = await tidyPage({ subject, lang, imageDataUrl: png, hint: page.title, profile: profileTexts() });
+      if (res.observations?.length) useProfile.getState().add(res.observations);
       // Lay the blocks out top to bottom. Heights are estimated from wrapped line
       // counts using an offscreen canvas so blocks never overlap.
       const m = document.createElement('canvas').getContext('2d')!;

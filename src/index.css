@@ -10,6 +10,20 @@ body,
   padding: 0;
 }
 
+/* The app is a single fixed screen: nothing outside the canvas or a panel may
+   scroll, so iOS cannot rubber-band or drag the whole page around. */
+html,
+body {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  overflow: hidden;
+  touch-action: none;
+}
+.selectable {
+  touch-action: pan-x pan-y;
+}
+
 body {
   overscroll-behavior: none;
   -webkit-user-select: none;

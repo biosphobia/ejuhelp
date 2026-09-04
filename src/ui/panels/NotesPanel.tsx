@@ -91,7 +91,6 @@ export default function NotesPanel() {
       }
     >
       <SubjectChips />
-      <p className="mb-3 text-xs text-slate-500">{t('keyPointsHint')}</p>
 
       {subject === 'chemistry' ? (
         <>

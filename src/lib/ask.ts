@@ -6,6 +6,7 @@ import { useAnswers } from './answers';
 import { useProgress, useKeyPoints } from './userdata';
 import { useBoard } from './board';
 import { exportPagePng } from '../whiteboard/export';
+import { profileTexts } from './profile';
 
 /** Verdict metadata attached to the assistant message produced by "Check my work". */
 export interface CheckMeta {
@@ -109,6 +110,7 @@ export const useAsk = create<AskState>((set, get) => ({
         context: activeQuestion ?? undefined,
         notes: opts?.notes,
         imageDataUrl: image,
+        profile: image ? profileTexts() : undefined,
       });
       const added = useKeyPoints.getState().addMany(subject, res.keyPoints ?? []);
       set((s) => ({
@@ -134,7 +136,7 @@ export const useAsk = create<AskState>((set, get) => ({
     const next: Message[] = trimMessages([...get().messages, { role: 'user', content: CHECK_REQUEST[lang] }]);
     set((s) => ({ messages: next, rev: s.rev + 1, busy: true, error: null, lastSaved: 0, lastAutoAnswered: false }));
     try {
-      const res = await checkWork({ subject, lang, imageDataUrl: img, question: activeQuestion ?? undefined });
+      const res = await checkWork({ subject, lang, imageDataUrl: img, question: activeQuestion ?? undefined, profile: profileTexts() });
       set((s) => ({
         messages: trimMessages([
           ...next,

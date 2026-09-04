@@ -49,7 +49,7 @@ export default function GeneratePanel() {
   const [err, setErr] = useState<string | null>(null);
 
   // Physics & Chemistry use specific sub-topics; others use broad topics.
-  const useSub = subject === 'physics' || subject === 'chemistry';
+  const useSub = subject === 'physics' || subject === 'chemistry' || subject === 'math';
   const subjectAttempts = useMemo(() => attempts.filter((a) => a.subject === subject), [attempts, subject]);
   const hasWeakData = subjectAttempts.length > 0;
 
@@ -70,7 +70,7 @@ export default function GeneratePanel() {
         setTopics(r.topics);
         setSubtopics(r.subtopics ?? []);
         // Default to a specific category rather than "mixed".
-        const us = subject === 'physics' || subject === 'chemistry';
+        const us = subject === 'physics' || subject === 'chemistry' || subject === 'math';
         const first = (us ? r.subtopics?.[0]?.id : r.topics?.[0]?.id) ?? '';
         // A topic requested from the EJU calendar wins over the default.
         const want = usePractice.getState().wantTopic;
@@ -261,9 +261,7 @@ export default function GeneratePanel() {
         />
         <span className="text-sm">
           <span className="font-medium text-slate-800">{t('focusWeak')}</span>
-          <span className="block text-xs text-slate-500">
-            {hasWeakData ? t('focusWeakHint') : t('noWeakDataShort')}
-          </span>
+          {hasWeakData ? null : <span className="block text-xs text-slate-500">{t('noWeakDataShort')}</span>}
         </span>
       </label>
       )}

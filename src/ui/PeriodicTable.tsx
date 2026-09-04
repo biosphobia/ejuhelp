@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties } from 'react';
+import { createPortal } from 'react-dom';
 import { Inline } from './Markdown';
 import { CloseIcon, AskIcon, ChevronLeft } from './icons';
 import { ELEMENTS, byZ, isKeyElement, type Category, type ElementData, type ElementState } from '../data/elements';
@@ -228,7 +229,7 @@ export default function PeriodicTable({ onClose }: { onClose: () => void }) {
     { id: 'key', key: 'ptModeKey' },
   ];
 
-  return (
+  return createPortal(
     <div
       role="dialog"
       aria-modal="true"
@@ -291,10 +292,6 @@ export default function PeriodicTable({ onClose }: { onClose: () => void }) {
               ))}
             </div>
             <div className="flex flex-wrap items-center gap-x-3 gap-y-1 px-3 py-1.5 sm:px-4">{legend()}</div>
-            <p className="px-3 pb-1 text-xs text-slate-500 sm:px-4">
-              {t('ptTapHint')}
-              {t('ptContentLang') ? ` ${t('ptContentLang')}` : ''}
-            </p>
             <div className="thin-scroll min-h-0 flex-1 overflow-auto px-3 pb-4 sm:px-4">
               <div
                 ref={gridRef}
@@ -381,7 +378,8 @@ export default function PeriodicTable({ onClose }: { onClose: () => void }) {
           </div>
         </div>
       )}
-    </div>
+    </div>,
+    document.body
   );
 }
 

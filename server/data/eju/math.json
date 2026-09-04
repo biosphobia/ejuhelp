@@ -1,17 +1,769 @@
 {
   "subject": "math",
-  "displayName": { "en": "Mathematics", "ja": "数学" },
+  "displayName": {
+    "en": "Mathematics",
+    "ja": "数学"
+  },
   "examFormat": "PLACEHOLDER - not yet ingested. The EJU Mathematics exam is a SEPARATE booklet from the Science (理科) booklet, not part of it. It is offered in two courses: Course 1 (Basic, コース1) for humanities/social-science-oriented applicants and Course 2 (Advanced, コース2) for science/engineering-oriented applicants; an examinee takes exactly one course. The exam is 80 minutes. Answers are recorded on a mark-sheet by digit: each blank box (A, B, C, ...) is filled by marking a single digit 0-9 (or a sign), so a multi-character answer like '24' is entered as B=2, C=4. The Drive folder currently contains one math question file (2021_1question_math_e_1.pdf, English/bilingual) and the answer keys embedded in the Science answer-key PDFs include a Mathematics section listing Course 1 and Course 2 digit-by-digit answers. No math papers have been ingested for this knowledge base yet.",
   "courses": [
-    { "id": "course1", "name": { "en": "Course 1 (Basic)", "ja": "コース1（基本）" }, "note": "For applicants in fields where advanced mathematics is not required." },
-    { "id": "course2", "name": { "en": "Course 2 (Advanced)", "ja": "コース2（発展）" }, "note": "For applicants in fields requiring advanced mathematics; superset of Course 1 scope with additional advanced topics." }
+    {
+      "id": "course1",
+      "name": {
+        "en": "Course 1 (Basic)",
+        "ja": "コース1（基本）"
+      },
+      "note": "For applicants in fields where advanced mathematics is not required."
+    },
+    {
+      "id": "course2",
+      "name": {
+        "en": "Course 2 (Advanced)",
+        "ja": "コース2（発展）"
+      },
+      "note": "For applicants in fields requiring advanced mathematics; superset of Course 1 scope with additional advanced topics."
+    }
   ],
-  "topics": [],
+  "topics": [
+    {
+      "id": "numbers-expressions",
+      "name": {
+        "en": "Numbers and expressions",
+        "ja": "数と式"
+      },
+      "course": "course2",
+      "subtopics": [
+        {
+          "id": "expansion-factoring",
+          "name": {
+            "en": "Expansion and factorisation",
+            "ja": "展開と因数分解"
+          },
+          "keywords": [
+            "expand",
+            "factor",
+            "factorise",
+            "common factor",
+            "difference of squares",
+            "展開",
+            "因数分解",
+            "たすき掛け"
+          ]
+        },
+        {
+          "id": "real-numbers",
+          "name": {
+            "en": "Real numbers, roots, absolute value",
+            "ja": "実数・平方根・絶対値"
+          },
+          "keywords": [
+            "square root",
+            "rationalise",
+            "absolute value",
+            "rational",
+            "irrational",
+            "平方根",
+            "有理化",
+            "絶対値",
+            "整数部分"
+          ]
+        },
+        {
+          "id": "equations-inequalities",
+          "name": {
+            "en": "Equations and inequalities",
+            "ja": "方程式と不等式"
+          },
+          "keywords": [
+            "linear inequality",
+            "quadratic equation",
+            "discriminant",
+            "quadratic formula",
+            "absolute value equation",
+            "判別式",
+            "解の公式",
+            "不等式",
+            "連立不等式"
+          ]
+        },
+        {
+          "id": "sets-logic",
+          "name": {
+            "en": "Sets and logic",
+            "ja": "集合と命題"
+          },
+          "keywords": [
+            "set",
+            "union",
+            "intersection",
+            "complement",
+            "necessary",
+            "sufficient",
+            "contrapositive",
+            "negation",
+            "集合",
+            "命題",
+            "必要条件",
+            "十分条件",
+            "対偶",
+            "否定"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "quadratic-functions",
+      "name": {
+        "en": "Quadratic functions",
+        "ja": "二次関数"
+      },
+      "course": "course2",
+      "subtopics": [
+        {
+          "id": "quadratic-graphs",
+          "name": {
+            "en": "Graphs, vertex, maximum and minimum",
+            "ja": "グラフ・頂点・最大最小"
+          },
+          "keywords": [
+            "vertex",
+            "completing the square",
+            "parabola",
+            "translation",
+            "maximum",
+            "minimum",
+            "axis of symmetry",
+            "頂点",
+            "平方完成",
+            "放物線",
+            "平行移動",
+            "最大値",
+            "最小値",
+            "軸"
+          ]
+        },
+        {
+          "id": "quadratic-inequalities",
+          "name": {
+            "en": "Quadratic inequalities and root positions",
+            "ja": "2次不等式・解の配置"
+          },
+          "keywords": [
+            "quadratic inequality",
+            "sign",
+            "roots",
+            "number of solutions",
+            "position of roots",
+            "2次不等式",
+            "解の配置",
+            "共有点",
+            "実数解"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "geometry-trig",
+      "name": {
+        "en": "Figures and measurement",
+        "ja": "図形と計量・図形の性質"
+      },
+      "course": "course2",
+      "subtopics": [
+        {
+          "id": "trig-ratios",
+          "name": {
+            "en": "Trigonometric ratios",
+            "ja": "三角比"
+          },
+          "keywords": [
+            "sin",
+            "cos",
+            "tan",
+            "trigonometric ratio",
+            "90°−θ",
+            "180°−θ",
+            "unit circle",
+            "三角比",
+            "鈍角",
+            "相互関係"
+          ]
+        },
+        {
+          "id": "sine-cosine-rules",
+          "name": {
+            "en": "Sine rule, cosine rule, area",
+            "ja": "正弦定理・余弦定理・面積"
+          },
+          "keywords": [
+            "sine rule",
+            "cosine rule",
+            "area",
+            "circumradius",
+            "inradius",
+            "triangle",
+            "正弦定理",
+            "余弦定理",
+            "面積",
+            "外接円",
+            "内接円",
+            "ヘロン"
+          ]
+        },
+        {
+          "id": "plane-geometry",
+          "name": {
+            "en": "Properties of figures",
+            "ja": "図形の性質"
+          },
+          "keywords": [
+            "angle bisector",
+            "centroid",
+            "circumcentre",
+            "incentre",
+            "inscribed angle",
+            "cyclic quadrilateral",
+            "power of a point",
+            "Ceva",
+            "Menelaus",
+            "tangent",
+            "角の二等分線",
+            "重心",
+            "外心",
+            "内心",
+            "円周角",
+            "内接四角形",
+            "方べき",
+            "チェバ",
+            "メネラウス",
+            "接線"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "counting-probability",
+      "name": {
+        "en": "Counting and probability",
+        "ja": "場合の数と確率"
+      },
+      "course": "course2",
+      "subtopics": [
+        {
+          "id": "counting",
+          "name": {
+            "en": "Permutations and combinations",
+            "ja": "順列・組合せ"
+          },
+          "keywords": [
+            "permutation",
+            "combination",
+            "factorial",
+            "circular",
+            "repetition",
+            "arrangement",
+            "sum rule",
+            "product rule",
+            "順列",
+            "組合せ",
+            "円順列",
+            "重複",
+            "同じものを含む",
+            "和の法則",
+            "積の法則"
+          ]
+        },
+        {
+          "id": "probability",
+          "name": {
+            "en": "Probability",
+            "ja": "確率"
+          },
+          "keywords": [
+            "probability",
+            "independent",
+            "repeated trials",
+            "conditional probability",
+            "expected value",
+            "complement",
+            "確率",
+            "独立",
+            "反復試行",
+            "条件付き確率",
+            "期待値",
+            "余事象"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "integers",
+      "name": {
+        "en": "Integers",
+        "ja": "整数の性質"
+      },
+      "course": "course2",
+      "subtopics": [
+        {
+          "id": "divisors-gcd",
+          "name": {
+            "en": "Divisors, multiples, Euclidean algorithm",
+            "ja": "約数・倍数・互除法"
+          },
+          "keywords": [
+            "divisor",
+            "multiple",
+            "prime factorisation",
+            "gcd",
+            "lcm",
+            "Euclidean algorithm",
+            "remainder",
+            "約数",
+            "倍数",
+            "素因数分解",
+            "最大公約数",
+            "最小公倍数",
+            "互除法",
+            "余り"
+          ]
+        },
+        {
+          "id": "diophantine-bases",
+          "name": {
+            "en": "Linear Diophantine equations, number bases",
+            "ja": "不定方程式・n進法"
+          },
+          "keywords": [
+            "Diophantine",
+            "integer solutions",
+            "ax+by=c",
+            "base",
+            "binary",
+            "n進法",
+            "不定方程式",
+            "整数解",
+            "2進法"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "expressions-proofs",
+      "name": {
+        "en": "Expressions and proofs",
+        "ja": "いろいろな式"
+      },
+      "course": "course2",
+      "subtopics": [
+        {
+          "id": "binomial-division",
+          "name": {
+            "en": "Binomial theorem, polynomial division",
+            "ja": "二項定理・整式の割り算"
+          },
+          "keywords": [
+            "binomial theorem",
+            "Pascal",
+            "coefficient",
+            "polynomial division",
+            "quotient",
+            "remainder",
+            "二項定理",
+            "整式",
+            "割り算",
+            "商",
+            "余り",
+            "分数式"
+          ]
+        },
+        {
+          "id": "identities-proofs",
+          "name": {
+            "en": "Identities and proving inequalities",
+            "ja": "恒等式・不等式の証明"
+          },
+          "keywords": [
+            "identity",
+            "coefficients",
+            "prove",
+            "inequality",
+            "AM-GM",
+            "arithmetic mean",
+            "geometric mean",
+            "square",
+            "恒等式",
+            "証明",
+            "相加平均",
+            "相乗平均",
+            "平方の差"
+          ]
+        },
+        {
+          "id": "complex-numbers",
+          "name": {
+            "en": "Complex numbers, roots and coefficients",
+            "ja": "複素数・解と係数の関係"
+          },
+          "keywords": [
+            "complex number",
+            "imaginary",
+            "conjugate",
+            "i^2",
+            "roots and coefficients",
+            "Vieta",
+            "複素数",
+            "虚数",
+            "共役",
+            "解と係数の関係",
+            "判別式"
+          ]
+        },
+        {
+          "id": "higher-equations",
+          "name": {
+            "en": "Remainder theorem, higher-degree equations",
+            "ja": "剰余定理・高次方程式"
+          },
+          "keywords": [
+            "remainder theorem",
+            "factor theorem",
+            "cubic",
+            "higher degree",
+            "剰余の定理",
+            "因数定理",
+            "3次方程式",
+            "高次方程式"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "coordinate-geometry",
+      "name": {
+        "en": "Figures and equations",
+        "ja": "図形と方程式"
+      },
+      "course": "course2",
+      "subtopics": [
+        {
+          "id": "points-lines",
+          "name": {
+            "en": "Points and lines",
+            "ja": "点と直線"
+          },
+          "keywords": [
+            "distance",
+            "midpoint",
+            "internal division",
+            "gradient",
+            "parallel",
+            "perpendicular",
+            "distance from a point to a line",
+            "内分",
+            "外分",
+            "傾き",
+            "平行",
+            "垂直",
+            "点と直線の距離"
+          ]
+        },
+        {
+          "id": "circles",
+          "name": {
+            "en": "Circles",
+            "ja": "円の方程式"
+          },
+          "keywords": [
+            "circle equation",
+            "centre",
+            "radius",
+            "tangent",
+            "intersection",
+            "chord",
+            "円の方程式",
+            "接線",
+            "共有点",
+            "弦"
+          ]
+        },
+        {
+          "id": "loci-regions",
+          "name": {
+            "en": "Loci and regions",
+            "ja": "軌跡と領域"
+          },
+          "keywords": [
+            "locus",
+            "region",
+            "inequality region",
+            "linear programming",
+            "maximum",
+            "軌跡",
+            "領域",
+            "線形計画",
+            "最大最小"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "trig-functions",
+      "name": {
+        "en": "Trigonometric functions",
+        "ja": "三角関数"
+      },
+      "course": "course2",
+      "subtopics": [
+        {
+          "id": "trig-general-graphs",
+          "name": {
+            "en": "General angles, radians, graphs",
+            "ja": "一般角・弧度法・グラフ"
+          },
+          "keywords": [
+            "radian",
+            "general angle",
+            "period",
+            "graph",
+            "amplitude",
+            "sin",
+            "cos",
+            "tan",
+            "弧度法",
+            "一般角",
+            "周期",
+            "グラフ"
+          ]
+        },
+        {
+          "id": "addition-formulas",
+          "name": {
+            "en": "Addition formulas and applications",
+            "ja": "加法定理とその応用"
+          },
+          "keywords": [
+            "addition formula",
+            "double angle",
+            "half angle",
+            "synthesis",
+            "a sin + b cos",
+            "trig equation",
+            "加法定理",
+            "2倍角",
+            "半角",
+            "三角関数の合成",
+            "方程式",
+            "最大最小"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "exp-log",
+      "name": {
+        "en": "Exponential and logarithmic functions",
+        "ja": "指数関数・対数関数"
+      },
+      "course": "course2",
+      "subtopics": [
+        {
+          "id": "exponentials",
+          "name": {
+            "en": "Exponents and exponential functions",
+            "ja": "指数と指数関数"
+          },
+          "keywords": [
+            "exponent",
+            "power",
+            "rational exponent",
+            "exponential function",
+            "exponential equation",
+            "指数法則",
+            "累乗根",
+            "指数関数",
+            "指数方程式",
+            "指数不等式"
+          ]
+        },
+        {
+          "id": "logarithms",
+          "name": {
+            "en": "Logarithms",
+            "ja": "対数と対数関数"
+          },
+          "keywords": [
+            "logarithm",
+            "log",
+            "change of base",
+            "common logarithm",
+            "number of digits",
+            "対数",
+            "底の変換",
+            "常用対数",
+            "桁数",
+            "対数方程式",
+            "対数不等式"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "calculus",
+      "name": {
+        "en": "Differentiation and integration",
+        "ja": "微分・積分"
+      },
+      "course": "course2",
+      "subtopics": [
+        {
+          "id": "differentiation",
+          "name": {
+            "en": "Differentiation",
+            "ja": "微分法"
+          },
+          "keywords": [
+            "derivative",
+            "tangent",
+            "increasing",
+            "decreasing",
+            "local maximum",
+            "local minimum",
+            "extremum",
+            "微分係数",
+            "導関数",
+            "接線",
+            "増減表",
+            "極値",
+            "最大最小"
+          ]
+        },
+        {
+          "id": "integration",
+          "name": {
+            "en": "Integration",
+            "ja": "積分法"
+          },
+          "keywords": [
+            "integral",
+            "antiderivative",
+            "definite integral",
+            "area",
+            "between curves",
+            "不定積分",
+            "定積分",
+            "面積",
+            "1/6公式"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sequences",
+      "name": {
+        "en": "Sequences",
+        "ja": "数列"
+      },
+      "course": "course2",
+      "subtopics": [
+        {
+          "id": "arithmetic-geometric",
+          "name": {
+            "en": "Arithmetic and geometric sequences, sums",
+            "ja": "等差数列・等比数列・和"
+          },
+          "keywords": [
+            "arithmetic sequence",
+            "geometric sequence",
+            "common difference",
+            "common ratio",
+            "sum",
+            "sigma",
+            "等差数列",
+            "等比数列",
+            "公差",
+            "公比",
+            "和",
+            "Σ",
+            "階差数列"
+          ]
+        },
+        {
+          "id": "recurrence-induction",
+          "name": {
+            "en": "Recurrence relations and induction",
+            "ja": "漸化式・数学的帰納法"
+          },
+          "keywords": [
+            "recurrence",
+            "induction",
+            "a_{n+1}",
+            "漸化式",
+            "数学的帰納法",
+            "特性方程式"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vectors",
+      "name": {
+        "en": "Vectors",
+        "ja": "ベクトル"
+      },
+      "course": "course2",
+      "subtopics": [
+        {
+          "id": "vectors-plane",
+          "name": {
+            "en": "Plane vectors",
+            "ja": "平面ベクトル"
+          },
+          "keywords": [
+            "vector",
+            "inner product",
+            "dot product",
+            "component",
+            "parallel",
+            "perpendicular",
+            "position vector",
+            "ベクトル",
+            "内積",
+            "成分",
+            "平行",
+            "垂直",
+            "位置ベクトル",
+            "内分点"
+          ]
+        },
+        {
+          "id": "vectors-space",
+          "name": {
+            "en": "Space vectors",
+            "ja": "空間ベクトル"
+          },
+          "keywords": [
+            "space vector",
+            "3D",
+            "plane",
+            "sphere",
+            "coplanar",
+            "空間ベクトル",
+            "空間",
+            "球",
+            "平面"
+          ]
+        }
+      ]
+    }
+  ],
   "questionArchetypes": [],
   "styleNotes": "TODO: ingest the EJU Mathematics syllabus and at least one Course 1 and one Course 2 past paper before populating topics, archetypes, and style notes. The answer format is digit-by-digit fill-in (mark one digit 0-9 per box) rather than option selection, which differs from the Science subjects.",
   "sources": [],
-  "status": "placeholder",
+  "status": "topics-only",
   "availableDriveFiles": [
-    { "fileId": "16fCKoVqX-rr6cQgvOI9rjGWEHz86fZZj", "title": "2021_1question_math_e_1.pdf", "note": "Course 1/2 question paper, English/bilingual - not yet read." }
+    {
+      "fileId": "16fCKoVqX-rr6cQgvOI9rjGWEHz86fZZj",
+      "title": "2021_1question_math_e_1.pdf",
+      "note": "Course 1/2 question paper, English/bilingual - not yet read."
+    }
   ]
 }

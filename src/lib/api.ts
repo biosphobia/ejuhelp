@@ -83,6 +83,7 @@ export const askClaude = (p: {
   notes?: string;
   /** PNG capture of the current whiteboard page, so the coach can read handwritten notes. */
   imageDataUrl?: string;
+  profile?: string[];
 }) =>
   call<AskResponse>('claude/ask', p);
 
@@ -137,6 +138,7 @@ export const checkWork = (p: {
   lang: Lang;
   imageDataUrl: string;
   question?: string;
+  profile?: string[];
 }) => call<CheckResponse>('claude/check', p);
 
 export interface TidyBlock {
@@ -147,9 +149,10 @@ export interface TidyResponse {
   title: string;
   blocks: TidyBlock[];
   note: string;
+  observations: string[];
 }
 /** Rewrite a handwritten page as clean notes (returned as text blocks for the board). */
-export const tidyPage = (p: { subject: Subject; lang: Lang; imageDataUrl: string; hint?: string }) =>
+export const tidyPage = (p: { subject: Subject; lang: Lang; imageDataUrl: string; hint?: string; profile?: string[] }) =>
   call<TidyResponse>('claude/tidy', p);
 
 export interface KeyPointsResponse {

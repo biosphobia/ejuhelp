@@ -94,8 +94,7 @@ export default function PageBar() {
             <p className="text-red-700">{errorMessage(tidyErr, t)}</p>
           ) : (
             <>
-              <p className="font-semibold text-emerald-700">✨ {t('tidyDone')}</p>
-              {tidyNote ? <p className="mt-1 text-slate-700">{tidyNote}</p> : null}
+              {tidyNote ? <p className="text-slate-700">{tidyNote}</p> : <p className="text-slate-700">✨</p>}
               <p className="mt-1 text-[11px] text-slate-400">{t('tidyLegend')}</p>
             </>
           )}

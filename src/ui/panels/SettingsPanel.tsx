@@ -5,6 +5,8 @@ import { useDebug } from '../../lib/debug';
 import { useT } from '../../i18n';
 import { GlobeIcon } from '../icons';
 import { useApiStore } from '../../lib/apiStore';
+import { useProfile } from '../../lib/profile';
+import { TrashIcon } from '../icons';
 
 export default function SettingsPanel() {
   const t = useT();
@@ -14,6 +16,9 @@ export default function SettingsPanel() {
   const setFingerDraw = useUI((s) => s.setFingerDraw);
   const debugEnabled = useDebug((s) => s.enabled);
   const setDebug = useDebug((s) => s.setEnabled);
+  const habits = useProfile((s) => s.habits);
+  const removeHabit = useProfile((s) => s.remove);
+  const clearHabits = useProfile((s) => s.clear);
 
   // BYOK State
   const activeModel = useApiStore((s) => s.activeModel);
@@ -130,6 +135,31 @@ export default function SettingsPanel() {
       <div className="mb-6">
         <Label>{t('defaultSubject')}</Label>
         <SubjectChips />
+      </div>
+
+      <div className="mb-6">
+        <div className="mb-1 flex items-center justify-between">
+          <Label>{t('handwritingProfile')}</Label>
+          {habits.length ? (
+            <button type="button" onClick={clearHabits} className="text-xs font-semibold text-slate-400 hover:text-red-600">
+              {t('clearAll')}
+            </button>
+          ) : null}
+        </div>
+        {habits.length ? (
+          <ul className="space-y-1">
+            {habits.map((h) => (
+              <li key={h.id} className="flex items-start gap-2 rounded-xl bg-slate-50 px-2.5 py-1.5 text-sm text-slate-800">
+                <span className="min-w-0 flex-1">{h.text}</span>
+                <button type="button" aria-label={t('close')} onClick={() => removeHabit(h.id)} className="shrink-0 text-slate-300 hover:text-red-600">
+                  <TrashIcon className="h-3.5 w-3.5" />
+                </button>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p className="px-2 text-sm text-slate-400">{t('handwritingEmpty')}</p>
+        )}
       </div>
 
       <div>

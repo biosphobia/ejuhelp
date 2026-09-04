@@ -30,7 +30,7 @@ interface ReviewState {
   markDue: (subject: Subject, id: string) => void;
   setExamDate: (d: string) => void;
   togglePlanSubject: (s: Subject) => void;
-  load: (data: { reviews?: ReviewMap; examDate?: string; planSubjects?: Subject[] }) => void;
+  load: (data: { reviews?: ReviewMap; examDate?: string; planSubjects?: Subject[]; planV?: number }) => void;
 }
 
 export const keyOf = (subject: Subject, id: string) => `${subject}:${id}`;
@@ -48,7 +48,7 @@ const DEFAULT_EXAM = '2026-11-08';
 export const useReview = create<ReviewState>((set) => ({
   reviews: {},
   examDate: DEFAULT_EXAM,
-  planSubjects: ['physics', 'chemistry'],
+  planSubjects: ['physics', 'chemistry', 'math'],
   rev: 0,
   markReviewed: (subject, id) =>
     set((s) => {
@@ -89,10 +89,13 @@ export const useReview = create<ReviewState>((set) => ({
     set((s) => ({
       reviews: data?.reviews && typeof data.reviews === 'object' ? data.reviews : {},
       examDate: typeof data?.examDate === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(data.examDate) ? data.examDate : s.examDate,
-      planSubjects:
-        Array.isArray(data?.planSubjects) && data.planSubjects.length
-          ? data.planSubjects.filter((x): x is Subject => ['physics', 'chemistry', 'biology', 'math'].includes(x))
-          : s.planSubjects,
+      planSubjects: (() => {
+        if (!Array.isArray(data?.planSubjects) || !data.planSubjects.length) return s.planSubjects;
+        const list = data.planSubjects.filter((x): x is Subject => ['physics', 'chemistry', 'biology', 'math'].includes(x));
+        // Plans saved before math notes existed get math added once.
+        if ((data.planV ?? 1) < 2 && !list.includes('math')) list.push('math');
+        return list.length ? list : s.planSubjects;
+      })(),
       rev: s.rev + 1,
     })),
 }));

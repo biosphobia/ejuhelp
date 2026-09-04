@@ -12,7 +12,7 @@ import { useT } from '../../i18n';
 
 const LOCALE: Record<string, string> = { en: 'en-US', ja: 'ja-JP', zh: 'zh-CN', tr: 'tr-TR' };
 const DAY = 86_400_000;
-const PLAN_SUBJECTS: Subject[] = ['physics', 'chemistry', 'biology'];
+const PLAN_SUBJECTS: Subject[] = ['physics', 'chemistry', 'math', 'biology'];
 
 const DOT: Record<ReviewStatus, string> = {
   new: 'bg-slate-300',
@@ -248,7 +248,6 @@ export default function PlanPanel() {
         ) : (
           <p className="px-1 text-sm text-slate-500">{t('nothingPlanned')}</p>
         )}
-        <p className="mt-1.5 px-1 text-[11px] text-slate-400">{t('planHintShort')}</p>
       </div>
 
       {/* Topic tree */}

@@ -206,13 +206,117 @@ export const TREES: Record<Subject, TreeTopic[]> = {
       ],
     },
   ],
-  math: [],
+  math: [
+    {
+      id: 'numbers-expressions',
+      name: { en: 'Numbers and expressions', ja: '数と式' },
+      subtopics: [
+        { id: 'expansion-factoring', name: { en: 'Expansion and factorisation', ja: '展開と因数分解' } },
+        { id: 'real-numbers', name: { en: 'Real numbers, roots, absolute value', ja: '実数・平方根・絶対値' } },
+        { id: 'equations-inequalities', name: { en: 'Equations and inequalities', ja: '方程式と不等式' } },
+        { id: 'sets-logic', name: { en: 'Sets and logic', ja: '集合と命題' } },
+      ],
+    },
+    {
+      id: 'quadratic-functions',
+      name: { en: 'Quadratic functions', ja: '二次関数' },
+      subtopics: [
+        { id: 'quadratic-graphs', name: { en: 'Graphs, vertex, maximum and minimum', ja: 'グラフ・頂点・最大最小' } },
+        { id: 'quadratic-inequalities', name: { en: 'Quadratic inequalities and root positions', ja: '2次不等式・解の配置' } },
+      ],
+    },
+    {
+      id: 'geometry-trig',
+      name: { en: 'Figures and measurement', ja: '図形と計量・図形の性質' },
+      subtopics: [
+        { id: 'trig-ratios', name: { en: 'Trigonometric ratios', ja: '三角比' } },
+        { id: 'sine-cosine-rules', name: { en: 'Sine rule, cosine rule, area', ja: '正弦定理・余弦定理・面積' } },
+        { id: 'plane-geometry', name: { en: 'Properties of figures', ja: '図形の性質' } },
+      ],
+    },
+    {
+      id: 'counting-probability',
+      name: { en: 'Counting and probability', ja: '場合の数と確率' },
+      subtopics: [
+        { id: 'counting', name: { en: 'Permutations and combinations', ja: '順列・組合せ' } },
+        { id: 'probability', name: { en: 'Probability', ja: '確率' } },
+      ],
+    },
+    {
+      id: 'integers',
+      name: { en: 'Integers', ja: '整数の性質' },
+      subtopics: [
+        { id: 'divisors-gcd', name: { en: 'Divisors, multiples, Euclidean algorithm', ja: '約数・倍数・互除法' } },
+        { id: 'diophantine-bases', name: { en: 'Linear Diophantine equations, number bases', ja: '不定方程式・n進法' } },
+      ],
+    },
+    {
+      id: 'expressions-proofs',
+      name: { en: 'Expressions and proofs', ja: 'いろいろな式' },
+      subtopics: [
+        { id: 'binomial-division', name: { en: 'Binomial theorem, polynomial division', ja: '二項定理・整式の割り算' } },
+        { id: 'identities-proofs', name: { en: 'Identities and proving inequalities', ja: '恒等式・不等式の証明' } },
+        { id: 'complex-numbers', name: { en: 'Complex numbers, roots and coefficients', ja: '複素数・解と係数の関係' } },
+        { id: 'higher-equations', name: { en: 'Remainder theorem, higher-degree equations', ja: '剰余定理・高次方程式' } },
+      ],
+    },
+    {
+      id: 'coordinate-geometry',
+      name: { en: 'Figures and equations', ja: '図形と方程式' },
+      subtopics: [
+        { id: 'points-lines', name: { en: 'Points and lines', ja: '点と直線' } },
+        { id: 'circles', name: { en: 'Circles', ja: '円の方程式' } },
+        { id: 'loci-regions', name: { en: 'Loci and regions', ja: '軌跡と領域' } },
+      ],
+    },
+    {
+      id: 'trig-functions',
+      name: { en: 'Trigonometric functions', ja: '三角関数' },
+      subtopics: [
+        { id: 'trig-general-graphs', name: { en: 'General angles, radians, graphs', ja: '一般角・弧度法・グラフ' } },
+        { id: 'addition-formulas', name: { en: 'Addition formulas and applications', ja: '加法定理とその応用' } },
+      ],
+    },
+    {
+      id: 'exp-log',
+      name: { en: 'Exponential and logarithmic functions', ja: '指数関数・対数関数' },
+      subtopics: [
+        { id: 'exponentials', name: { en: 'Exponents and exponential functions', ja: '指数と指数関数' } },
+        { id: 'logarithms', name: { en: 'Logarithms', ja: '対数と対数関数' } },
+      ],
+    },
+    {
+      id: 'calculus',
+      name: { en: 'Differentiation and integration', ja: '微分・積分' },
+      subtopics: [
+        { id: 'differentiation', name: { en: 'Differentiation', ja: '微分法' } },
+        { id: 'integration', name: { en: 'Integration', ja: '積分法' } },
+      ],
+    },
+    {
+      id: 'sequences',
+      name: { en: 'Sequences', ja: '数列' },
+      subtopics: [
+        { id: 'arithmetic-geometric', name: { en: 'Arithmetic and geometric sequences, sums', ja: '等差数列・等比数列・和' } },
+        { id: 'recurrence-induction', name: { en: 'Recurrence relations and induction', ja: '漸化式・数学的帰納法' } },
+      ],
+    },
+    {
+      id: 'vectors',
+      name: { en: 'Vectors', ja: 'ベクトル' },
+      subtopics: [
+        { id: 'vectors-plane', name: { en: 'Plane vectors', ja: '平面ベクトル' } },
+        { id: 'vectors-space', name: { en: 'Space vectors', ja: '空間ベクトル' } },
+      ],
+    },
+  ],
 };
 
 const loaders: Partial<Record<Subject, () => Promise<{ default: SubjectNotes }>>> = {
   physics: () => import('./physics'),
   chemistry: () => import('./chemistry'),
   biology: () => import('./biology'),
+  math: () => import('./math'),
 };
 
 const cache = new Map<Subject, Promise<SubjectNotes | null>>();

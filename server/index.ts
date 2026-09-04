@@ -61,6 +61,9 @@ app.post('/api/eju/past', (req: Request, res: Response) => {
   res.json({ questions: pastQuestionsFor(subject, topic, toLang(lang), Number(limit) || 10) });
 });
 
+const cleanProfile = (v: unknown): string[] | undefined =>
+  Array.isArray(v) ? v.filter((x) => typeof x === 'string' && x.trim()).map((x) => String(x).slice(0, 200)).slice(0, 40) : undefined;
+
 // Helper to extract BYOK credentials from requests
 const getAiContext = (req: Request) => {
   const model = req.body?.model || 'gemini'; 
@@ -70,7 +73,7 @@ const getAiContext = (req: Request) => {
 
 app.post('/api/claude/ask', requireAuth, async (req: Request, res: Response) => {
   try {
-    const { subject, lang, messages, context, notes, imageDataUrl } = req.body ?? {};
+    const { subject, lang, messages, context, notes, imageDataUrl, profile } = req.body ?? {};
     const { model, userKey } = getAiContext(req);
     if (!isSubject(subject)) return res.status(400).json({ error: 'bad_subject' });
 
@@ -81,6 +84,7 @@ app.post('/api/claude/ask', requireAuth, async (req: Request, res: Response) => 
       context: typeof context === 'string' ? context : undefined,
       notes: typeof notes === 'string' ? notes.slice(0, 12000) : undefined,
       imageDataUrl: typeof imageDataUrl === 'string' && imageDataUrl.startsWith('data:image/') ? imageDataUrl : undefined,
+      profile: cleanProfile(profile),
       model,
       userKey
     });
@@ -126,7 +130,7 @@ app.post('/api/claude/generate', requireAuth, async (req: Request, res: Response
 
 app.post('/api/claude/check', requireAuth, async (req: Request, res: Response) => {
   try {
-    const { subject, lang, imageDataUrl, question } = req.body ?? {};
+    const { subject, lang, imageDataUrl, question, profile } = req.body ?? {};
     const { model, userKey } = getAiContext(req);
     if (!isSubject(subject)) return res.status(400).json({ error: 'bad_subject' });
     if (typeof imageDataUrl !== 'string') return res.status(400).json({ error: 'missing_image' });
@@ -136,6 +140,7 @@ app.post('/api/claude/check', requireAuth, async (req: Request, res: Response) =
       lang: toLang(lang),
       imageDataUrl,
       question: typeof question === 'string' ? question : undefined,
+      profile: cleanProfile(profile),
       model,
       userKey
     });
@@ -147,7 +152,7 @@ app.post('/api/claude/check', requireAuth, async (req: Request, res: Response) =
 
 app.post('/api/claude/tidy', requireAuth, async (req: Request, res: Response) => {
   try {
-    const { subject, lang, imageDataUrl, hint } = req.body ?? {};
+    const { subject, lang, imageDataUrl, hint, profile } = req.body ?? {};
     const { model, userKey } = getAiContext(req);
     if (!isSubject(subject)) return res.status(400).json({ error: 'bad_subject' });
     if (typeof imageDataUrl !== 'string') return res.status(400).json({ error: 'missing_image' });
@@ -156,6 +161,7 @@ app.post('/api/claude/tidy', requireAuth, async (req: Request, res: Response) =>
       lang: toLang(lang),
       imageDataUrl,
       hint: typeof hint === 'string' ? hint.slice(0, 200) : undefined,
+      profile: cleanProfile(profile),
       model,
       userKey,
     });

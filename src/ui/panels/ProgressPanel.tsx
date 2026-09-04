@@ -43,7 +43,6 @@ export default function ProgressPanel() {
   return (
     <Panel title={t('progressTitle')}>
       <SubjectChips />
-      <p className="mb-3 text-xs text-slate-500">{t('progressHint')}</p>
 
       {sum.total === 0 ? (
         <p className="text-sm italic text-slate-400">{t('noProgress')}</p>

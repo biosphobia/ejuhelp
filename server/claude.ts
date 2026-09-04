@@ -404,6 +404,20 @@ function parseKeyPointLines(block: string): KeyPointDTO[] {
 
 const TRIPLE = '"""';
 
+/** What the coach has learned so far about this student's handwriting and note habits. */
+function profileCtx(profile?: string[]): string | undefined {
+  const list = (profile ?? []).map((x) => String(x).trim()).filter(Boolean).slice(0, 40);
+  if (!list.length) return undefined;
+  return (
+    "Known habits of THIS student's handwriting and note-taking, learned from earlier pages (use them to read the page correctly):\n" +
+    list.map((x) => `- ${x}`).join('\n')
+  );
+}
+const OBSERVE_DIRECTIVE =
+  'Also return "observations": 0-4 short, specific, reusable facts about how THIS student writes that would help read their future pages ' +
+  '(letter or kana shapes that look like something else, abbreviations and symbols they use, words they write in hiragana or in English, layout habits). ' +
+  'Only include things you actually saw and that are not already in the known habits. Write them in the same language as the student\'s UI. No praise, no generalities.';
+
 export async function ask(args: {
   subject: Subject;
   lang: Lang;
@@ -414,6 +428,8 @@ export async function ask(args: {
   notes?: string;
   /** A capture of the student's own handwritten page, attached to the latest message. */
   imageDataUrl?: string;
+  /** Known handwriting / note habits of this student. */
+  profile?: string[];
   model?: string;
   userKey?: string;
 }): Promise<{ text: string; keyPoints: KeyPointDTO[]; summary: AskSummary | null }> {
@@ -452,7 +468,9 @@ export async function ask(args: {
     'Subtopic ids you may use for "topicId" (id = name): ' +
     subtopicsFor(args.subject, 'en').map((s) => `${s.id} = ${s.name}`).join('; ') +
     '.';
-  const extra = [ctx, notesCtx, imageCtx, formatDirective(args.subject), ASK_DIRECTIVE, ids].filter(Boolean).join('\n\n');
+  const extra = [ctx, notesCtx, imageCtx, imageCtx ? profileCtx(args.profile) : undefined, formatDirective(args.subject), ASK_DIRECTIVE, ids]
+    .filter(Boolean)
+    .join('\n\n');
 
   const raw = await executeModelCall(args.model, args.userKey, args.subject, args.lang, extra, messages, 8000);
 
@@ -615,6 +633,7 @@ export async function check(args: {
   lang: Lang;
   imageDataUrl: string;
   question?: string;
+  profile?: string[];
   model?: string;
   userKey?: string;
 }): Promise<CheckResult> {
@@ -627,6 +646,7 @@ export async function check(args: {
       ? `The student is attempting this EJU question:\n"""\n${args.question}\n"""\n`
       : 'No specific question is attached.\n',
     "The image is a capture of the student's OWN handwritten work on a whiteboard.",
+    profileCtx(args.profile) ?? '',
     'Grade ONLY what is actually written in the image. Do NOT solve the problem yourself, and never report an answer or conclusion that is not physically written on the page.',
     'CRITICAL: If the page is blank, almost blank, or shows no genuine solution attempt (only the question text, doodles, or a few stray marks), do NOT grade it — set correct to "unknown", and in the feedback say there is nothing to check yet and invite the student to write their working. An empty or missing solution is never "correct".',
     '',
@@ -710,6 +730,8 @@ export interface TidyResult {
   blocks: TidyBlock[];
   /** Short note to the student about what was changed / could not be read. */
   note: string;
+  /** New facts about this student's handwriting, to remember for next time. */
+  observations: string[];
 }
 
 /**
@@ -725,6 +747,8 @@ export async function tidy(args: {
   imageDataUrl: string;
   /** Optional page title / context typed by the student. */
   hint?: string;
+  /** Known handwriting / note habits of this student. */
+  profile?: string[];
   model?: string;
   userKey?: string;
 }): Promise<TidyResult> {
@@ -745,8 +769,10 @@ export async function tidy(args: {
     '6. If part of the page is illegible, say so in the note (which part, your best guess) instead of inventing content.',
     '7. Formulas: write them in plain text, not LaTeX (v = v₀ + at, F = ma, [H⁺][OH⁻] = 10⁻¹⁴). Use Unicode sub/superscripts.',
     args.hint ? `The student labelled this page: "${args.hint}".` : '',
+    profileCtx(args.profile) ?? '',
+    OBSERVE_DIRECTIVE,
     `The subject is ${args.subject}. If the notes are in a language other than the student's UI language (${writeLang(args.lang)}), still keep the notes' own language.`,
-    'Respond with ONLY a single JSON object, no code fences: {"title":"<short title for the page>","blocks":[{"kind":"h1"|"h2"|"p"|"bullet"|"formula"|"added"|"fix","text":"..."}],"note":"<one or two sentences to the student: what you changed, anything you could not read>"}.',
+    'Respond with ONLY a single JSON object, no code fences: {"title":"<short title for the page>","blocks":[{"kind":"h1"|"h2"|"p"|"bullet"|"formula"|"added"|"fix","text":"..."}],"note":"<one or two sentences to the student: what you changed, anything you could not read>","observations":["..."]}.',
     'Use h1 once for the topic, h2 for sections, bullet for list items, p for short prose, formula for a formula on its own line. Keep blocks short (a line or two each).',
   ]
     .filter(Boolean)
@@ -773,5 +799,6 @@ export async function tidy(args: {
     title: typeof p.title === 'string' && p.title.trim() ? p.title.trim() : '',
     blocks,
     note: typeof p.note === 'string' ? p.note.trim() : '',
+    observations: (Array.isArray(p.observations) ? p.observations : []).filter((x: any) => typeof x === 'string' && x.trim()).map((x: string) => x.trim()).slice(0, 4),
   };
 }

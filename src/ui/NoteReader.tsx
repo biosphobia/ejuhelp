@@ -170,7 +170,6 @@ export default function NoteReader({
             >
               <CheckIcon className="h-4 w-4" /> {t('markReviewed')}
             </button>
-            <span className="w-full text-[11px] text-slate-400 sm:w-auto">{t('nextIn', { d: nextGap })}</span>
           </div>
 
           {lang !== 'en' && lang !== 'ja' ? <p className="mb-3 text-xs text-slate-500">{t('ptContentLang')}</p> : null}
