@@ -251,7 +251,7 @@ export default function NoteReader({
                     onClick={() => ask(q)}
                     className="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-left text-sm text-slate-700 hover:border-slate-400 hover:bg-slate-50"
                   >
-                    {q}
+                    <Inline text={q} />
                   </button>
                 ))}
               </div>

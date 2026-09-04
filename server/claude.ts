@@ -78,7 +78,15 @@ async function executeModelCall(
   // Dev aid: print the exact prompt instead of calling any model.
   if (process.env.EJU_DRY_RUN) {
     const sys = sysBlocks.map((b) => (b.cache_control ? `[EJU knowledge base: ${b.text.length} chars]` : b.text)).join('\n\n');
-    const user = messages.map((m) => `--- ${m.role} ---\n${typeof m.content === 'string' ? m.content : '[multipart]'}`).join('\n');
+    const user = messages
+      .map(
+        (m) =>
+          `--- ${m.role} ---\n` +
+          (typeof m.content === 'string'
+            ? m.content
+            : m.content.map((p: any) => (p.type === 'text' ? p.text : `[${p.type}]`)).join('\n'))
+      )
+      .join('\n');
     console.log(`\n===== DRY RUN (${targetModel}, max ${maxTokens}) =====\n${sys}\n${user}\n===== END =====`);
     return '';
   }
