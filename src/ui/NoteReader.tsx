@@ -9,6 +9,9 @@ import { useKeyPoints } from '../lib/userdata';
 import { TREES, loadNotes, findSubtopic } from '../data/notes';
 import type { Note, SubjectNotes } from '../data/notes/types';
 import { useT } from '../i18n';
+import QuestionCard from './QuestionCard';
+import { fetchPastQuestions, type PastQuestion } from '../lib/api';
+import { errorMessage, ErrorNote } from './atoms';
 
 const LOCALE: Record<string, string> = { en: 'en-US', ja: 'ja-JP', zh: 'zh-CN', tr: 'tr-TR' };
 
@@ -37,6 +40,23 @@ export default function NoteReader({
 
   const [data, setData] = useState<SubjectNotes | null | undefined>(undefined);
   const [own, setOwn] = useState('');
+  // Real past-paper questions on this subtopic, loaded on demand.
+  const [past, setPast] = useState<PastQuestion[] | null>(null);
+  const [pastBusy, setPastBusy] = useState(false);
+  const [pastErr, setPastErr] = useState<unknown>(null);
+  const hasPast = subject === 'physics' || subject === 'chemistry';
+  const loadPast = async (limit: number) => {
+    setPastBusy(true);
+    setPastErr(null);
+    try {
+      const res = await fetchPastQuestions({ subject, topic: id, lang, limit });
+      setPast(res.questions);
+    } catch (e) {
+      setPastErr(e);
+    } finally {
+      setPastBusy(false);
+    }
+  };
   const bodyRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -49,6 +69,8 @@ export default function NoteReader({
 
   useEffect(() => {
     bodyRef.current?.scrollTo({ top: 0 });
+    setPast(null);
+    setPastErr(null);
   }, [id]);
 
   useEffect(() => {
@@ -259,6 +281,42 @@ export default function NoteReader({
               </button>
             </div>
           </section>
+
+          {/* Real past questions */}
+          {hasPast ? (
+            <section className="mt-5">
+              <div className="mb-2 text-xs font-semibold uppercase tracking-wide text-slate-400">📜 {t('pastOnTopic')}</div>
+              {past === null ? (
+                <button
+                  type="button"
+                  onClick={() => void loadPast(5)}
+                  disabled={pastBusy}
+                  className="flex w-full items-center justify-center gap-2 rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-2.5 text-sm font-semibold text-emerald-800 hover:bg-emerald-100 disabled:opacity-50"
+                >
+                  {pastBusy ? <SpinnerIcon className="h-4 w-4" /> : null} {t('pastLoad')}
+                </button>
+              ) : past.length ? (
+                <div className="space-y-3">
+                  {past.map((q, i) => (
+                    <QuestionCard key={q.id} subject={subject} q={q} label={i + 1} />
+                  ))}
+                  {past.length === 5 ? (
+                    <button
+                      type="button"
+                      onClick={() => void loadPast(20)}
+                      disabled={pastBusy}
+                      className="w-full rounded-xl border border-slate-200 px-4 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 disabled:opacity-50"
+                    >
+                      {pastBusy ? t('loading') : t('pastMore')}
+                    </button>
+                  ) : null}
+                </div>
+              ) : (
+                <p className="text-sm text-slate-500">{t('pastNone')}</p>
+              )}
+              {pastErr ? <div className="mt-2"><ErrorNote>{errorMessage(pastErr, t)}</ErrorNote></div> : null}
+            </section>
+          ) : null}
 
           <button
             type="button"

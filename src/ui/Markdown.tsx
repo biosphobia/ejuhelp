@@ -25,14 +25,17 @@ function renderMath(expr: string, display: boolean, key: string): ReactNode {
 
 // Order matters: display math ($$ / \[ \]) must be tried before inline ($ / \( \)).
 const TOKEN =
-  /(\$\$[\s\S]+?\$\$|\\\[[\s\S]+?\\\]|\\\([\s\S]+?\\\)|\$[^$\n]+?\$|\*\*[^*]+\*\*|`[^`]+`)/g;
+  /(\$\$[\s\S]+?\$\$|\\\[[\s\S]+?\\\]|\\\([\s\S]+?\\\)|\$[^$\n]+?\$|\*\*[^*]+\*\*|\*[^*\n]+\*|`[^`]+`)/g;
 
 function inline(text: string, keyBase: string): ReactNode[] {
   const nodes: ReactNode[] = [];
   let last = 0;
   let m: RegExpExecArray | null;
   let i = 0;
-  while ((m = TOKEN.exec(text))) {
+  // Fresh regex per call: inline() recurses for italics, and a shared /g regex
+  // would have its lastIndex reset by the inner call (infinite loop).
+  const re = new RegExp(TOKEN.source, 'g');
+  while ((m = re.exec(text))) {
     if (m.index > last) nodes.push(<Fragment key={`${keyBase}-t${i}`}>{text.slice(last, m.index)}</Fragment>);
     const tok = m[0];
     const key = `${keyBase}-x${i}`;
@@ -49,6 +52,12 @@ function inline(text: string, keyBase: string): ReactNode[] {
         <strong key={key} className="font-semibold">
           {tok.slice(2, -2)}
         </strong>
+      );
+    } else if (tok.startsWith('*')) {
+      nodes.push(
+        <em key={key} className="text-slate-600">
+          {inline(tok.slice(1, -1), `${key}-em`)}
+        </em>
       );
     } else {
       nodes.push(

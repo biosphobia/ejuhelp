@@ -13,7 +13,7 @@ import { errorMessage, ErrorNote } from './atoms';
 import { SpinnerIcon } from './icons';
 import { useT } from '../i18n';
 
-const LETTERS = 'ABCDEF';
+const LETTERS = 'ABCDEFGHIJ';
 
 /** One reviewable question: answerable MCQ with instant grading, hint, per-choice
  *  feedback, reveal, pin, explain, "try a similar one" and a link back to the note.
@@ -109,9 +109,16 @@ export default function QuestionCard({
   return (
     <div className="rounded-2xl border border-slate-200 p-3">
       <div className="mb-1 flex items-center justify-between gap-2">
-        <div className="min-w-0 truncate text-xs font-semibold uppercase tracking-wide text-slate-400">
-          {label != null ? `${label}. ` : ''}
-          {q.topic}
+        <div className="flex min-w-0 items-center gap-1.5">
+          <div className="min-w-0 truncate text-xs font-semibold uppercase tracking-wide text-slate-400">
+            {label != null ? `${label}. ` : ''}
+            {q.topic}
+          </div>
+          {q.source ? (
+            <span className="shrink-0 rounded-md bg-emerald-50 px-1.5 py-0.5 text-[10px] font-bold text-emerald-700 ring-1 ring-emerald-100">
+              {q.source}
+            </span>
+          ) : null}
         </div>
         {q.hint && !showFeedback ? (
           <button

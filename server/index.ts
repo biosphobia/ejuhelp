@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { existsSync } from 'node:fs';
 import { requireAuth } from './auth';
-import { topicsFor, subtopicsFor, mockExamList, mockExam, SUBJECTS, type Subject } from './eju';
+import { topicsFor, subtopicsFor, mockExamList, mockExam, pastQuestionsFor, SUBJECTS, type Subject } from './eju';
 import { hasApiKey, ask, generate, check, keypoints } from './claude';
 
 const here = dirname(fileURLToPath(import.meta.url));
@@ -51,6 +51,14 @@ app.post('/api/eju/exam', (req: Request, res: Response) => {
   const exam = typeof id === 'string' ? mockExam(id, toLang(req.body?.lang)) : null;
   if (!exam) return res.status(404).json({ error: 'not_found' });
   res.json(exam);
+});
+
+// Real past-paper questions on one subtopic — public, no model call.
+app.post('/api/eju/past', (req: Request, res: Response) => {
+  const { subject, topic, lang, limit } = req.body ?? {};
+  if (!isSubject(subject)) return res.status(400).json({ error: 'bad_subject' });
+  if (typeof topic !== 'string' || !topic) return res.status(400).json({ error: 'bad_topic' });
+  res.json({ questions: pastQuestionsFor(subject, topic, toLang(lang), Number(limit) || 10) });
 });
 
 // Helper to extract BYOK credentials from requests

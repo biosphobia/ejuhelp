@@ -103,6 +103,8 @@ export interface GenQuestion {
   choiceNotes?: string[];
   /** The typical mistake this question catches. */
   trap?: string;
+  /** Set on real past-paper questions (e.g. "EJU 2019-1"). */
+  source?: string;
 }
 export interface GenerateResponse {
   questions: GenQuestion[];
@@ -166,5 +168,12 @@ export interface Exam {
   source?: string;
   questions: GenQuestion[];
 }
+/** Real past EJU questions on one subtopic (physics / chemistry have rich extractions). */
+export interface PastQuestion extends GenQuestion {
+  source: string;
+}
+export const fetchPastQuestions = (p: { subject: Subject; topic: string; lang: Lang; limit?: number }) =>
+  call<{ questions: PastQuestion[] }>('eju/past', p);
+
 export const fetchExams = () => call<{ exams: ExamMeta[] }>('eju/exams', {});
 export const fetchExam = (id: string, lang: Lang) => call<Exam>('eju/exam', { id, lang });

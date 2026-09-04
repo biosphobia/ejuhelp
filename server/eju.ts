@@ -339,9 +339,41 @@ export interface Exemplar {
  * question's subtopic text and pattern tags, then by topic block). Used as style
  * exemplars so generated questions look and feel like the EJU.
  */
-export function exemplarsFor(subject: Subject, subtopicId: string | undefined, lang: Lang, n = 3): Exemplar[] {
+// Extra search terms for subtopics whose knowledge-base keywords rarely appear in
+// question text (the KB lists law names; questions say "ideal gas", "orbit", …).
+const EXTRA_KEYWORDS: Record<string, string[]> = {
+  'ideal-gas': ['ideal gas', 'state equation', 'boyle', 'charles', 'pv=nrt', '理想気体', 'ボイル', 'シャルル'],
+  'potential-energy': ['potential energy', 'mechanical energy', 'spring', 'elastic', '位置エネルギー', '力学的エネルギー', 'ばね'],
+  'inertial-force': ['inertial', 'centrifugal', 'elevator', 'accelerating', 'non-inertial', '慣性力', '遠心力', 'エレベーター'],
+  'light-interference': ['interference', 'young', 'grating', 'thin film', 'wedge', 'path difference', '干渉', '回折', '薄膜'],
+  'ac-circuits': ['alternating', 'inductor', 'coil', 'impedance', 'reactance', 'rms', 'effective', '交流', 'コイル', '実効値'],
+  semiconductors: ['semiconductor', 'diode', 'p-type', 'n-type', '半導体', 'ダイオード'],
+  'em-induction': ['induced', 'induction', 'emf', 'flux', 'faraday', 'lenz', 'sliding rod', '誘導', '磁束', 'レンツ'],
+  'elementary-particles': ['quark', 'lepton', 'neutrino', 'elementary particle', 'クォーク', '素粒子'],
+  'atoms-nuclei': ['nucleus', 'nuclear', 'half-life', 'decay', 'alpha', 'beta', 'isotope', 'mass defect', '原子核', '半減期', '崩壊'],
+  'electrons-light': ['photoelectric', 'photon', 'de broglie', 'x-ray', 'work function', 'bohr', '光電', '光子', '物質波', 'ボーア'],
+  'newtons-laws': ['equation of motion', 'pulley', 'tension', 'two blocks', 'acceleration of the', '運動方程式', '滑車'],
+  gravitation: ['gravitation', 'orbit', 'satellite', 'kepler', 'planet', '万有引力', '衛星', '惑星'],
+  'conductors-dielectrics': ['dielectric', 'conductor', 'electrostatic induction', 'polarization', '誘電体', '静電誘導'],
+  'magnetic-force': ['lorentz', 'moving charge', 'magnetic force', 'current-carrying', 'cyclotron', 'ローレンツ', '電流が受ける'],
+  'solid-structure': ['crystal', 'unit cell', 'lattice', 'coordination', '結晶', '単位格子', '面心', '体心'],
+  stoichiometry: ['reaction equation', 'yield', 'excess', 'limiting', 'mass of', 'volume of gas', '化学反応式', '過不足'],
+  biomolecules: ['amino acid', 'protein', 'glucose', 'sugar', 'peptide', 'starch', 'アミノ酸', 'タンパク質', 'グルコース', 'デンプン'],
+  thermochemistry: ['enthalpy', 'heat of', 'hess', 'bond energy', 'calorimeter', '反応熱', 'ヘス', '結合エネルギー'],
+};
+
+interface ScoredRich {
+  score: number;
+  /** Number of keyword hits (0 = matched only by topic block). */
+  hits: number;
+  q: RichQuestion;
+  ex: RichExam;
+}
+
+/** Rank every rich past-paper question by how well it matches a subtopic. */
+function scoreRich(subject: Subject, subtopicId: string | undefined): { scored: ScoredRich[]; kws: string[]; topicId?: string } {
   const kb = getKB(subject);
-  if (!kb) return [];
+  if (!kb) return { scored: [], kws: [] };
   let topicId: string | undefined;
   let keywords: string[] = [];
   for (const t of kb.topics) {
@@ -356,44 +388,67 @@ export function exemplarsFor(subject: Subject, subtopicId: string | undefined, l
       }
     }
   }
-  const kws = keywords.map((k) => k.toLowerCase()).filter((k) => k.length > 2);
-  if (!kws.length && !topicId) return []; // nothing to match on — better no exemplar than a random one
-  const loc: 'ja' | 'en' = lang === 'ja' ? 'ja' : 'en';
-  const scored: { score: number; q: RichQuestion; ex: RichExam }[] = [];
+  const kws = [...keywords, ...(subtopicId ? EXTRA_KEYWORDS[subtopicId] ?? [] : [])]
+    .map((k) => k.toLowerCase())
+    .filter((k) => k.length > 2);
+  if (!kws.length && !topicId) return { scored: [], kws };
+  const scored: ScoredRich[] = [];
   for (const ex of loadRichExams()) {
     if (ex.subject !== subject) continue;
     for (const q of ex.questions) {
       const hay = `${q.subtopic ?? ''} ${(q as any).patternTags?.join(' ') ?? ''}`.toLowerCase();
+      const body = `${q.en?.prompt ?? ''} ${q.ja?.prompt ?? ''}`.toLowerCase();
+      let hits = 0;
       let score = 0;
-      for (const k of kws) if (hay.includes(k)) score += 3;
+      for (const k of kws) {
+        if (hay.includes(k)) {
+          hits++;
+          score += 3;
+        } else if (body.includes(k)) {
+          hits++;
+          score += 1;
+        }
+      }
       const qTopic = q.topicId ? BLOCK_TO_TOPIC[q.topicId] ?? q.topicId : undefined;
       if (topicId && qTopic === topicId) score += 1;
       if (!q.hasFigure) score += 0.5; // text-only questions are easier to imitate
-      if (score > 0) scored.push({ score, q, ex });
+      if (score > 0) scored.push({ score, hits, q, ex });
     }
   }
   scored.sort((a, b) => b.score - a.score || b.ex.year - a.ex.year);
-  if (!scored.length) {
-    // No rich extraction for this subject yet (biology / math): fall back to the
-    // legacy mock-exam questions, matching keywords against topic + prompt text.
-    const legacy: { score: number; q: MockQuestion; ex: MockExam }[] = [];
-    for (const ex of loadMockExams()) {
-      if (ex.subject !== subject) continue;
-      for (const q of ex.questions) {
-        const hay = `${q.topic} ${q.prompt}`.toLowerCase();
-        let score = 0;
-        for (const k of kws) if (hay.includes(k)) score += 1;
-        if (score > 0) legacy.push({ score, q, ex });
-      }
-    }
-    legacy.sort((a, b) => b.score - a.score || b.ex.year - a.ex.year);
-    return legacy.slice(0, n).map(({ q, ex }) => ({
-      source: `EJU ${ex.year} session ${ex.session}`,
-      prompt: q.prompt,
-      choices: q.choices,
-      answer: q.answer,
+  return { scored, kws, topicId };
+}
+
+export interface PastQuestion extends MockQuestion {
+  topicId?: string;
+  source: string;
+}
+
+/**
+ * Real past EJU questions on one subtopic, newest first among the best matches,
+ * in the same shape the practice panel renders. Only keyword matches count —
+ * a question merely from the same block is not "on this topic".
+ */
+export function pastQuestionsFor(subject: Subject, subtopicId: string, lang: Lang, limit = 10): PastQuestion[] {
+  const { scored } = scoreRich(subject, subtopicId);
+  return scored
+    .filter((s) => s.hits > 0)
+    .slice(0, Math.max(1, Math.min(30, limit)))
+    .map(({ q, ex }) => ({
+      ...richToMockQuestion(q, lang),
+      topicId: subtopicId,
+      source: `EJU ${ex.year}-${ex.session}`,
     }));
-  }
+}
+
+/**
+ * Real past-paper questions that best match a subtopic (by keyword overlap with the
+ * question's subtopic text and pattern tags, then by topic block). Used as style
+ * exemplars so generated questions look and feel like the EJU.
+ */
+export function exemplarsFor(subject: Subject, subtopicId: string | undefined, lang: Lang, n = 3): Exemplar[] {
+  const { scored, kws } = scoreRich(subject, subtopicId);
+  const loc: 'ja' | 'en' = lang === 'ja' ? 'ja' : 'en';
   return scored.slice(0, n).map(({ q, ex }) => {
     let prompt = q[loc]?.prompt ?? q.en.prompt;
     const fig = q.figure?.[loc] ?? q.figure?.en;

@@ -4,6 +4,7 @@ import QuestionCard from '../QuestionCard';
 import { Label, PrimaryButton, ErrorNote, errorMessage } from '../atoms';
 import {
   fetchTopics,
+  fetchPastQuestions,
   generateQuestions,
   type Difficulty,
   type GenQuestion,
@@ -41,6 +42,9 @@ export default function GeneratePanel() {
   const [difficulty, setDifficulty] = useState<Difficulty>('medium');
   const [count, setCount] = useState(3);
   const [focus, setFocus] = useState(false);
+  // Where questions come from: the model (EJU style) or the real past papers.
+  const [source, setSource] = useState<'ai' | 'past'>('ai');
+  const [pastCount, setPastCount] = useState(10);
   const [busy, setBusy] = useState(false);
   const [err, setErr] = useState<string | null>(null);
 
@@ -103,10 +107,18 @@ export default function GeneratePanel() {
     return [...m.entries()];
   }, [subtopics]);
 
+  const pastMode = source === 'past' && useSub;
+
   const run = async () => {
     setBusy(true);
     setErr(null);
     try {
+      if (pastMode) {
+        if (!topic) throw new Error('pick_topic');
+        const res = await fetchPastQuestions({ subject, lang, topic, limit: pastCount });
+        setQuestions(subject, res.questions);
+        return;
+      }
       const focusPayload =
         focus && hasWeakData ? focusFromSummary(summarize(subjectAttempts)) : undefined;
       // If the study notes cover this topic, hand the coach the note's core idea so
@@ -139,11 +151,32 @@ export default function GeneratePanel() {
       title={t('generateTitle')}
       footer={
         <PrimaryButton onClick={() => void run()} busy={busy}>
-          {questions.length ? t('newSet') : t('generateBtn')}
+          {pastMode ? t('loadPast') : questions.length ? t('newSet') : t('generateBtn')}
         </PrimaryButton>
       }
     >
       <SubjectChips />
+
+      {useSub ? (
+        <div className="mb-3">
+          <Label>{t('qSource')}</Label>
+          <div className="grid grid-cols-2 gap-1 rounded-xl bg-slate-100 p-1">
+            {(['ai', 'past'] as const).map((k) => (
+              <button
+                key={k}
+                type="button"
+                onClick={() => setSource(k)}
+                className={`rounded-lg px-2 py-1.5 text-sm font-medium transition ${
+                  source === k ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-500 hover:text-slate-700'
+                }`}
+              >
+                {k === 'ai' ? t('qSourceAi') : t('qSourcePast')}
+              </button>
+            ))}
+          </div>
+          {pastMode ? <p className="mt-1 text-xs text-slate-500">{t('pastHint')}</p> : null}
+        </div>
+      ) : null}
 
       <div className="grid grid-cols-2 gap-3">
         <div className="col-span-2">
@@ -169,10 +202,26 @@ export default function GeneratePanel() {
                     {tp.name}
                   </option>
                 ))}
-            <option value="">{t('mixedTopics')}</option>
+            {!pastMode ? <option value="">{t('mixedTopics')}</option> : null}
           </select>
         </div>
-        <div>
+        {pastMode ? (
+          <div className="col-span-2">
+            <Label>{t('count')}</Label>
+            <select
+              value={pastCount}
+              onChange={(e) => setPastCount(Number(e.target.value))}
+              className="w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:border-slate-400"
+            >
+              {[5, 10, 20, 30].map((n) => (
+                <option key={n} value={n}>
+                  {n}
+                </option>
+              ))}
+            </select>
+          </div>
+        ) : null}
+        <div hidden={pastMode}>
           <Label>{t('difficulty')}</Label>
           <select
             value={difficulty}
@@ -184,7 +233,7 @@ export default function GeneratePanel() {
             <option value="hard">{t('diffHard')}</option>
           </select>
         </div>
-        <div>
+        <div hidden={pastMode}>
           <Label>{t('count')}</Label>
           <select
             value={count}
@@ -200,6 +249,7 @@ export default function GeneratePanel() {
         </div>
       </div>
 
+      {pastMode ? null : (
       <label
         className={`mt-3 flex items-start gap-2 rounded-xl p-2 ${hasWeakData ? 'cursor-pointer hover:bg-slate-50' : 'opacity-60'}`}
       >
@@ -217,6 +267,7 @@ export default function GeneratePanel() {
           </span>
         </span>
       </label>
+      )}
 
       {err ? <ErrorNote>{err}</ErrorNote> : null}
 

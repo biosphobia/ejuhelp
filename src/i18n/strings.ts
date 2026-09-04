@@ -502,6 +502,17 @@ export const strings = {
   openNote: { en: 'Open the note', ja: 'ノートを開く', zh: '打开笔记', tr: 'Notu aç' },
   similarAdded: { en: 'A similar question was added below.', ja: '類題を下に追加しました。', zh: '已在下方添加类似题。', tr: 'Benzer bir soru aşağıya eklendi.' },
   reviewMarkedDue: { en: 'Added to today’s review in the EJU calendar.', ja: 'EJUカレンダーの今日の復習に追加しました。', zh: '已加入 EJU 日历的今日复习。', tr: 'EJU takvimindeki bugünün tekrarına eklendi.' },
+  pastOnTopic: { en: 'Real past EJU questions on this topic', ja: 'このトピックの過去問', zh: '本主题的历年真题', tr: 'Bu konudaki gerçek EJU soruları' },
+  pastLoad: { en: 'Show past questions', ja: '過去問を表示', zh: '显示真题', tr: 'Geçmiş soruları göster' },
+  pastNone: { en: 'No past questions matched this topic yet.', ja: 'このトピックに合う過去問はまだありません。', zh: '暂时没有匹配此主题的真题。', tr: 'Bu konuya uyan geçmiş soru henüz yok.' },
+  pastMore: { en: 'Show more', ja: 'もっと見る', zh: '显示更多', tr: 'Daha fazla göster' },
+  sourceLabel: { en: 'Source', ja: '出典', zh: '来源', tr: 'Kaynak' },
+  qSource: { en: 'Source', ja: '出題元', zh: '题目来源', tr: 'Soru kaynağı' },
+  qSourceAi: { en: 'AI-written, EJU style', ja: 'AI作成（EJU形式）', zh: 'AI 出题（EJU 风格）', tr: 'Yapay zekâ, EJU tarzı' },
+  qSourcePast: { en: 'Real past papers', ja: '本物の過去問', zh: '历年真题', tr: 'Gerçek geçmiş sınavlar' },
+  pastHint: { en: 'Actual EJU questions on the chosen topic, newest first. No AI call needed.', ja: '選んだ分野の本物のEJU過去問（新しい順）。AIを使いません。', zh: '所选主题的真实 EJU 考题，从新到旧。无需调用 AI。', tr: 'Seçilen konudaki gerçek EJU soruları, en yeniden eskiye. Yapay zekâ gerekmez.' },
+  pastUnavailable: { en: 'Past questions by topic are available for Physics and Chemistry.', ja: '分野別の過去問は物理と化学で利用できます。', zh: '按主题的真题目前支持物理和化学。', tr: 'Konuya göre geçmiş sorular Fizik ve Kimya için mevcuttur.' },
+  loadPast: { en: 'Load past questions', ja: '過去問を読み込む', zh: '加载真题', tr: 'Geçmiş soruları yükle' },
 } as const;
 
 export type StringKey = keyof typeof strings;

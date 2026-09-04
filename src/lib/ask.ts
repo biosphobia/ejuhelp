@@ -161,7 +161,7 @@ export const useAsk = create<AskState>((set, get) => ({
 /** Open the Ask Coach panel and ask Claude to explain a question, allowing follow-ups. */
 export function explainQuestion(prompt: string, choices: string[] | undefined, answer: string, notes?: string) {
   const { lang } = useUI.getState();
-  const letters = 'ABCDE';
+  const letters = 'ABCDEFGHIJ';
   const choiceStr = choices?.length
     ? '\n' + choices.map((c, i) => `${letters[i]}. ${c}`).join('\n')
     : '';
