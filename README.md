@@ -109,6 +109,7 @@ Any other Node host (Railway, Fly.io, a VPS) works the same: `npm run build` the
 - **Apple Pencil draws** (with pressure); **one finger pans, two fingers pinch‑to‑scale** (never rotates). The page is an infinite, zoomable canvas.
 - Tools: pen, eraser (removes whole strokes), 4 easy‑to‑read inks (black / red / blue / green), pen sizes, undo, clear. Add/switch pages from the bottom bar; reset zoom from the same bar.
 - Notes autosave on‑device immediately and sync to the cloud when you're signed in.
+- The Ask Coach conversation and your generated practice questions are saved the moment they change — on‑device and, when signed in, to Firestore (`users/{uid}/data/chat` and `users/{uid}/data/generated`). They come back after a reload or on another device, and stay until you press **Clear** in the panel.
 
 ---
 

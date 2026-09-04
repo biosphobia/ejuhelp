@@ -142,12 +142,21 @@ type AnyStore<S> = {
   subscribe: (l: (s: S, p: S) => void) => () => void;
 };
 
-function attachSync<S extends { rev: number }>(
+/**
+ * Mirror a zustand store (anything with a `rev` counter) to localStorage and,
+ * when signed in, to Firestore at users/{uid}/data/{docId}.
+ *
+ * `delay` is the debounce in ms before a save fires after a change. Pass 0 to
+ * persist immediately (used for chat history and generated questions, which
+ * change rarely but must never be lost).
+ */
+export function attachSync<S extends { rev: number }>(
   store: AnyStore<S>,
   lsKey: string,
   docId: string,
   getData: (s: S) => unknown,
-  setData: (s: S, data: any) => void
+  setData: (s: S, data: any) => void,
+  delay = 1000
 ) {
   try {
     const raw = localStorage.getItem(lsKey);
@@ -157,6 +166,9 @@ function attachSync<S extends { rev: number }>(
   }
   let last = store.getState().rev;
   let timer: ReturnType<typeof setTimeout> | undefined;
+  // True while applying a snapshot we just pulled from Firestore, so the
+  // resulting rev bump is mirrored locally but not written straight back.
+  let hydratingFromCloud = false;
 
   const saveLocal = () => {
     try {
@@ -178,14 +190,20 @@ function attachSync<S extends { rev: number }>(
     }
   };
 
+  const flush = () => {
+    saveLocal();
+    if (!hydratingFromCloud) void saveCloud();
+  };
+
   store.subscribe((s) => {
     if (s.rev === last) return;
     last = s.rev;
+    if (delay <= 0) {
+      flush();
+      return;
+    }
     if (timer) clearTimeout(timer);
-    timer = setTimeout(() => {
-      saveLocal();
-      void saveCloud();
-    }, 1000);
+    timer = setTimeout(flush, delay);
   });
 
   useAuth.subscribe((s, prev) => {
@@ -193,8 +211,14 @@ function attachSync<S extends { rev: number }>(
       void (async () => {
         try {
           const snap = await getDoc(doc(db!, 'users', s.user!.uid, 'data', docId));
-          if (snap.exists()) setData(store.getState(), snap.data());
-          else void saveCloud();
+          if (snap.exists()) {
+            hydratingFromCloud = true;
+            try {
+              setData(store.getState(), snap.data());
+            } finally {
+              hydratingFromCloud = false;
+            }
+          } else void saveCloud();
         } catch (e) {
           console.warn(`[userdata] cloud hydrate ${docId} failed`, e);
         }

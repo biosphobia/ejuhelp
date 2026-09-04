@@ -11,8 +11,12 @@ import {
 import { useUI } from '../../lib/ui';
 import { usePractice } from '../../lib/practice';
 import { usePinned } from '../../lib/pinned';
+import { useGenerated } from '../../lib/generated';
 import { useProgress, summarize, focusFromSummary } from '../../lib/userdata';
 import { useT } from '../../i18n';
+import { TrashIcon } from '../icons';
+
+const EMPTY: GenQuestion[] = [];
 
 export default function GeneratePanel() {
   const t = useT();
@@ -22,6 +26,11 @@ export default function GeneratePanel() {
   const setWantFocus = usePractice((s) => s.setWantFocus);
   const attempts = useProgress((s) => s.attempts);
   const pinMany = usePinned((s) => s.pinMany);
+  // Generated questions live in a persisted store (device + cloud) so they
+  // survive closing the panel, reloads and re-logins until the user clears them.
+  const questions: GenQuestion[] = useGenerated((s) => s.sets[subject]?.questions) ?? EMPTY;
+  const setQuestions = useGenerated((s) => s.setQuestions);
+  const clearQuestions = useGenerated((s) => s.clear);
 
   const [topics, setTopics] = useState<{ id: string; name: string }[]>([]);
   const [subtopics, setSubtopics] = useState<{ id: string; name: string; group: string }[]>([]);
@@ -29,7 +38,6 @@ export default function GeneratePanel() {
   const [difficulty, setDifficulty] = useState<Difficulty>('medium');
   const [count, setCount] = useState(3);
   const [focus, setFocus] = useState(false);
-  const [questions, setQuestions] = useState<GenQuestion[]>([]);
   const [busy, setBusy] = useState(false);
   const [err, setErr] = useState<string | null>(null);
 
@@ -92,7 +100,7 @@ export default function GeneratePanel() {
         count,
         focus: focusPayload,
       });
-      setQuestions(res.questions);
+      setQuestions(subject, res.questions);
     } catch (e) {
       setErr(errorMessage(e, t));
     } finally {
@@ -187,7 +195,15 @@ export default function GeneratePanel() {
       {err ? <ErrorNote>{err}</ErrorNote> : null}
 
       {questions.length ? (
-        <div className="mt-4 flex justify-end">
+        <div className="mt-4 flex items-center justify-between">
+          <button
+            type="button"
+            onClick={() => clearQuestions(subject)}
+            title={t('clearQuestionsHint')}
+            className="inline-flex items-center gap-1 text-xs font-semibold text-slate-400 hover:text-red-600"
+          >
+            <TrashIcon className="h-3.5 w-3.5" /> {t('clearQuestions')}
+          </button>
           <button
             type="button"
             onClick={() => pinMany(subject, questions)}

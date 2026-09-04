@@ -9,12 +9,14 @@ import BoardTimer from './ui/BoardTimer';
 import DebugHud from './ui/DebugHud';
 import { initPersistence } from './lib/persistence';
 import { initUserData } from './lib/userdata';
+import { initSync } from './lib/sync';
 import './lib/auth'; // registers the Firebase auth listener on load
 
 export default function App() {
   useEffect(() => {
     initPersistence();
     initUserData();
+    initSync();
   }, []);
 
   return (

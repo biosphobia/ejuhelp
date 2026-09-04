@@ -136,6 +136,13 @@ export const strings = {
     zh: '同时清除 AI 对本次对话的上下文，以节省 token。',
     tr: 'Token tasarrufu için yapay zekânın bu sohbete dair bağlamını da siler.',
   },
+  clearQuestions: { en: 'Clear', ja: 'クリア', zh: '清空', tr: 'Temizle' },
+  clearQuestionsHint: {
+    en: 'Remove these saved questions from this device and the cloud.',
+    ja: '保存された問題をこの端末とクラウドから削除します。',
+    zh: '从本设备和云端删除这些已保存的题目。',
+    tr: 'Kaydedilen bu soruları bu cihazdan ve buluttan kaldır.',
+  },
   showAnswerShort: { en: 'Answer', ja: '解答', zh: '答案', tr: 'Cevap' },
   pinnedHidden: { en: 'Pinned questions hidden', ja: '固定中の問題（非表示）', zh: '已隐藏固定题目', tr: 'Sabitlenmiş sorular gizli' },
 

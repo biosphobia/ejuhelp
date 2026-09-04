@@ -38,8 +38,20 @@ const CORRECT_ANSWER_NOTE: Record<Lang, (a: string) => string> = {
   tr: (a) => `\n\n(Doğru cevap: ${a})`,
 };
 
+/** Keep the saved conversation bounded so it always fits in one Firestore doc (~1 MiB). */
+const MSG_LIMIT = 80;
+const MSG_BYTES = 700_000;
+function trimMessages(msgs: Message[]): Message[] {
+  let out = msgs.slice(-MSG_LIMIT);
+  // Drop oldest turns while the serialized history is too large for the cloud doc.
+  while (out.length > 2 && JSON.stringify(out).length > MSG_BYTES) out = out.slice(2);
+  return out;
+}
+
 interface AskState {
   messages: Message[];
+  /** Bumped whenever `messages` change; drives local + cloud autosave. */
+  rev: number;
   busy: boolean;
   error: unknown | null;
   lastSaved: number; // key points auto-saved from the latest answer
@@ -47,27 +59,43 @@ interface AskState {
   send: (text: string) => Promise<void>;
   /** Capture the current page and have the coach grade it, in-line with the chat. */
   check: () => Promise<void>;
+  /** Wipe the conversation (locally and in the cloud). */
   reset: () => void;
+  /** Replace the conversation from a saved copy (localStorage / Firestore). */
+  load: (messages: Message[]) => void;
 }
 
 export const useAsk = create<AskState>((set, get) => ({
   messages: [],
+  rev: 0,
   busy: false,
   error: null,
   lastSaved: 0,
   lastAutoAnswered: false,
-  reset: () => set({ messages: [], error: null, lastSaved: 0, lastAutoAnswered: false }),
+  reset: () =>
+    set((s) => ({ messages: [], rev: s.rev + 1, error: null, lastSaved: 0, lastAutoAnswered: false })),
+  load: (messages) =>
+    set((s) => ({
+      messages: Array.isArray(messages)
+        ? trimMessages(messages.filter((m) => m && typeof m.content === 'string' && (m.role === 'user' || m.role === 'assistant')))
+        : [],
+      rev: s.rev + 1,
+    })),
   send: async (text) => {
     const t = text.trim();
     if (!t || get().busy) return;
     const { subject, lang } = useUI.getState();
     const { activeQuestion } = usePractice.getState();
-    const next: Message[] = [...get().messages, { role: 'user', content: t }];
-    set({ messages: next, busy: true, error: null, lastSaved: 0, lastAutoAnswered: false });
+    const next: Message[] = trimMessages([...get().messages, { role: 'user', content: t }]);
+    set((s) => ({ messages: next, rev: s.rev + 1, busy: true, error: null, lastSaved: 0, lastAutoAnswered: false }));
     try {
       const res = await askClaude({ subject, lang, messages: next, context: activeQuestion ?? undefined });
       const added = useKeyPoints.getState().addMany(subject, res.keyPoints ?? []);
-      set({ messages: [...next, { role: 'assistant', content: res.text }], lastSaved: added });
+      set((s) => ({
+        messages: trimMessages([...next, { role: 'assistant', content: res.text }]),
+        rev: s.rev + 1,
+        lastSaved: added,
+      }));
     } catch (e) {
       set({ error: e });
     } finally {
@@ -83,16 +111,17 @@ export const useAsk = create<AskState>((set, get) => ({
       return;
     }
     const { activeQuestion, activeItem } = usePractice.getState();
-    const next: Message[] = [...get().messages, { role: 'user', content: CHECK_REQUEST[lang] }];
-    set({ messages: next, busy: true, error: null, lastSaved: 0, lastAutoAnswered: false });
+    const next: Message[] = trimMessages([...get().messages, { role: 'user', content: CHECK_REQUEST[lang] }]);
+    set((s) => ({ messages: next, rev: s.rev + 1, busy: true, error: null, lastSaved: 0, lastAutoAnswered: false }));
     try {
       const res = await checkWork({ subject, lang, imageDataUrl: img, question: activeQuestion ?? undefined });
-      set({
-        messages: [
+      set((s) => ({
+        messages: trimMessages([
           ...next,
           { role: 'assistant', content: res.feedback, check: { correct: res.correct, errorTags: res.errorTags } },
-        ],
-      });
+        ]),
+        rev: s.rev + 1,
+      }));
       if (res.correct !== 'unknown') {
         useProgress.getState().addAttempt({
           subject,
