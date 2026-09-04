@@ -1,7 +1,7 @@
 import Anthropic from '@anthropic-ai/sdk';
 import OpenAI from 'openai';
 import { GoogleGenerativeAI } from '@google/generative-ai';
-import { systemContextFor, labelFor, type Subject } from './eju';
+import { systemContextFor, labelFor, exemplarsFor, type Subject } from './eju';
 
 const MODEL = process.env.ANTHROPIC_MODEL || 'claude-opus-5';
 const USE_THINKING = process.env.ANTHROPIC_THINKING !== 'off';
@@ -243,10 +243,103 @@ function cleanKeyPoints(arr: any): KeyPointDTO[] {
     }));
 }
 
+// ─── Formatting helpers shared by coach replies ───
+// Figures the client can draw natively (see src/ui/diagrams.tsx). The model may
+// embed one with a ":::fig <id>" line when it genuinely helps.
+const FIGURE_LIBRARY: [string, string][] = [
+  ['projectile', 'projectile motion: parabola with vx constant and vy changing'],
+  ['incline-fbd', 'free-body diagram of a block on an incline (N, mg components, friction)'],
+  ['torque', 'lever / torque balance about a pivot'],
+  ['circular', 'uniform circular motion: velocity tangent, centripetal force inward'],
+  ['shm-energy', 'simple harmonic motion: KE / PE exchange vs displacement'],
+  ['collision', '1-D collision before/after momentum diagram'],
+  ['pv-diagram', 'p-V diagram: isothermal, adiabatic, isobaric, isochoric; work = area'],
+  ['maxwell-speeds', 'molecular speed distribution at two temperatures'],
+  ['wave-snapshot', 'wave y-x snapshot showing wavelength and amplitude'],
+  ['standing-wave', 'standing wave on a string / in a pipe: nodes and antinodes'],
+  ['doppler', 'Doppler effect: source moving, wavefronts compressed ahead'],
+  ['refraction', 'refraction at a boundary (Snell), critical angle'],
+  ['lens', 'convex lens ray diagram, image formation'],
+  ['young', "Young's double slit: path difference d sin θ"],
+  ['thin-film', 'thin-film interference reflection paths'],
+  ['field-lines', 'electric field lines and equipotentials of point charges'],
+  ['capacitor', 'parallel-plate capacitor, dielectric, series/parallel'],
+  ['circuit', 'DC circuit with series/parallel resistors'],
+  ['wire-field', 'magnetic field around a straight current (right-hand rule)'],
+  ['left-hand', "Fleming's left-hand rule: F = IBL"],
+  ['induction', 'electromagnetic induction: flux change and induced EMF direction'],
+  ['ac-phase', 'AC phase relations for R, L, C'],
+  ['photoelectric', 'photoelectric effect: K_max vs frequency, work function'],
+  ['bohr', 'Bohr model energy levels and transitions'],
+  ['decay', 'radioactive decay curve, half-life'],
+  ['titration-curve', 'pH titration curves (strong/weak acid vs base, indicator ranges)'],
+  ['vapor-pressure', 'vapour pressure vs temperature, boiling point'],
+  ['phase-diagram', 'phase diagram (water / CO2), triple and critical points'],
+  ['unit-cells', 'crystal unit cells: sc, bcc, fcc atoms per cell'],
+  ['energy-diagram', 'reaction energy diagram: activation energy, ΔH, catalyst'],
+  ['equilibrium-shift', "Le Chatelier: equilibrium shift on changing conditions"],
+  ['daniell', 'Daniell cell: electrodes, ion flow, salt bridge'],
+  ['electrolysis', 'electrolysis cell: cathode/anode products'],
+  ['alcohol-oxidation', 'alcohol → aldehyde/ketone → carboxylic acid oxidation chain'],
+  ['atp', 'ATP / ADP energy cycle'],
+  ['mitochondrion', 'mitochondrion structure and respiration stages'],
+  ['chloroplast', 'chloroplast structure, light-dependent and Calvin cycle'],
+  ['nitrogen-cycle', 'nitrogen cycle'],
+  ['replication-fork', 'DNA replication fork, leading/lagging strands'],
+  ['central-dogma', 'DNA → RNA → protein'],
+  ['recombinant', 'recombinant DNA / plasmid steps'],
+  ['linkage', 'linkage and crossing over'],
+  ['meiosis', 'meiosis stages and chromosome numbers'],
+  ['embryo-sac', 'angiosperm embryo sac and double fertilisation'],
+  ['gastrula', 'frog / sea urchin development stages'],
+  ['circulation', 'human circulatory system (heart chambers, vessels)'],
+  ['oxygen-dissociation', 'oxygen dissociation curves (Hb, myoglobin, fetal)'],
+  ['nephron', 'nephron: filtration, reabsorption, concentration'],
+  ['blood-sugar', 'blood sugar regulation: insulin / glucagon feedback'],
+  ['thermoregulation', 'body temperature regulation feedback'],
+  ['immune-response', 'innate vs adaptive immunity overview'],
+  ['antibody-response', 'primary vs secondary antibody response'],
+  ['action-potential', 'action potential trace with threshold and phases'],
+  ['eye', 'eye structure and accommodation'],
+  ['sarcomere', 'sarcomere / sliding filament'],
+  ['auxin-response', 'auxin concentration response of root vs shoot'],
+  ['photoperiod', 'photoperiodism: long-day / short-day plants'],
+  ['survivorship', 'survivorship curves types I–III'],
+  ['energy-flow', 'ecosystem energy flow pyramid'],
+  ['plant-tree', 'plant classification tree'],
+];
+
+const FORMAT_DIRECTIVE =
+  'FORMATTING TOOLKIT (use only what genuinely helps understanding; never decorate for its own sake):\n' +
+  '- Tables: GitHub pipe tables ("| a | b |" with a "|---|---|" separator row) for comparisons, formula lists, sign conventions, step tables.\n' +
+  '- Callouts: a line starting with "> " for a warning, trap, or memory hook (one or two sentences).\n' +
+  '- Charts: a fenced block ```chart containing ONLY a JSON object, either ' +
+  '{"type":"line","title":"...","xLabel":"...","yLabel":"...","series":[{"name":"...","points":[[x,y],...]}],"vlines":[{"x":1,"label":"..."}],"hlines":[{"y":1,"label":"..."}]} ' +
+  'or {"type":"bar","title":"...","categories":["..."],"values":[1,2],"yLabel":"..."}. ' +
+  'Use 6-40 points per series, plain numbers only, at most 3 series. Use a chart whenever the idea is a relationship between two quantities (v-t, p-V, pH vs volume, K_max vs f, …).\n' +
+  '- Figures: a line ":::fig <id>" inserts a ready-made diagram. Available ids (use the exact id): ' +
+  FIGURE_LIBRARY.map(([id, d]) => `${id} (${d})`).join('; ') +
+  '.\n- Use "###" headings to separate steps of a longer explanation. Keep paragraphs short.';
+
 // ─── Ask ───
 // The reply is plain Markdown (so LaTeX/backslashes pass through untouched — never
-// JSON-encoded), followed by an optional delimited key-points block we strip off.
+// JSON-encoded), followed by a delimited summary JSON block we strip off.
+const SUMMARY_MARK = '###SUMMARY###';
 const KEYPOINTS_MARK = '###KEYPOINTS###';
+
+export interface AskSummary {
+  /** One or two sentences: the single idea to remember. */
+  keyIdea: string;
+  /** Formulas / facts worth pinning, LaTeX allowed. */
+  formulas: string[];
+  /** Common EJU traps on this point. */
+  traps: string[];
+  /** 2-3 short follow-up questions the student should ask/answer next. */
+  nextQuestions: string[];
+  /** Subtopic id from the knowledge base if the reply clearly maps to one. */
+  topicId?: string;
+}
+
 const ASK_DIRECTIVE =
   // Teaching style: beginner-friendly, then exam-ready.
   'Teach as a patient tutor whose student may be new to the topic and is sitting the EJU exam very soon. ' +
@@ -255,16 +348,34 @@ const ASK_DIRECTIVE =
   'or a concrete example with real numbers — then walk through the reasoning step by step instead of just ' +
   'stating the result. Keep sentences short. For these coaching replies, favour a clear, complete explanation ' +
   'over terseness (this overrides the general "be concise" instruction), but stay on point and do not ramble. ' +
-  'Because the exam is near, make the must-know parts impossible to miss: bold the key terms and results, and ' +
-  'finish with a short "**Exam essentials**" section — a few bullets giving the formula(s) to memorise, the ' +
-  'common traps/mistakes, and what EJU typically asks on this topic. ' +
+  'Because the exam is near, make the must-know parts impossible to miss: bold the key terms and results. ' +
+  'If the student is answering a practice question, do not just confirm: explain why each wrong choice is tempting. ' +
   // Formatting.
-  'Write your reply directly as GitHub-flavored Markdown with LaTeX math ($...$ inline, $$...$$ display). ' +
-  'Do NOT wrap the reply in JSON and do NOT put it in a code fence. ' +
-  // Key points (machine-parsed; separate from the human-facing "Exam essentials" bullets above).
-  'After the reply, ONLY if it contains genuinely memorize-worthy formulas or key facts, add a final ' +
-  `line that is exactly "${KEYPOINTS_MARK}" and then 1-4 lines, one point per line, each formatted as ` +
-  '`kind | text | topic` (kind is the word formula or fact; topic may be left blank). Write nothing after those lines.';
+  'Write your reply directly as GitHub-flavored Markdown with LaTeX math ($...$ inline, $$...$$ display), ' +
+  'using the formatting toolkit above where it helps. Do NOT wrap the reply in JSON and do NOT put the whole reply in a code fence. ' +
+  'Do NOT write an "Exam essentials" section in the prose — that information goes in the summary block instead. ' +
+  // Structured summary (machine-parsed → shown as a takeaway card).
+  `After the reply, write a line that is exactly "${SUMMARY_MARK}" and then ONE JSON object on the following lines and nothing after it: ` +
+  '{"keyIdea":"<one or two plain sentences: the single thing to remember>","formulas":["<formula or fact to memorise, LaTeX allowed>", ...up to 4],' +
+  '"traps":["<a specific EJU mistake and how to avoid it>", ...up to 3],"nextQuestions":["<short follow-up question the student could ask next to deepen understanding or check themselves>", ...2-3],' +
+  '"topicId":"<the knowledge-base subtopic id this is mostly about, or empty>"}. ' +
+  'Write the summary strings in the same language as the reply. Escape backslashes as \\\\ inside the JSON.';
+
+function cleanSummary(v: any): AskSummary | null {
+  if (!v || typeof v !== 'object') return null;
+  const strs = (a: any, max: number) =>
+    Array.isArray(a) ? a.filter((x) => typeof x === 'string' && x.trim()).map((x) => String(x).trim()).slice(0, max) : [];
+  const keyIdea = typeof v.keyIdea === 'string' ? v.keyIdea.trim() : '';
+  const s: AskSummary = {
+    keyIdea,
+    formulas: strs(v.formulas, 4),
+    traps: strs(v.traps, 3),
+    nextQuestions: strs(v.nextQuestions, 3),
+    topicId: typeof v.topicId === 'string' && v.topicId.trim() ? v.topicId.trim() : undefined,
+  };
+  if (!s.keyIdea && !s.formulas.length && !s.traps.length && !s.nextQuestions.length) return null;
+  return s;
+}
 
 function parseKeyPointLines(block: string): KeyPointDTO[] {
   return block
@@ -283,6 +394,8 @@ function parseKeyPointLines(block: string): KeyPointDTO[] {
     .slice(0, 6);
 }
 
+const TRIPLE = '"""';
+
 export async function ask(args: {
   subject: Subject;
   lang: Lang;
@@ -293,41 +406,63 @@ export async function ask(args: {
   notes?: string;
   model?: string;
   userKey?: string;
-}): Promise<{ text: string; keyPoints: KeyPointDTO[] }> {
+}): Promise<{ text: string; keyPoints: KeyPointDTO[]; summary: AskSummary | null }> {
   const messages = args.messages
     .filter((m) => m && typeof m.content === 'string' && m.content.trim())
     .map((m) => ({ role: m.role === 'assistant' ? 'assistant' : 'user', content: m.content }));
-  if (!messages.length) return { text: '', keyPoints: [] };
+  if (!messages.length) return { text: '', keyPoints: [], summary: null };
 
   const ctx = args.context?.trim()
-    ? `The student is currently looking at this specific question:\n"""\n${args.context.trim()}\n"""\n` +
+    ? `The student is currently looking at this specific question:\n${TRIPLE}\n${args.context.trim()}\n${TRIPLE}\n` +
       'When the student says "this", "this question", "this problem", "これ", "この問題" or similar, they are ' +
       'referring to the question above — answer about it directly. Do not ask which question they mean.'
     : undefined;
   const notesCtx = args.notes?.trim()
-    ? `The student is currently reviewing these study notes:\n"""\n${args.notes.trim()}\n"""\n` +
+    ? `The student is currently reviewing these study notes:\n${TRIPLE}\n${args.notes.trim()}\n${TRIPLE}\n` +
       'Treat the notes as the shared starting point: build on them, do not repeat them wholesale, and when the ' +
       'student asks "why" go one level deeper into the underlying logic. Point out if a note is being misread.'
     : undefined;
-  const extra = [ctx, notesCtx, ASK_DIRECTIVE].filter(Boolean).join('\n\n');
+  const extra = [ctx, notesCtx, FORMAT_DIRECTIVE, ASK_DIRECTIVE].filter(Boolean).join('\n\n');
 
   const raw = await executeModelCall(args.model, args.userKey, args.subject, args.lang, extra, messages, 8000);
 
-  const i = raw.indexOf(KEYPOINTS_MARK);
-  const text = (i >= 0 ? raw.slice(0, i) : raw).trim();
-  const keyPoints = i >= 0 ? parseKeyPointLines(raw.slice(i + KEYPOINTS_MARK.length)) : [];
-  return { text: text || raw.trim(), keyPoints };
+  const si = raw.indexOf(SUMMARY_MARK);
+  const ki = raw.indexOf(KEYPOINTS_MARK);
+  const cut = [si, ki].filter((i) => i >= 0);
+  const end = cut.length ? Math.min(...cut) : -1;
+  const text = (end >= 0 ? raw.slice(0, end) : raw).trim();
+
+  let summary: AskSummary | null = null;
+  if (si >= 0) summary = cleanSummary(extractJson<any>(raw.slice(si + SUMMARY_MARK.length), null));
+
+  let keyPoints: KeyPointDTO[] = [];
+  if (summary) {
+    keyPoints = summary.formulas.map((f) => ({ kind: 'formula' as const, text: f, topic: summary!.topicId }));
+  } else if (ki >= 0) {
+    keyPoints = parseKeyPointLines(raw.slice(ki + KEYPOINTS_MARK.length));
+  }
+  return { text: text || raw.trim(), keyPoints, summary };
 }
 
 // ─── Generate Questions ───
 export interface GenQuestion {
   id: string;
   topic: string;
+  /** Knowledge-base subtopic id when the request targeted one (links back to notes). */
+  topicId?: string;
   prompt: string;
   choices?: string[];
   answerIndex: number;
   answer: string;
   explanation: string;
+  /** A nudge that does not give the answer away. */
+  hint?: string;
+  /** The one idea this question is really testing. */
+  keyIdea?: string;
+  /** Per-choice note: why each wrong option is tempting (same order as choices). */
+  choiceNotes?: string[];
+  /** The typical mistake this question catches. */
+  trap?: string;
 }
 
 export async function generate(args: {
@@ -337,18 +472,46 @@ export async function generate(args: {
   difficulty: 'easy' | 'medium' | 'hard';
   count: number;
   focus?: { topics?: string[]; tags?: string[] };
+  /** Make variants of this question (same concept, new numbers / situation). */
+  similarTo?: { prompt: string; answer?: string };
+  /** The note's core idea for this topic, so questions test what the notes teach. */
+  noteCore?: string;
   model?: string;
   userKey?: string;
 }): Promise<{ questions: GenQuestion[] }> {
   const n = Math.max(1, Math.min(5, args.count || 3));
   const tName = args.topic ? labelFor(args.subject, args.topic, args.lang) : null;
+  const exemplars = exemplarsFor(args.subject, args.topic, args.lang, args.similarTo ? 1 : 3);
 
-  const parts = [
-    `Generate ${n} EJU-style ${args.subject} question(s)${tName ? ` specifically on: ${tName}` : ' across the most exam-relevant topics'}.`,
-    `Difficulty: ${args.difficulty} ("medium" = typical EJU exam level).`,
-    'Match the authentic EJU question style, format, topic scope, and difficulty from the knowledge base.',
-    'Prefer multiple-choice with 4-5 plausible choices.',
-  ];
+  const parts: string[] = [];
+  if (args.similarTo) {
+    parts.push(
+      `Write ${n} NEW question(s) that test the same concept as the question below, but with different numbers, a different situation or a different angle (for example swap what is given and what is asked). Never repeat the original.`,
+      `Original question:\n${TRIPLE}\n${args.similarTo.prompt.trim()}\n${TRIPLE}` +
+        (args.similarTo.answer ? `\nIts answer: ${args.similarTo.answer.trim()}` : '')
+    );
+  } else {
+    parts.push(
+      `Generate ${n} EJU-style ${args.subject} question(s)${tName ? ` specifically on: ${tName}` : ' across the most exam-relevant topics'}.`
+    );
+  }
+  parts.push(`Difficulty: ${args.difficulty} ("medium" = typical EJU exam level; "easy" = the first step a beginner must master; "hard" = combines two ideas like the hardest EJU items).`);
+  parts.push(
+    'Match the authentic EJU question style: short scenario, concrete numbers with SI units, one clear thing asked, ' +
+      'usually 4-6 choices where every wrong choice is the result of a SPECIFIC common mistake (wrong sign, forgot a factor of 2, unit slip, used the wrong formula), not a random number. ' +
+      'Quantitative questions should be solvable in 2-4 lines by hand. Do not rely on a figure the student cannot see: describe any setup fully in words.'
+  );
+  if (exemplars.length) {
+    parts.push(
+      'Here are real past EJU questions on this topic. Imitate their STYLE, scope and difficulty only — do NOT copy their numbers, wording or answers:\n' +
+        exemplars
+          .map((e, i) => `[${i + 1}] (${e.source}) ${e.prompt}` + (e.choices?.length ? `\nChoices: ${e.choices.join(' / ')}` : '') + (e.answer ? `\nAnswer: ${e.answer}` : ''))
+          .join('\n\n')
+    );
+  }
+  if (args.noteCore) {
+    parts.push(`The student has just studied this core idea; make sure the questions test it directly:\n${TRIPLE}\n${args.noteCore.trim()}\n${TRIPLE}`);
+  }
   if (args.focus && (args.focus.topics?.length || args.focus.tags?.length)) {
     if (args.focus.topics?.length)
       parts.push(`Personalize: the student is currently weakest in: ${args.focus.topics.join('; ')}. Prioritize these.`);
@@ -357,30 +520,44 @@ export async function generate(args: {
         `They frequently make these mistakes: ${args.focus.tags.join(', ')}. Design questions that specifically probe and help fix them (e.g. require careful unit conversion if "units").`
       );
   }
+  parts.push(
+    'For each question also write: a hint (a nudge toward the first step, never the answer), the key idea being tested (one sentence), ' +
+      'a note per choice explaining why that option is right or which mistake produces it, the trap most students fall into, ' +
+      'and an explanation written for a total beginner: state the idea in plain words, then show every step with numbers, then the answer, then a one-line "how to recognise this type next time".'
+  );
   parts.push(`Write everything in ${writeLang(args.lang)}.`);
   parts.push(
     'Respond with ONLY a single JSON object, no other text or code fences: ' +
-      '{"questions":[{"topic":"<sub-topic>","prompt":"...","choices":["..."],"answerIndex":<0-based index of the correct choice, or -1 if not multiple-choice>,"answer":"<correct answer in words>","explanation":"<clear worked solution>"}]}.'
+      '{"questions":[{"topic":"<sub-topic name>","prompt":"...","choices":["..."],"answerIndex":<0-based index of the correct choice, or -1 if not multiple-choice>,' +
+      '"answer":"<correct answer in words>","hint":"...","keyIdea":"...","choiceNotes":["<one per choice, same order>"],"trap":"...","explanation":"<beginner-friendly worked solution in Markdown with LaTeX>"}]}.'
   );
 
   const raw = await executeModelCall(
-    args.model, args.userKey, args.subject, args.lang, undefined, [{ role: 'user', content: parts.join(' ') }], 16000
+    args.model, args.userKey, args.subject, args.lang, undefined, [{ role: 'user', content: parts.join('\n\n') }], 16000
   );
-  
+
   const parsed = extractJson<{ questions?: any[] }>(raw, { questions: [] });
+  const stamp = Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
+  const str = (v: any) => (typeof v === 'string' && v.trim() ? v.trim() : undefined);
   const questions: GenQuestion[] = (parsed.questions ?? []).map((q: any, i: number) => {
     const choices = Array.isArray(q.choices) && q.choices.length ? q.choices.map(String) : undefined;
     const idx = Number.isInteger(q.answerIndex) ? q.answerIndex : -1;
+    const notes = Array.isArray(q.choiceNotes) && choices && q.choiceNotes.length === choices.length ? q.choiceNotes.map(String) : undefined;
     return {
-      id: `${Date.now().toString(36)}-${i}`,
+      id: `${stamp}-${i}`,
       topic: String(q.topic ?? tName ?? ''),
+      topicId: args.topic,
       prompt: String(q.prompt ?? ''),
       choices,
       answerIndex: choices && idx >= 0 && idx < choices.length ? idx : -1,
       answer: String(q.answer ?? ''),
       explanation: String(q.explanation ?? ''),
+      hint: str(q.hint),
+      keyIdea: str(q.keyIdea),
+      choiceNotes: notes,
+      trap: str(q.trap),
     };
-  });
+  }).filter((q) => q.prompt);
   return { questions };
 }
 

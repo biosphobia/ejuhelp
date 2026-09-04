@@ -316,3 +316,71 @@ export function systemContextFor(subject: Subject): string {
   contextCache.set(subject, ctx);
   return ctx;
 }
+
+// ─────────────────────────── Exemplars for question generation ───────────────────────────
+// Physics rich files tag questions with a short block id; map it to taxonomy topic ids.
+const BLOCK_TO_TOPIC: Record<string, string> = {
+  mech: 'mechanics',
+  thermo: 'thermodynamics',
+  waves: 'waves',
+  em: 'electromagnetism',
+  atoms: 'atomic-physics',
+};
+
+export interface Exemplar {
+  source: string;
+  prompt: string;
+  choices?: string[];
+  answer: string;
+}
+
+/**
+ * Real past-paper questions that best match a subtopic (by keyword overlap with the
+ * question's subtopic text and pattern tags, then by topic block). Used as style
+ * exemplars so generated questions look and feel like the EJU.
+ */
+export function exemplarsFor(subject: Subject, subtopicId: string | undefined, lang: Lang, n = 3): Exemplar[] {
+  const kb = getKB(subject);
+  if (!kb) return [];
+  let topicId: string | undefined;
+  let keywords: string[] = [];
+  for (const t of kb.topics) {
+    if (t.id === subtopicId) {
+      topicId = t.id;
+      keywords = (t.subtopics ?? []).flatMap((s) => [s.name.en, ...(s.keywords ?? [])]);
+    }
+    for (const s of t.subtopics ?? []) {
+      if (s.id === subtopicId) {
+        topicId = t.id;
+        keywords = [s.name.en, ...(s.keywords ?? [])];
+      }
+    }
+  }
+  const kws = keywords.map((k) => k.toLowerCase()).filter((k) => k.length > 2);
+  const loc: 'ja' | 'en' = lang === 'ja' ? 'ja' : 'en';
+  const scored: { score: number; q: RichQuestion; ex: RichExam }[] = [];
+  for (const ex of loadRichExams()) {
+    if (ex.subject !== subject) continue;
+    for (const q of ex.questions) {
+      const hay = `${q.subtopic ?? ''} ${(q as any).patternTags?.join(' ') ?? ''}`.toLowerCase();
+      let score = 0;
+      for (const k of kws) if (hay.includes(k)) score += 3;
+      const qTopic = q.topicId ? BLOCK_TO_TOPIC[q.topicId] ?? q.topicId : undefined;
+      if (topicId && qTopic === topicId) score += 1;
+      if (!q.hasFigure) score += 0.5; // text-only questions are easier to imitate
+      if (score > 0) scored.push({ score, q, ex });
+    }
+  }
+  scored.sort((a, b) => b.score - a.score || b.ex.year - a.ex.year);
+  return scored.slice(0, n).map(({ q, ex }) => {
+    let prompt = q[loc]?.prompt ?? q.en.prompt;
+    const fig = q.figure?.[loc] ?? q.figure?.en;
+    if (fig) prompt += `\n[${loc === 'ja' ? '図' : 'Figure'}: ${fig}]`;
+    return {
+      source: `EJU ${ex.year} session ${ex.session}`,
+      prompt,
+      choices: q[loc]?.choices ?? q.en.choices,
+      answer: q.answer?.[loc] ?? q.answer?.en ?? '',
+    };
+  });
+}
