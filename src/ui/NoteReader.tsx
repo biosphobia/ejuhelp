@@ -10,6 +10,7 @@ import { TREES, loadNotes, findSubtopic } from '../data/notes';
 import type { Note, SubjectNotes } from '../data/notes/types';
 import { useT } from '../i18n';
 import QuestionCard from './QuestionCard';
+import PeriodicTable from './PeriodicTable';
 import { fetchPastQuestions, type PastQuestion } from '../lib/api';
 import { errorMessage, ErrorNote } from './atoms';
 
@@ -41,6 +42,7 @@ export default function NoteReader({
   const [data, setData] = useState<SubjectNotes | null | undefined>(undefined);
   const [own, setOwn] = useState('');
   // Real past-paper questions on this subtopic, loaded on demand.
+  const [showTable, setShowTable] = useState(false);
   const [past, setPast] = useState<PastQuestion[] | null>(null);
   const [pastBusy, setPastBusy] = useState(false);
   const [pastErr, setPastErr] = useState<unknown>(null);
@@ -142,6 +144,12 @@ export default function NoteReader({
           <div className="truncate text-[11px] text-slate-400">{crumb}</div>
           <h2 className="truncate text-base font-semibold text-slate-900">{title}</h2>
         </div>
+        {subject === 'chemistry' ? (
+          <button type="button" onClick={() => setShowTable(true)} title={t('periodicTable')} aria-label={t('periodicTable')} className="grid h-9 w-9 place-items-center rounded-xl text-slate-500 hover:bg-slate-100">
+            <span className="grid h-6 w-6 place-items-center rounded-md bg-sky-100 text-[10px] font-bold text-sky-900" aria-hidden>Na</span>
+          </button>
+        ) : null}
+        {showTable ? <PeriodicTable onClose={() => setShowTable(false)} /> : null}
         <button type="button" disabled={!prevId} onClick={() => prevId && onNavigate(prevId)} aria-label={t('prevTopic')} className="grid h-9 w-9 place-items-center rounded-xl text-slate-500 hover:bg-slate-100 disabled:opacity-30">
           <ChevronLeft />
         </button>

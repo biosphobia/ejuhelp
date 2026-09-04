@@ -83,7 +83,6 @@ export default function ExamsPanel() {
 
   return (
     <Panel title={t('examsTitle')}>
-      <p className="mb-3 text-xs text-slate-500">{t('examsHint')}</p>
       {err ? <ErrorNote>{err}</ErrorNote> : null}
 
       {loadingList || busy ? (

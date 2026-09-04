@@ -6,6 +6,7 @@ import { useReview, keyOf, statusOf, daysUntil, startOfDay, type ReviewStatus } 
 import { TREES, loadNotes, findSubtopic } from '../../data/notes';
 import type { SubjectNotes } from '../../data/notes/types';
 import NoteReader from '../NoteReader';
+import PeriodicTable from '../PeriodicTable';
 import { usePractice } from '../../lib/practice';
 import { useT } from '../../i18n';
 
@@ -30,6 +31,8 @@ export default function PlanPanel() {
   const [open, setOpen] = useState<Record<string, boolean>>({});
   const [reading, setReading] = useState<{ subject: Subject; id: string } | null>(null);
   const [notes, setNotes] = useState<SubjectNotes | null>(null);
+  const [showCal, setShowCal] = useState(false);
+  const [showTable, setShowTable] = useState(false);
   const [month, setMonth] = useState(() => {
     const d = new Date();
     return new Date(d.getFullYear(), d.getMonth(), 1);
@@ -113,175 +116,192 @@ export default function PlanPanel() {
     return Array.from({ length: 7 }, (_, i) => f.format(new Date(2024, 8, 1 + i))); // 2024-09-01 is a Sunday
   }, [lang]);
 
+  const examLabel = new Intl.DateTimeFormat(LOCALE[lang] ?? 'en-US', { month: 'short', day: 'numeric' }).format(new Date(ey, em - 1, ed));
+
   return (
     <Panel title={t('plan')}>
-      {/* Countdown */}
-      <div className="mb-3 rounded-2xl bg-slate-900 p-4 text-white">
-        <div className="text-xs font-semibold uppercase tracking-wide text-slate-300">{t('examDay')}</div>
-        <div className="mt-1 flex items-end justify-between gap-3">
-          <div>
-            <div className="text-4xl font-bold leading-none">{days >= 0 ? days : 0}</div>
-            <div className="mt-1 text-sm text-slate-200">{days >= 0 ? t('daysLeft') : t('examPassed')}</div>
+      {/* Countdown strip */}
+      <div className="mb-3 flex items-center gap-3 rounded-2xl bg-slate-900 px-4 py-3 text-white">
+        <div className="text-3xl font-bold leading-none tabular-nums">{days >= 0 ? days : 0}</div>
+        <div className="min-w-0 flex-1">
+          <div className="truncate text-sm font-medium">{days >= 0 ? t('daysLeft') : t('examPassed')}</div>
+          <div className="text-[11px] text-slate-300">
+            {t('examDay')} · {examLabel}
+            {due.length ? <span className="ml-2 rounded-full bg-amber-400/20 px-1.5 py-0.5 font-medium text-amber-200">⏰ {due.length}</span> : null}
           </div>
-          <input
-            type="date"
-            value={examDate}
-            onChange={(e) => setExamDate(e.target.value)}
-            aria-label={t('examDay')}
-            className="rounded-lg bg-white/10 px-2 py-1 text-sm text-white outline-none ring-1 ring-white/20 focus:ring-white/60 [color-scheme:dark]"
-          />
         </div>
-        <div className="mt-3 text-sm">
-          {due.length ? (
-            <span className="rounded-full bg-amber-400/20 px-2.5 py-1 font-medium text-amber-200">⏰ {t('dueCount', { n: due.length })}</span>
-          ) : (
-            <span className="rounded-full bg-emerald-400/20 px-2.5 py-1 font-medium text-emerald-200">✓ {t('nothingDue')}</span>
-          )}
-        </div>
+        <label className="relative grid h-8 w-8 shrink-0 cursor-pointer place-items-center rounded-lg text-slate-300 hover:bg-white/10 hover:text-white" title={t('examDay')}>
+          <svg viewBox="0 0 24 24" className="h-4.5 w-4.5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><rect x="3" y="5" width="18" height="16" rx="2" /><path d="M16 3v4M8 3v4M3 10h18" /></svg>
+          <input type="date" value={examDate} onChange={(e) => setExamDate(e.target.value)} aria-label={t('examDay')} className="absolute inset-0 cursor-pointer opacity-0" />
+        </label>
       </div>
 
-      {/* Today's plan */}
+      {/* Today */}
       {tree.length ? (
-        <div className="mb-3 rounded-2xl border border-slate-200 p-3">
-          <div className="mb-1.5 flex items-center justify-between">
-            <div className="text-xs font-semibold uppercase tracking-wide text-slate-400">📅 {t('todayPlan')}</div>
+        <section className="mb-3">
+          <div className="mb-1.5 flex items-center justify-between px-1">
+            <div className="text-[11px] font-semibold uppercase tracking-wide text-slate-400">{t('todayPlan')}</div>
             <div className="text-[11px] text-slate-400">{t(subject)}</div>
           </div>
-          {due.length ? (
-            <div className="mb-2">
-              <div className="mb-1 text-[11px] font-semibold uppercase tracking-wide text-amber-700">{t('dueForReview')}</div>
-              <div className="space-y-1">
-                {due.slice(0, 6).map((d) => {
-                  const f = findSubtopic(d.subject, d.id)!;
-                  return (
-                    <button
-                      key={`${d.subject}:${d.id}`}
-                      type="button"
-                      onClick={() => setReading(d)}
-                      className="flex w-full items-center gap-2 rounded-xl bg-amber-50 px-3 py-1.5 text-left text-sm ring-1 ring-amber-100 hover:bg-amber-100"
-                    >
-                      <span className="h-2 w-2 shrink-0 rounded-full bg-amber-400" />
-                      <span className="min-w-0 flex-1 truncate text-slate-800">{f.sub.name[nameLang]}</span>
-                      <span className="shrink-0 text-[11px] text-slate-400">{t(d.subject)}</span>
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-          ) : null}
-          {unstudied.length ? (
-            <div>
-              <div className="mb-1 text-[11px] font-semibold uppercase tracking-wide text-sky-700">{t('newToday')}</div>
-              <div className="space-y-1">
-                {todayNew.map((id) => {
+          <div className="space-y-1">
+            {due.slice(0, 6).map((d) => {
+              const f = findSubtopic(d.subject, d.id)!;
+              return (
+                <button
+                  key={`${d.subject}:${d.id}`}
+                  type="button"
+                  onClick={() => setReading(d)}
+                  className="flex w-full items-center gap-2 rounded-xl bg-amber-50 px-3 py-2 text-left text-sm hover:bg-amber-100"
+                >
+                  <span className="h-2 w-2 shrink-0 rounded-full bg-amber-400" />
+                  <span className="min-w-0 flex-1 truncate text-slate-800">{f.sub.name[nameLang]}</span>
+                  <span className="shrink-0 text-[11px] text-amber-700">{t('dueForReview')}</span>
+                </button>
+              );
+            })}
+            {unstudied.length
+              ? todayNew.map((id) => {
                   const f = findSubtopic(subject, id)!;
                   return (
                     <button
                       key={id}
                       type="button"
                       onClick={() => setReading({ subject, id })}
-                      className="flex w-full items-center gap-2 rounded-xl bg-sky-50 px-3 py-1.5 text-left text-sm ring-1 ring-sky-100 hover:bg-sky-100"
+                      className="flex w-full items-center gap-2 rounded-xl bg-sky-50 px-3 py-2 text-left text-sm hover:bg-sky-100"
                     >
                       <span className="h-2 w-2 shrink-0 rounded-full bg-sky-400" />
                       <span className="min-w-0 flex-1 truncate text-slate-800">{f.sub.name[nameLang]}</span>
-                      <span className="shrink-0 text-[11px] text-slate-400">{f.topic.name[nameLang]}</span>
+                      <span className="shrink-0 text-[11px] text-sky-700">{t('newToday')}</span>
                     </button>
                   );
-                })}
-              </div>
-              <p className="mt-1.5 text-[11px] text-slate-500">
+                })
+              : null}
+          </div>
+          <p className="mt-1.5 px-1 text-[11px] text-slate-400">
+            {unstudied.length ? (
+              <>
                 {t('topicsLeft', { n: unstudied.length, total })} {days > 7 ? t('paceHint', { s: t(subject), n: perDay }) : null}
-              </p>
-            </div>
-          ) : (
-            <p className="text-xs text-slate-500">{t('allStarted')}</p>
-          )}
-        </div>
+              </>
+            ) : (
+              t('allStarted')
+            )}
+          </p>
+        </section>
       ) : null}
 
-      {/* Month grid */}
-      <div className="mb-3 rounded-2xl border border-slate-200 p-3">
-        <div className="mb-2 flex items-center justify-between">
-          <button type="button" aria-label="previous month" onClick={() => setMonth(new Date(month.getFullYear(), month.getMonth() - 1, 1))} className="rounded-lg p-1 hover:bg-slate-100">
-            <ChevronLeft className="h-4 w-4" />
-          </button>
-          <div className="text-sm font-semibold text-slate-800">{monthLabel}</div>
-          <button type="button" aria-label="next month" onClick={() => setMonth(new Date(month.getFullYear(), month.getMonth() + 1, 1))} className="rounded-lg p-1 hover:bg-slate-100">
-            <ChevronRight className="h-4 w-4" />
-          </button>
-        </div>
-        <div className="grid grid-cols-7 gap-y-1 text-center text-[11px]">
-          {weekdays.map((w, i) => (
-            <div key={i} className="font-semibold text-slate-400">
-              {w}
+      {/* Month grid (collapsed by default) */}
+      <section className="mb-3 rounded-2xl border border-slate-100">
+        <button
+          type="button"
+          onClick={() => setShowCal((v) => !v)}
+          aria-expanded={showCal}
+          className="flex w-full items-center gap-2 px-3 py-2 text-left"
+        >
+          <ChevronRight className={`h-4 w-4 shrink-0 text-slate-400 transition ${showCal ? 'rotate-90' : ''}`} />
+          <span className="min-w-0 flex-1 text-sm font-medium text-slate-700">{t('calendar')}</span>
+          <span className="text-[11px] text-slate-400">{monthLabel}</span>
+        </button>
+        {showCal ? (
+          <div className="border-t border-slate-100 px-3 pb-3 pt-2">
+            <div className="mb-1 flex items-center justify-between">
+              <button type="button" aria-label="previous month" onClick={() => setMonth(new Date(month.getFullYear(), month.getMonth() - 1, 1))} className="rounded-lg p-1 text-slate-500 hover:bg-slate-100">
+                <ChevronLeft className="h-4 w-4" />
+              </button>
+              <div className="text-sm font-semibold text-slate-800">{monthLabel}</div>
+              <button type="button" aria-label="next month" onClick={() => setMonth(new Date(month.getFullYear(), month.getMonth() + 1, 1))} className="rounded-lg p-1 text-slate-500 hover:bg-slate-100">
+                <ChevronRight className="h-4 w-4" />
+              </button>
             </div>
-          ))}
-          {grid.map((d, i) => {
-            if (!d) return <div key={i} />;
-            const isToday = d === today.getDate() && month.getMonth() === today.getMonth() && month.getFullYear() === today.getFullYear();
-            const isExam = d === ed && month.getMonth() === em - 1 && month.getFullYear() === ey;
-            const ts = new Date(month.getFullYear(), month.getMonth(), d).getTime();
-            const reviewed = reviewedDays.has(ts);
-            const nDue = dueDays.get(ts) ?? 0;
-            return (
-              <div key={i} className="flex flex-col items-center">
-                <div
-                  className={`grid h-7 w-7 place-items-center rounded-full text-xs ${
-                    isExam ? 'bg-red-600 font-bold text-white' : isToday ? 'bg-slate-900 font-bold text-white' : 'text-slate-700'
-                  }`}
-                  title={isExam ? t('examDay') : undefined}
-                >
-                  {d}
+            <div className="grid grid-cols-7 gap-y-0.5 text-center text-[11px]">
+              {weekdays.map((w, i) => (
+                <div key={i} className="font-semibold text-slate-400">
+                  {w}
                 </div>
-                <div className="flex h-1.5 gap-0.5">
-                  {reviewed ? <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" /> : null}
-                  {nDue && ts >= startOfDay(now) ? <span className="h-1.5 w-1.5 rounded-full bg-amber-400" /> : null}
-                </div>
-              </div>
-            );
-          })}
-        </div>
-        <div className="mt-2 flex flex-wrap gap-x-3 gap-y-1 text-[11px] text-slate-500">
-          <span className="inline-flex items-center gap-1"><span className="h-2 w-2 rounded-full bg-red-600" /> {t('examDay')}</span>
-          <span className="inline-flex items-center gap-1"><span className="h-2 w-2 rounded-full bg-emerald-500" /> {t('legendReviewed')}</span>
-          <span className="inline-flex items-center gap-1"><span className="h-2 w-2 rounded-full bg-amber-400" /> {t('legendDue')}</span>
-        </div>
-      </div>
+              ))}
+              {grid.map((d, i) => {
+                if (!d) return <div key={i} />;
+                const isToday = d === today.getDate() && month.getMonth() === today.getMonth() && month.getFullYear() === today.getFullYear();
+                const isExam = d === ed && month.getMonth() === em - 1 && month.getFullYear() === ey;
+                const ts = new Date(month.getFullYear(), month.getMonth(), d).getTime();
+                const reviewed = reviewedDays.has(ts);
+                const nDue = dueDays.get(ts) ?? 0;
+                return (
+                  <div key={i} className="flex flex-col items-center">
+                    <div
+                      className={`grid h-6 w-6 place-items-center rounded-full text-xs ${
+                        isExam ? 'bg-red-600 font-bold text-white' : isToday ? 'bg-slate-900 font-bold text-white' : 'text-slate-700'
+                      }`}
+                      title={isExam ? t('examDay') : undefined}
+                    >
+                      {d}
+                    </div>
+                    <div className="flex h-1.5 gap-0.5">
+                      {reviewed ? <span className="h-1 w-1 rounded-full bg-emerald-500" /> : null}
+                      {nDue && ts >= startOfDay(now) ? <span className="h-1 w-1 rounded-full bg-amber-400" /> : null}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+            <div className="mt-1 flex flex-wrap gap-x-3 gap-y-1 text-[11px] text-slate-400">
+              <span className="inline-flex items-center gap-1"><span className="h-1.5 w-1.5 rounded-full bg-red-600" /> {t('examDay')}</span>
+              <span className="inline-flex items-center gap-1"><span className="h-1.5 w-1.5 rounded-full bg-emerald-500" /> {t('legendReviewed')}</span>
+              <span className="inline-flex items-center gap-1"><span className="h-1.5 w-1.5 rounded-full bg-amber-400" /> {t('legendDue')}</span>
+            </div>
+          </div>
+        ) : null}
+      </section>
 
       {/* Topic tree */}
-      <div className="mb-1.5 flex items-center justify-between">
-        <div className="text-xs font-semibold uppercase tracking-wide text-slate-400">{t('topicTree')}</div>
+      <div className="mb-1.5 flex items-center justify-between px-1">
+        <div className="text-[11px] font-semibold uppercase tracking-wide text-slate-400">{t('topicTree')}</div>
         {total ? (
           <div className="text-[11px] text-slate-400">
             {doneCount}/{total}
           </div>
         ) : null}
       </div>
-      <SubjectChips />
-      <p className="mb-2 text-xs text-slate-500">{t('planHint')}</p>
+      <SubjectChips
+        extra={
+          subject === 'chemistry' ? (
+            <button
+              type="button"
+              onClick={() => setShowTable(true)}
+              title={t('periodicTable')}
+              aria-label={t('periodicTable')}
+              className="ml-auto grid h-8 w-8 place-items-center rounded-xl border border-slate-200 bg-white hover:border-sky-300 hover:bg-sky-50"
+            >
+              <span className="grid h-6 w-6 place-items-center rounded-md bg-sky-100 text-[10px] font-bold text-sky-900" aria-hidden>
+                Na
+              </span>
+            </button>
+          ) : null
+        }
+      />
+      {showTable ? <PeriodicTable onClose={() => setShowTable(false)} /> : null}
       {tree.length === 0 ? (
-        <p className="rounded-xl bg-slate-50 px-3 py-2 text-sm text-slate-500 ring-1 ring-slate-100">{t('notesComingSoon')}</p>
+        <p className="rounded-xl bg-slate-50 px-3 py-2 text-sm text-slate-500">{t('notesComingSoon')}</p>
       ) : (
-        <div className="space-y-2">
+        <div className="divide-y divide-slate-100 rounded-2xl border border-slate-100">
           {tree.map((tp) => {
             const isOpen = open[tp.id] ?? true;
             const tpDone = tp.subtopics.filter((s) => reviews[keyOf(subject, s.id)]).length;
             return (
-              <div key={tp.id} className="rounded-2xl border border-slate-200">
+              <div key={tp.id}>
                 <button
                   type="button"
                   onClick={() => toggle(tp.id)}
                   aria-expanded={isOpen}
-                  className="flex w-full items-center gap-2 px-3 py-2 text-left"
+                  className="flex w-full items-center gap-2 px-3 py-2 text-left hover:bg-slate-50"
                 >
                   <ChevronRight className={`h-4 w-4 shrink-0 text-slate-400 transition ${isOpen ? 'rotate-90' : ''}`} />
                   <span className="min-w-0 flex-1 text-sm font-semibold text-slate-800">{tp.name[nameLang]}</span>
-                  <span className="text-[11px] text-slate-400">
+                  <span className="text-[11px] tabular-nums text-slate-400">
                     {tpDone}/{tp.subtopics.length}
                   </span>
                 </button>
                 {isOpen ? (
-                  <div className="border-t border-slate-100 py-1">
+                  <div className="pb-1">
                     {tp.subtopics.map((s) => {
                       const st = statusOf(reviews[keyOf(subject, s.id)], now);
                       const hasNote = Boolean(notes?.notes[s.id]);
@@ -290,11 +310,10 @@ export default function PlanPanel() {
                           key={s.id}
                           type="button"
                           onClick={() => setReading({ subject, id: s.id })}
-                          className="flex w-full items-center gap-2 px-3 py-1.5 text-left text-sm hover:bg-slate-50"
+                          className="flex w-full items-center gap-2 py-1.5 pl-9 pr-3 text-left text-sm hover:bg-slate-50"
                         >
-                          <span className={`ml-5 h-2 w-2 shrink-0 rounded-full ${DOT[st]}`} aria-label={t(st === 'new' ? 'statusNew' : st === 'due' ? 'statusDue' : 'statusOk')} />
-                          <span className={`min-w-0 flex-1 truncate ${hasNote || !notes ? 'text-slate-800' : 'text-slate-400'}`}>{s.name[nameLang]}</span>
-                          <ChevronRight className="h-3.5 w-3.5 shrink-0 text-slate-300" />
+                          <span className={`h-2 w-2 shrink-0 rounded-full ${DOT[st]}`} aria-label={t(st === 'new' ? 'statusNew' : st === 'due' ? 'statusDue' : 'statusOk')} />
+                          <span className={`min-w-0 flex-1 truncate ${hasNote || !notes ? 'text-slate-700' : 'text-slate-400'}`}>{s.name[nameLang]}</span>
                         </button>
                       );
                     })}

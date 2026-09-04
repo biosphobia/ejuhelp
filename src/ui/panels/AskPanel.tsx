@@ -237,7 +237,6 @@ export default function AskPanel() {
           </button>
         ) : null}
       </div>
-      <p className="mb-3 text-xs text-slate-500">{t('coachHint')}</p>
 
       {activeQuestion ? (
         <div className="mb-3 rounded-2xl bg-amber-50 p-3 ring-1 ring-amber-100">

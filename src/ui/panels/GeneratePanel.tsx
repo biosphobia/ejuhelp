@@ -174,7 +174,6 @@ export default function GeneratePanel() {
               </button>
             ))}
           </div>
-          {pastMode ? <p className="mt-1 text-xs text-slate-500">{t('pastHint')}</p> : null}
         </div>
       ) : null}
 

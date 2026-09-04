@@ -37,7 +37,6 @@ export default function TimerPanel() {
 
   return (
     <Panel title={t('timer')}>
-      <p className="mb-3 text-xs text-slate-500">{t('timerHint')}</p>
 
       <div className="mb-4 grid grid-cols-2 gap-2">
         <ModeBtn on={mode === 'up'} onClick={() => setMode('up')} label={t('countUp')} />

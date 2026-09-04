@@ -1,18 +1,6 @@
 import { useUI, type PanelId } from '../lib/ui';
 import { useT, type StringKey } from '../i18n';
-import {
-  AskIcon,
-  GenerateIcon,
-  ExamIcon,
-  NotesIcon,
-  ChartIcon,
-  TimerIcon,
-  CalendarIcon,
-  SettingsIcon,
-  UserIcon,
-  MenuIcon,
-  CloseIcon,
-} from './icons';
+import { AskIcon, GenerateIcon, ExamIcon, TimerIcon, CalendarIcon, SettingsIcon, UserIcon } from './icons';
 
 type Item = { id: Exclude<PanelId, null>; label: StringKey; Icon: typeof AskIcon };
 
@@ -21,8 +9,6 @@ const PRIMARY: Item[] = [
   { id: 'ask', label: 'askCoach', Icon: AskIcon },
   { id: 'generate', label: 'generate', Icon: GenerateIcon },
   { id: 'exams', label: 'exams', Icon: ExamIcon },
-  { id: 'progress', label: 'progress', Icon: ChartIcon },
-  { id: 'notes', label: 'notes', Icon: NotesIcon },
   { id: 'timer', label: 'timer', Icon: TimerIcon },
 ];
 const SECONDARY: Item[] = [
@@ -30,55 +16,50 @@ const SECONDARY: Item[] = [
   { id: 'account', label: 'account', Icon: UserIcon },
 ];
 
+/** Slim vertical tab rail on the right edge. Tapping a tab opens its panel to the
+ *  left of the rail; tapping the active tab closes it. Stays out of the way of the
+ *  canvas: a single 44px column, translucent until hovered. */
 export default function Launcher() {
   const t = useT();
-  const open = useUI((s) => s.launcherOpen);
-  const setOpen = useUI((s) => s.setLauncherOpen);
+  const panel = useUI((s) => s.panel);
   const openPanel = useUI((s) => s.openPanel);
+  const closePanel = useUI((s) => s.closePanel);
 
-  const Row = ({ id, label, Icon }: Item) => (
-    <button
-      type="button"
-      onClick={() => openPanel(id)}
-      className="flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-left text-slate-700 transition hover:bg-slate-100"
-    >
-      <Icon className="h-5 w-5 shrink-0" />
-      <span className="whitespace-nowrap text-sm font-medium">{t(label)}</span>
-    </button>
-  );
+  const Tab = ({ id, label, Icon }: Item) => {
+    const active = panel === id;
+    return (
+      <button
+        type="button"
+        title={t(label)}
+        aria-label={t(label)}
+        aria-pressed={active}
+        onClick={() => (active ? closePanel() : openPanel(id))}
+        className={`group relative grid h-10 w-10 place-items-center rounded-xl transition ${
+          active ? 'bg-slate-900 text-white shadow-sm' : 'text-slate-500 hover:bg-slate-900/5 hover:text-slate-900'
+        }`}
+      >
+        <Icon className="h-5 w-5" />
+        <span className="pointer-events-none absolute right-full top-1/2 mr-2 -translate-y-1/2 whitespace-nowrap rounded-lg bg-slate-900 px-2 py-1 text-xs font-medium text-white opacity-0 shadow transition group-hover:opacity-100">
+          {t(label)}
+        </span>
+      </button>
+    );
+  };
 
   return (
-    <div className="pointer-events-auto absolute right-0 top-1/2 z-20 -translate-y-1/2 safe-pad-right">
-      <div className="flex items-center">
-        {/* Expanding menu */}
-        <div
-          className={`mr-1 overflow-hidden rounded-2xl bg-white/95 shadow-xl ring-1 ring-black/5 backdrop-blur transition-all duration-200 ${
-            open ? 'w-52 opacity-100' : 'pointer-events-none w-0 opacity-0'
-          }`}
-        >
-          <div className="w-52 p-2">
-            {PRIMARY.map((it) => (
-              <Row key={it.id} {...it} />
-            ))}
-            <div className="my-1 h-px bg-slate-200" />
-            {SECONDARY.map((it) => (
-              <Row key={it.id} {...it} />
-            ))}
-          </div>
-        </div>
-
-        {/* The always-present tab */}
-        <button
-          type="button"
-          aria-label={t('menu')}
-          title={t('menu')}
-          onClick={() => setOpen(!open)}
-          className={`grid h-14 w-9 place-items-center rounded-l-2xl shadow-lg ring-1 ring-black/5 backdrop-blur transition ${
-            open ? 'bg-slate-900 text-white' : 'bg-white/80 text-slate-600 hover:bg-white'
-          }`}
-        >
-          {open ? <CloseIcon className="h-5 w-5" /> : <MenuIcon className="h-5 w-5" />}
-        </button>
+    <div
+      className={`pointer-events-auto absolute right-1.5 top-1/2 z-20 -translate-y-1/2 safe-pad-right ${
+        panel ? 'hidden sm:block' : ''
+      }`}
+    >
+      <div className="flex flex-col items-center gap-0.5 rounded-2xl bg-white/85 p-1 shadow-lg ring-1 ring-black/5 backdrop-blur">
+        {PRIMARY.map((it) => (
+          <Tab key={it.id} {...it} />
+        ))}
+        <span className="my-0.5 h-px w-6 bg-slate-200" />
+        {SECONDARY.map((it) => (
+          <Tab key={it.id} {...it} />
+        ))}
       </div>
     </div>
   );

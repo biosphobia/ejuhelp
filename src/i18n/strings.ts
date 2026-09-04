@@ -137,7 +137,7 @@ export const strings = {
     tr: 'Token tasarrufu için yapay zekânın bu sohbete dair bağlamını da siler.',
   },
   // EJU calendar / study plan
-  plan: { en: 'EJU calendar', ja: 'EJUカレンダー', zh: 'EJU 日历', tr: 'EJU takvimi' },
+  plan: { en: 'Notebook', ja: 'ノート', zh: '笔记本', tr: 'Defter' },
   planHint: {
     en: 'Open a topic to read its notes, ask the coach follow-ups, and mark it reviewed. Reviewed topics come back on a spaced schedule (1, 3, 7, 14, 30 days).',
     ja: 'トピックを開いてノートを読み、コーチに質問し、「復習済み」にしましょう。復習したトピックは間隔をあけて（1・3・7・14・30日後）また出てきます。',
@@ -523,6 +523,9 @@ export const strings = {
   },
   allStarted: { en: 'Every topic started — keep reviewing what is due.', ja: 'すべてのトピックに着手済み。復習を続けましょう。', zh: '所有主题都已开始，继续复习到期内容。', tr: 'Tüm konulara başlandı; süresi gelenleri tekrar et.' },
   topicsLeft: { en: '{n} of {total} topics not started yet.', ja: '未着手のトピック：{total}中{n}。', zh: '{total} 个主题中还有 {n} 个未开始。', tr: '{total} konudan {n} tanesine henüz başlanmadı.' },
+  ptShort: { en: 'Periodic table', ja: '周期表', zh: '周期表', tr: 'Periyodik tablo' },
+  daysToExam: { en: '{n} days to the EJU', ja: 'EJUまで {n} 日', zh: '距 EJU 还有 {n} 天', tr: 'EJU’ya {n} gün' },
+  calendar: { en: 'Calendar', ja: 'カレンダー', zh: '日历', tr: 'Takvim' },
 } as const;
 
 export type StringKey = keyof typeof strings;

@@ -45,7 +45,7 @@ function IconBtn({
       title={title}
       aria-label={title}
       onClick={onClick}
-      className={`grid h-10 w-10 place-items-center rounded-xl transition ${
+      className={`grid h-9 w-9 place-items-center rounded-lg transition ${
         active ? 'bg-slate-900 text-white' : 'text-slate-600 hover:bg-slate-100'
       }`}
     >
@@ -70,7 +70,7 @@ export default function Toolbar() {
   const setFingerDraw = useUI((s) => s.setFingerDraw);
 
   return (
-    <div className="pointer-events-auto absolute left-3 top-3 flex max-w-[92vw] flex-wrap items-center gap-1 rounded-2xl bg-white/90 p-1.5 shadow-lg ring-1 ring-black/5 backdrop-blur safe-pad-top">
+    <div className="pointer-events-auto absolute left-3 top-3 flex max-w-[92vw] flex-wrap items-center gap-1 rounded-2xl bg-white/85 p-1 shadow-lg ring-1 ring-black/5 backdrop-blur safe-pad-top">
       <IconBtn active={tool === 'pen'} onClick={() => setTool('pen')} title={t('pen')}>
         <PenIcon />
       </IconBtn>
@@ -111,7 +111,7 @@ export default function Toolbar() {
             title={c}
             aria-label={c}
             onClick={() => setColor(c)}
-            className="grid h-10 w-10 place-items-center rounded-xl hover:bg-slate-100"
+            className="grid h-9 w-9 place-items-center rounded-lg hover:bg-slate-100"
           >
             <span
               className={`block rounded-full ${isActive ? 'h-7 w-7 ring-2 ring-offset-2 ring-slate-900' : 'h-5 w-5'}`}
@@ -130,7 +130,7 @@ export default function Toolbar() {
           title={`${s}px`}
           aria-label={`size ${s}`}
           onClick={() => setSize(s)}
-          className={`grid h-10 w-10 place-items-center rounded-xl transition ${
+          className={`grid h-9 w-9 place-items-center rounded-lg transition ${
             size === s ? 'bg-slate-100' : 'hover:bg-slate-100'
           }`}
         >

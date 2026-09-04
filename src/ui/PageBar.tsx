@@ -26,13 +26,13 @@ export default function PageBar() {
   };
 
   return (
-    <div className="pointer-events-auto absolute bottom-4 left-1/2 flex -translate-x-1/2 items-center gap-1 rounded-2xl bg-white/90 p-1.5 shadow-lg ring-1 ring-black/5 backdrop-blur">
+    <div className="pointer-events-auto absolute bottom-4 left-1/2 flex -translate-x-1/2 items-center gap-1 rounded-2xl bg-white/85 p-1 shadow-lg ring-1 ring-black/5 backdrop-blur">
       <button
         type="button"
         title={t('resetView')}
         aria-label={t('resetView')}
         onClick={resetView}
-        className="grid h-10 w-10 place-items-center rounded-xl text-slate-600 hover:bg-slate-100"
+        className="grid h-9 w-9 place-items-center rounded-lg text-slate-600 hover:bg-slate-100"
       >
         <ResetIcon />
       </button>
@@ -45,7 +45,7 @@ export default function PageBar() {
         aria-label="previous page"
         disabled={index <= 0}
         onClick={() => go(-1)}
-        className="grid h-10 w-10 place-items-center rounded-xl text-slate-600 hover:bg-slate-100 disabled:opacity-30"
+        className="grid h-9 w-9 place-items-center rounded-lg text-slate-600 hover:bg-slate-100 disabled:opacity-30"
       >
         <ChevronLeft />
       </button>
@@ -60,7 +60,7 @@ export default function PageBar() {
         aria-label="next page"
         disabled={index >= total - 1}
         onClick={() => go(1)}
-        className="grid h-10 w-10 place-items-center rounded-xl text-slate-600 hover:bg-slate-100 disabled:opacity-30"
+        className="grid h-9 w-9 place-items-center rounded-lg text-slate-600 hover:bg-slate-100 disabled:opacity-30"
       >
         <ChevronRight />
       </button>
@@ -72,7 +72,7 @@ export default function PageBar() {
         title={t('addPage')}
         aria-label={t('addPage')}
         onClick={addPage}
-        className="grid h-10 w-10 place-items-center rounded-xl text-slate-600 hover:bg-slate-100"
+        className="grid h-9 w-9 place-items-center rounded-lg text-slate-600 hover:bg-slate-100"
       >
         <PlusIcon />
       </button>
@@ -81,7 +81,7 @@ export default function PageBar() {
         title={t('deletePage')}
         aria-label={t('deletePage')}
         onClick={() => deletePage(currentPageId)}
-        className="grid h-10 w-10 place-items-center rounded-xl text-slate-600 hover:bg-slate-100"
+        className="grid h-9 w-9 place-items-center rounded-lg text-slate-600 hover:bg-slate-100"
       >
         <TrashIcon />
       </button>
