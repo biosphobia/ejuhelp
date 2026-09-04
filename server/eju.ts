@@ -117,6 +117,8 @@ export interface MockQuestion {
   id: string;
   number?: number;
   topic: string;
+  /** Best-matching knowledge-base subtopic id (links the question to its study note). */
+  topicId?: string;
   prompt: string;
   choices?: string[];
   answerIndex: number;
@@ -215,7 +217,7 @@ function loadRichExams(): RichExam[] {
 }
 
 /** Localize one rich question into the flat MockQuestion shape (en for zh/tr). */
-function richToMockQuestion(q: RichQuestion, lang: Lang): MockQuestion {
+function richToMockQuestion(q: RichQuestion, lang: Lang, subject: Subject): MockQuestion {
   const loc: 'ja' | 'en' = lang === 'ja' ? 'ja' : 'en';
   const block = q.topicId ? pick(BLOCK_NAME[q.topicId] ?? { en: q.topicId, ja: q.topicId }, lang) : '';
   const topic = [block, q.subtopic].filter(Boolean).join(' · ');
@@ -226,6 +228,7 @@ function richToMockQuestion(q: RichQuestion, lang: Lang): MockQuestion {
     id: q.id,
     number: q.answerRow,
     topic,
+    topicId: subtopicForRich(subject, q),
     prompt,
     choices: q[loc]?.choices ?? q.en.choices,
     answerIndex: q.answerIndex,
@@ -236,7 +239,7 @@ function richToMockQuestion(q: RichQuestion, lang: Lang): MockQuestion {
 
 function richToMockExam(ex: RichExam, lang: Lang): MockExam {
   const { questions, ...meta } = ex;
-  return { ...meta, questions: questions.map((q) => richToMockQuestion(q, lang)) };
+  return { ...meta, questions: questions.map((q) => richToMockQuestion(q, lang, ex.subject)) };
 }
 
 /** Legacy + rich exams merged by id (rich wins), localized to `lang`. */
@@ -343,7 +346,13 @@ export interface Exemplar {
 // question text (the KB lists law names; questions say "ideal gas", "orbit", …).
 const EXTRA_KEYWORDS: Record<string, string[]> = {
   'ideal-gas': ['ideal gas', 'state equation', 'boyle', 'charles', 'pv=nrt', '理想気体', 'ボイル', 'シャルル'],
-  'potential-energy': ['potential energy', 'mechanical energy', 'spring', 'elastic', '位置エネルギー', '力学的エネルギー', 'ばね'],
+  'potential-energy': ['potential energy', 'mechanical energy', 'energy conservation', 'conservation of energy', 'spring', 'elastic', '位置エネルギー', '力学的エネルギー', 'エネルギー保存', 'ばね'],
+  shm: ['simple harmonic', 'harmonic', 'oscillat', 'pendulum', 'period of', '単振動', '振り子', '周期'],
+  doppler: ['doppler', 'ドップラー'],
+  sound: ['resonance', 'air column', 'pipe', 'string', 'beat', 'overtone', '共鳴', '気柱', '弦', 'うなり'],
+  light: ['refraction', 'reflection', 'lens', 'mirror', 'snell', 'total internal', 'critical angle', '屈折', 'レンズ', '全反射'],
+  'circular-motion': ['circular', 'centripetal', 'conical', 'angular velocity', '円運動', '向心'],
+  'friction-resistance': ['friction', 'coefficient', 'air resistance', 'terminal', '摩擦', '空気抵抗', '終端'],
   'inertial-force': ['inertial', 'centrifugal', 'elevator', 'accelerating', 'non-inertial', '慣性力', '遠心力', 'エレベーター'],
   'light-interference': ['interference', 'young', 'grating', 'thin film', 'wedge', 'path difference', '干渉', '回折', '薄膜'],
   'ac-circuits': ['alternating', 'inductor', 'coil', 'impedance', 'reactance', 'rms', 'effective', '交流', 'コイル', '実効値'],
@@ -393,6 +402,7 @@ function scoreRich(subject: Subject, subtopicId: string | undefined): { scored: 
     .filter((k) => k.length > 2);
   if (!kws.length && !topicId) return { scored: [], kws };
   const scored: ScoredRich[] = [];
+  const nameKw = kws[0]; // the subtopic's own English name comes first
   for (const ex of loadRichExams()) {
     if (ex.subject !== subject) continue;
     for (const q of ex.questions) {
@@ -403,7 +413,7 @@ function scoreRich(subject: Subject, subtopicId: string | undefined): { scored: 
       for (const k of kws) {
         if (hay.includes(k)) {
           hits++;
-          score += 3;
+          score += k === nameKw ? 6 : 3;
         } else if (body.includes(k)) {
           hits++;
           score += 1;
@@ -417,6 +427,51 @@ function scoreRich(subject: Subject, subtopicId: string | undefined): { scored: 
   }
   scored.sort((a, b) => b.score - a.score || b.ex.year - a.ex.year);
   return { scored, kws, topicId };
+}
+
+/** Keyword lists per subtopic id, built once per subject. */
+const kwCache = new Map<Subject, { id: string; topicId: string; kws: string[] }[]>();
+function subtopicKeywords(subject: Subject) {
+  let out = kwCache.get(subject);
+  if (out) return out;
+  out = [];
+  const kb = getKB(subject);
+  for (const t of kb?.topics ?? []) {
+    for (const st of t.subtopics ?? []) {
+      const kws = [st.name.en, ...(st.keywords ?? []), ...(EXTRA_KEYWORDS[st.id] ?? [])]
+        .map((k) => k.toLowerCase())
+        .filter((k) => k.length > 2);
+      out.push({ id: st.id, topicId: t.id, kws });
+    }
+  }
+  kwCache.set(subject, out);
+  return out;
+}
+
+const subtopicCache = new Map<string, string | undefined>();
+/** The knowledge-base subtopic that best describes one rich question (or undefined). */
+function subtopicForRich(subject: Subject, q: RichQuestion): string | undefined {
+  const key = `${subject}:${q.id}`;
+  if (subtopicCache.has(key)) return subtopicCache.get(key);
+  const hay = `${q.subtopic ?? ''} ${(q as any).patternTags?.join(' ') ?? ''}`.toLowerCase();
+  const body = `${q.en?.prompt ?? ''} ${q.ja?.prompt ?? ''}`.toLowerCase();
+  const qTopic = q.topicId ? BLOCK_TO_TOPIC[q.topicId] ?? q.topicId : undefined;
+  let best: string | undefined;
+  let bestScore = 0;
+  for (const st of subtopicKeywords(subject)) {
+    let score = 0;
+    for (const k of st.kws) {
+      if (hay.includes(k)) score += k === st.kws[0] ? 6 : 3;
+      else if (body.includes(k)) score += 1;
+    }
+    if (score > 0 && qTopic && st.topicId === qTopic) score += 1;
+    if (score > bestScore) {
+      bestScore = score;
+      best = st.id;
+    }
+  }
+  subtopicCache.set(key, best);
+  return best;
 }
 
 export interface PastQuestion extends MockQuestion {
@@ -435,7 +490,7 @@ export function pastQuestionsFor(subject: Subject, subtopicId: string, lang: Lan
     .filter((s) => s.hits > 0)
     .slice(0, Math.max(1, Math.min(30, limit)))
     .map(({ q, ex }) => ({
-      ...richToMockQuestion(q, lang),
+      ...richToMockQuestion(q, lang, subject),
       topicId: subtopicId,
       source: `EJU ${ex.year}-${ex.session}`,
     }));
