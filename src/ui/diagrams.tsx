@@ -831,6 +831,489 @@ const FIGS: Record<string, (l: L) => ReactNode> = {
       <text x="240" y="16" fontSize="9" fill={C.b}>[O]</text>
     </Fig>
   ),
+  // ── Biology ──
+  atp: (l) => (
+    <Fig w={340} h={120} caption={bi(l, 'ATP = adenine + ribose (together: adenosine) + three phosphates. The two outer phosphate bonds are high-energy; ATP → ADP + Pi releases the energy cells use.', 'ATP = アデニン ＋ リボース（合わせてアデノシン）＋ リン酸3個。外側2つのリン酸結合が高エネルギー。ATP → ADP ＋ Pi で細胞が使うエネルギーが出る。')}>
+      <rect x="20" y="35" width="70" height="40" rx="8" fill="#fde68a" stroke={C.ink} />
+      <text x="33" y="60" fontSize="11" fontWeight="600">{bi(l, 'adenine', 'アデニン')}</text>
+      <polygon points="100,75 130,75 140,50 115,32 90,50" fill="#bbf7d0" stroke={C.ink} />
+      <text x="98" y="94" fontSize="10">{bi(l, 'ribose', 'リボース')}</text>
+      {[0, 1, 2].map((i) => (
+        <g key={i}>
+          <circle cx={175 + i * 50} cy="55" r="17" fill="#fecaca" stroke={C.b} />
+          <text x={170 + i * 50} y="59" fontSize="11" fontWeight="600">P</text>
+        </g>
+      ))}
+      <line x1="140" y1="55" x2="158" y2="55" stroke={C.ink} strokeWidth="2" />
+      <text x="204" y="35" fontSize="12" fill={C.b}>~</text>
+      <text x="254" y="35" fontSize="12" fill={C.b}>~</text>
+      <line x1="20" y1="108" x2="140" y2="108" stroke={C.ink} />
+      <text x="40" y="118" fontSize="9">{bi(l, 'adenosine', 'アデノシン')}</text>
+      <text x="195" y="100" fontSize="9" fill={C.b}>{bi(l, 'high-energy bonds', '高エネルギーリン酸結合')}</text>
+    </Fig>
+  ),
+  mitochondrion: (l) => (
+    <Fig w={340} h={180} caption={bi(l, 'Glycolysis is outside, in the cytoplasm. Inside: the citric acid cycle in the matrix makes CO₂ and NADH; the electron transport chain on the folded inner membrane uses O₂ and makes most of the ATP.', '解糖系は外の細胞質基質。内部：マトリックスのクエン酸回路が CO₂ と NADH をつくり、ひだ状の内膜の電子伝達系が O₂ を使って ATP の大部分をつくる。')}>
+      <ellipse cx="200" cy="95" rx="125" ry="65" fill="#fee2e2" stroke={C.ink} strokeWidth="2" />
+      <path d="M100,95 C110,60 130,60 140,95 C150,130 170,130 180,95 C190,60 210,60 220,95 C230,130 250,130 260,95 C270,60 290,60 300,95" fill="none" stroke={C.b} strokeWidth="2" />
+      <text x="120" y="140" fontSize="10" fontWeight="600">{bi(l, 'matrix: citric acid cycle', 'マトリックス：クエン酸回路')}</text>
+      <text x="150" y="153" fontSize="9">→ CO₂, NADH, FADH₂</text>
+      <text x="200" y="20" fontSize="9" fill={C.b} fontWeight="600">{bi(l, 'inner membrane (cristae):', '内膜（クリステ）：')}</text>
+      <text x="200" y="32" fontSize="9" fill={C.b}>{bi(l, 'electron transport, ATP synthase', '電子伝達系、ATP 合成酵素')}</text>
+      <text x="200" y="44" fontSize="9" fill={C.b}>O₂ → H₂O, ~34 ATP</text>
+      <text x="8" y="20" fontSize="10" fontWeight="600">{bi(l, 'cytoplasm: glycolysis', '細胞質基質：解糖系')}</text>
+      <text x="8" y="32" fontSize="9">{bi(l, 'glucose → 2 pyruvate, 2 ATP', 'グルコース → ピルビン酸 2、ATP 2')}</text>
+      <Arrow x1={50} y1={40} x2={82} y2={72} c="k" />
+    </Fig>
+  ),
+  chloroplast: (l) => (
+    <Fig w={340} h={180} caption={bi(l, 'Light reactions on the thylakoid membranes (stacked into grana) split water and make ATP + NADPH; the Calvin–Benson cycle in the stroma uses them to turn CO₂ into sugar.', 'チラコイド膜（積み重なってグラナ）の光化学反応が水を分解し ATP ＋ NADPH をつくる。ストロマのカルビン・ベンソン回路がそれを使って CO₂ を糖にする。')}>
+      <ellipse cx="170" cy="95" rx="140" ry="65" fill="#dcfce7" stroke={C.ink} strokeWidth="2" />
+      {[0, 1, 2].map((g) => (
+        <g key={g}>
+          {[0, 1, 2, 3].map((i) => (
+            <rect key={i} x={70 + g * 75} y={70 + i * 10} width="40" height="6" rx="3" fill="#16a34a" />
+          ))}
+        </g>
+      ))}
+      <text x="60" y="58" fontSize="9" fill={C.c} fontWeight="600">{bi(l, 'thylakoid / grana: light reactions', 'チラコイド／グラナ：光化学反応')}</text>
+      <text x="60" y="128" fontSize="9" fill={C.c}>H₂O → O₂ ; ATP, NADPH</text>
+      <text x="130" y="150" fontSize="10" fontWeight="600">{bi(l, 'stroma: Calvin–Benson cycle', 'ストロマ：カルビン・ベンソン回路')}</text>
+      <text x="150" y="162" fontSize="9">CO₂ → {bi(l, 'sugar', '糖')} (uses ATP, NADPH)</text>
+    </Fig>
+  ),
+  'nitrogen-cycle': (l) => (
+    <Fig w={340} h={200} caption={bi(l, 'Only a few bacteria fix N₂; plants assimilate nitrate/ammonium into protein; nitrifiers oxidise NH₄⁺ → NO₃⁻; denitrifiers return N₂ to the air.', 'N₂ を固定できるのは少数の細菌だけ。植物は硝酸・アンモニウムをタンパク質に同化。硝化菌が NH₄⁺ → NO₃⁻ に酸化。脱窒菌が N₂ を空気に戻す。')}>
+      <rect x="120" y="10" width="100" height="26" rx="6" fill="#dbeafe" stroke={C.ink} />
+      <text x="145" y="27" fontSize="11" fontWeight="600">N₂ ({bi(l, 'air', '空気')})</text>
+      <rect x="20" y="90" width="90" height="26" rx="6" fill="#fef3c7" stroke={C.ink} />
+      <text x="40" y="107" fontSize="11">NH₄⁺</text>
+      <rect x="230" y="90" width="90" height="26" rx="6" fill="#fef3c7" stroke={C.ink} />
+      <text x="255" y="107" fontSize="11">NO₃⁻</text>
+      <rect x="110" y="160" width="120" height="26" rx="6" fill="#dcfce7" stroke={C.ink} />
+      <text x="118" y="177" fontSize="10">{bi(l, 'plant/animal protein', '植物・動物のタンパク質')}</text>
+      <Arrow x1={130} y1={36} x2={70} y2={88} c="a" label={bi(l, 'fixation (bacteria)', '窒素固定（細菌）')} lx={4} ly={60} />
+      <Arrow x1={110} y1={103} x2={228} y2={103} c="d" label={bi(l, 'nitrification', '硝化')} lx={140} ly={96} />
+      <Arrow x1={250} y1={90} x2={215} y2={38} c="e" label={bi(l, 'denitrification', '脱窒')} lx={250} ly={60} />
+      <Arrow x1={260} y1={116} x2={200} y2={158} c="c" label={bi(l, 'assimilation', '同化')} lx={238} ly={145} />
+      <Arrow x1={120} y1={160} x2={70} y2={118} c="k" label={bi(l, 'decomposition', '分解')} lx={28} ly={140} />
+    </Fig>
+  ),
+  'replication-fork': (l) => (
+    <Fig w={340} h={170} caption={bi(l, 'Both new strands grow 5′→3′. Toward the fork that is continuous (leading strand); away from the fork it must be made in Okazaki fragments (lagging strand), later joined by ligase.', '新しい鎖はどちらも 5′→3′ に伸びる。フォークに向かう側は連続的（リーディング鎖）。フォークから離れる側は岡崎フラグメントとして合成され（ラギング鎖）、後でリガーゼがつなぐ。')}>
+      <line x1="30" y1="60" x2="150" y2="85" stroke={C.ink} strokeWidth="2.5" />
+      <line x1="30" y1="110" x2="150" y2="85" stroke={C.ink} strokeWidth="2.5" />
+      <line x1="150" y1="85" x2="320" y2="85" stroke={C.ink} strokeWidth="2.5" opacity="0.4" />
+      <line x1="150" y1="85" x2="320" y2="85" stroke={C.ink} strokeWidth="1" strokeDasharray="4 3" />
+      <text x="230" y="78" fontSize="9">{bi(l, 'parent double helix', '親の二重らせん')}</text>
+      <Arrow x1={40} y1={50} x2={135} y2={70} c="a" label={bi(l, 'leading (continuous)', 'リーディング鎖（連続）')} lx={20} ly={38} />
+      <Arrow x1={80} y1={122} x2={45} y2={115} c="b" />
+      <Arrow x1={135} y1={135} x2={100} y2={127} c="b" />
+      <text x="30" y="150" fontSize="9" fill={C.b}>{bi(l, 'lagging: Okazaki fragments, each 5′→3′', 'ラギング鎖：岡崎フラグメント、各 5′→3′')}</text>
+      <circle cx="150" cy="85" r="7" fill="#fde68a" stroke={C.ink} />
+      <text x="140" y="105" fontSize="9">{bi(l, 'helicase', 'ヘリカーゼ')}</text>
+      <Arrow x1={165} y1={30} x2={200} y2={30} c="k" label={bi(l, 'fork moves', 'フォークの進行')} />
+    </Fig>
+  ),
+  'central-dogma': (l) => (
+    <Fig w={340} h={120} caption={bi(l, 'DNA is transcribed into mRNA in the nucleus (introns spliced out in eukaryotes), then translated on a ribosome, three bases per amino acid.', 'DNA は核内で mRNA に転写され（真核生物ではイントロンが除かれ）、リボソームで 3 塩基ごとに 1 アミノ酸として翻訳される。')}>
+      <rect x="10" y="40" width="70" height="34" rx="6" fill="#dbeafe" stroke={C.ink} />
+      <text x="30" y="61" fontSize="12" fontWeight="600">DNA</text>
+      <rect x="135" y="40" width="70" height="34" rx="6" fill="#fef3c7" stroke={C.ink} />
+      <text x="150" y="61" fontSize="12" fontWeight="600">mRNA</text>
+      <rect x="260" y="40" width="72" height="34" rx="6" fill="#dcfce7" stroke={C.ink} />
+      <text x="268" y="61" fontSize="11" fontWeight="600">{bi(l, 'protein', 'タンパク質')}</text>
+      <Arrow x1={82} y1={57} x2={132} y2={57} c="a" />
+      <text x="84" y="30" fontSize="9" fill={C.a}>{bi(l, 'transcription', '転写')}</text>
+      <text x="80" y="92" fontSize="8">{bi(l, 'RNA polymerase, promoter', 'RNA ポリメラーゼ、プロモーター')}</text>
+      <Arrow x1={207} y1={57} x2={257} y2={57} c="c" />
+      <text x="212" y="30" fontSize="9" fill={C.c}>{bi(l, 'translation', '翻訳')}</text>
+      <text x="205" y="92" fontSize="8">{bi(l, 'ribosome, tRNA, codons', 'リボソーム、tRNA、コドン')}</text>
+      <text x="10" y="110" fontSize="8">{bi(l, 'nucleus', '核')} ←────────→ {bi(l, 'cytoplasm', '細胞質')}</text>
+    </Fig>
+  ),
+  recombinant: (l) => (
+    <Fig w={340} h={150} caption={bi(l, 'Cut the gene and the plasmid with the same restriction enzyme, join with DNA ligase, put the plasmid into E. coli, which then expresses the human gene.', '遺伝子とプラスミドを同じ制限酵素で切り、DNA リガーゼでつなぎ、プラスミドを大腸菌に入れると、大腸菌がヒトの遺伝子を発現する。')}>
+      <line x1="15" y1="40" x2="95" y2="40" stroke={C.b} strokeWidth="5" />
+      <text x="10" y="30" fontSize="9">{bi(l, 'human gene', 'ヒトの遺伝子')}</text>
+      <circle cx="55" cy="105" r="25" fill="none" stroke={C.a} strokeWidth="4" />
+      <text x="24" y="143" fontSize="9">{bi(l, 'plasmid', 'プラスミド')}</text>
+      <Arrow x1={100} y1={75} x2={140} y2={75} c="k" label={bi(l, 'restriction enzyme', '制限酵素')} lx={92} ly={64} />
+      <circle cx="185" cy="80" r="28" fill="none" stroke={C.a} strokeWidth="4" />
+      <path d="M160,70 A28,28 0 0,1 176,54" fill="none" stroke={C.b} strokeWidth="5" />
+      <text x="150" y="128" fontSize="9">{bi(l, 'ligase joins', 'リガーゼで結合')}</text>
+      <Arrow x1={220} y1={80} x2={255} y2={80} c="k" />
+      <ellipse cx="295" cy="80" rx="38" ry="22" fill="#fef3c7" stroke={C.ink} />
+      <circle cx="295" cy="80" r="9" fill="none" stroke={C.a} strokeWidth="2.5" />
+      <text x="272" y="118" fontSize="9">E. coli → {bi(l, 'insulin', 'インスリン')}</text>
+    </Fig>
+  ),
+  linkage: (l) => (
+    <Fig w={340} h={160} caption={bi(l, 'Linked genes A and B sit on the same chromosome. Crossing over between them in meiosis I swaps segments, giving the two minority recombinant gametes Ab and aB.', '連鎖した遺伝子 A と B は同じ染色体上。減数第一分裂での乗換えが断片を交換し、少数派の組換え配偶子 Ab と aB ができる。')}>
+      <line x1="40" y1="40" x2="40" y2="120" stroke={C.a} strokeWidth="6" />
+      <line x1="60" y1="40" x2="60" y2="120" stroke={C.b} strokeWidth="6" />
+      <text x="25" y="35" fontSize="10">A</text>
+      <text x="25" y="130" fontSize="10">B</text>
+      <text x="66" y="35" fontSize="10">a</text>
+      <text x="66" y="130" fontSize="10">b</text>
+      <path d="M40,80 L60,95" stroke={C.ink} strokeWidth="1.5" />
+      <path d="M60,80 L40,95" stroke={C.ink} strokeWidth="1.5" />
+      <text x="20" y="150" fontSize="9">{bi(l, 'crossing over', '乗換え')}</text>
+      <Arrow x1={90} y1={80} x2={125} y2={80} c="k" />
+      {[['A B', C.a, C.a, 140], ['a b', C.b, C.b, 185], ['A b', C.a, C.b, 240], ['a B', C.b, C.a, 285]].map(([lab, top, bot, x], i) => (
+        <g key={i}>
+          <line x1={Number(x)} y1="45" x2={Number(x)} y2="85" stroke={String(top)} strokeWidth="6" />
+          <line x1={Number(x)} y1="85" x2={Number(x)} y2="120" stroke={String(bot)} strokeWidth="6" />
+          <text x={Number(x) - 10} y="138" fontSize="10">{String(lab)}</text>
+        </g>
+      ))}
+      <text x="135" y="30" fontSize="9">{bi(l, 'parental (many)', '親型（多い）')}</text>
+      <text x="230" y="30" fontSize="9" fill={C.d}>{bi(l, 'recombinant (few)', '組換え型（少ない）')}</text>
+    </Fig>
+  ),
+  meiosis: (l) => (
+    <Fig w={340} h={150} caption={bi(l, 'Meiosis I separates homologous pairs (2n → n); meiosis II separates sister chromatids. DNA is copied only once, before division I.', '第一分裂で相同染色体が分かれ（2n → n）、第二分裂で姉妹染色分体が分かれる。DNA の複製は第一分裂の前に1回だけ。')}>
+      <circle cx="45" cy="75" r="30" fill="#f1f5f9" stroke={C.ink} />
+      <line x1="38" y1="55" x2="38" y2="95" stroke={C.a} strokeWidth="5" />
+      <line x1="46" y1="55" x2="46" y2="95" stroke={C.a} strokeWidth="5" />
+      <line x1="54" y1="60" x2="54" y2="90" stroke={C.b} strokeWidth="5" />
+      <line x1="62" y1="60" x2="62" y2="90" stroke={C.b} strokeWidth="5" />
+      <text x="20" y="125" fontSize="9">2n, 4C</text>
+      <Arrow x1={80} y1={75} x2={110} y2={75} c="k" label="I" lx={90} ly={68} />
+      <circle cx="145" cy="45" r="22" fill="#f1f5f9" stroke={C.ink} />
+      <line x1="140" y1="30" x2="140" y2="60" stroke={C.a} strokeWidth="5" />
+      <line x1="148" y1="30" x2="148" y2="60" stroke={C.a} strokeWidth="5" />
+      <circle cx="145" cy="108" r="22" fill="#f1f5f9" stroke={C.ink} />
+      <line x1="140" y1="95" x2="140" y2="121" stroke={C.b} strokeWidth="5" />
+      <line x1="148" y1="95" x2="148" y2="121" stroke={C.b} strokeWidth="5" />
+      <text x="120" y="142" fontSize="9">n, 2C</text>
+      <Arrow x1={172} y1={75} x2={202} y2={75} c="k" label="II" lx={182} ly={68} />
+      {[[240, 28, C.a], [240, 72, C.a], [240, 116, C.b], [300, 72, C.b]].map(([x, y, col], i) => (
+        <g key={i}>
+          <circle cx={Number(x)} cy={Number(y)} r="16" fill="#f1f5f9" stroke={C.ink} />
+          <line x1={Number(x)} y1={Number(y) - 10} x2={Number(x)} y2={Number(y) + 10} stroke={String(col)} strokeWidth="5" />
+        </g>
+      ))}
+      <text x="262" y="30" fontSize="9">n, C</text>
+      <text x="255" y="140" fontSize="9">{bi(l, '4 gametes', '配偶子4個')}</text>
+    </Fig>
+  ),
+  'embryo-sac': (l) => (
+    <Fig w={340} h={170} caption={bi(l, 'Embryo sac (8 nuclei): egg + 2 synergids at the micropyle end, 2 polar nuclei in the centre, 3 antipodals at the far end. Sperm 1 + egg → embryo (2n); sperm 2 + 2 polar nuclei → endosperm (3n).', '胚のう（核8個）：珠孔側に卵細胞 ＋ 助細胞2、中央に極核2、反対側に反足細胞3。精細胞1 ＋ 卵 → 胚（2n）。精細胞2 ＋ 極核2 → 胚乳（3n）。')}>
+      <ellipse cx="170" cy="85" rx="70" ry="60" fill="#dcfce7" stroke={C.ink} strokeWidth="2" />
+      {[[150, 130], [190, 130]].map(([x, y], i) => (
+        <circle key={i} cx={x} cy={y} r="8" fill="#fef3c7" stroke={C.ink} />
+      ))}
+      <circle cx="170" cy="122" r="9" fill="#fecaca" stroke={C.b} strokeWidth="2" />
+      <text x="205" y="138" fontSize="9">{bi(l, 'egg + 2 synergids', '卵細胞 ＋ 助細胞2')}</text>
+      <circle cx="160" cy="85" r="7" fill="#bfdbfe" stroke={C.a} />
+      <circle cx="180" cy="85" r="7" fill="#bfdbfe" stroke={C.a} />
+      <text x="245" y="90" fontSize="9">{bi(l, '2 polar nuclei', '極核2')}</text>
+      {[[150, 40], [170, 34], [190, 40]].map(([x, y], i) => (
+        <circle key={i} cx={x} cy={y} r="7" fill="#e2e8f0" stroke={C.ink} />
+      ))}
+      <text x="205" y="40" fontSize="9">{bi(l, '3 antipodal cells', '反足細胞3')}</text>
+      <Arrow x1={170} y1={168} x2={170} y2={140} c="b" label={bi(l, 'pollen tube: 2 sperm', '花粉管：精細胞2')} lx={20} ly={160} />
+      <text x="20" y="20" fontSize="9">{bi(l, 'micropyle end ↓', '珠孔側 ↓')}</text>
+    </Fig>
+  ),
+  gastrula: (l) => (
+    <Fig w={340} h={170} caption={bi(l, 'Blastula: hollow ball with the blastocoel. Gastrula: cells fold in at the blastopore, making the archenteron (future gut) lined by endoderm, ectoderm outside, mesoderm between.', '胞胚：胞胚腔をもつ中空の球。原腸胚：原口から細胞が陥入し、内胚葉に裏打ちされた原腸（将来の腸）ができ、外側は外胚葉、間は中胚葉。')}>
+      <circle cx="75" cy="85" r="55" fill="none" stroke={C.a} strokeWidth="8" />
+      <text x="52" y="90" fontSize="9">{bi(l, 'blastocoel', '胞胚腔')}</text>
+      <text x="45" y="160" fontSize="10" fontWeight="600">{bi(l, 'blastula', '胞胚')}</text>
+      <circle cx="235" cy="85" r="55" fill="none" stroke={C.a} strokeWidth="8" />
+      <path d="M290,85 C270,60 215,60 210,85 C215,110 270,110 290,85" fill="#fef3c7" stroke={C.d} strokeWidth="6" />
+      <path d="M262,70 C250,60 225,65 222,85" fill="none" stroke={C.b} strokeWidth="4" />
+      <text x="228" y="89" fontSize="8">{bi(l, 'archenteron', '原腸')}</text>
+      <text x="292" y="72" fontSize="9">{bi(l, 'blastopore', '原口')}</text>
+      <text x="185" y="40" fontSize="9" fill={C.a}>{bi(l, 'ectoderm', '外胚葉')}</text>
+      <text x="245" y="128" fontSize="9" fill={C.d}>{bi(l, 'endoderm', '内胚葉')}</text>
+      <text x="200" y="60" fontSize="9" fill={C.b}>{bi(l, 'mesoderm', '中胚葉')}</text>
+      <text x="205" y="160" fontSize="10" fontWeight="600">{bi(l, 'gastrula', '原腸胚')}</text>
+    </Fig>
+  ),
+  circulation: (l) => (
+    <Fig w={340} h={190} caption={bi(l, 'Two loops. Pulmonary: right heart → lungs → left heart. Systemic: left heart → body → right heart. The pulmonary artery carries venous (low-O₂) blood; the pulmonary vein carries the most oxygen-rich blood.', '2つの回路。肺循環：右心 → 肺 → 左心。体循環：左心 → 全身 → 右心。肺動脈は静脈血（低 O₂）、肺静脈は最も O₂ の多い血液を運ぶ。')}>
+      <rect x="130" y="15" width="80" height="34" rx="8" fill="#dbeafe" stroke={C.ink} />
+      <text x="152" y="37" fontSize="11" fontWeight="600">{bi(l, 'lungs', '肺')}</text>
+      <rect x="130" y="140" width="80" height="34" rx="8" fill="#fecaca" stroke={C.ink} />
+      <text x="150" y="162" fontSize="11" fontWeight="600">{bi(l, 'body', '全身')}</text>
+      <rect x="120" y="72" width="48" height="46" rx="6" fill="#e2e8f0" stroke={C.ink} />
+      <text x="128" y="92" fontSize="9">{bi(l, 'right', '右')}</text>
+      <text x="126" y="106" fontSize="8">RA / RV</text>
+      <rect x="172" y="72" width="48" height="46" rx="6" fill="#e2e8f0" stroke={C.ink} />
+      <text x="184" y="92" fontSize="9">{bi(l, 'left', '左')}</text>
+      <text x="178" y="106" fontSize="8">LA / LV</text>
+      <path d="M144,72 C144,50 150,40 130,32" fill="none" stroke={C.a} strokeWidth="3" markerEnd="url(#ar-a)" />
+      <text x="6" y="60" fontSize="9" fill={C.a}>{bi(l, 'pulmonary artery', '肺動脈')}</text>
+      <text x="6" y="71" fontSize="8" fill={C.a}>{bi(l, '(venous blood)', '（静脈血）')}</text>
+      <path d="M210,32 C225,40 196,50 196,72" fill="none" stroke={C.b} strokeWidth="3" markerEnd="url(#ar-b)" />
+      <text x="222" y="60" fontSize="9" fill={C.b}>{bi(l, 'pulmonary vein', '肺静脈')}</text>
+      <path d="M196,118 C196,135 250,120 250,157 L212,157" fill="none" stroke={C.b} strokeWidth="3" markerEnd="url(#ar-b)" />
+      <text x="240" y="185" fontSize="9" fill={C.b}>{bi(l, 'aorta', '大動脈')}</text>
+      <path d="M128,157 C90,157 90,120 144,118" fill="none" stroke={C.a} strokeWidth="3" markerEnd="url(#ar-a)" />
+      <text x="20" y="150" fontSize="9" fill={C.a}>{bi(l, 'vena cava', '大静脈')}</text>
+    </Fig>
+  ),
+  'oxygen-dissociation': (l) => (
+    <Plot
+      x={[0, 110]}
+      y={[0, 100]}
+      xLabel={bi(l, 'O₂ partial pressure', 'O₂ 分圧')}
+      yLabel={bi(l, '% saturation', '酸素ヘモグロビン %')}
+      curves={[
+        { pts: Array.from({ length: 23 }, (_, i) => { const p = i * 5; return [p, (100 * p ** 2.7) / (26 ** 2.7 + p ** 2.7)] as Pt; }), color: C.a, label: bi(l, 'low CO₂ (lungs)', '低 CO₂（肺）'), labelAt: 9 },
+        { pts: Array.from({ length: 23 }, (_, i) => { const p = i * 5; return [p, (100 * p ** 2.7) / (36 ** 2.7 + p ** 2.7)] as Pt; }), color: C.b, label: bi(l, 'high CO₂ (tissue)', '高 CO₂（組織）'), labelAt: 22 },
+      ]}
+      vlines={[{ x: 100, label: bi(l, 'lungs', '肺') }, { x: 30, label: bi(l, 'tissue', '組織') }]}
+      hlines={[{ y: 96 }, { y: 35 }]}
+      caption={bi(l, 'Read saturation on the lung curve at pO₂ = 100 (≈96%) and on the tissue curve at pO₂ = 30 (≈35%): the difference, ≈61% of the haemoglobin, unloads its O₂ in the tissue.', '肺の曲線で pO₂ = 100 の飽和度（≈96%）、組織の曲線で pO₂ = 30 の飽和度（≈35%）を読む：差の ≈61% のヘモグロビンが組織で O₂ を放す。')}
+    />
+  ),
+  nephron: (l) => (
+    <Fig w={340} h={170} caption={bi(l, 'Glomerulus filters plasma minus proteins into Bowman\'s capsule (primitive urine); the tubule reabsorbs all glucose and most water and salt into the capillaries; what is left leaves as urine.', '糸球体がタンパク質を除いた血しょうをボーマンのうへろ過（原尿）。細尿管がグルコース全部と水・塩の大部分を毛細血管へ再吸収。残りが尿として出る。')}>
+      <circle cx="60" cy="60" r="28" fill="none" stroke={C.ink} strokeWidth="2" />
+      <circle cx="60" cy="60" r="16" fill="#fecaca" stroke={C.b} strokeWidth="2" />
+      <text x="6" y="105" fontSize="8">{bi(l, 'glomerulus in', '糸球体')}</text>
+      <text x="6" y="115" fontSize="8">{bi(l, 'Bowman\'s capsule', '（ボーマンのう内）')}</text>
+      <Arrow x1={20} y1={40} x2={44} y2={52} c="b" label={bi(l, 'blood in', '血液')} lx={4} ly={30} />
+      <path d="M88,60 L130,60 L130,130 L200,130 L200,60 L280,60 L280,140" fill="none" stroke={C.d} strokeWidth="6" />
+      <text x="95" y="52" fontSize="9">{bi(l, 'primitive urine', '原尿')}</text>
+      <text x="140" y="148" fontSize="9">{bi(l, 'tubule', '細尿管')}</text>
+      <text x="285" y="150" fontSize="9">{bi(l, 'urine', '尿')}</text>
+      <path d="M140,75 L140,120 L190,120 L190,75" fill="none" stroke={C.b} strokeWidth="3" strokeDasharray="4 3" />
+      <text x="205" y="90" fontSize="9" fill={C.b}>{bi(l, 'capillary: reabsorbs', '毛細血管：再吸収')}</text>
+      <text x="205" y="102" fontSize="9" fill={C.b}>{bi(l, 'glucose 100%, water 99%', 'グルコース 100%、水 99%')}</text>
+      <Arrow x1={165} y1={125} x2={165} y2={105} c="b" />
+    </Fig>
+  ),
+  'blood-sugar': (l) => (
+    <Fig w={340} h={180} caption={bi(l, 'Only insulin lowers blood sugar; glucagon and adrenaline (and glucocorticoids) raise it. The hypothalamus reads the level and acts through autonomic nerves and the pituitary.', '血糖を下げるのはインスリンだけ。グルカゴンとアドレナリン（と糖質コルチコイド）が上げる。視床下部が血糖を感知し、自律神経と脳下垂体を通してはたらく。')}>
+      <rect x="120" y="70" width="100" height="36" rx="8" fill="#fef3c7" stroke={C.ink} />
+      <text x="132" y="92" fontSize="11" fontWeight="600">{bi(l, 'blood glucose', '血糖')}</text>
+      <text x="20" y="30" fontSize="10" fontWeight="600" fill={C.c}>{bi(l, 'too high →', '高い →')}</text>
+      <rect x="20" y="40" width="90" height="30" rx="6" fill="#dcfce7" stroke={C.c} />
+      <text x="26" y="59" fontSize="9">{bi(l, 'insulin (β cells)', 'インスリン（B 細胞）')}</text>
+      <Arrow x1={110} y1={55} x2={118} y2={75} c="c" />
+      <text x="20" y="88" fontSize="8" fill={C.c}>{bi(l, '→ glycogen, into cells', '→ グリコーゲン、細胞へ')}</text>
+      <text x="230" y="30" fontSize="10" fontWeight="600" fill={C.b}>{bi(l, '← too low', '← 低い')}</text>
+      <rect x="230" y="40" width="100" height="30" rx="6" fill="#fecaca" stroke={C.b} />
+      <text x="236" y="52" fontSize="8">{bi(l, 'glucagon (α cells)', 'グルカゴン（A 細胞）')}</text>
+      <text x="236" y="64" fontSize="8">{bi(l, 'adrenaline (medulla)', 'アドレナリン（髄質）')}</text>
+      <Arrow x1={230} y1={55} x2={222} y2={75} c="b" />
+      <text x="228" y="88" fontSize="8" fill={C.b}>{bi(l, 'glycogen → glucose', 'グリコーゲン → グルコース')}</text>
+      <rect x="120" y="130" width="100" height="30" rx="8" fill="#e2e8f0" stroke={C.ink} />
+      <text x="128" y="149" fontSize="10">{bi(l, 'hypothalamus', '視床下部')}</text>
+      <Arrow x1={170} y1={108} x2={170} y2={128} c="k" />
+      <text x="30" y="150" fontSize="8">{bi(l, 'parasympathetic →', '副交感神経 →')}</text>
+      <text x="228" y="150" fontSize="8">{bi(l, '← sympathetic', '← 交感神経')}</text>
+    </Fig>
+  ),
+  thermoregulation: (l) => (
+    <Fig w={340} h={150} caption={bi(l, 'Cold: constrict skin vessels, shiver, raise metabolism (adrenaline, thyroxine). Hot: dilate vessels, sweat. The hypothalamus is the thermostat.', '寒い：皮膚の血管を収縮、ふるえ、代謝を上げる（アドレナリン、チロキシン）。暑い：血管を拡張、発汗。視床下部が体温のサーモスタット。')}>
+      <rect x="120" y="55" width="100" height="34" rx="8" fill="#e2e8f0" stroke={C.ink} />
+      <text x="128" y="76" fontSize="10" fontWeight="600">{bi(l, 'hypothalamus', '視床下部')}</text>
+      <text x="14" y="30" fontSize="10" fontWeight="600" fill={C.a}>{bi(l, 'cold', '寒い')}</text>
+      <text x="14" y="48" fontSize="8">{bi(l, 'vessels constrict', '血管収縮')}</text>
+      <text x="14" y="62" fontSize="8">{bi(l, 'shivering', 'ふるえ')}</text>
+      <text x="14" y="76" fontSize="8">{bi(l, 'adrenaline, thyroxine ↑', 'アドレナリン、チロキシン ↑')}</text>
+      <text x="14" y="90" fontSize="8">{bi(l, 'goose bumps', '鳥肌')}</text>
+      <Arrow x1={118} y1={72} x2={100} y2={72} c="a" />
+      <text x="250" y="30" fontSize="10" fontWeight="600" fill={C.b}>{bi(l, 'hot', '暑い')}</text>
+      <text x="250" y="48" fontSize="8">{bi(l, 'vessels dilate', '血管拡張')}</text>
+      <text x="250" y="62" fontSize="8">{bi(l, 'sweating', '発汗')}</text>
+      <text x="250" y="76" fontSize="8">{bi(l, 'metabolism not raised', '代謝は上げない')}</text>
+      <Arrow x1={222} y1={72} x2={240} y2={72} c="b" />
+      <text x="110" y="125" fontSize="9">{bi(l, 'setpoint ≈ 37 °C, negative feedback', '設定値 ≈ 37 ℃、負のフィードバック')}</text>
+    </Fig>
+  ),
+  'immune-response': (l) => (
+    <Fig w={340} h={170} caption={bi(l, 'A macrophage/dendritic cell presents the antigen; the helper T cell activates B cells (antibodies: humoral) and killer T cells (cellular). Memory cells remain for next time.', 'マクロファージ／樹状細胞が抗原を提示。ヘルパー T 細胞が B 細胞（抗体：体液性）とキラー T 細胞（細胞性）を活性化。記憶細胞が次回のために残る。')}>
+      <circle cx="50" cy="85" r="24" fill="#fef3c7" stroke={C.ink} />
+      <text x="22" y="125" fontSize="9">{bi(l, 'macrophage / dendritic', 'マクロファージ／樹状細胞')}</text>
+      <text x="30" y="89" fontSize="8">{bi(l, 'antigen', '抗原提示')}</text>
+      <Arrow x1={76} y1={85} x2={118} y2={85} c="k" />
+      <circle cx="145" cy="85" r="24" fill="#dcfce7" stroke={C.c} />
+      <text x="126" y="89" fontSize="9" fontWeight="600">{bi(l, 'helper T', 'ヘルパー T')}</text>
+      <Arrow x1={165} y1={70} x2={215} y2={40} c="c" />
+      <Arrow x1={165} y1={100} x2={215} y2={130} c="c" />
+      <circle cx="245" cy="35" r="20" fill="#dbeafe" stroke={C.a} />
+      <text x="238" y="39" fontSize="9" fontWeight="600">B</text>
+      <text x="270" y="30" fontSize="9">{bi(l, '→ antibodies', '→ 抗体')}</text>
+      <text x="270" y="42" fontSize="8">{bi(l, '(humoral)', '（体液性）')}</text>
+      <circle cx="245" cy="135" r="20" fill="#fecaca" stroke={C.b} />
+      <text x="228" y="139" fontSize="8" fontWeight="600">{bi(l, 'killer T', 'キラー T')}</text>
+      <text x="270" y="130" fontSize="9">{bi(l, '→ kills infected cells', '→ 感染細胞を殺す')}</text>
+      <text x="270" y="142" fontSize="8">{bi(l, '(cellular)', '（細胞性）')}</text>
+      <text x="200" y="88" fontSize="8" fill={C.c}>{bi(l, 'cytokines', 'サイトカイン')}</text>
+    </Fig>
+  ),
+  'antibody-response': (l) => (
+    <Plot
+      x={[0, 60]}
+      y={[0, 10]}
+      xLabel={bi(l, 'days', '日')}
+      yLabel={bi(l, 'antibody', '抗体量')}
+      curves={[
+        { pts: [[0, 0], [5, 0.1], [8, 0.8], [12, 1.8], [16, 1.4], [22, 0.6], [30, 0.3], [32, 0.4], [34, 3], [37, 7.5], [42, 9], [50, 7.5], [60, 5.5]], color: C.a, label: bi(l, 'antigen A', '抗原 A'), labelAt: 10 },
+        { pts: [[30, 0], [35, 0.1], [38, 0.8], [42, 1.8], [46, 1.4], [52, 0.6], [60, 0.3]], color: C.b, label: bi(l, 'antigen B (first time)', '抗原 B（初回）'), labelAt: 3 },
+      ]}
+      vlines={[{ x: 0, label: bi(l, '1st A', 'A 1回目') }, { x: 30, label: bi(l, '2nd A + 1st B', 'A 2回目 ＋ B 初回') }]}
+      caption={bi(l, 'Second exposure to A: faster and much higher (memory cells). B given at the same time only gets a slow primary response — immunity is specific.', 'A の2回目：速く、はるかに高い（記憶細胞）。同時に与えた B は遅い一次応答だけ — 免疫は特異的。')}
+    />
+  ),
+  'action-potential': (l) => (
+    <Plot
+      x={[0, 5]}
+      y={[-90, 50]}
+      xLabel="t (ms)"
+      yLabel="mV"
+      curves={[
+        { pts: [[0, -70], [0.8, -70], [1, -55], [1.3, 30], [1.6, 0], [1.9, -80], [2.5, -75], [3.2, -70], [5, -70]], color: C.a },
+      ]}
+      hlines={[{ y: -70, label: '−70' }, { y: -55, label: '−55' }, { y: 0, label: '0' }]}
+      points={[{ x: 0.3, y: -55, label: bi(l, 'threshold', '閾値'), color: C.d }, { x: 1.15, y: -20, label: bi(l, 'Na⁺ in', 'Na⁺ 流入'), color: C.b }, { x: 1.75, y: -30, label: bi(l, 'K⁺ out', 'K⁺ 流出'), color: C.c }]}
+      caption={bi(l, 'Above threshold, Na⁺ channels open (depolarisation to +30 mV), then K⁺ channels open (repolarisation, brief undershoot). Same size every time — all or none.', '閾値を超えると Na⁺ チャネルが開き（+30 mV まで脱分極）、次に K⁺ チャネルが開く（再分極、少し下回る）。毎回同じ大きさ — 全か無か。')}
+    />
+  ),
+  eye: (l) => (
+    <Fig w={340} h={160} caption={bi(l, 'Light is focused by the lens onto the retina. In the retina, light passes the ganglion and bipolar cells first and reaches the rods and cones at the back; the signal then travels forward to the optic nerve.', '光は水晶体で網膜に結ばれる。網膜では光がまず神経節細胞と双極細胞を通り、奥の桿体・錐体に届く。信号はその後前へ戻って視神経へ。')}>
+      <ellipse cx="90" cy="80" rx="70" ry="55" fill="#f8fafc" stroke={C.ink} strokeWidth="2" />
+      <ellipse cx="42" cy="80" rx="10" ry="22" fill="#dbeafe" stroke={C.a} />
+      <text x="26" y="130" fontSize="9">{bi(l, 'lens', '水晶体')}</text>
+      <path d="M155,40 A70,55 0 0,1 155,120" fill="none" stroke={C.b} strokeWidth="4" />
+      <text x="120" y="145" fontSize="9" fill={C.b}>{bi(l, 'retina', '網膜')}</text>
+      <circle cx="158" cy="80" r="4" fill={C.d} />
+      <text x="140" y="70" fontSize="8">{bi(l, 'fovea', '黄斑')}</text>
+      <line x1="160" y1="98" x2="200" y2="110" stroke={C.ink} strokeWidth="3" />
+      <text x="140" y="135" fontSize="8">{bi(l, 'optic nerve', '視神経')}</text>
+      <Arrow x1={5} y1={80} x2={30} y2={80} c="d" label="" />
+      <rect x="215" y="30" width="115" height="100" rx="6" fill="#fff" stroke={C.faint} />
+      <text x="220" y="45" fontSize="8" fontWeight="600">{bi(l, 'retina, zoomed', '網膜の拡大')}</text>
+      <Arrow x1={225} y1={60} x2={225} y2={115} c="d" label={bi(l, 'light', '光')} lx={218} ly={126} />
+      <text x="245" y="62" fontSize="8">{bi(l, 'ganglion cells', '神経節細胞')}</text>
+      <text x="245" y="82" fontSize="8">{bi(l, 'bipolar cells', '双極細胞')}</text>
+      <text x="245" y="102" fontSize="8">{bi(l, 'rods & cones', '桿体・錐体')}</text>
+      <Arrow x1={318} y1={110} x2={318} y2={58} c="a" label="" />
+      <text x="300" y="125" fontSize="7" fill={C.a}>{bi(l, 'signal', '信号')}</text>
+    </Fig>
+  ),
+  sarcomere: (l) => (
+    <Fig w={340} h={150} caption={bi(l, 'Thin actin filaments (from the Z lines) slide over thick myosin filaments. On contraction the I band and H zone shrink; the A band (myosin length) stays the same.', '細いアクチンフィラメント（Z 膜から）が太いミオシンフィラメントの上を滑る。収縮で明帯と H 帯は縮み、暗帯（ミオシンの長さ）は変わらない。')}>
+      <line x1="30" y1="30" x2="30" y2="110" stroke={C.ink} strokeWidth="3" />
+      <line x1="310" y1="30" x2="310" y2="110" stroke={C.ink} strokeWidth="3" />
+      <text x="20" y="125" fontSize="9">Z</text>
+      <text x="304" y="125" fontSize="9">Z</text>
+      {[45, 70, 95].map((y) => (
+        <g key={y}>
+          <line x1="30" y1={y} x2="140" y2={y} stroke={C.a} strokeWidth="3" />
+          <line x1="200" y1={y} x2="310" y2={y} stroke={C.a} strokeWidth="3" />
+        </g>
+      ))}
+      {[57, 82].map((y) => (
+        <line key={y} x1="100" y1={y} x2="240" y2={y} stroke={C.b} strokeWidth="6" />
+      ))}
+      <line x1="100" y1="20" x2="240" y2="20" stroke={C.ink} />
+      <text x="150" y="16" fontSize="9">{bi(l, 'A band (same)', '暗帯（不変）')}</text>
+      <line x1="140" y1="135" x2="200" y2="135" stroke={C.ink} />
+      <text x="152" y="146" fontSize="8">{bi(l, 'H zone ↓', 'H 帯 ↓')}</text>
+      <line x1="30" y1="135" x2="100" y2="135" stroke={C.ink} />
+      <text x="45" y="146" fontSize="8">{bi(l, 'I band ↓', '明帯 ↓')}</text>
+      <text x="245" y="60" fontSize="8" fill={C.b}>{bi(l, 'myosin', 'ミオシン')}</text>
+      <text x="245" y="100" fontSize="8" fill={C.a}>{bi(l, 'actin', 'アクチン')}</text>
+    </Fig>
+  ),
+  'auxin-response': (l) => (
+    <Plot
+      x={[0, 6]}
+      y={[-1, 1.2]}
+      xLabel={bi(l, 'auxin concentration (log)', 'オーキシン濃度（対数）')}
+      yLabel={bi(l, 'growth', '成長')}
+      curves={[
+        { pts: Array.from({ length: 40 }, (_, i) => { const x = (i * 6) / 39; return [x, 1.1 * Math.exp(-((x - 1.5) ** 2) / 0.9) - 0.15 * Math.max(0, x - 3)] as Pt; }), color: C.c, label: bi(l, 'root', '根'), labelAt: 10 },
+        { pts: Array.from({ length: 40 }, (_, i) => { const x = (i * 6) / 39; return [x, 1.1 * Math.exp(-((x - 4) ** 2) / 1.2) - 0.05 * Math.max(0, x - 5.5)] as Pt; }), color: C.b, label: bi(l, 'stem', '茎'), labelAt: 26 },
+      ]}
+      hlines={[{ y: 0, label: '0' }]}
+      vlines={[{ x: 4, label: bi(l, 'stem optimum', '茎の最適') }]}
+      caption={bi(l, 'The concentration that makes the stem grow most already inhibits the root (below zero). That is why a horizontal root bends down and a horizontal stem bends up.', '茎を最もよく伸ばす濃度で根はすでに抑制される（0 以下）。だから水平にした根は下へ、茎は上へ曲がる。')}
+    />
+  ),
+  photoperiod: (l) => (
+    <Fig w={340} h={170} caption={bi(l, 'Bars: white = light, black = dark. A short-day plant (critical dark period 10 h) flowers only when the continuous dark exceeds 10 h; a flash of light at night splits the dark period and prevents flowering.', '棒：白 = 明期、黒 = 暗期。短日植物（限界暗期 10 時間）は連続した暗期が 10 時間を超えるときだけ開花。夜の短い光は暗期を分断して開花を妨げる。')}>
+      {[
+        [30, 14, 10, bi(l, 'flowers ✓', '開花 ✓'), true],
+        [70, 8, 16, bi(l, 'no ✗', '開花せず ✗'), false],
+        [110, 14, 10, bi(l, 'no ✗ (night break)', '開花せず ✗（光中断）'), false],
+      ].map(([y, dark, light, lab, ok], i) => {
+        const total = 24;
+        const x0 = 20;
+        const w = 190;
+        const dw = (Number(dark) / total) * w;
+        return (
+          <g key={i}>
+            <rect x={x0} y={Number(y)} width={dw} height="20" fill={C.ink} />
+            <rect x={x0 + dw} y={Number(y)} width={w - dw} height="20" fill="#fff" stroke={C.ink} />
+            {i === 2 ? <rect x={x0 + dw / 2 - 3} y={Number(y)} width="6" height="20" fill="#fde68a" stroke={C.d} /> : null}
+            <text x={x0 + 4} y={Number(y) + 14} fontSize="9" fill="#fff">{dark} h</text>
+            <text x={x0 + w + 6} y={Number(y) + 14} fontSize="9" fill={ok ? C.c : C.b} fontWeight="600">{String(lab)}</text>
+          </g>
+        );
+      })}
+      <text x="20" y="160" fontSize="9">{bi(l, 'short-day plant, critical dark period 10 h', '短日植物、限界暗期 10 時間')}</text>
+    </Fig>
+  ),
+  survivorship: (l) => (
+    <Plot
+      x={[0, 100]}
+      y={[0, 3.1]}
+      xLabel={bi(l, '% of maximum lifespan', '最大寿命に対する %')}
+      yLabel={bi(l, 'survivors (log)', '生存数（対数）')}
+      curves={[
+        { pts: Array.from({ length: 21 }, (_, i) => { const x = i * 5; return [x, 3 - 2.9 * Math.pow(x / 100, 6)] as Pt; }), color: C.a, label: bi(l, 'I: humans', 'I 型：ヒト'), labelAt: 12 },
+        { pts: [[0, 3], [100, 0.1]], color: C.c, label: bi(l, 'II: birds', 'II 型：鳥類'), labelAt: 1 },
+        { pts: Array.from({ length: 21 }, (_, i) => { const x = i * 5; return [x, 0.1 + 2.9 * Math.exp(-x / 8)] as Pt; }), color: C.b, label: bi(l, 'III: fish', 'III 型：魚類'), labelAt: 4 },
+      ]}
+      caption={bi(l, 'Type I: most survive to old age (few offspring, much care). Type II: constant risk. Type III: most die young (many offspring, no care).', 'I 型（晩死型）：多くが老齢まで生きる（子は少なく保護が厚い）。II 型（平均型）：危険が一定。III 型（早死型）：多くが幼いうちに死ぬ（子は多く保護なし）。')}
+    />
+  ),
+  'energy-flow': (l) => (
+    <Fig w={340} h={170} caption={bi(l, 'Energy enters as light, passes up the food chain shrinking ~90% per level, and leaves as heat from every level. Matter cycles; energy does not.', 'エネルギーは光として入り、食物連鎖を上がるごとに約 90% 減り、各段階から熱として出る。物質は循環するがエネルギーは循環しない。')}>
+      <text x="10" y="30" fontSize="10" fontWeight="600" fill={C.d}>☀ {bi(l, 'light', '光')}</text>
+      <rect x="20" y="120" width="200" height="22" fill="#dcfce7" stroke={C.ink} />
+      <text x="26" y="135" fontSize="9">{bi(l, 'producers 100%', '生産者 100%')}</text>
+      <rect x="20" y="90" width="90" height="22" fill="#fef3c7" stroke={C.ink} />
+      <text x="26" y="105" fontSize="9">{bi(l, 'herbivores ~10%', '一次消費者 約 10%')}</text>
+      <rect x="20" y="60" width="40" height="22" fill="#fecaca" stroke={C.ink} />
+      <text x="26" y="75" fontSize="8">{bi(l, '~1%', '約 1%')}</text>
+      <text x="64" y="75" fontSize="8">{bi(l, 'carnivores', '二次消費者')}</text>
+      {[131, 101, 71].map((y, i) => (
+        <Arrow key={i} x1={230 + i * 0} y1={y} x2={290} y2={y} c="b" label={bi(l, 'heat', '熱')} lx={294} ly={y + 4} />
+      ))}
+      <Arrow x1={70} y1={155} x2={70} y2={145} c="d" />
+      <text x="80" y="160" fontSize="9">{bi(l, 'photosynthesis', '光合成')}</text>
+      <text x="230" y="40" fontSize="8" fill={C.b}>{bi(l, 'respiration at every level', '各段階の呼吸')}</text>
+    </Fig>
+  ),
+  'plant-tree': (l) => (
+    <Fig w={340} h={150} caption={bi(l, 'Each step adds a land-adaptation: vascular tissue (ferns), seeds (gymnosperms), flowers and fruit (angiosperms). Mosses have none of these and their main body is haploid.', '各段階で陸への適応が加わる：維管束（シダ）、種子（裸子植物）、花と果実（被子植物）。コケはどれももたず本体は単相。')}>
+      <line x1="20" y1="120" x2="320" y2="120" stroke={C.ink} strokeWidth="2" />
+      {[
+        [45, bi(l, 'green algae', '緑藻'), ''],
+        [108, bi(l, 'mosses', 'コケ植物'), bi(l, '+ land, cuticle', '＋ 陸上、クチクラ')],
+        [171, bi(l, 'ferns', 'シダ植物'), bi(l, '+ vascular tissue', '＋ 維管束')],
+        [234, bi(l, 'gymnosperms', '裸子植物'), bi(l, '+ seeds, pollen', '＋ 種子、花粉')],
+        [297, bi(l, 'angiosperms', '被子植物'), bi(l, '+ flowers, fruit', '＋ 花、果実')],
+      ].map(([x, name, gain], i) => (
+        <g key={i}>
+          <line x1={Number(x)} y1="120" x2={Number(x)} y2={60 - i * 8} stroke={C.c} strokeWidth="2" />
+          <circle cx={Number(x)} cy={60 - i * 8} r="4" fill={C.c} />
+          <text x={Number(x)} y={48 - i * 8} fontSize="8" fontWeight="600" textAnchor="middle">{String(name)}</text>
+          <text x={Number(x)} y={140} fontSize="7" fill={C.b} textAnchor="middle">{String(gain)}</text>
+        </g>
+      ))}
+    </Fig>
+  ),
 };
 
 export function Figure({ id }: { id: string }) {
