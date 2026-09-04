@@ -14,6 +14,8 @@ interface GeneratedState {
   /** Bumped whenever `sets` change; drives local + cloud autosave. */
   rev: number;
   setQuestions: (subject: Subject, questions: GenQuestion[]) => void;
+  /** Insert questions right after `afterId` (or at the end) without dropping the rest. */
+  addQuestions: (subject: Subject, questions: GenQuestion[], afterId?: string) => void;
   /** Wipe one subject's set, or every subject's when omitted. */
   clear: (subject?: Subject) => void;
   /** Replace all sets from a saved copy (localStorage / Firestore). */
@@ -42,6 +44,13 @@ export const useGenerated = create<GeneratedState>((set) => ({
       sets: { ...s.sets, [subject]: { questions, ts: Date.now() } },
       rev: s.rev + 1,
     })),
+  addQuestions: (subject, questions, afterId) =>
+    set((s) => {
+      const cur = s.sets[subject]?.questions ?? [];
+      const i = afterId ? cur.findIndex((q) => q.id === afterId) : -1;
+      const next = i >= 0 ? [...cur.slice(0, i + 1), ...questions, ...cur.slice(i + 1)] : [...cur, ...questions];
+      return { sets: { ...s.sets, [subject]: { questions: next, ts: s.sets[subject]?.ts ?? Date.now() } }, rev: s.rev + 1 };
+    }),
   clear: (subject) =>
     set((s) => {
       if (!subject) return { sets: {}, rev: s.rev + 1 };

@@ -7,18 +7,29 @@ export default function Panel({
   title,
   children,
   footer,
+  wide,
+  headerExtra,
 }: {
   title: string;
   children: ReactNode;
   footer?: ReactNode;
+  /** Wider drawer for content-heavy panels (tables, charts). */
+  wide?: boolean;
+  /** Extra controls rendered in the header next to the close button. */
+  headerExtra?: ReactNode;
 }) {
   const t = useT();
   const closePanel = useUI((s) => s.closePanel);
 
   return (
-    <div className="selectable pointer-events-auto absolute inset-y-0 right-0 z-30 flex w-full max-w-[440px] flex-col bg-white shadow-2xl ring-1 ring-black/10 safe-pad-top">
-      <header className="flex items-center justify-between border-b border-slate-100 px-4 py-3">
-        <h2 className="text-base font-semibold text-slate-900">{title}</h2>
+    <div
+      className={`selectable pointer-events-auto absolute inset-y-0 right-0 z-30 flex w-full flex-col bg-white shadow-2xl ring-1 ring-black/10 safe-pad-top transition-[max-width] duration-200 ${
+        wide ? 'max-w-[760px]' : 'max-w-[440px]'
+      }`}
+    >
+      <header className="flex items-center justify-between gap-2 border-b border-slate-100 px-4 py-3">
+        <h2 className="min-w-0 flex-1 truncate text-base font-semibold text-slate-900">{title}</h2>
+        {headerExtra}
         <button
           type="button"
           aria-label={t('close')}

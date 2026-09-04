@@ -464,6 +464,44 @@ export const strings = {
     zh: '页面好像是空的——请先写下你的解答。',
     tr: 'Sayfan boş görünüyor — önce çözümünü yaz.',
   },
+
+  // Coach takeaway card + formatting
+  takeaway: { en: 'Takeaway', ja: 'まとめ', zh: '要点小结', tr: 'Özet' },
+  keyIdeaLabel: { en: 'Key idea', ja: '核心', zh: '核心思想', tr: 'Ana fikir' },
+  rememberLabel: { en: 'Remember', ja: '覚えること', zh: '记住', tr: 'Hatırla' },
+  trapLabel: { en: 'Trap', ja: '落とし穴', zh: '陷阱', tr: 'Tuzak' },
+  nextQuestions: { en: 'Ask next', ja: '次に聞くとよい質問', zh: '接下来可以问', tr: 'Sonra sor' },
+  wideView: { en: 'Wide view', ja: 'ワイド表示', zh: '宽屏', tr: 'Geniş görünüm' },
+  narrowView: { en: 'Narrow view', ja: '標準表示', zh: '窄屏', tr: 'Dar görünüm' },
+  starterTopics: {
+    en: 'Which topics come up most in EJU {s}, and what does each typically ask?',
+    ja: 'EJUの{s}でよく出る分野と、それぞれの典型的な出題を教えてください。',
+    zh: 'EJU {s} 最常考哪些主题？每个主题通常怎么出题？',
+    tr: 'EJU {s} sınavında en çok hangi konular çıkıyor ve her biri tipik olarak ne sorar?',
+  },
+  starterFormulas: {
+    en: 'Give me the formulas I must memorise for {s}, as a table with when to use each one.',
+    ja: '{s}で必ず覚えるべき公式を、使う場面つきの表にまとめてください。',
+    zh: '把 {s} 必背公式做成一张表，并注明每个公式什么时候用。',
+    tr: '{s} için ezberlemem gereken formülleri, her birinin ne zaman kullanılacağıyla birlikte tablo olarak ver.',
+  },
+  starterQuiz: {
+    en: 'Quiz me with one easy EJU-style question, wait for my answer, then explain it from zero.',
+    ja: 'EJU形式のやさしい問題を1問出して、私の答えを待ってから、ゼロから解説してください。',
+    zh: '给我出一道简单的 EJU 风格题，等我作答后，再从零开始讲解。',
+    tr: 'Bana kolay bir EJU tarzı soru sor, cevabımı bekle, sonra sıfırdan açıkla.',
+  },
+
+  // Question cards
+  showHint: { en: 'Hint', ja: 'ヒント', zh: '提示', tr: 'İpucu' },
+  hideHint: { en: 'Hide hint', ja: 'ヒントを隠す', zh: '隐藏提示', tr: 'İpucunu gizle' },
+  whatThisTests: { en: 'What this tests', ja: 'この問題のポイント', zh: '考点', tr: 'Sorunun test ettiği' },
+  whyYourChoice: { en: 'Why your choice is tempting', ja: 'なぜその選択肢に引っかかるか', zh: '为什么会选错', tr: 'Seçimin neden cazip' },
+  whyCorrect: { en: 'Why this is right', ja: 'なぜこれが正解か', zh: '为什么这是对的', tr: 'Neden bu doğru' },
+  trySimilar: { en: 'Try a similar one', ja: '類題に挑戦', zh: '再来一道类似题', tr: 'Benzer bir soru dene' },
+  openNote: { en: 'Open the note', ja: 'ノートを開く', zh: '打开笔记', tr: 'Notu aç' },
+  similarAdded: { en: 'A similar question was added below.', ja: '類題を下に追加しました。', zh: '已在下方添加类似题。', tr: 'Benzer bir soru aşağıya eklendi.' },
+  reviewMarkedDue: { en: 'Added to today’s review in the EJU calendar.', ja: 'EJUカレンダーの今日の復習に追加しました。', zh: '已加入 EJU 日历的今日复习。', tr: 'EJU takvimindeki bugünün tekrarına eklendi.' },
 } as const;
 
 export type StringKey = keyof typeof strings;

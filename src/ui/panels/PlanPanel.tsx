@@ -6,6 +6,7 @@ import { useReview, keyOf, statusOf, daysUntil, startOfDay, type ReviewStatus } 
 import { TREES, loadNotes, findSubtopic } from '../../data/notes';
 import type { SubjectNotes } from '../../data/notes/types';
 import NoteReader from '../NoteReader';
+import { usePractice } from '../../lib/practice';
 import { useT } from '../../i18n';
 
 const LOCALE: Record<string, string> = { en: 'en-US', ja: 'ja-JP', zh: 'zh-CN', tr: 'tr-TR' };
@@ -33,6 +34,14 @@ export default function PlanPanel() {
     const d = new Date();
     return new Date(d.getFullYear(), d.getMonth(), 1);
   });
+
+  // A question card asked to open a specific note.
+  const wantNote = usePractice((s) => s.wantNote);
+  useEffect(() => {
+    if (!wantNote) return;
+    setReading(wantNote);
+    usePractice.getState().setWantNote(null);
+  }, [wantNote]);
 
   useEffect(() => {
     let alive = true;

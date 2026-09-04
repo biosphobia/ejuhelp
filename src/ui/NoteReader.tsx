@@ -86,6 +86,7 @@ export default function NoteReader({
     return keyPoints
       .filter((k) => k.subject === subject)
       .filter((k) => {
+        if (k.topic === id) return true; // saved from a coach reply on exactly this note
         const hay = `${k.topic ?? ''} ${k.text}`.toLowerCase();
         return words.some((w) => hay.includes(w));
       })

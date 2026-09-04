@@ -15,6 +15,7 @@ import { useGenerated } from '../../lib/generated';
 import { useProgress, summarize, focusFromSummary } from '../../lib/userdata';
 import { useT } from '../../i18n';
 import { TrashIcon } from '../icons';
+import { loadNotes } from '../../data/notes';
 
 const EMPTY: GenQuestion[] = [];
 
@@ -108,6 +109,14 @@ export default function GeneratePanel() {
     try {
       const focusPayload =
         focus && hasWeakData ? focusFromSummary(summarize(subjectAttempts)) : undefined;
+      // If the study notes cover this topic, hand the coach the note's core idea so
+      // the questions test exactly what the student just read.
+      let noteCore: string | undefined;
+      if (!focusPayload && topic) {
+        const data = await loadNotes(subject).catch(() => null);
+        const n = data?.notes[topic];
+        if (n) noteCore = n.core[lang === 'ja' ? 'ja' : 'en'];
+      }
       const res = await generateQuestions({
         subject,
         lang,
@@ -115,6 +124,7 @@ export default function GeneratePanel() {
         difficulty,
         count,
         focus: focusPayload,
+        noteCore,
       });
       setQuestions(subject, res.questions);
     } catch (e) {

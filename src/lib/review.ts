@@ -24,6 +24,8 @@ interface ReviewState {
   rev: number;
   markReviewed: (subject: Subject, id: string) => void;
   unmark: (subject: Subject, id: string) => void;
+  /** Pull a topic forward so it is due today (e.g. after a wrong practice answer). */
+  markDue: (subject: Subject, id: string) => void;
   setExamDate: (d: string) => void;
   load: (data: { reviews?: ReviewMap; examDate?: string }) => void;
 }
@@ -53,6 +55,17 @@ export const useReview = create<ReviewState>((set) => ({
       const now = Date.now();
       return {
         reviews: { ...s.reviews, [k]: { last: now, count, due: startOfDay(now) + gap * DAY } },
+        rev: s.rev + 1,
+      };
+    }),
+  markDue: (subject, id) =>
+    set((s) => {
+      const k = keyOf(subject, id);
+      const prev = s.reviews[k];
+      const today = startOfDay(Date.now());
+      if (prev && prev.due <= today) return s;
+      return {
+        reviews: { ...s.reviews, [k]: { last: prev?.last ?? 0, count: prev?.count ?? 0, due: today } },
         rev: s.rev + 1,
       };
     }),

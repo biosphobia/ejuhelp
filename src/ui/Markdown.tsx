@@ -1,6 +1,7 @@
 import { Fragment, type ReactNode } from 'react';
 import katex from 'katex';
 import { Figure } from './diagrams';
+import ChartBlock from './Chart';
 
 // Minimal, safe Markdown -> React (headings, bold, inline code, lists, paragraphs)
 // with LaTeX math via KaTeX. Math is delimited by $…$ / \(…\) (inline) and
@@ -146,9 +147,38 @@ export default function Markdown({ text }: { text: string }) {
     }
   };
 
+  let fence: { lang: string; lines: string[] } | null = null;
+  const flushFence = (k: string) => {
+    if (!fence) return;
+    const body = fence.lines.join('\n');
+    if (/^chart$/i.test(fence.lang)) blocks.push(<ChartBlock key={k} json={body} />);
+    else if (/^(math|latex|tex)$/i.test(fence.lang)) blocks.push(<div key={k}>{renderMath(body, true, k)}</div>);
+    else
+      blocks.push(
+        <pre key={k} className="thin-scroll my-2 overflow-x-auto rounded-xl bg-slate-100 p-3 font-mono text-[13px] leading-relaxed text-slate-800">
+          {body}
+        </pre>
+      );
+    fence = null;
+  };
+
   lines.forEach((raw, idx) => {
     const line = raw.trimEnd();
     const k = `bl-${idx}`;
+    const fenceOpen = /^\s*```\s*([\w-]*)\s*$/.exec(line);
+    if (fence) {
+      if (fenceOpen && !fenceOpen[1]) flushFence(k);
+      else fence.lines.push(raw);
+      return;
+    }
+    if (fenceOpen) {
+      flushPara(k);
+      flushList(k);
+      flushTable(k);
+      flushQuote(k);
+      fence = { lang: fenceOpen[1], lines: [] };
+      return;
+    }
     const h = /^(#{1,3})\s+(.*)$/.exec(line);
     const ul = /^[-*]\s+(.*)$/.exec(line);
     const ol = /^\d+[.)]\s+(.*)$/.exec(line);
@@ -207,6 +237,7 @@ export default function Markdown({ text }: { text: string }) {
   flushList('bl-end');
   flushTable('bl-end');
   flushQuote('bl-end');
+  flushFence('bl-end');
 
   return <div className="text-[15px] text-slate-800">{blocks}</div>;
 }

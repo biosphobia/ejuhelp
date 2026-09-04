@@ -60,9 +60,19 @@ export interface KeyPointDTO {
   topic?: string;
 }
 
+/** Structured takeaway the coach appends to each answer. */
+export interface AskSummary {
+  keyIdea: string;
+  formulas: string[];
+  traps: string[];
+  nextQuestions: string[];
+  topicId?: string;
+}
+
 export interface AskResponse {
   text: string;
   keyPoints: KeyPointDTO[];
+  summary?: AskSummary | null;
 }
 export const askClaude = (p: {
   subject: Subject;
@@ -78,11 +88,21 @@ export type Difficulty = 'easy' | 'medium' | 'hard';
 export interface GenQuestion {
   id: string;
   topic: string;
+  /** Knowledge-base subtopic id the question was generated for (links back to the notes). */
+  topicId?: string;
   prompt: string;
   choices?: string[];
   answerIndex: number; // 0-based correct choice, or -1 if not multiple-choice
   answer: string;
   explanation: string;
+  /** A nudge toward the first step that does not give the answer away. */
+  hint?: string;
+  /** The one idea the question tests. */
+  keyIdea?: string;
+  /** Why each option is right / which mistake produces it (same order as choices). */
+  choiceNotes?: string[];
+  /** The typical mistake this question catches. */
+  trap?: string;
 }
 export interface GenerateResponse {
   questions: GenQuestion[];
@@ -94,6 +114,10 @@ export const generateQuestions = (p: {
   difficulty: Difficulty;
   count: number;
   focus?: { topics?: string[]; tags?: string[] };
+  /** Ask for variants of one question (same idea, new numbers / angle). */
+  similarTo?: { prompt: string; answer?: string };
+  /** The note's core idea so questions test what was just studied. */
+  noteCore?: string;
 }) => call<GenerateResponse>('claude/generate', p);
 
 export interface CheckResponse {

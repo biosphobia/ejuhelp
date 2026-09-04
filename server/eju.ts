@@ -357,6 +357,7 @@ export function exemplarsFor(subject: Subject, subtopicId: string | undefined, l
     }
   }
   const kws = keywords.map((k) => k.toLowerCase()).filter((k) => k.length > 2);
+  if (!kws.length && !topicId) return []; // nothing to match on — better no exemplar than a random one
   const loc: 'ja' | 'en' = lang === 'ja' ? 'ja' : 'en';
   const scored: { score: number; q: RichQuestion; ex: RichExam }[] = [];
   for (const ex of loadRichExams()) {

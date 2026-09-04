@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { askClaude, checkWork, EmptyBoardError, type ChatMessage } from './api';
+import { askClaude, checkWork, EmptyBoardError, type ChatMessage, type AskSummary } from './api';
 import { useUI, type Lang } from './ui';
 import { usePractice } from './practice';
 import { useAnswers } from './answers';
@@ -15,6 +15,8 @@ export interface CheckMeta {
 
 export interface Message extends ChatMessage {
   check?: CheckMeta;
+  /** Takeaway card (key idea, formulas, traps, next questions) for assistant replies. */
+  summary?: AskSummary | null;
 }
 
 const CHECK_REQUEST: Record<Lang, string> = {
@@ -98,7 +100,7 @@ export const useAsk = create<AskState>((set, get) => ({
       });
       const added = useKeyPoints.getState().addMany(subject, res.keyPoints ?? []);
       set((s) => ({
-        messages: trimMessages([...next, { role: 'assistant', content: res.text }]),
+        messages: trimMessages([...next, { role: 'assistant', content: res.text, summary: res.summary ?? null }]),
         rev: s.rev + 1,
         lastSaved: added,
       }));
@@ -157,7 +159,7 @@ export const useAsk = create<AskState>((set, get) => ({
 }));
 
 /** Open the Ask Coach panel and ask Claude to explain a question, allowing follow-ups. */
-export function explainQuestion(prompt: string, choices: string[] | undefined, answer: string) {
+export function explainQuestion(prompt: string, choices: string[] | undefined, answer: string, notes?: string) {
   const { lang } = useUI.getState();
   const letters = 'ABCDE';
   const choiceStr = choices?.length
@@ -166,5 +168,5 @@ export function explainQuestion(prompt: string, choices: string[] | undefined, a
   const ans = answer ? CORRECT_ANSWER_NOTE[lang](answer) : '';
   const msg = `${EXPLAIN_INTRO[lang]}\n\n${prompt}${choiceStr}${ans}`;
   useUI.getState().openPanel('ask');
-  void useAsk.getState().send(msg);
+  void useAsk.getState().send(msg, notes ? { notes } : undefined);
 }

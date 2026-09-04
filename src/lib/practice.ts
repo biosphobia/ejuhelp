@@ -17,6 +17,9 @@ interface PracticeState {
   /** Set by the EJU calendar's "practice this topic" so the generator opens on that subtopic. */
   wantTopic: string | null;
   setWantTopic: (id: string | null) => void;
+  /** Set by a question card's "open the note" so the calendar opens straight on that note. */
+  wantNote: { subject: Subject; id: string } | null;
+  setWantNote: (n: { subject: Subject; id: string } | null) => void;
 }
 
 export const usePractice = create<PracticeState>((set) => ({
@@ -27,4 +30,6 @@ export const usePractice = create<PracticeState>((set) => ({
   setWantFocus: (wantFocus) => set({ wantFocus }),
   wantTopic: null,
   setWantTopic: (wantTopic) => set({ wantTopic }),
+  wantNote: null,
+  setWantNote: (wantNote) => set({ wantNote }),
 }));
