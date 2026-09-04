@@ -24,9 +24,24 @@ export interface Viewport {
   x: number; // translation (screen px)
   y: number;
 }
+/** A block of typed text on a page (used for coach-tidied notes), drawn in a
+ *  handwriting-style font so it sits naturally next to the student's own ink. */
+export interface TextBlock {
+  id: string;
+  x: number; // world coordinates of the top-left corner
+  y: number;
+  w: number; // wrap width
+  size: number; // font px in world units
+  color: InkColor;
+  text: string;
+  /** 'h' = heading weight. */
+  style?: 'h' | 'b' | 'n';
+}
+
 export interface Page {
   id: string;
   strokes: Stroke[];
+  texts?: TextBlock[];
   viewport: Viewport;
   /** Which notebook the page belongs to (one notebook per subject). */
   notebook?: string;
@@ -34,10 +49,20 @@ export interface Page {
   title?: string;
 }
 
-export const NOTEBOOKS = ['physics', 'chemistry', 'biology', 'math'] as const;
-export type Notebook = (typeof NOTEBOOKS)[number];
-export const DEFAULT_NOTEBOOK: Notebook = 'physics';
+export type SubjectId = 'physics' | 'chemistry' | 'biology' | 'math';
+export const NOTEBOOKS: SubjectId[] = ['physics', 'chemistry', 'biology', 'math'];
+export const DEFAULT_NOTEBOOK: SubjectId = 'physics';
 export const notebookOf = (p: Page): string => p.notebook ?? DEFAULT_NOTEBOOK;
+
+/** A notebook (category of pages). The four subject notebooks always exist; the
+ *  student can add more (e.g. "Lab class", "Homework") tied to a subject. */
+export interface NotebookMeta {
+  id: string;
+  /** Display name; empty for the built-in subject notebooks (their name is the subject). */
+  name: string;
+  subject: SubjectId;
+}
+export const defaultNotebooks = (): NotebookMeta[] => NOTEBOOKS.map((id) => ({ id, name: '', subject: id }));
 
 export const INK_HEX: Record<InkColor, string> = {
   black: '#111827',
@@ -65,6 +90,8 @@ interface BoardState {
   currentPageId: string;
   /** The notebook currently shown (follows the selected subject). */
   notebook: string;
+  /** All notebooks in display order. */
+  notebooks: NotebookMeta[];
   /** Last page visited in each notebook, so switching back lands where you were. */
   lastPage: Record<string, string>;
   tool: Tool;
@@ -93,6 +120,17 @@ interface BoardState {
   /** Switch notebooks; creates the first page of an empty notebook. */
   setNotebook: (nb: string) => void;
   setPageTitle: (id: string, title: string) => void;
+  /** Move a page earlier (-1) or later (+1) within its notebook. */
+  movePage: (id: string, delta: number) => void;
+  movePageToNotebook: (id: string, nb: string) => void;
+  /** Insert a page of typed text blocks right after `afterId` (coach-tidied notes). */
+  addTextPage: (afterId: string, title: string, texts: TextBlock[]) => string;
+  addNotebook: (name: string, subject: SubjectId) => string;
+  renameNotebook: (id: string, name: string) => void;
+  moveNotebook: (id: string, delta: number) => void;
+  /** Delete a custom notebook; its pages move to the subject notebook. */
+  deleteNotebook: (id: string) => void;
+  setNotebooks: (list: NotebookMeta[]) => void;
   /** Pages of the current notebook, in order. */
   notebookPages: () => Page[];
   clearCurrentPage: () => void;
@@ -118,6 +156,7 @@ export const useBoard = create<BoardState>((set, get) => {
     pages: [first],
     currentPageId: first.id,
     notebook: DEFAULT_NOTEBOOK,
+    notebooks: defaultNotebooks(),
     lastPage: {},
     tool: 'pen',
     color: 'black',
@@ -232,6 +271,84 @@ export const useBoard = create<BoardState>((set, get) => {
         rev: st.rev + 1,
       })),
 
+    movePage: (id, delta) =>
+      set((st) => {
+        const pg = st.pages.find((p) => p.id === id);
+        if (!pg) return st;
+        const nb = notebookOf(pg);
+        const ids = st.pages.filter((p) => notebookOf(p) === nb).map((p) => p.id);
+        const i = ids.indexOf(id);
+        const j = i + delta;
+        if (j < 0 || j >= ids.length) return st;
+        const other = ids[j];
+        const a = st.pages.findIndex((p) => p.id === id);
+        const b = st.pages.findIndex((p) => p.id === other);
+        const pages = [...st.pages];
+        [pages[a], pages[b]] = [pages[b], pages[a]];
+        return { pages, rev: st.rev + 1 };
+      }),
+
+    movePageToNotebook: (id, nb) =>
+      set((st) => {
+        const pg = st.pages.find((p) => p.id === id);
+        if (!pg || notebookOf(pg) === nb) return st;
+        const from = notebookOf(pg);
+        const pages = st.pages.map((p) => (p.id === id ? { ...p, notebook: nb } : p));
+        const left = pages.filter((p) => notebookOf(p) === from);
+        const extra = left.length ? [] : [blankPage(from)];
+        const nextCurrent = st.currentPageId === id ? (left[0] ?? extra[0]).id : st.currentPageId;
+        return { pages: [...pages, ...extra], currentPageId: nextCurrent, lastPage: { ...st.lastPage, [from]: nextCurrent, [nb]: id }, rev: st.rev + 1 };
+      }),
+
+    addTextPage: (afterId, title, texts) => {
+      const after = get().pages.find((p) => p.id === afterId);
+      const pg: Page = { ...blankPage(after ? notebookOf(after) : get().notebook), title, texts };
+      set((st) => {
+        const idx = st.pages.findIndex((p) => p.id === afterId);
+        const pages = [...st.pages];
+        pages.splice(idx >= 0 ? idx + 1 : pages.length, 0, pg);
+        return { pages, currentPageId: pg.id, lastPage: { ...st.lastPage, [notebookOf(pg)]: pg.id }, rev: st.rev + 1 };
+      });
+      return pg.id;
+    },
+
+    addNotebook: (name, subject) => {
+      const id = `nb-${newId()}`;
+      set((st) => ({ notebooks: [...st.notebooks, { id, name: name.trim() || 'Notebook', subject }], rev: st.rev + 1 }));
+      return id;
+    },
+    renameNotebook: (id, name) =>
+      set((st) => ({ notebooks: st.notebooks.map((n) => (n.id === id && !NOTEBOOKS.includes(id as SubjectId) ? { ...n, name: name.trim() || n.name } : n)), rev: st.rev + 1 })),
+    moveNotebook: (id, delta) =>
+      set((st) => {
+        const i = st.notebooks.findIndex((n) => n.id === id);
+        const j = i + delta;
+        if (i < 0 || j < 0 || j >= st.notebooks.length) return st;
+        const notebooks = [...st.notebooks];
+        [notebooks[i], notebooks[j]] = [notebooks[j], notebooks[i]];
+        return { notebooks, rev: st.rev + 1 };
+      }),
+    deleteNotebook: (id) =>
+      set((st) => {
+        const nb = st.notebooks.find((n) => n.id === id);
+        if (!nb || NOTEBOOKS.includes(id as SubjectId)) return st;
+        const pages = st.pages.map((p) => (notebookOf(p) === id ? { ...p, notebook: nb.subject } : p));
+        const notebooks = st.notebooks.filter((n) => n.id !== id);
+        const notebook = st.notebook === id ? nb.subject : st.notebook;
+        const inNb = pages.filter((p) => notebookOf(p) === notebook);
+        const currentPageId = inNb.some((p) => p.id === st.currentPageId) ? st.currentPageId : inNb[0]?.id ?? st.currentPageId;
+        return { pages, notebooks, notebook, currentPageId, rev: st.rev + 1 };
+      }),
+    setNotebooks: (list) =>
+      set((st) => {
+        // Keep the four subject notebooks no matter what was saved.
+        const byId = new Map(list.map((n) => [n.id, n]));
+        for (const d of defaultNotebooks()) if (!byId.has(d.id)) list = [...list, d];
+        const stray = new Set(st.pages.map(notebookOf));
+        for (const id of stray) if (!list.some((n) => n.id === id)) list = [...list, { id, name: id, subject: 'physics' }];
+        return { notebooks: list };
+      }),
+
     notebookPages: () => {
       const st = get();
       return st.pages.filter((p) => notebookOf(p) === st.notebook);
@@ -240,10 +357,11 @@ export const useBoard = create<BoardState>((set, get) => {
     clearCurrentPage: () =>
       set((st) => {
         const id = st.currentPageId;
-        const prev = st.pages.find((p) => p.id === id)?.strokes ?? [];
-        if (prev.length === 0) return st;
+        const cur = st.pages.find((p) => p.id === id);
+        const prev = cur?.strokes ?? [];
+        if (prev.length === 0 && !cur?.texts?.length) return st;
         const pages = st.pages.map((pg) =>
-          pg.id === id ? { ...pg, strokes: [] } : pg
+          pg.id === id ? { ...pg, strokes: [], texts: undefined } : pg
         );
         return { pages, undo: pushUndo(st.undo, id, prev), rev: st.rev + 1 };
       }),

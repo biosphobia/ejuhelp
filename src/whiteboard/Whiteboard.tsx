@@ -11,7 +11,7 @@ import {
 } from '../lib/board';
 import { useUI } from '../lib/ui';
 import { useDebug } from '../lib/debug';
-import { drawStroke, strokeHit } from './render';
+import { drawStroke, strokeHit, drawText } from './render';
 import { boardEvents } from './view';
 
 const ERASER_RADIUS = 14; // screen px
@@ -149,11 +149,21 @@ export default function Whiteboard() {
       setWorldTransform(cctx);
       drawGrid(cctx);
       const page = useBoard.getState().getCurrentPage();
+      for (const tb of page.texts ?? []) drawText(cctx, tb);
       for (const s of page.strokes) {
         if (pendingErase.has(s.id) || manipHidden.has(s.id)) continue;
         drawStroke(cctx, s);
       }
       cacheDirty = false;
+    }
+
+    try {
+      (document as any).fonts?.load?.("400 20px 'Klee One'").then(() => {
+        cacheDirty = true;
+        requestAnimationFrame(render);
+      });
+    } catch {
+      /* no Font Loading API */
     }
 
     function render() {

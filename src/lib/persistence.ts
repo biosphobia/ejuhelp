@@ -1,5 +1,5 @@
 import { collection, deleteDoc, doc, getDoc, getDocs, setDoc, writeBatch } from 'firebase/firestore';
-import { useBoard, notebookOf, type Page, type InkColor, type ShapeKind } from './board';
+import { useBoard, notebookOf, type Page, type InkColor, type ShapeKind, type TextBlock, type NotebookMeta } from './board';
 import { useAuth } from './auth';
 import { useUI } from './ui';
 import { db } from './firebase';
@@ -9,7 +9,7 @@ const LS_KEY = 'eju-board-v1';
 // Compact wire format: points stored as [x, y, pressure] tuples to save space
 // (Firestore docs are capped at ~1MB; ink can be large).
 type CStroke = { i: string; c: InkColor; s: number; p: number[][]; sh?: ShapeKind };
-type CPage = { id: string; v: [number, number, number]; st: CStroke[]; nb?: string; t?: string };
+type CPage = { id: string; v: [number, number, number]; st: CStroke[]; nb?: string; t?: string; tx?: TextBlock[] };
 
 const round = (n: number, d: number) => {
   const f = 10 ** d;
@@ -29,6 +29,7 @@ function encodePage(pg: Page): CPage {
     })),
     ...(pg.notebook ? { nb: pg.notebook } : {}),
     ...(pg.title ? { t: pg.title } : {}),
+    ...(pg.texts?.length ? { tx: pg.texts } : {}),
   };
 }
 const encode = (pages: Page[]): CPage[] => pages.map(encodePage);
@@ -46,16 +47,17 @@ function decode(cps: CPage[]): Page[] {
     })),
     ...(cp.nb ? { notebook: cp.nb } : {}),
     ...(cp.t ? { title: cp.t } : {}),
+    ...(cp.tx?.length ? { texts: cp.tx } : {}),
   }));
 }
 
 let localUpdatedAt = 0;
 
 function saveLocal() {
-  const { pages, currentPageId } = useBoard.getState();
+  const { pages, currentPageId, notebooks } = useBoard.getState();
   localUpdatedAt = Date.now();
   try {
-    localStorage.setItem(LS_KEY, JSON.stringify({ pages: encode(pages), currentPageId, updatedAt: localUpdatedAt }));
+    localStorage.setItem(LS_KEY, JSON.stringify({ pages: encode(pages), currentPageId, notebooks, updatedAt: localUpdatedAt }));
   } catch (e) {
     console.warn('[persistence] local save failed', e);
   }
@@ -81,7 +83,7 @@ async function saveCloud() {
   }
   cloudBusy = true;
   try {
-    const { pages, currentPageId } = useBoard.getState();
+    const { pages, currentPageId, notebooks } = useBoard.getState();
     const mainRef = doc(db, 'users', user.uid, 'board', 'main');
     const pagesCol = collection(mainRef, 'pages');
     let batch = writeBatch(db);
@@ -112,7 +114,7 @@ async function saveCloud() {
         if (++n >= 20) await flush();
       }
     }
-    batch.set(mainRef, { v: 2, order: pages.map((p) => p.id), currentPageId, updatedAt: localUpdatedAt || Date.now() });
+    batch.set(mainRef, { v: 2, order: pages.map((p) => p.id), currentPageId, notebooks, updatedAt: localUpdatedAt || Date.now() });
     n++;
     await flush();
   } catch (e) {
@@ -127,10 +129,10 @@ async function saveCloud() {
 }
 
 /** Read the cloud board in either layout. Returns null when there is none. */
-async function loadCloud(uid: string): Promise<{ pages: CPage[]; currentPageId?: string; updatedAt: number } | null> {
+async function loadCloud(uid: string): Promise<{ pages: CPage[]; currentPageId?: string; notebooks?: NotebookMeta[]; updatedAt: number } | null> {
   const mainRef = doc(db!, 'users', uid, 'board', 'main');
   const snap = await getDoc(mainRef);
-  const data = snap.data() as { v?: number; order?: string[]; pages?: CPage[]; currentPageId?: string; updatedAt?: number } | undefined;
+  const data = snap.data() as { v?: number; order?: string[]; pages?: CPage[]; currentPageId?: string; notebooks?: NotebookMeta[]; updatedAt?: number } | undefined;
   if (!data) return null;
   if (data.v === 2) {
     const qs = await getDocs(collection(mainRef, 'pages'));
@@ -140,7 +142,7 @@ async function loadCloud(uid: string): Promise<{ pages: CPage[]; currentPageId?:
     const pages = order.map((id) => byId.get(id)).filter((p): p is CPage => Boolean(p));
     for (const [id, p] of byId) if (!order.includes(id)) pages.push(p); // pages the order list missed
     for (const p of pages) lastCloud.set(p.id, JSON.stringify(p));
-    return { pages, currentPageId: data.currentPageId, updatedAt: data.updatedAt ?? 0 };
+    return { pages, currentPageId: data.currentPageId, notebooks: data.notebooks, updatedAt: data.updatedAt ?? 0 };
   }
   if (data.pages?.length) return { pages: data.pages, currentPageId: data.currentPageId, updatedAt: data.updatedAt ?? 0 };
   return null;
@@ -157,10 +159,12 @@ export function initPersistence() {
   try {
     const raw = localStorage.getItem(LS_KEY);
     if (raw) {
-      const parsed = JSON.parse(raw) as { pages?: CPage[]; currentPageId?: string; updatedAt?: number };
+      const parsed = JSON.parse(raw) as { pages?: CPage[]; currentPageId?: string; notebooks?: NotebookMeta[]; updatedAt?: number };
       localUpdatedAt = parsed.updatedAt ?? 0;
+      if (Array.isArray(parsed.notebooks)) useBoard.getState().setNotebooks(parsed.notebooks);
       if (parsed?.pages?.length) {
         useBoard.getState().loadPages(decode(parsed.pages), parsed.currentPageId, subject);
+        useBoard.getState().setNotebooks(useBoard.getState().notebooks);
       }
     }
   } catch (e) {
@@ -169,7 +173,10 @@ export function initPersistence() {
   // The notebook always follows the selected subject.
   useBoard.getState().setNotebook(subject);
   useUI.subscribe((s, prev) => {
-    if (s.subject !== prev.subject) useBoard.getState().setNotebook(s.subject);
+    if (s.subject === prev.subject) return;
+    const b = useBoard.getState();
+    const cur = b.notebooks.find((n) => n.id === b.notebook);
+    if (cur?.subject !== s.subject) b.setNotebook(s.subject); // a custom notebook of the same subject stays open
   });
 
   // 2) autosave whenever drawing content changes (rev bumps)
@@ -192,7 +199,9 @@ export function initPersistence() {
           const cloud = await loadCloud(st.user!.uid);
           const localHasInk = useBoard.getState().pages.some((p) => p.strokes.length);
           if (cloud && (cloud.updatedAt >= localUpdatedAt || !localHasInk)) {
+            if (cloud.notebooks) useBoard.getState().setNotebooks(cloud.notebooks);
             useBoard.getState().loadPages(decode(cloud.pages), cloud.currentPageId, useUI.getState().subject);
+            useBoard.getState().setNotebooks(useBoard.getState().notebooks);
             useBoard.getState().setNotebook(useUI.getState().subject);
             localUpdatedAt = cloud.updatedAt;
             saveLocal();

@@ -21,13 +21,16 @@ interface ReviewState {
   reviews: ReviewMap;
   /** EJU exam day as YYYY-MM-DD. */
   examDate: string;
+  /** Subjects the study plan covers. */
+  planSubjects: Subject[];
   rev: number;
   markReviewed: (subject: Subject, id: string) => void;
   unmark: (subject: Subject, id: string) => void;
   /** Pull a topic forward so it is due today (e.g. after a wrong practice answer). */
   markDue: (subject: Subject, id: string) => void;
   setExamDate: (d: string) => void;
-  load: (data: { reviews?: ReviewMap; examDate?: string }) => void;
+  togglePlanSubject: (s: Subject) => void;
+  load: (data: { reviews?: ReviewMap; examDate?: string; planSubjects?: Subject[] }) => void;
 }
 
 export const keyOf = (subject: Subject, id: string) => `${subject}:${id}`;
@@ -45,6 +48,7 @@ const DEFAULT_EXAM = '2026-11-08';
 export const useReview = create<ReviewState>((set) => ({
   reviews: {},
   examDate: DEFAULT_EXAM,
+  planSubjects: ['physics', 'chemistry'],
   rev: 0,
   markReviewed: (subject, id) =>
     set((s) => {
@@ -74,11 +78,21 @@ export const useReview = create<ReviewState>((set) => ({
       const { [keyOf(subject, id)]: _drop, ...rest } = s.reviews;
       return { reviews: rest, rev: s.rev + 1 };
     }),
+  togglePlanSubject: (subj) =>
+    set((s) => {
+      const has = s.planSubjects.includes(subj);
+      const planSubjects = has ? s.planSubjects.filter((x) => x !== subj) : [...s.planSubjects, subj];
+      return planSubjects.length ? { planSubjects, rev: s.rev + 1 } : s;
+    }),
   setExamDate: (examDate) => set((s) => (/^\d{4}-\d{2}-\d{2}$/.test(examDate) ? { examDate, rev: s.rev + 1 } : s)),
   load: (data) =>
     set((s) => ({
       reviews: data?.reviews && typeof data.reviews === 'object' ? data.reviews : {},
       examDate: typeof data?.examDate === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(data.examDate) ? data.examDate : s.examDate,
+      planSubjects:
+        Array.isArray(data?.planSubjects) && data.planSubjects.length
+          ? data.planSubjects.filter((x): x is Subject => ['physics', 'chemistry', 'biology', 'math'].includes(x))
+          : s.planSubjects,
       rev: s.rev + 1,
     })),
 }));

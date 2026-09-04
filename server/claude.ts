@@ -699,3 +699,79 @@ export async function keypoints(args: {
   const parsed = extractJson<{ keyPoints?: any }>(raw, {});
   return { keyPoints: cleanKeyPoints(parsed.keyPoints) };
 }
+
+// ─── Tidy a handwritten page ───
+export interface TidyBlock {
+  kind: 'h1' | 'h2' | 'p' | 'bullet' | 'formula' | 'added' | 'fix';
+  text: string;
+}
+export interface TidyResult {
+  title: string;
+  blocks: TidyBlock[];
+  /** Short note to the student about what was changed / could not be read. */
+  note: string;
+}
+
+/**
+ * Turn a photo of the student's own rough page into clean notes. The student may
+ * write fast: bad handwriting, abbreviations, hiragana instead of kanji, mixed
+ * languages, crossed-out bits. We reconstruct what they meant, keep their order
+ * and language, fix errors, and add only what is essential — marked so the
+ * student can tell their own notes from the coach's additions.
+ */
+export async function tidy(args: {
+  subject: Subject;
+  lang: Lang;
+  imageDataUrl: string;
+  /** Optional page title / context typed by the student. */
+  hint?: string;
+  model?: string;
+  userKey?: string;
+}): Promise<TidyResult> {
+  const m = /^data:(image\/[a-zA-Z0-9.+-]+);base64,(.+)$/s.exec(args.imageDataUrl ?? '');
+  if (!m) throw Object.assign(new Error('bad_image'), { status: 400 });
+  const [, media_type, data] = m;
+
+  const instructions = [
+    "The image is the student's OWN rough notebook page, written quickly in class.",
+    'Expect: messy handwriting, abbreviations, arrows, half-finished sentences, crossed-out parts, doodles, and Japanese written in hiragana where the student forgot the kanji (e.g. こうかく for 光角, はんのうねつ for 反応熱). Mixed Japanese/English is normal.',
+    'Your job: rewrite the page as clean, well-organised study notes that say what the student MEANT.',
+    'Rules:',
+    '1. Keep the student\'s language(s). If a line is Japanese, keep it Japanese and write the proper kanji; do not translate. Keep technical terms as the student uses them (add the standard term in brackets only if theirs is wrong).',
+    '2. Keep the student\'s order and structure where it makes sense; merge fragments into complete, short sentences; expand abbreviations.',
+    '3. Remove noise: crossed-out text, doodles, duplicates, things unrelated to the topic.',
+    '4. Fix mistakes silently in the text but ALSO list each fix as a "fix" block ("was X → now Y").',
+    '5. Add only what is essential for the EJU and clearly missing (a defining formula, a unit, the key condition); mark every addition as an "added" block so the student knows it is not theirs. Never pad.',
+    '6. If part of the page is illegible, say so in the note (which part, your best guess) instead of inventing content.',
+    '7. Formulas: write them in plain text, not LaTeX (v = v₀ + at, F = ma, [H⁺][OH⁻] = 10⁻¹⁴). Use Unicode sub/superscripts.',
+    args.hint ? `The student labelled this page: "${args.hint}".` : '',
+    `The subject is ${args.subject}. If the notes are in a language other than the student's UI language (${writeLang(args.lang)}), still keep the notes' own language.`,
+    'Respond with ONLY a single JSON object, no code fences: {"title":"<short title for the page>","blocks":[{"kind":"h1"|"h2"|"p"|"bullet"|"formula"|"added"|"fix","text":"..."}],"note":"<one or two sentences to the student: what you changed, anything you could not read>"}.',
+    'Use h1 once for the topic, h2 for sections, bullet for list items, p for short prose, formula for a formula on its own line. Keep blocks short (a line or two each).',
+  ]
+    .filter(Boolean)
+    .join('\n');
+
+  const raw = await executeModelCall(
+    args.model, args.userKey, args.subject, args.lang, undefined, [
+      {
+        role: 'user',
+        content: [
+          { type: 'image', source: { type: 'base64', media_type, data } },
+          { type: 'text', text: instructions },
+        ],
+      },
+    ], 6000
+  );
+  const p = extractJson<Partial<TidyResult>>(raw, {});
+  const kinds = ['h1', 'h2', 'p', 'bullet', 'formula', 'added', 'fix'];
+  const blocks: TidyBlock[] = (Array.isArray(p.blocks) ? p.blocks : [])
+    .filter((b: any) => b && typeof b.text === 'string' && b.text.trim())
+    .map((b: any) => ({ kind: kinds.includes(b.kind) ? b.kind : 'p', text: String(b.text).trim() }));
+  if (!blocks.length) throw Object.assign(new Error('tidy_failed'), { status: 502 });
+  return {
+    title: typeof p.title === 'string' && p.title.trim() ? p.title.trim() : '',
+    blocks,
+    note: typeof p.note === 'string' ? p.note.trim() : '',
+  };
+}

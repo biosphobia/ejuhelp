@@ -1,4 +1,4 @@
-import { drawStroke } from './render';
+import { drawStroke, drawText, textHeight } from './render';
 import type { Page } from '../lib/board';
 
 /**
@@ -6,11 +6,20 @@ import type { Page } from '../lib/board';
  * white PNG data URL, cropped to the content. Returns null if the page is empty.
  */
 export function exportPagePng(page: Page, maxSide = 1600, pad = 36): string | null {
-  if (!page.strokes.length) return null;
+  if (!page.strokes.length && !page.texts?.length) return null;
   let minX = Infinity;
   let minY = Infinity;
   let maxX = -Infinity;
   let maxY = -Infinity;
+  if (page.texts?.length) {
+    const m = document.createElement('canvas').getContext('2d')!;
+    for (const tb of page.texts) {
+      minX = Math.min(minX, tb.x);
+      minY = Math.min(minY, tb.y);
+      maxX = Math.max(maxX, tb.x + tb.w);
+      maxY = Math.max(maxY, tb.y + textHeight(m, tb));
+    }
+  }
   for (const s of page.strokes) {
     const half = s.size / 2 + 2;
     for (const p of s.points) {
@@ -33,6 +42,7 @@ export function exportPagePng(page: Page, maxSide = 1600, pad = 36): string | nu
   ctx.fillStyle = '#ffffff';
   ctx.fillRect(0, 0, cw, ch);
   ctx.setTransform(scale, 0, 0, scale, (pad - minX) * scale, (pad - minY) * scale);
+  for (const tb of page.texts ?? []) drawText(ctx, tb);
   for (const s of page.strokes) drawStroke(ctx, s);
   return cv.toDataURL('image/png');
 }

@@ -3,6 +3,7 @@ import Panel, { SubjectChips } from '../Panel';
 import { ChevronLeft, ChevronRight } from '../icons';
 import { useUI, type Subject } from '../../lib/ui';
 import { useReview, keyOf, statusOf, daysUntil, startOfDay, type ReviewStatus } from '../../lib/review';
+import { buildPlan, countOf, parseDate, type PlanItem } from '../../lib/plan';
 import { TREES, loadNotes, findSubtopic } from '../../data/notes';
 import type { SubjectNotes } from '../../data/notes/types';
 import NoteReader from '../NoteReader';
@@ -11,6 +12,7 @@ import { useT } from '../../i18n';
 
 const LOCALE: Record<string, string> = { en: 'en-US', ja: 'ja-JP', zh: 'zh-CN', tr: 'tr-TR' };
 const DAY = 86_400_000;
+const PLAN_SUBJECTS: Subject[] = ['physics', 'chemistry', 'biology'];
 
 const DOT: Record<ReviewStatus, string> = {
   new: 'bg-slate-300',
@@ -25,16 +27,18 @@ export default function PlanPanel() {
   const reviews = useReview((s) => s.reviews);
   const examDate = useReview((s) => s.examDate);
   const setExamDate = useReview((s) => s.setExamDate);
+  const planSubjects = useReview((s) => s.planSubjects);
+  const togglePlanSubject = useReview((s) => s.togglePlanSubject);
   const nameLang = lang === 'ja' ? 'ja' : 'en';
+  const fmt = (o: Intl.DateTimeFormatOptions) => new Intl.DateTimeFormat(LOCALE[lang] ?? 'en-US', o);
 
   const [open, setOpen] = useState<Record<string, boolean>>({});
   const [reading, setReading] = useState<{ subject: Subject; id: string } | null>(null);
   const [notes, setNotes] = useState<SubjectNotes | null>(null);
-  const [showCal, setShowCal] = useState(false);
-  const [month, setMonth] = useState(() => {
-    const d = new Date();
-    return new Date(d.getFullYear(), d.getMonth(), 1);
-  });
+  const now = Date.now();
+  const today = startOfDay(now);
+  const [selected, setSelected] = useState<number>(today);
+  const [month, setMonth] = useState(() => new Date(new Date().getFullYear(), new Date().getMonth(), 1));
 
   // A question card asked to open a specific note.
   const wantNote = usePractice((s) => s.wantNote);
@@ -53,47 +57,21 @@ export default function PlanPanel() {
     };
   }, [subject]);
 
-  const now = Date.now();
   const days = daysUntil(examDate, now);
-
-  // Everything due (across subjects), for the calendar summary.
-  const due = useMemo(() => {
-    const out: { subject: Subject; id: string }[] = [];
-    for (const [k, e] of Object.entries(reviews)) {
-      if (e.due <= now) {
-        const [s, id] = k.split(':') as [Subject, string];
-        if (findSubtopic(s, id)) out.push({ subject: s, id });
-      }
-    }
-    return out;
-  }, [reviews, now]);
+  const exam = parseDate(examDate);
+  const plan = useMemo(() => buildPlan({ subjects: planSubjects, reviews, examDate, now }), [planSubjects, reviews, examDate, now]);
 
   // Days on which something was reviewed, for the calendar dots.
   const reviewedDays = useMemo(() => {
     const set = new Set<number>();
-    for (const e of Object.values(reviews)) set.add(startOfDay(e.last));
+    for (const e of Object.values(reviews)) if (e.last) set.add(startOfDay(e.last));
     return set;
-  }, [reviews]);
-  const dueDays = useMemo(() => {
-    const m = new Map<number, number>();
-    for (const e of Object.values(reviews)) m.set(e.due, (m.get(e.due) ?? 0) + 1);
-    return m;
   }, [reviews]);
 
   const tree = TREES[subject];
   const total = tree.reduce((n, tp) => n + tp.subtopics.length, 0);
   const doneCount = tree.reduce((n, tp) => n + tp.subtopics.filter((s) => reviews[keyOf(subject, s.id)]).length, 0);
-
   const toggle = (id: string) => setOpen((o) => ({ ...o, [id]: !(o[id] ?? true) }));
-
-  // Today's plan: the due reviews plus enough new topics (in tree order) to start
-  // every topic of this subject with a week left for pure revision.
-  const unstudied = useMemo(
-    () => tree.flatMap((tp) => tp.subtopics.filter((s) => !reviews[keyOf(subject, s.id)]).map((s) => s.id)),
-    [tree, reviews, subject]
-  );
-  const perDay = days > 7 ? Math.ceil(unstudied.length / (days - 7)) : unstudied.length;
-  const todayNew = unstudied.slice(0, Math.min(Math.max(perDay, 1), 4));
 
   // ── Calendar grid ──
   const grid = useMemo(() => {
@@ -106,26 +84,32 @@ export default function PlanPanel() {
     while (cells.length % 7) cells.push(null);
     return cells;
   }, [month]);
-  const [ey, em, ed] = examDate.split('-').map(Number);
-  const today = new Date();
-  const monthLabel = new Intl.DateTimeFormat(LOCALE[lang] ?? 'en-US', { year: 'numeric', month: 'long' }).format(month);
+  const monthLabel = fmt({ year: 'numeric', month: 'long' }).format(month);
   const weekdays = useMemo(() => {
-    const f = new Intl.DateTimeFormat(LOCALE[lang] ?? 'en-US', { weekday: 'narrow' });
+    const f = fmt({ weekday: 'narrow' });
     return Array.from({ length: 7 }, (_, i) => f.format(new Date(2024, 8, 1 + i))); // 2024-09-01 is a Sunday
   }, [lang]);
 
-  const examLabel = new Intl.DateTimeFormat(LOCALE[lang] ?? 'en-US', { month: 'short', day: 'numeric' }).format(new Date(ey, em - 1, ed));
+  const selectedItems: PlanItem[] = plan.get(selected) ?? [];
+  const selectedLabel = fmt({ weekday: 'short', month: 'short', day: 'numeric' }).format(new Date(selected));
+  const openItem = (it: PlanItem) => {
+    if (it.kind === 'revision') {
+      useUI.getState().setSubject(it.subject);
+      useUI.getState().openPanel('exams');
+      return;
+    }
+    setReading({ subject: it.subject, id: it.id });
+  };
 
   return (
     <Panel title={t('plan')}>
-      {/* Countdown strip */}
+      {/* Countdown */}
       <div className="mb-3 flex items-center gap-3 rounded-2xl bg-slate-900 px-4 py-3 text-white">
         <div className="text-3xl font-bold leading-none tabular-nums">{days >= 0 ? days : 0}</div>
         <div className="min-w-0 flex-1">
           <div className="truncate text-sm font-medium">{days >= 0 ? t('daysLeft') : t('examPassed')}</div>
           <div className="text-[11px] text-slate-300">
-            {t('examDay')} · {examLabel}
-            {due.length ? <span className="ml-2 rounded-full bg-amber-400/20 px-1.5 py-0.5 font-medium text-amber-200">⏰ {due.length}</span> : null}
+            {t('examDay')} · {fmt({ month: 'short', day: 'numeric', year: 'numeric' }).format(new Date(exam))}
           </div>
         </div>
         <label className="relative grid h-8 w-8 shrink-0 cursor-pointer place-items-center rounded-lg text-slate-300 hover:bg-white/10 hover:text-white" title={t('examDay')}>
@@ -134,121 +118,138 @@ export default function PlanPanel() {
         </label>
       </div>
 
-      {/* Today */}
-      {tree.length ? (
-        <section className="mb-3">
-          <div className="mb-1.5 flex items-center justify-between px-1">
-            <div className="text-[11px] font-semibold uppercase tracking-wide text-slate-400">{t('todayPlan')}</div>
-            <div className="text-[11px] text-slate-400">{t(subject)}</div>
+      {/* Which subjects the plan covers */}
+      <div className="mb-2 flex flex-wrap items-center gap-1.5 px-1">
+        <span className="text-[11px] font-semibold uppercase tracking-wide text-slate-400">{t('planCovers')}</span>
+        {PLAN_SUBJECTS.map((s) => {
+          const on = planSubjects.includes(s);
+          return (
+            <button
+              key={s}
+              type="button"
+              onClick={() => togglePlanSubject(s)}
+              aria-pressed={on}
+              className={`rounded-full px-2.5 py-0.5 text-xs font-medium ring-1 transition ${
+                on ? 'bg-slate-900 text-white ring-slate-900' : 'bg-white text-slate-500 ring-slate-200 hover:bg-slate-50'
+              }`}
+            >
+              {t(s)}
+            </button>
+          );
+        })}
+      </div>
+
+      {/* Month grid */}
+      <div className="mb-3 rounded-2xl border border-slate-200 p-3">
+        <div className="mb-2 flex items-center justify-between">
+          <button type="button" aria-label="previous month" onClick={() => setMonth(new Date(month.getFullYear(), month.getMonth() - 1, 1))} className="rounded-lg p-1 hover:bg-slate-100">
+            <ChevronLeft className="h-4 w-4" />
+          </button>
+          <div className="text-sm font-semibold text-slate-800">{monthLabel}</div>
+          <button type="button" aria-label="next month" onClick={() => setMonth(new Date(month.getFullYear(), month.getMonth() + 1, 1))} className="rounded-lg p-1 hover:bg-slate-100">
+            <ChevronRight className="h-4 w-4" />
+          </button>
+        </div>
+        <div className="grid grid-cols-7 gap-1 text-center text-[11px]">
+          {weekdays.map((w, i) => (
+            <div key={i} className="font-semibold text-slate-400">
+              {w}
+            </div>
+          ))}
+          {grid.map((d, i) => {
+            if (!d) return <div key={i} />;
+            const ts = new Date(month.getFullYear(), month.getMonth(), d).getTime();
+            const isToday = ts === today;
+            const isExam = ts === exam;
+            const isSel = ts === selected;
+            const past = ts < today;
+            const items = plan.get(ts);
+            const nNew = countOf(items, 'new');
+            const nRev = countOf(items, 'review');
+            const revision = countOf(items, 'revision') > 0;
+            const reviewed = reviewedDays.has(ts);
+            return (
+              <button
+                key={i}
+                type="button"
+                onClick={() => setSelected(ts)}
+                aria-pressed={isSel}
+                className={`flex h-12 flex-col items-center rounded-xl border pt-1 transition ${
+                  isExam
+                    ? 'border-red-600 bg-red-600 text-white'
+                    : isSel
+                      ? 'border-slate-900 bg-slate-900 text-white'
+                      : isToday
+                        ? 'border-slate-400 bg-white'
+                        : past
+                          ? 'border-transparent bg-slate-50 text-slate-400'
+                          : revision
+                            ? 'border-rose-100 bg-rose-50 hover:border-rose-300'
+                            : 'border-slate-100 bg-white hover:border-slate-300'
+                }`}
+              >
+                <span className={`text-xs leading-none ${isToday && !isSel ? 'font-bold' : ''}`}>{d}</span>
+                <span className="mt-1 flex items-center gap-0.5">
+                  {reviewed ? <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" /> : null}
+                  {nNew ? <span className={`rounded px-1 text-[9px] font-bold leading-4 ${isSel ? 'bg-white/20 text-white' : 'bg-sky-100 text-sky-800'}`}>{nNew}</span> : null}
+                  {nRev ? <span className={`rounded px-1 text-[9px] font-bold leading-4 ${isSel ? 'bg-white/20 text-white' : 'bg-amber-100 text-amber-800'}`}>{nRev}</span> : null}
+                  {revision && !nNew && !nRev ? <span className={`text-[9px] font-bold leading-4 ${isSel ? 'text-white' : 'text-rose-600'}`}>R</span> : null}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+        <div className="mt-2 flex flex-wrap gap-x-3 gap-y-1 text-[11px] text-slate-500">
+          <span className="inline-flex items-center gap-1"><span className="rounded bg-sky-100 px-1 font-bold text-sky-800">n</span> {t('kindNew')}</span>
+          <span className="inline-flex items-center gap-1"><span className="rounded bg-amber-100 px-1 font-bold text-amber-800">n</span> {t('kindReview')}</span>
+          <span className="inline-flex items-center gap-1"><span className="h-2 w-2 rounded-full bg-emerald-500" /> {t('legendReviewed')}</span>
+          <span className="inline-flex items-center gap-1"><span className="h-2 w-2 rounded-full bg-red-600" /> {t('examDay')}</span>
+        </div>
+      </div>
+
+      {/* Selected day */}
+      <div className="mb-3">
+        <div className="mb-1.5 flex items-center justify-between px-1">
+          <div className="text-[11px] font-semibold uppercase tracking-wide text-slate-400">{selected === today ? t('todayPlan') : selectedLabel}</div>
+          <div className="text-[11px] text-slate-400">
+            {countOf(selectedItems, 'new')} {t('kindNew').toLowerCase()} · {countOf(selectedItems, 'review')} {t('kindReview').toLowerCase()}
           </div>
+        </div>
+        {selectedItems.length ? (
           <div className="space-y-1">
-            {due.slice(0, 6).map((d) => {
-              const f = findSubtopic(d.subject, d.id)!;
-              return (
-                <button
-                  key={`${d.subject}:${d.id}`}
-                  type="button"
-                  onClick={() => setReading(d)}
-                  className="flex w-full items-center gap-2 rounded-xl bg-amber-50 px-3 py-2 text-left text-sm hover:bg-amber-100"
-                >
-                  <span className="h-2 w-2 shrink-0 rounded-full bg-amber-400" />
-                  <span className="min-w-0 flex-1 truncate text-slate-800">{f.sub.name[nameLang]}</span>
-                  <span className="shrink-0 text-[11px] text-amber-700">{t('dueForReview')}</span>
-                </button>
-              );
-            })}
-            {unstudied.length
-              ? todayNew.map((id) => {
-                  const f = findSubtopic(subject, id)!;
+            {[...selectedItems]
+              .sort((a, b) => ['revision', 'review', 'new'].indexOf(a.kind) - ['revision', 'review', 'new'].indexOf(b.kind))
+              .map((it, i) => {
+                if (it.kind === 'revision')
                   return (
-                    <button
-                      key={id}
-                      type="button"
-                      onClick={() => setReading({ subject, id })}
-                      className="flex w-full items-center gap-2 rounded-xl bg-sky-50 px-3 py-2 text-left text-sm hover:bg-sky-100"
-                    >
-                      <span className="h-2 w-2 shrink-0 rounded-full bg-sky-400" />
-                      <span className="min-w-0 flex-1 truncate text-slate-800">{f.sub.name[nameLang]}</span>
-                      <span className="shrink-0 text-[11px] text-sky-700">{t('newToday')}</span>
+                    <button key={`rv${i}`} type="button" onClick={() => openItem(it)} className="flex w-full items-center gap-2 rounded-xl bg-rose-50 px-3 py-2 text-left text-sm hover:bg-rose-100">
+                      <span className="h-2 w-2 shrink-0 rounded-full bg-rose-400" />
+                      <span className="min-w-0 flex-1 text-slate-800">{t('revisionDay')}</span>
                     </button>
                   );
-                })
-              : null}
-          </div>
-          <p className="mt-1.5 px-1 text-[11px] text-slate-400">
-            {unstudied.length ? (
-              <>
-                {t('topicsLeft', { n: unstudied.length, total })} {days > 7 ? t('paceHint', { s: t(subject), n: perDay }) : null}
-              </>
-            ) : (
-              t('allStarted')
-            )}
-          </p>
-        </section>
-      ) : null}
-
-      {/* Month grid (collapsed by default) */}
-      <section className="mb-3 rounded-2xl border border-slate-100">
-        <button
-          type="button"
-          onClick={() => setShowCal((v) => !v)}
-          aria-expanded={showCal}
-          className="flex w-full items-center gap-2 px-3 py-2 text-left"
-        >
-          <ChevronRight className={`h-4 w-4 shrink-0 text-slate-400 transition ${showCal ? 'rotate-90' : ''}`} />
-          <span className="min-w-0 flex-1 text-sm font-medium text-slate-700">{t('calendar')}</span>
-          <span className="text-[11px] text-slate-400">{monthLabel}</span>
-        </button>
-        {showCal ? (
-          <div className="border-t border-slate-100 px-3 pb-3 pt-2">
-            <div className="mb-1 flex items-center justify-between">
-              <button type="button" aria-label="previous month" onClick={() => setMonth(new Date(month.getFullYear(), month.getMonth() - 1, 1))} className="rounded-lg p-1 text-slate-500 hover:bg-slate-100">
-                <ChevronLeft className="h-4 w-4" />
-              </button>
-              <div className="text-sm font-semibold text-slate-800">{monthLabel}</div>
-              <button type="button" aria-label="next month" onClick={() => setMonth(new Date(month.getFullYear(), month.getMonth() + 1, 1))} className="rounded-lg p-1 text-slate-500 hover:bg-slate-100">
-                <ChevronRight className="h-4 w-4" />
-              </button>
-            </div>
-            <div className="grid grid-cols-7 gap-y-0.5 text-center text-[11px]">
-              {weekdays.map((w, i) => (
-                <div key={i} className="font-semibold text-slate-400">
-                  {w}
-                </div>
-              ))}
-              {grid.map((d, i) => {
-                if (!d) return <div key={i} />;
-                const isToday = d === today.getDate() && month.getMonth() === today.getMonth() && month.getFullYear() === today.getFullYear();
-                const isExam = d === ed && month.getMonth() === em - 1 && month.getFullYear() === ey;
-                const ts = new Date(month.getFullYear(), month.getMonth(), d).getTime();
-                const reviewed = reviewedDays.has(ts);
-                const nDue = dueDays.get(ts) ?? 0;
+                const f = findSubtopic(it.subject, it.id);
+                if (!f) return null;
+                const isNew = it.kind === 'new';
                 return (
-                  <div key={i} className="flex flex-col items-center">
-                    <div
-                      className={`grid h-6 w-6 place-items-center rounded-full text-xs ${
-                        isExam ? 'bg-red-600 font-bold text-white' : isToday ? 'bg-slate-900 font-bold text-white' : 'text-slate-700'
-                      }`}
-                      title={isExam ? t('examDay') : undefined}
-                    >
-                      {d}
-                    </div>
-                    <div className="flex h-1.5 gap-0.5">
-                      {reviewed ? <span className="h-1 w-1 rounded-full bg-emerald-500" /> : null}
-                      {nDue && ts >= startOfDay(now) ? <span className="h-1 w-1 rounded-full bg-amber-400" /> : null}
-                    </div>
-                  </div>
+                  <button
+                    key={`${it.kind}:${it.subject}:${it.id}`}
+                    type="button"
+                    onClick={() => openItem(it)}
+                    className={`flex w-full items-center gap-2 rounded-xl px-3 py-2 text-left text-sm ${isNew ? 'bg-sky-50 hover:bg-sky-100' : 'bg-amber-50 hover:bg-amber-100'}`}
+                  >
+                    <span className={`h-2 w-2 shrink-0 rounded-full ${isNew ? 'bg-sky-400' : 'bg-amber-400'}`} />
+                    <span className="min-w-0 flex-1 truncate text-slate-800">{f.sub.name[nameLang]}</span>
+                    <span className="shrink-0 text-[11px] text-slate-500">{t(it.subject)}</span>
+                    <span className={`shrink-0 rounded px-1 text-[10px] font-semibold ${isNew ? 'bg-sky-100 text-sky-800' : 'bg-amber-100 text-amber-800'}`}>{isNew ? t('kindNew') : t('kindReview')}</span>
+                  </button>
                 );
               })}
-            </div>
-            <div className="mt-1 flex flex-wrap gap-x-3 gap-y-1 text-[11px] text-slate-400">
-              <span className="inline-flex items-center gap-1"><span className="h-1.5 w-1.5 rounded-full bg-red-600" /> {t('examDay')}</span>
-              <span className="inline-flex items-center gap-1"><span className="h-1.5 w-1.5 rounded-full bg-emerald-500" /> {t('legendReviewed')}</span>
-              <span className="inline-flex items-center gap-1"><span className="h-1.5 w-1.5 rounded-full bg-amber-400" /> {t('legendDue')}</span>
-            </div>
           </div>
-        ) : null}
-      </section>
+        ) : (
+          <p className="px-1 text-sm text-slate-500">{t('nothingPlanned')}</p>
+        )}
+        <p className="mt-1.5 px-1 text-[11px] text-slate-400">{t('planHintShort')}</p>
+      </div>
 
       {/* Topic tree */}
       <div className="mb-1.5 flex items-center justify-between px-1">
@@ -263,18 +264,13 @@ export default function PlanPanel() {
       {tree.length === 0 ? (
         <p className="rounded-xl bg-slate-50 px-3 py-2 text-sm text-slate-500">{t('notesComingSoon')}</p>
       ) : (
-        <div className="divide-y divide-slate-100 rounded-2xl border border-slate-100">
+        <div className="space-y-2">
           {tree.map((tp) => {
             const isOpen = open[tp.id] ?? true;
             const tpDone = tp.subtopics.filter((s) => reviews[keyOf(subject, s.id)]).length;
             return (
-              <div key={tp.id}>
-                <button
-                  type="button"
-                  onClick={() => toggle(tp.id)}
-                  aria-expanded={isOpen}
-                  className="flex w-full items-center gap-2 px-3 py-2 text-left hover:bg-slate-50"
-                >
+              <div key={tp.id} className="rounded-2xl border border-slate-200">
+                <button type="button" onClick={() => toggle(tp.id)} aria-expanded={isOpen} className="flex w-full items-center gap-2 px-3 py-2 text-left">
                   <ChevronRight className={`h-4 w-4 shrink-0 text-slate-400 transition ${isOpen ? 'rotate-90' : ''}`} />
                   <span className="min-w-0 flex-1 text-sm font-semibold text-slate-800">{tp.name[nameLang]}</span>
                   <span className="text-[11px] tabular-nums text-slate-400">
@@ -282,19 +278,15 @@ export default function PlanPanel() {
                   </span>
                 </button>
                 {isOpen ? (
-                  <div className="pb-1">
+                  <div className="border-t border-slate-100 py-1">
                     {tp.subtopics.map((s) => {
                       const st = statusOf(reviews[keyOf(subject, s.id)], now);
                       const hasNote = Boolean(notes?.notes[s.id]);
                       return (
-                        <button
-                          key={s.id}
-                          type="button"
-                          onClick={() => setReading({ subject, id: s.id })}
-                          className="flex w-full items-center gap-2 py-1.5 pl-9 pr-3 text-left text-sm hover:bg-slate-50"
-                        >
-                          <span className={`h-2 w-2 shrink-0 rounded-full ${DOT[st]}`} aria-label={t(st === 'new' ? 'statusNew' : st === 'due' ? 'statusDue' : 'statusOk')} />
-                          <span className={`min-w-0 flex-1 truncate ${hasNote || !notes ? 'text-slate-700' : 'text-slate-400'}`}>{s.name[nameLang]}</span>
+                        <button key={s.id} type="button" onClick={() => setReading({ subject, id: s.id })} className="flex w-full items-center gap-2 px-3 py-1.5 text-left text-sm hover:bg-slate-50">
+                          <span className={`ml-5 h-2 w-2 shrink-0 rounded-full ${DOT[st]}`} aria-label={t(st === 'new' ? 'statusNew' : st === 'due' ? 'statusDue' : 'statusOk')} />
+                          <span className={`min-w-0 flex-1 truncate ${hasNote || !notes ? 'text-slate-800' : 'text-slate-400'}`}>{s.name[nameLang]}</span>
+                          <ChevronRight className="h-3.5 w-3.5 shrink-0 text-slate-300" />
                         </button>
                       );
                     })}

@@ -139,6 +139,19 @@ export const checkWork = (p: {
   question?: string;
 }) => call<CheckResponse>('claude/check', p);
 
+export interface TidyBlock {
+  kind: 'h1' | 'h2' | 'p' | 'bullet' | 'formula' | 'added' | 'fix';
+  text: string;
+}
+export interface TidyResponse {
+  title: string;
+  blocks: TidyBlock[];
+  note: string;
+}
+/** Rewrite a handwritten page as clean notes (returned as text blocks for the board). */
+export const tidyPage = (p: { subject: Subject; lang: Lang; imageDataUrl: string; hint?: string }) =>
+  call<TidyResponse>('claude/tidy', p);
+
 export interface KeyPointsResponse {
   keyPoints: KeyPointDTO[];
 }

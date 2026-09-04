@@ -6,7 +6,7 @@ import { dirname, join } from 'node:path';
 import { existsSync } from 'node:fs';
 import { requireAuth } from './auth';
 import { topicsFor, subtopicsFor, mockExamList, mockExam, pastQuestionsFor, SUBJECTS, type Subject } from './eju';
-import { hasApiKey, ask, generate, check, keypoints } from './claude';
+import { hasApiKey, ask, generate, check, keypoints, tidy } from './claude';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const app = express();
@@ -138,6 +138,26 @@ app.post('/api/claude/check', requireAuth, async (req: Request, res: Response) =
       question: typeof question === 'string' ? question : undefined,
       model,
       userKey
+    });
+    res.json(result);
+  } catch (e) {
+    handleErr(e, res);
+  }
+});
+
+app.post('/api/claude/tidy', requireAuth, async (req: Request, res: Response) => {
+  try {
+    const { subject, lang, imageDataUrl, hint } = req.body ?? {};
+    const { model, userKey } = getAiContext(req);
+    if (!isSubject(subject)) return res.status(400).json({ error: 'bad_subject' });
+    if (typeof imageDataUrl !== 'string') return res.status(400).json({ error: 'missing_image' });
+    const result = await tidy({
+      subject,
+      lang: toLang(lang),
+      imageDataUrl,
+      hint: typeof hint === 'string' ? hint.slice(0, 200) : undefined,
+      model,
+      userKey,
     });
     res.json(result);
   } catch (e) {

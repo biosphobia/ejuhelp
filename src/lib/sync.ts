@@ -28,7 +28,7 @@ export function initSync() {
     useReview,
     'eju-review',
     'review',
-    (s) => ({ reviews: s.reviews, examDate: s.examDate }),
+    (s) => ({ reviews: s.reviews, examDate: s.examDate, planSubjects: s.planSubjects }),
     (s, data) => s.load(data ?? {}),
     0
   );
