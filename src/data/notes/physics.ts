@@ -1663,6 +1663,925 @@ $\lambda$ が長い（赤）→ 間隔が広い。スリットが近い → 広�
       ja: ['密な媒質での反射で半波長ずれるのはなぜ？', '複スリットの Δx = Lλ/d を導いて。', 'シャボン膜の問題：最も薄い部分が黒いのはなぜ？', 'くさびの角度を2倍にすると縞はどうなる？'],
     },
   },
+  // ───────────────────────────── ELECTROMAGNETISM ─────────────────────────────
+  {
+    id: 'electric-field',
+    core: {
+      en: 'Charges push and pull with F = kq₁q₂/r². The electric field E is "force per unit positive charge" — a map of what a test charge would feel at each point. Fields from several charges simply add as vectors, and the field lines show their direction: out of +, into −.',
+      ja: '電荷は F = kq₁q₂/r² で押し合い・引き合う。電場 E は「単位正電荷あたりの力」— 各点に置いた試験電荷が感じる力の地図。複数の電荷の電場はベクトルとして足すだけ。電気力線は向きを示す：＋から出て −に入る。',
+    },
+    body: {
+      en: r`## Coulomb's law
+$$F = k\frac{q_1 q_2}{r^2}, \qquad k = \frac{1}{4\pi\varepsilon_0} = 9.0\times10^9\ \mathrm{N\,m^2/C^2}$$
+Like charges repel, unlike attract; the force acts along the line joining them and obeys the third law. Compare with gravity: same $1/r^2$ shape, but electric force can be repulsive and is enormously stronger.
+
+## Electric field
+$$\vec E = \frac{\vec F}{q} \quad(\text{N/C = V/m}), \qquad E_{point\ charge} = k\frac{Q}{r^2}$$
+- $E$ points **away** from a positive charge, **toward** a negative one.
+- A charge $q$ in a field feels $\vec F = q\vec E$ — a negative charge is pushed opposite to $\vec E$.
+- **Superposition**: $\vec E$ at a point = vector sum of the fields of all charges. Draw each arrow, then add components.
+
+:::fig field-lines
+
+## Field lines
+- Start on +, end on −, never cross.
+- Denser lines = stronger field.
+- Perpendicular to a conductor's surface; zero inside a conductor (electrostatics).
+- Uniform field between parallel plates: evenly spaced parallel lines.
+
+## Typical geometry questions
+- **Midpoint between $+Q$ and $+Q$**: fields cancel, $E = 0$. Between $+Q$ and $-Q$: fields add.
+- **Where is $E = 0$ on the axis of $+4q$ and $+q$?** Between them, closer to the smaller charge: $k\frac{4q}{x^2} = k\frac{q}{(d-x)^2}$ → $x = 2d/3$.
+- **Charges at the corners of a square**: find the force on one corner from the other three, using symmetry for the two adjacent ones ($\sqrt2$ factor for the resultant) and $1/(\sqrt2 a)^2$ for the diagonal one.
+
+## Gauss's law (qualitative)
+Total number of field lines leaving a closed surface ∝ enclosed charge ($4\pi k Q$ lines per charge $Q$). It explains why $E$ inside a hollow charged sphere is zero and why the field of a charged plate is uniform.`,
+      ja: r`## クーロンの法則
+$$F = k\frac{q_1 q_2}{r^2}, \qquad k = \frac{1}{4\pi\varepsilon_0} = 9.0\times10^9\ \mathrm{N\,m^2/C^2}$$
+同符号は反発、異符号は引き合う。力は2つを結ぶ直線上で、作用・反作用が成り立つ。重力との比較：同じ $1/r^2$ の形だが、電気力は反発もあり、はるかに強い。
+
+## 電場
+$$\vec E = \frac{\vec F}{q} \quad(\text{N/C = V/m}), \qquad E_{点電荷} = k\frac{Q}{r^2}$$
+- $E$ は正電荷から**遠ざかる**向き、負電荷に**向かう**向き。
+- 電場中の電荷 $q$ は $\vec F = q\vec E$ を受ける — 負電荷は $\vec E$ と逆向きに押される。
+- **重ね合わせ**：ある点の $\vec E$ = すべての電荷の電場のベクトル和。矢印を1本ずつ描いてから成分で足す。
+
+:::fig field-lines
+
+## 電気力線
+- ＋から出て −に入る。交わらない。
+- 密なほど電場が強い。
+- 導体表面に垂直。導体内部は0（静電気）。
+- 平行板間の一様な電場：等間隔の平行線。
+
+## 典型的な配置の問題
+- **$+Q$ と $+Q$ の中点**：電場は打ち消し合い $E = 0$。$+Q$ と $-Q$ の間：足し合う。
+- **$+4q$ と $+q$ を結ぶ線上で $E = 0$ になる点は？** 2つの間で小さい電荷寄り：$k\frac{4q}{x^2} = k\frac{q}{(d-x)^2}$ → $x = 2d/3$。
+- **正方形の頂点の電荷**：1つの頂点が他の3つから受ける力。隣の2つは対称性で合力 $\sqrt2$ 倍、対角のものは $1/(\sqrt2 a)^2$。
+
+## ガウスの法則（定性的）
+閉曲面から出る電気力線の本数 ∝ 内部の電荷（電荷 $Q$ あたり $4\pi k Q$ 本）。帯電した中空球の内部で $E$ が0になること、帯電板の電場が一様なことの説明になる。`,
+    },
+    exam: {
+      en: ['Charges at corners of a square (or on a line): the charge $Q$ at the centre that makes the net force on a corner charge zero, or the field/potential at the centre (block IV, most years).', 'Point where the field is zero between two unequal charges.', 'Sketch/choose the field-line pattern for two charges.'],
+      ja: ['正方形の頂点（または直線上）の電荷：頂点の電荷にはたらく合力を0にする中心の電荷 $Q$、中心での電場・電位（大問 IV、ほぼ毎年）。', '大きさの違う2電荷の間で電場が0になる点。', '2電荷の電気力線のパターンを描く・選ぶ。'],
+    },
+    traps: {
+      en: ['$E$ is defined by a **positive** test charge; the force on an electron is opposite to $E$.', 'Fields add as **vectors** — equal fields at 90° give $\\sqrt2 E$, not $2E$.', 'The field at the midpoint of two equal like charges is zero, but the **potential** is not.'],
+      ja: ['$E$ は**正の**試験電荷で定義。電子にはたらく力は $E$ と逆向き。', '電場は**ベクトル**として足す — 90° の等しい電場は $2E$ ではなく $\\sqrt2 E$。', '等しい同符号の2電荷の中点で電場は0だが、**電位**は0ではない。'],
+    },
+    followups: {
+      en: ['Explain the difference between force and field with a concrete example.', 'Show the square-corner problem: net force on one charge from the other three.', 'Why is the electric field zero inside a conductor?', 'How do I find where E = 0 between +4q and +q?'],
+      ja: ['力と電場の違いを具体例で説明して。', '正方形の頂点の問題：1つの電荷が他の3つから受ける合力を見せて。', '導体の内部で電場が0になるのはなぜ？', '+4q と +q の間で E = 0 になる点はどう求める？'],
+    },
+  },
+  {
+    id: 'electric-potential',
+    core: {
+      en: 'Potential is electric potential energy per unit charge: V = U/q, a number (not a vector) at each point. A charge slides "downhill" in potential, and the field is the slope: E = −ΔV/Δx. In a uniform field, V = Ed; from a point charge, V = kQ/r (potentials from several charges just add as numbers).',
+      ja: '電位は単位電荷あたりの電気的位置エネルギー：V = U/q。各点の数（ベクトルではない）。電荷は電位の「坂を下る」ように動き、電場はその傾き：E = −ΔV/Δx。一様な電場では V = Ed、点電荷では V = kQ/r（複数の電荷の電位は数として足すだけ）。',
+    },
+    body: {
+      en: r`## Definitions
+- Potential energy of $q$ at a point: $U = qV$.
+- Potential difference $V_{AB} = V_A - V_B$ = work per unit charge to move from B to A. Unit: volt = J/C.
+- Work done **by the field** moving $q$ from A to B: $W = q(V_A - V_B)$. Positive charges gain kinetic energy when falling to lower $V$; electrons gain energy moving to **higher** $V$.
+
+## Uniform field (parallel plates)
+$$E = \frac{V}{d}$$ — field = voltage per metre. Equipotential surfaces are planes parallel to the plates. Moving along an equipotential costs no work; $E$ is always perpendicular to equipotentials.
+
+## Point charge
+$$V = k\frac{Q}{r}$$ (zero at infinity, sign of $Q$ included). Potential energy of two charges: $U = k\dfrac{q_1q_2}{r}$ — positive for like charges (they want to fly apart).
+For several charges, $V = \sum kQ_i/r_i$ — **scalar** addition, no angles. The potential at the centre of a square with $+Q$ at all four corners is $4kQ/(a/\sqrt2)$; the field there is zero.
+
+## Energy method for particles
+Charge $q$ accelerated through $V$: $\tfrac12 mv^2 = qV$. An electron through 1 V gains 1 eV $= 1.6\times10^{-19}$ J. This replaces any force-and-acceleration calculation.
+
+## Reading V–x graphs
+$E = -\dfrac{dV}{dx}$: the field points **down the potential hill**, and its size is the slope. Flat $V$ ⇒ $E = 0$ (inside a conductor). The EJU gives $V(x)$ and asks for the direction and magnitude of $E$, or for the work to move a charge between two $x$ values ($W = q\Delta V$, path-independent).`,
+      ja: r`## 定義
+- 電荷 $q$ の位置エネルギー：$U = qV$。
+- 電位差 $V_{AB} = V_A - V_B$ = B から A へ単位電荷を運ぶ仕事。単位 ボルト = J/C。
+- $q$ を A から B へ動かすとき**電場が**する仕事：$W = q(V_A - V_B)$。正電荷は低い $V$ へ「落ちる」と運動エネルギーを得る。電子は**高い** $V$ へ動くとエネルギーを得る。
+
+## 一様な電場（平行板）
+$$E = \frac{V}{d}$$ — 電場 = 1 m あたりの電圧。等電位面は極板に平行な面。等電位面に沿って動かす仕事は0。$E$ は常に等電位面に垂直。
+
+## 点電荷
+$$V = k\frac{Q}{r}$$（無限遠で0、$Q$ の符号を含む）。2電荷の位置エネルギー：$U = k\dfrac{q_1q_2}{r}$ — 同符号なら正（離れたがる）。
+複数の電荷では $V = \sum kQ_i/r_i$ — **スカラー**の和、角度なし。4頂点に $+Q$ の正方形の中心の電位は $4kQ/(a/\sqrt2)$、電場は0。
+
+## 粒子のエネルギー法
+電圧 $V$ で加速された電荷 $q$：$\tfrac12 mv^2 = qV$。電子が 1 V で得るのは 1 eV $= 1.6\times10^{-19}$ J。力と加速度の計算はすべてこれで置きかえられる。
+
+## V–x グラフの読み方
+$E = -\dfrac{dV}{dx}$：電場は**電位の坂を下る向き**、大きさは傾き。$V$ が平ら ⇒ $E = 0$（導体内部）。EJUは $V(x)$ を与えて $E$ の向きと大きさ、あるいは2つの $x$ の間で電荷を動かす仕事（$W = q\Delta V$、経路によらない）を問う。`,
+    },
+    exam: {
+      en: ['Potential at the centre of a charge arrangement (scalar sum) vs field there (vector sum, often zero).', 'Work to move a charge between two points in a uniform field or near a point charge; kinetic energy gained.', 'Given a $V$–$x$ graph, find $E$ (slope) and its direction, or where a released charge speeds up.'],
+      ja: ['電荷配置の中心での電位（スカラー和）と電場（ベクトル和、しばしば0）。', '一様な電場や点電荷のそばで電荷を動かす仕事、得る運動エネルギー。', '$V$–$x$ グラフから $E$（傾き）と向き、放した電荷が加速する向き。'],
+    },
+    traps: {
+      en: ['Potential is a scalar: signs matter, directions do not. $+Q$ and $-Q$ give zero potential at their midpoint (but not zero field).', '$E = V/d$ only in a **uniform** field; do not use it for point charges.', 'A negative charge moves toward **higher** potential; its potential energy $qV$ still decreases.'],
+      ja: ['電位はスカラー：符号は重要、向きは不要。$+Q$ と $-Q$ の中点の電位は0（電場は0ではない）。', '$E = V/d$ は**一様な**電場だけ。点電荷には使わない。', '負電荷は**高い**電位へ動く。その位置エネルギー $qV$ はやはり減る。'],
+    },
+    followups: {
+      en: ['Why is potential a scalar while field is a vector?', 'Show how E = V/d comes from the definition of potential.', 'Explain the V–x graph → E rule with a sketch in words.', 'Do an electron-accelerated-through-V problem with numbers.'],
+      ja: ['電位がスカラーで電場がベクトルなのはなぜ？', 'E = V/d が電位の定義からどう出るか見せて。', 'V–x グラフ → E のルールを言葉の絵で説明して。', '電圧 V で加速された電子の問題を数値で解いて。'],
+    },
+  },
+  {
+    id: 'conductors-dielectrics',
+    core: {
+      en: 'A conductor has free charges that move until the field inside is zero and the whole conductor sits at one potential; an insulator has no free charges, so its molecules only stretch (polarise) and weaken the field inside. Both effects are why a charged rod attracts neutral objects.',
+      ja: '導体には自由に動く電荷があり、内部の電場が0になり導体全体が同じ電位になるまで動く。絶縁体には自由な電荷がないので分子が伸びる（分極する）だけで、内部の電場を弱める。どちらも帯電した棒が中性の物体を引きつける理由。',
+    },
+    body: {
+      en: r`## Conductor in an electric field (electrostatic induction)
+Free electrons move against the field until the **internal field is zero**. Consequences:
+1. $E = 0$ inside; the surface has induced charges (− on the side facing a + rod, + on the far side).
+2. The conductor is an **equipotential**; $E$ at the surface is perpendicular to it.
+3. Excess charge sits on the outer surface only; it concentrates at sharp points.
+4. **Electrostatic shielding**: a hollow conductor keeps its interior field-free whatever happens outside (car in lightning, metal-cased instruments).
+5. **Grounding** (earthing): connecting to Earth lets charge flow so the conductor is at potential 0. Ground a body while a + rod is nearby, then remove the wire, then the rod → the body keeps a **negative** charge (induction charging).
+
+## Insulator (dielectric) in a field: dielectric polarisation
+No free charges. Each molecule stretches into a tiny dipole (or the existing dipoles align). Bound charges appear on the surfaces, producing an internal field that **opposes** the external one → the field inside is reduced to $E/\varepsilon_r$ but is **not zero**. This is why a dielectric in a capacitor raises its capacitance (see Capacitors).
+
+| | conductor | dielectric |
+|---|---|---|
+| charges | free electrons move | bound charges shift slightly |
+| inside field | 0 | reduced ($E_0/\varepsilon_r$) |
+| surface charge | induced (real, can be separated) | polarisation charge (cannot be separated) |
+| attracted by a charged rod? | yes | yes (weaker) |
+
+## Why a charged rod picks up paper
+Polarisation puts the opposite charge slightly **closer** to the rod than the like charge, so the attraction (∝ $1/r^2$) wins over the repulsion. Net force is attractive for both signs of rod charge.
+
+## Electroscope logic
+Leaves diverge when they carry like charge. Bring a + rod near: electrons rush up to the cap, leaves become more + → open wider if the scope was +, close (then reopen) if it was −. Use this to determine an unknown sign.`,
+      ja: r`## 電場中の導体（静電誘導）
+自由電子は**内部の電場が0**になるまで電場と逆向きに動く。結果：
+1. 内部で $E = 0$。表面に誘導電荷（＋の棒に面した側に −、反対側に ＋）。
+2. 導体は**等電位**。表面の $E$ は表面に垂直。
+3. 余分な電荷は外側の表面だけにあり、とがった所に集まる。
+4. **静電遮蔽**：中空の導体は外で何が起きても内部を無電場に保つ（雷の中の車、金属ケースの計器）。
+5. **接地（アース）**：地球とつなぐと電荷が流れて導体の電位が0になる。＋の棒を近づけたまま接地し、線を外し、それから棒を離す → 物体には**負**の電荷が残る（誘導帯電）。
+
+## 電場中の絶縁体（誘電体）：誘電分極
+自由な電荷がない。各分子が小さな双極子に伸びる（またはもともとの双極子がそろう）。表面に分極電荷が現れ、外部電場と**逆向き**の内部電場をつくる → 内部の電場は $E/\varepsilon_r$ に減るが**0ではない**。コンデンサーに誘電体を入れると電気容量が増える理由（コンデンサー参照）。
+
+| | 導体 | 誘電体 |
+|---|---|---|
+| 電荷 | 自由電子が動く | 束縛電荷がわずかにずれる |
+| 内部の電場 | 0 | 減る（$E_0/\varepsilon_r$） |
+| 表面の電荷 | 誘導電荷（実際に分離できる） | 分極電荷（分離できない） |
+| 帯電した棒に引かれる？ | 引かれる | 引かれる（弱い） |
+
+## 帯電した棒が紙を引きつける理由
+分極で異符号の電荷が同符号の電荷より棒に少し**近く**なるので、引力（∝ $1/r^2$）が斥力に勝つ。棒の電荷の符号によらず正味は引力。
+
+## 箔検電器の考え方
+箔は同符号の電荷をもつと開く。＋の棒を近づける：電子が上の金属板へ集まり、箔はより ＋ に → 検電器が ＋ なら大きく開き、− なら閉じてから再び開く。これで未知の符号を判定する。`,
+    },
+    exam: {
+      en: ['A charged rod near a grounded/isolated metal sphere: sign and location of induced charge; what remains after the sequence "ground → remove wire → remove rod".', 'Compare a conductor and a dielectric slab placed in a uniform field: the field inside each.', 'Electroscope: how the leaves move when a rod approaches or when the cap is touched.'],
+      ja: ['接地した／孤立した金属球に帯電した棒を近づける：誘導電荷の符号と位置、「接地 → 線を外す → 棒を離す」の後に残る電荷。', '一様な電場に置いた導体板と誘電体板の比較：内部の電場。', '箔検電器：棒を近づけたとき、金属板に触れたときの箔の動き。'],
+    },
+    traps: {
+      en: ['Inside a **conductor** the field is exactly zero; inside a **dielectric** it is only reduced.', 'In induction charging the body ends up with the **opposite** sign to the rod; by contact charging it gets the **same** sign.', 'Shielding blocks external fields from entering; charges **inside** a hollow conductor do produce a field outside.'],
+      ja: ['**導体**内部の電場はちょうど0。**誘電体**内部では減るだけ。', '誘導帯電では物体は棒と**逆**符号になる。接触帯電では**同**符号。', '静電遮蔽は外部の電場が中に入るのを防ぐ。中空導体の**内側**の電荷は外に電場をつくる。'],
+    },
+    followups: {
+      en: ['Walk through induction charging step by step and explain the final sign.', 'Why is the field inside a conductor zero but not inside a dielectric?', 'Why does a charged balloon stick to a neutral wall?', 'Explain electrostatic shielding with a Faraday cage example.'],
+      ja: ['誘導帯電を順を追って説明し、最後の符号の理由を教えて。', '導体内部の電場は0なのに誘電体内部は0でないのはなぜ？', '帯電した風船が中性の壁にくっつくのはなぜ？', 'ファラデーケージの例で静電遮蔽を説明して。'],
+    },
+  },
+  {
+    id: 'capacitors',
+    core: {
+      en: 'A capacitor stores charge Q = CV on two plates; C = ε₀S/d grows with plate area, shrinks with gap, and multiplies by εᵣ with a dielectric. Energy stored is ½CV² = Q²/2C. Two rules decide every circuit question: charge is conserved on isolated plates, and the battery fixes the voltage while connected.',
+      ja: 'コンデンサーは2枚の極板に電荷 Q = CV を蓄える。C = ε₀S/d は面積で増え、間隔で減り、誘電体で εᵣ 倍になる。蓄えるエネルギーは ½CV² = Q²/2C。回路の問題は2つのルールで決まる：孤立した極板の電荷は保存、電池につながっている間は電圧が固定。',
+    },
+    body: {
+      en: r`## Basics
+$$Q = CV, \qquad C = \varepsilon_0\frac{S}{d}\ (\times\varepsilon_r\ \text{with a dielectric}), \qquad U = \tfrac12 CV^2 = \tfrac12 QV = \frac{Q^2}{2C}$$
+Unit: farad = C/V. Field between the plates: $E = V/d = Q/(\varepsilon_0 S)$ — note $E$ depends on $Q$ and $S$ only, not on $d$.
+
+## The two situations
+| | battery **connected** (V fixed) | battery **disconnected** (Q fixed) |
+|---|---|---|
+| pull plates apart ($d\uparrow$, $C\downarrow$) | $Q\downarrow$, $E\downarrow$, $U\downarrow$ | $V\uparrow$, $E$ same, $U\uparrow$ (you did work) |
+| insert dielectric ($C\uparrow$) | $Q\uparrow$, $U\uparrow$ | $V\downarrow$, $U\downarrow$ (slab is pulled in) |
+
+Ask first: is $V$ fixed or $Q$ fixed? Then read off the row.
+
+:::fig capacitor
+
+## Combinations
+- **Parallel** (same $V$): $C = C_1 + C_2$; charges split in proportion to $C$.
+- **Series** (same $Q$): $\dfrac1C = \dfrac1{C_1} + \dfrac1{C_2}$; voltages split inversely to $C$.
+- A metal slab of thickness $t$ inserted: gap effectively $d - t$. A dielectric slab of thickness $t$: gap $d - t + t/\varepsilon_r$ (series of air and dielectric).
+
+## Charge redistribution and Joule heat (the EJU archetype)
+Capacitor $C_1$ charged to $V_0$ is connected (through a resistor) to uncharged $C_2$:
+- Charge conserved: $C_1V_0 = (C_1 + C_2)V$ → $V = \dfrac{C_1}{C_1+C_2}V_0$.
+- Energy before: $\tfrac12 C_1V_0^2$; after: $\tfrac12(C_1+C_2)V^2$. The difference is **lost as Joule heat in the resistor** (independent of $R$!): $Q_{heat} = \tfrac12\dfrac{C_1C_2}{C_1+C_2}V_0^2$.
+If the plates are connected with opposite polarities, the net charge is the difference: $Q_1 - Q_2$.
+
+## Charging through a battery
+Charging $C$ from a battery $V$: battery supplies $QV = CV^2$ of energy, capacitor stores $\tfrac12 CV^2$ — the other half is always dissipated, whatever the resistance.
+
+## Charging/discharging curves
+Charge rises toward $CV$ and current falls toward 0 with time constant $RC$; a capacitor is an **open circuit** at steady state (no current through it) and a **short circuit** the instant a switch closes (uncharged).`,
+      ja: r`## 基本
+$$Q = CV, \qquad C = \varepsilon_0\frac{S}{d}\ (\text{誘電体で}\ \times\varepsilon_r), \qquad U = \tfrac12 CV^2 = \tfrac12 QV = \frac{Q^2}{2C}$$
+単位 ファラド = C/V。極板間の電場：$E = V/d = Q/(\varepsilon_0 S)$ — $E$ は $Q$ と $S$ だけで決まり $d$ によらないことに注意。
+
+## 2つの状況
+| | 電池を**つないだまま**（V 一定） | 電池を**外した**（Q 一定） |
+|---|---|---|
+| 極板を離す（$d\uparrow$、$C\downarrow$） | $Q\downarrow$、$E\downarrow$、$U\downarrow$ | $V\uparrow$、$E$ 同じ、$U\uparrow$（外から仕事をした） |
+| 誘電体を入れる（$C\uparrow$） | $Q\uparrow$、$U\uparrow$ | $V\downarrow$、$U\downarrow$（板は引き込まれる） |
+
+まず「$V$ 一定か $Q$ 一定か」を確認し、行を読む。
+
+:::fig capacitor
+
+## 接続
+- **並列**（同じ $V$）：$C = C_1 + C_2$。電荷は $C$ に比例して分かれる。
+- **直列**（同じ $Q$）：$\dfrac1C = \dfrac1{C_1} + \dfrac1{C_2}$。電圧は $C$ に反比例して分かれる。
+- 厚さ $t$ の金属板を入れる：間隔は実質 $d - t$。厚さ $t$ の誘電体板：間隔 $d - t + t/\varepsilon_r$（空気と誘電体の直列）。
+
+## 電荷の移動とジュール熱（EJUの定番）
+$V_0$ に充電した $C_1$ を（抵抗を通して）未充電の $C_2$ につなぐ：
+- 電荷保存：$C_1V_0 = (C_1 + C_2)V$ → $V = \dfrac{C_1}{C_1+C_2}V_0$。
+- 前のエネルギー：$\tfrac12 C_1V_0^2$、後：$\tfrac12(C_1+C_2)V^2$。差は**抵抗でジュール熱として失われる**（$R$ によらない！）：$Q_{熱} = \tfrac12\dfrac{C_1C_2}{C_1+C_2}V_0^2$。
+極性を逆にしてつなぐと正味の電荷は差 $Q_1 - Q_2$。
+
+## 電池で充電するとき
+電池 $V$ で $C$ を充電：電池が供給するエネルギーは $QV = CV^2$、コンデンサーに蓄わるのは $\tfrac12 CV^2$ — 残り半分は抵抗の大きさによらず必ず失われる。
+
+## 充放電の曲線
+電荷は $CV$ へ、電流は0へ、時定数 $RC$ で近づく。定常状態のコンデンサーは**断線**（電流0）、スイッチを閉じた瞬間（未充電）は**導線**と同じ。`,
+    },
+    exam: {
+      en: ['Charged capacitor connected to another through a resistor: final charges/voltage and the Joule heat (block IV, very frequent).', 'Battery connected vs disconnected: what happens to $Q$, $V$, $E$, $U$ when $d$ changes or a dielectric is inserted.', 'Series/parallel network: equivalent capacitance, charge on each, voltage across each.'],
+      ja: ['充電したコンデンサーを抵抗を通して別のコンデンサーにつなぐ：最終的な電荷・電圧とジュール熱（大問 IV、超頻出）。', '電池をつないだまま／外した：$d$ を変える・誘電体を入れると $Q$、$V$、$E$、$U$ はどうなるか。', '直列・並列回路：合成容量、各コンデンサーの電荷と電圧。'],
+    },
+    traps: {
+      en: ['With the battery disconnected $Q$ is fixed — and $E = Q/\\varepsilon_0 S$ does **not** change when you move the plates.', 'Series capacitors share the same **charge**, not the same voltage.', 'Energy lost in redistribution does not depend on $R$; $R$ only changes how long it takes.'],
+      ja: ['電池を外すと $Q$ 一定 — 極板を動かしても $E = Q/\\varepsilon_0 S$ は**変わらない**。', '直列のコンデンサーで共通なのは**電荷**であって電圧ではない。', '電荷移動で失われるエネルギーは $R$ によらない。$R$ はかかる時間を変えるだけ。'],
+    },
+    followups: {
+      en: ['Why is exactly half the battery energy lost when charging a capacitor?', 'Solve the C₁→C₂ redistribution problem with numbers, including the heat.', 'Why does inserting a dielectric raise the capacitance?', 'Explain why E between the plates does not depend on d.'],
+      ja: ['コンデンサーを充電するとき電池のエネルギーのちょうど半分が失われるのはなぜ？', 'C₁→C₂ の電荷移動の問題を熱まで含めて数値で解いて。', '誘電体を入れると電気容量が増えるのはなぜ？', '極板間の E が d によらない理由を説明して。'],
+    },
+  },
+  {
+    id: 'dc-circuits',
+    core: {
+      en: 'Current is charge flow driven by voltage and limited by resistance: V = IR. Two bookkeeping rules solve any circuit: current in = current out at every junction, and voltages around any closed loop sum to zero. Power is P = IV = I²R = V²/R — choose the form that uses what you know.',
+      ja: '電流は電圧に押され抵抗に制限される電荷の流れ：V = IR。回路の問題は2つの収支ルールで解ける：どの分岐点でも「入る電流 = 出る電流」、どの閉回路でも「電圧の和 = 0」。電力は P = IV = I²R = V²/R — わかっている量に合わせて式を選ぶ。',
+    },
+    body: {
+      en: r`## Ohm's law and resistance
+$V = IR$; resistance of a wire $R = \rho\dfrac{L}{S}$ (longer → more, thicker → less). Metals: $\rho$ rises with temperature ($\rho = \rho_0(1 + \alpha t)$). Current is the flow of electrons **opposite** to the conventional current arrow; $I = envS$ ($n$ electrons per volume, drift speed $v$).
+
+## Series and parallel
+| | series | parallel |
+|---|---|---|
+| same | current | voltage |
+| total $R$ | $R_1 + R_2$ | $\dfrac{R_1R_2}{R_1+R_2}$ (less than the smallest) |
+| voltage/current split | $V \propto R$ | $I \propto 1/R$ |
+
+## Kirchhoff's rules
+:::fig circuit
+
+1. **Junction**: $\sum I_{in} = \sum I_{out}$.
+2. **Loop**: going around any closed loop, $\sum(\text{emf}) = \sum IR$. Choose a direction; an emf counts + if you pass − → +; an $IR$ counts + if you go with the assumed current. A negative answer just means the current is opposite to your guess.
+
+## Real batteries
+Terminal voltage $V = E - Ir$ ($E$ emf, $r$ internal resistance). Short circuit: $I = E/r$. Maximum power to an external $R$ when $R = r$. A voltmeter across an open battery reads $E$.
+
+## Power and Joule heat
+$P = IV = I^2R = \dfrac{V^2}{R}$; heat in time $t$: $Q = I^2Rt$. In **series** the bigger $R$ gets more heat ($I$ same, $P = I^2R$); in **parallel** the smaller $R$ gets more ($V$ same, $P = V^2/R$). Comparing "two equal resistors in series vs parallel across the same battery": parallel draws 4× the power.
+
+## Meters and measurement
+Ammeter: in series, tiny $r$; extend its range with a **shunt** in parallel. Voltmeter: in parallel, huge $r$; extend its range with a **multiplier** resistor in series. Wheatstone bridge balanced when $R_1/R_2 = R_3/R_4$ (no current through the galvanometer). Potentiometer measures emf with **zero current** drawn, so $r$ does not matter.
+
+## Capacitor in a DC circuit
+Steady state: no current through the capacitor branch; its voltage equals the voltage across whatever it is in parallel with. Just after switching: acts as a wire.`,
+      ja: r`## オームの法則と抵抗
+$V = IR$。導線の抵抗 $R = \rho\dfrac{L}{S}$（長いほど大、太いほど小）。金属の $\rho$ は温度で上がる（$\rho = \rho_0(1 + \alpha t)$）。電流は電子の流れで、向きは電流の矢印と**逆**。$I = envS$（$n$ 単位体積の電子数、$v$ 平均の速さ）。
+
+## 直列と並列
+| | 直列 | 並列 |
+|---|---|---|
+| 共通 | 電流 | 電圧 |
+| 合成抵抗 | $R_1 + R_2$ | $\dfrac{R_1R_2}{R_1+R_2}$（最小の抵抗より小さい） |
+| 分配 | $V \propto R$ | $I \propto 1/R$ |
+
+## キルヒホッフの法則
+:::fig circuit
+
+1. **分岐点**：$\sum I_{入} = \sum I_{出}$。
+2. **閉回路**：どの閉回路でも $\sum(\text{起電力}) = \sum IR$。回る向きを決め、起電力は − → + に通れば +、$IR$ は仮定した電流の向きに通れば +。答えが負なら電流は仮定と逆向きというだけ。
+
+## 実際の電池
+端子電圧 $V = E - Ir$（$E$ 起電力、$r$ 内部抵抗）。短絡：$I = E/r$。外部抵抗 $R$ が受け取る電力は $R = r$ で最大。開放した電池に電圧計をつなぐと $E$ を示す。
+
+## 電力とジュール熱
+$P = IV = I^2R = \dfrac{V^2}{R}$。時間 $t$ の熱：$Q = I^2Rt$。**直列**では大きい $R$ ほど発熱大（$I$ 同じ、$P = I^2R$）、**並列**では小さい $R$ ほど発熱大（$V$ 同じ、$P = V^2/R$）。「同じ抵抗2個を同じ電池に直列 vs 並列」：並列は4倍の電力。
+
+## 計器と測定
+電流計：直列、$r$ 極小。測定範囲は**分流器**（並列）で拡大。電圧計：並列、$r$ 極大。範囲は**倍率器**（直列）で拡大。ホイートストンブリッジは $R_1/R_2 = R_3/R_4$ でつり合う（検流計に電流なし）。電位差計は**電流を流さずに**起電力を測るので $r$ が効かない。
+
+## 直流回路中のコンデンサー
+定常状態：コンデンサーの枝に電流は流れない。その電圧は並列になっている部分の電圧に等しい。スイッチを入れた直後：導線として扱う。`,
+    },
+    exam: {
+      en: ['Equal resistors wired two different ways to the same battery: ratio of total power, current in one resistor, or power in an unknown resistor from a branch current (block IV, most years).', 'Circuit with two batteries: apply the loop rule to find each current.', 'Internal resistance: terminal voltage vs current graph — intercept $E$, slope $-r$.'],
+      ja: ['同じ抵抗を2通りに配線して同じ電池につなぐ：全電力の比、ある抵抗の電流、枝の電流から未知の抵抗の消費電力（大問 IV、ほぼ毎年）。', '電池2個の回路：閉回路の法則で各電流。', '内部抵抗：端子電圧–電流グラフ — 切片 $E$、傾き $-r$。'],
+    },
+    traps: {
+      en: ['Parallel resistance is **smaller** than either resistor; adding a parallel branch increases the total current.', 'A voltmeter across a battery under load reads $E - Ir$, less than the emf.', 'In the steady state no current flows **through** a capacitor, but the resistors in series with it may still carry current in another loop.'],
+      ja: ['並列の合成抵抗はどちらの抵抗より**小さい**。並列の枝を足すと全電流は増える。', '負荷をつないだ電池の電圧計の読みは $E - Ir$ で起電力より小さい。', '定常状態でコンデンサー**を通る**電流はないが、それと直列の抵抗は別の閉回路で電流を流していることがある。'],
+    },
+    followups: {
+      en: ['Walk through a two-loop Kirchhoff problem with numbers.', 'Why does parallel wiring draw more power than series?', 'Why is power to the load maximal when R = r?', 'How do I treat a capacitor in a DC circuit at steady state?'],
+      ja: ['2つの閉回路のキルヒホッフの問題を数値で解いて。', '並列の方が直列より電力を多く使うのはなぜ？', 'R = r で負荷の電力が最大になるのはなぜ？', '定常状態の直流回路でコンデンサーはどう扱う？'],
+    },
+  },
+  {
+    id: 'semiconductors',
+    core: {
+      en: 'Pure silicon barely conducts; adding a few atoms with 5 valence electrons donates free electrons (n-type), adding atoms with 3 leaves holes (p-type). Join p to n and current flows one way only — the diode — because forward bias pushes carriers across the junction and reverse bias pulls them away.',
+      ja: '純粋なケイ素はほとんど電気を通さない。価電子5個の原子を少し混ぜると自由電子が生まれ（n型）、3個の原子を混ぜると正孔が生まれる（p型）。p と n を接合すると電流は一方向にしか流れない — ダイオード。順方向ではキャリアが接合面を越えて押し込まれ、逆方向では引き離されるから。',
+    },
+    body: {
+      en: r`## Conductors, insulators, semiconductors
+Semiconductors (Si, Ge) have resistivity between metals and insulators, and — unlike metals — their resistance **falls** as temperature rises (more electrons freed). Pure ("intrinsic") Si has 4 valence electrons all used in bonds → very few carriers.
+
+## Doping
+| type | dopant | extra | majority carrier |
+|---|---|---|---|
+| n-type | 5 valence e⁻ (P, As, Sb) | one spare electron per atom | electrons (negative) |
+| p-type | 3 valence e⁻ (B, Al, Ga, In) | one missing bond = **hole** | holes (act as positive charges) |
+
+Both types are electrically **neutral** overall; "n" and "p" describe the mobile carriers, not the net charge. A hole moves when a neighbouring electron hops into it, so it behaves like a + charge moving the other way.
+
+## p–n junction and the diode
+At the junction electrons and holes recombine, leaving a thin **depletion layer** with a built-in field that stops further flow.
+- **Forward bias** (p connected to +, n to −): the external voltage pushes holes and electrons toward the junction, the barrier shrinks, current flows (after ≈ 0.6 V for Si).
+- **Reverse bias** (p to −): carriers are pulled away, the depletion layer widens, essentially no current.
+Symbol: arrow points in the direction of conventional current (p → n).
+
+## Uses
+- **Rectification**: a diode turns AC into pulsating DC (half-wave); four diodes in a bridge give full-wave rectification. The EJU shows an AC source with a diode and a resistor and asks for the voltage graph across the resistor.
+- LED (emits light when forward-biased), solar cell (light creates carriers → current), transistor (two junctions, amplifies), thermistor.
+
+## I–V characteristic
+Forward: almost zero current until the threshold, then steeply rising. Reverse: negligible current. So a diode is "ideal wire one way, open circuit the other".`,
+      ja: r`## 導体・絶縁体・半導体
+半導体（Si, Ge）の抵抗率は金属と絶縁体の中間で、金属と違って温度が上がると抵抗が**下がる**（自由になる電子が増える）。純粋な（真性）Si は価電子4個をすべて結合に使うのでキャリアが極めて少ない。
+
+## ドーピング
+| 型 | 不純物 | 余分なもの | 多数キャリア |
+|---|---|---|---|
+| n型 | 価電子5個（P, As, Sb） | 原子1個につき電子1個余る | 電子（負） |
+| p型 | 価電子3個（B, Al, Ga, In） | 結合1本が不足 = **正孔（ホール）** | 正孔（正電荷のようにふるまう） |
+
+どちらの型も全体としては電気的に**中性**。「n」「p」は動けるキャリアの符号であって正味の電荷ではない。正孔は隣の電子が飛び込むことで動くので、逆向きに動く＋電荷のように見える。
+
+## p–n 接合とダイオード
+接合面で電子と正孔が再結合し、薄い**空乏層**とそれ以上の流れを止める内部電場ができる。
+- **順方向**（p を ＋、n を −）：外部電圧が正孔と電子を接合面へ押し、障壁が小さくなり電流が流れる（Si では約 0.6 V 以上）。
+- **逆方向**（p を −）：キャリアが引き離され空乏層が広がり、電流はほぼ流れない。
+記号：矢印は電流の向き（p → n）。
+
+## 用途
+- **整流**：ダイオードで交流を脈流の直流にする（半波整流）。4個のブリッジで全波整流。EJUは交流電源＋ダイオード＋抵抗の回路で抵抗にかかる電圧のグラフを問う。
+- LED（順方向で発光）、太陽電池（光がキャリアをつくる → 電流）、トランジスタ（接合2つ、増幅）、サーミスタ。
+
+## 電流–電圧特性
+順方向：しきい値まではほぼ0、その後急激に増加。逆方向：ほぼ0。つまりダイオードは「一方向には導線、逆方向には断線」。`,
+    },
+    exam: {
+      en: ['Which statement about n-type / p-type / holes is correct (e.g. "n-type is negatively charged" is false).', 'AC through a diode and resistor: choose the voltage–time graph across the resistor (half-wave).', 'Which way does current flow / which diodes conduct in a small diode circuit.'],
+      ja: ['n型・p型・正孔についての正しい記述（「n型は負に帯電」は誤り、など）。', 'ダイオードと抵抗に交流を流す：抵抗の電圧–時間グラフを選ぶ（半波整流）。', '小さなダイオード回路で電流はどちらへ流れるか、どのダイオードが導通するか。'],
+    },
+    traps: {
+      en: ['n-type material is **not** negatively charged; the donor atoms are + ions balancing the free electrons.', 'Semiconductor resistance decreases with temperature — the opposite of metals.', 'The diode arrow shows conventional current (p→n); electrons move the other way.'],
+      ja: ['n型半導体は負に帯電**していない**。ドナー原子が＋イオンになって自由電子とつり合っている。', '半導体の抵抗は温度が上がると減る — 金属と逆。', 'ダイオードの矢印は電流の向き（p→n）。電子は逆向きに動く。'],
+    },
+    followups: {
+      en: ['Explain how a hole "moves" even though it is the absence of an electron.', 'Why does the depletion layer stop current, and how does forward bias overcome it?', 'Draw (in words) the output of a half-wave rectifier and a bridge rectifier.', 'Why does heating a semiconductor lower its resistance?'],
+      ja: ['電子の欠けている場所なのに正孔が「動く」しくみを説明して。', '空乏層が電流を止め、順方向電圧がそれを乗り越えるしくみは？', '半波整流とブリッジ整流の出力を言葉で描いて。', '半導体を温めると抵抗が下がるのはなぜ？'],
+    },
+  },
+  {
+    id: 'magnetic-field',
+    core: {
+      en: 'Moving charges (currents) create magnetic fields that circle around them; the right-hand screw rule gives the direction. Three shapes to know: a straight wire (B = μ₀I/2πr, circles), a circular loop (B = μ₀I/2r at the centre), and a solenoid (B = μ₀nI, uniform inside). Fields from several currents add as vectors.',
+      ja: '動く電荷（電流）はまわりを回る磁場をつくる。向きは右ねじの法則。覚える形は3つ：直線電流（B = μ₀I/2πr、同心円）、円形電流（中心で B = μ₀I/2r）、ソレノイド（内部で B = μ₀nI、一様）。複数の電流の磁場はベクトルとして足す。',
+    },
+    body: {
+      en: r`## Magnets and fields
+Field lines leave N and enter S; like poles repel. The Earth's geographic north is a magnetic **south** pole (that is why compass N points there). Magnetic field $H$ (A/m) and flux density $B = \mu H$ (tesla); in air $\mu = \mu_0 = 4\pi\times10^{-7}$ T·m/A. Flux $\Phi = BS$ (weber).
+
+## Right-hand screw rule
+Thumb along the current → fingers curl in the direction of $B$ around a straight wire. For a loop or coil, curl fingers along the current → thumb gives $B$ inside (the N side).
+
+:::fig wire-field
+
+## The three formulas
+| current | $B$ | where |
+|---|---|---|
+| straight wire | $\dfrac{\mu_0 I}{2\pi r}$ | circles around the wire, falls as $1/r$ |
+| circular loop radius $r$ | $\dfrac{\mu_0 I}{2r}$ | at the centre, perpendicular to the loop |
+| solenoid, $n$ turns per metre | $\mu_0 n I$ | uniform inside, ≈ 0 outside; independent of radius |
+
+($N$ turns on a loop: multiply by $N$. In terms of $H$: $H = I/2\pi r$, $I/2r$, $nI$.)
+
+## Superposition
+Two parallel wires, currents $I_1$, $I_2$, separated by $d$:
+- Same direction → field between them is **reduced** (opposite contributions); zero at the point where $\dfrac{I_1}{x} = \dfrac{I_2}{d-x}$.
+- Opposite direction → fields add between the wires, cancel somewhere outside (nearer the smaller current).
+Draw the small circle arrows around each wire at the point in question and add.
+
+## Magnetic materials
+Ferromagnets (Fe, Ni, Co) are strongly magnetised in a field and keep it (permanent magnets); paramagnets weakly align; diamagnets weakly oppose. A coil with an iron core has a much larger $B$ (electromagnet).`,
+      ja: r`## 磁石と磁場
+磁力線は N から出て S に入る。同じ極は反発。地球の北極付近は磁石としては **S 極**（だから方位磁針の N がそちらを向く）。磁場 $H$（A/m）と磁束密度 $B = \mu H$（テスラ）。空気中では $\mu = \mu_0 = 4\pi\times10^{-7}$ T·m/A。磁束 $\Phi = BS$（ウェーバ）。
+
+## 右ねじの法則
+親指を電流の向き → 指の曲がる向きが直線電流のまわりの $B$。ループやコイルでは指を電流に沿って曲げる → 親指が内部の $B$（N 側）。
+
+:::fig wire-field
+
+## 3つの公式
+| 電流 | $B$ | 場所 |
+|---|---|---|
+| 直線電流 | $\dfrac{\mu_0 I}{2\pi r}$ | 導線のまわりの同心円、$1/r$ で減る |
+| 半径 $r$ の円形電流 | $\dfrac{\mu_0 I}{2r}$ | 中心、面に垂直 |
+| 1 m あたり $n$ 巻きのソレノイド | $\mu_0 n I$ | 内部で一様、外部はほぼ0。半径によらない |
+
+（円形電流が $N$ 巻きなら $N$ 倍。$H$ で書くと $H = I/2\pi r$、$I/2r$、$nI$。）
+
+## 重ね合わせ
+間隔 $d$ の平行な2本の導線、電流 $I_1$、$I_2$：
+- 同じ向き → 間の磁場は**弱まる**（逆向きの寄与）。$\dfrac{I_1}{x} = \dfrac{I_2}{d-x}$ となる点で0。
+- 逆向き → 間では足し合い、外側のどこか（小さい電流の側）で打ち消す。
+問われている点で各導線のまわりの小さな円の矢印を描いて足す。
+
+## 磁性体
+強磁性体（Fe, Ni, Co）は磁場中で強く磁化され、それを保つ（永久磁石）。常磁性体は弱くそろい、反磁性体は弱く逆らう。鉄心入りコイルは $B$ がはるかに大きい（電磁石）。`,
+    },
+    exam: {
+      en: ['Two or three long parallel wires: where the net field is zero (ratio $d/a$), or the magnitude and direction of $B$ at a given point (block IV, very frequent).', 'Compare $B$ at the centre of a loop vs inside a solenoid when $I$ or $r$ changes.', 'Direction of the field from a loop or solenoid given the winding direction.'],
+      ja: ['平行な長い導線2〜3本：合成磁場が0になる点（$d/a$ の比）、ある点での $B$ の大きさと向き（大問 IV、超頻出）。', '$I$ や $r$ を変えたときの円形電流の中心と ソレノイド内部の $B$ の比較。', '巻き方が与えられたループやソレノイドの磁場の向き。'],
+    },
+    traps: {
+      en: ['The field of a straight wire is $\\propto 1/r$, not $1/r^2$ (that is a point charge).', 'The solenoid field does not depend on its radius, only on turns **per length** and $I$.', 'Field lines of a current form closed loops — there are no magnetic "charges" where they start or end.'],
+      ja: ['直線電流の磁場は $1/r^2$ ではなく $\\propto 1/r$（$1/r^2$ は点電荷）。', 'ソレノイドの磁場は半径によらず、**単位長さあたり**の巻数と $I$ だけで決まる。', '電流の磁力線は閉じたループ — 始点や終点となる磁気の「電荷」はない。'],
+    },
+    followups: {
+      en: ['Show the two-wire zero-field calculation for same and opposite currents.', 'Why is the solenoid field uniform inside and independent of radius?', 'Explain the right-hand screw rule with a loop example.', 'Why does the field of a wire fall as 1/r?'],
+      ja: ['同じ向きと逆向きの電流で磁場が0になる点の計算を見せて。', 'ソレノイドの磁場が内部で一様で半径によらないのはなぜ？', 'ループの例で右ねじの法則を説明して。', '直線電流の磁場が 1/r で減るのはなぜ？'],
+    },
+  },
+  {
+    id: 'magnetic-force',
+    core: {
+      en: 'A magnetic field pushes sideways on moving charge: on a wire F = IBl sin θ, on a single charge F = qvB sin θ, always perpendicular to both the motion and B (Fleming\'s left hand / F = IL × B). Because the force is perpendicular to v it never does work — it only bends the path, giving circles of radius r = mv/qB.',
+      ja: '磁場は動く電荷を横向きに押す：導線では F = IBl sin θ、電荷1個では F = qvB sin θ。向きは常に運動と B の両方に垂直（フレミングの左手 / F = IL × B）。力が v に垂直なので仕事をせず、経路を曲げるだけ → 半径 r = mv/qB の円運動。',
+    },
+    body: {
+      en: r`## Force on a current
+$$F = IBl\sin\theta$$ ($\theta$ = angle between wire and $B$; zero when parallel, maximum when perpendicular).
+**Direction** (Fleming's left hand): First finger = Field, seCond = Current, thuMb = Motion/force. Equivalent: $\vec F = I\vec l\times\vec B$.
+
+:::fig left-hand
+
+## Parallel wires
+Wire 1 makes $B = \dfrac{\mu_0 I_1}{2\pi d}$ at wire 2; force per length on wire 2: $\dfrac{F}{l} = \dfrac{\mu_0 I_1 I_2}{2\pi d}$.
+**Same direction → attract; opposite → repel.** (Check with the left-hand rule once, then remember it.)
+
+## Lorentz force on a charge
+$$F = qvB\sin\theta$$ Positive charge: left-hand rule with current in the direction of $v$; negative charge: reverse the force. The force is always ⊥ $v$ → **no work, speed constant**.
+- $v \perp B$: uniform circular motion, $qvB = \dfrac{mv^2}{r}$ → $r = \dfrac{mv}{qB}$, $T = \dfrac{2\pi m}{qB}$ (independent of $v$!).
+- $v$ at an angle: circle + drift along $B$ = helix.
+- $\vec E \perp \vec B$ velocity selector: undeflected when $qE = qvB$ → $v = E/B$.
+
+## Applications
+- **Mass spectrometer**: $r \propto m$ for the same $q$, $v$ → heavier ions bend less.
+- **Cyclotron**: $T$ independent of $v$, so a fixed-frequency voltage keeps kicking the particle.
+- **Hall effect**: current in a slab in a field; carriers are pushed to one side until the transverse field balances: $qE_H = qvB$. The sign of the Hall voltage reveals whether carriers are electrons or holes; $V_H = vBd$, and with $I = nqvS$ you get $n$.
+- **Motor**: a coil in a field feels a torque (forces on opposite sides are opposite).
+
+## Force balance problems
+A rod of mass $m$ hanging by threads in a horizontal field, current $I$: horizontal $F = IBl$ tilts the threads by $\tan\theta = IBl/mg$. A rod on rails on a slope stays put when $IBl\cos\theta = mg\sin\theta$.`,
+      ja: r`## 電流が受ける力
+$$F = IBl\sin\theta$$（$\theta$ = 導線と $B$ のなす角。平行で0、垂直で最大。）
+**向き**（フレミングの左手）：人差し指 = 磁場、中指 = 電流、親指 = 力。同じことを $\vec F = I\vec l\times\vec B$ とも書く。
+
+:::fig left-hand
+
+## 平行電流
+導線1が導線2の位置につくる $B = \dfrac{\mu_0 I_1}{2\pi d}$。導線2の単位長さあたりの力：$\dfrac{F}{l} = \dfrac{\mu_0 I_1 I_2}{2\pi d}$。
+**同じ向き → 引き合う、逆向き → 反発。**（左手で一度確認して、あとは覚える。）
+
+## 電荷が受けるローレンツ力
+$$F = qvB\sin\theta$$ 正電荷：$v$ の向きを電流として左手の法則。負電荷：力を逆にする。力は常に $v$ に垂直 → **仕事をせず、速さ一定**。
+- $v \perp B$：等速円運動、$qvB = \dfrac{mv^2}{r}$ → $r = \dfrac{mv}{qB}$、$T = \dfrac{2\pi m}{qB}$（$v$ によらない！）。
+- 斜めの $v$：円運動 ＋ $B$ 方向の等速 = らせん。
+- $\vec E \perp \vec B$ の速度選別器：$qE = qvB$ のとき直進 → $v = E/B$。
+
+## 応用
+- **質量分析器**：同じ $q$、$v$ なら $r \propto m$ → 重いイオンほど曲がらない。
+- **サイクロトロン**：$T$ が $v$ によらないので、一定周波数の電圧で加速し続けられる。
+- **ホール効果**：磁場中の板に電流。キャリアが片側に寄り、横向きの電場がつり合うまで：$qE_H = qvB$。ホール電圧の符号でキャリアが電子か正孔かわかる。$V_H = vBd$、$I = nqvS$ と合わせて $n$ が求まる。
+- **モーター**：磁場中のコイルは偶力を受ける（向かい合う辺の力が逆向き）。
+
+## 力のつり合いの問題
+水平な磁場中に糸でつるした質量 $m$ の棒に電流 $I$：水平な力 $F = IBl$ で糸が $\tan\theta = IBl/mg$ だけ傾く。斜面上のレールの棒は $IBl\cos\theta = mg\sin\theta$ で静止。`,
+    },
+    exam: {
+      en: ['Rod hanging in a field: find $B$ from the tilt angle; or a rod on rails: current needed to hold it on a slope.', 'Charged particle enters a field region: radius, where it exits, time inside (half a period), how $r$ changes with $B$ or $v$ (block IV, frequent).', 'Hall effect: direction of the Hall voltage for electrons vs holes.'],
+      ja: ['磁場中につるした棒：傾き角から $B$。レール上の棒：斜面で静止させる電流。', '磁場領域に入る荷電粒子：半径、出る位置、滞在時間（半周期）、$B$ や $v$ で $r$ がどう変わるか（大問 IV、頻出）。', 'ホール効果：電子と正孔でホール電圧の向き。'],
+    },
+    traps: {
+      en: ['A magnetic force never changes a particle\'s **speed** — only its direction.', 'The period of circular motion in a field is independent of the speed (bigger $v$ → bigger circle, same $T$).', 'For a negative charge, reverse the direction given by the left-hand rule.'],
+      ja: ['磁気力は粒子の**速さ**を変えない — 向きだけ。', '磁場中の円運動の周期は速さによらない（$v$ が大きいほど円は大きいが $T$ は同じ）。', '負電荷では左手の法則の向きを逆にする。'],
+    },
+    followups: {
+      en: ['Why does the magnetic force do no work?', 'Derive r = mv/qB and T = 2πm/qB.', 'Explain the Hall effect and how it tells electrons from holes.', 'Show why parallel currents attract with the left-hand rule.'],
+      ja: ['磁気力が仕事をしないのはなぜ？', 'r = mv/qB と T = 2πm/qB を導いて。', 'ホール効果と、それで電子と正孔を区別するしくみを説明して。', '左手の法則で平行電流が引き合う理由を見せて。'],
+    },
+  },
+  {
+    id: 'em-induction',
+    core: {
+      en: 'Change the magnetic flux through a loop and a voltage appears: V = −ΔΦ/Δt (Faraday). The minus sign is Lenz\'s law — the induced current always fights the change that made it. A rod cutting field lines at speed v gives V = vBl, which is just the Lorentz force pushing the rod\'s electrons along it.',
+      ja: 'ループを貫く磁束が変わると電圧が生じる：V = −ΔΦ/Δt（ファラデー）。マイナスはレンツの法則 — 誘導電流は自分を生んだ変化に必ず逆らう。速さ v で磁力線を横切る棒には V = vBl が生じ、これは棒の中の電子がローレンツ力で押されているだけ。',
+    },
+    body: {
+      en: r`## Faraday's law
+$$V = -N\frac{\Delta\Phi}{\Delta t}, \qquad \Phi = BS\cos\theta$$
+Flux changes when $B$ changes, when the area changes, or when the loop rotates. Given a $B$–$t$ graph, the induced emf is $\propto$ **slope** (zero where $B$ is constant, largest where $B$ changes fastest).
+
+## Lenz's law (direction)
+The induced current makes a field that **opposes the change in flux**:
+- flux increasing → induced field points against $B$;
+- flux decreasing → induced field points along $B$.
+Then use the right-hand rule to turn that field into a current direction. A magnet's N pole approaching a loop makes the loop's near face N (repels the magnet); pulling it away makes the face S (attracts). Either way the loop **resists** the motion — that is where the work to generate electricity comes from.
+
+:::fig induction
+
+## Motional emf
+Rod of length $l$ moving at $v$ across $B$: $$V = vBl$$
+Why: each electron in the rod feels $evB$ along the rod, piling up at one end until $eE = evB$, i.e. $E = vB$ and $V = El = vBl$. The end where positive charge accumulates (found with the left-hand rule using $v$ as the current direction) is the + terminal.
+On rails with resistance $R$: $I = vBl/R$, the rod feels a braking force $F = IBl = B^2l^2v/R$, and the external agent's power $Fv$ equals the Joule heat $I^2R$ — energy is conserved.
+
+## Eddy currents
+A moving conductor near a magnet develops swirling currents that oppose the motion (magnetic braking, induction cooking, a magnet falling slowly through a copper pipe).
+
+## Self- and mutual induction
+- Self-induction: a coil opposes changes in its **own** current: $V = -L\dfrac{\Delta I}{\Delta t}$; energy stored $\tfrac12 LI^2$. Switch-on: current rises gradually; switch-off: large spark voltage.
+- Mutual induction: changing current in coil 1 induces $V_2 = -M\dfrac{\Delta I_1}{\Delta t}$ in coil 2.
+- **Transformer**: $\dfrac{V_1}{V_2} = \dfrac{N_1}{N_2}$, and (ideal) $V_1I_1 = V_2I_2$ — step up the voltage, step down the current. Works only with AC (needs changing flux).`,
+      ja: r`## ファラデーの法則
+$$V = -N\frac{\Delta\Phi}{\Delta t}, \qquad \Phi = BS\cos\theta$$
+$B$ が変わる、面積が変わる、ループが回転する、のいずれでも磁束は変わる。$B$–$t$ グラフが与えられたら誘導起電力 ∝ **傾き**（$B$ 一定で0、最も速く変わるところで最大）。
+
+## レンツの法則（向き）
+誘導電流は**磁束の変化に逆らう**磁場をつくる：
+- 磁束が増える → 誘導磁場は $B$ と逆向き。
+- 磁束が減る → 誘導磁場は $B$ と同じ向き。
+それを右ねじの法則で電流の向きに直す。磁石の N 極がループに近づくとループの手前の面は N（磁石を押し返す）。遠ざけると S（引きとめる）。どちらでもループは運動に**逆らう** — 発電の仕事はそこから来る。
+
+:::fig induction
+
+## 導体棒の誘導起電力
+長さ $l$ の棒が $B$ を速さ $v$ で横切る：$$V = vBl$$
+理由：棒の中の各電子は棒に沿って $evB$ を受け、片端にたまり、$eE = evB$ つまり $E = vB$、$V = El = vBl$ になるまで続く。正電荷がたまる端（$v$ を電流の向きとして左手の法則）が ＋ 極。
+抵抗 $R$ のレール上では $I = vBl/R$、棒はブレーキ力 $F = IBl = B^2l^2v/R$ を受け、外力の仕事率 $Fv$ はジュール熱 $I^2R$ に等しい — エネルギー保存。
+
+## 渦電流
+磁石の近くで動く導体には渦状の電流が生じ運動に逆らう（磁気ブレーキ、IH調理器、銅管をゆっくり落ちる磁石）。
+
+## 自己誘導・相互誘導
+- 自己誘導：コイルは**自分自身**の電流の変化に逆らう：$V = -L\dfrac{\Delta I}{\Delta t}$。蓄えるエネルギー $\tfrac12 LI^2$。スイッチを入れると電流は徐々に増え、切ると大きな火花電圧。
+- 相互誘導：コイル1の電流変化がコイル2に $V_2 = -M\dfrac{\Delta I_1}{\Delta t}$ を誘導。
+- **変圧器**：$\dfrac{V_1}{V_2} = \dfrac{N_1}{N_2}$、（理想では）$V_1I_1 = V_2I_2$ — 電圧を上げれば電流は下がる。交流でのみ動作（変化する磁束が必要）。`,
+    },
+    exam: {
+      en: ['Coil moving toward/away from a magnet, or a loop entering a field region: direction of induced current and of the force on the loop (block IV, most years).', '$B$–$t$ graph given: sketch/choose the induced current vs time (proportional to slope, sign flips where the slope flips).', 'Rod on rails: emf $vBl$, current, braking force, power balance; or the terminal speed of a falling rod.'],
+      ja: ['磁石に近づく／遠ざかるコイル、磁場領域に入るループ：誘導電流の向きとループにはたらく力の向き（大問 IV、ほぼ毎年）。', '$B$–$t$ グラフ：誘導電流–時間のグラフを描く・選ぶ（傾きに比例、傾きの符号が変わる所で反転）。', 'レール上の棒：起電力 $vBl$、電流、ブレーキ力、仕事率の収支、落下する棒の終端速度。'],
+    },
+    traps: {
+      en: ['Induction needs a **change** of flux; a loop sitting still in a constant field has no emf however strong $B$ is.', 'The induced current opposes the **change**, not the field itself: when flux decreases the induced field is **along** $B$.', 'A transformer changes voltage, not power; with DC input it produces nothing after the first instant.'],
+      ja: ['誘導には磁束の**変化**が必要。一定の磁場中で静止したループには $B$ がどんなに強くても起電力はない。', '誘導電流が逆らうのは**変化**であって磁場そのものではない：磁束が減るときの誘導磁場は $B$ と**同じ向き**。', '変圧器は電圧を変えるが電力は変えない。直流を入れても最初の一瞬以外は何も出ない。'],
+    },
+    followups: {
+      en: ['Explain Lenz\'s law with the magnet-and-loop example in both directions.', 'Derive V = vBl from the Lorentz force on the electrons.', 'Show the energy balance for a rod on rails: who does the work?', 'Why does a magnet fall slowly through a copper pipe?'],
+      ja: ['磁石とループの例でレンツの法則を近づける場合と遠ざける場合の両方で説明して。', '電子にはたらくローレンツ力から V = vBl を導いて。', 'レール上の棒のエネルギー収支：誰が仕事をしている？', '銅管の中を磁石がゆっくり落ちるのはなぜ？'],
+    },
+  },
+  {
+    id: 'ac-circuits',
+    core: {
+      en: 'AC is a voltage that swings as a sine wave; "100 V" means the effective (RMS) value, peak/√2. A resistor obeys Ohm\'s law instant by instant; a coil resists changes in current (reactance ωL, current lags by 90°); a capacitor resists changes in voltage (reactance 1/ωC, current leads by 90°). Only the resistor consumes energy on average.',
+      ja: '交流は正弦波で振れる電圧。「100 V」は実効値で、最大値/√2。抵抗は各瞬間でオームの法則に従う。コイルは電流の変化に逆らう（リアクタンス ωL、電流は 90° 遅れる）。コンデンサーは電圧の変化に逆らう（リアクタンス 1/ωC、電流は 90° 進む）。平均してエネルギーを消費するのは抵抗だけ。',
+    },
+    body: {
+      en: r`## Generating AC
+A coil rotating at $\omega$ in a field: $\Phi = BS\cos\omega t$ → $V = V_0\sin\omega t$ with $V_0 = NBS\omega$. Frequency $f = \omega/2\pi$ (50 or 60 Hz in Japan).
+
+## Effective (RMS) values
+$$V_e = \frac{V_0}{\sqrt2}, \qquad I_e = \frac{I_0}{\sqrt2}$$
+Defined so that a resistor heats as it would with a DC of that size: $\bar P = I_eV_e = I_e^2R$. Household "100 V" is $V_e$; the peak is 141 V.
+
+## The three elements
+:::fig ac-phase
+
+| element | opposes | "resistance" (reactance) | phase of $I$ vs $V$ | average power |
+|---|---|---|---|---|
+| resistor $R$ | — | $R$ | in phase | $I_eV_e$ |
+| coil $L$ | change of **current** | $X_L = \omega L$ (bigger at high $f$) | $I$ **lags** by $\pi/2$ | 0 |
+| capacitor $C$ | change of **voltage** | $X_C = \dfrac{1}{\omega C}$ (smaller at high $f$) | $I$ **leads** by $\pi/2$ | 0 |
+
+Memory: a coil blocks high frequencies (and DC passes freely); a capacitor blocks DC and passes high frequencies.
+Why zero power for $L$ and $C$: they store energy for a quarter cycle and give it back the next quarter.
+
+## Series RLC
+Impedance $Z = \sqrt{R^2 + (\omega L - \frac{1}{\omega C})^2}$, $I_e = V_e/Z$. **Resonance** when $\omega L = \dfrac{1}{\omega C}$, i.e. $f_0 = \dfrac{1}{2\pi\sqrt{LC}}$: $Z$ is minimal ($= R$), current maximal — radio tuning. An LC circuit with no resistor oscillates at this frequency (energy sloshing between $\tfrac12 CV^2$ and $\tfrac12 LI^2$).
+
+## Electromagnetic waves
+Changing $E$ makes $B$, changing $B$ makes $E$ → a self-sustaining transverse wave travelling at $c = 1/\sqrt{\varepsilon_0\mu_0} = 3.0\times10^8$ m/s in vacuum, $\vec E \perp \vec B \perp$ direction of travel. Produced by oscillating charges (antenna, LC oscillator).
+Spectrum by increasing frequency (decreasing $\lambda$): radio → microwave → infrared → visible (red 700 nm … violet 400 nm) → ultraviolet → X-ray → gamma. All travel at $c$ in vacuum; all can be reflected, refracted, polarised.`,
+      ja: r`## 交流の発生
+磁場中で $\omega$ で回転するコイル：$\Phi = BS\cos\omega t$ → $V = V_0\sin\omega t$、$V_0 = NBS\omega$。周波数 $f = \omega/2\pi$（日本では 50 または 60 Hz）。
+
+## 実効値
+$$V_e = \frac{V_0}{\sqrt2}, \qquad I_e = \frac{I_0}{\sqrt2}$$
+「同じ大きさの直流と同じだけ抵抗を発熱させる値」として定義：$\bar P = I_eV_e = I_e^2R$。家庭の「100 V」は $V_e$、最大値は 141 V。
+
+## 3つの素子
+:::fig ac-phase
+
+| 素子 | 逆らうもの | 「抵抗」（リアクタンス） | $I$ の $V$ に対する位相 | 平均電力 |
+|---|---|---|---|---|
+| 抵抗 $R$ | — | $R$ | 同位相 | $I_eV_e$ |
+| コイル $L$ | **電流**の変化 | $X_L = \omega L$（高周波で大） | $I$ は $\pi/2$ **遅れる** | 0 |
+| コンデンサー $C$ | **電圧**の変化 | $X_C = \dfrac{1}{\omega C}$（高周波で小） | $I$ は $\pi/2$ **進む** | 0 |
+
+覚え方：コイルは高周波を通しにくい（直流は素通し）。コンデンサーは直流を通さず高周波を通す。
+$L$、$C$ の電力が0の理由：1/4 周期エネルギーを蓄え、次の 1/4 周期で返す。
+
+## RLC 直列回路
+インピーダンス $Z = \sqrt{R^2 + (\omega L - \frac{1}{\omega C})^2}$、$I_e = V_e/Z$。$\omega L = \dfrac{1}{\omega C}$ すなわち $f_0 = \dfrac{1}{2\pi\sqrt{LC}}$ で**共振**：$Z$ 最小（$= R$）、電流最大 — ラジオの選局。抵抗のない LC 回路はこの周波数で振動する（$\tfrac12 CV^2$ と $\tfrac12 LI^2$ の間でエネルギーが行き来）。
+
+## 電磁波
+変化する $E$ が $B$ をつくり、変化する $B$ が $E$ をつくる → 自分で進む横波。真空中の速さ $c = 1/\sqrt{\varepsilon_0\mu_0} = 3.0\times10^8$ m/s、$\vec E \perp \vec B \perp$ 進行方向。振動する電荷（アンテナ、LC 発振回路）から出る。
+周波数の低い順（波長の長い順）：電波 → マイクロ波 → 赤外線 → 可視光（赤 700 nm … 紫 400 nm）→ 紫外線 → X線 → γ線。真空中ではすべて $c$。反射・屈折・偏光する。`,
+    },
+    exam: {
+      en: ['Given $V = V_0\\sin\\omega t$ across a coil or capacitor: sketch/choose the current graph (phase lead/lag) and the reactance.', 'Effective value questions: power in a resistor from peak voltage; a bulb\'s brightness with $L$ or $C$ in series when $f$ changes.', 'Resonant frequency of an LC circuit; order of the EM spectrum.'],
+      ja: ['コイルやコンデンサーに $V = V_0\\sin\\omega t$：電流のグラフ（位相の進み・遅れ）とリアクタンス。', '実効値の問題：最大電圧から抵抗の電力、$L$ や $C$ を直列にした電球の明るさが $f$ でどう変わるか。', 'LC 回路の共振周波数、電磁波の並び順。'],
+    },
+    traps: {
+      en: ['"100 V AC" is the RMS value; the peak is $100\\sqrt2$ V. Do not use $V_0$ in power formulas without dividing by 2.', 'A coil\'s reactance **rises** with frequency; a capacitor\'s **falls**. Swapping them is the classic error.', 'Coils and capacitors have zero **average** power, but instantaneous power is not zero.'],
+      ja: ['「交流 100 V」は実効値。最大値は $100\\sqrt2$ V。電力の式に $V_0$ を2で割らずに入れない。', 'コイルのリアクタンスは周波数で**上がり**、コンデンサーは**下がる**。逆に覚えるのが定番の誤り。', 'コイルとコンデンサーの**平均**電力は0だが、瞬間の電力は0ではない。'],
+    },
+    followups: {
+      en: ['Why does current lag voltage in a coil and lead in a capacitor?', 'Where does V₀/√2 come from? Show the averaging.', 'Why do L and C consume no average power?', 'Explain resonance in an RLC circuit and its use in a radio.'],
+      ja: ['コイルで電流が電圧より遅れ、コンデンサーで進むのはなぜ？', 'V₀/√2 はどこから来る？平均の計算を見せて。', 'L と C が平均電力を消費しないのはなぜ？', 'RLC 回路の共振とラジオでの使い方を説明して。'],
+    },
+  },
+  // ───────────────────────────── ATOMS ─────────────────────────────
+  {
+    id: 'electrons-light',
+    core: {
+      en: 'Light comes in packets of energy E = hf; an electron is knocked out of a metal only if one packet carries more than the work function W, and the leftover is its kinetic energy: ½mv² = hf − W. Conversely, particles behave as waves with λ = h/p. Everything small is both.',
+      ja: '光はエネルギー E = hf のかたまり（光子）でやってくる。1個の光子が仕事関数 W より大きいエネルギーをもつときだけ電子が金属から飛び出し、残りが運動エネルギー：½mv² = hf − W。逆に粒子は λ = h/p の波としてふるまう。小さいものはどちらでもある。',
+    },
+    body: {
+      en: r`## Electrons
+- Cathode rays (from the − electrode in a discharge tube) are electrons: deflected by $E$ and $B$ fields toward the + plate. Thomson measured the specific charge $e/m = 1.76\times10^{11}$ C/kg; Millikan's oil-drop experiment showed charge comes in units of $e = 1.6\times10^{-19}$ C.
+- Electron-volt: $1\ \mathrm{eV} = 1.6\times10^{-19}$ J, the energy gained through 1 V.
+
+## Photoelectric effect (light as particles)
+:::fig photoelectric
+
+Observations that waves cannot explain:
+1. Below a **threshold frequency** $f_0$ no electrons come out, however bright the light.
+2. Above it, electrons come out **instantly**, and their maximum KE depends on **frequency**, not intensity.
+3. Intensity only changes **how many** electrons (the current).
+
+Einstein: light is photons of energy $E = hf = \dfrac{hc}{\lambda}$ ($h = 6.63\times10^{-34}$ J·s). One photon ejects one electron:
+$$K_{max} = hf - W, \qquad W = hf_0$$
+Stopping voltage $V_0$: $eV_0 = K_{max}$. A graph of $K_{max}$ (or $V_0$) against $f$ is a straight line of slope $h$ (or $h/e$) with intercept $-W$; it crosses the axis at $f_0$. Photon momentum $p = h/\lambda = E/c$.
+
+## X-rays
+Fast electrons hitting a metal: continuous spectrum with a **minimum wavelength** $\lambda_{min} = \dfrac{hc}{eV}$ (all of the electron's energy $eV$ becomes one photon) plus sharp characteristic lines. **Bragg reflection**: $2d\sin\theta = n\lambda$ for strong reflection from crystal planes (X-rays behave as waves).
+
+## Compton effect
+An X-ray photon bouncing off an electron loses energy → longer wavelength; momentum and energy are conserved as in a particle collision. Photons are particles with momentum.
+
+## Matter waves (particles as waves)
+de Broglie: $$\lambda = \frac{h}{p} = \frac{h}{mv}$$ Electron accelerated through $V$: $p = \sqrt{2meV}$, so $\lambda = \dfrac{h}{\sqrt{2meV}}$. Electron beams diffract from crystals (Davisson–Germer) and show interference — the basis of the electron microscope (tiny $\lambda$ → high resolution).`,
+      ja: r`## 電子
+- 陰極線（放電管の − 極から出る）は電子：$E$ や $B$ で ＋ 極側に曲がる。トムソンが比電荷 $e/m = 1.76\times10^{11}$ C/kg を測定。ミリカンの油滴実験で電荷は $e = 1.6\times10^{-19}$ C の整数倍とわかった。
+- 電子ボルト：$1\ \mathrm{eV} = 1.6\times10^{-19}$ J、1 V で得るエネルギー。
+
+## 光電効果（光は粒子）
+:::fig photoelectric
+
+波では説明できない観測事実：
+1. **限界振動数** $f_0$ 以下ではどんなに明るくても電子は出ない。
+2. それ以上なら電子は**即座に**出て、最大運動エネルギーは明るさでなく**振動数**で決まる。
+3. 明るさは電子の**数**（電流）だけを変える。
+
+アインシュタイン：光はエネルギー $E = hf = \dfrac{hc}{\lambda}$ の光子（$h = 6.63\times10^{-34}$ J·s）。光子1個が電子1個をたたき出す：
+$$K_{max} = hf - W, \qquad W = hf_0$$
+阻止電圧 $V_0$：$eV_0 = K_{max}$。$K_{max}$（または $V_0$）を $f$ に対してグラフにすると傾き $h$（または $h/e$）、切片 $-W$ の直線で、横軸を $f_0$ で切る。光子の運動量 $p = h/\lambda = E/c$。
+
+## X線
+高速電子を金属に当てる：連続スペクトルに**最短波長** $\lambda_{min} = \dfrac{hc}{eV}$（電子のエネルギー $eV$ が全部1個の光子になる）と鋭い固有X線。**ブラッグ反射**：結晶面で強く反射する条件 $2d\sin\theta = n\lambda$（X線は波としてふるまう）。
+
+## コンプトン効果
+X線光子が電子にぶつかってエネルギーを失う → 波長が長くなる。粒子の衝突と同じく運動量とエネルギーが保存。光子は運動量をもつ粒子。
+
+## 物質波（粒子は波）
+ド・ブロイ：$$\lambda = \frac{h}{p} = \frac{h}{mv}$$ 電圧 $V$ で加速した電子：$p = \sqrt{2meV}$、$\lambda = \dfrac{h}{\sqrt{2meV}}$。電子線は結晶で回折し（デビッソン・ガーマー）干渉を示す — 電子顕微鏡の原理（$\lambda$ が極小 → 高い分解能）。`,
+    },
+    exam: {
+      en: ['Photoelectric graph: read $h$ from the slope, $W$ or $f_0$ from the intercept; what changes when intensity doubles (current, not $K_{max}$).', 'de Broglie wavelength of an electron with kinetic energy $K$ or accelerated through $V$ (block V single item, frequent).', 'Minimum X-ray wavelength for a given tube voltage; photon energy in eV from wavelength.'],
+      ja: ['光電効果のグラフ：傾きから $h$、切片から $W$ や $f_0$。明るさを2倍にすると変わるもの（電流であって $K_{max}$ ではない）。', '運動エネルギー $K$ または電圧 $V$ で加速した電子のド・ブロイ波長（大問 V の1問、頻出）。', '管電圧からX線の最短波長、波長から光子のエネルギー（eV）。'],
+    },
+    traps: {
+      en: ['Brighter light of the same colour does **not** make faster photoelectrons — only more of them.', 'The work function is a property of the **metal**; the threshold frequency changes with the metal, not with the light.', 'For matter waves use momentum $p$, not energy: $\\lambda = h/p$ — a heavier particle at the same speed has a **shorter** wavelength.'],
+      ja: ['同じ色でより明るい光でも光電子は速く**ならない** — 数が増えるだけ。', '仕事関数は**金属**の性質。限界振動数は金属で決まり、光では変わらない。', '物質波はエネルギーでなく運動量 $p$：$\\lambda = h/p$ — 同じ速さなら重い粒子ほど波長は**短い**。'],
+    },
+    followups: {
+      en: ['Why can a wave picture not explain the threshold frequency?', 'Show a photoelectric calculation from wavelength to stopping voltage.', 'Derive λ = h/√(2meV) for an accelerated electron.', 'What is the Compton effect evidence for?'],
+      ja: ['波の描像で限界振動数を説明できないのはなぜ？', '波長から阻止電圧までの光電効果の計算を見せて。', '加速された電子の λ = h/√(2meV) を導いて。', 'コンプトン効果は何の証拠？'],
+    },
+  },
+  {
+    id: 'atoms-nuclei',
+    core: {
+      en: 'Electrons in an atom can only sit on certain energy levels; a photon is emitted or absorbed when an electron jumps, with hf = E_high − E_low — that is why spectra are lines. The nucleus is protons + neutrons held by the strong force; unstable ones decay (α, β, γ) at a fixed rate (half-life), and the small mass lost in nuclear reactions appears as energy, E = mc².',
+      ja: '原子の電子は決まったエネルギー準位にしかいられない。電子が飛び移るとき hf = E_高 − E_低 の光子が放出・吸収される — だからスペクトルは線になる。原子核は陽子＋中性子が強い力で結びついたもの。不安定な核は一定の割合（半減期）で壊変（α・β・γ）し、核反応で失われたわずかな質量がエネルギー E = mc² になる。',
+    },
+    body: {
+      en: r`## Bohr model of hydrogen
+:::fig bohr
+
+- Rutherford: α-particles scattered by gold foil → tiny, dense, positive nucleus.
+- Bohr: electrons orbit only where the matter wave fits: $2\pi r = n\lambda$ ($n = 1, 2, 3\ldots$). Energy levels $$E_n = -\frac{13.6\ \mathrm{eV}}{n^2}$$ (negative = bound; $n = 1$ ground state; $E = 0$ = ionised).
+- Photon on a jump: $hf = E_n - E_{n'}$, giving line spectra. Hydrogen series: Lyman (to $n=1$, UV), **Balmer** (to $n=2$, visible), Paschen (to $n=3$, IR). Ionisation energy of hydrogen = 13.6 eV.
+- Rydberg formula: $\dfrac{1}{\lambda} = R\left(\dfrac{1}{n'^2} - \dfrac{1}{n^2}\right)$.
+
+## Nuclei
+Notation $^A_Z\mathrm{X}$: $Z$ protons (atomic number, decides the element), $A = Z + N$ nucleons (mass number). Isotopes: same $Z$, different $N$. Atomic mass unit u $= 1.66\times10^{-27}$ kg ($\tfrac{1}{12}$ of $^{12}$C).
+
+## Radioactive decay
+| decay | emitted | change in $Z$ | change in $A$ | penetration |
+|---|---|---|---|---|
+| α | $^4_2$He nucleus | $-2$ | $-4$ | stopped by paper |
+| β⁻ | electron (n → p + e⁻ + ν̄) | $+1$ | 0 | few mm of Al |
+| γ | high-energy photon | 0 | 0 | needs lead |
+
+**Conservation** in every nuclear equation: total $A$ and total $Z$ are the same on both sides. Use this to find the unknown particle or count emitted neutrons.
+
+## Half-life
+:::fig decay
+
+$$N = N_0\left(\tfrac12\right)^{t/T}$$ After $T$: half left; $2T$: quarter; $3T$: one eighth. Activity (decays per second) ∝ $N$, so it halves the same way. Carbon-14 ($T = 5730$ y) dating: fraction remaining → age.
+
+## Mass–energy
+$E = mc^2$; 1 u ≈ 931 MeV. **Mass defect**: a nucleus weighs **less** than its separate nucleons; the difference × $c^2$ is the binding energy. Energy released in a reaction $= (\text{mass before} - \text{mass after})c^2$.
+- **Fission**: $^{235}$U + n → two fragments + 2–3 n + ~200 MeV → chain reaction (reactor, bomb).
+- **Fusion**: light nuclei join (Sun: 4 ¹H → ⁴He), needs very high temperature to overcome repulsion.
+Binding energy per nucleon peaks near iron: fission of heavy and fusion of light nuclei both move toward it, releasing energy.`,
+      ja: r`## 水素原子のボーア模型
+:::fig bohr
+
+- ラザフォード：金箔でのα粒子の散乱 → 小さく重い正の原子核。
+- ボーア：電子は物質波がちょうど収まる軌道にだけ存在：$2\pi r = n\lambda$（$n = 1, 2, 3\ldots$）。エネルギー準位 $$E_n = -\frac{13.6\ \mathrm{eV}}{n^2}$$（負 = 束縛。$n = 1$ が基底状態。$E = 0$ が電離）。
+- 遷移で光子：$hf = E_n - E_{n'}$ → 線スペクトル。水素の系列：ライマン（$n=1$ へ、紫外）、**バルマー**（$n=2$ へ、可視）、パッシェン（$n=3$ へ、赤外）。水素の電離エネルギー = 13.6 eV。
+- リュードベリの式：$\dfrac{1}{\lambda} = R\left(\dfrac{1}{n'^2} - \dfrac{1}{n^2}\right)$。
+
+## 原子核
+表記 $^A_Z\mathrm{X}$：陽子 $Z$ 個（原子番号、元素を決める）、核子 $A = Z + N$ 個（質量数）。同位体：同じ $Z$、異なる $N$。原子質量単位 u $= 1.66\times10^{-27}$ kg（$^{12}$C の $\tfrac{1}{12}$）。
+
+## 放射性崩壊
+| 崩壊 | 放出 | $Z$ の変化 | $A$ の変化 | 透過力 |
+|---|---|---|---|---|
+| α | $^4_2$He 原子核 | $-2$ | $-4$ | 紙で止まる |
+| β⁻ | 電子（n → p + e⁻ + ν̄） | $+1$ | 0 | 数 mm の Al |
+| γ | 高エネルギーの光子 | 0 | 0 | 鉛が必要 |
+
+核反応式では必ず**保存**：両辺で $A$ の和と $Z$ の和が等しい。未知の粒子や放出される中性子の数はこれで求める。
+
+## 半減期
+:::fig decay
+
+$$N = N_0\left(\tfrac12\right)^{t/T}$$ $T$ 後：半分、$2T$：1/4、$3T$：1/8。放射能（毎秒の崩壊数）∝ $N$ なので同じように半減。炭素14（$T = 5730$ 年）年代測定：残存率 → 年代。
+
+## 質量とエネルギー
+$E = mc^2$、1 u ≈ 931 MeV。**質量欠損**：原子核はばらばらの核子より**軽い**。差 × $c^2$ が結合エネルギー。反応で放出されるエネルギー $= (\text{前の質量} - \text{後の質量})c^2$。
+- **核分裂**：$^{235}$U + n → 2つの破片 ＋ 中性子 2〜3 個 ＋ 約 200 MeV → 連鎖反応（原子炉、爆弾）。
+- **核融合**：軽い核が合体（太陽：4 ¹H → ⁴He）。反発を乗り越えるため超高温が必要。
+核子1個あたりの結合エネルギーは鉄付近で最大：重い核の分裂も軽い核の融合もそこへ向かい、エネルギーを放出する。`,
+    },
+    exam: {
+      en: ['Balance a fission or decay equation: find the unknown nuclide or the number of neutrons released (block V, most years).', 'Half-life: fraction remaining after $t$, or the time for activity to fall to 1/8.', 'Energy of a photon from a jump between given levels; which series is visible; energy released from a mass defect in MeV.'],
+      ja: ['核分裂や崩壊の式を合わせる：未知の核種や放出される中性子の数（大問 V、ほぼ毎年）。', '半減期：$t$ 後の残存率、放射能が 1/8 になるまでの時間。', '与えられた準位間の遷移で出る光子のエネルギー、可視光になる系列、質量欠損から放出エネルギー（MeV）。'],
+    },
+    traps: {
+      en: ['β⁻ decay **raises** $Z$ by one (a neutron becomes a proton); $A$ is unchanged.', 'Energy levels are negative; a jump **down** emits a photon, a jump up absorbs one. $E = 0$ means the electron has escaped.', 'After three half-lives 1/8 remains, **not** "3 × ½".'],
+      ja: ['β⁻ 崩壊では $Z$ が1**増える**（中性子が陽子になる）。$A$ は不変。', 'エネルギー準位は負。**下へ**の遷移で光子を放出、上への遷移で吸収。$E = 0$ は電子が飛び出した状態。', '半減期3回後に残るのは 1/8。「3 × ½」では**ない**。'],
+    },
+    followups: {
+      en: ['Why are atomic spectra lines and not continuous?', 'Show how to balance a uranium fission equation and count the neutrons.', 'Explain mass defect and binding energy with the helium nucleus.', 'Why does the Balmer series fall in the visible range?'],
+      ja: ['原子のスペクトルが連続でなく線になるのはなぜ？', 'ウランの核分裂の式を合わせて中性子の数を数える方法を見せて。', 'ヘリウム原子核で質量欠損と結合エネルギーを説明して。', 'バルマー系列が可視光になるのはなぜ？'],
+    },
+  },
+  {
+    id: 'elementary-particles',
+    core: {
+      en: 'Protons and neutrons are not fundamental: each is three quarks (proton = uud, neutron = udd) with charges +⅔ and −⅓. Electrons and neutrinos are leptons, which are fundamental. Four forces do all the work — strong (glues quarks and nuclei), electromagnetic, weak (β decay), gravity — each carried by its own particle.',
+      ja: '陽子と中性子は基本粒子ではない：それぞれクォーク3個（陽子 = uud、中性子 = udd）で、電荷は +⅔ と −⅓。電子とニュートリノはレプトンで、これは基本粒子。4つの力がすべてを担う — 強い力（クォークと原子核を結ぶ）、電磁気力、弱い力（β崩壊）、重力 — それぞれを媒介する粒子がある。',
+    },
+    body: {
+      en: r`## The particle zoo, simplified
+| family | members | charge | fundamental? |
+|---|---|---|---|
+| quarks | up (u) $+\tfrac23 e$, down (d) $-\tfrac13 e$ (+ heavier c, s, t, b) | fractional | yes |
+| leptons | electron $-e$, electron-neutrino $0$ (+ μ, τ and their neutrinos) | integer or 0 | yes |
+| hadrons | made of quarks: **baryons** (3 quarks: p, n), **mesons** (quark + antiquark: π) | integer | no |
+
+Check: proton = uud → $\tfrac23 + \tfrac23 - \tfrac13 = +1$; neutron = udd → $\tfrac23 - \tfrac13 - \tfrac13 = 0$.
+Every particle has an antiparticle with opposite charge (positron $e^+$, antiproton). Particle + antiparticle annihilate into photons; energy can create pairs ($E = 2mc^2$ minimum).
+
+## Four fundamental forces
+| force | acts on | range | carrier | role |
+|---|---|---|---|---|
+| strong | quarks (and via them nucleons) | $\sim10^{-15}$ m | gluon | binds nuclei against proton repulsion |
+| electromagnetic | charges | infinite ($1/r^2$) | photon | atoms, chemistry, light |
+| weak | quarks and leptons | $\sim10^{-18}$ m | W, Z bosons | β decay: d → u + e⁻ + ν̄ |
+| gravity | everything with energy | infinite ($1/r^2$) | (graviton, hypothetical) | planets, stars |
+
+Strength inside a nucleus: strong ≫ electromagnetic ≫ weak ≫ gravity.
+
+## Why this shows up on the EJU
+Block V occasionally asks: the quark composition/charge of a proton or neutron, which particles are leptons, what β decay is at the quark level (a d quark turns into a u quark), or which force is responsible for holding the nucleus together / for β decay.
+
+## Neutrinos
+Nearly massless, neutral, interact only via the weak force → pass through the Earth almost freely. Detected in Kamiokande/Super-Kamiokande (Japan) — a favourite Japanese-context fact.`,
+      ja: r`## 素粒子の整理
+| 分類 | メンバー | 電荷 | 基本粒子？ |
+|---|---|---|---|
+| クォーク | アップ (u) $+\tfrac23 e$、ダウン (d) $-\tfrac13 e$（＋重い c, s, t, b） | 分数 | はい |
+| レプトン | 電子 $-e$、電子ニュートリノ $0$（＋μ、τ とそのニュートリノ） | 整数か 0 | はい |
+| ハドロン | クォークからなる：**バリオン**（クォーク3個：p, n）、**中間子**（クォーク＋反クォーク：π） | 整数 | いいえ |
+
+確認：陽子 = uud → $\tfrac23 + \tfrac23 - \tfrac13 = +1$、中性子 = udd → $\tfrac23 - \tfrac13 - \tfrac13 = 0$。
+すべての粒子には電荷が逆の反粒子がある（陽電子 $e^+$、反陽子）。粒子と反粒子は対消滅して光子になり、エネルギーから対生成もできる（最低 $E = 2mc^2$）。
+
+## 4つの基本的な力
+| 力 | はたらく対象 | 到達距離 | 媒介粒子 | 役割 |
+|---|---|---|---|---|
+| 強い力 | クォーク（それを通して核子） | $\sim10^{-15}$ m | グルーオン | 陽子の反発に打ち勝って原子核を結ぶ |
+| 電磁気力 | 電荷 | 無限（$1/r^2$） | 光子 | 原子、化学、光 |
+| 弱い力 | クォークとレプトン | $\sim10^{-18}$ m | W、Z ボソン | β崩壊：d → u + e⁻ + ν̄ |
+| 重力 | エネルギーをもつすべて | 無限（$1/r^2$） | （重力子、仮説） | 惑星、恒星 |
+
+原子核の中での強さ：強い力 ≫ 電磁気力 ≫ 弱い力 ≫ 重力。
+
+## EJUでの出方
+大問 V でときどき：陽子・中性子のクォーク構成と電荷、レプトンはどれか、クォークのレベルでのβ崩壊（d クォークが u クォークに変わる）、原子核を結びつける力・β崩壊を起こす力はどれか。
+
+## ニュートリノ
+質量はほぼ0、中性、弱い力でしか相互作用しない → 地球をほぼ素通り。カミオカンデ・スーパーカミオカンデ（日本）で検出 — 日本に関係する定番の知識。`,
+    },
+    exam: {
+      en: ['Charge of a quark combination, or which combination makes a proton/neutron (block V).', 'Which force binds the nucleus / causes β decay / is carried by the photon.', 'Which of the listed particles are leptons / are not fundamental.'],
+      ja: ['クォークの組み合わせの電荷、陽子・中性子をつくる組み合わせ（大問 V）。', '原子核を結びつける力・β崩壊を起こす力・光子が媒介する力はどれか。', '挙げられた粒子のうちレプトンはどれか、基本粒子でないのはどれか。'],
+    },
+    traps: {
+      en: ['A quark charge is a fraction of $e$, but free particles always carry whole multiples of $e$ — quarks never appear alone.', 'Protons and neutrons are **not** elementary; electrons **are**.', 'β decay is the **weak** force, not the strong or electromagnetic force.'],
+      ja: ['クォークの電荷は $e$ の分数だが、単独で存在する粒子の電荷は必ず $e$ の整数倍 — クォークは単独では現れない。', '陽子と中性子は基本粒子では**ない**。電子は基本粒子で**ある**。', 'β崩壊は**弱い力**によるもので、強い力や電磁気力ではない。'],
+    },
+    followups: {
+      en: ['Explain β decay at the quark level.', 'Why does the strong force need to exist inside a nucleus?', 'What makes a particle "fundamental"?', 'Give me a quick quiz on quark charges.'],
+      ja: ['クォークのレベルでβ崩壊を説明して。', '原子核の中に強い力が必要なのはなぜ？', '粒子が「基本粒子」であるとはどういうこと？', 'クォークの電荷のミニテストを出して。'],
+    },
+  },
 ];
 
 const notes: SubjectNotes = {
