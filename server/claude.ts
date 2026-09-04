@@ -1,7 +1,7 @@
 import Anthropic from '@anthropic-ai/sdk';
 import OpenAI from 'openai';
 import { GoogleGenerativeAI } from '@google/generative-ai';
-import { systemContextFor, labelFor, exemplarsFor, type Subject } from './eju';
+import { systemContextFor, labelFor, exemplarsFor, subtopicsFor, type Subject } from './eju';
 
 const MODEL = process.env.ANTHROPIC_MODEL || 'claude-opus-5';
 const USE_THINKING = process.env.ANTHROPIC_THINKING !== 'off';
@@ -74,6 +74,14 @@ async function executeModelCall(
 ): Promise<string> {
   const targetModel = modelType || 'gemini';
   const sysBlocks = systemBlocks(subject, lang, extraSystem);
+
+  // Dev aid: print the exact prompt instead of calling any model.
+  if (process.env.EJU_DRY_RUN) {
+    const sys = sysBlocks.map((b) => (b.cache_control ? `[EJU knowledge base: ${b.text.length} chars]` : b.text)).join('\n\n');
+    const user = messages.map((m) => `--- ${m.role} ---\n${typeof m.content === 'string' ? m.content : '[multipart]'}`).join('\n');
+    console.log(`\n===== DRY RUN (${targetModel}, max ${maxTokens}) =====\n${sys}\n${user}\n===== END =====`);
+    return '';
+  }
 
   if (targetModel === 'gpt') {
     if (!userKey) throw Object.assign(new Error('Add your OpenAI API key in Settings to use GPT.'), { status: 400 });
@@ -246,70 +254,70 @@ function cleanKeyPoints(arr: any): KeyPointDTO[] {
 // ─── Formatting helpers shared by coach replies ───
 // Figures the client can draw natively (see src/ui/diagrams.tsx). The model may
 // embed one with a ":::fig <id>" line when it genuinely helps.
-const FIGURE_LIBRARY: [string, string][] = [
-  ['projectile', 'projectile motion: parabola with vx constant and vy changing'],
-  ['incline-fbd', 'free-body diagram of a block on an incline (N, mg components, friction)'],
-  ['torque', 'lever / torque balance about a pivot'],
-  ['circular', 'uniform circular motion: velocity tangent, centripetal force inward'],
-  ['shm-energy', 'simple harmonic motion: KE / PE exchange vs displacement'],
-  ['collision', '1-D collision before/after momentum diagram'],
-  ['pv-diagram', 'p-V diagram: isothermal, adiabatic, isobaric, isochoric; work = area'],
-  ['maxwell-speeds', 'molecular speed distribution at two temperatures'],
-  ['wave-snapshot', 'wave y-x snapshot showing wavelength and amplitude'],
-  ['standing-wave', 'standing wave on a string / in a pipe: nodes and antinodes'],
-  ['doppler', 'Doppler effect: source moving, wavefronts compressed ahead'],
-  ['refraction', 'refraction at a boundary (Snell), critical angle'],
-  ['lens', 'convex lens ray diagram, image formation'],
-  ['young', "Young's double slit: path difference d sin θ"],
-  ['thin-film', 'thin-film interference reflection paths'],
-  ['field-lines', 'electric field lines and equipotentials of point charges'],
-  ['capacitor', 'parallel-plate capacitor, dielectric, series/parallel'],
-  ['circuit', 'DC circuit with series/parallel resistors'],
-  ['wire-field', 'magnetic field around a straight current (right-hand rule)'],
-  ['left-hand', "Fleming's left-hand rule: F = IBL"],
-  ['induction', 'electromagnetic induction: flux change and induced EMF direction'],
-  ['ac-phase', 'AC phase relations for R, L, C'],
-  ['photoelectric', 'photoelectric effect: K_max vs frequency, work function'],
-  ['bohr', 'Bohr model energy levels and transitions'],
-  ['decay', 'radioactive decay curve, half-life'],
-  ['titration-curve', 'pH titration curves (strong/weak acid vs base, indicator ranges)'],
-  ['vapor-pressure', 'vapour pressure vs temperature, boiling point'],
-  ['phase-diagram', 'phase diagram (water / CO2), triple and critical points'],
-  ['unit-cells', 'crystal unit cells: sc, bcc, fcc atoms per cell'],
-  ['energy-diagram', 'reaction energy diagram: activation energy, ΔH, catalyst'],
-  ['equilibrium-shift', "Le Chatelier: equilibrium shift on changing conditions"],
-  ['daniell', 'Daniell cell: electrodes, ion flow, salt bridge'],
-  ['electrolysis', 'electrolysis cell: cathode/anode products'],
-  ['alcohol-oxidation', 'alcohol → aldehyde/ketone → carboxylic acid oxidation chain'],
-  ['atp', 'ATP / ADP energy cycle'],
-  ['mitochondrion', 'mitochondrion structure and respiration stages'],
-  ['chloroplast', 'chloroplast structure, light-dependent and Calvin cycle'],
-  ['nitrogen-cycle', 'nitrogen cycle'],
-  ['replication-fork', 'DNA replication fork, leading/lagging strands'],
-  ['central-dogma', 'DNA → RNA → protein'],
-  ['recombinant', 'recombinant DNA / plasmid steps'],
-  ['linkage', 'linkage and crossing over'],
-  ['meiosis', 'meiosis stages and chromosome numbers'],
-  ['embryo-sac', 'angiosperm embryo sac and double fertilisation'],
-  ['gastrula', 'frog / sea urchin development stages'],
-  ['circulation', 'human circulatory system (heart chambers, vessels)'],
-  ['oxygen-dissociation', 'oxygen dissociation curves (Hb, myoglobin, fetal)'],
-  ['nephron', 'nephron: filtration, reabsorption, concentration'],
-  ['blood-sugar', 'blood sugar regulation: insulin / glucagon feedback'],
-  ['thermoregulation', 'body temperature regulation feedback'],
-  ['immune-response', 'innate vs adaptive immunity overview'],
-  ['antibody-response', 'primary vs secondary antibody response'],
-  ['action-potential', 'action potential trace with threshold and phases'],
-  ['eye', 'eye structure and accommodation'],
-  ['sarcomere', 'sarcomere / sliding filament'],
-  ['auxin-response', 'auxin concentration response of root vs shoot'],
-  ['photoperiod', 'photoperiodism: long-day / short-day plants'],
-  ['survivorship', 'survivorship curves types I–III'],
-  ['energy-flow', 'ecosystem energy flow pyramid'],
-  ['plant-tree', 'plant classification tree'],
+const FIGURE_LIBRARY: [string, string, Subject][] = [
+  ['projectile', 'projectile motion: parabola with vx constant and vy changing', 'physics'],
+  ['incline-fbd', 'free-body diagram of a block on an incline (N, mg components, friction)', 'physics'],
+  ['torque', 'lever / torque balance about a pivot', 'physics'],
+  ['circular', 'uniform circular motion: velocity tangent, centripetal force inward', 'physics'],
+  ['shm-energy', 'simple harmonic motion: KE / PE exchange vs displacement', 'physics'],
+  ['collision', '1-D collision before/after momentum diagram', 'physics'],
+  ['pv-diagram', 'p-V diagram: isothermal, adiabatic, isobaric, isochoric; work = area', 'physics'],
+  ['maxwell-speeds', 'molecular speed distribution at two temperatures', 'physics'],
+  ['wave-snapshot', 'wave y-x snapshot showing wavelength and amplitude', 'physics'],
+  ['standing-wave', 'standing wave on a string / in a pipe: nodes and antinodes', 'physics'],
+  ['doppler', 'Doppler effect: source moving, wavefronts compressed ahead', 'physics'],
+  ['refraction', 'refraction at a boundary (Snell), critical angle', 'physics'],
+  ['lens', 'convex lens ray diagram, image formation', 'physics'],
+  ['young', "Young's double slit: path difference d sin θ", 'physics'],
+  ['thin-film', 'thin-film interference reflection paths', 'physics'],
+  ['field-lines', 'electric field lines and equipotentials of point charges', 'physics'],
+  ['capacitor', 'parallel-plate capacitor, dielectric, series/parallel', 'physics'],
+  ['circuit', 'DC circuit with series/parallel resistors', 'physics'],
+  ['wire-field', 'magnetic field around a straight current (right-hand rule)', 'physics'],
+  ['left-hand', "Fleming's left-hand rule: F = IBL", 'physics'],
+  ['induction', 'electromagnetic induction: flux change and induced EMF direction', 'physics'],
+  ['ac-phase', 'AC phase relations for R, L, C', 'physics'],
+  ['photoelectric', 'photoelectric effect: K_max vs frequency, work function', 'physics'],
+  ['bohr', 'Bohr model energy levels and transitions', 'physics'],
+  ['decay', 'radioactive decay curve, half-life', 'physics'],
+  ['titration-curve', 'pH titration curves (strong/weak acid vs base, indicator ranges)', 'chemistry'],
+  ['vapor-pressure', 'vapour pressure vs temperature, boiling point', 'chemistry'],
+  ['phase-diagram', 'phase diagram (water / CO2), triple and critical points', 'chemistry'],
+  ['unit-cells', 'crystal unit cells: sc, bcc, fcc atoms per cell', 'chemistry'],
+  ['energy-diagram', 'reaction energy diagram: activation energy, ΔH, catalyst', 'chemistry'],
+  ['equilibrium-shift', "Le Chatelier: equilibrium shift on changing conditions", 'chemistry'],
+  ['daniell', 'Daniell cell: electrodes, ion flow, salt bridge', 'chemistry'],
+  ['electrolysis', 'electrolysis cell: cathode/anode products', 'chemistry'],
+  ['alcohol-oxidation', 'alcohol → aldehyde/ketone → carboxylic acid oxidation chain', 'chemistry'],
+  ['atp', 'ATP / ADP energy cycle', 'biology'],
+  ['mitochondrion', 'mitochondrion structure and respiration stages', 'biology'],
+  ['chloroplast', 'chloroplast structure, light-dependent and Calvin cycle', 'biology'],
+  ['nitrogen-cycle', 'nitrogen cycle', 'biology'],
+  ['replication-fork', 'DNA replication fork, leading/lagging strands', 'biology'],
+  ['central-dogma', 'DNA → RNA → protein', 'biology'],
+  ['recombinant', 'recombinant DNA / plasmid steps', 'biology'],
+  ['linkage', 'linkage and crossing over', 'biology'],
+  ['meiosis', 'meiosis stages and chromosome numbers', 'biology'],
+  ['embryo-sac', 'angiosperm embryo sac and double fertilisation', 'biology'],
+  ['gastrula', 'frog / sea urchin development stages', 'biology'],
+  ['circulation', 'human circulatory system (heart chambers, vessels)', 'biology'],
+  ['oxygen-dissociation', 'oxygen dissociation curves (Hb, myoglobin, fetal)', 'biology'],
+  ['nephron', 'nephron: filtration, reabsorption, concentration', 'biology'],
+  ['blood-sugar', 'blood sugar regulation: insulin / glucagon feedback', 'biology'],
+  ['thermoregulation', 'body temperature regulation feedback', 'biology'],
+  ['immune-response', 'innate vs adaptive immunity overview', 'biology'],
+  ['antibody-response', 'primary vs secondary antibody response', 'biology'],
+  ['action-potential', 'action potential trace with threshold and phases', 'biology'],
+  ['eye', 'eye structure and accommodation', 'biology'],
+  ['sarcomere', 'sarcomere / sliding filament', 'biology'],
+  ['auxin-response', 'auxin concentration response of root vs shoot', 'biology'],
+  ['photoperiod', 'photoperiodism: long-day / short-day plants', 'biology'],
+  ['survivorship', 'survivorship curves types I–III', 'biology'],
+  ['energy-flow', 'ecosystem energy flow pyramid', 'biology'],
+  ['plant-tree', 'plant classification tree', 'biology'],
 ];
 
-const FORMAT_DIRECTIVE =
+const formatDirective = (subject: Subject) =>
   'FORMATTING TOOLKIT (use only what genuinely helps understanding; never decorate for its own sake):\n' +
   '- Tables: GitHub pipe tables ("| a | b |" with a "|---|---|" separator row) for comparisons, formula lists, sign conventions, step tables.\n' +
   '- Callouts: a line starting with "> " for a warning, trap, or memory hook (one or two sentences).\n' +
@@ -318,7 +326,7 @@ const FORMAT_DIRECTIVE =
   'or {"type":"bar","title":"...","categories":["..."],"values":[1,2],"yLabel":"..."}. ' +
   'Use 6-40 points per series, plain numbers only, at most 3 series. Use a chart whenever the idea is a relationship between two quantities (v-t, p-V, pH vs volume, K_max vs f, …).\n' +
   '- Figures: a line ":::fig <id>" inserts a ready-made diagram. Available ids (use the exact id): ' +
-  FIGURE_LIBRARY.map(([id, d]) => `${id} (${d})`).join('; ') +
+  FIGURE_LIBRARY.filter((f) => f[2] === subject).map(([id, d]) => `${id} (${d})`).join('; ') +
   '.\n- Use "###" headings to separate steps of a longer explanation. Keep paragraphs short.';
 
 // ─── Ask ───
@@ -422,7 +430,11 @@ export async function ask(args: {
       'Treat the notes as the shared starting point: build on them, do not repeat them wholesale, and when the ' +
       'student asks "why" go one level deeper into the underlying logic. Point out if a note is being misread.'
     : undefined;
-  const extra = [ctx, notesCtx, FORMAT_DIRECTIVE, ASK_DIRECTIVE].filter(Boolean).join('\n\n');
+  const ids =
+    'Subtopic ids you may use for "topicId" (id = name): ' +
+    subtopicsFor(args.subject, 'en').map((s) => `${s.id} = ${s.name}`).join('; ') +
+    '.';
+  const extra = [ctx, notesCtx, formatDirective(args.subject), ASK_DIRECTIVE, ids].filter(Boolean).join('\n\n');
 
   const raw = await executeModelCall(args.model, args.userKey, args.subject, args.lang, extra, messages, 8000);
 
@@ -505,7 +517,12 @@ export async function generate(args: {
     parts.push(
       'Here are real past EJU questions on this topic. Imitate their STYLE, scope and difficulty only — do NOT copy their numbers, wording or answers:\n' +
         exemplars
-          .map((e, i) => `[${i + 1}] (${e.source}) ${e.prompt}` + (e.choices?.length ? `\nChoices: ${e.choices.join(' / ')}` : '') + (e.answer ? `\nAnswer: ${e.answer}` : ''))
+          .map(
+            (e, i) =>
+              `[${i + 1}] (${e.source}) ${e.prompt}` +
+              (e.choices?.length ? `\nChoices: ${e.choices.map((c, j) => `(${j + 1}) ${c}`).join('  ')}` : '') +
+              (e.answer ? `\nAnswer: ${e.answer}` : '')
+          )
           .join('\n\n')
     );
   }
