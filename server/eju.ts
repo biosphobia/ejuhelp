@@ -373,6 +373,27 @@ export function exemplarsFor(subject: Subject, subtopicId: string | undefined, l
     }
   }
   scored.sort((a, b) => b.score - a.score || b.ex.year - a.ex.year);
+  if (!scored.length) {
+    // No rich extraction for this subject yet (biology / math): fall back to the
+    // legacy mock-exam questions, matching keywords against topic + prompt text.
+    const legacy: { score: number; q: MockQuestion; ex: MockExam }[] = [];
+    for (const ex of loadMockExams()) {
+      if (ex.subject !== subject) continue;
+      for (const q of ex.questions) {
+        const hay = `${q.topic} ${q.prompt}`.toLowerCase();
+        let score = 0;
+        for (const k of kws) if (hay.includes(k)) score += 1;
+        if (score > 0) legacy.push({ score, q, ex });
+      }
+    }
+    legacy.sort((a, b) => b.score - a.score || b.ex.year - a.ex.year);
+    return legacy.slice(0, n).map(({ q, ex }) => ({
+      source: `EJU ${ex.year} session ${ex.session}`,
+      prompt: q.prompt,
+      choices: q.choices,
+      answer: q.answer,
+    }));
+  }
   return scored.slice(0, n).map(({ q, ex }) => {
     let prompt = q[loc]?.prompt ?? q.en.prompt;
     const fig = q.figure?.[loc] ?? q.figure?.en;
