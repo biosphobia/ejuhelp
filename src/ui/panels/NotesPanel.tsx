@@ -7,12 +7,22 @@ import { useUI } from '../../lib/ui';
 import { useKeyPoints } from '../../lib/userdata';
 import { useT } from '../../i18n';
 import PeriodicTable from '../PeriodicTable';
+import { findSubtopic } from '../../data/notes';
+import { usePractice } from '../../lib/practice';
 
 export default function NotesPanel() {
   const t = useT();
   const subject = useUI((s) => s.subject);
   const lang = useUI((s) => s.lang);
+  const openPanel = useUI((s) => s.openPanel);
   const items = useKeyPoints((s) => s.items);
+  const noteLang: 'en' | 'ja' = lang === 'ja' ? 'ja' : 'en';
+  // A key point saved from a coach reply carries the note's subtopic id, so it can
+  // link straight back to the study note in the EJU calendar.
+  const openNote = (id: string) => {
+    usePractice.getState().setWantNote({ subject, id });
+    openPanel('plan');
+  };
   const addMany = useKeyPoints((s) => s.addMany);
   const remove = useKeyPoints((s) => s.remove);
 
@@ -145,7 +155,22 @@ export default function NotesPanel() {
                   <div className="break-words text-sm text-slate-800">
                     <Inline text={kp.text} />
                   </div>
-                  {kp.topic ? <div className="mt-0.5 text-xs text-slate-400">{kp.topic}</div> : null}
+                  {kp.topic ? (
+                    (() => {
+                      const hit = findSubtopic(subject, kp.topic);
+                      return hit ? (
+                        <button
+                          type="button"
+                          onClick={() => openNote(kp.topic!)}
+                          className="mt-0.5 text-xs font-medium text-indigo-600 hover:underline"
+                        >
+                          📖 {hit.sub.name[noteLang]}
+                        </button>
+                      ) : (
+                        <div className="mt-0.5 text-xs text-slate-400">{kp.topic}</div>
+                      );
+                    })()
+                  ) : null}
                 </div>
                 <button
                   type="button"
