@@ -64,7 +64,14 @@ export interface AskResponse {
   text: string;
   keyPoints: KeyPointDTO[];
 }
-export const askClaude = (p: { subject: Subject; lang: Lang; messages: ChatMessage[]; context?: string }) =>
+export const askClaude = (p: {
+  subject: Subject;
+  lang: Lang;
+  messages: ChatMessage[];
+  context?: string;
+  /** Study notes the student is currently reading (from the EJU calendar). */
+  notes?: string;
+}) =>
   call<AskResponse>('claude/ask', p);
 
 export type Difficulty = 'easy' | 'medium' | 'hard';

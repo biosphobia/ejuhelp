@@ -1,6 +1,7 @@
 import { attachSync } from './userdata';
 import { useAsk } from './ask';
 import { useGenerated } from './generated';
+import { useReview } from './review';
 
 let started = false;
 
@@ -21,6 +22,14 @@ export function initSync() {
     'chat',
     (s) => ({ messages: s.messages }),
     (s, data) => s.load(data?.messages ?? []),
+    0
+  );
+  attachSync(
+    useReview,
+    'eju-review',
+    'review',
+    (s) => ({ reviews: s.reviews, examDate: s.examDate }),
+    (s, data) => s.load(data ?? {}),
     0
   );
   attachSync(

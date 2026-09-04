@@ -7,6 +7,7 @@ import {
   NotesIcon,
   ChartIcon,
   TimerIcon,
+  CalendarIcon,
   SettingsIcon,
   UserIcon,
   MenuIcon,
@@ -16,6 +17,7 @@ import {
 type Item = { id: Exclude<PanelId, null>; label: StringKey; Icon: typeof AskIcon };
 
 const PRIMARY: Item[] = [
+  { id: 'plan', label: 'plan', Icon: CalendarIcon },
   { id: 'ask', label: 'askCoach', Icon: AskIcon },
   { id: 'generate', label: 'generate', Icon: GenerateIcon },
   { id: 'exams', label: 'exams', Icon: ExamIcon },

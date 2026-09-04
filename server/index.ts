@@ -62,7 +62,7 @@ const getAiContext = (req: Request) => {
 
 app.post('/api/claude/ask', requireAuth, async (req: Request, res: Response) => {
   try {
-    const { subject, lang, messages, context } = req.body ?? {};
+    const { subject, lang, messages, context, notes } = req.body ?? {};
     const { model, userKey } = getAiContext(req);
     if (!isSubject(subject)) return res.status(400).json({ error: 'bad_subject' });
 
@@ -71,6 +71,7 @@ app.post('/api/claude/ask', requireAuth, async (req: Request, res: Response) => 
       lang: toLang(lang),
       messages: Array.isArray(messages) ? messages : [],
       context: typeof context === 'string' ? context : undefined,
+      notes: typeof notes === 'string' ? notes.slice(0, 12000) : undefined,
       model,
       userKey
     });

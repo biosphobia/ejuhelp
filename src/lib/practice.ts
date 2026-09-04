@@ -14,6 +14,9 @@ interface PracticeState {
   /** Set when the user taps "practice my weak points" so the generator opens in focus mode. */
   wantFocus: boolean;
   setWantFocus: (b: boolean) => void;
+  /** Set by the EJU calendar's "practice this topic" so the generator opens on that subtopic. */
+  wantTopic: string | null;
+  setWantTopic: (id: string | null) => void;
 }
 
 export const usePractice = create<PracticeState>((set) => ({
@@ -22,4 +25,6 @@ export const usePractice = create<PracticeState>((set) => ({
   setActiveQuestion: (activeQuestion, activeItem = null) => set({ activeQuestion, activeItem }),
   wantFocus: false,
   setWantFocus: (wantFocus) => set({ wantFocus }),
+  wantTopic: null,
+  setWantTopic: (wantTopic) => set({ wantTopic }),
 }));

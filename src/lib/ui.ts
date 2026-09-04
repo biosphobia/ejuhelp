@@ -5,6 +5,7 @@ export type Lang = 'en' | 'ja' | 'zh' | 'tr';
 export const LANGS: Lang[] = ['en', 'ja', 'zh', 'tr'];
 export type Subject = 'physics' | 'chemistry' | 'biology' | 'math';
 export type PanelId =
+  | 'plan'
   | 'ask'
   | 'generate'
   | 'exams'

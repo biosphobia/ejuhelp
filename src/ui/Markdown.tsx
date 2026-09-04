@@ -1,5 +1,6 @@
 import { Fragment, type ReactNode } from 'react';
 import katex from 'katex';
+import { Figure } from './diagrams';
 
 // Minimal, safe Markdown -> React (headings, bold, inline code, lists, paragraphs)
 // with LaTeX math via KaTeX. Math is delimited by $…$ / \(…\) (inline) and
@@ -100,14 +101,83 @@ export default function Markdown({ text }: { text: string }) {
     }
   };
 
+  let table: string[][] | null = null;
+  const flushTable = (k: string) => {
+    if (table && table.length) {
+      const [head, ...rows] = table;
+      blocks.push(
+        <div key={k} className="my-2 overflow-x-auto">
+          <table className="w-full border-collapse text-sm">
+            <thead>
+              <tr>
+                {head.map((c, i) => (
+                  <th key={i} className="border border-slate-200 bg-slate-50 px-2 py-1 text-left font-semibold">
+                    {inline(c, `${k}-h${i}`)}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {rows.map((r, ri) => (
+                <tr key={ri} className={ri % 2 ? 'bg-slate-50/50' : ''}>
+                  {r.map((c, ci) => (
+                    <td key={ci} className="border border-slate-200 px-2 py-1 align-top">
+                      {inline(c, `${k}-${ri}-${ci}`)}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      );
+    }
+    table = null;
+  };
+  let quote: string[] = [];
+  const flushQuote = (k: string) => {
+    if (quote.length) {
+      blocks.push(
+        <div key={k} className="my-2 rounded-xl border-l-4 border-sky-300 bg-sky-50/70 px-3 py-2 text-sm leading-relaxed">
+          {inline(quote.join(' '), k)}
+        </div>
+      );
+      quote = [];
+    }
+  };
+
   lines.forEach((raw, idx) => {
     const line = raw.trimEnd();
     const k = `bl-${idx}`;
     const h = /^(#{1,3})\s+(.*)$/.exec(line);
     const ul = /^[-*]\s+(.*)$/.exec(line);
     const ol = /^\d+[.)]\s+(.*)$/.exec(line);
+    const fig = /^:::fig\s+([\w-]+)\s*$/.exec(line);
+    const tr = /^\|(.*)\|\s*$/.exec(line);
+    const bq = /^>\s?(.*)$/.exec(line);
 
-    if (h) {
+    if (tr) {
+      flushPara(k);
+      flushList(k);
+      flushQuote(k);
+      const cells = tr[1].split('|').map((c) => c.trim());
+      if (!cells.every((c) => /^:?-{2,}:?$/.test(c))) (table ??= []).push(cells); // skip |---| separator rows
+      return;
+    }
+    flushTable(k);
+    if (bq) {
+      flushPara(k);
+      flushList(k);
+      quote.push(bq[1]);
+      return;
+    }
+    flushQuote(k);
+
+    if (fig) {
+      flushPara(k);
+      flushList(k);
+      blocks.push(<Figure key={k} id={fig[1]} />);
+    } else if (h) {
       flushPara(k);
       flushList(k);
       const level = h[1].length;
@@ -135,6 +205,8 @@ export default function Markdown({ text }: { text: string }) {
   });
   flushPara('bl-end');
   flushList('bl-end');
+  flushTable('bl-end');
+  flushQuote('bl-end');
 
   return <div className="text-[15px] text-slate-800">{blocks}</div>;
 }

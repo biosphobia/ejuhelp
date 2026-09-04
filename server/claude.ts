@@ -289,6 +289,8 @@ export async function ask(args: {
   messages: ChatMessage[];
   /** The question the student is currently looking at, so "this question" resolves. */
   context?: string;
+  /** Study notes the student is reviewing, so follow-ups build on them. */
+  notes?: string;
   model?: string;
   userKey?: string;
 }): Promise<{ text: string; keyPoints: KeyPointDTO[] }> {
@@ -302,7 +304,12 @@ export async function ask(args: {
       'When the student says "this", "this question", "this problem", "これ", "この問題" or similar, they are ' +
       'referring to the question above — answer about it directly. Do not ask which question they mean.'
     : undefined;
-  const extra = [ctx, ASK_DIRECTIVE].filter(Boolean).join('\n\n');
+  const notesCtx = args.notes?.trim()
+    ? `The student is currently reviewing these study notes:\n"""\n${args.notes.trim()}\n"""\n` +
+      'Treat the notes as the shared starting point: build on them, do not repeat them wholesale, and when the ' +
+      'student asks "why" go one level deeper into the underlying logic. Point out if a note is being misread.'
+    : undefined;
+  const extra = [ctx, notesCtx, ASK_DIRECTIVE].filter(Boolean).join('\n\n');
 
   const raw = await executeModelCall(args.model, args.userKey, args.subject, args.lang, extra, messages, 8000);
 

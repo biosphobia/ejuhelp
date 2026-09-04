@@ -24,6 +24,8 @@ export default function GeneratePanel() {
   const lang = useUI((s) => s.lang);
   const wantFocus = usePractice((s) => s.wantFocus);
   const setWantFocus = usePractice((s) => s.setWantFocus);
+  const wantTopic = usePractice((s) => s.wantTopic);
+  const setWantTopic = usePractice((s) => s.setWantTopic);
   const attempts = useProgress((s) => s.attempts);
   const pinMany = usePinned((s) => s.pinMany);
   // Generated questions live in a persisted store (device + cloud) so they
@@ -65,7 +67,11 @@ export default function GeneratePanel() {
         // Default to a specific category rather than "mixed".
         const us = subject === 'physics' || subject === 'chemistry';
         const first = (us ? r.subtopics?.[0]?.id : r.topics?.[0]?.id) ?? '';
-        setTopic(first);
+        // A topic requested from the EJU calendar wins over the default.
+        const want = usePractice.getState().wantTopic;
+        const known = want && (r.subtopics?.some((x) => x.id === want) || r.topics?.some((x) => x.id === want));
+        setTopic(known ? want! : first);
+        if (want) usePractice.getState().setWantTopic(null);
       })
       .catch(() => {
         if (!alive) return;
@@ -76,6 +82,16 @@ export default function GeneratePanel() {
       alive = false;
     };
   }, [subject, lang]);
+
+  // If the calendar asks for a topic while the list is already loaded, switch to it.
+  useEffect(() => {
+    if (!wantTopic) return;
+    if (subtopics.some((x) => x.id === wantTopic) || topics.some((x) => x.id === wantTopic)) {
+      setTopic(wantTopic);
+      setFocus(false);
+      setWantTopic(null);
+    }
+  }, [wantTopic, subtopics, topics, setWantTopic]);
 
   const grouped = useMemo(() => {
     const m = new Map<string, { id: string; name: string }[]>();

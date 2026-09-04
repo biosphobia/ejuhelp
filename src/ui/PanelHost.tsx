@@ -1,5 +1,6 @@
 import { useUI } from '../lib/ui';
 import AskPanel from './panels/AskPanel';
+import PlanPanel from './panels/PlanPanel';
 import GeneratePanel from './panels/GeneratePanel';
 import ExamsPanel from './panels/ExamsPanel';
 import NotesPanel from './panels/NotesPanel';
@@ -11,6 +12,8 @@ import AccountPanel from './panels/AccountPanel';
 export default function PanelHost() {
   const panel = useUI((s) => s.panel);
   switch (panel) {
+    case 'plan':
+      return <PlanPanel />;
     case 'ask':
       return <AskPanel />;
     case 'generate':

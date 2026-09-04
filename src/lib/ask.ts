@@ -56,7 +56,7 @@ interface AskState {
   error: unknown | null;
   lastSaved: number; // key points auto-saved from the latest answer
   lastAutoAnswered: boolean; // the latest check read a final answer onto a pinned question
-  send: (text: string) => Promise<void>;
+  send: (text: string, opts?: { notes?: string }) => Promise<void>;
   /** Capture the current page and have the coach grade it, in-line with the chat. */
   check: () => Promise<void>;
   /** Wipe the conversation (locally and in the cloud). */
@@ -81,7 +81,7 @@ export const useAsk = create<AskState>((set, get) => ({
         : [],
       rev: s.rev + 1,
     })),
-  send: async (text) => {
+  send: async (text, opts) => {
     const t = text.trim();
     if (!t || get().busy) return;
     const { subject, lang } = useUI.getState();
@@ -89,7 +89,13 @@ export const useAsk = create<AskState>((set, get) => ({
     const next: Message[] = trimMessages([...get().messages, { role: 'user', content: t }]);
     set((s) => ({ messages: next, rev: s.rev + 1, busy: true, error: null, lastSaved: 0, lastAutoAnswered: false }));
     try {
-      const res = await askClaude({ subject, lang, messages: next, context: activeQuestion ?? undefined });
+      const res = await askClaude({
+        subject,
+        lang,
+        messages: next,
+        context: activeQuestion ?? undefined,
+        notes: opts?.notes,
+      });
       const added = useKeyPoints.getState().addMany(subject, res.keyPoints ?? []);
       set((s) => ({
         messages: trimMessages([...next, { role: 'assistant', content: res.text }]),

@@ -183,6 +183,12 @@ export const PauseIcon = (p: SVGProps<SVGSVGElement>) => (
     <path d="M9 5v14M15 5v14" />
   </svg>
 );
+export const CalendarIcon = (p: SVGProps<SVGSVGElement>) => (
+  <svg {...base(p)}>
+    <rect x="3" y="5" width="18" height="16" rx="2" />
+    <path d="M3 10h18M8 3v4M16 3v4M8 14h3M13 14h3M8 18h3" />
+  </svg>
+);
 export const ExamIcon = (p: SVGProps<SVGSVGElement>) => (
   <svg {...base(p)}>
     <rect x="5" y="3" width="14" height="18" rx="2" />
