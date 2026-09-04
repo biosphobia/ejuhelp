@@ -7,6 +7,7 @@ import { useAnswers } from '../../lib/answers';
 import { useProgress, summarize } from '../../lib/userdata';
 import { errorTagLabel } from '../../lib/labels';
 import { useT } from '../../i18n';
+import { TREES } from '../../data/notes';
 
 export default function ProgressPanel() {
   const t = useT();
@@ -16,6 +17,15 @@ export default function ProgressPanel() {
   const attempts = useProgress((s) => s.attempts);
   const resetProgress = useProgress((s) => s.reset);
   const clearAnswers = useAnswers((s) => s.clear);
+  // Weak-topic rows link to the matching study note (matched by English name).
+  const noteFor = (topic: string) => {
+    for (const tp of TREES[subject]) for (const st of tp.subtopics) if (st.name.en === topic) return st.id;
+    return null;
+  };
+  const openNote = (id: string) => {
+    usePractice.getState().setWantNote({ subject, id });
+    openPanel('plan');
+  };
   const reset = () => {
     resetProgress();
     clearAnswers();
@@ -56,7 +66,18 @@ export default function ProgressPanel() {
                 return (
                   <li key={tp.topic}>
                     <div className="mb-0.5 flex items-center justify-between text-sm">
-                      <span className="min-w-0 truncate pr-2 text-slate-700">{tp.topic}</span>
+                      {noteFor(tp.topic) ? (
+                        <button
+                          type="button"
+                          onClick={() => openNote(noteFor(tp.topic)!)}
+                          className="min-w-0 truncate pr-2 text-left text-slate-700 hover:text-indigo-700 hover:underline"
+                          title={t('openNote')}
+                        >
+                          📖 {tp.topic}
+                        </button>
+                      ) : (
+                        <span className="min-w-0 truncate pr-2 text-slate-700">{tp.topic}</span>
+                      )}
                       <span className="shrink-0 text-xs text-slate-400">
                         {tp.correct}/{tp.total} · {pct}%
                       </span>

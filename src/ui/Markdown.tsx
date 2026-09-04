@@ -50,7 +50,7 @@ function inline(text: string, keyBase: string): ReactNode[] {
     } else if (tok.startsWith('**')) {
       nodes.push(
         <strong key={key} className="font-semibold">
-          {tok.slice(2, -2)}
+          {inline(tok.slice(2, -2), `${key}-b`)}
         </strong>
       );
     } else if (tok.startsWith('*')) {
