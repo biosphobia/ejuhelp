@@ -85,6 +85,15 @@ export default function PlanPanel() {
 
   const toggle = (id: string) => setOpen((o) => ({ ...o, [id]: !(o[id] ?? true) }));
 
+  // Today's plan: the due reviews plus enough new topics (in tree order) to start
+  // every topic of this subject with a week left for pure revision.
+  const unstudied = useMemo(
+    () => tree.flatMap((tp) => tp.subtopics.filter((s) => !reviews[keyOf(subject, s.id)]).map((s) => s.id)),
+    [tree, reviews, subject]
+  );
+  const perDay = days > 7 ? Math.ceil(unstudied.length / (days - 7)) : unstudied.length;
+  const todayNew = unstudied.slice(0, Math.min(Math.max(perDay, 1), 4));
+
   // ── Calendar grid ──
   const grid = useMemo(() => {
     const first = new Date(month.getFullYear(), month.getMonth(), 1);
@@ -130,6 +139,65 @@ export default function PlanPanel() {
           )}
         </div>
       </div>
+
+      {/* Today's plan */}
+      {tree.length ? (
+        <div className="mb-3 rounded-2xl border border-slate-200 p-3">
+          <div className="mb-1.5 flex items-center justify-between">
+            <div className="text-xs font-semibold uppercase tracking-wide text-slate-400">📅 {t('todayPlan')}</div>
+            <div className="text-[11px] text-slate-400">{t(subject)}</div>
+          </div>
+          {due.length ? (
+            <div className="mb-2">
+              <div className="mb-1 text-[11px] font-semibold uppercase tracking-wide text-amber-700">{t('dueForReview')}</div>
+              <div className="space-y-1">
+                {due.slice(0, 6).map((d) => {
+                  const f = findSubtopic(d.subject, d.id)!;
+                  return (
+                    <button
+                      key={`${d.subject}:${d.id}`}
+                      type="button"
+                      onClick={() => setReading(d)}
+                      className="flex w-full items-center gap-2 rounded-xl bg-amber-50 px-3 py-1.5 text-left text-sm ring-1 ring-amber-100 hover:bg-amber-100"
+                    >
+                      <span className="h-2 w-2 shrink-0 rounded-full bg-amber-400" />
+                      <span className="min-w-0 flex-1 truncate text-slate-800">{f.sub.name[nameLang]}</span>
+                      <span className="shrink-0 text-[11px] text-slate-400">{t(d.subject)}</span>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          ) : null}
+          {unstudied.length ? (
+            <div>
+              <div className="mb-1 text-[11px] font-semibold uppercase tracking-wide text-sky-700">{t('newToday')}</div>
+              <div className="space-y-1">
+                {todayNew.map((id) => {
+                  const f = findSubtopic(subject, id)!;
+                  return (
+                    <button
+                      key={id}
+                      type="button"
+                      onClick={() => setReading({ subject, id })}
+                      className="flex w-full items-center gap-2 rounded-xl bg-sky-50 px-3 py-1.5 text-left text-sm ring-1 ring-sky-100 hover:bg-sky-100"
+                    >
+                      <span className="h-2 w-2 shrink-0 rounded-full bg-sky-400" />
+                      <span className="min-w-0 flex-1 truncate text-slate-800">{f.sub.name[nameLang]}</span>
+                      <span className="shrink-0 text-[11px] text-slate-400">{f.topic.name[nameLang]}</span>
+                    </button>
+                  );
+                })}
+              </div>
+              <p className="mt-1.5 text-[11px] text-slate-500">
+                {t('topicsLeft', { n: unstudied.length, total })} {days > 7 ? t('paceHint', { s: t(subject), n: perDay }) : null}
+              </p>
+            </div>
+          ) : (
+            <p className="text-xs text-slate-500">{t('allStarted')}</p>
+          )}
+        </div>
+      ) : null}
 
       {/* Month grid */}
       <div className="mb-3 rounded-2xl border border-slate-200 p-3">
@@ -179,30 +247,6 @@ export default function PlanPanel() {
           <span className="inline-flex items-center gap-1"><span className="h-2 w-2 rounded-full bg-amber-400" /> {t('legendDue')}</span>
         </div>
       </div>
-
-      {/* Due list */}
-      {due.length ? (
-        <div className="mb-3">
-          <div className="mb-1.5 text-xs font-semibold uppercase tracking-wide text-slate-400">{t('dueForReview')}</div>
-          <div className="space-y-1">
-            {due.slice(0, 8).map((d) => {
-              const f = findSubtopic(d.subject, d.id)!;
-              return (
-                <button
-                  key={`${d.subject}:${d.id}`}
-                  type="button"
-                  onClick={() => setReading(d)}
-                  className="flex w-full items-center gap-2 rounded-xl bg-amber-50 px-3 py-2 text-left text-sm ring-1 ring-amber-100 hover:bg-amber-100"
-                >
-                  <span className="h-2 w-2 shrink-0 rounded-full bg-amber-400" />
-                  <span className="min-w-0 flex-1 truncate text-slate-800">{f.sub.name[nameLang]}</span>
-                  <span className="shrink-0 text-[11px] text-slate-400">{t(d.subject)}</span>
-                </button>
-              );
-            })}
-          </div>
-        </div>
-      ) : null}
 
       {/* Topic tree */}
       <div className="mb-1.5 flex items-center justify-between">

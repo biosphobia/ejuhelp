@@ -513,6 +513,16 @@ export const strings = {
   pastHint: { en: 'Actual EJU questions on the chosen topic, newest first. No AI call needed.', ja: '選んだ分野の本物のEJU過去問（新しい順）。AIを使いません。', zh: '所选主题的真实 EJU 考题，从新到旧。无需调用 AI。', tr: 'Seçilen konudaki gerçek EJU soruları, en yeniden eskiye. Yapay zekâ gerekmez.' },
   pastUnavailable: { en: 'Past questions by topic are available for Physics and Chemistry.', ja: '分野別の過去問は物理と化学で利用できます。', zh: '按主题的真题目前支持物理和化学。', tr: 'Konuya göre geçmiş sorular Fizik ve Kimya için mevcuttur.' },
   loadPast: { en: 'Load past questions', ja: '過去問を読み込む', zh: '加载真题', tr: 'Geçmiş soruları yükle' },
+  todayPlan: { en: 'Today', ja: '今日やること', zh: '今天', tr: 'Bugün' },
+  newToday: { en: 'New today', ja: '今日の新しいトピック', zh: '今天的新主题', tr: 'Bugün yeni' },
+  paceHint: {
+    en: 'To start every {s} topic with a week to spare, learn {n} new a day.',
+    ja: '試験の1週間前までに{s}の全トピックを終えるには、1日{n}つ新しいトピックを進めましょう。',
+    zh: '要在考前一周开始所有{s}主题，每天需学 {n} 个新主题。',
+    tr: 'Sınava bir hafta kala tüm {s} konularına başlamak için günde {n} yeni konu öğren.',
+  },
+  allStarted: { en: 'Every topic started — keep reviewing what is due.', ja: 'すべてのトピックに着手済み。復習を続けましょう。', zh: '所有主题都已开始，继续复习到期内容。', tr: 'Tüm konulara başlandı; süresi gelenleri tekrar et.' },
+  topicsLeft: { en: '{n} of {total} topics not started yet.', ja: '未着手のトピック：{total}中{n}。', zh: '{total} 个主题中还有 {n} 个未开始。', tr: '{total} konudan {n} tanesine henüz başlanmadı.' },
 } as const;
 
 export type StringKey = keyof typeof strings;
