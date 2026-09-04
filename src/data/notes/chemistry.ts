@@ -1110,6 +1110,933 @@ $$K_c = \frac{[\mathrm{C}]^c[\mathrm{D}]^d}{[\mathrm{A}]^a[\mathrm{B}]^b}, \qqua
       ja: ['触媒が平衡の位置を変えないのはなぜ？', 'K = 64 の H₂ + I₂ ⇌ 2HI の平衡を解いて。', '体積一定で不活性気体を加えても平衡が動かない理由を説明して。', '弱酸の [H⁺] = √(cKₐ) を導いて。'],
     },
   },
+  // ───────────────────────────── INORGANIC ─────────────────────────────
+  {
+    id: 'typical-elements',
+    core: {
+      en: 'Main-group chemistry is periodic-table logic: the group fixes the valence electrons, the valence electrons fix the ion, and the ion fixes the compounds. Learn each group by one pattern plus its exceptions — alkali metals get more reactive downward, halogens less; group 2 splits into "Be/Mg" and "Ca/Sr/Ba" behaviour; carbon, silicon, nitrogen, phosphorus, oxygen and sulfur each have a handful of signature compounds.',
+      ja: '典型元素の化学は周期表の論理：族が価電子を決め、価電子がイオンを決め、イオンが化合物を決める。各族を「1つのパターン＋例外」で覚える — アルカリ金属は下ほど反応性が高く、ハロゲンは下ほど低い。2族は「Be/Mg」と「Ca/Sr/Ba」で性質が分かれる。炭素・ケイ素・窒素・リン・酸素・硫黄はそれぞれ数個の代表的な化合物をもつ。',
+    },
+    body: {
+      en: r`> Open the periodic table (Chemistry → Key points) for element-by-element notes. This page is the **pattern** view.
+
+## Group 1 — alkali metals (Li, Na, K)
+Soft, light, silver; stored in kerosene; react with cold water → MOH + H₂ (**more violent downward**: Li < Na < K). Flame: Li red, Na yellow, K purple. Ions colourless, all salts soluble. **NaOH**: deliquescent, absorbs CO₂. **Na₂CO₃** (Solvay), **NaHCO₃** (decomposes on heating: 2NaHCO₃ → Na₂CO₃ + H₂O + CO₂). Hydrogen sits in group 1 but is a nonmetal (H₂, from Zn + acid).
+
+## Group 2 (Mg vs Ca, Sr, Ba)
+| | Be, Mg | Ca, Sr, Ba |
+|---|---|---|
+| flame colour | none | Ca orange-red, Sr crimson, Ba yellow-green |
+| + cold water | no (Mg: hot water) | yes → M(OH)₂ + H₂ |
+| hydroxide | slightly soluble, weak base | strong base, solubility rises Ca < Ba |
+| sulfate | soluble | insoluble (BaSO₄ test) |
+| carbonate | insoluble | insoluble; dissolve in acid |
+
+Ca: CaO + H₂O → Ca(OH)₂ (exothermic); lime water + CO₂ → CaCO₃ (milky) → excess → Ca(HCO₃)₂ (clear); CaCO₃ → CaO + CO₂ on heating; CaSO₄·2H₂O gypsum; CaCl₂ desiccant; CaC₂ + 2H₂O → C₂H₂.
+
+## Group 13 — Al
+Amphoteric metal (see Transition/Ion analysis); Al₂O₃ amphoteric; passivated in conc. HNO₃; thermite; Hall–Héroult; alum KAl(SO₄)₂·12H₂O.
+
+## Group 14 — C, Si, (Sn, Pb)
+- C: allotropes; CO (toxic, reducing); CO₂ (acidic oxide, dry ice sublimes, from CaCO₃ + HCl).
+- Si: semiconductor; SiO₂ covalent network, dissolves only in HF and in NaOH (→ Na₂SiO₃ → water glass → silica gel).
+- Sn, Pb: amphoteric metals; Sn²⁺ reducing; Pb salts mostly insoluble (PbCl₂ soluble in hot water, PbSO₄, PbS black, PbCrO₄ yellow).
+
+## Group 15 — N, P
+- N₂ inert (triple bond). **NH₃**: weak base, fountain, dried with soda lime, white smoke with HCl. NO colourless (Cu + dilute HNO₃), NO₂ brown (Cu + conc. HNO₃), 2NO₂ ⇌ N₂O₄. HNO₃ (Ostwald) oxidising; nitrates soluble.
+- P: white P₄ (toxic, ignites in air, under water) vs red P (stable). P₄O₁₀ desiccant → H₃PO₄ (medium triprotic acid).
+
+## Group 16 — O, S
+- O₂ (from H₂O₂/MnO₂ or KClO₃); O₃ (oxidiser, KI–starch blue).
+- S: allotropes rhombic/monoclinic/plastic. **H₂S** (rotten egg, reducer, metal sulfides). **SO₂** (reducer, bleach; oxidiser to H₂S). **H₂SO₄**: contact process; conc. = dehydrating, hygroscopic, oxidising when hot, non-volatile; dilute = strong acid. BaSO₄ test.
+
+## Group 17 — halogens
+| | F₂ | Cl₂ | Br₂ | I₂ |
+|---|---|---|---|---|
+| state/colour | pale yellow gas | yellow-green gas | red-brown liquid | purple-black solid (sublimes) |
+| oxidising power | strongest | | | weakest |
+| + H₂O | violent, gives O₂ | Cl₂ + H₂O ⇌ HCl + HClO (bleach) | slight | barely (dissolves in KI as I₃⁻) |
+| HX acid | **weak** | strong | strong | strongest |
+| AgX | soluble | white | pale yellow | yellow |
+
+Displacement: Cl₂ + 2Br⁻ → Br₂ + 2Cl⁻ (upper displaces lower). Cl₂ prep: MnO₂ + conc. HCl → wash with water then conc. H₂SO₄ → downward delivery. I₂–starch blue.
+
+## Group 18 — noble gases
+Monatomic, valence 0, unreactive; He balloons, Ne signs, Ar (0.93% of air) in bulbs and welding.`,
+      ja: r`> 元素ごとの詳しい内容は周期表（化学 → 要点ノート）を開く。このページは**パターン**をまとめる。
+
+## 1族 — アルカリ金属（Li, Na, K）
+軟らかく軽く銀白色。石油中に保存。冷水と反応 → MOH + H₂（**下ほど激しい**：Li < Na < K）。炎色：Li 赤、Na 黄、K 赤紫。イオンは無色、塩はすべて水に溶ける。**NaOH**：潮解性、CO₂ を吸収。**Na₂CO₃**（アンモニアソーダ法）、**NaHCO₃**（加熱で分解：2NaHCO₃ → Na₂CO₃ + H₂O + CO₂）。水素は1族だが非金属（H₂ は Zn ＋ 酸から）。
+
+## 2族（Mg と Ca・Sr・Ba）
+| | Be, Mg | Ca, Sr, Ba |
+|---|---|---|
+| 炎色反応 | なし | Ca 橙赤、Sr 紅、Ba 黄緑 |
+| ＋冷水 | 反応しない（Mg は熱水） | 反応 → M(OH)₂ + H₂ |
+| 水酸化物 | 溶けにくい、弱塩基 | 強塩基、溶解度は Ca < Ba |
+| 硫酸塩 | 溶ける | 溶けない（BaSO₄ の検出） |
+| 炭酸塩 | 溶けない | 溶けない。酸には溶ける |
+
+Ca：CaO + H₂O → Ca(OH)₂（発熱）。石灰水 ＋ CO₂ → CaCO₃（白濁）→ 過剰 → Ca(HCO₃)₂（透明）。CaCO₃ → CaO + CO₂（加熱）。CaSO₄·2H₂O セッコウ。CaCl₂ 乾燥剤。CaC₂ + 2H₂O → C₂H₂。
+
+## 13族 — Al
+両性金属（遷移元素・イオン分析参照）。Al₂O₃ は両性。濃硝酸で不動態。テルミット。ホール・エルー法。ミョウバン KAl(SO₄)₂·12H₂O。
+
+## 14族 — C、Si（Sn、Pb）
+- C：同素体。CO（有毒、還元剤）。CO₂（酸性酸化物、ドライアイスは昇華、CaCO₃ ＋ HCl から）。
+- Si：半導体。SiO₂ は共有結合の結晶で HF と NaOH にだけ溶ける（→ Na₂SiO₃ → 水ガラス → シリカゲル）。
+- Sn、Pb：両性金属。Sn²⁺ は還元剤。Pb の塩はほとんど不溶（PbCl₂ は熱水に溶ける、PbSO₄、PbS 黒、PbCrO₄ 黄）。
+
+## 15族 — N、P
+- N₂ は不活性（三重結合）。**NH₃**：弱塩基、噴水、ソーダ石灰で乾燥、HCl と白煙。NO 無色（Cu ＋ 希硝酸）、NO₂ 褐色（Cu ＋ 濃硝酸）、2NO₂ ⇌ N₂O₄。HNO₃（オストワルト法）は酸化剤。硝酸塩は溶ける。
+- P：黄リン P₄（有毒、空気中で発火、水中保存）と赤リン（安定）。P₄O₁₀ は乾燥剤 → H₃PO₄（中程度の三価の酸）。
+
+## 16族 — O、S
+- O₂（H₂O₂/MnO₂ または KClO₃ から）。O₃（酸化剤、ヨウ化カリウムデンプン紙を青に）。
+- S：同素体 斜方・単斜・ゴム状。**H₂S**（腐卵臭、還元剤、金属硫化物）。**SO₂**（還元剤、漂白。H₂S に対しては酸化剤）。**H₂SO₄**：接触法。濃硫酸 = 脱水・吸湿・熱すると酸化作用・不揮発性。希硫酸 = 強酸。BaSO₄ の検出。
+
+## 17族 — ハロゲン
+| | F₂ | Cl₂ | Br₂ | I₂ |
+|---|---|---|---|---|
+| 状態・色 | 淡黄色の気体 | 黄緑色の気体 | 赤褐色の液体 | 黒紫色の固体（昇華） |
+| 酸化力 | 最強 | | | 最弱 |
+| ＋H₂O | 激しく反応し O₂ | Cl₂ + H₂O ⇌ HCl + HClO（漂白） | わずか | ほとんど溶けない（KI に I₃⁻ として溶ける） |
+| HX の酸性 | **弱酸** | 強酸 | 強酸 | 最強 |
+| AgX | 溶ける | 白 | 淡黄 | 黄 |
+
+置換：Cl₂ + 2Br⁻ → Br₂ + 2Cl⁻（上が下を追い出す）。Cl₂ の製法：MnO₂ ＋ 濃塩酸 → 水、次に濃硫酸を通す → 下方置換。I₂ とデンプンで青紫。
+
+## 18族 — 貴ガス
+単原子分子、価電子0、反応しない。He 気球、Ne サイン、Ar（空気の 0.93%）は電球・溶接。`,
+    },
+    exam: {
+      en: ['True/false statements about a group: group 2 flame colours and solubilities; halogen acidity and reactivity; properties of P allotropes or SO₂ (most years).', 'Which compound fits a description (deliquescent, sublimes, turns lime water milky, bleaches).', 'Order of reactivity / oxidising power within a group.'],
+      ja: ['族についての正誤：2族の炎色と溶解性、ハロゲンの酸性と反応性、リンの同素体や SO₂ の性質（ほぼ毎年）。', '記述に合う化合物（潮解性、昇華、石灰水を白濁、漂白）。', '族内での反応性・酸化力の順。'],
+    },
+    traps: {
+      en: ['Mg has **no** flame colour and its sulfate is **soluble**; Ba is the reverse.', 'HF is the **weakest** hydrohalic acid though F₂ is the strongest oxidiser.', 'NaHCO₃ solution is weakly basic; NaHSO₄ solution is acidic — "acid salt" is a naming term.'],
+      ja: ['Mg は炎色反応**なし**で硫酸塩は**溶ける**。Ba は逆。', 'F₂ は最強の酸化剤だが HF はハロゲン化水素酸の中で**最も弱い**。', 'NaHCO₃ 水溶液は弱塩基性、NaHSO₄ 水溶液は酸性 —「酸性塩」は命名上の用語。'],
+    },
+    followups: {
+      en: ['Why do alkali metals get more reactive down the group while halogens get less?', 'Why does Mg behave differently from Ca in water and flame tests?', 'Give me a true/false quiz on group 2 and group 17.', 'Explain the lime-water reaction and why it clears with excess CO₂.'],
+      ja: ['アルカリ金属は下ほど反応性が高く、ハロゲンは低いのはなぜ？', 'Mg が水や炎色反応で Ca と違うふるまいをするのはなぜ？', '2族と17族の正誤クイズを出して。', '石灰水の反応と、過剰の CO₂ で透明になる理由を説明して。'],
+    },
+  },
+  {
+    id: 'transition-elements',
+    core: {
+      en: 'Transition metals (groups 3–11) share traits: hard, dense, high-melting, several oxidation states, coloured ions, catalysts, complex-ion formers. The EJU tests seven — Cr, Mn, Fe, Cu, Zn, Ag, Hg — mostly through colours, precipitates, what dissolves in which acid, and the complex ions that form with excess NH₃ or NaOH.',
+      ja: '遷移元素（3〜11族）の共通点：硬く、密度が大きく、融点が高く、複数の酸化数、有色イオン、触媒、錯イオンをつくる。EJUが問うのは7つ — Cr、Mn、Fe、Cu、Zn、Ag、Hg — 主に色、沈殿、どの酸に溶けるか、過剰の NH₃ や NaOH でできる錯イオン。',
+    },
+    body: {
+      en: r`## General properties
+Valence electrons usually 1–2 (so neighbours across a row are alike); metallic; many oxidation states (Fe²⁺/Fe³⁺, Cu⁺/Cu²⁺, Mn +2/+4/+7, Cr +3/+6); ions and compounds often coloured; good catalysts (Fe, V₂O₅, Pt, Ni, MnO₂). Group 12 (Zn, Cd, Hg) is **typical** in the Japanese curriculum: Zn²⁺ is colourless, one oxidation state.
+
+## The seven metals at a glance
+| metal | key ions & colours | signature reactions |
+|---|---|---|
+| **Cr** | Cr³⁺ green; CrO₄²⁻ yellow ⇌ Cr₂O₇²⁻ orange (acid) | K₂Cr₂O₇ oxidiser → Cr³⁺; PbCrO₄, BaCrO₄ yellow, Ag₂CrO₄ red-brown; Cr(OH)₃ amphoteric; stainless steel |
+| **Mn** | Mn²⁺ pale pink; MnO₄⁻ purple | KMnO₄ oxidiser (acid → Mn²⁺; neutral → MnO₂ brown); MnO₂ catalyst for O₂, oxidiser for Cl₂ |
+| **Fe** | Fe²⁺ pale green; Fe³⁺ yellow-brown | Fe²⁺ + K₃[Fe(CN)₆] / Fe³⁺ + K₄[Fe(CN)₆] → dark blue; Fe³⁺ + SCN⁻ blood-red; Fe(OH)₂ green-white → Fe(OH)₃ red-brown; passivated by conc. HNO₃; blast furnace |
+| **Cu** | Cu²⁺ blue; [Cu(NH₃)₄]²⁺ deep blue; Cu₂O red; CuO black | no H₂ with HCl; dissolves in HNO₃ (NO/NO₂), hot conc. H₂SO₄ (SO₂); Cu(OH)₂ blue → CuO on heating; CuS black; CuSO₄·5H₂O blue ⇌ anhydrous white; electrolytic refining |
+| **Zn** | Zn²⁺ colourless; [Zn(OH)₄]²⁻; [Zn(NH₃)₄]²⁺ | amphoteric (acid and NaOH → H₂); ZnS white; galvanising; Daniell/dry cell anode |
+| **Ag** | Ag⁺ colourless; [Ag(NH₃)₂]⁺ | AgCl white (dissolves in NH₃), AgBr pale yellow, AgI yellow; Ag₂O brown; photosensitive; silver mirror; best conductor; dissolves in HNO₃ only |
+| **Hg** | Hg²⁺, Hg₂²⁺ | only liquid metal; amalgams; HgS red; toxic; between Cu and Ag in the series |
+
+## Complex ions (錯イオン)
+A central metal ion + ligands (molecules/ions with lone pairs: NH₃, H₂O, OH⁻, CN⁻, Cl⁻) bonded by **coordinate bonds**. Coordination number and shape:
+| complex | number | shape | colour |
+|---|---|---|---|
+| [Ag(NH₃)₂]⁺ | 2 | linear | colourless |
+| [Cu(NH₃)₄]²⁺ | 4 | square planar | deep blue |
+| [Zn(NH₃)₄]²⁺, [Zn(OH)₄]²⁻ | 4 | tetrahedral | colourless |
+| [Fe(CN)₆]⁴⁻, [Fe(CN)₆]³⁻ | 6 | octahedral | yellow / red-yellow |
+| [Al(OH)₄]⁻ | 4 | tetrahedral | colourless |
+
+Rule of thumb: **excess NH₃ dissolves** the hydroxides of Cu, Zn, Ag (and Ni, Co); **excess NaOH dissolves** the hydroxides of the amphoteric metals Al, Zn, Sn, Pb (and Cr). Fe(OH)₃ dissolves in neither.
+
+## Dissolution clues (the "which metal?" question)
+- Dissolves in dilute HCl with H₂: above H (Zn, Fe, Al, Mg…).
+- Does not, but dissolves in HNO₃: Cu, Ag, Hg.
+- Passivated by conc. HNO₃: Al, Fe, Ni.
+- Only aqua regia: Pt, Au.
+- Reacts with NaOH as well: Al, Zn, Sn, Pb.
+
+## Alloys and materials
+Stainless steel (Fe–Cr–Ni), brass (Cu–Zn), bronze (Cu–Sn), duralumin (Al–Cu–Mg), nichrome (Ni–Cr, heaters), solder (Sn–Pb). Ti (light, strong, TiO₂ photocatalyst), W (highest m.p., filaments), Pt (catalyst, electrodes).`,
+      ja: r`## 一般的な性質
+価電子はふつう1〜2個（だから横に並んだ元素が似る）。すべて金属。複数の酸化数（Fe²⁺/Fe³⁺、Cu⁺/Cu²⁺、Mn +2/+4/+7、Cr +3/+6）。イオンや化合物は有色が多い。触媒になりやすい（Fe、V₂O₅、Pt、Ni、MnO₂）。12族（Zn、Cd、Hg）は日本の課程では**典型元素**：Zn²⁺ は無色で酸化数は1つ。
+
+## 7つの金属をひと目で
+| 金属 | 主なイオンと色 | 代表的な反応 |
+|---|---|---|
+| **Cr** | Cr³⁺ 緑。CrO₄²⁻ 黄 ⇌ Cr₂O₇²⁻ 橙赤（酸性） | K₂Cr₂O₇ 酸化剤 → Cr³⁺。PbCrO₄・BaCrO₄ 黄、Ag₂CrO₄ 赤褐。Cr(OH)₃ 両性。ステンレス |
+| **Mn** | Mn²⁺ 淡赤。MnO₄⁻ 赤紫 | KMnO₄ 酸化剤（酸性 → Mn²⁺、中性 → MnO₂ 褐色）。MnO₂ は O₂ の触媒、Cl₂ の酸化剤 |
+| **Fe** | Fe²⁺ 淡緑。Fe³⁺ 黄褐 | Fe²⁺ + K₃[Fe(CN)₆]／Fe³⁺ + K₄[Fe(CN)₆] → 濃青。Fe³⁺ + SCN⁻ 血赤。Fe(OH)₂ 緑白 → Fe(OH)₃ 赤褐。濃硝酸で不動態。溶鉱炉 |
+| **Cu** | Cu²⁺ 青。[Cu(NH₃)₄]²⁺ 深青。Cu₂O 赤。CuO 黒 | HCl とは H₂ を出さない。HNO₃（NO/NO₂）、熱濃硫酸（SO₂）に溶ける。Cu(OH)₂ 青白 → 加熱で CuO。CuS 黒。CuSO₄·5H₂O 青 ⇌ 無水物 白。電解精錬 |
+| **Zn** | Zn²⁺ 無色。[Zn(OH)₄]²⁻、[Zn(NH₃)₄]²⁺ | 両性（酸にも NaOH にも → H₂）。ZnS 白。トタン。ダニエル電池・乾電池の負極 |
+| **Ag** | Ag⁺ 無色。[Ag(NH₃)₂]⁺ | AgCl 白（NH₃ に溶ける）、AgBr 淡黄、AgI 黄。Ag₂O 褐。感光性。銀鏡反応。最良の導体。HNO₃ にのみ溶ける |
+| **Hg** | Hg²⁺、Hg₂²⁺ | 唯一の液体金属。アマルガム。HgS 赤。有毒。イオン化傾向は Cu と Ag の間 |
+
+## 錯イオン
+中心の金属イオン ＋ 配位子（非共有電子対をもつ分子・イオン：NH₃、H₂O、OH⁻、CN⁻、Cl⁻）が**配位結合**で結びついたもの。配位数と形：
+| 錯イオン | 配位数 | 形 | 色 |
+|---|---|---|---|
+| [Ag(NH₃)₂]⁺ | 2 | 直線 | 無色 |
+| [Cu(NH₃)₄]²⁺ | 4 | 正方形 | 深青 |
+| [Zn(NH₃)₄]²⁺、[Zn(OH)₄]²⁻ | 4 | 正四面体 | 無色 |
+| [Fe(CN)₆]⁴⁻、[Fe(CN)₆]³⁻ | 6 | 正八面体 | 黄／赤黄 |
+| [Al(OH)₄]⁻ | 4 | 正四面体 | 無色 |
+
+目安：**過剰の NH₃ に溶ける**のは Cu、Zn、Ag（と Ni、Co）の水酸化物。**過剰の NaOH に溶ける**のは両性金属 Al、Zn、Sn、Pb（と Cr）の水酸化物。Fe(OH)₃ はどちらにも溶けない。
+
+## 溶け方のヒント（「どの金属？」問題）
+- 希塩酸に H₂ を出して溶ける：H より上（Zn、Fe、Al、Mg…）。
+- 溶けないが HNO₃ に溶ける：Cu、Ag、Hg。
+- 濃硝酸で不動態：Al、Fe、Ni。
+- 王水のみ：Pt、Au。
+- NaOH とも反応：Al、Zn、Sn、Pb。
+
+## 合金と材料
+ステンレス鋼（Fe–Cr–Ni）、黄銅（Cu–Zn）、青銅（Cu–Sn）、ジュラルミン（Al–Cu–Mg）、ニクロム（Ni–Cr、電熱線）、はんだ（Sn–Pb）。Ti（軽く強い、TiO₂ 光触媒）、W（最高融点、フィラメント）、Pt（触媒、電極）。`,
+    },
+    exam: {
+      en: ['True/false about Cu / Fe / Ag / Zn compounds and colours; which metal matches dissolution clues (most years).', 'Which displacement reaction occurs (Zn + Cu²⁺ yes; Cu + Zn²⁺ no; Cu + 2Ag⁺ yes).', 'Which hydroxide dissolves in excess NH₃ / excess NaOH; the shape or coordination number of a complex ion.'],
+      ja: ['Cu・Fe・Ag・Zn の化合物と色の正誤、溶け方のヒントに合う金属（ほぼ毎年）。', '起こる置換反応はどれか（Zn + Cu²⁺ は起こる、Cu + Zn²⁺ は起こらない、Cu + 2Ag⁺ は起こる）。', '過剰の NH₃／NaOH に溶ける水酸化物はどれか、錯イオンの形や配位数。'],
+    },
+    traps: {
+      en: ['Al(OH)₃ dissolves in excess NaOH but **not** in excess NH₃; Cu(OH)₂ dissolves in NH₃ but **not** in NaOH; Zn(OH)₂ dissolves in **both**.', 'Fe²⁺ solutions are pale green and oxidise in air to Fe³⁺; the test reagents are the "opposite" ferricyanide/ferrocyanide.', 'Ag₂O, not AgOH, precipitates with NaOH.'],
+      ja: ['Al(OH)₃ は過剰の NaOH に溶けるが NH₃ には溶け**ない**。Cu(OH)₂ は NH₃ に溶けるが NaOH には溶け**ない**。Zn(OH)₂ は**両方**に溶ける。', 'Fe²⁺ 水溶液は淡緑色で空気中で Fe³⁺ に酸化される。検出試薬は「逆の」ヘキサシアノ鉄(III)／(II)酸カリウム。', 'NaOH で沈殿するのは AgOH ではなく Ag₂O。'],
+    },
+    followups: {
+      en: ['Why are transition-metal ions coloured but Zn²⁺ is not?', 'Make me a colour flash-quiz for Cu, Fe, Cr, Mn compounds.', 'Explain why Cu does not react with HCl but does with HNO₃.', 'Which hydroxides dissolve in excess NH₃ and why?'],
+      ja: ['遷移元素のイオンは有色なのに Zn²⁺ が無色なのはなぜ？', 'Cu・Fe・Cr・Mn の化合物の色のフラッシュクイズを出して。', 'Cu が HCl とは反応せず HNO₃ とは反応する理由を説明して。', '過剰の NH₃ に溶ける水酸化物はどれで、なぜ？'],
+    },
+  },
+  {
+    id: 'gas-prep-industry',
+    core: {
+      en: 'Every lab gas preparation is "reagent + reagent → gas", followed by two decisions: which drying agent will not react with the gas, and which collection method matches its solubility and density. Industrial processes are the same chemistry scaled up, each with one catalyst or trick to remember.',
+      ja: '気体の実験室的製法はすべて「試薬＋試薬 → 気体」のあとに2つの判断：その気体と反応しない乾燥剤はどれか、溶解性と密度に合う捕集法はどれか。工業的製法は同じ化学を大規模にしたもので、それぞれ触媒か工夫を1つ覚える。',
+    },
+    body: {
+      en: r`## Lab preparations
+| gas | reagents | notes |
+|---|---|---|
+| H₂ | Zn + dilute H₂SO₄ / HCl | Kipp's apparatus |
+| O₂ | H₂O₂ + MnO₂ (catalyst); KClO₃ + MnO₂, heat | |
+| Cl₂ | MnO₂ + conc. HCl, heat; bleaching powder + HCl | pass through **water** (removes HCl) then **conc. H₂SO₄** (dries) — that order |
+| HCl | NaCl + conc. H₂SO₄, heat | white smoke with NH₃ |
+| NH₃ | NH₄Cl + Ca(OH)₂, heat | dry with **soda lime**; test tube mouth tilted **down** (water forms) |
+| CO₂ | CaCO₃ + dilute HCl | Kipp's; not with H₂SO₄ (insoluble CaSO₄ coats the marble) |
+| SO₂ | Cu + hot conc. H₂SO₄; NaHSO₃ + H₂SO₄ | |
+| H₂S | FeS + dilute H₂SO₄ / HCl | Kipp's |
+| NO | Cu + dilute HNO₃ | colourless; collect over water |
+| NO₂ | Cu + conc. HNO₃ | brown; downward delivery |
+| N₂ | NH₄NO₂ solution, heat | |
+| C₂H₂ | CaC₂ + H₂O | |
+| CO | HCOOH + conc. H₂SO₄ (dehydration) | |
+
+**Kipp's apparatus**: solid + liquid, no heating, gas on demand (H₂, CO₂, H₂S).
+
+## Drying agents (never pair with a gas it reacts with)
+| drying agent | type | cannot dry |
+|---|---|---|
+| conc. H₂SO₄ | acidic | NH₃ (base), H₂S (oxidised) |
+| P₄O₁₀ | acidic | NH₃ |
+| CaCl₂ | neutral | NH₃ (forms an adduct) |
+| **soda lime** (NaOH + CaO) | basic | acidic gases: Cl₂, HCl, CO₂, SO₂, H₂S, NO₂ |
+
+## Collection
+| method | for gases that are | examples |
+|---|---|---|
+| **water displacement** | insoluble in water | H₂, O₂, N₂, NO, CO, CH₄, C₂H₄ |
+| **upward delivery** (mouth down) | soluble and lighter than air | NH₃ (only common one) |
+| **downward delivery** (mouth up) | soluble and heavier than air | Cl₂, HCl, CO₂, SO₂, H₂S, NO₂ |
+Heavier than air = molar mass > 29.
+
+## Industrial processes (one line each)
+| product | process | key point |
+|---|---|---|
+| **NH₃** | Haber–Bosch: N₂ + 3H₂ ⇌ 2NH₃ | Fe catalyst, ~500 °C, high pressure |
+| **HNO₃** | Ostwald: NH₃ → NO (Pt, 800 °C) → NO₂ → HNO₃ (+ H₂O) | overall NH₃ + 2O₂ → HNO₃ + H₂O |
+| **H₂SO₄** | Contact: S → SO₂ → SO₃ (**V₂O₅**) → absorbed in conc. H₂SO₄ (oleum) → diluted | SO₃ is not added to water directly (mist) |
+| **NaOH, Cl₂, H₂** | ion-exchange membrane electrolysis of NaCl(aq) | Na⁺ crosses the membrane; NaOH forms at the cathode |
+| **Na₂CO₃** | Solvay (ammonia–soda): NaCl + NH₃ + CO₂ + H₂O → NaHCO₃ + NH₄Cl; heat → Na₂CO₃ | NH₃ recovered from NH₄Cl with Ca(OH)₂; net: 2NaCl + CaCO₃ → Na₂CO₃ + CaCl₂ |
+| **Al** | Bayer (bauxite → Al₂O₃) then Hall–Héroult molten electrolysis with cryolite | cannot use aqueous solution |
+| **Fe** | blast furnace: Fe₂O₃ + 3CO → 2Fe + 3CO₂ | coke → CO; limestone → slag; pig iron → converter → steel |
+| **Cu** | roast sulfide ore → crude Cu → electrolytic refining | anode mud Ag, Au |
+| **Si** | SiO₂ + 2C → Si + 2CO (electric furnace) | then purified for semiconductors |`,
+      ja: r`## 実験室的製法
+| 気体 | 試薬 | 備考 |
+|---|---|---|
+| H₂ | Zn ＋ 希硫酸／希塩酸 | キップの装置 |
+| O₂ | H₂O₂ ＋ MnO₂（触媒）。KClO₃ ＋ MnO₂、加熱 | |
+| Cl₂ | MnO₂ ＋ 濃塩酸、加熱。さらし粉 ＋ HCl | **水**（HCl を除く）→ **濃硫酸**（乾燥）の順に通す |
+| HCl | NaCl ＋ 濃硫酸、加熱 | NH₃ と白煙 |
+| NH₃ | NH₄Cl ＋ Ca(OH)₂、加熱 | **ソーダ石灰**で乾燥。試験管の口を**下げる**（水が生じる） |
+| CO₂ | CaCO₃ ＋ 希塩酸 | キップの装置。H₂SO₄ は不可（不溶性の CaSO₄ が表面をおおう） |
+| SO₂ | Cu ＋ 熱濃硫酸。NaHSO₃ ＋ H₂SO₄ | |
+| H₂S | FeS ＋ 希硫酸／希塩酸 | キップの装置 |
+| NO | Cu ＋ 希硝酸 | 無色。水上置換 |
+| NO₂ | Cu ＋ 濃硝酸 | 褐色。下方置換 |
+| N₂ | NH₄NO₂ 水溶液、加熱 | |
+| C₂H₂ | CaC₂ ＋ H₂O | |
+| CO | HCOOH ＋ 濃硫酸（脱水） | |
+
+**キップの装置**：固体＋液体、加熱なし、必要なときに発生（H₂、CO₂、H₂S）。
+
+## 乾燥剤（反応する気体と組み合わせない）
+| 乾燥剤 | 性質 | 乾燥できない気体 |
+|---|---|---|
+| 濃硫酸 | 酸性 | NH₃（塩基）、H₂S（酸化される） |
+| P₄O₁₀ | 酸性 | NH₃ |
+| CaCl₂ | 中性 | NH₃（付加物をつくる） |
+| **ソーダ石灰**（NaOH ＋ CaO） | 塩基性 | 酸性の気体：Cl₂、HCl、CO₂、SO₂、H₂S、NO₂ |
+
+## 捕集法
+| 方法 | 対象の気体 | 例 |
+|---|---|---|
+| **水上置換** | 水に溶けにくい | H₂、O₂、N₂、NO、CO、CH₄、C₂H₄ |
+| **上方置換**（口を下） | 水に溶け、空気より軽い | NH₃（代表はこれだけ） |
+| **下方置換**（口を上） | 水に溶け、空気より重い | Cl₂、HCl、CO₂、SO₂、H₂S、NO₂ |
+空気より重い = モル質量 > 29。
+
+## 工業的製法（1行ずつ）
+| 製品 | 方法 | ポイント |
+|---|---|---|
+| **NH₃** | ハーバー・ボッシュ法：N₂ + 3H₂ ⇌ 2NH₃ | Fe 触媒、約 500 ℃、高圧 |
+| **HNO₃** | オストワルト法：NH₃ → NO（Pt、800 ℃）→ NO₂ → HNO₃（＋H₂O） | 全体 NH₃ + 2O₂ → HNO₃ + H₂O |
+| **H₂SO₄** | 接触法：S → SO₂ → SO₃（**V₂O₅**）→ 濃硫酸に吸収（発煙硫酸）→ 希釈 | SO₃ を直接水に入れない（霧になる） |
+| **NaOH、Cl₂、H₂** | NaCl 水溶液のイオン交換膜法電解 | Na⁺ が膜を通り、陰極側で NaOH |
+| **Na₂CO₃** | アンモニアソーダ法：NaCl + NH₃ + CO₂ + H₂O → NaHCO₃ + NH₄Cl。加熱 → Na₂CO₃ | NH₄Cl から Ca(OH)₂ で NH₃ を回収。全体 2NaCl + CaCO₃ → Na₂CO₃ + CaCl₂ |
+| **Al** | バイヤー法（ボーキサイト → Al₂O₃）→ 氷晶石を加えて溶融塩電解（ホール・エルー法） | 水溶液は使えない |
+| **Fe** | 溶鉱炉：Fe₂O₃ + 3CO → 2Fe + 3CO₂ | コークス → CO。石灰石 → スラグ。銑鉄 → 転炉 → 鋼 |
+| **Cu** | 硫化鉱を焼く → 粗銅 → 電解精錬 | 陽極泥に Ag、Au |
+| **Si** | SiO₂ + 2C → Si + 2CO（電気炉） | その後半導体用に精製 |`,
+    },
+    exam: {
+      en: ['Which drying agent / collection method is wrong for a given gas (NH₃ with CaCl₂ or conc. H₂SO₄; Cl₂ by water displacement).', 'Order of the wash bottles in Cl₂ preparation; why the NH₃ test tube points down.', 'Match industrial products to processes and catalysts (Fe, Pt, V₂O₅); the net equation of the Solvay process.'],
+      ja: ['ある気体に対して誤った乾燥剤・捕集法（NH₃ に CaCl₂ や濃硫酸、Cl₂ を水上置換）。', 'Cl₂ 製法の洗気びんの順、NH₃ の試験管の口を下げる理由。', '工業製品と製法・触媒（Fe、Pt、V₂O₅）の対応、アンモニアソーダ法の全体の式。'],
+    },
+    traps: {
+      en: ['NH₃ is the only common gas collected by upward delivery and the only one dried with soda lime; **never** with CaCl₂ or acids.', 'Cl₂: water first, then conc. H₂SO₄ — reversed order re-wets the gas.', 'CaCO₃ + H₂SO₄ stops quickly (CaSO₄ coating); use HCl for CO₂.'],
+      ja: ['NH₃ は上方置換で集める唯一の代表的な気体で、ソーダ石灰で乾燥する唯一のもの。CaCl₂ や酸性乾燥剤は**絶対**不可。', 'Cl₂：水 → 濃硫酸の順。逆だと気体が再び湿る。', 'CaCO₃ ＋ H₂SO₄ はすぐ止まる（CaSO₄ の被膜）。CO₂ には HCl を使う。'],
+    },
+    followups: {
+      en: ['Why is Cl₂ passed through water before conc. H₂SO₄?', 'Walk me through the Solvay process and its net equation.', 'Make a quiz: gas → drying agent → collection method.', 'Why cannot aluminium be made by electrolysing an aqueous solution?'],
+      ja: ['Cl₂ を濃硫酸の前に水に通すのはなぜ？', 'アンモニアソーダ法と全体の式を順に説明して。', '気体 → 乾燥剤 → 捕集法のクイズを出して。', 'アルミニウムを水溶液の電解でつくれないのはなぜ？'],
+    },
+  },
+  {
+    id: 'ion-analysis',
+    core: {
+      en: 'Metal ions are told apart by what makes them precipitate: HCl catches Ag⁺ and Pb²⁺, H₂S in acid catches Cu²⁺ (and Pb²⁺, Cd²⁺), NH₃ catches Fe³⁺ and Al³⁺ as hydroxides, H₂S in base catches Zn²⁺ (and Ni²⁺, Mn²⁺), carbonate catches Ca²⁺ and Ba²⁺, and Na⁺/K⁺ never precipitate — use the flame. The colours of the precipitates and what redissolves them (excess NH₃, excess NaOH) finish the identification.',
+      ja: '金属イオンは何で沈殿するかで見分ける：HCl は Ag⁺ と Pb²⁺、酸性の H₂S は Cu²⁺（と Pb²⁺、Cd²⁺）、NH₃ は Fe³⁺ と Al³⁺ を水酸化物として、塩基性の H₂S は Zn²⁺（と Ni²⁺、Mn²⁺）、炭酸塩は Ca²⁺ と Ba²⁺。Na⁺/K⁺ は沈殿せず炎色反応で判定。沈殿の色と、何で再び溶けるか（過剰の NH₃、過剰の NaOH）で特定が完成する。',
+    },
+    body: {
+      en: r`## The systematic separation (系統分析)
+Add reagents in this order; each step removes a group as a precipitate; the filtrate goes on.
+
+| step | reagent | precipitates (colour) | why these |
+|---|---|---|---|
+| 1 | dilute **HCl** | AgCl white, PbCl₂ white | insoluble chlorides (PbCl₂ dissolves in hot water; AgCl in NH₃) |
+| 2 | **H₂S** in acid | CuS black, PbS black, CdS yellow, (HgS black, SnS) | sulfides so insoluble they form even at low S²⁻ |
+| 3 | boil off H₂S, add HNO₃ (Fe²⁺ → Fe³⁺), then **NH₃ + NH₄Cl** | Fe(OH)₃ red-brown, Al(OH)₃ white, Cr(OH)₃ green-grey | hydroxides of +3 ions precipitate at mild pH |
+| 4 | **H₂S** in base (NH₃) | ZnS white, NiS black, MnS pale pink | need high S²⁻ |
+| 5 | **(NH₄)₂CO₃** | CaCO₃, BaCO₃, SrCO₃ white | carbonates of group 2 |
+| 6 | filtrate | Na⁺, K⁺, Mg²⁺ | flame test (Na yellow, K purple) |
+
+Why H₂S twice: in acid $[\mathrm{S^{2-}}]$ is tiny (H₂S ⇌ 2H⁺ + S²⁻ pushed left), so only the least soluble sulfides form; adding NH₃ raises $[\mathrm{S^{2-}}]$ and the rest follow.
+
+## Single-reagent reactions you must know
+**NaOH** (a little → precipitate; excess → ?)
+| ion | little NaOH | excess NaOH |
+|---|---|---|
+| Al³⁺ | Al(OH)₃ white | dissolves → [Al(OH)₄]⁻ |
+| Zn²⁺ | Zn(OH)₂ white | dissolves → [Zn(OH)₄]²⁻ |
+| Pb²⁺, Sn²⁺ | white | dissolves (amphoteric) |
+| Cu²⁺ | Cu(OH)₂ blue | stays |
+| Fe³⁺ | Fe(OH)₃ red-brown | stays |
+| Fe²⁺ | Fe(OH)₂ green-white | stays |
+| Ag⁺ | Ag₂O brown | stays |
+| Mg²⁺ | Mg(OH)₂ white | stays |
+
+**NH₃ water** (a little → same hydroxides; excess → ?)
+| ion | excess NH₃ |
+|---|---|
+| Cu²⁺ | dissolves → [Cu(NH₃)₄]²⁺ deep blue |
+| Zn²⁺ | dissolves → [Zn(NH₃)₄]²⁺ colourless |
+| Ag⁺ | dissolves → [Ag(NH₃)₂]⁺ |
+| Al³⁺, Fe³⁺, Pb²⁺, Mg²⁺ | precipitate **stays** |
+
+So: **Al vs Zn** — both dissolve in NaOH, only Zn in NH₃. **Cu vs Fe³⁺** — Cu dissolves in NH₃, Fe never dissolves.
+
+## Other spot tests
+- Cl⁻: AgCl white (soluble in NH₃). Br⁻: AgBr pale yellow. I⁻: AgI yellow (insoluble in NH₃).
+- SO₄²⁻: BaSO₄ white, insoluble in acid. CO₃²⁻: BaCO₃ white but dissolves in acid with CO₂ fizzing.
+- CrO₄²⁻: BaCrO₄, PbCrO₄ yellow; Ag₂CrO₄ red-brown.
+- Fe²⁺ / Fe³⁺: hexacyanoferrate dark blue; Fe³⁺ + SCN⁻ blood-red.
+- Na⁺, K⁺, Ca²⁺, Sr²⁺, Ba²⁺, Cu²⁺: flame colours.
+
+## Solution colours (clues before any reagent)
+Cu²⁺ blue, Fe²⁺ pale green, Fe³⁺ yellow-brown, Ni²⁺ green, Cr³⁺ green, MnO₄⁻ purple, Cr₂O₇²⁻ orange; Zn²⁺, Al³⁺, Ag⁺, Pb²⁺, Ca²⁺, Ba²⁺, Na⁺, K⁺ colourless.`,
+      ja: r`## 系統分析
+この順に試薬を加える。各段階で1つの群が沈殿し、ろ液を次へ回す。
+
+| 段階 | 試薬 | 沈殿（色） | 理由 |
+|---|---|---|---|
+| 1 | 希**塩酸** | AgCl 白、PbCl₂ 白 | 不溶性の塩化物（PbCl₂ は熱水に、AgCl は NH₃ に溶ける） |
+| 2 | 酸性で **H₂S** | CuS 黒、PbS 黒、CdS 黄（HgS 黒、SnS） | 極めて溶けにくく S²⁻ が少なくても沈殿 |
+| 3 | H₂S を煮沸で除き、HNO₃（Fe²⁺ → Fe³⁺）、**NH₃ ＋ NH₄Cl** | Fe(OH)₃ 赤褐、Al(OH)₃ 白、Cr(OH)₃ 灰緑 | +3 のイオンの水酸化物は弱塩基性で沈殿 |
+| 4 | 塩基性（NH₃）で **H₂S** | ZnS 白、NiS 黒、MnS 淡赤 | S²⁻ が多く必要 |
+| 5 | **(NH₄)₂CO₃** | CaCO₃、BaCO₃、SrCO₃ 白 | 2族の炭酸塩 |
+| 6 | ろ液 | Na⁺、K⁺、Mg²⁺ | 炎色反応（Na 黄、K 赤紫） |
+
+H₂S を2回使う理由：酸性では $[\mathrm{S^{2-}}]$ が極めて小さく（H₂S ⇌ 2H⁺ + S²⁻ が左に偏る）、最も溶けにくい硫化物だけが沈殿。NH₃ で $[\mathrm{S^{2-}}]$ を増やすと残りが沈殿。
+
+## 覚えるべき単一試薬の反応
+**NaOH**（少量 → 沈殿。過剰 → ？）
+| イオン | 少量の NaOH | 過剰の NaOH |
+|---|---|---|
+| Al³⁺ | Al(OH)₃ 白 | 溶ける → [Al(OH)₄]⁻ |
+| Zn²⁺ | Zn(OH)₂ 白 | 溶ける → [Zn(OH)₄]²⁻ |
+| Pb²⁺、Sn²⁺ | 白 | 溶ける（両性） |
+| Cu²⁺ | Cu(OH)₂ 青白 | 残る |
+| Fe³⁺ | Fe(OH)₃ 赤褐 | 残る |
+| Fe²⁺ | Fe(OH)₂ 緑白 | 残る |
+| Ag⁺ | Ag₂O 褐 | 残る |
+| Mg²⁺ | Mg(OH)₂ 白 | 残る |
+
+**アンモニア水**（少量 → 同じ水酸化物。過剰 → ？）
+| イオン | 過剰の NH₃ |
+|---|---|
+| Cu²⁺ | 溶ける → [Cu(NH₃)₄]²⁺ 深青 |
+| Zn²⁺ | 溶ける → [Zn(NH₃)₄]²⁺ 無色 |
+| Ag⁺ | 溶ける → [Ag(NH₃)₂]⁺ |
+| Al³⁺、Fe³⁺、Pb²⁺、Mg²⁺ | 沈殿は**残る** |
+
+つまり **Al と Zn** — 両方 NaOH に溶けるが NH₃ に溶けるのは Zn だけ。**Cu と Fe³⁺** — Cu は NH₃ に溶け、Fe はどちらにも溶けない。
+
+## その他の検出
+- Cl⁻：AgCl 白（NH₃ に溶ける）。Br⁻：AgBr 淡黄。I⁻：AgI 黄（NH₃ に溶けない）。
+- SO₄²⁻：BaSO₄ 白、酸に溶けない。CO₃²⁻：BaCO₃ 白だが酸に CO₂ を出して溶ける。
+- CrO₄²⁻：BaCrO₄、PbCrO₄ 黄。Ag₂CrO₄ 赤褐。
+- Fe²⁺／Fe³⁺：ヘキサシアノ鉄酸カリウムで濃青。Fe³⁺ ＋ SCN⁻ 血赤。
+- Na⁺、K⁺、Ca²⁺、Sr²⁺、Ba²⁺、Cu²⁺：炎色反応。
+
+## 水溶液の色（試薬を加える前のヒント）
+Cu²⁺ 青、Fe²⁺ 淡緑、Fe³⁺ 黄褐、Ni²⁺ 緑、Cr³⁺ 緑、MnO₄⁻ 赤紫、Cr₂O₇²⁻ 橙赤。Zn²⁺、Al³⁺、Ag⁺、Pb²⁺、Ca²⁺、Ba²⁺、Na⁺、K⁺ は無色。`,
+    },
+    exam: {
+      en: ['A solution shows given behaviour with HCl / NaOH / NH₃ / H₂S: identify the ion (most years).', 'After adding reagents in sequence, which ions remain in the filtrate.', 'Which solution gives a precipitate that redissolves in excess NaOH but not in excess NH₃ (→ Al³⁺ or Pb²⁺).'],
+      ja: ['HCl／NaOH／NH₃／H₂S に対する挙動からイオンを特定（ほぼ毎年）。', '試薬を順に加えた後、ろ液に残るイオンはどれか。', '過剰の NaOH に溶けるが過剰の NH₃ には溶けない沈殿を生じる溶液（→ Al³⁺ や Pb²⁺）。'],
+    },
+    traps: {
+      en: ['Zn²⁺ does **not** precipitate with H₂S in acid — only after the solution is made basic.', 'Excess NaOH dissolves Al, Zn, Pb, Sn hydroxides; excess NH₃ dissolves Cu, Zn, Ag — Zn is in both lists, Al in neither for NH₃.', 'Before the NH₃ step, Fe²⁺ must be oxidised to Fe³⁺ (Fe(OH)₂ is more soluble and would partly slip through).'],
+      ja: ['Zn²⁺ は酸性の H₂S では沈殿**しない** — 塩基性にしてから。', '過剰の NaOH に溶けるのは Al、Zn、Pb、Sn の水酸化物。過剰の NH₃ に溶けるのは Cu、Zn、Ag — Zn は両方、Al は NH₃ のリストにない。', 'NH₃ の段階の前に Fe²⁺ を Fe³⁺ に酸化する（Fe(OH)₂ は溶けやすく一部が通り抜ける）。'],
+    },
+    followups: {
+      en: ['Why does H₂S precipitate Cu²⁺ in acid but Zn²⁺ only in base?', 'Give me a mixed solution of Ag⁺, Cu²⁺, Al³⁺, Zn²⁺, Ca²⁺ and let me separate it step by step.', 'How do I tell Al³⁺ from Zn²⁺ with one reagent?', 'Why does AgCl dissolve in ammonia?'],
+      ja: ['H₂S が酸性で Cu²⁺ を沈殿させ、Zn²⁺ は塩基性でしか沈殿させないのはなぜ？', 'Ag⁺、Cu²⁺、Al³⁺、Zn²⁺、Ca²⁺ の混合溶液を出して、順に分離させて。', '試薬1つで Al³⁺ と Zn²⁺ を区別するには？', 'AgCl がアンモニア水に溶けるのはなぜ？'],
+    },
+  },
+  // ───────────────────────────── ORGANIC ─────────────────────────────
+  {
+    id: 'aliphatic-hydrocarbons',
+    core: {
+      en: 'Carbon makes four bonds, so it builds chains and rings. Count the hydrogens to see how "saturated" a molecule is: CₙH₂ₙ₊₂ is an alkane (all single bonds, reacts only by substitution), each missing H₂ means a double bond or a ring (adds Br₂ or H₂). Isomers are different arrangements of the same atoms — count them systematically by chain length, then position.',
+      ja: '炭素は結合を4本つくるので鎖や環を組む。水素の数を数えれば「飽和度」がわかる：CₙH₂ₙ₊₂ はアルカン（単結合だけ、置換反応のみ）。H₂ が1組足りないごとに二重結合か環が1つ（Br₂ や H₂ が付加）。異性体は同じ原子の違う並び方 — 鎖の長さ、次に位置の順で系統的に数える。',
+    },
+    body: {
+      en: r`## Three families
+| family | formula | bond | reaction type | test |
+|---|---|---|---|---|
+| **alkane** | $\mathrm{C_nH_{2n+2}}$ | C–C single | **substitution** (Cl₂ + light) | does not decolourise Br₂ water |
+| **alkene** | $\mathrm{C_nH_{2n}}$ | one C=C | **addition** (Br₂, H₂/Ni, H₂O/acid, HCl); polymerisation | decolourises Br₂ water and KMnO₄ |
+| **alkyne** | $\mathrm{C_nH_{2n-2}}$ | one C≡C | addition twice | acetylene: CaC₂ + H₂O |
+Cycloalkanes are $\mathrm{C_nH_{2n}}$ too (ring instead of double bond) but behave like alkanes.
+**Degree of unsaturation**: each C=C or ring removes 2 H; each C≡C removes 4 H from the alkane count. C₄H₈ → one double bond or one ring.
+
+## Naming and shapes
+Methane (tetrahedral, 109.5°), ethane, propane, butane, pentane, hexane… Ethylene C₂H₄ is **planar**; acetylene C₂H₂ **linear**. Alkane boiling points rise with chain length; branched isomers boil lower.
+
+## Isomers
+- **Structural isomers**: different connectivity. Butane has 2 (n-, iso-); pentane 3; hexane 5. Count by drawing the longest chain, then shortening it and placing branches without duplicating.
+- **Cis–trans (geometric) isomers**: C=C cannot rotate; need two different groups on **each** carbon. 2-butene has cis/trans; 1-butene and propene do not.
+- **Enantiomers (optical isomers)**: a carbon with **four different groups** (asymmetric carbon) → mirror images that rotate polarised light oppositely. Lactic acid CH₃CH(OH)COOH, alanine; not glycine.
+
+## Key reactions
+- Ethylene: + Br₂ → 1,2-dibromoethane (colour vanishes); + H₂O → ethanol (catalyst); + H₂ → ethane (Ni); n CH₂=CH₂ → polyethylene.
+- Acetylene: + H₂O (HgSO₄) → acetaldehyde (via vinyl alcohol); + HCl → vinyl chloride; + CH₃COOH → vinyl acetate; 3 C₂H₂ → benzene (Fe, heat). Burns with a very hot, sooty flame.
+- Methane: + Cl₂ → CH₃Cl, CH₂Cl₂, CHCl₃, CCl₄ (radical substitution, light needed).
+
+## Petroleum
+Fractional distillation by boiling point: gas (C1–4) → naphtha/petrol → kerosene → light oil (diesel) → heavy oil → residue (asphalt). **Cracking** breaks long chains into short alkanes + alkenes (ethylene for plastics). Natural gas ≈ methane.
+
+## Combustion stoichiometry
+$\mathrm{C_xH_y + (x + y/4)O_2 \to xCO_2 + (y/2)H_2O}$. Elemental analysis: mass of CO₂ and H₂O absorbed (soda lime, CaCl₂) → moles of C and H → formula.`,
+      ja: r`## 3つの系列
+| 系列 | 一般式 | 結合 | 反応の種類 | 検出 |
+|---|---|---|---|---|
+| **アルカン** | $\mathrm{C_nH_{2n+2}}$ | C–C 単結合 | **置換**（Cl₂ ＋ 光） | 臭素水を脱色しない |
+| **アルケン** | $\mathrm{C_nH_{2n}}$ | C=C 1つ | **付加**（Br₂、H₂/Ni、H₂O/酸、HCl）。重合 | 臭素水・KMnO₄ を脱色 |
+| **アルキン** | $\mathrm{C_nH_{2n-2}}$ | C≡C 1つ | 2回付加 | アセチレン：CaC₂ ＋ H₂O |
+シクロアルカンも $\mathrm{C_nH_{2n}}$（二重結合の代わりに環）だがアルカンのようにふるまう。
+**不飽和度**：C=C や環1つにつきアルカンより H が2個少ない。C≡C は4個。C₄H₈ → 二重結合1つか環1つ。
+
+## 名前と形
+メタン（正四面体、109.5°）、エタン、プロパン、ブタン、ペンタン、ヘキサン…。エチレン C₂H₄ は**平面**、アセチレン C₂H₂ は**直線**。アルカンの沸点は鎖が長いほど高く、枝分かれすると低い。
+
+## 異性体
+- **構造異性体**：つながり方が違う。ブタンは2種（n-、iso-）、ペンタン3、ヘキサン5。最長の鎖を描き、短くして枝をつけ、重複を避けて数える。
+- **シス–トランス（幾何）異性体**：C=C は回転できない。**両方の**炭素に異なる2つの基が必要。2-ブテンにはあり、1-ブテンやプロペンにはない。
+- **鏡像（光学）異性体**：**4つの異なる基**がついた炭素（不斉炭素）→ 鏡像で、偏光を逆向きに回す。乳酸 CH₃CH(OH)COOH、アラニン。グリシンにはない。
+
+## 主な反応
+- エチレン：＋Br₂ → 1,2-ジブロモエタン（色が消える）。＋H₂O → エタノール（触媒）。＋H₂ → エタン（Ni）。n CH₂=CH₂ → ポリエチレン。
+- アセチレン：＋H₂O（HgSO₄）→ アセトアルデヒド（ビニルアルコール経由）。＋HCl → 塩化ビニル。＋CH₃COOH → 酢酸ビニル。3 C₂H₂ → ベンゼン（Fe、加熱）。非常に高温ですすの多い炎。
+- メタン：＋Cl₂ → CH₃Cl、CH₂Cl₂、CHCl₃、CCl₄（光が必要な置換）。
+
+## 石油
+沸点による分留：ガス（C1〜4）→ ナフサ・ガソリン → 灯油 → 軽油 → 重油 → 残油（アスファルト）。**クラッキング**で長い鎖を短いアルカン＋アルケンに（プラスチック用のエチレン）。天然ガス ≈ メタン。
+
+## 燃焼の量的関係
+$\mathrm{C_xH_y + (x + y/4)O_2 \to xCO_2 + (y/2)H_2O}$。元素分析：吸収された CO₂ と H₂O の質量（ソーダ石灰、CaCl₂）→ C と H の物質量 → 化学式。`,
+    },
+    exam: {
+      en: ['Count isomers of C₅H₁₂ / C₄H₈ / C₅H₁₀ meeting a condition (has C=C; gives an asymmetric carbon on Br₂ addition) (most years).', 'Molecular weight of the Br₂-addition product of a cyclic unsaturated hydrocarbon; how much Br₂ reacts with $n$ mol.', 'Which molecule is planar / shows cis–trans isomerism / has an asymmetric carbon.'],
+      ja: ['条件を満たす C₅H₁₂／C₄H₈／C₅H₁₀ の異性体の数（C=C をもつ、Br₂ 付加で不斉炭素ができる）（ほぼ毎年）。', '環状不飽和炭化水素の Br₂ 付加生成物の分子量、$n$ mol と反応する Br₂ の量。', '平面の分子、シス–トランス異性体をもつもの、不斉炭素をもつもの。'],
+    },
+    traps: {
+      en: ['1-butene has **no** cis–trans isomers (one carbon carries two H); 2-butene does.', 'A ring counts as one degree of unsaturation: cyclohexane C₆H₁₂ does not decolourise bromine.', 'Alkanes react with Br₂ only under light and by **substitution** — no colour change in the dark.'],
+      ja: ['1-ブテンにはシス–トランス異性体が**ない**（片方の炭素に H が2つ）。2-ブテンにはある。', '環は不飽和度1として数える：シクロヘキサン C₆H₁₂ は臭素を脱色しない。', 'アルカンは光の下で**置換**によってのみ Br₂ と反応 — 暗所では色が変わらない。'],
+    },
+    followups: {
+      en: ['Show me a systematic way to count the isomers of C₆H₁₄.', 'Why can a C=C not rotate, and when does that give cis–trans isomers?', 'Which C₅H₁₀ alkenes give an asymmetric carbon after adding HBr?', 'Explain the acetylene → acetaldehyde reaction.'],
+      ja: ['C₆H₁₄ の異性体を系統的に数える方法を見せて。', 'C=C が回転できないのはなぜで、それがいつシス–トランス異性体を生む？', 'HBr を付加すると不斉炭素ができる C₅H₁₀ のアルケンはどれ？', 'アセチレン → アセトアルデヒドの反応を説明して。'],
+    },
+  },
+  {
+    id: 'functional-groups',
+    core: {
+      en: 'A functional group is the reactive part of a molecule; the rest is a spectator. Alcohols oxidise stepwise (primary → aldehyde → carboxylic acid; secondary → ketone; tertiary → nothing), acids and alcohols condense into esters, and a few spot tests — silver mirror, Fehling, iodoform, NaHCO₃ fizz — let you deduce an unknown structure from clues.',
+      ja: '官能基は分子の反応する部分で、残りは脇役。アルコールは段階的に酸化される（第一級 → アルデヒド → カルボン酸、第二級 → ケトン、第三級 → 酸化されない）。酸とアルコールは縮合してエステルになる。いくつかの検出反応 — 銀鏡、フェーリング、ヨードホルム、NaHCO₃ の発泡 — でヒントから未知の構造を決められる。',
+    },
+    body: {
+      en: r`## The groups
+| group | name | example | key property |
+|---|---|---|---|
+| –OH | alcohol | ethanol C₂H₅OH | neutral, H-bonds, + Na → H₂ |
+| –O– | ether | diethyl ether | volatile, unreactive, no H-bond → low b.p. (isomer of an alcohol!) |
+| –CHO | aldehyde | acetaldehyde, formaldehyde | **reducing**: silver mirror, Fehling → Cu₂O red |
+| >C=O | ketone | acetone | not reducing |
+| –COOH | carboxylic acid | acetic acid | weak acid, fizzes with NaHCO₃, dimerises by H-bonds |
+| –COO– | ester | ethyl acetate | fruity smell, hydrolysed by acid or **saponified** by NaOH |
+
+## Alcohols
+Classified by the carbon bearing –OH: **primary** (1 C attached), **secondary** (2), **tertiary** (3).
+:::fig alcohol-oxidation
+
+- Primary → aldehyde → carboxylic acid (K₂Cr₂O₇ or KMnO₄, or Cu/heat).
+- Secondary → ketone. Tertiary → not oxidised.
+- Dehydration of ethanol with conc. H₂SO₄: 130–140 °C → **diethyl ether** (intermolecular), 160–170 °C → **ethylene** (intramolecular).
+- Ethanol + Na → sodium ethoxide + H₂ (test for –OH). Methanol is toxic (→ formaldehyde). Ethanol from fermentation of glucose.
+- Solubility in water drops as the carbon chain grows.
+
+## Aldehydes and ketones
+- **Silver mirror test** (Tollens: [Ag(NH₃)₂]⁺) and **Fehling's test** (Cu²⁺ → Cu₂O red precipitate): positive only for **aldehydes** (they are oxidised to acids). Formic acid HCOOH also gives them (it contains a –CHO).
+- **Iodoform reaction** (I₂ + NaOH → yellow CHI₃ precipitate, antiseptic smell): positive for CH₃CO–R (acetaldehyde, acetone, methyl ketones) and CH₃CH(OH)–R (ethanol, 2-propanol). **Not** methanol, formaldehyde, 1-propanol.
+- Formaldehyde HCHO: gas, 37% solution = formalin; acetone: solvent, from 2-propanol.
+
+## Carboxylic acids
+Weak acids ($K_a$ small) but stronger than carbonic acid: release CO₂ from NaHCO₃ (distinguishes acids from phenols). Formic acid (strongest simple one, reducing), acetic acid (vinegar, glacial below 17 °C), oxalic acid (COOH)₂ (diprotic, reducer), maleic/fumaric acids (cis/trans; only maleic forms an anhydride on heating).
+
+## Esters
+$$\mathrm{R{-}COOH + R'{-}OH \rightleftharpoons R{-}COO{-}R' + H_2O}$$ (conc. H₂SO₄ catalyst, equilibrium). The O in the ester's –O–R' comes from the **alcohol**. Reverse: acid hydrolysis, or **saponification** with NaOH → R–COONa + R'–OH (goes to completion).
+
+## Fats and soap
+Fats/oils = esters of glycerol with three fatty acids (triglycerides). More C=C → more liquid (oils); **hydrogenation** (H₂/Ni) hardens them. **Saponification** with NaOH gives glycerol + **soap** (sodium salts of fatty acids): hydrophobic tail + hydrophilic head → micelles wash grease; soap solution is weakly basic; in hard water forms scum (Ca/Mg salts). Synthetic detergents (alkylbenzene sulfonates, alkyl sulfates) are neutral and work in hard water.
+
+## Deducing a structure (the EJU puzzle)
+Clues → group: silver mirror ⇒ –CHO; iodoform ⇒ CH₃CO– or CH₃CH(OH)–; NaHCO₃ fizz ⇒ –COOH; Na → H₂ but no fizz ⇒ –OH; not oxidised ⇒ tertiary alcohol or ether; from an ester hydrolysis ⇒ acid + alcohol with matching carbon counts.`,
+      ja: r`## 官能基
+| 基 | 名前 | 例 | 特徴 |
+|---|---|---|---|
+| –OH | アルコール | エタノール C₂H₅OH | 中性、水素結合、＋Na → H₂ |
+| –O– | エーテル | ジエチルエーテル | 揮発性、反応しにくい、水素結合なし → 沸点低い（アルコールの異性体！） |
+| –CHO | アルデヒド | アセトアルデヒド、ホルムアルデヒド | **還元性**：銀鏡、フェーリング → Cu₂O 赤 |
+| >C=O | ケトン | アセトン | 還元性なし |
+| –COOH | カルボン酸 | 酢酸 | 弱酸、NaHCO₃ と発泡、水素結合で二量体 |
+| –COO– | エステル | 酢酸エチル | 果実臭、酸で加水分解、NaOH で**けん化** |
+
+## アルコール
+–OH のついた炭素で分類：**第一級**（C が1つ結合）、**第二級**（2つ）、**第三級**（3つ）。
+:::fig alcohol-oxidation
+
+- 第一級 → アルデヒド → カルボン酸（K₂Cr₂O₇ か KMnO₄、または Cu／加熱）。
+- 第二級 → ケトン。第三級 → 酸化されない。
+- 濃硫酸によるエタノールの脱水：130〜140 ℃ → **ジエチルエーテル**（分子間）、160〜170 ℃ → **エチレン**（分子内）。
+- エタノール ＋ Na → ナトリウムエトキシド ＋ H₂（–OH の検出）。メタノールは有毒（→ ホルムアルデヒド）。エタノールはグルコースの発酵から。
+- 水への溶解度は炭素鎖が長いほど下がる。
+
+## アルデヒドとケトン
+- **銀鏡反応**（トレンス試薬 [Ag(NH₃)₂]⁺）と**フェーリング反応**（Cu²⁺ → Cu₂O 赤色沈殿）：**アルデヒド**のみ陽性（酸に酸化される）。ギ酸 HCOOH も陽性（–CHO を含む）。
+- **ヨードホルム反応**（I₂ ＋ NaOH → 黄色の CHI₃ 沈殿、特有のにおい）：CH₃CO–R（アセトアルデヒド、アセトン、メチルケトン）と CH₃CH(OH)–R（エタノール、2-プロパノール）で陽性。メタノール、ホルムアルデヒド、1-プロパノールは**陰性**。
+- ホルムアルデヒド HCHO：気体、37% 水溶液がホルマリン。アセトン：溶媒、2-プロパノールから。
+
+## カルボン酸
+弱酸（$K_a$ 小）だが炭酸より強い：NaHCO₃ から CO₂ を発生（酸とフェノールの区別）。ギ酸（単純な酸で最も強く還元性あり）、酢酸（食酢、17 ℃ 以下で氷酢酸）、シュウ酸 (COOH)₂（二価、還元剤）、マレイン酸／フマル酸（シス／トランス。加熱で酸無水物になるのはマレイン酸だけ）。
+
+## エステル
+$$\mathrm{R{-}COOH + R'{-}OH \rightleftharpoons R{-}COO{-}R' + H_2O}$$（濃硫酸触媒、平衡）。エステルの –O–R' の O は**アルコール**由来。逆：酸による加水分解、または NaOH による**けん化** → R–COONa ＋ R'–OH（完全に進む）。
+
+## 油脂とセッケン
+油脂 = グリセリンと脂肪酸3分子のエステル（トリグリセリド）。C=C が多いほど液体（油）。**水素添加**（H₂/Ni）で固まる（硬化油）。NaOH で**けん化**するとグリセリン ＋ **セッケン**（脂肪酸ナトリウム）：疎水基の尾 ＋ 親水基の頭 → ミセルで油汚れを落とす。セッケン水は弱塩基性。硬水では沈殿（Ca/Mg 塩）。合成洗剤（アルキルベンゼンスルホン酸塩、アルキル硫酸塩）は中性で硬水でも使える。
+
+## 構造決定（EJUのパズル）
+ヒント → 基：銀鏡 ⇒ –CHO。ヨードホルム ⇒ CH₃CO– か CH₃CH(OH)–。NaHCO₃ で発泡 ⇒ –COOH。Na で H₂ だが発泡なし ⇒ –OH。酸化されない ⇒ 第三級アルコールかエーテル。エステルの加水分解から ⇒ 炭素数の合う酸＋アルコール。`,
+    },
+    exam: {
+      en: ['Deduce an alcohol/carbonyl structure from silver-mirror and iodoform clues; count C₄H₁₀O isomers that give iodoform (most years).', 'Products of named reactions: dry distillation of calcium acetate (→ acetone), CaC₂ + H₂O, oxidation of 2-propanol, dehydration of ethanol at two temperatures.', 'Which single compound among several is an ester / reduces Fehling / fizzes with NaHCO₃; soap vs detergent in hard water.'],
+      ja: ['銀鏡反応とヨードホルム反応のヒントからアルコール・カルボニル化合物の構造を決める。ヨードホルム反応を示す C₄H₁₀O の異性体の数（ほぼ毎年）。', '反応の生成物：酢酸カルシウムの乾留（→ アセトン）、CaC₂ ＋ H₂O、2-プロパノールの酸化、2つの温度でのエタノールの脱水。', '複数の化合物のうちエステル・フェーリング反応陽性・NaHCO₃ で発泡するのはどれか。硬水でのセッケンと合成洗剤。'],
+    },
+    traps: {
+      en: ['Ethanol gives a positive iodoform test; **methanol** and **1-propanol** do not.', 'Formic acid is both an acid and an aldehyde-like reducer (silver mirror positive); acetic acid is not.', 'Phenol is acidic but too weak to fizz with NaHCO₃; carboxylic acids do.'],
+      ja: ['エタノールはヨードホルム反応陽性。**メタノール**と**1-プロパノール**は陰性。', 'ギ酸は酸であると同時にアルデヒドのような還元剤（銀鏡反応陽性）。酢酸は違う。', 'フェノールは酸性だが弱すぎて NaHCO₃ とは発泡しない。カルボン酸は発泡する。'],
+    },
+    followups: {
+      en: ['List all C₄H₁₀O alcohols and say which are primary/secondary/tertiary and which give iodoform.', 'Why do aldehydes reduce Tollens reagent but ketones do not?', 'Explain saponification and how soap cleans.', 'Give me a structure-deduction puzzle with clues.'],
+      ja: ['C₄H₁₀O のアルコールをすべて挙げて、第一級・第二級・第三級とヨードホルム反応の有無を示して。', 'アルデヒドはトレンス試薬を還元するのにケトンはしないのはなぜ？', 'けん化とセッケンが汚れを落とすしくみを説明して。', 'ヒントつきの構造決定パズルを出して。'],
+    },
+  },
+  {
+    id: 'aromatic',
+    core: {
+      en: 'Benzene is a flat ring whose six electrons are shared all round, so it prefers substitution (keeping the ring) over addition. Its derivatives are sorted by acidity — carboxylic acid > carbonic acid > phenol > water — and by basicity (aniline), which is exactly what lets you separate a mixture with dilute HCl, NaHCO₃ and NaOH.',
+      ja: 'ベンゼンは平面の環で6個の電子が環全体で共有されているため、付加（環を壊す）より置換（環を保つ）を好む。誘導体は酸性の強さ — カルボン酸 > 炭酸 > フェノール > 水 — と塩基性（アニリン）で整理でき、それがそのまま希塩酸・NaHCO₃・NaOH による混合物の分離になる。',
+    },
+    body: {
+      en: r`## Benzene
+C₆H₆, planar regular hexagon, all C–C bonds equal (between single and double). Stable → **substitution** reactions; addition only under forcing conditions (H₂/Ni → cyclohexane; Cl₂ + UV → C₆H₆Cl₆). Burns with a sooty flame; insoluble in water; toxic.
+
+| substitution | reagent | product |
+|---|---|---|
+| nitration | conc. HNO₃ + conc. H₂SO₄ | nitrobenzene (pale yellow oil) |
+| sulfonation | conc. H₂SO₄ (fuming) | benzenesulfonic acid |
+| halogenation | Cl₂ + Fe (catalyst) | chlorobenzene |
+| alkylation | CH₃Cl / AlCl₃ | toluene |
+
+Substituted benzenes: toluene, xylene (o/m/p — three isomers), styrene, naphthalene (two fused rings, sublimes).
+
+## The four key derivatives
+| compound | group | acidity/basicity | signature tests |
+|---|---|---|---|
+| **phenol** C₆H₅OH | –OH on ring | very weak acid (no fizz with NaHCO₃; dissolves in NaOH) | **FeCl₃ → purple**; Br₂ water → white 2,4,6-tribromophenol |
+| **benzoic acid** C₆H₅COOH | –COOH | weak acid, fizzes with NaHCO₃ | from toluene by KMnO₄ oxidation |
+| **aniline** C₆H₅NH₂ | –NH₂ | weak **base** (dissolves in HCl → anilinium chloride) | bleaching powder → purple; from nitrobenzene by Sn/HCl reduction; diazotisation |
+| **nitrobenzene** C₆H₅NO₂ | –NO₂ | neutral | pale yellow, denser than water |
+
+Acidity order: HCl, H₂SO₄ ≫ carboxylic acid > **carbonic acid** > phenol > water > alcohol. Consequence: NaHCO₃ neutralises benzoic acid but **not** phenol; NaOH neutralises both; CO₂ bubbled into sodium phenoxide regenerates phenol.
+
+## Separation by extraction (the EJU table question)
+Dissolve the mixture in ether; shake with aqueous reagents; the ionic salt moves to the water layer.
+1. + dilute **HCl**: **aniline** → anilinium chloride (water layer). Recover with NaOH.
+2. + **NaHCO₃**: **benzoic acid** → sodium benzoate (water). Recover with HCl.
+3. + **NaOH**: **phenol** → sodium phenoxide (water). Recover with HCl or CO₂.
+4. Ether layer: **nitrobenzene**, benzene, toluene (neutral).
+
+## Phenol chemistry
+Industrial: cumene process (benzene + propene → cumene → hydroperoxide → phenol + acetone). Phenol + NaOH → sodium phenoxide; + CO₂ under pressure → sodium salicylate → **salicylic acid** (has both –OH and –COOH).
+- Salicylic acid + methanol → methyl salicylate (liniment, ester on the COOH).
+- Salicylic acid + acetic anhydride → **acetylsalicylic acid** (aspirin, ester on the OH).
+
+## Aniline and azo dyes
+Aniline + NaNO₂ + HCl (0–5 °C) → benzenediazonium chloride (diazotisation; decomposes above 5 °C to phenol + N₂). + sodium phenoxide → **p-hydroxyazobenzene** (orange azo dye, coupling). Aniline + acetic anhydride → acetanilide (amide).
+
+## Isomer counting
+C₇H₈O: benzyl alcohol, anisole (methyl phenyl ether), o/m/p-cresol → 5 isomers, of which the 3 cresols (phenolic –OH) give the FeCl₃ colour. C₈H₁₀: ethylbenzene + 3 xylenes = 4.`,
+      ja: r`## ベンゼン
+C₆H₆、平面正六角形、C–C 結合はすべて同じ長さ（単結合と二重結合の中間）。安定 → **置換**反応。付加は強い条件でのみ（H₂/Ni → シクロヘキサン、Cl₂ ＋ 紫外線 → C₆H₆Cl₆）。すすの多い炎で燃える。水に溶けない。有毒。
+
+| 置換 | 試薬 | 生成物 |
+|---|---|---|
+| ニトロ化 | 濃硝酸 ＋ 濃硫酸 | ニトロベンゼン（淡黄色の油状） |
+| スルホン化 | 濃硫酸（発煙硫酸） | ベンゼンスルホン酸 |
+| ハロゲン化 | Cl₂ ＋ Fe（触媒） | クロロベンゼン |
+| アルキル化 | CH₃Cl／AlCl₃ | トルエン |
+
+置換ベンゼン：トルエン、キシレン（o/m/p — 3つの異性体）、スチレン、ナフタレン（2つの縮合環、昇華）。
+
+## 4つの重要な誘導体
+| 化合物 | 基 | 酸性・塩基性 | 検出 |
+|---|---|---|---|
+| **フェノール** C₆H₅OH | 環に –OH | ごく弱い酸（NaHCO₃ と発泡しない。NaOH に溶ける） | **FeCl₃ → 紫**。臭素水 → 白色の 2,4,6-トリブロモフェノール |
+| **安息香酸** C₆H₅COOH | –COOH | 弱酸、NaHCO₃ と発泡 | トルエンの KMnO₄ 酸化から |
+| **アニリン** C₆H₅NH₂ | –NH₂ | 弱**塩基**（HCl に溶けてアニリン塩酸塩） | さらし粉 → 紫。ニトロベンゼンを Sn/HCl で還元。ジアゾ化 |
+| **ニトロベンゼン** C₆H₅NO₂ | –NO₂ | 中性 | 淡黄色、水より重い |
+
+酸性の順：HCl、H₂SO₄ ≫ カルボン酸 > **炭酸** > フェノール > 水 > アルコール。帰結：NaHCO₃ は安息香酸を中和するがフェノールは**しない**。NaOH は両方を中和。ナトリウムフェノキシドに CO₂ を通すとフェノールが遊離。
+
+## 抽出による分離（EJUの表問題）
+混合物をエーテルに溶かし、水溶液の試薬と振る。イオン性の塩が水層へ移る。
+1. ＋希**塩酸**：**アニリン** → アニリン塩酸塩（水層）。NaOH で回収。
+2. ＋**NaHCO₃**：**安息香酸** → 安息香酸ナトリウム（水層）。HCl で回収。
+3. ＋**NaOH**：**フェノール** → ナトリウムフェノキシド（水層）。HCl か CO₂ で回収。
+4. エーテル層：**ニトロベンゼン**、ベンゼン、トルエン（中性）。
+
+## フェノールの化学
+工業的：クメン法（ベンゼン ＋ プロペン → クメン → ヒドロペルオキシド → フェノール ＋ アセトン）。フェノール ＋ NaOH → ナトリウムフェノキシド。＋CO₂（加圧）→ サリチル酸ナトリウム → **サリチル酸**（–OH と –COOH の両方をもつ）。
+- サリチル酸 ＋ メタノール → サリチル酸メチル（消炎剤、COOH 側のエステル）。
+- サリチル酸 ＋ 無水酢酸 → **アセチルサリチル酸**（アスピリン、OH 側のエステル）。
+
+## アニリンとアゾ染料
+アニリン ＋ NaNO₂ ＋ HCl（0〜5 ℃）→ 塩化ベンゼンジアゾニウム（ジアゾ化。5 ℃ 以上ではフェノール ＋ N₂ に分解）。＋ナトリウムフェノキシド → **p-ヒドロキシアゾベンゼン**（橙色のアゾ染料、カップリング）。アニリン ＋ 無水酢酸 → アセトアニリド（アミド）。
+
+## 異性体の数
+C₇H₈O：ベンジルアルコール、アニソール（メチルフェニルエーテル）、o/m/p-クレゾール → 5種。うちクレゾール3種（フェノール性 –OH）が FeCl₃ で呈色。C₈H₁₀：エチルベンゼン ＋ キシレン3種 = 4種。`,
+    },
+    exam: {
+      en: ['Separate nitrobenzene / benzoic acid / aniline / phenol with ether, HCl, NaHCO₃, NaOH — choose the correct table row (most years).', 'Count C₇H₈O isomers and how many give FeCl₃ coloration.', 'True/false on substituted benzenes: which is acidic/basic, products of nitration or reduction, aspirin vs methyl salicylate.'],
+      ja: ['ニトロベンゼン／安息香酸／アニリン／フェノールをエーテル、HCl、NaHCO₃、NaOH で分離 — 正しい表の行を選ぶ（ほぼ毎年）。', 'C₇H₈O の異性体の数と FeCl₃ で呈色するものの数。', '置換ベンゼンの正誤：酸性・塩基性はどれか、ニトロ化や還元の生成物、アスピリンとサリチル酸メチル。'],
+    },
+    traps: {
+      en: ['Phenol is acidic but does **not** react with NaHCO₃ (weaker than carbonic acid) — this is the whole basis of the separation.', 'Benzyl alcohol C₆H₅CH₂OH is an alcohol (no FeCl₃ colour); cresols are phenols.', 'Diazonium salts must be kept below 5 °C.'],
+      ja: ['フェノールは酸性だが NaHCO₃ とは反応**しない**（炭酸より弱い）— 分離の根拠はこれ。', 'ベンジルアルコール C₆H₅CH₂OH はアルコール（FeCl₃ で呈色しない）。クレゾールはフェノール。', 'ジアゾニウム塩は 5 ℃ 以下に保つ。'],
+    },
+    followups: {
+      en: ['Explain the acidity order carboxylic acid > carbonic acid > phenol and how it drives the separation.', 'Why does benzene prefer substitution over addition?', 'Draw (in words) the route from benzene to aspirin.', 'Give me a separation table problem to solve.'],
+      ja: ['カルボン酸 > 炭酸 > フェノールの酸性の順と、それが分離を決めるしくみを説明して。', 'ベンゼンが付加より置換を好むのはなぜ？', 'ベンゼンからアスピリンまでの経路を言葉で描いて。', '分離の表の問題を出して。'],
+    },
+  },
+  {
+    id: 'biomolecules',
+    core: {
+      en: 'Sugars, amino acids and proteins are the same organic chemistry with the same tests: glucose is a polyalcohol-aldehyde (reducing), disaccharides are two sugars joined by a glycosidic bond that may or may not hide the reducing end, amino acids carry both –NH₂ and –COOH so they act as acids and bases (zwitterions), and proteins are amino-acid chains whose folded shape is destroyed by heat or acid.',
+      ja: '糖・アミノ酸・タンパク質は同じ有機化学で同じ検出法。グルコースは多価アルコールのアルデヒド（還元性）。二糖はグリコシド結合で2つの糖がつながり、還元性の末端が残るものと隠れるものがある。アミノ酸は –NH₂ と –COOH の両方をもち酸にも塩基にもなる（双性イオン）。タンパク質はアミノ酸の鎖で、折りたたまれた形は熱や酸で壊れる。',
+    },
+    body: {
+      en: r`## Monosaccharides (C₆H₁₂O₆)
+- **Glucose**: in water an equilibrium of α-ring, open **chain (with –CHO)** and β-ring; the chain form makes it **reducing** (Fehling, silver mirror). Fermentation: C₆H₁₂O₆ → 2C₂H₅OH + 2CO₂ (zymase).
+- **Fructose**: ketose, yet reducing in solution (isomerises). Sweetest sugar.
+- Galactose: isomer of glucose (in lactose).
+
+## Disaccharides (C₁₂H₂₂O₁₁) — glycosidic bond, hydrolysed by acid or enzymes
+| sugar | units | reducing? | enzyme |
+|---|---|---|---|
+| **maltose** | glucose + glucose (α-1,4) | yes | maltase |
+| **sucrose** | glucose + fructose (both anomeric C used) | **no** | invertase (sucrase) → "invert sugar", which is reducing |
+| lactose | galactose + glucose | yes | lactase |
+
+## Polysaccharides (C₆H₁₀O₅)ₙ
+- **Starch**: α-glucose; amylose (helix, unbranched) + amylopectin (branched). **Iodine → blue-purple**. Hydrolysis: starch → dextrin → maltose → glucose. Not reducing.
+- **Cellulose**: β-glucose, straight chains, H-bonded → fibres; not digested by humans; no iodine colour. Raw material for rayon, nitrocellulose, cellulose acetate.
+- Glycogen: animal starch, highly branched.
+
+## Amino acids (about 20)
+General formula R–CH(NH₂)–COOH (α-amino acids). **Glycine** (R = H, the only one without an asymmetric carbon), **alanine** (R = CH₃), others with –OH (serine), –SH (cysteine → disulfide bridges), benzene ring (phenylalanine, tyrosine), extra –COOH (glutamic acid, acidic), extra –NH₂ (lysine, basic).
+- **Zwitterion** in water: ⁺H₃N–CHR–COO⁻. In acid the cation, in base the anion; the pH where net charge is zero = **isoelectric point** (electrophoresis stops). Amphoteric: react with both HCl and NaOH.
+- **Ninhydrin** → purple (test for amino acids / proteins).
+
+## Peptides and proteins
+Amino acids condense (–COOH + H₂N– → –CO–NH– + H₂O, the **peptide bond**, an amide). Dipeptide, tripeptide… polypeptide → protein.
+| structure level | what it is | held by |
+|---|---|---|
+| primary | sequence of amino acids | peptide bonds |
+| secondary | α-helix, β-sheet | hydrogen bonds between C=O and N–H |
+| tertiary | overall 3-D fold | disulfide bonds, ionic bonds, H-bonds, hydrophobic interactions |
+| quaternary | several chains together (haemoglobin) | same weak interactions |
+
+**Denaturation**: heat, acid/base, alcohol, heavy-metal ions destroy the secondary/tertiary structure (egg white cooks) — the primary structure survives.
+
+## Protein tests
+| test | reagent | colour | detects |
+|---|---|---|---|
+| **biuret** | NaOH + CuSO₄ | purple | ≥ 2 peptide bonds |
+| **xanthoproteic** | conc. HNO₃, heat | yellow (orange with NH₃) | benzene rings (Tyr, Phe) |
+| sulfur test | NaOH + (CH₃COO)₂Pb | black PbS | S (cysteine) |
+| ninhydrin | ninhydrin, heat | purple | free –NH₂ |
+
+Enzymes are protein catalysts with an active site: specific, work best at an optimum temperature/pH, denatured by heat.
+
+## Nucleic acids (structure only)
+DNA/RNA: chains of nucleotides = phosphate + sugar (deoxyribose/ribose) + base (A, T/U, G, C). DNA is a double helix with A–T (2 H-bonds) and G–C (3 H-bonds) pairing.`,
+      ja: r`## 単糖（C₆H₁₂O₆）
+- **グルコース**：水中で α型環、**鎖状（–CHO をもつ）**、β型環の平衡。鎖状構造のため**還元性**（フェーリング、銀鏡）。アルコール発酵：C₆H₁₂O₆ → 2C₂H₅OH + 2CO₂（チマーゼ）。
+- **フルクトース**：ケトースだが水溶液中で還元性を示す（異性化）。最も甘い。
+- ガラクトース：グルコースの異性体（ラクトース中）。
+
+## 二糖（C₁₂H₂₂O₁₁）— グリコシド結合、酸や酵素で加水分解
+| 糖 | 構成 | 還元性 | 酵素 |
+|---|---|---|---|
+| **マルトース** | グルコース ＋ グルコース（α-1,4） | あり | マルターゼ |
+| **スクロース** | グルコース ＋ フルクトース（両方の還元性末端が結合に使われる） | **なし** | インベルターゼ（スクラーゼ）→「転化糖」は還元性あり |
+| ラクトース | ガラクトース ＋ グルコース | あり | ラクターゼ |
+
+## 多糖（C₆H₁₀O₅）ₙ
+- **デンプン**：α-グルコース。アミロース（らせん、枝なし）＋ アミロペクチン（枝あり）。**ヨウ素 → 青紫**。加水分解：デンプン → デキストリン → マルトース → グルコース。還元性なし。
+- **セルロース**：β-グルコース、直鎖が水素結合 → 繊維。ヒトは消化できない。ヨウ素で呈色しない。レーヨン、ニトロセルロース、アセテートの原料。
+- グリコーゲン：動物デンプン、枝分かれが多い。
+
+## アミノ酸（約20種）
+一般式 R–CH(NH₂)–COOH（α-アミノ酸）。**グリシン**（R = H、唯一不斉炭素をもたない）、**アラニン**（R = CH₃）、他に –OH（セリン）、–SH（システイン → ジスルフィド結合）、ベンゼン環（フェニルアラニン、チロシン）、余分な –COOH（グルタミン酸、酸性）、余分な –NH₂（リシン、塩基性）。
+- 水中で**双性イオン**：⁺H₃N–CHR–COO⁻。酸性では陽イオン、塩基性では陰イオン。正味の電荷が0になる pH = **等電点**（電気泳動で動かない）。両性：HCl とも NaOH とも反応。
+- **ニンヒドリン反応** → 紫（アミノ酸・タンパク質の検出）。
+
+## ペプチドとタンパク質
+アミノ酸が縮合（–COOH ＋ H₂N– → –CO–NH– ＋ H₂O、**ペプチド結合**、アミド）。ジペプチド、トリペプチド… ポリペプチド → タンパク質。
+| 構造 | 内容 | 保つもの |
+|---|---|---|
+| 一次構造 | アミノ酸の配列 | ペプチド結合 |
+| 二次構造 | α-ヘリックス、β-シート | C=O と N–H の間の水素結合 |
+| 三次構造 | 全体の立体的な折りたたみ | ジスルフィド結合、イオン結合、水素結合、疎水性相互作用 |
+| 四次構造 | 複数の鎖の集合（ヘモグロビン） | 同じ弱い相互作用 |
+
+**変性**：熱、酸・塩基、アルコール、重金属イオンが二次・三次構造を壊す（卵白が固まる）— 一次構造は残る。
+
+## タンパク質の検出
+| 反応 | 試薬 | 色 | 検出するもの |
+|---|---|---|---|
+| **ビウレット反応** | NaOH ＋ CuSO₄ | 紫 | ペプチド結合2つ以上 |
+| **キサントプロテイン反応** | 濃硝酸、加熱 | 黄（NH₃ で橙） | ベンゼン環（Tyr、Phe） |
+| 硫黄の検出 | NaOH ＋ (CH₃COO)₂Pb | 黒 PbS | S（システイン） |
+| ニンヒドリン反応 | ニンヒドリン、加熱 | 紫 | 遊離の –NH₂ |
+
+酵素はタンパク質の触媒で活性部位をもつ：特異的、最適温度・pH があり、熱で変性する。
+
+## 核酸（構造のみ）
+DNA/RNA：ヌクレオチド = リン酸 ＋ 糖（デオキシリボース／リボース）＋ 塩基（A、T/U、G、C）の鎖。DNA は A–T（水素結合2本）、G–C（3本）で対をつくる二重らせん。`,
+    },
+    exam: {
+      en: ['Which sugar is not reducing (sucrose); products of hydrolysing sucrose / maltose / starch; iodine–starch reaction (most years).', 'True/false about proteins: structure levels, denaturation, number of amino acids, which test detects what.', 'Amino acid charge at low/high pH; which amino acid lacks an asymmetric carbon (glycine); how many dipeptides from two different amino acids (2, or 4 counting Gly–Gly type).'],
+      ja: ['還元性のない糖はどれか（スクロース）。スクロース／マルトース／デンプンの加水分解生成物。ヨウ素デンプン反応（ほぼ毎年）。', 'タンパク質の正誤：構造の階層、変性、アミノ酸の数、各検出法が調べるもの。', '低 pH／高 pH でのアミノ酸の電荷。不斉炭素をもたないアミノ酸（グリシン）。異なる2種のアミノ酸からできるジペプチドの数。'],
+    },
+    traps: {
+      en: ['Sucrose is **not** reducing, but its hydrolysis products are.', 'Starch and cellulose are both (C₆H₁₀O₅)ₙ of glucose — the difference is α vs β linkage, which changes digestibility and the iodine test.', 'Denaturation breaks the fold, not the peptide bonds; hydrolysis (acid/enzyme) breaks peptide bonds.'],
+      ja: ['スクロースは還元性が**ない**が、加水分解生成物にはある。', 'デンプンもセルロースもグルコースの (C₆H₁₀O₅)ₙ — 違いは α 結合か β 結合かで、それが消化性とヨウ素反応を変える。', '変性は折りたたみを壊すのであってペプチド結合は壊さない。加水分解（酸・酵素）がペプチド結合を切る。'],
+    },
+    followups: {
+      en: ['Why is sucrose non-reducing while maltose is reducing?', 'Explain the zwitterion and isoelectric point with alanine.', 'What breaks in denaturation and what survives?', 'Quiz me on the protein colour tests.'],
+      ja: ['スクロースは還元性がなくマルトースにはあるのはなぜ？', 'アラニンで双性イオンと等電点を説明して。', '変性で壊れるものと残るものは？', 'タンパク質の呈色反応のクイズを出して。'],
+    },
+  },
+  {
+    id: 'polymers',
+    core: {
+      en: 'A polymer is a long chain of repeating units. There are only two ways to build one: addition (monomers with C=C simply open up and link, no by-product) and condensation (two groups join and lose a small molecule like H₂O). Knowing the monomer tells you the type, the elements present, and often the use.',
+      ja: '高分子は繰り返し単位の長い鎖。作り方は2つだけ：付加重合（C=C をもつ単量体が開いてつながる。副生成物なし）と縮合重合（2つの基が結合して H₂O などの小さな分子がとれる）。単量体がわかれば、種類、含まれる元素、多くの場合は用途もわかる。',
+    },
+    body: {
+      en: r`## Two polymerisation types
+- **Addition** polymerisation: monomer has C=C; chain grows by opening the double bond. Polymer formula = n × monomer. No by-product.
+- **Condensation** polymerisation: two functional groups per monomer (–COOH/–OH, –COOH/–NH₂); each link releases H₂O (or HCl). Polymer mass < sum of monomers.
+- Degree of polymerisation $n$ = polymer molar mass ÷ repeat-unit mass.
+
+## Addition polymers (vinyl compounds CH₂=CHX)
+| polymer | monomer | use |
+|---|---|---|
+| polyethylene (PE) | CH₂=CH₂ | bags, bottles |
+| polypropylene (PP) | CH₂=CH–CH₃ | containers, fibres |
+| poly(vinyl chloride) (PVC) | CH₂=CHCl | pipes; contains Cl |
+| polystyrene (PS) | CH₂=CH–C₆H₅ | foam, cases |
+| poly(vinyl acetate) | CH₂=CH–OCOCH₃ | glue; → PVA → **vinylon** (with HCHO, first Japanese synthetic fibre) |
+| PTFE (Teflon) | CF₂=CF₂ | non-stick |
+| polyacrylonitrile | CH₂=CH–CN | acrylic fibre; contains N |
+| poly(methyl methacrylate) | CH₂=C(CH₃)COOCH₃ | acrylic glass |
+| **synthetic rubbers** | butadiene CH₂=CH–CH=CH₂, chloroprene, isoprene | 1,4-addition leaves one C=C per unit; **vulcanisation** with S cross-links |
+
+Natural rubber = poly-cis-isoprene (latex); gutta-percha is the trans form.
+
+## Condensation polymers
+| polymer | monomers | link | elements |
+|---|---|---|---|
+| **nylon 6,6** | adipic acid + hexamethylenediamine | amide –CO–NH– | C, H, O, **N** |
+| nylon 6 | ε-caprolactam (ring-opening) | amide | C, H, O, N |
+| **PET** (polyester) | terephthalic acid + ethylene glycol | ester –COO– | C, H, O |
+| **phenol resin** (Bakelite) | phenol + **formaldehyde** | methylene bridges, 3-D network | thermosetting |
+| **urea resin** | urea + **formaldehyde** | | thermosetting; contains N |
+| melamine resin | melamine + formaldehyde | | thermosetting |
+| silicone | dichlorodimethylsilane (hydrolysis) | Si–O–Si | heat-resistant |
+
+Nylon was designed to imitate **silk** (protein, amide links); PET imitates cotton uses; PET bottles are recycled into fibres.
+
+## Thermoplastic vs thermosetting
+- **Thermoplastic** (linear chains): soften on heating, re-mouldable — PE, PP, PVC, PS, nylon, PET.
+- **Thermosetting** (3-D network, made with formaldehyde): harden permanently — phenol, urea, melamine resins.
+
+## Functional polymers
+- **Ion-exchange resins**: polystyrene cross-linked with divinylbenzene, with –SO₃H (cation exchange: Na⁺ → H⁺) or –N⁺R₃OH⁻ (anion exchange) → deionised water.
+- **Water-absorbent polymer**: cross-linked sodium polyacrylate; –COO⁻Na⁺ groups pull in water by osmosis (diapers).
+- **Conductive polymer**: polyacetylene doped with I₂ (Shirakawa, Nobel 2000).
+- Biodegradable: polylactic acid.
+
+## Natural polymers (recap)
+Starch/cellulose (glucose), proteins (amino acids, amide links), natural rubber (isoprene), nucleic acids (nucleotides). Semi-synthetic: rayon (regenerated cellulose), cellulose acetate.
+
+## Recycling
+Material recycling (re-melt thermoplastics), chemical recycling (depolymerise PET back to monomers), thermal recycling (burn for energy).`,
+      ja: r`## 2つの重合の型
+- **付加重合**：単量体が C=C をもち、二重結合が開いて鎖が伸びる。高分子の式 = n × 単量体。副生成物なし。
+- **縮合重合**：単量体1個に官能基2つ（–COOH/–OH、–COOH/–NH₂）。結合ごとに H₂O（や HCl）がとれる。高分子の質量 < 単量体の合計。
+- 重合度 $n$ = 高分子のモル質量 ÷ 繰り返し単位の質量。
+
+## 付加重合体（ビニル化合物 CH₂=CHX）
+| 高分子 | 単量体 | 用途 |
+|---|---|---|
+| ポリエチレン（PE） | CH₂=CH₂ | 袋、ボトル |
+| ポリプロピレン（PP） | CH₂=CH–CH₃ | 容器、繊維 |
+| ポリ塩化ビニル（PVC） | CH₂=CHCl | 配管。Cl を含む |
+| ポリスチレン（PS） | CH₂=CH–C₆H₅ | 発泡スチロール、ケース |
+| ポリ酢酸ビニル | CH₂=CH–OCOCH₃ | 接着剤 → PVA → **ビニロン**（HCHO で処理。日本初の合成繊維） |
+| PTFE（テフロン） | CF₂=CF₂ | フッ素樹脂加工 |
+| ポリアクリロニトリル | CH₂=CH–CN | アクリル繊維。N を含む |
+| ポリメタクリル酸メチル | CH₂=C(CH₃)COOCH₃ | アクリル樹脂 |
+| **合成ゴム** | ブタジエン CH₂=CH–CH=CH₂、クロロプレン、イソプレン | 1,4-付加で単位ごとに C=C が1つ残る。S による**加硫**で架橋 |
+
+天然ゴム = ポリ-cis-イソプレン（ラテックス）。グッタペルカは trans 型。
+
+## 縮合重合体
+| 高分子 | 単量体 | 結合 | 元素 |
+|---|---|---|---|
+| **ナイロン 6,6** | アジピン酸 ＋ ヘキサメチレンジアミン | アミド –CO–NH– | C、H、O、**N** |
+| ナイロン 6 | ε-カプロラクタム（開環重合） | アミド | C、H、O、N |
+| **PET**（ポリエステル） | テレフタル酸 ＋ エチレングリコール | エステル –COO– | C、H、O |
+| **フェノール樹脂**（ベークライト） | フェノール ＋ **ホルムアルデヒド** | メチレン架橋、三次元網目 | 熱硬化性 |
+| **尿素樹脂** | 尿素 ＋ **ホルムアルデヒド** | | 熱硬化性。N を含む |
+| メラミン樹脂 | メラミン ＋ ホルムアルデヒド | | 熱硬化性 |
+| シリコーン | ジクロロジメチルシラン（加水分解） | Si–O–Si | 耐熱 |
+
+ナイロンは**絹**（タンパク質、アミド結合）をまねて作られた。PET は綿の用途。PET ボトルは繊維にリサイクル。
+
+## 熱可塑性と熱硬化性
+- **熱可塑性**（鎖状）：加熱で軟らかくなり成形し直せる — PE、PP、PVC、PS、ナイロン、PET。
+- **熱硬化性**（三次元網目、ホルムアルデヒドで作る）：一度固まると戻らない — フェノール樹脂、尿素樹脂、メラミン樹脂。
+
+## 機能性高分子
+- **イオン交換樹脂**：ジビニルベンゼンで架橋したポリスチレンに –SO₃H（陽イオン交換：Na⁺ → H⁺）や –N⁺R₃OH⁻（陰イオン交換）→ 脱イオン水。
+- **高吸水性高分子**：架橋したポリアクリル酸ナトリウム。–COO⁻Na⁺ が浸透で水を引き込む（おむつ）。
+- **導電性高分子**：I₂ をドープしたポリアセチレン（白川、2000年ノーベル賞）。
+- 生分解性：ポリ乳酸。
+
+## 天然高分子（復習）
+デンプン・セルロース（グルコース）、タンパク質（アミノ酸、アミド結合）、天然ゴム（イソプレン）、核酸（ヌクレオチド）。半合成：レーヨン（再生セルロース）、アセテート。
+
+## リサイクル
+マテリアルリサイクル（熱可塑性樹脂を再溶融）、ケミカルリサイクル（PET を単量体に戻す）、サーマルリサイクル（燃やしてエネルギー）。`,
+    },
+    exam: {
+      en: ['Which polymers are made with formaldehyde (phenol, urea, melamine resins; vinylon treatment); which contain nitrogen (nylon, urea resin, polyacrylonitrile) (most years).', 'Match polymer → monomer → polymerisation type; mass of monomer needed / degree of polymerisation from molar mass.', 'Thermoplastic vs thermosetting; function of ion-exchange or water-absorbent polymers.'],
+      ja: ['ホルムアルデヒドを使う高分子（フェノール樹脂、尿素樹脂、メラミン樹脂。ビニロンの処理）、窒素を含むもの（ナイロン、尿素樹脂、ポリアクリロニトリル）（ほぼ毎年）。', '高分子 → 単量体 → 重合の型の対応。必要な単量体の質量、モル質量からの重合度。', '熱可塑性と熱硬化性。イオン交換樹脂や高吸水性高分子のはたらき。'],
+    },
+    traps: {
+      en: ['Nylon 6,6 is a **condensation** polymer (amide links, releases water); polyacrylonitrile contains N but is an **addition** polymer.', 'PET is a polyester (no N); nylon is a polyamide (has N).', 'Thermosetting resins cannot be re-melted — they decompose.'],
+      ja: ['ナイロン 6,6 は**縮合**重合体（アミド結合、水がとれる）。ポリアクリロニトリルは N を含むが**付加**重合体。', 'PET はポリエステル（N なし）。ナイロンはポリアミド（N あり）。', '熱硬化性樹脂は再溶融できない — 分解する。'],
+    },
+    followups: {
+      en: ['Why does condensation polymerisation lose mass while addition does not?', 'Give me a polymer → monomer matching quiz.', 'How is vinylon made from poly(vinyl acetate)?', 'Explain how an ion-exchange resin makes pure water.'],
+      ja: ['縮合重合では質量が減るのに付加重合では減らないのはなぜ？', '高分子 → 単量体の対応クイズを出して。', 'ポリ酢酸ビニルからビニロンはどう作る？', 'イオン交換樹脂で純水ができるしくみを説明して。'],
+    },
+  },
 ];
 
 const notes: SubjectNotes = {

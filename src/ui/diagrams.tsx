@@ -811,6 +811,26 @@ const FIGS: Record<string, (l: L) => ReactNode> = {
       <Arrow x1={135} y1={135} x2={200} y2={135} c="b" label=""  />
     </Fig>
   ),
+  'alcohol-oxidation': (l) => (
+    <Fig w={340} h={150} caption={bi(l, 'Oxidation depends on how many carbons sit on the –OH carbon: primary goes two steps, secondary one, tertiary none.', '酸化のされ方は –OH のついた炭素に結合する炭素の数で決まる：第一級は2段階、第二級は1段階、第三級は酸化されない。')}>
+      <text x="14" y="34" fontSize="11" fontWeight="600">{bi(l, 'primary', '第一級')}</text>
+      <text x="80" y="34" fontSize="11">R–CH₂OH</text>
+      <Arrow x1={150} y1={30} x2={185} y2={30} c="b" />
+      <text x="192" y="34" fontSize="11">R–CHO</text>
+      <Arrow x1={240} y1={30} x2={275} y2={30} c="b" />
+      <text x="282" y="34" fontSize="11">R–COOH</text>
+      <text x="14" y="80" fontSize="11" fontWeight="600">{bi(l, 'secondary', '第二級')}</text>
+      <text x="80" y="80" fontSize="11">R₂CH–OH</text>
+      <Arrow x1={150} y1={76} x2={185} y2={76} c="b" />
+      <text x="192" y="80" fontSize="11">R₂C=O ({bi(l, 'ketone', 'ケトン')})</text>
+      <text x="14" y="126" fontSize="11" fontWeight="600">{bi(l, 'tertiary', '第三級')}</text>
+      <text x="80" y="126" fontSize="11">R₃C–OH</text>
+      <line x1="150" y1="122" x2="185" y2="122" stroke={C.faint} strokeWidth="2" />
+      <text x="192" y="126" fontSize="11" fill="#94a3b8">{bi(l, 'no oxidation', '酸化されない')}</text>
+      <text x="150" y="16" fontSize="9" fill={C.b}>[O]</text>
+      <text x="240" y="16" fontSize="9" fill={C.b}>[O]</text>
+    </Fig>
+  ),
 };
 
 export function Figure({ id }: { id: string }) {
