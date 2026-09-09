@@ -337,6 +337,121 @@ export async function restoreBackup(id: string, mode: 'merge' | 'replace'): Prom
   return Math.max(0, added);
 }
 
+// ─────────────────────────── recovery scan ───────────────────────────
+export interface FoundPage {
+  id: string;
+  title: string;
+  notebook: string;
+  strokes: number;
+  /** Where it was found. */
+  source: string;
+  page: CPage;
+}
+export interface ScanResult {
+  /** Inked pages that exist somewhere but are not in the notebook right now. */
+  missing: FoundPage[];
+  /** Inked pages that are in the notebook, but in a different notebook than the open one. */
+  elsewhere: FoundPage[];
+  /** Places that were searched, for the report. */
+  searched: string[];
+}
+
+const describe = (p: CPage, source: string): FoundPage => ({
+  id: p.id,
+  title: p.t || '',
+  notebook: p.nb || 'physics',
+  strokes: (p.st?.length ?? 0) + (p.tx?.length ?? 0),
+  source,
+  page: p,
+});
+
+/**
+ * Look everywhere a page could survive — this device's saved board, device
+ * snapshots, the cloud board, every cloud snapshot, and the old single-document
+ * cloud layout — and report inked pages that are not in the notebook now.
+ */
+export async function scanForLostPages(): Promise<ScanResult> {
+  const board = useBoard.getState();
+  const have = new Map(board.pages.map((p) => [p.id, p]));
+  const missing = new Map<string, FoundPage>();
+  const searched: string[] = [];
+  const consider = (pages: CPage[] | undefined, source: string) => {
+    for (const p of pages ?? []) {
+      if (!hasInk(p)) continue;
+      const cur = have.get(p.id);
+      const curInk = cur ? cur.strokes.length + (cur.texts?.length ?? 0) : 0;
+      // Missing entirely, or present but with far less ink than this copy.
+      if (!cur || curInk * 2 < (p.st?.length ?? 0) + (p.tx?.length ?? 0)) {
+        const found = describe(p, source);
+        const prev = missing.get(p.id);
+        if (!prev || prev.strokes < found.strokes) missing.set(p.id, found);
+      }
+    }
+  };
+  try {
+    const raw = localStorage.getItem(LS_KEY);
+    if (raw) consider((JSON.parse(raw) as { pages?: CPage[] }).pages, 'device');
+    searched.push('device');
+  } catch {
+    /* ignore */
+  }
+  for (const s of readLocalSnaps()) consider(s.pages, `device snapshot ${new Date(s.ts).toLocaleString()}`);
+  if (readLocalSnaps().length) searched.push('device snapshots');
+
+  const { user } = useAuth.getState();
+  if (user && db) {
+    try {
+      const mainRef = doc(db, 'users', user.uid, 'board', 'main');
+      const main = (await getDoc(mainRef)).data() as { pages?: CPage[]; snapshots?: BackupMeta[] } | undefined;
+      if (main?.pages?.length) consider(main.pages, 'cloud (old layout)');
+      const qs = await getDocs(collection(mainRef, 'pages'));
+      const cloudPages: CPage[] = [];
+      qs.forEach((d) => cloudPages.push(d.data() as CPage));
+      consider(cloudPages, 'cloud');
+      searched.push('cloud');
+      const snaps = main?.snapshots ?? cloudSnapshots;
+      for (const sn of snaps) {
+        try {
+          const sq = await getDocs(collection(doc(db, 'users', user.uid, 'board', sn.id), 'pages'));
+          const pages: CPage[] = [];
+          sq.forEach((d) => pages.push(d.data() as CPage));
+          consider(pages, `cloud snapshot ${new Date(sn.ts).toLocaleString()}`);
+        } catch {
+          /* skip */
+        }
+      }
+      if (snaps.length) searched.push('cloud snapshots');
+    } catch (e) {
+      console.warn('[persistence] cloud scan failed', e);
+    }
+  }
+  const elsewhere = board.pages
+    .filter((p) => (p.strokes.length || p.texts?.length) && notebookOf(p) !== board.notebook)
+    .map((p) => describe(encodePage(p), 'notebook'));
+  return { missing: [...missing.values()], elsewhere, searched };
+}
+
+/** Put found pages back into the notebook (they keep their own notebook tag). */
+export function addPages(pages: CPage[]): number {
+  const st = useBoard.getState();
+  const current = encode(st.pages);
+  snapshotLocal('before-recover', current, st.notebooks);
+  const merged = mergePages(current, pages, false);
+  // A found copy with more ink than the current one replaces it.
+  const byId = new Map(pages.map((p) => [p.id, p]));
+  const out = merged.map((p) => {
+    const f = byId.get(p.id);
+    return f && (f.st?.length ?? 0) + (f.tx?.length ?? 0) > (p.st?.length ?? 0) + (p.tx?.length ?? 0) ? f : p;
+  });
+  st.setNotebooks(mergeNotebooks(st.notebooks, undefined));
+  st.loadPages(decode(out), st.currentPageId, useUI.getState().subject);
+  st.setNotebooks(useBoard.getState().notebooks);
+  st.setNotebook(useUI.getState().subject);
+  saveLocal();
+  void saveCloud();
+  return pages.length;
+}
+
 /** Everything as one JSON file the student can keep anywhere. */
 export function exportBoardJson(): string {
   const st = useBoard.getState();

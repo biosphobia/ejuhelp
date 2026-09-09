@@ -635,6 +635,14 @@ export const strings = {
   'reason_legacy-board': { en: 'old cloud copy', ja: '旧クラウド版', zh: '旧云端副本', tr: 'eski bulut kopyası' },
   matchHand: { en: 'Write tidied pages in my handwriting style', ja: '清書を自分の筆跡に近づける', zh: '整理页使用我的笔迹风格', tr: 'Düzenlenen sayfaları el yazımın tarzında yaz' },
   handLearned: { en: 'Learned: slant {slant}°, letter size {size}, pen {pen}', ja: '学習済み：傾き {slant}°、文字の大きさ {size}、ペン {pen}', zh: '已学习：倾斜 {slant}°，字号 {size}，笔宽 {pen}', tr: 'Öğrenildi: eğim {slant}°, harf boyu {size}, kalem {pen}' },
+  findLost: { en: 'Find lost pages', ja: '消えたページを探す', zh: '查找丢失的页面', tr: 'Kayıp sayfaları bul' },
+  scanNow: { en: 'Search everywhere', ja: 'すべて検索', zh: '全面搜索', tr: 'Her yerde ara' },
+  scanned: { en: 'Searched: {where}.', ja: '検索した場所：{where}', zh: '已搜索：{where}', tr: 'Arandı: {where}.' },
+  foundMissing: { en: '{n} pages found that are not in your notebook', ja: 'ノートにない {n} ページが見つかりました', zh: '找到 {n} 页不在笔记本中', tr: 'Defterde olmayan {n} sayfa bulundu' },
+  nothingMissing: { en: 'No extra pages found anywhere.', ja: 'どこにも追加のページは見つかりませんでした。', zh: '没有在任何地方找到额外的页面。', tr: 'Hiçbir yerde fazladan sayfa bulunamadı.' },
+  inOtherNotebooks: { en: '{n} pages are in other notebooks', ja: '{n} ページは別のノートにあります', zh: '{n} 页在其他笔记本中', tr: '{n} sayfa başka defterlerde' },
+  addAll: { en: 'Add all', ja: 'すべて追加', zh: '全部添加', tr: 'Tümünü ekle' },
+  addOne: { en: 'Add', ja: '追加', zh: '添加', tr: 'Ekle' },
 } as const;
 
 export type StringKey = keyof typeof strings;

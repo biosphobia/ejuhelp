@@ -193,8 +193,20 @@ app.post('/api/claude/keypoints', requireAuth, async (req: Request, res: Respons
 const distDir = join(here, '..', 'dist');
 const servingDist = existsSync(join(distDir, 'index.html'));
 if (servingDist) {
-  app.use(express.static(distDir));
-  app.get(/^(?!\/api\/).*/, (_req, res) => res.sendFile(join(distDir, 'index.html')));
+  app.use(
+    express.static(distDir, {
+      setHeaders: (res, path) => {
+        // Hashed bundles are immutable; the shell must always be re-checked so a new
+        // deploy reaches every device (including a PWA on the home screen).
+        if (/\/assets\/.+[-.][0-9a-zA-Z_]{6,}\.(js|css|woff2?)$/.test(path)) res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
+        else res.setHeader('Cache-Control', 'no-cache');
+      },
+    })
+  );
+  app.get(/^(?!\/api\/).*/, (_req, res) => {
+    res.setHeader('Cache-Control', 'no-cache');
+    res.sendFile(join(distDir, 'index.html'));
+  });
 }
 
 const port = Number(process.env.PORT || 8787);
