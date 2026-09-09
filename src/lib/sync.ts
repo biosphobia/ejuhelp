@@ -37,8 +37,8 @@ export function initSync() {
     useProfile,
     'eju-profile',
     'profile',
-    (s) => ({ habits: s.habits }),
-    (s, data) => s.load(data?.habits ?? []),
+    (s) => ({ habits: s.habits, hand: s.hand, matchHand: s.matchHand }),
+    (s, data) => s.load(data?.habits ?? [], data?.hand ?? null, data?.matchHand),
     0
   );
   attachSync(

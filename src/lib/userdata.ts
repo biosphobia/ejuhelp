@@ -158,9 +158,14 @@ export function attachSync<S extends { rev: number }>(
   setData: (s: S, data: any) => void,
   delay = 1000
 ) {
+  let localUpdatedAt = 0;
   try {
     const raw = localStorage.getItem(lsKey);
-    if (raw) setData(store.getState(), JSON.parse(raw));
+    if (raw) {
+      const parsed = JSON.parse(raw);
+      localUpdatedAt = typeof parsed?.updatedAt === 'number' ? parsed.updatedAt : 0;
+      setData(store.getState(), parsed);
+    }
   } catch (e) {
     console.warn(`[userdata] local hydrate ${lsKey} failed`, e);
   }
@@ -171,8 +176,9 @@ export function attachSync<S extends { rev: number }>(
   let hydratingFromCloud = false;
 
   const saveLocal = () => {
+    localUpdatedAt = Date.now();
     try {
-      localStorage.setItem(lsKey, JSON.stringify(getData(store.getState())));
+      localStorage.setItem(lsKey, JSON.stringify({ ...(getData(store.getState()) as object), updatedAt: localUpdatedAt }));
     } catch (e) {
       console.warn(`[userdata] local save ${lsKey} failed`, e);
     }
@@ -183,7 +189,7 @@ export function attachSync<S extends { rev: number }>(
     try {
       await setDoc(doc(db, 'users', user.uid, 'data', docId), {
         ...(getData(store.getState()) as object),
-        updatedAt: Date.now(),
+        updatedAt: localUpdatedAt || Date.now(),
       });
     } catch (e) {
       console.warn(`[userdata] cloud save ${docId} failed`, e);
@@ -211,13 +217,19 @@ export function attachSync<S extends { rev: number }>(
       void (async () => {
         try {
           const snap = await getDoc(doc(db!, 'users', s.user!.uid, 'data', docId));
-          if (snap.exists()) {
+          const cloud = snap.exists() ? snap.data() : null;
+          const cloudAt = typeof cloud?.updatedAt === 'number' ? cloud.updatedAt : 0;
+          // Whichever copy was written last wins; the other side is brought up to
+          // date. A stale or empty cloud document can no longer wipe local data.
+          if (cloud && cloudAt >= localUpdatedAt) {
             hydratingFromCloud = true;
             try {
-              setData(store.getState(), snap.data());
+              setData(store.getState(), cloud);
+              localUpdatedAt = cloudAt;
             } finally {
               hydratingFromCloud = false;
             }
+            saveLocal();
           } else void saveCloud();
         } catch (e) {
           console.warn(`[userdata] cloud hydrate ${docId} failed`, e);

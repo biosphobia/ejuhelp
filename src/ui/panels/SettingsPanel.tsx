@@ -18,6 +18,9 @@ export default function SettingsPanel() {
   const debugEnabled = useDebug((s) => s.enabled);
   const setDebug = useDebug((s) => s.setEnabled);
   const habits = useProfile((s) => s.habits);
+  const hand = useProfile((s) => s.hand);
+  const matchHand = useProfile((s) => s.matchHand);
+  const setMatchHand = useProfile((s) => s.setMatchHand);
   const removeHabit = useProfile((s) => s.remove);
   const clearHabits = useProfile((s) => s.clear);
 
@@ -149,6 +152,17 @@ export default function SettingsPanel() {
             </button>
           ) : null}
         </div>
+        <label className="mb-2 flex cursor-pointer items-start gap-2 rounded-xl p-2 hover:bg-slate-50">
+          <input type="checkbox" className="mt-0.5 h-4 w-4" checked={matchHand} onChange={(e) => setMatchHand(e.target.checked)} />
+          <span className="text-sm">
+            <span className="font-medium text-slate-800">{t('matchHand')}</span>
+            {hand ? (
+              <span className="block text-xs text-slate-500">
+                {t('handLearned', { slant: Math.round((hand.slant * 180) / Math.PI), size: Math.round(hand.size), pen: hand.width.toFixed(1) })}
+              </span>
+            ) : null}
+          </span>
+        </label>
         {habits.length ? (
           <ul className="space-y-1">
             {habits.map((h) => (

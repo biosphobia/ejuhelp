@@ -113,14 +113,63 @@ export function wrapText(ctx: CanvasRenderingContext2D, text: string, maxW: numb
   return out;
 }
 
+/** Small deterministic PRNG so a block always wobbles the same way. */
+function seeded(seed: string) {
+  let h = 2166136261;
+  for (let i = 0; i < seed.length; i++) h = Math.imul(h ^ seed.charCodeAt(i), 16777619);
+  return () => {
+    h += 0x6d2b79f5;
+    let t = Math.imul(h ^ (h >>> 15), 1 | h);
+    t ^= t + Math.imul(t ^ (t >>> 7), 61 | t);
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296 - 0.5;
+  };
+}
+
+export const lineHeightOf = (tb: TextBlock) => tb.size * (tb.hand ? tb.hand.lineGap : 1.45);
+
+/** Draw one line character by character in the student's hand: their slant, a
+ *  little per-letter rotation and drift scaled by their wobble, their pen width. */
+function drawHandLine(ctx: CanvasRenderingContext2D, line: string, x0: number, y0: number, tb: TextBlock, rnd: () => number) {
+  const h = tb.hand!;
+  const chars = Array.from(line);
+  let x = x0;
+  for (const ch of chars) {
+    const w = ctx.measureText(ch).width;
+    const rot = rnd() * 0.12 * h.wobble;
+    const dy = rnd() * tb.size * 0.14 * h.wobble;
+    const dx = rnd() * tb.size * 0.05 * h.wobble;
+    const scale = 1 + rnd() * 0.1 * h.wobble;
+    ctx.save();
+    ctx.translate(x + w / 2 + dx, y0 + tb.size / 2 + dy);
+    ctx.transform(1, 0, Math.tan(h.slant), 1, 0, 0);
+    ctx.rotate(rot);
+    ctx.scale(scale, scale);
+    ctx.fillText(ch, -w / 2, -tb.size / 2);
+    if (h.width > 2.5) {
+      // thicker pens: add a thin outline so letters carry the same weight as the ink
+      ctx.lineWidth = Math.min(1.4, (h.width - 2.5) * 0.35);
+      ctx.strokeStyle = ctx.fillStyle;
+      ctx.lineJoin = 'round';
+      ctx.strokeText(ch, -w / 2, -tb.size / 2);
+    }
+    ctx.restore();
+    x += w * h.spacing + (ch === ' ' ? 0 : rnd() * tb.size * 0.04 * h.wobble);
+  }
+}
+
 export function drawText(ctx: CanvasRenderingContext2D, tb: TextBlock) {
   const weight = tb.style === 'h' ? 600 : 400;
   ctx.font = `${weight} ${tb.size}px ${HAND_FONT}`;
   ctx.fillStyle = INK_HEX[tb.color] ?? INK_HEX.black;
   ctx.textBaseline = 'top';
-  const lh = tb.size * 1.45;
-  const lines = wrapText(ctx, tb.text, tb.w);
-  lines.forEach((ln, i) => ctx.fillText(ln, tb.x, tb.y + i * lh));
+  const lh = lineHeightOf(tb);
+  const lines = wrapText(ctx, tb.text, tb.hand ? tb.w / tb.hand.spacing : tb.w);
+  if (tb.hand) {
+    const rnd = seeded(tb.id);
+    lines.forEach((ln, i) => drawHandLine(ctx, ln, tb.x, tb.y + i * lh + rnd() * tb.size * 0.06 * tb.hand!.wobble, tb, rnd));
+  } else {
+    lines.forEach((ln, i) => ctx.fillText(ln, tb.x, tb.y + i * lh));
+  }
   if (tb.style === 'h') {
     // a light underline, like a ruler line under a heading
     const w = Math.min(tb.w, Math.max(...lines.map((l) => ctx.measureText(l).width)));
@@ -136,5 +185,5 @@ export function drawText(ctx: CanvasRenderingContext2D, tb: TextBlock) {
 /** Height a text block occupies once wrapped (world units). */
 export function textHeight(ctx: CanvasRenderingContext2D, tb: TextBlock): number {
   ctx.font = `${tb.style === 'h' ? 600 : 400} ${tb.size}px ${HAND_FONT}`;
-  return wrapText(ctx, tb.text, tb.w).length * tb.size * 1.45;
+  return wrapText(ctx, tb.text, tb.hand ? tb.w / tb.hand.spacing : tb.w).length * lineHeightOf(tb);
 }

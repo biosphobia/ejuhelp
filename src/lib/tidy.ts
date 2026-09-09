@@ -3,6 +3,7 @@ import { tidyPage, EmptyBoardError, type TidyBlock, type TidyRegion } from './ap
 import { useBoard, newId, type TextBlock, type Stroke, type Page } from './board';
 import { useUI } from './ui';
 import { useProfile, profileTexts } from './profile';
+import { measureHandStyle, type HandStyle } from './handstyle';
 import { exportPageImage } from '../whiteboard/export';
 import { wrapText, HAND_FONT } from '../whiteboard/render';
 
@@ -21,7 +22,9 @@ const MAX_SIZE = 30;
 
 /** Lay the blocks out inside a box, choosing the largest base font size (≤ MAX)
  *  at which everything fits; below MIN the text simply overflows downward. */
-function layoutRegion(ctx: CanvasRenderingContext2D, blocks: TidyBlock[], box: { x: number; y: number; w: number; h: number }): TextBlock[] {
+function layoutRegion(ctx: CanvasRenderingContext2D, blocks: TidyBlock[], box: { x: number; y: number; w: number; h: number }, hand: HandStyle | null): TextBlock[] {
+  const lineGap = hand ? hand.lineGap : 1.45;
+  const spacing = hand ? hand.spacing : 1;
   const build = (base: number) => {
     let y = box.y;
     const out: TextBlock[] = [];
@@ -32,13 +35,15 @@ function layoutRegion(ctx: CanvasRenderingContext2D, blocks: TidyBlock[], box: {
       const w = Math.max(base * 4, box.w - st.indent * base);
       const text = (st.prefix ?? '') + b.text;
       ctx.font = `${st.style === 'h' ? 600 : 400} ${size}px ${HAND_FONT}`;
-      const lines = wrapText(ctx, text, w).length;
-      out.push({ id: newId(), x, y, w, size, color: st.color, text, style: st.style });
-      y += lines * size * 1.45 + st.gap * base;
+      const lines = wrapText(ctx, text, w / spacing).length;
+      out.push({ id: newId(), x, y, w, size, color: st.color, text, style: st.style, ...(hand ? { hand } : {}) });
+      y += lines * size * lineGap + st.gap * base;
     }
     return { out, height: y - box.y };
   };
-  for (let base = MAX_SIZE; base >= MIN_SIZE; base -= 2) {
+  // Start from the student's own letter size so the clean text matches their scale.
+  const top = hand ? Math.round(Math.min(MAX_SIZE + 6, Math.max(MIN_SIZE, hand.size))) : MAX_SIZE;
+  for (let base = top; base >= MIN_SIZE; base -= 2) {
     const r = build(base);
     if (r.height <= box.h) return r.out;
   }
@@ -90,6 +95,12 @@ export const useTidy = create<TidyState>((set, get) => ({
       const res = await tidyPage({ subject, lang, imageDataUrl: img.dataUrl, hint: page.title, profile: profileTexts() });
       if (res.observations?.length) useProfile.getState().add(res.observations);
 
+      // Learn the student's hand from this page and render the clean text in it.
+      const measured = measureHandStyle(page);
+      if (measured) useProfile.getState().learnHand(measured);
+      const prof = useProfile.getState();
+      const hand = prof.matchHand ? prof.hand ?? measured : null;
+
       const ctx = document.createElement('canvas').getContext('2d')!;
       const toWorld = (r: TidyRegion) => ({
         x: img.box.x + (r.box[0] / 100) * img.box.w,
@@ -105,7 +116,7 @@ export const useTidy = create<TidyState>((set, get) => ({
         if (r.kind === 'keep') strokes.push(...strokesInside(page, box));
         else if (r.blocks?.length) {
           textBoxes.push(box);
-          texts.push(...layoutRegion(ctx, r.blocks, box));
+          texts.push(...layoutRegion(ctx, r.blocks, box, hand));
         }
       }
       // Anything the coach did not call text is the student's own drawing: keep it,
@@ -115,10 +126,12 @@ export const useTidy = create<TidyState>((set, get) => ({
         if (!s.points.length) continue;
         const key = `${s.points[0].x},${s.points[0].y},${s.points.length}`;
         if (kept.has(key)) continue;
+        // A stroke that even partly sits in a text area is handwriting that was
+        // rewritten; keep only ink that is clearly outside every text area.
         const inText = textBoxes.some((b) => {
           let n = 0;
           for (const p of s.points) if (p.x >= b.x && p.x <= b.x + b.w && p.y >= b.y && p.y <= b.y + b.h) n++;
-          return n / s.points.length >= 0.5;
+          return n / s.points.length >= 0.25;
         });
         if (!inText) strokes.push({ ...s, id: newId(), points: s.points.map((p) => ({ ...p })) });
       }

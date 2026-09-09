@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import { blendHandStyle, type HandStyle } from './handstyle';
 
 /** One thing the coach has learned about how this student writes or takes notes,
  *  e.g. "writes る so it looks like ろ", "uses ∴ for 'therefore'", "writes 濃度 in
@@ -11,12 +12,18 @@ export interface Habit {
 
 interface ProfileState {
   habits: Habit[];
+  /** Measured handwriting style (slant, size, spacing, wobble, pen width). */
+  hand: HandStyle | null;
+  /** Render tidied text in the student's own style (off = clean font). */
+  matchHand: boolean;
   rev: number;
+  learnHand: (h: HandStyle) => void;
+  setMatchHand: (b: boolean) => void;
   /** Merge new observations (deduplicated, newest kept, capped). */
   add: (texts: string[]) => number;
   remove: (id: string) => void;
   clear: () => void;
-  load: (habits: Habit[]) => void;
+  load: (habits: Habit[], hand?: HandStyle | null, matchHand?: boolean) => void;
 }
 
 const CAP = 40;
@@ -24,7 +31,11 @@ const norm = (s: string) => s.trim().toLowerCase().replace(/[\s。．.、,]+$/g,
 
 export const useProfile = create<ProfileState>((set, get) => ({
   habits: [],
+  hand: null,
+  matchHand: true,
   rev: 0,
+  learnHand: (h) => set((s) => ({ hand: blendHandStyle(s.hand, h), rev: s.rev + 1 })),
+  setMatchHand: (matchHand) => set((s) => ({ matchHand, rev: s.rev + 1 })),
   add: (texts) => {
     const cur = get().habits;
     const seen = new Set(cur.map((h) => norm(h.text)));
@@ -41,9 +52,11 @@ export const useProfile = create<ProfileState>((set, get) => ({
   },
   remove: (id) => set((s) => ({ habits: s.habits.filter((h) => h.id !== id), rev: s.rev + 1 })),
   clear: () => set((s) => ({ habits: [], rev: s.rev + 1 })),
-  load: (habits) =>
+  load: (habits, hand, matchHand) =>
     set((s) => ({
       habits: Array.isArray(habits) ? habits.filter((h) => h && typeof h.text === 'string' && h.text.trim()).slice(0, CAP) : [],
+      hand: hand && typeof hand === 'object' && typeof hand.size === 'number' ? hand : s.hand,
+      matchHand: typeof matchHand === 'boolean' ? matchHand : s.matchHand,
       rev: s.rev + 1,
     })),
 }));

@@ -36,6 +36,8 @@ export interface TextBlock {
   text: string;
   /** 'h' = heading weight. */
   style?: 'h' | 'b' | 'n';
+  /** Render in the student's own handwriting style (see lib/handstyle). */
+  hand?: import('./handstyle').HandStyle;
 }
 
 export interface Page {

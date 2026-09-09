@@ -633,6 +633,8 @@ export const strings = {
   'reason_before-restore': { en: 'before restore', ja: '復元前', zh: '恢复前', tr: 'geri yükleme öncesi' },
   'reason_before-import': { en: 'before import', ja: '読み込み前', zh: '导入前', tr: 'içe aktarma öncesi' },
   'reason_legacy-board': { en: 'old cloud copy', ja: '旧クラウド版', zh: '旧云端副本', tr: 'eski bulut kopyası' },
+  matchHand: { en: 'Write tidied pages in my handwriting style', ja: '清書を自分の筆跡に近づける', zh: '整理页使用我的笔迹风格', tr: 'Düzenlenen sayfaları el yazımın tarzında yaz' },
+  handLearned: { en: 'Learned: slant {slant}°, letter size {size}, pen {pen}', ja: '学習済み：傾き {slant}°、文字の大きさ {size}、ペン {pen}', zh: '已学习：倾斜 {slant}°，字号 {size}，笔宽 {pen}', tr: 'Öğrenildi: eğim {slant}°, harf boyu {size}, kalem {pen}' },
 } as const;
 
 export type StringKey = keyof typeof strings;
