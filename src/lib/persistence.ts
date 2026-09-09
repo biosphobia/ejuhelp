@@ -1,19 +1,23 @@
 import { collection, deleteDoc, doc, getDoc, getDocs, setDoc, writeBatch } from 'firebase/firestore';
-import { useBoard, notebookOf, defaultNotebooks, type Page, type InkColor, type ShapeKind, type TextBlock, type NotebookMeta } from './board';
+import { useBoard, notebookOf, defaultNotebooks, type Page, type NotebookMeta } from './board';
 import { useAuth } from './auth';
 import { useUI } from './ui';
 import { db } from './firebase';
+import { idbGet, idbSet, persistStorage } from './idb';
+import { chunkPage, assemblePages, type ChunkDoc } from './chunk';
 
 const LS_KEY = 'eju-board-v1';
 const LS_SNAPS = 'eju-board-snapshots';
-const LOCAL_SNAPS_KEEP = 3;
+const IDB_BOARD = 'board';
+const IDB_SNAPS = 'board-snapshots';
+const LS_MIRROR_MAX = 1_500_000; // mirror to localStorage only while it comfortably fits
+const LOCAL_SNAPS_KEEP = 5;
 const CLOUD_SNAPS_KEEP = 5;
 const AUTO_SNAPSHOT_MS = 20 * 3_600_000; // one automatic cloud snapshot a day
 
 // Compact wire format: points stored as [x, y, pressure] tuples to save space
 // (Firestore docs are capped at ~1MB; ink can be large).
-type CStroke = { i: string; c: InkColor; s: number; p: number[][]; sh?: ShapeKind };
-type CPage = { id: string; v: [number, number, number]; st: CStroke[]; nb?: string; t?: string; tx?: TextBlock[]; src?: string };
+import type { CPage, CStroke } from './chunk';
 
 const round = (n: number, d: number) => {
   const f = 10 ** d;
@@ -62,14 +66,22 @@ const inkPages = (pages: CPage[]) => pages.filter(hasInk).length;
 
 // ─────────────────────────── local ───────────────────────────
 let localUpdatedAt = 0;
+type LocalBoard = { pages: CPage[]; currentPageId?: string; notebooks?: NotebookMeta[]; updatedAt?: number };
+let localSnaps: LocalSnap[] = [];
 
 function saveLocal() {
   const { pages, currentPageId, notebooks } = useBoard.getState();
   localUpdatedAt = Date.now();
+  const data: LocalBoard = { pages: encode(pages), currentPageId, notebooks, updatedAt: localUpdatedAt };
+  void idbSet(IDB_BOARD, data);
+  // Mirror into localStorage while small, so an older build or a blocked
+  // IndexedDB still finds the notes. Never let this mirror fail loudly.
   try {
-    localStorage.setItem(LS_KEY, JSON.stringify({ pages: encode(pages), currentPageId, notebooks, updatedAt: localUpdatedAt }));
+    const json = JSON.stringify(data);
+    if (json.length <= LS_MIRROR_MAX) localStorage.setItem(LS_KEY, json);
+    else localStorage.removeItem(LS_KEY);
   } catch (e) {
-    console.warn('[persistence] local save failed', e);
+    console.warn('[persistence] localStorage mirror skipped', e);
   }
 }
 
@@ -89,23 +101,15 @@ interface LocalSnap {
 }
 
 function readLocalSnaps(): LocalSnap[] {
-  try {
-    const raw = localStorage.getItem(LS_SNAPS);
-    const arr = raw ? (JSON.parse(raw) as LocalSnap[]) : [];
-    return Array.isArray(arr) ? arr : [];
-  } catch {
-    return [];
-  }
+  return localSnaps;
 }
 function writeLocalSnaps(snaps: LocalSnap[]) {
-  // Drop the oldest until it fits; a snapshot must never break normal saving.
-  for (let keep = snaps.length; keep >= 0; keep--) {
-    try {
-      localStorage.setItem(LS_SNAPS, JSON.stringify(snaps.slice(0, keep)));
-      return;
-    } catch {
-      /* too big, try fewer */
-    }
+  localSnaps = snaps;
+  void idbSet(IDB_SNAPS, snaps);
+  try {
+    localStorage.removeItem(LS_SNAPS); // snapshots no longer compete with the board for localStorage
+  } catch {
+    /* ignore */
   }
 }
 
@@ -140,13 +144,11 @@ async function writePages(colRef: ReturnType<typeof collection>, pages: CPage[],
   for (const enc of pages) {
     const json = JSON.stringify(enc);
     if (skipUnchanged && lastCloud.get(enc.id) === json) continue;
-    if (json.length > 950_000) {
-      console.warn(`[persistence] page ${enc.id} is too large for the cloud (${json.length} bytes); kept locally only`);
-      continue;
+    for (const part of chunkPage(enc)) {
+      batch.set(doc(colRef, part.id), part.data);
+      if (++n >= 20) await flush();
     }
-    batch.set(doc(colRef, enc.id), enc);
     if (skipUnchanged) lastCloud.set(enc.id, json);
-    if (++n >= 20) await flush();
   }
   await flush();
 }
@@ -184,6 +186,7 @@ async function saveCloud() {
     for (const id of [...lastCloud.keys()]) {
       if (!ids.has(id)) {
         await deleteDoc(doc(pagesCol, id));
+        for (let i = 1; i < 40; i++) await deleteDoc(doc(pagesCol, `${id}~${i}`)).catch(() => undefined);
         lastCloud.delete(id);
       }
     }
@@ -254,8 +257,9 @@ async function loadCloud(uid: string): Promise<CloudBoard | null> {
   if (cloudSnapshots.length) lastAutoSnapshot = Math.max(...cloudSnapshots.map((s) => s.ts));
   if (data.v === 2) {
     const qs = await getDocs(collection(mainRef, 'pages'));
-    const byId = new Map<string, CPage>();
-    qs.forEach((d) => byId.set(d.id, d.data() as CPage));
+    const docs: { id: string; data: any }[] = [];
+    qs.forEach((d) => docs.push({ id: d.id, data: d.data() }));
+    const byId = new Map(assemblePages(docs).map((p) => [p.id, p]));
     const order = data.order ?? [];
     const pages = order.map((id) => byId.get(id)).filter((p): p is CPage => Boolean(p));
     for (const [id, p] of byId) if (!order.includes(id)) pages.push(p); // pages the order list missed
@@ -316,8 +320,9 @@ export async function restoreBackup(id: string, mode: 'merge' | 'replace'): Prom
     const ref = doc(db, 'users', user.uid, 'board', id);
     const meta = (await getDoc(ref)).data() as { order?: string[]; notebooks?: NotebookMeta[] } | undefined;
     const qs = await getDocs(collection(ref, 'pages'));
-    const byId = new Map<string, CPage>();
-    qs.forEach((d) => byId.set(d.id, d.data() as CPage));
+    const docs: { id: string; data: any }[] = [];
+    qs.forEach((d) => docs.push({ id: d.id, data: d.data() }));
+    const byId = new Map(assemblePages(docs).map((p) => [p.id, p]));
     pages = (meta?.order ?? [...byId.keys()]).map((pid) => byId.get(pid)).filter((p): p is CPage => Boolean(p));
     for (const [pid, p] of byId) if (!pages.some((x) => x.id === pid)) pages.push(p);
     notebooks = meta?.notebooks;
@@ -388,13 +393,16 @@ export async function scanForLostPages(): Promise<ScanResult> {
       }
     }
   };
+  consider((await idbGet<LocalBoard>(IDB_BOARD))?.pages, 'device');
   try {
     const raw = localStorage.getItem(LS_KEY);
-    if (raw) consider((JSON.parse(raw) as { pages?: CPage[] }).pages, 'device');
-    searched.push('device');
+    if (raw) consider((JSON.parse(raw) as { pages?: CPage[] }).pages, 'device (mirror)');
+    const oldSnaps = localStorage.getItem(LS_SNAPS);
+    if (oldSnaps) for (const sn of JSON.parse(oldSnaps) as LocalSnap[]) consider(sn.pages, 'device snapshot (old)');
   } catch {
     /* ignore */
   }
+  searched.push('device');
   for (const s of readLocalSnaps()) consider(s.pages, `device snapshot ${new Date(s.ts).toLocaleString()}`);
   if (readLocalSnaps().length) searched.push('device snapshots');
 
@@ -405,17 +413,17 @@ export async function scanForLostPages(): Promise<ScanResult> {
       const main = (await getDoc(mainRef)).data() as { pages?: CPage[]; snapshots?: BackupMeta[] } | undefined;
       if (main?.pages?.length) consider(main.pages, 'cloud (old layout)');
       const qs = await getDocs(collection(mainRef, 'pages'));
-      const cloudPages: CPage[] = [];
-      qs.forEach((d) => cloudPages.push(d.data() as CPage));
-      consider(cloudPages, 'cloud');
+      const docs: { id: string; data: any }[] = [];
+      qs.forEach((d) => docs.push({ id: d.id, data: d.data() }));
+      consider(assemblePages(docs), 'cloud');
       searched.push('cloud');
       const snaps = main?.snapshots ?? cloudSnapshots;
       for (const sn of snaps) {
         try {
           const sq = await getDocs(collection(doc(db, 'users', user.uid, 'board', sn.id), 'pages'));
-          const pages: CPage[] = [];
-          sq.forEach((d) => pages.push(d.data() as CPage));
-          consider(pages, `cloud snapshot ${new Date(sn.ts).toLocaleString()}`);
+          const sdocs: { id: string; data: any }[] = [];
+          sq.forEach((d) => sdocs.push({ id: d.id, data: d.data() }));
+          consider(assemblePages(sdocs), `cloud snapshot ${new Date(sn.ts).toLocaleString()}`);
         } catch {
           /* skip */
         }
@@ -478,26 +486,57 @@ export function importBoardJson(text: string): number {
 // ─────────────────────────── startup ───────────────────────────
 let saveTimer: ReturnType<typeof setTimeout> | undefined;
 let lastSavedRev = -1;
+let localReady: Promise<void> = Promise.resolve();
+
+function flushNow() {
+  if (saveTimer) clearTimeout(saveTimer);
+  saveTimer = undefined;
+  saveLocal();
+  void saveCloud();
+}
+
+/** Read the device copy: IndexedDB first, then the localStorage mirror (older builds
+ *  saved only there). Both are merged and the newer one leads, so nothing is lost. */
+async function hydrateLocal(subject: string) {
+  let idb: LocalBoard | undefined;
+  let ls: LocalBoard | undefined;
+  idb = await idbGet<LocalBoard>(IDB_BOARD);
+  try {
+    const raw = localStorage.getItem(LS_KEY);
+    if (raw) ls = JSON.parse(raw) as LocalBoard;
+  } catch {
+    /* ignore */
+  }
+  try {
+    localSnaps = (await idbGet<LocalSnap[]>(IDB_SNAPS)) ?? [];
+    const rawSnaps = localStorage.getItem(LS_SNAPS);
+    if (rawSnaps) localSnaps = [...localSnaps, ...(JSON.parse(rawSnaps) as LocalSnap[])].slice(0, LOCAL_SNAPS_KEEP);
+  } catch {
+    /* ignore */
+  }
+  const a = idb?.pages?.length ? idb : undefined;
+  const b = ls?.pages?.length ? ls : undefined;
+  if (!a && !b) return;
+  const idbNewer = (a?.updatedAt ?? 0) >= (b?.updatedAt ?? 0);
+  const pages = a && b ? mergePages(a.pages, b.pages, !idbNewer) : (a ?? b)!.pages;
+  const lead = (idbNewer ? a ?? b : b ?? a)!;
+  const other = idbNewer ? b : a;
+  localUpdatedAt = Math.max(a?.updatedAt ?? 0, b?.updatedAt ?? 0);
+  const board = useBoard.getState();
+  board.setNotebooks(mergeNotebooks(lead.notebooks, other?.notebooks));
+  board.loadPages(decode(pages), lead.currentPageId, subject);
+  board.setNotebooks(useBoard.getState().notebooks);
+}
 
 /** Wire up local + cloud autosave. Call once at startup. */
 export function initPersistence() {
   const subject = useUI.getState().subject;
+  persistStorage();
 
-  // 1) hydrate from localStorage right away
-  try {
-    const raw = localStorage.getItem(LS_KEY);
-    if (raw) {
-      const parsed = JSON.parse(raw) as { pages?: CPage[]; currentPageId?: string; notebooks?: NotebookMeta[]; updatedAt?: number };
-      localUpdatedAt = parsed.updatedAt ?? 0;
-      if (Array.isArray(parsed.notebooks)) useBoard.getState().setNotebooks(parsed.notebooks);
-      if (parsed?.pages?.length) {
-        useBoard.getState().loadPages(decode(parsed.pages), parsed.currentPageId, subject);
-        useBoard.getState().setNotebooks(useBoard.getState().notebooks);
-      }
-    }
-  } catch (e) {
-    console.warn('[persistence] local hydrate failed', e);
-  }
+  // 1) hydrate the device copy (IndexedDB + localStorage mirror)
+  localReady = hydrateLocal(subject)
+    .catch((e) => console.warn('[persistence] local hydrate failed', e))
+    .then(() => useBoard.getState().setNotebook(useUI.getState().subject));
   // The notebook always follows the selected subject.
   useBoard.getState().setNotebook(subject);
   useUI.subscribe((s, prev) => {
@@ -512,11 +551,14 @@ export function initPersistence() {
     if (st.rev === lastSavedRev) return;
     lastSavedRev = st.rev;
     if (saveTimer) clearTimeout(saveTimer);
-    saveTimer = setTimeout(() => {
-      saveLocal();
-      void saveCloud();
-    }, 1200);
+    saveTimer = setTimeout(flushNow, 500);
   });
+  // The iPad kills background web apps without warning: write immediately when the
+  // app is hidden or the page is being left, so the last strokes are never lost.
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'hidden') flushNow();
+  });
+  window.addEventListener('pagehide', flushNow);
 
   // 3) on sign-in, MERGE with the cloud board. Pages are joined by id, so a page
   //    that exists on only one side is always kept; the newer side wins for pages
@@ -525,6 +567,7 @@ export function initPersistence() {
     if (st.user && st.user !== prev.user && db) {
       void (async () => {
         try {
+          await localReady; // never merge the cloud into a half-loaded device copy
           const cloud = await loadCloud(st.user!.uid);
           const board = useBoard.getState();
           const local = encode(board.pages);
