@@ -6,6 +6,17 @@ import type { Page } from '../lib/board';
  * white PNG data URL, cropped to the content. Returns null if the page is empty.
  */
 export function exportPagePng(page: Page, maxSide = 1600, pad = 36): string | null {
+  return exportPageImage(page, maxSide, pad)?.dataUrl ?? null;
+}
+
+export interface PageImage {
+  dataUrl: string;
+  /** World-coordinate rectangle the image covers (including padding). */
+  box: { x: number; y: number; w: number; h: number };
+}
+
+/** Like exportPagePng but also reports which part of the world the image shows. */
+export function exportPageImage(page: Page, maxSide = 1600, pad = 36): PageImage | null {
   if (!page.strokes.length && !page.texts?.length) return null;
   let minX = Infinity;
   let minY = Infinity;
@@ -44,5 +55,5 @@ export function exportPagePng(page: Page, maxSide = 1600, pad = 36): string | nu
   ctx.setTransform(scale, 0, 0, scale, (pad - minX) * scale, (pad - minY) * scale);
   for (const tb of page.texts ?? []) drawText(ctx, tb);
   for (const s of page.strokes) drawStroke(ctx, s);
-  return cv.toDataURL('image/png');
+  return { dataUrl: cv.toDataURL('image/png'), box: { x: minX - pad, y: minY - pad, w: w + pad * 2, h: h + pad * 2 } };
 }

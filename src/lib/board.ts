@@ -47,6 +47,8 @@ export interface Page {
   notebook?: string;
   /** Optional name the student gives the page ("Lecture 3 – titration"). */
   title?: string;
+  /** For a coach-tidied page: the id of the original rough page. */
+  sourceId?: string;
 }
 
 export type SubjectId = 'physics' | 'chemistry' | 'biology' | 'math';
@@ -123,8 +125,8 @@ interface BoardState {
   /** Move a page earlier (-1) or later (+1) within its notebook. */
   movePage: (id: string, delta: number) => void;
   movePageToNotebook: (id: string, nb: string) => void;
-  /** Insert a page of typed text blocks right after `afterId` (coach-tidied notes). */
-  addTextPage: (afterId: string, title: string, texts: TextBlock[]) => string;
+  /** Insert a tidied page (text blocks + kept strokes) right after `afterId`. */
+  addTextPage: (afterId: string, title: string, texts: TextBlock[], strokes?: Stroke[]) => string;
   addNotebook: (name: string, subject: SubjectId) => string;
   renameNotebook: (id: string, name: string) => void;
   moveNotebook: (id: string, delta: number) => void;
@@ -300,9 +302,16 @@ export const useBoard = create<BoardState>((set, get) => {
         return { pages: [...pages, ...extra], currentPageId: nextCurrent, lastPage: { ...st.lastPage, [from]: nextCurrent, [nb]: id }, rev: st.rev + 1 };
       }),
 
-    addTextPage: (afterId, title, texts) => {
+    addTextPage: (afterId, title, texts, strokes = []) => {
       const after = get().pages.find((p) => p.id === afterId);
-      const pg: Page = { ...blankPage(after ? notebookOf(after) : get().notebook), title, texts };
+      const pg: Page = {
+        ...blankPage(after ? notebookOf(after) : get().notebook),
+        title,
+        texts,
+        strokes,
+        sourceId: afterId,
+        viewport: after ? { ...after.viewport } : { scale: 1, x: 0, y: 0 },
+      };
       set((st) => {
         const idx = st.pages.findIndex((p) => p.id === afterId);
         const pages = [...st.pages];

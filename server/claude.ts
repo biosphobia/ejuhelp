@@ -771,21 +771,50 @@ export interface TidyBlock {
   kind: 'h1' | 'h2' | 'p' | 'bullet' | 'formula' | 'added' | 'fix';
   text: string;
 }
+/** One area of the original page: either the student's own ink kept as-is
+ *  (drawings, diagrams, graphs, arrows) or handwriting rewritten as clean text. */
+export interface TidyRegion {
+  kind: 'keep' | 'text';
+  /** [x, y, w, h] as percentages (0-100) of the page image. */
+  box: [number, number, number, number];
+  /** Short label for a kept drawing (shown nowhere, used for logs). */
+  label?: string;
+  blocks?: TidyBlock[];
+}
 export interface TidyResult {
   title: string;
-  blocks: TidyBlock[];
+  regions: TidyRegion[];
   /** Short note to the student about what was changed / could not be read. */
   note: string;
   /** New facts about this student's handwriting, to remember for next time. */
   observations: string[];
 }
 
+const TIDY_KINDS = ['h1', 'h2', 'p', 'bullet', 'formula', 'added', 'fix'];
+const cleanBlocks = (list: any): TidyBlock[] =>
+  (Array.isArray(list) ? list : [])
+    .filter((b: any) => b && typeof b.text === 'string' && b.text.trim())
+    .map((b: any) => ({ kind: TIDY_KINDS.includes(b.kind) ? b.kind : 'p', text: String(b.text).trim() }));
+
+/** If the model did not return JSON, turn its plain text into one text region. */
+function blocksFromText(raw: string): TidyBlock[] {
+  const out: TidyBlock[] = [];
+  for (const line0 of raw.split('\n')) {
+    const line = line0.trim();
+    if (!line || /^```/.test(line) || /^[{}\[\]]$/.test(line)) continue;
+    const h = /^(#{1,3})\s+(.*)$/.exec(line);
+    if (h) out.push({ kind: h[1].length === 1 ? 'h1' : 'h2', text: h[2] });
+    else if (/^[-*•・]\s+/.test(line)) out.push({ kind: 'bullet', text: line.replace(/^[-*•・]\s+/, '') });
+    else if (/^[＋+]\s/.test(line)) out.push({ kind: 'added', text: line.replace(/^[＋+]\s/, '') });
+    else out.push({ kind: 'p', text: line.replace(/^\*\*(.*)\*\*$/, '$1') });
+  }
+  return out.slice(0, 60);
+}
+
 /**
- * Turn a photo of the student's own rough page into clean notes. The student may
- * write fast: bad handwriting, abbreviations, hiragana instead of kanji, mixed
- * languages, crossed-out bits. We reconstruct what they meant, keep their order
- * and language, fix errors, and add only what is essential — marked so the
- * student can tell their own notes from the coach's additions.
+ * Turn a photo of the student's own rough page into a clean version that keeps
+ * the page's character: drawings, diagrams and sketches stay as the student's
+ * own ink; only handwriting is rewritten, and it stays where it was on the page.
  */
 export async function tidy(args: {
   subject: Subject;
@@ -804,22 +833,25 @@ export async function tidy(args: {
 
   const instructions = [
     "The image is the student's OWN rough notebook page, written quickly in class.",
-    'Expect: messy handwriting, abbreviations, arrows, half-finished sentences, crossed-out parts, doodles, and Japanese written in hiragana where the student forgot the kanji (e.g. こうかく for 光角, はんのうねつ for 反応熱). Mixed Japanese/English is normal.',
-    'Your job: rewrite the page as clean, well-organised study notes that say what the student MEANT.',
-    'Rules:',
-    '1. Keep the student\'s language(s). If a line is Japanese, keep it Japanese and write the proper kanji; do not translate. Keep technical terms as the student uses them (add the standard term in brackets only if theirs is wrong).',
-    '2. Keep the student\'s order and structure where it makes sense; merge fragments into complete, short sentences; expand abbreviations.',
-    '3. Remove noise: crossed-out text, doodles, duplicates, things unrelated to the topic.',
-    '4. Fix mistakes silently in the text but ALSO list each fix as a "fix" block ("was X → now Y").',
-    '5. Add only what is essential for the EJU and clearly missing (a defining formula, a unit, the key condition); mark every addition as an "added" block so the student knows it is not theirs. Never pad.',
-    '6. If part of the page is illegible, say so in the note (which part, your best guess) instead of inventing content.',
-    '7. Formulas: write them in plain text, not LaTeX (v = v₀ + at, F = ma, [H⁺][OH⁻] = 10⁻¹⁴). Use Unicode sub/superscripts.',
+    'Expect: messy handwriting, abbreviations, arrows, half-finished sentences, crossed-out parts, small drawings, and Japanese written in hiragana where the student forgot the kanji (e.g. のうど for 濃度, はんのうねつ for 反応熱). Mixed Japanese/English is normal.',
+    'Your job: produce a CLEAN version of the same page that keeps its character and layout. Split the page into regions:',
+    '- "keep": anything drawn — diagrams, graphs, circuit sketches, molecules, arrows between things, hand-drawn tables, doodles that carry meaning. We will keep the student\'s original ink there untouched. Give its box.',
+    '- "text": handwritten text. Rewrite it as clean notes that say what the student MEANT, placed in the same area of the page. Give its box and the blocks.',
+    'Boxes are [x, y, w, h] in percent of the image (0-100, origin top-left). Regions must not overlap; cover the page roughly in reading order; a page with one column of text is one text region; a diagram with notes beside it is a keep region plus a text region side by side.',
+    'Rules for the text:',
+    '1. Keep the student\'s language(s). Japanese stays Japanese with the proper kanji; do not translate. Keep the student\'s own terms (add the standard term in brackets only if theirs is wrong).',
+    '2. Keep the student\'s order and structure; merge fragments into complete short sentences; expand abbreviations. Do not turn a few lines into an essay: the clean version should be about the same length as the original, never a wall of text.',
+    '3. Remove noise only: crossed-out text, duplicates, things unrelated to the topic. Never drop a fact, number, formula or example the student wrote.',
+    '4. Fix mistakes silently in the text and ALSO list each fix as a "fix" block ("was X → now Y").',
+    '5. Add only what is essential for the EJU and clearly missing (a defining formula, a unit, the key condition); mark it as an "added" block. At most two additions per page.',
+    '6. If part of the page is illegible, say so in the note (which part, your best guess) instead of inventing.',
+    '7. Formulas in plain text, not LaTeX (v = v₀ + at, [H⁺][OH⁻] = 10⁻¹⁴), with Unicode sub/superscripts.',
     args.hint ? `The student labelled this page: "${args.hint}".` : '',
     profileCtx(args.profile) ?? '',
     OBSERVE_DIRECTIVE,
-    `The subject is ${args.subject}. If the notes are in a language other than the student's UI language (${writeLang(args.lang)}), still keep the notes' own language.`,
-    'Respond with ONLY a single JSON object, no code fences: {"title":"<short title for the page>","blocks":[{"kind":"h1"|"h2"|"p"|"bullet"|"formula"|"added"|"fix","text":"..."}],"note":"<one or two sentences to the student: what you changed, anything you could not read>","observations":["..."]}.',
-    'Use h1 once for the topic, h2 for sections, bullet for list items, p for short prose, formula for a formula on its own line. Keep blocks short (a line or two each).',
+    `The subject is ${args.subject}. Keep the notes' own language even if it differs from the UI language (${writeLang(args.lang)}).`,
+    'Respond with ONLY a single JSON object, no code fences: {"title":"<short title>","regions":[{"kind":"keep","box":[x,y,w,h],"label":"<what it is>"},{"kind":"text","box":[x,y,w,h],"blocks":[{"kind":"h1"|"h2"|"p"|"bullet"|"formula"|"added"|"fix","text":"..."}]}],"note":"<one or two sentences: what you changed, anything you could not read>","observations":["..."]}.',
+    'Use h1 at most once, h2 for sections, bullet for list items, p for short prose, formula for a formula on its own line. Keep blocks short.',
   ]
     .filter(Boolean)
     .join('\n');
@@ -833,17 +865,32 @@ export async function tidy(args: {
           { type: 'text', text: instructions },
         ],
       },
-    ], 6000
+    ], 12000
   );
-  const p = extractJson<Partial<TidyResult>>(raw, {});
-  const kinds = ['h1', 'h2', 'p', 'bullet', 'formula', 'added', 'fix'];
-  const blocks: TidyBlock[] = (Array.isArray(p.blocks) ? p.blocks : [])
-    .filter((b: any) => b && typeof b.text === 'string' && b.text.trim())
-    .map((b: any) => ({ kind: kinds.includes(b.kind) ? b.kind : 'p', text: String(b.text).trim() }));
-  if (!blocks.length) throw Object.assign(new Error('tidy_failed'), { status: 502 });
+  const p = extractJson<any>(raw, {});
+  const num = (v: any, d: number) => (typeof v === 'number' && Number.isFinite(v) ? Math.max(0, Math.min(100, v)) : d);
+  let regions: TidyRegion[] = (Array.isArray(p.regions) ? p.regions : [])
+    .map((r: any): TidyRegion | null => {
+      const b = Array.isArray(r?.box) ? r.box : [];
+      const box: [number, number, number, number] = [num(b[0], 0), num(b[1], 0), num(b[2], 100), num(b[3], 100)];
+      if (r?.kind === 'keep') return { kind: 'keep', box, label: typeof r.label === 'string' ? r.label.slice(0, 80) : undefined };
+      const blocks = cleanBlocks(r?.blocks);
+      return blocks.length ? { kind: 'text', box, blocks } : null;
+    })
+    .filter((r: TidyRegion | null): r is TidyRegion => Boolean(r));
+  // Older shape ({blocks:[...]}) or plain prose: one text region over the whole page.
+  if (!regions.some((r) => r.kind === 'text')) {
+    const blocks = cleanBlocks(p.blocks);
+    const fallback = blocks.length ? blocks : blocksFromText(raw);
+    if (fallback.length) regions = [...regions, { kind: 'text', box: [0, 0, 100, 100], blocks: fallback }];
+  }
+  if (!regions.length) {
+    console.warn('[tidy] could not parse reply:', raw.slice(0, 400));
+    throw Object.assign(new Error('tidy_failed'), { status: 502 });
+  }
   return {
     title: typeof p.title === 'string' && p.title.trim() ? p.title.trim() : '',
-    blocks,
+    regions,
     note: typeof p.note === 'string' ? p.note.trim() : '',
     observations: (Array.isArray(p.observations) ? p.observations : []).filter((x: any) => typeof x === 'string' && x.trim()).map((x: string) => x.trim()).slice(0, 4),
   };

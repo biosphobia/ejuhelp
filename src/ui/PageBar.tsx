@@ -37,6 +37,9 @@ export default function PageBar() {
   const currentPageId = useBoard((s) => s.currentPageId);
   const pageIds = useBoard((s) => s.pages.filter((p) => notebookOf(p) === s.notebook).map((p) => p.id).join(','));
   const title = useBoard((s) => s.pages.find((p) => p.id === s.currentPageId)?.title ?? '');
+  // Jump between a tidied page and its original rough page.
+  const sourceId = useBoard((s) => s.pages.find((p) => p.id === s.currentPageId)?.sourceId ?? '');
+  const tidiedId = useBoard((s) => s.pages.find((p) => p.sourceId === s.currentPageId)?.id ?? '');
   const goToPage = useBoard((s) => s.goToPage);
   const addPage = useBoard((s) => s.addPage);
   const deletePage = useBoard((s) => s.deletePage);
@@ -163,6 +166,15 @@ export default function PageBar() {
         <Btn title={tidyBusy ? t('tidyBusy') : t('tidyPage')} onClick={() => void runTidy()} disabled={tidyBusy} active={tidyBusy}>
           {tidyBusy ? <SpinnerIcon className="h-4 w-4" /> : <span className="text-base leading-none">✨</span>}
         </Btn>
+        {sourceId && useBoard.getState().pages.some((p) => p.id === sourceId) ? (
+          <button type="button" onClick={() => goToPage(sourceId)} title={t('showOriginal')} className="h-9 whitespace-nowrap rounded-lg px-2 text-xs font-semibold text-slate-600 hover:bg-slate-100">
+            {t('showOriginal')}
+          </button>
+        ) : tidiedId ? (
+          <button type="button" onClick={() => goToPage(tidiedId)} title={t('showTidied')} className="h-9 whitespace-nowrap rounded-lg px-2 text-xs font-semibold text-slate-600 hover:bg-slate-100">
+            ✨ {t('showTidied')}
+          </button>
+        ) : null}
       </div>
       {table ? <PeriodicTable onClose={() => setTable(false)} /> : null}
     </div>

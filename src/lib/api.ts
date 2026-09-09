@@ -147,9 +147,15 @@ export interface TidyBlock {
   kind: 'h1' | 'h2' | 'p' | 'bullet' | 'formula' | 'added' | 'fix';
   text: string;
 }
+export interface TidyRegion {
+  kind: 'keep' | 'text';
+  box: [number, number, number, number];
+  label?: string;
+  blocks?: TidyBlock[];
+}
 export interface TidyResponse {
   title: string;
-  blocks: TidyBlock[];
+  regions: TidyRegion[];
   note: string;
   observations: string[];
 }

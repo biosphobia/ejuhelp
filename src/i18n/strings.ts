@@ -613,6 +613,8 @@ export const strings = {
     zh: '出 5 道关于必背化合物（{topic}：制法、性质、反应、用途）的 EJU 风格题目，并发送到练习题面板。',
     tr: 'Bilinmesi gereken bileşikler ({topic}: eldesi, özellikleri, tepkimeleri, kullanımı) hakkında 5 EJU tarzı soru yap ve alıştırma paneline gönder.',
   },
+  showOriginal: { en: 'Original', ja: '元のページ', zh: '原稿', tr: 'Orijinal' },
+  showTidied: { en: 'Tidied', ja: '清書', zh: '整理版', tr: 'Düzenlenmiş' },
 } as const;
 
 export type StringKey = keyof typeof strings;

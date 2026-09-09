@@ -9,7 +9,7 @@ const LS_KEY = 'eju-board-v1';
 // Compact wire format: points stored as [x, y, pressure] tuples to save space
 // (Firestore docs are capped at ~1MB; ink can be large).
 type CStroke = { i: string; c: InkColor; s: number; p: number[][]; sh?: ShapeKind };
-type CPage = { id: string; v: [number, number, number]; st: CStroke[]; nb?: string; t?: string; tx?: TextBlock[] };
+type CPage = { id: string; v: [number, number, number]; st: CStroke[]; nb?: string; t?: string; tx?: TextBlock[]; src?: string };
 
 const round = (n: number, d: number) => {
   const f = 10 ** d;
@@ -30,6 +30,7 @@ function encodePage(pg: Page): CPage {
     ...(pg.notebook ? { nb: pg.notebook } : {}),
     ...(pg.title ? { t: pg.title } : {}),
     ...(pg.texts?.length ? { tx: pg.texts } : {}),
+    ...(pg.sourceId ? { src: pg.sourceId } : {}),
   };
 }
 const encode = (pages: Page[]): CPage[] => pages.map(encodePage);
@@ -48,6 +49,7 @@ function decode(cps: CPage[]): Page[] {
     ...(cp.nb ? { notebook: cp.nb } : {}),
     ...(cp.t ? { title: cp.t } : {}),
     ...(cp.tx?.length ? { texts: cp.tx } : {}),
+    ...(cp.src ? { sourceId: cp.src } : {}),
   }));
 }
 
