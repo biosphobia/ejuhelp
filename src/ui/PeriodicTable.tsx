@@ -4,13 +4,14 @@ import { Inline } from './Markdown';
 import { CloseIcon, AskIcon, ChevronLeft } from './icons';
 import { ELEMENTS, byZ, isKeyElement, type Category, type ElementData, type ElementState } from '../data/elements';
 import { TRENDS, TRAPS, type Trend } from '../data/periodicTrends';
+import { COLOR_SECTIONS } from '../data/colors';
 import { electronInfo } from '../lib/electrons';
 import { useUI } from '../lib/ui';
 import { useAsk } from '../lib/ask';
 import { useT, type StringKey, type TFunc } from '../i18n';
 
 type ColorMode = 'category' | 'en' | 'state' | 'block' | 'key';
-type Tab = 'table' | 'trends';
+type Tab = 'table' | 'trends' | 'colors';
 
 // Light backgrounds + dark text so every cell keeps readable contrast.
 const CAT_STYLE: Record<Category, { bg: string; text: string; key: StringKey }> = {
@@ -251,7 +252,7 @@ export default function PeriodicTable({ onClose }: { onClose: () => void }) {
         </button>
         <h2 className="text-base font-semibold text-slate-900">{t('periodicTable')}</h2>
         <div className="ml-auto flex items-center gap-1 rounded-xl bg-slate-100 p-1" role="tablist">
-          {(['table', 'trends'] as Tab[]).map((id) => (
+          {(['table', 'trends', 'colors'] as Tab[]).map((id) => (
             <button
               key={id}
               type="button"
@@ -262,7 +263,7 @@ export default function PeriodicTable({ onClose }: { onClose: () => void }) {
                 tab === id ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-600 hover:text-slate-900'
               }`}
             >
-              {id === 'table' ? t('ptTabTable') : t('ptTabTrends')}
+              {id === 'table' ? t('ptTabTable') : id === 'trends' ? t('ptTabTrends') : t('ptTabColors')}
             </button>
           ))}
         </div>
@@ -364,6 +365,8 @@ export default function PeriodicTable({ onClose }: { onClose: () => void }) {
             </div>
           ) : null}
         </div>
+      ) : tab === 'colors' ? (
+        <ColorTable t={t} lang={noteLang} onQuiz={(topic) => { onClose(); openPanel('ask'); void send(t('ptColorQuizPrompt', { topic })); }} />
       ) : (
         <div className="thin-scroll min-h-0 flex-1 overflow-y-auto px-3 py-3 sm:px-6">
           <div className="mx-auto max-w-3xl space-y-4">
@@ -630,5 +633,95 @@ function TrendCard({ tr, t, lang, onShow }: { tr: Trend; t: TFunc; lang: 'en' | 
         </button>
       ) : null}
     </section>
+  );
+}
+
+/** Colour reference with a self-test mode: hide the colours, tap a row to reveal. */
+function ColorTable({ t, lang, onQuiz }: { t: TFunc; lang: 'en' | 'ja'; onQuiz: (topic: string) => void }) {
+  const [test, setTest] = useState(false);
+  const [shown, setShown] = useState<Set<string>>(new Set());
+  const [section, setSection] = useState<string>('all');
+  const toggle = (k: string) =>
+    setShown((s) => {
+      const n = new Set(s);
+      if (n.has(k)) n.delete(k);
+      else n.add(k);
+      return n;
+    });
+  const light = (hex: string) => {
+    const v = parseInt(hex.slice(1), 16);
+    const r = (v >> 16) & 255, g = (v >> 8) & 255, b = v & 255;
+    return (r * 299 + g * 587 + b * 114) / 1000 > 200;
+  };
+  const sections = section === 'all' ? COLOR_SECTIONS : COLOR_SECTIONS.filter((s) => s.id === section);
+  return (
+    <div className="thin-scroll min-h-0 flex-1 overflow-y-auto px-3 py-3 sm:px-6">
+      <div className="mx-auto max-w-3xl">
+        <div className="mb-3 flex flex-wrap items-center gap-1.5">
+          <select value={section} onChange={(e) => setSection(e.target.value)} aria-label={t('topic')} className="rounded-xl border border-slate-200 bg-white px-2 py-1.5 text-sm">
+            <option value="all">{t('ptAllColors')}</option>
+            {COLOR_SECTIONS.map((s) => (
+              <option key={s.id} value={s.id}>
+                {s.title[lang]}
+              </option>
+            ))}
+          </select>
+          <button
+            type="button"
+            aria-pressed={test}
+            onClick={() => {
+              setTest((v) => !v);
+              setShown(new Set());
+            }}
+            className={`rounded-xl px-3 py-1.5 text-sm font-medium ${test ? 'bg-slate-900 text-white' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'}`}
+          >
+            {t('ptTestMe')}
+          </button>
+          <button
+            type="button"
+            onClick={() => onQuiz(sections.map((s) => s.title.en).join(', '))}
+            className="rounded-xl border border-indigo-200 bg-indigo-50 px-3 py-1.5 text-sm font-medium text-indigo-800 hover:bg-indigo-100"
+          >
+            ❓ {t('makeQuestions')}
+          </button>
+        </div>
+        {sections.map((sec) => (
+          <section key={sec.id} className="mb-5">
+            <h3 className="text-sm font-semibold text-slate-900">{sec.title[lang]}</h3>
+            {sec.hint ? <p className="mb-1.5 text-xs text-slate-500">{sec.hint[lang]}</p> : <div className="mb-1.5" />}
+            <div className="overflow-hidden rounded-2xl border border-slate-200">
+              {sec.entries.map((e) => {
+                const k = `${sec.id}:${e.formula}`;
+                const hidden = test && !shown.has(k);
+                return (
+                  <button
+                    key={k}
+                    type="button"
+                    onClick={() => test && toggle(k)}
+                    className={`flex w-full items-center gap-3 border-b border-slate-100 px-3 py-2 text-left last:border-b-0 ${test ? 'hover:bg-slate-50' : 'cursor-default'}`}
+                  >
+                    <span
+                      className={`grid h-9 w-9 shrink-0 place-items-center rounded-lg text-[10px] font-bold ring-1 ring-black/10 ${hidden ? 'bg-slate-100 text-slate-400' : light(e.hex) ? 'text-slate-500' : 'text-white/80'}`}
+                      style={hidden ? undefined : { backgroundColor: e.hex }}
+                      aria-hidden
+                    >
+                      {hidden ? '?' : ''}
+                    </span>
+                    <span className="min-w-0 flex-1">
+                      <span className="block text-sm font-semibold text-slate-900">{e.formula}</span>
+                      <span className="block text-xs text-slate-500">{e.name[lang]}</span>
+                    </span>
+                    <span className="min-w-0 max-w-[55%] text-right">
+                      <span className={`block text-sm font-medium ${hidden ? 'text-slate-300' : 'text-slate-800'}`}>{hidden ? '·····' : e.color[lang]}</span>
+                      {!hidden && e.note ? <span className="block text-xs text-slate-500">{e.note[lang]}</span> : null}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+          </section>
+        ))}
+      </div>
+    </div>
   );
 }

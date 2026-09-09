@@ -595,6 +595,15 @@ export const strings = {
     zh: '出 3 道关于{name}（{sym}）的 EJU 风格练习题，并发送到练习题面板。',
     tr: '{name} ({sym}) hakkında 3 EJU tarzı alıştırma sorusu yap ve alıştırma paneline gönder.',
   },
+  ptTabColors: { en: 'Colours', ja: '色', zh: '颜色', tr: 'Renkler' },
+  ptAllColors: { en: 'All colour tables', ja: 'すべての色', zh: '全部颜色表', tr: 'Tüm renk tabloları' },
+  ptTestMe: { en: 'Test me', ja: 'テスト', zh: '自测', tr: 'Beni sına' },
+  ptColorQuizPrompt: {
+    en: 'Make 5 EJU-style questions about colours in chemistry ({topic}: flame tests, ion and precipitate colours, complex ions, indicators) and send them to the practice panel.',
+    ja: '化学の色（{topic}：炎色反応・イオンや沈殿の色・錯イオン・指示薬）についてEJU形式の問題を5問作って、練習問題パネルに送ってください。',
+    zh: '出 5 道关于化学颜色（{topic}：焰色反应、离子和沉淀的颜色、配离子、指示剂）的 EJU 风格题目，并发送到练习题面板。',
+    tr: 'Kimyadaki renkler ({topic}: alev testleri, iyon ve çökelti renkleri, kompleks iyonlar, indikatörler) hakkında 5 EJU tarzı soru yap ve alıştırma paneline gönder.',
+  },
 } as const;
 
 export type StringKey = keyof typeof strings;
