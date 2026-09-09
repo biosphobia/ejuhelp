@@ -575,6 +575,26 @@ export const strings = {
   done: { en: 'Done', ja: '完了', zh: '完成', tr: 'Bitti' },
   handwritingProfile: { en: 'Handwriting profile', ja: '手書きの癖', zh: '手写习惯', tr: 'El yazısı profili' },
   handwritingEmpty: { en: 'Learned from pages you tidy or check. Nothing yet.', ja: '清書や答案チェックから学習します。まだありません。', zh: '从整理或检查过的页面中学习。暂无。', tr: 'Düzenlediğin veya kontrol ettiğin sayfalardan öğrenilir. Henüz yok.' },
+  questionsSent: { en: '{n} questions sent to Practice', ja: '練習問題に {n} 問を送りました', zh: '已向练习题发送 {n} 道题', tr: '{n} soru Alıştırma paneline gönderildi' },
+  makeQuestions: { en: 'Make questions', ja: '問題を作る', zh: '出题', tr: 'Soru yap' },
+  questionsFromNotePrompt: {
+    en: 'Make 3 EJU-style practice questions from this note and send them to the practice panel.',
+    ja: 'このノートからEJU形式の練習問題を3問作って、練習問題パネルに送ってください。',
+    zh: '根据这份笔记出 3 道 EJU 风格的练习题，并发送到练习题面板。',
+    tr: 'Bu nottan 3 EJU tarzı alıştırma sorusu yap ve alıştırma paneline gönder.',
+  },
+  questionsFromPagePrompt: {
+    en: 'Make 3 EJU-style practice questions based on what is on this page and send them to the practice panel.',
+    ja: 'このページの内容からEJU形式の練習問題を3問作って、練習問題パネルに送ってください。',
+    zh: '根据这一页的内容出 3 道 EJU 风格的练习题，并发送到练习题面板。',
+    tr: 'Bu sayfadaki içeriğe dayanarak 3 EJU tarzı alıştırma sorusu yap ve alıştırma paneline gönder.',
+  },
+  ptQuizPrompt: {
+    en: 'Make 3 EJU-style practice questions about {name} ({sym}) and send them to the practice panel.',
+    ja: '{name}（{sym}）についてEJU形式の練習問題を3問作って、練習問題パネルに送ってください。',
+    zh: '出 3 道关于{name}（{sym}）的 EJU 风格练习题，并发送到练习题面板。',
+    tr: '{name} ({sym}) hakkında 3 EJU tarzı alıştırma sorusu yap ve alıştırma paneline gönder.',
+  },
 } as const;
 
 export type StringKey = keyof typeof strings;

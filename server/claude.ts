@@ -75,6 +75,11 @@ async function executeModelCall(
   const targetModel = modelType || 'gemini';
   const sysBlocks = systemBlocks(subject, lang, extraSystem);
 
+  // Dev aid: return a canned reply from a file instead of calling any model.
+  if (process.env.EJU_FAKE_REPLY) {
+    const { readFileSync } = await import('node:fs');
+    return readFileSync(process.env.EJU_FAKE_REPLY, 'utf8');
+  }
   // Dev aid: print the exact prompt instead of calling any model.
   if (process.env.EJU_DRY_RUN) {
     const sys = sysBlocks.map((b) => (b.cache_control ? `[EJU knowledge base: ${b.text.length} chars]` : b.text)).join('\n\n');
@@ -342,6 +347,17 @@ const formatDirective = (subject: Subject) =>
 // JSON-encoded), followed by a delimited summary JSON block we strip off.
 const SUMMARY_MARK = '###SUMMARY###';
 const KEYPOINTS_MARK = '###KEYPOINTS###';
+const QUESTIONS_MARK = '###QUESTIONS###';
+
+const QUESTIONS_DIRECTIVE =
+  'PRACTICE QUESTIONS ON DEMAND: when the student asks you to make, create, write, give or send practice questions, a quiz, a test, problems or exercises ' +
+  'to work on later (in any language, e.g. 問題を作って, 練習問題, クイズ) — about a topic, their notes, a page they attached, an element, or anything else in the conversation — ' +
+  'do NOT write the questions in the reply. Reply with one short sentence saying what you made (how many, on what, what level), then write the SUMMARY block as usual, ' +
+  `and then a line that is exactly "${QUESTIONS_MARK}" followed by ONE JSON object: ` +
+  '{"questions":[{"topic":"<sub-topic name>","prompt":"...","choices":["..."],"answerIndex":<0-based index, or -1>,"answer":"...","hint":"...","keyIdea":"...","choiceNotes":["<one per choice>"],"trap":"...","explanation":"<beginner-friendly worked solution, Markdown with LaTeX>"}]}. ' +
+  'Write the number of questions the student asked for (default 3, at most 8). Match the authentic EJU style and level from the knowledge base: short scenario, concrete numbers with units, one clear thing asked, 4-6 choices where each wrong choice comes from a specific common mistake; ' +
+  'test what the student\'s own material says when they gave notes or a page. Escape backslashes as \\\\ inside the JSON. ' +
+  'If instead the student wants to be quizzed interactively (one question at a time, answering in the chat), ask the question in the reply and do not use the block.';
 
 export interface AskSummary {
   /** One or two sentences: the single idea to remember. */
@@ -440,11 +456,11 @@ export async function ask(args: {
   profile?: string[];
   model?: string;
   userKey?: string;
-}): Promise<{ text: string; keyPoints: KeyPointDTO[]; summary: AskSummary | null }> {
+}): Promise<{ text: string; keyPoints: KeyPointDTO[]; summary: AskSummary | null; questions: GenQuestion[] }> {
   const messages: any[] = args.messages
     .filter((m) => m && typeof m.content === 'string' && m.content.trim())
     .map((m) => ({ role: m.role === 'assistant' ? 'assistant' : 'user', content: m.content }));
-  if (!messages.length) return { text: '', keyPoints: [], summary: null };
+  if (!messages.length) return { text: '', keyPoints: [], summary: null, questions: [] };
 
   let imageCtx: string | undefined;
   const im = /^data:(image\/[a-zA-Z0-9.+-]+);base64,(.+)$/s.exec(args.imageDataUrl ?? '');
@@ -476,7 +492,7 @@ export async function ask(args: {
     'Subtopic ids you may use for "topicId" (id = name): ' +
     subtopicsFor(args.subject, 'en').map((s) => `${s.id} = ${s.name}`).join('; ') +
     '.';
-  const extra = [ctx, notesCtx, imageCtx, imageCtx ? profileCtx(args.profile) : undefined, formatDirective(args.subject), ASK_DIRECTIVE, ids]
+  const extra = [ctx, notesCtx, imageCtx, imageCtx ? profileCtx(args.profile) : undefined, formatDirective(args.subject), ASK_DIRECTIVE, ids, QUESTIONS_DIRECTIVE]
     .filter(Boolean)
     .join('\n\n');
 
@@ -484,12 +500,23 @@ export async function ask(args: {
 
   const si = raw.indexOf(SUMMARY_MARK);
   const ki = raw.indexOf(KEYPOINTS_MARK);
-  const cut = [si, ki].filter((i) => i >= 0);
+  const qi = raw.indexOf(QUESTIONS_MARK);
+  const cut = [si, ki, qi].filter((i) => i >= 0);
   const end = cut.length ? Math.min(...cut) : -1;
   const text = (end >= 0 ? raw.slice(0, end) : raw).trim();
 
   let summary: AskSummary | null = null;
-  if (si >= 0) summary = cleanSummary(extractJson<any>(raw.slice(si + SUMMARY_MARK.length), null));
+  if (si >= 0) {
+    const stop = qi > si ? qi : raw.length;
+    summary = cleanSummary(extractJson<any>(raw.slice(si + SUMMARY_MARK.length, stop), null));
+  }
+  let questions: GenQuestion[] = [];
+  if (qi >= 0) {
+    const stop = si > qi ? si : raw.length;
+    const parsed = extractJson<{ questions?: any[] }>(raw.slice(qi + QUESTIONS_MARK.length, stop), { questions: [] });
+    const known = summary?.topicId && subtopicsFor(args.subject, 'en').some((st) => st.id === summary!.topicId) ? summary.topicId : undefined;
+    questions = cleanQuestions(parsed.questions, known ? labelFor(args.subject, known, args.lang) : null, known);
+  }
 
   let keyPoints: KeyPointDTO[] = [];
   if (summary) {
@@ -497,7 +524,7 @@ export async function ask(args: {
   } else if (ki >= 0) {
     keyPoints = parseKeyPointLines(raw.slice(ki + KEYPOINTS_MARK.length));
   }
-  return { text: text || raw.trim(), keyPoints, summary };
+  return { text: text || raw.trim(), keyPoints, summary, questions };
 }
 
 // ─── Generate Questions ───
@@ -598,29 +625,40 @@ export async function generate(args: {
   );
 
   const parsed = extractJson<{ questions?: any[] }>(raw, { questions: [] });
+  return { questions: cleanQuestions(parsed.questions, tName, args.topic) };
+}
+
+/** Sanitise model-written questions into GenQuestion objects (shared by generate and ask). */
+function cleanQuestions(list: any, fallbackTopic: string | null | undefined, topicId?: string): GenQuestion[] {
   const stamp = Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
   const str = (v: any) => (typeof v === 'string' && v.trim() ? v.trim() : undefined);
-  const questions: GenQuestion[] = (parsed.questions ?? []).map((q: any, i: number) => {
-    const choices = Array.isArray(q.choices) && q.choices.length ? q.choices.map(String) : undefined;
-    const idx = Number.isInteger(q.answerIndex) ? q.answerIndex : -1;
-    const notes = Array.isArray(q.choiceNotes) && choices && q.choiceNotes.length === choices.length ? q.choiceNotes.map(String) : undefined;
-    return {
-      id: `${stamp}-${i}`,
-      topic: String(q.topic ?? tName ?? ''),
-      topicId: args.topic,
-      prompt: String(q.prompt ?? ''),
-      choices,
-      answerIndex: choices && idx >= 0 && idx < choices.length ? idx : -1,
-      answer: String(q.answer ?? ''),
-      explanation: String(q.explanation ?? ''),
-      hint: str(q.hint),
-      keyIdea: str(q.keyIdea),
-      choiceNotes: notes,
-      trap: str(q.trap),
-    };
-  }).filter((q) => q.prompt);
-  return { questions };
+  return (Array.isArray(list) ? list : [])
+    .map((q: any, i: number) => {
+      const choices = Array.isArray(q.choices) && q.choices.length ? q.choices.map(String) : undefined;
+      const idx = Number.isInteger(q.answerIndex) ? q.answerIndex : -1;
+      const notes = Array.isArray(q.choiceNotes) && choices && q.choiceNotes.length === choices.length ? q.choiceNotes.map(String) : undefined;
+      return {
+        id: `${stamp}-${i}`,
+        topic: String(q.topic ?? fallbackTopic ?? ''),
+        topicId,
+        prompt: String(q.prompt ?? ''),
+        choices,
+        answerIndex: choices && idx >= 0 && idx < choices.length ? idx : -1,
+        answer: String(q.answer ?? ''),
+        explanation: String(q.explanation ?? ''),
+        hint: str(q.hint),
+        keyIdea: str(q.keyIdea),
+        choiceNotes: notes,
+        trap: str(q.trap),
+      } as GenQuestion;
+    })
+    .filter((q: GenQuestion) => q.prompt)
+    .slice(0, 10);
 }
+
+const QUESTION_JSON_SCHEMA =
+  '{"questions":[{"topic":"<sub-topic name>","prompt":"...","choices":["..."],"answerIndex":<0-based index of the correct choice, or -1 if not multiple-choice>,' +
+  '"answer":"<correct answer in words>","hint":"...","keyIdea":"...","choiceNotes":["<one per choice, same order>"],"trap":"...","explanation":"<beginner-friendly worked solution in Markdown with LaTeX>"}]}';
 
 // ─── Check Work ───
 const ERROR_TAGS = ['units', 'sign', 'arithmetic', 'algebra', 'concept', 'formula', 'misread', 'incomplete', 'none'];

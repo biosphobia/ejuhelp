@@ -73,6 +73,8 @@ export interface AskResponse {
   text: string;
   keyPoints: KeyPointDTO[];
   summary?: AskSummary | null;
+  /** Practice questions the coach wrote on request (sent to the practice panel). */
+  questions?: GenQuestion[];
 }
 export const askClaude = (p: {
   subject: Subject;

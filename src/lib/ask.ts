@@ -7,6 +7,7 @@ import { useProgress, useKeyPoints } from './userdata';
 import { useBoard } from './board';
 import { exportPagePng } from '../whiteboard/export';
 import { profileTexts } from './profile';
+import { useGenerated } from './generated';
 
 /** Verdict metadata attached to the assistant message produced by "Check my work". */
 export interface CheckMeta {
@@ -20,6 +21,8 @@ export interface Message extends ChatMessage {
   attached?: boolean;
   /** Takeaway card (key idea, formulas, traps, next questions) for assistant replies. */
   summary?: AskSummary | null;
+  /** Number of practice questions this reply sent to the practice panel. */
+  questionsAdded?: number;
 }
 
 const CHECK_REQUEST: Record<Lang, string> = {
@@ -113,8 +116,13 @@ export const useAsk = create<AskState>((set, get) => ({
         profile: image ? profileTexts() : undefined,
       });
       const added = useKeyPoints.getState().addMany(subject, res.keyPoints ?? []);
+      const qs = (res.questions ?? []).map((q) => ({ ...q, source: q.source ?? 'Coach' }));
+      if (qs.length) useGenerated.getState().addQuestions(subject, qs);
       set((s) => ({
-        messages: trimMessages([...next, { role: 'assistant', content: res.text, summary: res.summary ?? null }]),
+        messages: trimMessages([
+          ...next,
+          { role: 'assistant', content: res.text, summary: res.summary ?? null, ...(qs.length ? { questionsAdded: qs.length } : {}) },
+        ]),
         rev: s.rev + 1,
         lastSaved: added,
       }));

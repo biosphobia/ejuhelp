@@ -142,6 +142,11 @@ export default function PeriodicTable({ onClose }: { onClose: () => void }) {
     openPanel('ask');
     void send(t('ptAskPrompt', { name: e.name[nameLang], sym: e.sym }));
   };
+  const quizElement = (e: ElementData) => {
+    onClose();
+    openPanel('ask');
+    void send(t('ptQuizPrompt', { name: e.name[nameLang], sym: e.sym }));
+  };
 
   const showTrend = (tr: Trend) => {
     if (tr.colorMode) setMode(tr.colorMode);
@@ -355,7 +360,7 @@ export default function PeriodicTable({ onClose }: { onClose: () => void }) {
               ref={detailRef}
               className="thin-scroll fixed inset-x-0 bottom-0 z-20 max-h-[62vh] overflow-y-auto rounded-t-2xl border-t border-slate-200 bg-white shadow-2xl lg:static lg:max-h-none lg:w-[400px] lg:shrink-0 lg:rounded-none lg:border-l lg:border-t-0 lg:shadow-none"
             >
-              <ElementDetail el={el} t={t} nameLang={nameLang} noteLang={noteLang} onClose={() => setSelected(null)} onAsk={() => askCoach(el)} />
+              <ElementDetail el={el} t={t} nameLang={nameLang} noteLang={noteLang} onClose={() => setSelected(null)} onAsk={() => askCoach(el)} onQuiz={() => quizElement(el)} />
             </div>
           ) : null}
         </div>
@@ -408,6 +413,7 @@ function ElementDetail({
   noteLang,
   onClose,
   onAsk,
+  onQuiz,
 }: {
   el: ElementData;
   t: TFunc;
@@ -415,6 +421,7 @@ function ElementDetail({
   noteLang: 'en' | 'ja';
   onClose: () => void;
   onAsk: () => void;
+  onQuiz: () => void;
 }) {
   const info = electronInfo(el.z);
   const cat = CAT_STYLE[el.cat];
@@ -506,13 +513,22 @@ function ElementDetail({
         )}
       </div>
 
-      <button
-        type="button"
-        onClick={onAsk}
-        className="mt-4 flex w-full items-center justify-center gap-2 rounded-xl bg-slate-900 px-4 py-2.5 text-sm font-semibold text-white hover:bg-slate-800"
-      >
-        <AskIcon className="h-4 w-4" /> {t('ptAskCoach')}
-      </button>
+      <div className="mt-4 flex gap-2">
+        <button
+          type="button"
+          onClick={onAsk}
+          className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-slate-900 px-4 py-2.5 text-sm font-semibold text-white hover:bg-slate-800"
+        >
+          <AskIcon className="h-4 w-4" /> {t('ptAskCoach')}
+        </button>
+        <button
+          type="button"
+          onClick={onQuiz}
+          className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-indigo-200 bg-indigo-50 px-4 py-2.5 text-sm font-semibold text-indigo-800 hover:bg-indigo-100"
+        >
+          ❓ {t('makeQuestions')}
+        </button>
+      </div>
     </div>
   );
 }

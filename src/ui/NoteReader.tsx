@@ -244,6 +244,13 @@ export default function NoteReader({
             </div>
             {note ? (
               <div className="mb-2 flex flex-wrap gap-1.5">
+                <button
+                  type="button"
+                  onClick={() => ask(t('questionsFromNotePrompt'))}
+                  className="rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1.5 text-left text-sm text-indigo-800 hover:bg-indigo-100"
+                >
+                  ❓ {t('makeQuestions')}
+                </button>
                 {note.followups[L].map((q, i) => (
                   <button
                     key={i}

@@ -5,6 +5,7 @@ import { ErrorNote, errorMessage } from '../atoms';
 import { SpinnerIcon, CheckIcon, TrashIcon } from '../icons';
 import { useAsk, type CheckMeta } from '../../lib/ask';
 import { usePractice } from '../../lib/practice';
+import { useUI } from '../../lib/ui';
 import { errorTagLabel } from '../../lib/labels';
 import type { AskSummary } from '../../lib/api';
 import { useT, type TFunc } from '../../i18n';
@@ -110,6 +111,7 @@ export default function AskPanel() {
   const reset = useAsk((s) => s.reset);
   const activeQuestion = usePractice((s) => s.activeQuestion);
   const setActiveQuestion = usePractice((s) => s.setActiveQuestion);
+  const openPanel = useUI((s) => s.openPanel);
 
   const [input, setInput] = useState('');
   const [checking, setChecking] = useState(false);
@@ -224,6 +226,9 @@ export default function AskPanel() {
                 <button type="button" onClick={() => sendWithPage(t('explainPagePrompt'))} className="rounded-full bg-white px-2.5 py-1 text-xs font-semibold text-indigo-800 ring-1 ring-indigo-200 hover:bg-indigo-100">
                   💡 {t('explainPage')}
                 </button>
+                <button type="button" onClick={() => sendWithPage(t('questionsFromPagePrompt'))} className="rounded-full bg-white px-2.5 py-1 text-xs font-semibold text-indigo-800 ring-1 ring-indigo-200 hover:bg-indigo-100">
+                  ❓ {t('makeQuestions')}
+                </button>
               </div>
             </div>
           ) : null}
@@ -306,6 +311,15 @@ export default function AskPanel() {
                 <>
                   {m.check ? <CheckVerdict meta={m.check} t={t} /> : null}
                   <Markdown text={m.content} />
+                  {m.questionsAdded ? (
+                    <button
+                      type="button"
+                      onClick={() => openPanel('generate')}
+                      className="mt-2 inline-flex items-center gap-1.5 rounded-xl bg-indigo-50 px-3 py-1.5 text-xs font-semibold text-indigo-800 ring-1 ring-indigo-100 hover:bg-indigo-100"
+                    >
+                      ✓ {t('questionsSent', { n: m.questionsAdded })} →
+                    </button>
+                  ) : null}
                   {m.summary ? (
                     <Takeaway s={m.summary} t={t} disabled={busy} onAsk={(q) => void send(q)} />
                   ) : null}
