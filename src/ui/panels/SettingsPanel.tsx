@@ -6,6 +6,7 @@ import { useT } from '../../i18n';
 import { GlobeIcon } from '../icons';
 import { useApiStore } from '../../lib/apiStore';
 import { useProfile } from '../../lib/profile';
+import Backups from '../Backups';
 import { TrashIcon } from '../icons';
 
 export default function SettingsPanel() {
@@ -136,6 +137,8 @@ export default function SettingsPanel() {
         <Label>{t('defaultSubject')}</Label>
         <SubjectChips />
       </div>
+
+      <Backups />
 
       <div className="mb-6">
         <div className="mb-1 flex items-center justify-between">

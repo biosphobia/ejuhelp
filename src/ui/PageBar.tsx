@@ -250,6 +250,12 @@ function PageList({ ids, currentId, onPick, t }: { ids: string[]; currentId: str
 
 function NotebookManager({ onClose, t }: { onClose: () => void; t: TFunc }) {
   const notebooks = useBoard((s) => s.notebooks);
+  const counts = useBoard((s) => {
+    const m: Record<string, number> = {};
+    for (const p of s.pages) if (p.strokes.length || p.texts?.length) m[notebookOf(p)] = (m[notebookOf(p)] ?? 0) + 1;
+    return JSON.stringify(m);
+  });
+  const countOf = (id: string) => (JSON.parse(counts) as Record<string, number>)[id] ?? 0;
   const addNotebook = useBoard((s) => s.addNotebook);
   const renameNotebook = useBoard((s) => s.renameNotebook);
   const moveNotebook = useBoard((s) => s.moveNotebook);
@@ -281,7 +287,7 @@ function NotebookManager({ onClose, t }: { onClose: () => void; t: TFunc }) {
                 className="min-w-0 flex-1 rounded-lg border border-slate-200 px-2 py-1 text-sm outline-none focus:border-slate-400"
               />
             )}
-            <span className="shrink-0 text-[10px] text-slate-400">{t(nb.subject)}</span>
+            <span className="shrink-0 text-[10px] text-slate-400">{t(nb.subject)} · {countOf(nb.id)}</span>
             <button type="button" title={t('movePageUp')} aria-label={t('movePageUp')} disabled={i === 0} onClick={() => moveNotebook(nb.id, -1)} className="grid h-7 w-6 place-items-center text-xs text-slate-500 hover:text-slate-900 disabled:opacity-20">
               ▲
             </button>

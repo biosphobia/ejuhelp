@@ -1,10 +1,14 @@
 import { collection, deleteDoc, doc, getDoc, getDocs, setDoc, writeBatch } from 'firebase/firestore';
-import { useBoard, notebookOf, type Page, type InkColor, type ShapeKind, type TextBlock, type NotebookMeta } from './board';
+import { useBoard, notebookOf, defaultNotebooks, type Page, type InkColor, type ShapeKind, type TextBlock, type NotebookMeta } from './board';
 import { useAuth } from './auth';
 import { useUI } from './ui';
 import { db } from './firebase';
 
 const LS_KEY = 'eju-board-v1';
+const LS_SNAPS = 'eju-board-snapshots';
+const LOCAL_SNAPS_KEEP = 3;
+const CLOUD_SNAPS_KEEP = 5;
+const AUTO_SNAPSHOT_MS = 20 * 3_600_000; // one automatic cloud snapshot a day
 
 // Compact wire format: points stored as [x, y, pressure] tuples to save space
 // (Firestore docs are capped at ~1MB; ink can be large).
@@ -38,7 +42,7 @@ const encode = (pages: Page[]): CPage[] => pages.map(encodePage);
 function decode(cps: CPage[]): Page[] {
   return cps.map((cp) => ({
     id: cp.id,
-    viewport: { scale: cp.v[0], x: cp.v[1], y: cp.v[2] },
+    viewport: { scale: cp.v?.[0] ?? 1, x: cp.v?.[1] ?? 0, y: cp.v?.[2] ?? 0 },
     strokes: (cp.st ?? []).map((cs) => ({
       id: cs.i,
       color: cs.c,
@@ -53,6 +57,10 @@ function decode(cps: CPage[]): Page[] {
   }));
 }
 
+const hasInk = (p: CPage) => (p.st?.length ?? 0) > 0 || (p.tx?.length ?? 0) > 0;
+const inkPages = (pages: CPage[]) => pages.filter(hasInk).length;
+
+// ─────────────────────────── local ───────────────────────────
 let localUpdatedAt = 0;
 
 function saveLocal() {
@@ -65,16 +73,98 @@ function saveLocal() {
   }
 }
 
-// ── Cloud layout (v2) ──
-// users/{uid}/board/main            → { v: 2, order: [pageId…], currentPageId, updatedAt }
+export interface BackupMeta {
+  id: string;
+  where: 'device' | 'cloud';
+  ts: number;
+  reason: string;
+  pages: number;
+}
+interface LocalSnap {
+  id: string;
+  ts: number;
+  reason: string;
+  pages: CPage[];
+  notebooks?: NotebookMeta[];
+}
+
+function readLocalSnaps(): LocalSnap[] {
+  try {
+    const raw = localStorage.getItem(LS_SNAPS);
+    const arr = raw ? (JSON.parse(raw) as LocalSnap[]) : [];
+    return Array.isArray(arr) ? arr : [];
+  } catch {
+    return [];
+  }
+}
+function writeLocalSnaps(snaps: LocalSnap[]) {
+  // Drop the oldest until it fits; a snapshot must never break normal saving.
+  for (let keep = snaps.length; keep >= 0; keep--) {
+    try {
+      localStorage.setItem(LS_SNAPS, JSON.stringify(snaps.slice(0, keep)));
+      return;
+    } catch {
+      /* too big, try fewer */
+    }
+  }
+}
+
+/** Keep a copy of the current pages on this device (newest first, capped). */
+function snapshotLocal(reason: string, pages?: CPage[], notebooks?: NotebookMeta[]) {
+  const st = useBoard.getState();
+  const p = pages ?? encode(st.pages);
+  if (!inkPages(p)) return;
+  const snap: LocalSnap = { id: `d${Date.now().toString(36)}`, ts: Date.now(), reason, pages: p, notebooks: notebooks ?? st.notebooks };
+  writeLocalSnaps([snap, ...readLocalSnaps()].slice(0, LOCAL_SNAPS_KEEP));
+}
+
+// ─────────────────────────── cloud ───────────────────────────
+// users/{uid}/board/main            → { v: 2, order: [pageId…], currentPageId, notebooks, updatedAt, snapshots: [...] }
 // users/{uid}/board/main/pages/{id} → one encoded page per doc
-// One doc per page keeps every write far below Firestore's 1 MB document cap, so
-// a big notebook can never make the whole board stop saving (the v1 single-doc
-// layout did exactly that, and a stale cloud copy then overwrote local notes on
-// the next sign-in).
+// users/{uid}/board/snap-{ts}       → { ts, reason, order, notebooks, count } with its own pages subcollection
+// One doc per page keeps every write far below Firestore's 1 MB document cap.
 const lastCloud = new Map<string, string>(); // pageId -> JSON last written
 let cloudBusy = false;
 let cloudDirty = false;
+let cloudSnapshots: BackupMeta[] = [];
+let lastAutoSnapshot = 0;
+
+async function writePages(colRef: ReturnType<typeof collection>, pages: CPage[], skipUnchanged: boolean) {
+  let batch = writeBatch(db!);
+  let n = 0;
+  const flush = async () => {
+    if (n) await batch.commit();
+    batch = writeBatch(db!);
+    n = 0;
+  };
+  for (const enc of pages) {
+    const json = JSON.stringify(enc);
+    if (skipUnchanged && lastCloud.get(enc.id) === json) continue;
+    if (json.length > 950_000) {
+      console.warn(`[persistence] page ${enc.id} is too large for the cloud (${json.length} bytes); kept locally only`);
+      continue;
+    }
+    batch.set(doc(colRef, enc.id), enc);
+    if (skipUnchanged) lastCloud.set(enc.id, json);
+    if (++n >= 20) await flush();
+  }
+  await flush();
+}
+
+async function deleteCollection(colRef: ReturnType<typeof collection>) {
+  const qs = await getDocs(colRef);
+  let batch = writeBatch(db!);
+  let n = 0;
+  for (const d of qs.docs) {
+    batch.delete(d.ref);
+    if (++n >= 20) {
+      await batch.commit();
+      batch = writeBatch(db!);
+      n = 0;
+    }
+  }
+  if (n) await batch.commit();
+}
 
 async function saveCloud() {
   const { user } = useAuth.getState();
@@ -88,37 +178,27 @@ async function saveCloud() {
     const { pages, currentPageId, notebooks } = useBoard.getState();
     const mainRef = doc(db, 'users', user.uid, 'board', 'main');
     const pagesCol = collection(mainRef, 'pages');
-    let batch = writeBatch(db);
-    let n = 0;
-    const flush = async () => {
-      if (n) await batch.commit();
-      batch = writeBatch(db!);
-      n = 0;
-    };
-    const ids = new Set<string>();
-    for (const pg of pages) {
-      ids.add(pg.id);
-      const enc = encodePage(pg);
-      const json = JSON.stringify(enc);
-      if (lastCloud.get(pg.id) === json) continue;
-      if (json.length > 950_000) {
-        console.warn(`[persistence] page ${pg.id} is too large for the cloud (${json.length} bytes); kept locally only`);
-        continue;
-      }
-      batch.set(doc(pagesCol, pg.id), enc);
-      lastCloud.set(pg.id, json);
-      if (++n >= 20) await flush();
-    }
+    const enc = encode(pages);
+    await writePages(pagesCol, enc, true);
+    const ids = new Set(pages.map((p) => p.id));
     for (const id of [...lastCloud.keys()]) {
       if (!ids.has(id)) {
-        batch.delete(doc(pagesCol, id));
+        await deleteDoc(doc(pagesCol, id));
         lastCloud.delete(id);
-        if (++n >= 20) await flush();
       }
     }
-    batch.set(mainRef, { v: 2, order: pages.map((p) => p.id), currentPageId, notebooks, updatedAt: localUpdatedAt || Date.now() });
-    n++;
-    await flush();
+    await setDoc(mainRef, {
+      v: 2,
+      order: pages.map((p) => p.id),
+      currentPageId,
+      notebooks,
+      updatedAt: localUpdatedAt || Date.now(),
+      snapshots: cloudSnapshots,
+    });
+    if (Date.now() - lastAutoSnapshot > AUTO_SNAPSHOT_MS && inkPages(enc)) {
+      lastAutoSnapshot = Date.now();
+      await snapshotCloud('auto', enc, notebooks);
+    }
   } catch (e) {
     console.warn('[persistence] cloud save failed', e);
   } finally {
@@ -130,12 +210,48 @@ async function saveCloud() {
   }
 }
 
+/** Copy the given pages into a cloud snapshot; prune old ones. */
+async function snapshotCloud(reason: string, pages: CPage[], notebooks: NotebookMeta[]) {
+  const { user } = useAuth.getState();
+  if (!user || !db || !inkPages(pages)) return;
+  const ts = Date.now();
+  const id = `snap-${ts.toString(36)}`;
+  const ref = doc(db, 'users', user.uid, 'board', id);
+  try {
+    await writePages(collection(ref, 'pages'), pages, false);
+    await setDoc(ref, { ts, reason, order: pages.map((p) => p.id), notebooks, count: inkPages(pages) });
+    cloudSnapshots = [{ id, where: 'cloud' as const, ts, reason, pages: inkPages(pages) }, ...cloudSnapshots].slice(0, CLOUD_SNAPS_KEEP + 5);
+    const extra = cloudSnapshots.slice(CLOUD_SNAPS_KEEP);
+    cloudSnapshots = cloudSnapshots.slice(0, CLOUD_SNAPS_KEEP);
+    for (const s of extra) {
+      const old = doc(db, 'users', user.uid, 'board', s.id);
+      await deleteCollection(collection(old, 'pages'));
+      await deleteDoc(old);
+    }
+    await setDoc(doc(db, 'users', user.uid, 'board', 'main'), { snapshots: cloudSnapshots }, { merge: true });
+  } catch (e) {
+    console.warn('[persistence] cloud snapshot failed', e);
+  }
+}
+
+interface CloudBoard {
+  pages: CPage[];
+  currentPageId?: string;
+  notebooks?: NotebookMeta[];
+  updatedAt: number;
+  legacy: boolean;
+}
+
 /** Read the cloud board in either layout. Returns null when there is none. */
-async function loadCloud(uid: string): Promise<{ pages: CPage[]; currentPageId?: string; notebooks?: NotebookMeta[]; updatedAt: number } | null> {
+async function loadCloud(uid: string): Promise<CloudBoard | null> {
   const mainRef = doc(db!, 'users', uid, 'board', 'main');
   const snap = await getDoc(mainRef);
-  const data = snap.data() as { v?: number; order?: string[]; pages?: CPage[]; currentPageId?: string; notebooks?: NotebookMeta[]; updatedAt?: number } | undefined;
+  const data = snap.data() as
+    | { v?: number; order?: string[]; pages?: CPage[]; currentPageId?: string; notebooks?: NotebookMeta[]; updatedAt?: number; snapshots?: BackupMeta[] }
+    | undefined;
   if (!data) return null;
+  if (Array.isArray(data.snapshots)) cloudSnapshots = data.snapshots.filter((s) => s && typeof s.id === 'string');
+  if (cloudSnapshots.length) lastAutoSnapshot = Math.max(...cloudSnapshots.map((s) => s.ts));
   if (data.v === 2) {
     const qs = await getDocs(collection(mainRef, 'pages'));
     const byId = new Map<string, CPage>();
@@ -144,12 +260,107 @@ async function loadCloud(uid: string): Promise<{ pages: CPage[]; currentPageId?:
     const pages = order.map((id) => byId.get(id)).filter((p): p is CPage => Boolean(p));
     for (const [id, p] of byId) if (!order.includes(id)) pages.push(p); // pages the order list missed
     for (const p of pages) lastCloud.set(p.id, JSON.stringify(p));
-    return { pages, currentPageId: data.currentPageId, notebooks: data.notebooks, updatedAt: data.updatedAt ?? 0 };
+    return { pages, currentPageId: data.currentPageId, notebooks: data.notebooks, updatedAt: data.updatedAt ?? 0, legacy: false };
   }
-  if (data.pages?.length) return { pages: data.pages, currentPageId: data.currentPageId, updatedAt: data.updatedAt ?? 0 };
+  if (data.pages?.length) return { pages: data.pages, currentPageId: data.currentPageId, updatedAt: data.updatedAt ?? 0, legacy: true };
   return null;
 }
 
+/**
+ * Union of two page sets by id. A page on only one side is always kept; a page on
+ * both sides takes the newer side's version. Nothing is ever dropped.
+ */
+function mergePages(local: CPage[], cloud: CPage[], cloudNewer: boolean): CPage[] {
+  const base = cloudNewer ? cloud : local;
+  const other = cloudNewer ? local : cloud;
+  const seen = new Set(base.map((p) => p.id));
+  const out = [...base];
+  for (const p of other) if (!seen.has(p.id)) out.push(p);
+  return out;
+}
+
+function mergeNotebooks(a?: NotebookMeta[], b?: NotebookMeta[]): NotebookMeta[] {
+  const out = [...(a ?? defaultNotebooks())];
+  const ids = new Set(out.map((n) => n.id));
+  for (const n of b ?? []) if (!ids.has(n.id)) out.push(n);
+  return out;
+}
+
+// ─────────────────────────── backups API (Settings panel) ───────────────────────────
+export function listBackups(): BackupMeta[] {
+  const local: BackupMeta[] = readLocalSnaps().map((s) => ({ id: s.id, where: 'device', ts: s.ts, reason: s.reason, pages: inkPages(s.pages) }));
+  return [...local, ...cloudSnapshots].sort((a, b) => b.ts - a.ts);
+}
+
+/** Save a snapshot now, on the device and (when signed in) in the cloud. */
+export async function backupNow(): Promise<void> {
+  const st = useBoard.getState();
+  const enc = encode(st.pages);
+  snapshotLocal('manual', enc, st.notebooks);
+  await snapshotCloud('manual', enc, st.notebooks);
+}
+
+/** Bring a backup back: 'merge' adds the pages that are missing now (never removes
+ *  anything); 'replace' swaps the whole board for the backup (a snapshot of the
+ *  current board is taken first, so this is reversible). */
+export async function restoreBackup(id: string, mode: 'merge' | 'replace'): Promise<number> {
+  let pages: CPage[] | null = null;
+  let notebooks: NotebookMeta[] | undefined;
+  const local = readLocalSnaps().find((s) => s.id === id);
+  if (local) {
+    pages = local.pages;
+    notebooks = local.notebooks;
+  } else {
+    const { user } = useAuth.getState();
+    if (!user || !db) throw new Error('backup_unavailable');
+    const ref = doc(db, 'users', user.uid, 'board', id);
+    const meta = (await getDoc(ref)).data() as { order?: string[]; notebooks?: NotebookMeta[] } | undefined;
+    const qs = await getDocs(collection(ref, 'pages'));
+    const byId = new Map<string, CPage>();
+    qs.forEach((d) => byId.set(d.id, d.data() as CPage));
+    pages = (meta?.order ?? [...byId.keys()]).map((pid) => byId.get(pid)).filter((p): p is CPage => Boolean(p));
+    for (const [pid, p] of byId) if (!pages.some((x) => x.id === pid)) pages.push(p);
+    notebooks = meta?.notebooks;
+  }
+  if (!pages) throw new Error('backup_unavailable');
+  const st = useBoard.getState();
+  const current = encode(st.pages);
+  snapshotLocal('before-restore', current, st.notebooks);
+  const merged = mode === 'replace' ? mergePages(pages, current.filter((p) => !hasInk(p)), true) : mergePages(current, pages, false);
+  const added = merged.length - (mode === 'replace' ? 0 : current.length);
+  st.setNotebooks(mergeNotebooks(st.notebooks, notebooks));
+  st.loadPages(decode(merged), st.currentPageId, useUI.getState().subject);
+  st.setNotebooks(useBoard.getState().notebooks);
+  st.setNotebook(useUI.getState().subject);
+  saveLocal();
+  void saveCloud();
+  return Math.max(0, added);
+}
+
+/** Everything as one JSON file the student can keep anywhere. */
+export function exportBoardJson(): string {
+  const st = useBoard.getState();
+  return JSON.stringify({ app: 'ejuhelp', v: 2, exportedAt: Date.now(), pages: encode(st.pages), notebooks: st.notebooks }, null, 0);
+}
+
+/** Merge a JSON file produced by exportBoardJson (or the raw localStorage format). */
+export function importBoardJson(text: string): number {
+  const raw = JSON.parse(text) as { pages?: CPage[]; notebooks?: NotebookMeta[] };
+  if (!Array.isArray(raw.pages)) throw new Error('bad_backup_file');
+  const st = useBoard.getState();
+  const current = encode(st.pages);
+  snapshotLocal('before-import', current, st.notebooks);
+  const merged = mergePages(current, raw.pages, false);
+  st.setNotebooks(mergeNotebooks(st.notebooks, raw.notebooks));
+  st.loadPages(decode(merged), st.currentPageId, useUI.getState().subject);
+  st.setNotebooks(useBoard.getState().notebooks);
+  st.setNotebook(useUI.getState().subject);
+  saveLocal();
+  void saveCloud();
+  return merged.length - current.length;
+}
+
+// ─────────────────────────── startup ───────────────────────────
 let saveTimer: ReturnType<typeof setTimeout> | undefined;
 let lastSavedRev = -1;
 
@@ -192,25 +403,34 @@ export function initPersistence() {
     }, 1200);
   });
 
-  // 3) on sign-in, merge with the cloud board: whichever copy was written last
-  //    wins, and the other side is brought up to date.
+  // 3) on sign-in, MERGE with the cloud board. Pages are joined by id, so a page
+  //    that exists on only one side is always kept; the newer side wins for pages
+  //    on both. A device snapshot is taken first, so nothing is ever lost silently.
   useAuth.subscribe((st, prev) => {
     if (st.user && st.user !== prev.user && db) {
       void (async () => {
         try {
           const cloud = await loadCloud(st.user!.uid);
-          const localHasInk = useBoard.getState().pages.some((p) => p.strokes.length);
-          if (cloud && (cloud.updatedAt >= localUpdatedAt || !localHasInk)) {
-            if (cloud.notebooks) useBoard.getState().setNotebooks(cloud.notebooks);
-            useBoard.getState().loadPages(decode(cloud.pages), cloud.currentPageId, useUI.getState().subject);
-            useBoard.getState().setNotebooks(useBoard.getState().notebooks);
-            useBoard.getState().setNotebook(useUI.getState().subject);
-            localUpdatedAt = cloud.updatedAt;
-            saveLocal();
-            if (cloud.updatedAt === 0) void saveCloud(); // legacy single-doc layout → migrate to v2
-          } else {
+          const board = useBoard.getState();
+          const local = encode(board.pages);
+          if (!cloud) {
             void saveCloud();
+            return;
           }
+          const cloudNewer = cloud.updatedAt > localUpdatedAt;
+          const merged = mergePages(local, cloud.pages, cloudNewer);
+          const changed = JSON.stringify(merged) !== JSON.stringify(local);
+          if (changed) {
+            snapshotLocal('before-cloud-merge', local, board.notebooks);
+            board.setNotebooks(mergeNotebooks(cloudNewer ? cloud.notebooks : board.notebooks, cloudNewer ? board.notebooks : cloud.notebooks));
+            board.loadPages(decode(merged), board.currentPageId, useUI.getState().subject);
+            board.setNotebooks(useBoard.getState().notebooks);
+            board.setNotebook(useUI.getState().subject);
+            saveLocal();
+          }
+          // Legacy single-doc board: keep a cloud snapshot of it before migrating.
+          if (cloud.legacy) await snapshotCloud('legacy-board', cloud.pages, board.notebooks);
+          void saveCloud();
         } catch (e) {
           console.warn('[persistence] cloud hydrate failed', e);
         }
