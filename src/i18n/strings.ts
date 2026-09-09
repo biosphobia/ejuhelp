@@ -604,6 +604,15 @@ export const strings = {
     zh: '出 5 道关于化学颜色（{topic}：焰色反应、离子和沉淀的颜色、配离子、指示剂）的 EJU 风格题目，并发送到练习题面板。',
     tr: 'Kimyadaki renkler ({topic}: alev testleri, iyon ve çökelti renkleri, kompleks iyonlar, indikatörler) hakkında 5 EJU tarzı soru yap ve alıştırma paneline gönder.',
   },
+  ptTabCompounds: { en: 'Compounds', ja: '化合物', zh: '化合物', tr: 'Bileşikler' },
+  ptAllCompounds: { en: 'All compounds', ja: 'すべての化合物', zh: '全部化合物', tr: 'Tüm bileşikler' },
+  search: { en: 'Search', ja: '検索', zh: '搜索', tr: 'Ara' },
+  ptCompoundQuizPrompt: {
+    en: 'Make 5 EJU-style questions about must-know compounds ({topic}: preparation, properties, reactions, uses) and send them to the practice panel.',
+    ja: '重要化合物（{topic}：製法・性質・反応・用途）についてEJU形式の問題を5問作って、練習問題パネルに送ってください。',
+    zh: '出 5 道关于必背化合物（{topic}：制法、性质、反应、用途）的 EJU 风格题目，并发送到练习题面板。',
+    tr: 'Bilinmesi gereken bileşikler ({topic}: eldesi, özellikleri, tepkimeleri, kullanımı) hakkında 5 EJU tarzı soru yap ve alıştırma paneline gönder.',
+  },
 } as const;
 
 export type StringKey = keyof typeof strings;

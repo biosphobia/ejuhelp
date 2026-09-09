@@ -5,13 +5,14 @@ import { CloseIcon, AskIcon, ChevronLeft } from './icons';
 import { ELEMENTS, byZ, isKeyElement, type Category, type ElementData, type ElementState } from '../data/elements';
 import { TRENDS, TRAPS, type Trend } from '../data/periodicTrends';
 import { COLOR_SECTIONS } from '../data/colors';
+import { COMPOUND_SECTIONS } from '../data/compounds';
 import { electronInfo } from '../lib/electrons';
 import { useUI } from '../lib/ui';
 import { useAsk } from '../lib/ask';
 import { useT, type StringKey, type TFunc } from '../i18n';
 
 type ColorMode = 'category' | 'en' | 'state' | 'block' | 'key';
-type Tab = 'table' | 'trends' | 'colors';
+type Tab = 'table' | 'trends' | 'colors' | 'compounds';
 
 // Light backgrounds + dark text so every cell keeps readable contrast.
 const CAT_STYLE: Record<Category, { bg: string; text: string; key: StringKey }> = {
@@ -252,7 +253,7 @@ export default function PeriodicTable({ onClose }: { onClose: () => void }) {
         </button>
         <h2 className="text-base font-semibold text-slate-900">{t('periodicTable')}</h2>
         <div className="ml-auto flex items-center gap-1 rounded-xl bg-slate-100 p-1" role="tablist">
-          {(['table', 'trends', 'colors'] as Tab[]).map((id) => (
+          {(['table', 'trends', 'colors', 'compounds'] as Tab[]).map((id) => (
             <button
               key={id}
               type="button"
@@ -263,7 +264,7 @@ export default function PeriodicTable({ onClose }: { onClose: () => void }) {
                 tab === id ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-600 hover:text-slate-900'
               }`}
             >
-              {id === 'table' ? t('ptTabTable') : id === 'trends' ? t('ptTabTrends') : t('ptTabColors')}
+              {id === 'table' ? t('ptTabTable') : id === 'trends' ? t('ptTabTrends') : id === 'colors' ? t('ptTabColors') : t('ptTabCompounds')}
             </button>
           ))}
         </div>
@@ -367,6 +368,8 @@ export default function PeriodicTable({ onClose }: { onClose: () => void }) {
         </div>
       ) : tab === 'colors' ? (
         <ColorTable t={t} lang={noteLang} onQuiz={(topic) => { onClose(); openPanel('ask'); void send(t('ptColorQuizPrompt', { topic })); }} />
+      ) : tab === 'compounds' ? (
+        <CompoundTable t={t} lang={noteLang} onQuiz={(topic) => { onClose(); openPanel('ask'); void send(t('ptCompoundQuizPrompt', { topic })); }} />
       ) : (
         <div className="thin-scroll min-h-0 flex-1 overflow-y-auto px-3 py-3 sm:px-6">
           <div className="mx-auto max-w-3xl space-y-4">
@@ -715,6 +718,108 @@ function ColorTable({ t, lang, onQuiz }: { t: TFunc; lang: 'en' | 'ja'; onQuiz: 
                       <span className={`block text-sm font-medium ${hidden ? 'text-slate-300' : 'text-slate-800'}`}>{hidden ? '·····' : e.color[lang]}</span>
                       {!hidden && e.note ? <span className="block text-xs text-slate-500">{e.note[lang]}</span> : null}
                     </span>
+                  </button>
+                );
+              })}
+            </div>
+          </section>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+/** Must-know compounds with a self-test mode: hide the facts, tap a card to reveal. */
+function CompoundTable({ t, lang, onQuiz }: { t: TFunc; lang: 'en' | 'ja'; onQuiz: (topic: string) => void }) {
+  const [test, setTest] = useState(false);
+  const [shown, setShown] = useState<Set<string>>(new Set());
+  const [section, setSection] = useState<string>('all');
+  const [q, setQ] = useState('');
+  const toggle = (k: string) =>
+    setShown((s) => {
+      const n = new Set(s);
+      if (n.has(k)) n.delete(k);
+      else n.add(k);
+      return n;
+    });
+  const needle = q.trim().toLowerCase();
+  const sections = (section === 'all' ? COMPOUND_SECTIONS : COMPOUND_SECTIONS.filter((s) => s.id === section))
+    .map((s) => ({
+      ...s,
+      entries: needle
+        ? s.entries.filter((e) => `${e.formula} ${e.name.en} ${e.name.ja}`.toLowerCase().includes(needle))
+        : s.entries,
+    }))
+    .filter((s) => s.entries.length);
+  return (
+    <div className="thin-scroll min-h-0 flex-1 overflow-y-auto px-3 py-3 sm:px-6">
+      <div className="mx-auto max-w-3xl">
+        <div className="mb-3 flex flex-wrap items-center gap-1.5">
+          <select value={section} onChange={(e) => setSection(e.target.value)} aria-label={t('topic')} className="rounded-xl border border-slate-200 bg-white px-2 py-1.5 text-sm">
+            <option value="all">{t('ptAllCompounds')}</option>
+            {COMPOUND_SECTIONS.map((s) => (
+              <option key={s.id} value={s.id}>
+                {s.title[lang]}
+              </option>
+            ))}
+          </select>
+          <input
+            value={q}
+            onChange={(e) => setQ(e.target.value)}
+            placeholder={t('search')}
+            aria-label={t('search')}
+            className="w-36 rounded-xl border border-slate-200 px-2 py-1.5 text-sm outline-none focus:border-slate-400"
+          />
+          <button
+            type="button"
+            aria-pressed={test}
+            onClick={() => {
+              setTest((v) => !v);
+              setShown(new Set());
+            }}
+            className={`rounded-xl px-3 py-1.5 text-sm font-medium ${test ? 'bg-slate-900 text-white' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'}`}
+          >
+            {t('ptTestMe')}
+          </button>
+          <button
+            type="button"
+            onClick={() => onQuiz(sections.map((s) => s.title.en).join(', '))}
+            className="rounded-xl border border-indigo-200 bg-indigo-50 px-3 py-1.5 text-sm font-medium text-indigo-800 hover:bg-indigo-100"
+          >
+            ❓ {t('makeQuestions')}
+          </button>
+        </div>
+        {sections.map((sec) => (
+          <section key={sec.id} className="mb-5">
+            <h3 className="mb-1.5 text-sm font-semibold text-slate-900">{sec.title[lang]}</h3>
+            <div className="grid gap-2 sm:grid-cols-2">
+              {sec.entries.map((e) => {
+                const k = `${sec.id}:${e.formula}`;
+                const hidden = test && !shown.has(k);
+                return (
+                  <button
+                    key={k}
+                    type="button"
+                    onClick={() => test && toggle(k)}
+                    className={`rounded-2xl border border-slate-200 p-3 text-left ${test ? 'hover:border-slate-400' : 'cursor-default'}`}
+                  >
+                    <div className="text-base font-bold text-slate-900">{e.formula}</div>
+                    <div className="text-xs text-slate-500">{e.name[lang]}</div>
+                    {hidden ? (
+                      <div className="mt-2 text-sm text-slate-300">·····</div>
+                    ) : (
+                      <>
+                        <div className="mt-1.5 text-xs font-medium text-slate-600">{e.look[lang]}</div>
+                        <ul className="mt-1.5 space-y-1 text-sm text-slate-800">
+                          {e.facts[lang].map((f, i) => (
+                            <li key={i} className="flex gap-1.5">
+                              <span className="text-slate-400">•</span>
+                              <span className="min-w-0 flex-1">{f}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </>
+                    )}
                   </button>
                 );
               })}
