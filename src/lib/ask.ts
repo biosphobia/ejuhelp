@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { askClaude, checkWork, EmptyBoardError, type ChatMessage, type AskSummary } from './api';
+import { askClaude, checkWork, EmptyBoardError, type ChatMessage, type AskSummary, type AskResponse } from './api';
 import { useUI, type Lang } from './ui';
 import { usePractice } from './practice';
 import { useAnswers } from './answers';
@@ -56,8 +56,19 @@ function trimMessages(msgs: Message[]): Message[] {
   return out;
 }
 
+/** A request that was sent but whose answer has not arrived yet. */
+export interface PendingAsk {
+  jobId: string;
+  /** The question, so it can be re-sent if the server forgot the job. */
+  text: string;
+  notes?: string;
+  ts: number;
+}
+
 interface AskState {
   messages: Message[];
+  /** Survives a reload: the answer is picked up when the app comes back. */
+  pending: PendingAsk | null;
   /** Bumped whenever `messages` change; drives local + cloud autosave. */
   rev: number;
   busy: boolean;
@@ -70,25 +81,68 @@ interface AskState {
   /** Wipe the conversation (locally and in the cloud). */
   reset: () => void;
   /** Replace the conversation from a saved copy (localStorage / Firestore). */
-  load: (messages: Message[]) => void;
+  load: (messages: Message[], pending?: PendingAsk | null) => void;
+  /** Pick up an answer whose request was interrupted (device slept, app closed). */
+  resume: () => Promise<void>;
+}
+
+type SetFn = (fn: (s: AskState) => Partial<AskState>) => void;
+
+/** Append the coach's reply, save its key points and hand any questions to the practice panel. */
+function applyAnswer(set: any, get: () => AskState, res: AskResponse, subject: ReturnType<typeof useUI.getState>['subject']) {
+  const added = useKeyPoints.getState().addMany(subject, res.keyPoints ?? []);
+  const qs = (res.questions ?? []).map((q) => ({ ...q, source: q.source ?? 'Coach' }));
+  if (qs.length) useGenerated.getState().addQuestions(subject, qs);
+  set((s: AskState) => ({
+    messages: trimMessages([
+      ...s.messages,
+      { role: 'assistant', content: res.text, summary: res.summary ?? null, ...(qs.length ? { questionsAdded: qs.length } : {}) },
+    ]),
+    rev: s.rev + 1,
+    lastSaved: added,
+  }));
 }
 
 export const useAsk = create<AskState>((set, get) => ({
   messages: [],
+  pending: null,
   rev: 0,
   busy: false,
   error: null,
   lastSaved: 0,
   lastAutoAnswered: false,
   reset: () =>
-    set((s) => ({ messages: [], rev: s.rev + 1, error: null, lastSaved: 0, lastAutoAnswered: false })),
-  load: (messages) =>
+    set((s) => ({ messages: [], pending: null, rev: s.rev + 1, error: null, lastSaved: 0, lastAutoAnswered: false })),
+  load: (messages, pending) =>
     set((s) => ({
       messages: Array.isArray(messages)
         ? trimMessages(messages.filter((m) => m && typeof m.content === 'string' && (m.role === 'user' || m.role === 'assistant')))
         : [],
+      pending: pending && typeof pending.jobId === 'string' ? pending : s.pending,
       rev: s.rev + 1,
     })),
+  resume: async () => {
+    const p = get().pending;
+    if (!p || get().busy) return;
+    // Older than the server keeps answers: nothing to pick up.
+    if (Date.now() - p.ts > 40 * 60_000) {
+      set((s) => ({ pending: null, rev: s.rev + 1 }));
+      return;
+    }
+    const { subject, lang } = useUI.getState();
+    set({ busy: true, error: null });
+    try {
+      const res = await askClaude(
+        { subject, lang, messages: get().messages.map(({ role, content }) => ({ role, content })), notes: p.notes },
+        { jobId: p.jobId }
+      );
+      applyAnswer(set, get, res, subject);
+    } catch (e) {
+      set({ error: e });
+    } finally {
+      set((s) => ({ busy: false, pending: null, rev: s.rev + 1 }));
+    }
+  },
   send: async (text, opts) => {
     const t = text.trim();
     if (!t || get().busy) return;
@@ -106,30 +160,27 @@ export const useAsk = create<AskState>((set, get) => ({
     const next: Message[] = trimMessages([...get().messages, { role: 'user', content: t, ...(image ? { attached: true } : {}) }]);
     set((s) => ({ messages: next, rev: s.rev + 1, busy: true, error: null, lastSaved: 0, lastAutoAnswered: false }));
     try {
-      const res = await askClaude({
-        subject,
-        lang,
-        messages: next.map(({ role, content }) => ({ role, content })),
-        context: activeQuestion ?? undefined,
-        notes: opts?.notes,
-        imageDataUrl: image,
-        profile: image ? profileTexts() : undefined,
-      });
-      const added = useKeyPoints.getState().addMany(subject, res.keyPoints ?? []);
-      const qs = (res.questions ?? []).map((q) => ({ ...q, source: q.source ?? 'Coach' }));
-      if (qs.length) useGenerated.getState().addQuestions(subject, qs);
-      set((s) => ({
-        messages: trimMessages([
-          ...next,
-          { role: 'assistant', content: res.text, summary: res.summary ?? null, ...(qs.length ? { questionsAdded: qs.length } : {}) },
-        ]),
-        rev: s.rev + 1,
-        lastSaved: added,
-      }));
+      const res = await askClaude(
+        {
+          subject,
+          lang,
+          messages: next.map(({ role, content }) => ({ role, content })),
+          context: activeQuestion ?? undefined,
+          notes: opts?.notes,
+          imageDataUrl: image,
+          profile: image ? profileTexts() : undefined,
+        },
+        {
+          // Saved before the request goes out, so even a crash right now can recover.
+          onJob: (jobId) =>
+            set((s) => ({ pending: { jobId, text: t, notes: opts?.notes, ts: Date.now() }, rev: s.rev + 1 })),
+        }
+      );
+      applyAnswer(set, get, res, subject);
     } catch (e) {
       set({ error: e });
     } finally {
-      set({ busy: false });
+      set((s) => ({ busy: false, pending: null, rev: s.rev + 1 }));
     }
   },
   check: async () => {

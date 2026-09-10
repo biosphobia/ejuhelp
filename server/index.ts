@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { existsSync } from 'node:fs';
 import { requireAuth } from './auth';
+import { startJob, getJob, awaitJob } from './jobs';
 import { topicsFor, subtopicsFor, mockExamList, mockExam, pastQuestionsFor, SUBJECTS, type Subject } from './eju';
 import { hasApiKey, ask, generate, check, keypoints, tidy } from './claude';
 
@@ -61,6 +62,26 @@ app.post('/api/eju/past', (req: Request, res: Response) => {
   res.json({ questions: pastQuestionsFor(subject, topic, toLang(lang), Number(limit) || 10) });
 });
 
+// How long one HTTP request may wait for the model before we answer "still working".
+const WAIT_MS = 55_000;
+
+/**
+ * Run `fn` under the caller's job id so a dropped connection never loses the answer:
+ * re-sending the same request returns the same job, and the finished result stays
+ * available for the client to pick up after the device wakes.
+ */
+async function respondWithJob(req: Request, res: Response, fn: () => Promise<unknown>) {
+  const jobId = typeof req.body?.jobId === 'string' && req.body.jobId.length <= 100 ? req.body.jobId : null;
+  if (!jobId) {
+    res.json(await fn());
+    return;
+  }
+  const out = await awaitJob(startJob(jobId, fn), WAIT_MS);
+  if (out.status === 'pending') return res.status(202).json({ pending: true, jobId });
+  if (out.status === 'error') throw out.error;
+  res.json(out.result);
+}
+
 const cleanProfile = (v: unknown): string[] | undefined =>
   Array.isArray(v) ? v.filter((x) => typeof x === 'string' && x.trim()).map((x) => String(x).slice(0, 200)).slice(0, 40) : undefined;
 
@@ -77,18 +98,19 @@ app.post('/api/claude/ask', requireAuth, async (req: Request, res: Response) => 
     const { model, userKey } = getAiContext(req);
     if (!isSubject(subject)) return res.status(400).json({ error: 'bad_subject' });
 
-    const result = await ask({
-      subject,
-      lang: toLang(lang),
-      messages: Array.isArray(messages) ? messages : [],
-      context: typeof context === 'string' ? context : undefined,
-      notes: typeof notes === 'string' ? notes.slice(0, 12000) : undefined,
-      imageDataUrl: typeof imageDataUrl === 'string' && imageDataUrl.startsWith('data:image/') ? imageDataUrl : undefined,
-      profile: cleanProfile(profile),
-      model,
-      userKey
-    });
-    res.json(result);
+    await respondWithJob(req, res, () =>
+      ask({
+        subject,
+        lang: toLang(lang),
+        messages: Array.isArray(messages) ? messages : [],
+        context: typeof context === 'string' ? context : undefined,
+        notes: typeof notes === 'string' ? notes.slice(0, 12000) : undefined,
+        imageDataUrl: typeof imageDataUrl === 'string' && imageDataUrl.startsWith('data:image/') ? imageDataUrl : undefined,
+        profile: cleanProfile(profile),
+        model,
+        userKey,
+      })
+    );
   } catch (e) {
     handleErr(e, res);
   }
@@ -107,22 +129,23 @@ app.post('/api/claude/generate', requireAuth, async (req: Request, res: Response
           }
         : undefined;
 
-    const result = await generate({
-      subject,
-      lang: toLang(lang),
-      topic: typeof topic === 'string' && topic ? topic : undefined,
-      difficulty: difficulty === 'easy' || difficulty === 'hard' ? difficulty : 'medium',
-      count: Number(count) || 3,
-      focus: cleanFocus,
-      similarTo:
-        similarTo && typeof similarTo === 'object' && typeof similarTo.prompt === 'string' && similarTo.prompt.trim()
-          ? { prompt: similarTo.prompt.slice(0, 4000), answer: typeof similarTo.answer === 'string' ? similarTo.answer.slice(0, 500) : undefined }
-          : undefined,
-      noteCore: typeof noteCore === 'string' && noteCore.trim() ? noteCore.slice(0, 3000) : undefined,
-      model,
-      userKey
-    });
-    res.json(result);
+    await respondWithJob(req, res, () =>
+      generate({
+        subject,
+        lang: toLang(lang),
+        topic: typeof topic === 'string' && topic ? topic : undefined,
+        difficulty: difficulty === 'easy' || difficulty === 'hard' ? difficulty : 'medium',
+        count: Number(count) || 3,
+        focus: cleanFocus,
+        similarTo:
+          similarTo && typeof similarTo === 'object' && typeof similarTo.prompt === 'string' && similarTo.prompt.trim()
+            ? { prompt: similarTo.prompt.slice(0, 4000), answer: typeof similarTo.answer === 'string' ? similarTo.answer.slice(0, 500) : undefined }
+            : undefined,
+        noteCore: typeof noteCore === 'string' && noteCore.trim() ? noteCore.slice(0, 3000) : undefined,
+        model,
+        userKey,
+      })
+    );
   } catch (e) {
     handleErr(e, res);
   }
@@ -135,16 +158,17 @@ app.post('/api/claude/check', requireAuth, async (req: Request, res: Response) =
     if (!isSubject(subject)) return res.status(400).json({ error: 'bad_subject' });
     if (typeof imageDataUrl !== 'string') return res.status(400).json({ error: 'missing_image' });
     
-    const result = await check({
-      subject,
-      lang: toLang(lang),
-      imageDataUrl,
-      question: typeof question === 'string' ? question : undefined,
-      profile: cleanProfile(profile),
-      model,
-      userKey
-    });
-    res.json(result);
+    await respondWithJob(req, res, () =>
+      check({
+        subject,
+        lang: toLang(lang),
+        imageDataUrl,
+        question: typeof question === 'string' ? question : undefined,
+        profile: cleanProfile(profile),
+        model,
+        userKey,
+      })
+    );
   } catch (e) {
     handleErr(e, res);
   }
@@ -156,16 +180,17 @@ app.post('/api/claude/tidy', requireAuth, async (req: Request, res: Response) =>
     const { model, userKey } = getAiContext(req);
     if (!isSubject(subject)) return res.status(400).json({ error: 'bad_subject' });
     if (typeof imageDataUrl !== 'string') return res.status(400).json({ error: 'missing_image' });
-    const result = await tidy({
-      subject,
-      lang: toLang(lang),
-      imageDataUrl,
-      hint: typeof hint === 'string' ? hint.slice(0, 200) : undefined,
-      profile: cleanProfile(profile),
-      model,
-      userKey,
-    });
-    res.json(result);
+    await respondWithJob(req, res, () =>
+      tidy({
+        subject,
+        lang: toLang(lang),
+        imageDataUrl,
+        hint: typeof hint === 'string' ? hint.slice(0, 200) : undefined,
+        profile: cleanProfile(profile),
+        model,
+        userKey,
+      })
+    );
   } catch (e) {
     handleErr(e, res);
   }
@@ -177,14 +202,23 @@ app.post('/api/claude/keypoints', requireAuth, async (req: Request, res: Respons
     const { model, userKey } = getAiContext(req);
     if (!isSubject(subject)) return res.status(400).json({ error: 'bad_subject' });
     
-    const result = await keypoints({
-      subject,
-      lang: toLang(lang),
-      topic: typeof topic === 'string' && topic ? topic : undefined,
-      model,
-      userKey
-    });
-    res.json(result);
+    await respondWithJob(req, res, () =>
+      keypoints({ subject, lang: toLang(lang), topic: typeof topic === 'string' && topic ? topic : undefined, model, userKey })
+    );
+  } catch (e) {
+    handleErr(e, res);
+  }
+});
+
+// Pick up an answer whose connection was lost (device slept, network dropped).
+app.get('/api/claude/job/:id', requireAuth, async (req: Request, res: Response) => {
+  try {
+    const job = getJob(req.params.id);
+    if (!job) return res.status(404).json({ error: 'job_gone', message: 'That request is no longer on the server.' });
+    const out = await awaitJob(job, WAIT_MS);
+    if (out.status === 'pending') return res.status(202).json({ pending: true, jobId: req.params.id });
+    if (out.status === 'error') throw out.error;
+    res.json(out.result);
   } catch (e) {
     handleErr(e, res);
   }

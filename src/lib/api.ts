@@ -21,22 +21,30 @@ export class EmptyBoardError extends Error {
   }
 }
 
-async function call<T>(path: string, body: unknown): Promise<T> {
-  const token = await getIdToken();
-  
+const newJobId = (): string => {
+  try {
+    return crypto.randomUUID();
+  } catch {
+    return `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 10)}`;
+  }
+};
+
+async function authHeaders(): Promise<Record<string, string>> {
+  const token = await getIdToken().catch(() => null);
   const { activeModel, claudeKey, gptKey, geminiKey } = useApiStore.getState();
   const userKey = activeModel === 'claude' ? claudeKey : activeModel === 'gpt' ? gptKey : activeModel === 'gemini' ? geminiKey : undefined;
+  return {
+    'Content-Type': 'application/json',
+    ...(token ? { Authorization: `Bearer ${token}` } : {}),
+    ...(userKey ? { 'x-user-api-key': userKey } : {}),
+  };
+}
 
-  const res = await fetch(`/api/${path}`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      ...(token ? { Authorization: `Bearer ${token}` } : {}),
-      ...(userKey ? { 'x-user-api-key': userKey } : {}),
-    },
-    body: JSON.stringify({ ...(body as Record<string, unknown>), model: activeModel }),
-  });
-  
+const PENDING = Symbol('pending');
+type Answer<T> = T | typeof PENDING;
+
+async function readResponse<T>(res: Response): Promise<Answer<T>> {
+  if (res.status === 202) return PENDING;
   const data = (await res.json().catch(() => ({}))) as Record<string, unknown>;
   if (!res.ok) {
     throw new ApiError(
@@ -46,6 +54,93 @@ async function call<T>(path: string, body: unknown): Promise<T> {
     );
   }
   return data as T;
+}
+
+/** Sleep, but wake early when the device comes back (tab visible again / online). */
+function waitAwake(ms: number): Promise<void> {
+  return new Promise((resolve) => {
+    let done = false;
+    const finish = () => {
+      if (done) return;
+      done = true;
+      clearTimeout(timer);
+      document.removeEventListener('visibilitychange', onWake);
+      window.removeEventListener('online', finish);
+      resolve();
+    };
+    const onWake = () => {
+      if (document.visibilityState === 'visible') finish();
+    };
+    const timer = setTimeout(finish, ms);
+    document.addEventListener('visibilitychange', onWake);
+    window.addEventListener('online', finish);
+  });
+}
+
+/** 5xx and 408/429 are worth retrying; a 400 will fail the same way every time. */
+const isRetryableStatus = (s: number) => s >= 500 || s === 408 || s === 429;
+
+/** Ask the server for the answer to a job that was already started. */
+async function pollJob<T>(jobId: string): Promise<Answer<T>> {
+  const res = await fetch(`/api/claude/job/${encodeURIComponent(jobId)}`, { headers: await authHeaders() });
+  return readResponse<T>(res);
+}
+
+export interface CallOpts {
+  /** Reuse an id from an earlier attempt so the server returns the same answer. */
+  jobId?: string;
+  /** Called with the id before the request goes out, so it can be saved for later. */
+  onJob?: (jobId: string) => void;
+  /** Give up after this long (default 15 minutes). The job stays on the server. */
+  totalMs?: number;
+}
+
+/**
+ * POST that survives the device sleeping. The request carries a job id; if the
+ * connection dies the server keeps working, and every retry (or a later poll)
+ * returns that same answer instead of starting again.
+ */
+async function call<T>(path: string, body: unknown, opts: CallOpts = {}): Promise<T> {
+  const jobId = opts.jobId ?? newJobId();
+  opts.onJob?.(jobId);
+  const deadline = Date.now() + (opts.totalMs ?? 15 * 60_000);
+  const { activeModel } = useApiStore.getState();
+  let attempt = 0;
+  let started = Boolean(opts.jobId); // a resumed call already has work running
+
+  while (true) {
+    try {
+      let out: Answer<T>;
+      if (started) {
+        out = await pollJob<T>(jobId);
+      } else {
+        const res = await fetch(`/api/${path}`, {
+          method: 'POST',
+          headers: await authHeaders(),
+          body: JSON.stringify({ ...(body as Record<string, unknown>), model: activeModel, jobId }),
+        });
+        out = await readResponse<T>(res);
+        started = true;
+      }
+      if (out !== PENDING) return out as T;
+      attempt = 0; // the server is working on it; keep checking calmly
+      await waitAwake(2500);
+    } catch (e) {
+      // The job vanished (server restarted): start it again from scratch.
+      if (e instanceof ApiError && e.code === 'job_gone') {
+        started = false;
+        await waitAwake(500);
+      } else if (e instanceof ApiError && !isRetryableStatus(e.status)) {
+        throw e;
+      } else {
+        // Network hiccup or 5xx. The job id makes retrying safe: the server
+        // either resumes the same work or hands back the finished answer.
+        attempt++;
+        await waitAwake(Math.min(15_000, 800 * 2 ** Math.min(attempt, 4)));
+      }
+    }
+    if (Date.now() > deadline) throw new ApiError('timeout', 504);
+  }
 }
 
 export type ChatRole = 'user' | 'assistant';
@@ -86,8 +181,7 @@ export const askClaude = (p: {
   /** PNG capture of the current whiteboard page, so the coach can read handwritten notes. */
   imageDataUrl?: string;
   profile?: string[];
-}) =>
-  call<AskResponse>('claude/ask', p);
+}, opts?: CallOpts) => call<AskResponse>('claude/ask', p, opts);
 
 export type Difficulty = 'easy' | 'medium' | 'hard';
 export interface GenQuestion {
@@ -125,7 +219,7 @@ export const generateQuestions = (p: {
   similarTo?: { prompt: string; answer?: string };
   /** The note's core idea so questions test what was just studied. */
   noteCore?: string;
-}) => call<GenerateResponse>('claude/generate', p);
+}, opts?: CallOpts) => call<GenerateResponse>('claude/generate', p, opts);
 
 export interface CheckResponse {
   feedback: string;
@@ -141,7 +235,7 @@ export const checkWork = (p: {
   imageDataUrl: string;
   question?: string;
   profile?: string[];
-}) => call<CheckResponse>('claude/check', p);
+}, opts?: CallOpts) => call<CheckResponse>('claude/check', p, opts);
 
 export interface TidyBlock {
   kind: 'h1' | 'h2' | 'p' | 'bullet' | 'formula' | 'added' | 'fix';
@@ -160,8 +254,8 @@ export interface TidyResponse {
   observations: string[];
 }
 /** Rewrite a handwritten page as clean notes (returned as text blocks for the board). */
-export const tidyPage = (p: { subject: Subject; lang: Lang; imageDataUrl: string; hint?: string; profile?: string[] }) =>
-  call<TidyResponse>('claude/tidy', p);
+export const tidyPage = (p: { subject: Subject; lang: Lang; imageDataUrl: string; hint?: string; profile?: string[] }, opts?: CallOpts) =>
+  call<TidyResponse>('claude/tidy', p, opts);
 
 export interface KeyPointsResponse {
   keyPoints: KeyPointDTO[];

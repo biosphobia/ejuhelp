@@ -17,12 +17,22 @@ let started = false;
 export function initSync() {
   if (started) return;
   started = true;
+  // An answer whose request was interrupted (device slept, app was closed) is
+  // picked up as soon as the app is running again, and whenever it comes back.
+  const resumeAll = () => {
+    if (document.visibilityState === 'hidden') return;
+    void useAsk.getState().resume();
+    void useGenerated.getState().resume();
+  };
+  setTimeout(resumeAll, 800);
+  document.addEventListener('visibilitychange', resumeAll);
+  window.addEventListener('online', resumeAll);
   attachSync(
     useAsk,
     'eju-chat',
     'chat',
-    (s) => ({ messages: s.messages }),
-    (s, data) => s.load(data?.messages ?? []),
+    (s) => ({ messages: s.messages, pending: s.pending }),
+    (s, data) => s.load(data?.messages ?? [], data?.pending ?? null),
     0
   );
   attachSync(
@@ -45,8 +55,8 @@ export function initSync() {
     useGenerated,
     'eju-generated',
     'generated',
-    (s) => ({ sets: s.sets }),
-    (s, data) => s.load(data?.sets ?? {}),
+    (s) => ({ sets: s.sets, pending: s.pending }),
+    (s, data) => s.load(data?.sets ?? {}, data?.pending ?? null),
     0
   );
 }

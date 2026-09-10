@@ -78,6 +78,8 @@ async function executeModelCall(
   // Dev aid: return a canned reply from a file instead of calling any model.
   if (process.env.EJU_FAKE_REPLY) {
     const { readFileSync } = await import('node:fs');
+    const delay = Number(process.env.EJU_FAKE_DELAY_MS || 0);
+    if (delay > 0) await new Promise((r) => setTimeout(r, delay));
     return readFileSync(process.env.EJU_FAKE_REPLY, 'utf8');
   }
   // Dev aid: print the exact prompt instead of calling any model.

@@ -5,18 +5,16 @@ import { Label, PrimaryButton, ErrorNote, errorMessage } from '../atoms';
 import {
   fetchTopics,
   fetchPastQuestions,
-  generateQuestions,
   type Difficulty,
   type GenQuestion,
 } from '../../lib/api';
 import { useUI } from '../../lib/ui';
 import { usePractice } from '../../lib/practice';
 import { usePinned } from '../../lib/pinned';
-import { useGenerated } from '../../lib/generated';
+import { useGenerated, noteCoreFor } from '../../lib/generated';
 import { useProgress, summarize, focusFromSummary } from '../../lib/userdata';
 import { useT } from '../../i18n';
-import { TrashIcon } from '../icons';
-import { loadNotes } from '../../data/notes';
+import { TrashIcon, SpinnerIcon } from '../icons';
 
 const EMPTY: GenQuestion[] = [];
 
@@ -35,6 +33,13 @@ export default function GeneratePanel() {
   const questions: GenQuestion[] = useGenerated((s) => s.sets[subject]?.questions) ?? EMPTY;
   const setQuestions = useGenerated((s) => s.setQuestions);
   const clearQuestions = useGenerated((s) => s.clear);
+  // Generation lives in the store, so closing this panel (or the device sleeping)
+  // never loses the questions being written.
+  const genBusy = useGenerated((s) => s.busy);
+  const genError = useGenerated((s) => s.error);
+  const genPending = useGenerated((s) => s.pending);
+  const runGenerate = useGenerated((s) => s.run);
+  const clearGenError = useGenerated((s) => s.clearError);
 
   const [topics, setTopics] = useState<{ id: string; name: string }[]>([]);
   const [subtopics, setSubtopics] = useState<{ id: string; name: string; group: string }[]>([]);
@@ -47,6 +52,7 @@ export default function GeneratePanel() {
   const [pastCount, setPastCount] = useState(10);
   const [busy, setBusy] = useState(false);
   const [err, setErr] = useState<string | null>(null);
+  const working = busy || genBusy;
 
   // Physics & Chemistry use specific sub-topics; others use broad topics.
   const useSub = subject === 'physics' || subject === 'chemistry' || subject === 'math';
@@ -123,22 +129,15 @@ export default function GeneratePanel() {
         focus && hasWeakData ? focusFromSummary(summarize(subjectAttempts)) : undefined;
       // If the study notes cover this topic, hand the coach the note's core idea so
       // the questions test exactly what the student just read.
-      let noteCore: string | undefined;
-      if (!focusPayload && topic) {
-        const data = await loadNotes(subject).catch(() => null);
-        const n = data?.notes[topic];
-        if (n) noteCore = n.core[lang === 'ja' ? 'ja' : 'en'];
-      }
-      const res = await generateQuestions({
+      const noteCore = focusPayload ? undefined : await noteCoreFor(subject, topic, lang);
+      await runGenerate({
         subject,
-        lang,
         topic: focusPayload ? undefined : topic || undefined,
         difficulty,
         count,
         focus: focusPayload,
         noteCore,
       });
-      setQuestions(subject, res.questions);
     } catch (e) {
       setErr(errorMessage(e, t));
     } finally {
@@ -150,7 +149,7 @@ export default function GeneratePanel() {
     <Panel
       title={t('generateTitle')}
       footer={
-        <PrimaryButton onClick={() => void run()} busy={busy}>
+        <PrimaryButton onClick={() => void run()} busy={working}>
           {pastMode ? t('loadPast') : questions.length ? t('newSet') : t('generateBtn')}
         </PrimaryButton>
       }
@@ -266,7 +265,17 @@ export default function GeneratePanel() {
       </label>
       )}
 
+      {working ? (
+        <div className="mt-3 flex items-center gap-2 rounded-xl bg-slate-50 px-3 py-2 text-sm text-slate-600">
+          <SpinnerIcon className="h-4 w-4" /> {genPending ? t('stillWorking') : t('loading')}
+        </div>
+      ) : null}
       {err ? <ErrorNote>{err}</ErrorNote> : null}
+      {genError ? (
+        <div onClick={clearGenError}>
+          <ErrorNote>{errorMessage(genError, t)}</ErrorNote>
+        </div>
+      ) : null}
 
       {questions.length ? (
         <div className="mt-4 flex items-center justify-between">

@@ -105,6 +105,7 @@ export default function AskPanel() {
   const busy = useAsk((s) => s.busy);
   const error = useAsk((s) => s.error);
   const savedCount = useAsk((s) => s.lastSaved);
+  const pending = useAsk((s) => s.pending);
   const autoAnswered = useAsk((s) => s.lastAutoAnswered);
   const send = useAsk((s) => s.send);
   const check = useAsk((s) => s.check);
@@ -332,8 +333,9 @@ export default function AskPanel() {
           </div>
         ))}
         {busy ? (
-          <div className="flex items-center gap-2 text-sm text-slate-400">
-            <SpinnerIcon className="h-4 w-4" /> {checking ? t('checking') : t('loading')}
+          <div className="flex items-start gap-2 text-sm text-slate-400">
+            <SpinnerIcon className="mt-0.5 h-4 w-4 shrink-0" />
+            <span>{checking ? t('checking') : pending ? t('stillWorking') : t('loading')}</span>
           </div>
         ) : null}
         {!busy && autoAnswered ? (

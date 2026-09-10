@@ -643,6 +643,13 @@ export const strings = {
   inOtherNotebooks: { en: '{n} pages are in other notebooks', ja: '{n} ページは別のノートにあります', zh: '{n} 页在其他笔记本中', tr: '{n} sayfa başka defterlerde' },
   addAll: { en: 'Add all', ja: 'すべて追加', zh: '全部添加', tr: 'Tümünü ekle' },
   addOne: { en: 'Add', ja: '追加', zh: '添加', tr: 'Ekle' },
+  stillWorking: {
+    en: 'Still working — this keeps going even if the screen sleeps.',
+    ja: '作成中です。画面が消えても処理は続きます。',
+    zh: '仍在处理，即使屏幕休眠也会继续。',
+    tr: 'Hâlâ çalışıyor; ekran uykuya geçse de devam eder.',
+  },
+  resumedAnswer: { en: 'Picked up the answer from before.', ja: '中断した回答を取得しました。', zh: '已取回之前的回答。', tr: 'Önceki yanıt alındı.' },
 } as const;
 
 export type StringKey = keyof typeof strings;
