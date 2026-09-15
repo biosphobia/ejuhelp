@@ -79,15 +79,24 @@ export const useGenerated = create<GeneratedState>((set, get) => ({
     if (get().busy) return;
     set({ busy: true, error: null });
     const lang = useUI.getState().lang;
+    let jobId: string | undefined;
     try {
       const res = await generateQuestions(
         { subject: req.subject, lang, topic: req.topic, difficulty: req.difficulty, count: req.count, focus: req.focus, noteCore: req.noteCore },
-        { onJob: (jobId) => set((s) => ({ pending: { ...req, jobId, ts: Date.now() }, rev: s.rev + 1 })) }
+        {
+          onJob: (id) => {
+            jobId = id;
+            set((s) => ({ pending: { ...req, jobId: id, ts: Date.now() }, rev: s.rev + 1 }));
+          },
+        }
       );
-      set((s) => ({
-        sets: { ...s.sets, [req.subject]: { questions: res.questions, ts: Date.now() } },
-        rev: s.rev + 1,
-      }));
+      // Skip if another device signed into the account already applied this result.
+      if (!jobId || get().pending?.jobId === jobId) {
+        set((s) => ({
+          sets: { ...s.sets, [req.subject]: { questions: res.questions, ts: Date.now() } },
+          rev: s.rev + 1,
+        }));
+      }
     } catch (e) {
       set({ error: e });
     } finally {
@@ -108,11 +117,13 @@ export const useGenerated = create<GeneratedState>((set, get) => ({
         { subject: p.subject, lang, topic: p.topic, difficulty: p.difficulty, count: p.count, focus: p.focus, noteCore: p.noteCore },
         { jobId: p.jobId }
       );
-      set((s) => ({ sets: { ...s.sets, [p.subject]: { questions: res.questions, ts: Date.now() } }, rev: s.rev + 1 }));
+      if (get().pending?.jobId === p.jobId) {
+        set((s) => ({ sets: { ...s.sets, [p.subject]: { questions: res.questions, ts: Date.now() } }, rev: s.rev + 1 }));
+      }
     } catch (e) {
-      set({ error: e });
+      if (get().pending?.jobId === p.jobId) set({ error: e });
     } finally {
-      set((s) => ({ busy: false, pending: null, rev: s.rev + 1 }));
+      set((s) => ({ busy: false, pending: s.pending?.jobId === p.jobId ? null : s.pending, rev: s.rev + 1 }));
     }
   },
   setQuestions: (subject, questions) =>
@@ -136,7 +147,7 @@ export const useGenerated = create<GeneratedState>((set, get) => ({
   load: (sets, pending) =>
     set((s) => ({
       sets: sanitize(sets),
-      pending: pending && typeof pending.jobId === 'string' ? pending : s.pending,
+      pending: pending === undefined ? s.pending : pending && typeof pending.jobId === 'string' ? pending : null,
       rev: s.rev + 1,
     })),
 }));

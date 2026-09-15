@@ -5,6 +5,7 @@ import { useReview } from './review';
 import { useProfile } from './profile';
 import { useApiStore } from './apiStore';
 import { useUI } from './ui';
+import { initLive } from './live';
 
 let started = false;
 
@@ -28,6 +29,7 @@ export function initSync() {
     void useGenerated.getState().resume();
   };
   setTimeout(resumeAll, 800);
+  initLive();
   document.addEventListener('visibilitychange', resumeAll);
   window.addEventListener('online', resumeAll);
   attachSync(
@@ -35,7 +37,11 @@ export function initSync() {
     'eju-chat',
     'chat',
     (s) => ({ messages: s.messages, pending: s.pending }),
-    (s, data) => s.load(data?.messages ?? [], data?.pending ?? null),
+    (s, data) => {
+      s.load(data?.messages ?? [], data?.pending);
+      // A question asked on another device: pick up its answer here too.
+      if (data?.pending) setTimeout(() => void useAsk.getState().resume(), 0);
+    },
     0
   );
   attachSync(
@@ -59,7 +65,10 @@ export function initSync() {
     'eju-generated',
     'generated',
     (s) => ({ sets: s.sets, pending: s.pending }),
-    (s, data) => s.load(data?.sets ?? {}, data?.pending ?? null),
+    (s, data) => {
+      s.load(data?.sets ?? {}, data?.pending);
+      if (data?.pending) setTimeout(() => void useGenerated.getState().resume(), 0);
+    },
     0
   );
   // API keys + chosen model, and the app settings, follow the account so a new
@@ -84,7 +93,7 @@ export function initSync() {
     useUI,
     'eju-settings-sync',
     'settings',
-    (s) => ({ lang: s.lang, subject: s.subject, fingerDraw: s.fingerDraw }),
+    (s) => ({ lang: s.lang, fingerDraw: s.fingerDraw }),
     (s, data) => s.loadSettings(data),
     500
   );

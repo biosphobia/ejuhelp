@@ -64,10 +64,10 @@ export const strings = {
   signedInAs: { en: 'Signed in as', ja: 'ログイン中：', zh: '已登录：', tr: 'Giriş yapan:' },
   notSignedIn: { en: 'Not signed in', ja: '未ログイン', zh: '未登录', tr: 'Giriş yapılmadı' },
   syncOn: {
-    en: 'Your notes sync to the cloud.',
-    ja: 'ノートはクラウドに同期されます。',
-    zh: '您的笔记将同步到云端。',
-    tr: 'Notlarınız buluta eşitlenir.',
+    en: 'Notes, coach, questions and settings sync live with your other signed-in devices, which also follow the page and panel open here.',
+    ja: 'ノート・コーチ・問題・設定は、同じアカウントの他の端末とリアルタイムで同期され、開いているページとパネルも共有されます。',
+    zh: '笔记、教练、题目和设置会与已登录的其他设备实时同步，并同步当前打开的页面和面板。',
+    tr: 'Notlar, koç, sorular ve ayarlar oturum açık diğer cihazlarla anlık eşitlenir; açık sayfa ve panel de takip edilir.',
   },
   syncOff: {
     en: 'Sign in to save your notes to the cloud.',

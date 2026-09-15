@@ -26,7 +26,7 @@ interface UIState {
   /** When true, a single finger (or a Pencil that reports as touch) draws; two fingers pan/zoom.
    *  When false, only a real pen/stylus draws and any touch navigates (palm rejection). */
   fingerDraw: boolean;
-  /** Bumped when a synced setting (lang, subject, fingerDraw) changes; see sync.ts. */
+  /** Bumped when a synced setting (lang, fingerDraw) changes; see sync.ts. */
   rev: number;
   setLang: (l: Lang) => void;
   toggleLang: () => void;
@@ -50,7 +50,7 @@ export const useUI = create<UIState>()(
       rev: 0,
       setLang: (lang) => set((s) => ({ lang, rev: s.rev + 1 })),
       toggleLang: () => set((s) => ({ lang: LANGS[(LANGS.indexOf(get().lang) + 1) % LANGS.length], rev: s.rev + 1 })),
-      setSubject: (subject) => set((s) => ({ subject, rev: s.rev + 1 })),
+      setSubject: (subject) => set({ subject }),
       openPanel: (panel) => set({ panel, launcherOpen: false }),
       closePanel: () => set({ panel: null }),
       setLauncherOpen: (launcherOpen) => set({ launcherOpen }),

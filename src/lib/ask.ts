@@ -118,7 +118,8 @@ export const useAsk = create<AskState>((set, get) => ({
       messages: Array.isArray(messages)
         ? trimMessages(messages.filter((m) => m && typeof m.content === 'string' && (m.role === 'user' || m.role === 'assistant')))
         : [],
-      pending: pending && typeof pending.jobId === 'string' ? pending : s.pending,
+      // undefined = the copy says nothing about it; null = cleared (answer already applied elsewhere)
+      pending: pending === undefined ? s.pending : pending && typeof pending.jobId === 'string' ? pending : null,
       rev: s.rev + 1,
     })),
   resume: async () => {
@@ -136,11 +137,12 @@ export const useAsk = create<AskState>((set, get) => ({
         { subject, lang, messages: get().messages.map(({ role, content }) => ({ role, content })), notes: p.notes },
         { jobId: p.jobId }
       );
-      applyAnswer(set, get, res, subject);
+      // Another device may have applied this answer meanwhile (it arrives via the account).
+      if (get().pending?.jobId === p.jobId) applyAnswer(set, get, res, subject);
     } catch (e) {
-      set({ error: e });
+      if (get().pending?.jobId === p.jobId) set({ error: e });
     } finally {
-      set((s) => ({ busy: false, pending: null, rev: s.rev + 1 }));
+      set((s) => ({ busy: false, pending: s.pending?.jobId === p.jobId ? null : s.pending, rev: s.rev + 1 }));
     }
   },
   send: async (text, opts) => {
@@ -159,6 +161,7 @@ export const useAsk = create<AskState>((set, get) => ({
     }
     const next: Message[] = trimMessages([...get().messages, { role: 'user', content: t, ...(image ? { attached: true } : {}) }]);
     set((s) => ({ messages: next, rev: s.rev + 1, busy: true, error: null, lastSaved: 0, lastAutoAnswered: false }));
+    let jobId: string | undefined;
     try {
       const res = await askClaude(
         {
@@ -172,11 +175,13 @@ export const useAsk = create<AskState>((set, get) => ({
         },
         {
           // Saved before the request goes out, so even a crash right now can recover.
-          onJob: (jobId) =>
-            set((s) => ({ pending: { jobId, text: t, notes: opts?.notes, ts: Date.now() }, rev: s.rev + 1 })),
+          onJob: (id) => {
+            jobId = id;
+            set((s) => ({ pending: { jobId: id, text: t, notes: opts?.notes, ts: Date.now() }, rev: s.rev + 1 }));
+          },
         }
       );
-      applyAnswer(set, get, res, subject);
+      if (!jobId || get().pending?.jobId === jobId) applyAnswer(set, get, res, subject);
     } catch (e) {
       set({ error: e });
     } finally {

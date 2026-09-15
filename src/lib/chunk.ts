@@ -3,7 +3,8 @@
 import type { InkColor, ShapeKind, TextBlock } from './board';
 
 export type CStroke = { i: string; c: InkColor; s: number; p: number[][]; sh?: ShapeKind };
-export type CPage = { id: string; v: [number, number, number]; st: CStroke[]; nb?: string; t?: string; tx?: TextBlock[]; src?: string };
+/** `m` is when the page content last changed (ms), used to settle edits made on two devices. */
+export type CPage = { id: string; v: [number, number, number]; st: CStroke[]; nb?: string; t?: string; tx?: TextBlock[]; src?: string; m?: number };
 export type ChunkDoc = { id: string; data: any };
 
 const CLOUD_PART_MAX = 800_000; // bytes of JSON per Firestore doc (cap is ~1 MB)

@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { doc, getDoc, setDoc } from 'firebase/firestore';
+import { doc, onSnapshot, setDoc, type Unsubscribe } from 'firebase/firestore';
 import type { Subject } from './ui';
 import type { KeyPointDTO } from './api';
 import { useAuth } from './auth';
@@ -178,8 +178,10 @@ export function attachSync<S extends { rev: number }>(
   // resulting rev bump is mirrored locally but not written straight back.
   let hydratingFromCloud = false;
 
-  const saveLocal = () => {
-    localUpdatedAt = Date.now();
+  const saveLocal = (at?: number) => {
+    // Monotonic: a device with a slow clock still produces a newer stamp than
+    // the copy it just applied, so its edits are not ignored elsewhere.
+    localUpdatedAt = at ?? Math.max(Date.now(), localUpdatedAt + 1);
     try {
       localStorage.setItem(lsKey, JSON.stringify({ ...(getData(store.getState()) as object), updatedAt: localUpdatedAt }));
     } catch (e) {
@@ -201,12 +203,13 @@ export function attachSync<S extends { rev: number }>(
 
   const flush = () => {
     saveLocal();
-    if (!hydratingFromCloud) void saveCloud();
+    void saveCloud();
   };
 
   store.subscribe((s) => {
     if (s.rev === last) return;
     last = s.rev;
+    if (hydratingFromCloud) return; // applying another device's copy: already saved locally, never echoed back
     if (delay <= 0) {
       flush();
       return;
@@ -215,39 +218,49 @@ export function attachSync<S extends { rev: number }>(
     timer = setTimeout(flush, delay);
   });
 
+  const applyCloud = (cloud: any, at: number) => {
+    hydratingFromCloud = true;
+    try {
+      setData(store.getState(), cloud);
+    } finally {
+      hydratingFromCloud = false;
+    }
+    saveLocal(at);
+  };
+
+  // While signed in the document is watched, so a change saved on another
+  // device shows up here within moments. The first snapshot settles which copy
+  // leads (the one written last, or a field merge); later ones are applied only
+  // when they are newer than what this device has and are not its own echoes.
+  let unsub: Unsubscribe | undefined;
   useAuth.subscribe((s, prev) => {
-    if (s.user && s.user !== prev.user && db) {
-      void (async () => {
-        try {
-          const snap = await getDoc(doc(db!, 'users', s.user!.uid, 'data', docId));
-          const cloud = snap.exists() ? snap.data() : null;
-          const cloudAt = typeof cloud?.updatedAt === 'number' ? cloud.updatedAt : 0;
+    if (s.user === prev.user) return;
+    unsub?.();
+    unsub = undefined;
+    if (!s.user || !db) return;
+    let first = true;
+    unsub = onSnapshot(
+      doc(db, 'users', s.user.uid, 'data', docId),
+      (snap) => {
+        if (snap.metadata.hasPendingWrites) return; // this device's own write
+        const cloud = snap.exists() ? snap.data() : null;
+        const cloudAt = typeof cloud?.updatedAt === 'number' ? cloud.updatedAt : 0;
+        if (first) {
+          first = false;
           // Whichever copy was written last wins; the other side is brought up to
           // date. A stale or empty cloud document can no longer wipe local data.
           if (cloud && merge) {
-            hydratingFromCloud = true;
-            try {
-              setData(store.getState(), merge(getData(store.getState()), cloud, localUpdatedAt > cloudAt));
-            } finally {
-              hydratingFromCloud = false;
-            }
-            saveLocal();
+            applyCloud(merge(getData(store.getState()), cloud, localUpdatedAt > cloudAt), Math.max(cloudAt, localUpdatedAt));
             void saveCloud();
-          } else if (cloud && cloudAt >= localUpdatedAt) {
-            hydratingFromCloud = true;
-            try {
-              setData(store.getState(), cloud);
-              localUpdatedAt = cloudAt;
-            } finally {
-              hydratingFromCloud = false;
-            }
-            saveLocal();
-          } else void saveCloud();
-        } catch (e) {
-          console.warn(`[userdata] cloud hydrate ${docId} failed`, e);
+          } else if (cloud && cloudAt >= localUpdatedAt) applyCloud(cloud, cloudAt);
+          else void saveCloud();
+          return;
         }
-      })();
-    }
+        if (!cloud || cloudAt <= localUpdatedAt) return;
+        applyCloud(merge ? merge(getData(store.getState()), cloud, false) : cloud, cloudAt);
+      },
+      (e) => console.warn(`[userdata] cloud listener ${docId} failed`, e)
+    );
   });
 }
 

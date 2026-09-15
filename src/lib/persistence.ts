@@ -1,4 +1,4 @@
-import { collection, deleteDoc, doc, getDoc, getDocs, setDoc, writeBatch } from 'firebase/firestore';
+import { collection, deleteDoc, doc, getDoc, getDocs, onSnapshot, setDoc, writeBatch, type Unsubscribe } from 'firebase/firestore';
 import { useBoard, notebookOf, defaultNotebooks, type Page, type NotebookMeta } from './board';
 import { useAuth } from './auth';
 import { useUI } from './ui';
@@ -41,7 +41,35 @@ function encodePage(pg: Page): CPage {
     ...(pg.sourceId ? { src: pg.sourceId } : {}),
   };
 }
-const encode = (pages: Page[]): CPage[] => pages.map(encodePage);
+// When each page's content last changed. Pan/zoom does not count. Used to settle
+// the same page edited on two devices: the later edit wins, nothing is merged blindly.
+const mtimes = new Map<string, number>();
+const lastContent = new Map<string, string>(); // pageId -> content key at the last stamp
+const contentKey = (cp: CPage) => {
+  const { v: _v, m: _m, ...rest } = cp;
+  return JSON.stringify(rest);
+};
+/** Encode pages and stamp the ones whose content changed since the last call. */
+function encode(pages: Page[]): CPage[] {
+  const now = Date.now();
+  return pages.map((pg) => {
+    const cp = encodePage(pg);
+    const key = contentKey(cp);
+    if (lastContent.get(cp.id) !== key) {
+      lastContent.set(cp.id, key);
+      mtimes.set(cp.id, Math.max(now, (mtimes.get(cp.id) ?? 0) + 1));
+    }
+    return { ...cp, m: mtimes.get(cp.id) ?? 0 };
+  });
+}
+/** Remember pages as already known (loaded from disk or cloud) so they are not
+ *  re-stamped. A page saved by an older build has no time: it counts as oldest. */
+function noteKnown(pages: CPage[]) {
+  for (const cp of pages) {
+    lastContent.set(cp.id, contentKey(cp));
+    mtimes.set(cp.id, typeof cp.m === 'number' ? cp.m : 0);
+  }
+}
 
 function decode(cps: CPage[]): Page[] {
   return cps.map((cp) => ({
@@ -71,7 +99,7 @@ let localSnaps: LocalSnap[] = [];
 
 function saveLocal() {
   const { pages, currentPageId, notebooks } = useBoard.getState();
-  localUpdatedAt = Date.now();
+  localUpdatedAt = Math.max(Date.now(), localUpdatedAt + 1);
   const data: LocalBoard = { pages: encode(pages), currentPageId, notebooks, updatedAt: localUpdatedAt };
   void idbSet(IDB_BOARD, data);
   // Mirror into localStorage while small, so an older build or a blocked
@@ -127,7 +155,8 @@ function snapshotLocal(reason: string, pages?: CPage[], notebooks?: NotebookMeta
 // users/{uid}/board/main/pages/{id} → one encoded page per doc
 // users/{uid}/board/snap-{ts}       → { ts, reason, order, notebooks, count } with its own pages subcollection
 // One doc per page keeps every write far below Firestore's 1 MB document cap.
-const lastCloud = new Map<string, string>(); // pageId -> JSON last written
+const lastCloud = new Map<string, string>(); // pageId -> content key (see contentKey) as last written or received
+const lastCloudPage = new Map<string, CPage>(); // pageId -> that copy, the base for merging edits made on two devices
 let cloudBusy = false;
 let cloudDirty = false;
 let cloudSnapshots: BackupMeta[] = [];
@@ -142,13 +171,16 @@ async function writePages(colRef: ReturnType<typeof collection>, pages: CPage[],
     n = 0;
   };
   for (const enc of pages) {
-    const json = JSON.stringify(enc);
-    if (skipUnchanged && lastCloud.get(enc.id) === json) continue;
+    const key = contentKey(enc);
+    if (skipUnchanged && lastCloud.get(enc.id) === key) continue;
     for (const part of chunkPage(enc)) {
       batch.set(doc(colRef, part.id), part.data);
       if (++n >= 20) await flush();
     }
-    if (skipUnchanged) lastCloud.set(enc.id, json);
+    if (skipUnchanged) {
+      lastCloud.set(enc.id, key);
+      lastCloudPage.set(enc.id, enc);
+    }
   }
   await flush();
 }
@@ -188,6 +220,7 @@ async function saveCloud() {
         await deleteDoc(doc(pagesCol, id));
         for (let i = 1; i < 40; i++) await deleteDoc(doc(pagesCol, `${id}~${i}`)).catch(() => undefined);
         lastCloud.delete(id);
+        lastCloudPage.delete(id);
       }
     }
     await setDoc(mainRef, {
@@ -263,7 +296,11 @@ async function loadCloud(uid: string): Promise<CloudBoard | null> {
     const order = data.order ?? [];
     const pages = order.map((id) => byId.get(id)).filter((p): p is CPage => Boolean(p));
     for (const [id, p] of byId) if (!order.includes(id)) pages.push(p); // pages the order list missed
-    for (const p of pages) lastCloud.set(p.id, JSON.stringify(p));
+    for (const p of pages) {
+      lastCloud.set(p.id, contentKey(p));
+      lastCloudPage.set(p.id, p);
+    }
+    lastMainAt = data.updatedAt ?? 0;
     return { pages, currentPageId: data.currentPageId, notebooks: data.notebooks, updatedAt: data.updatedAt ?? 0, legacy: false };
   }
   if (data.pages?.length) return { pages: data.pages, currentPageId: data.currentPageId, updatedAt: data.updatedAt ?? 0, legacy: true };
@@ -277,8 +314,14 @@ async function loadCloud(uid: string): Promise<CloudBoard | null> {
 function mergePages(local: CPage[], cloud: CPage[], cloudNewer: boolean): CPage[] {
   const base = cloudNewer ? cloud : local;
   const other = cloudNewer ? local : cloud;
+  const otherById = new Map(other.map((p) => [p.id, p]));
   const seen = new Set(base.map((p) => p.id));
-  const out = [...base];
+  // A page on both sides takes the copy whose content changed last; without
+  // timestamps (older saves) the newer side as a whole leads.
+  const out = base.map((p) => {
+    const o = otherById.get(p.id);
+    return o && typeof o.m === 'number' && typeof p.m === 'number' && o.m > p.m ? o : p;
+  });
   for (const p of other) if (!seen.has(p.id)) out.push(p);
   return out;
 }
@@ -522,6 +565,7 @@ async function hydrateLocal(subject: string) {
   const lead = (idbNewer ? a ?? b : b ?? a)!;
   const other = idbNewer ? b : a;
   localUpdatedAt = Math.max(a?.updatedAt ?? 0, b?.updatedAt ?? 0);
+  noteKnown(pages);
   const board = useBoard.getState();
   board.setNotebooks(mergeNotebooks(lead.notebooks, other?.notebooks));
   board.loadPages(decode(pages), lead.currentPageId, subject);
@@ -572,7 +616,8 @@ export function initPersistence() {
           const board = useBoard.getState();
           const local = encode(board.pages);
           if (!cloud) {
-            void saveCloud();
+            await saveCloud();
+            if (useAuth.getState().user === st.user) startLive(st.user!.uid);
             return;
           }
           const cloudNewer = cloud.updatedAt > localUpdatedAt;
@@ -580,6 +625,7 @@ export function initPersistence() {
           const changed = JSON.stringify(merged) !== JSON.stringify(local);
           if (changed) {
             snapshotLocal('before-cloud-merge', local, board.notebooks);
+            noteKnown(merged);
             board.setNotebooks(mergeNotebooks(cloudNewer ? cloud.notebooks : board.notebooks, cloudNewer ? board.notebooks : cloud.notebooks));
             board.loadPages(decode(merged), board.currentPageId, useUI.getState().subject);
             board.setNotebooks(useBoard.getState().notebooks);
@@ -588,11 +634,174 @@ export function initPersistence() {
           }
           // Legacy single-doc board: keep a cloud snapshot of it before migrating.
           if (cloud.legacy) await snapshotCloud('legacy-board', cloud.pages, board.notebooks);
-          void saveCloud();
+          await saveCloud();
         } catch (e) {
           console.warn('[persistence] cloud hydrate failed', e);
         }
+        if (useAuth.getState().user === st.user) startLive(st.user!.uid);
       })();
     }
+    if (!st.user) stopLive();
   });
+}
+
+// ─────────────────────────── live sync ───────────────────────────
+// While signed in, listen to the cloud board so pages written on another device
+// appear here as they are saved there. Only real remote changes are applied:
+// echoes of this device's own writes are ignored, a page edited here more
+// recently than the incoming copy is kept (and uploaded), and a page that was
+// deleted elsewhere is removed here only if it was not touched since it was
+// last synced. A device snapshot is taken before a page with local ink is replaced.
+let liveUnsubs: Unsubscribe[] = [];
+let lastMainAt = 0;
+let lastLiveSnapshot = 0;
+
+function stopLive() {
+  for (const u of liveUnsubs) u();
+  liveUnsubs = [];
+}
+
+function startLive(uid: string) {
+  stopLive();
+  if (!db) return;
+  const mainRef = doc(db, 'users', uid, 'board', 'main');
+  const pagesCol = collection(mainRef, 'pages');
+
+  liveUnsubs.push(
+    onSnapshot(
+      pagesCol,
+      (snap) => {
+        const touched = new Set<string>();
+        const removed = new Set<string>();
+        for (const ch of snap.docChanges()) {
+          if (ch.doc.metadata.hasPendingWrites) continue; // this device's own write, not yet confirmed
+          const head = ch.doc.id.replace(/~\d+$/, '');
+          if (ch.type === 'removed' && head === ch.doc.id) removed.add(head);
+          else touched.add(head);
+        }
+        if (!touched.size && !removed.size) return;
+        const docs: ChunkDoc[] = [];
+        snap.forEach((d) => {
+          const head = d.id.replace(/~\d+$/, '');
+          if (touched.has(head)) docs.push({ id: d.id, data: d.data() });
+        });
+        for (const id of removed) touched.delete(id);
+        applyRemotePages(assemblePages(docs), [...removed].filter((id) => !snap.docs.some((d) => d.id === id)));
+      },
+      (e) => console.warn('[persistence] live pages listener failed', e)
+    )
+  );
+
+  liveUnsubs.push(
+    onSnapshot(
+      mainRef,
+      (snap) => {
+        if (snap.metadata.hasPendingWrites || !snap.exists()) return;
+        const data = snap.data() as { v?: number; order?: string[]; notebooks?: NotebookMeta[]; updatedAt?: number; snapshots?: BackupMeta[] };
+        if (Array.isArray(data.snapshots)) cloudSnapshots = data.snapshots.filter((s) => s && typeof s.id === 'string');
+        const at = data.updatedAt ?? 0;
+        if (data.v !== 2 || at <= lastMainAt) return;
+        lastMainAt = at;
+        const board = useBoard.getState();
+        if (data.notebooks) board.setNotebooks(mergeNotebooks(data.notebooks, board.notebooks));
+        const order = data.order ?? [];
+        const cur = board.pages.map((p) => p.id).filter((id) => order.includes(id));
+        const want = order.filter((id) => cur.includes(id));
+        if (cur.join() !== want.join()) board.applyRemote([], [], order);
+      },
+      (e) => console.warn('[persistence] live board listener failed', e)
+    )
+  );
+}
+
+/**
+ * The same page edited on two devices since they last agreed (`base`): keep both
+ * sets of changes. The more recent copy leads; strokes and text blocks the other
+ * device added since the base are appended, and ones it erased since the base
+ * are removed. Title and notebook follow the leader.
+ */
+function mergeEdits(base: CPage, local: CPage, remote: CPage): CPage {
+  const lead = (local.m ?? 0) >= (remote.m ?? 0) ? local : remote;
+  const other = lead === local ? remote : local;
+  const baseSt = new Set(base.st.map((s) => s.i));
+  const leadSt = new Set(lead.st.map((s) => s.i));
+  const otherSt = new Set(other.st.map((s) => s.i));
+  const st = lead.st.filter((s) => !(baseSt.has(s.i) && !otherSt.has(s.i)));
+  for (const s of other.st) if (!baseSt.has(s.i) && !leadSt.has(s.i)) st.push(s);
+  const baseTx = new Set((base.tx ?? []).map((t) => t.id));
+  const leadTx = new Set((lead.tx ?? []).map((t) => t.id));
+  const otherTx = new Set((other.tx ?? []).map((t) => t.id));
+  const tx = (lead.tx ?? []).filter((t) => !(baseTx.has(t.id) && !otherTx.has(t.id)));
+  for (const t of other.tx ?? []) if (!baseTx.has(t.id) && !leadTx.has(t.id)) tx.push(t);
+  const { tx: _tx, ...rest } = lead;
+  return { ...rest, st, ...(tx.length ? { tx } : {}), m: Math.max(Date.now(), (local.m ?? 0) + 1, (remote.m ?? 0) + 1) };
+}
+
+/** @internal exported for tests */
+export function applyRemotePages(remote: CPage[], removedIds: string[]) {
+  const board = useBoard.getState();
+  const localById = new Map(encode(board.pages).map((p) => [p.id, p]));
+  const apply: CPage[] = [];
+  let needUpload = false;
+  let inkReplaced = false;
+  for (const rp of remote) {
+    const key = contentKey(rp);
+    if (lastCloud.get(rp.id) === key) continue; // already known
+    const lp = localById.get(rp.id);
+    if (lp) {
+      const lk = contentKey(lp);
+      if (lk === key) {
+        lastCloud.set(rp.id, key);
+        lastCloudPage.set(rp.id, rp);
+        continue;
+      }
+      const base = lastCloudPage.get(rp.id);
+      const localEdited = !base || contentKey(base) !== lk;
+      if (localEdited && base) {
+        // edited here and there since the copies last agreed: keep both sets of edits
+        const merged = mergeEdits(base, lp, rp);
+        lastCloud.set(rp.id, key);
+        lastCloudPage.set(rp.id, rp);
+        if (contentKey(merged) !== lk) apply.push(merged);
+        needUpload = true; // the merged page goes back up so the other device gets our edits too
+        continue;
+      }
+      if (localEdited && (lp.m ?? 0) > (rp.m ?? 0)) {
+        needUpload = true; // ours is newer: keep it, the cloud gets it on the next save
+        continue;
+      }
+      if (hasInk(lp)) inkReplaced = true;
+    }
+    lastCloud.set(rp.id, key);
+    lastCloudPage.set(rp.id, rp);
+    apply.push(rp);
+  }
+  const drop: string[] = [];
+  for (const id of removedIds) {
+    const lp = localById.get(id);
+    if (!lp) {
+      lastCloud.delete(id);
+      lastCloudPage.delete(id);
+      continue;
+    }
+    const untouched = lastCloud.has(id) && lastCloud.get(id) === contentKey(lp);
+    lastCloud.delete(id);
+    lastCloudPage.delete(id);
+    if (untouched) {
+      drop.push(id);
+      if (hasInk(lp)) inkReplaced = true;
+    } else needUpload = true; // edited here since: keep it and put it back
+  }
+  if (!apply.length && !drop.length) {
+    if (needUpload) void saveCloud();
+    return;
+  }
+  if (inkReplaced && Date.now() - lastLiveSnapshot > 10 * 60_000) {
+    lastLiveSnapshot = Date.now();
+    snapshotLocal('before-live-update');
+  }
+  noteKnown(apply);
+  board.applyRemote(decode(apply), drop);
+  saveLocal();
+  if (needUpload) void saveCloud();
 }

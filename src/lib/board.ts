@@ -142,6 +142,10 @@ interface BoardState {
 
   /** Replace all pages (used when hydrating from storage / cloud). */
   loadPages: (pages: Page[], currentId?: string, defaultNotebook?: string) => void;
+  /** Apply pages changed on another device: update or add `pages`, drop `removeIds`,
+   *  and (when given) put the pages into `order`. The local viewport of an updated
+   *  page is kept, so the view never jumps while someone else writes. */
+  applyRemote: (pages: Page[], removeIds: string[], order?: string[]) => void;
   getCurrentPage: () => Page;
 }
 
@@ -412,6 +416,40 @@ export const useBoard = create<BoardState>((set, get) => {
           undo: {},
           rev: 0,
         };
+      }),
+
+    applyRemote: (pages, removeIds, order) =>
+      set((st) => {
+        const byId = new Map(pages.map((p) => [p.id, p]));
+        const drop = new Set(removeIds);
+        let next = st.pages
+          .filter((p) => !drop.has(p.id))
+          .map((p) => (byId.has(p.id) ? { ...byId.get(p.id)!, viewport: p.viewport } : p));
+        const have = new Set(next.map((p) => p.id));
+        for (const p of pages) if (!have.has(p.id) && !drop.has(p.id)) next.push(p);
+        if (order?.length) {
+          const pos = new Map(order.map((id, i) => [id, i]));
+          const known = next.filter((p) => pos.has(p.id)).sort((a, b) => pos.get(a.id)! - pos.get(b.id)!);
+          const extra = next.filter((p) => !pos.has(p.id));
+          next = [...known, ...extra];
+        }
+        let currentPageId = st.currentPageId;
+        const undo = { ...st.undo };
+        for (const p of pages) delete undo[p.id];
+        for (const id of removeIds) delete undo[id];
+        if (!next.some((p) => p.id === currentPageId)) {
+          // the page being viewed was deleted elsewhere: show its neighbour
+          const nb = st.notebook;
+          const wasIdx = st.pages.filter((p) => notebookOf(p) === nb).findIndex((p) => p.id === st.currentPageId);
+          const inNb = next.filter((p) => notebookOf(p) === nb);
+          if (!inNb.length) {
+            const pg = blankPage(nb);
+            next.push(pg);
+            inNb.push(pg);
+          }
+          currentPageId = inNb[Math.max(0, Math.min(wasIdx, inNb.length - 1))].id;
+        }
+        return { pages: next, currentPageId, lastPage: { ...st.lastPage, [st.notebook]: currentPageId }, undo, rev: st.rev + 1 };
       }),
 
     getCurrentPage: () => {
