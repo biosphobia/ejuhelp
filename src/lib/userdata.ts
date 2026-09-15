@@ -242,22 +242,32 @@ export function attachSync<S extends { rev: number }>(
     unsub = onSnapshot(
       doc(db, 'users', s.user.uid, 'data', docId),
       (snap) => {
-        if (snap.metadata.hasPendingWrites) return; // this device's own write
-        const cloud = snap.exists() ? snap.data() : null;
-        const cloudAt = typeof cloud?.updatedAt === 'number' ? cloud.updatedAt : 0;
-        if (first) {
-          first = false;
-          // Whichever copy was written last wins; the other side is brought up to
-          // date. A stale or empty cloud document can no longer wipe local data.
-          if (cloud && merge) {
-            applyCloud(merge(getData(store.getState()), cloud, localUpdatedAt > cloudAt), Math.max(cloudAt, localUpdatedAt));
-            void saveCloud();
-          } else if (cloud && cloudAt >= localUpdatedAt) applyCloud(cloud, cloudAt);
-          else void saveCloud();
-          return;
+        try {
+          if (snap.metadata.hasPendingWrites) return; // this device's own write
+          // Until the server has answered once, a cache miss says nothing about
+          // the account copy: deciding on it could overwrite the account with an
+          // empty device copy.
+          if (first && snap.metadata.fromCache) return;
+          const cloud = snap.exists() ? snap.data() : null;
+          const cloudAt = typeof cloud?.updatedAt === 'number' ? cloud.updatedAt : 0;
+          if (first) {
+            first = false;
+            // Whichever copy was written last wins; the other side is brought up to
+            // date. A stale or empty cloud document can no longer wipe local data.
+            if (cloud && merge) {
+              applyCloud(merge(getData(store.getState()), cloud, localUpdatedAt > cloudAt), Math.max(cloudAt, localUpdatedAt));
+              void saveCloud();
+            } else if (cloud && cloudAt >= localUpdatedAt) applyCloud(cloud, cloudAt);
+            else void saveCloud();
+            return;
+          }
+          if (!cloud || cloudAt <= localUpdatedAt) return;
+          applyCloud(merge ? merge(getData(store.getState()), cloud, false) : cloud, cloudAt);
+        } catch (e) {
+          // An exception thrown inside a Firestore listener would take the whole
+          // Firestore client down for this page; never let one out.
+          console.warn(`[userdata] applying cloud ${docId} failed`, e);
         }
-        if (!cloud || cloudAt <= localUpdatedAt) return;
-        applyCloud(merge ? merge(getData(store.getState()), cloud, false) : cloud, cloudAt);
       },
       (e) => console.warn(`[userdata] cloud listener ${docId} failed`, e)
     );

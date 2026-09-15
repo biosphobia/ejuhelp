@@ -671,22 +671,27 @@ function startLive(uid: string) {
     onSnapshot(
       pagesCol,
       (snap) => {
-        const touched = new Set<string>();
-        const removed = new Set<string>();
-        for (const ch of snap.docChanges()) {
-          if (ch.doc.metadata.hasPendingWrites) continue; // this device's own write, not yet confirmed
-          const head = ch.doc.id.replace(/~\d+$/, '');
-          if (ch.type === 'removed' && head === ch.doc.id) removed.add(head);
-          else touched.add(head);
+        try {
+          const touched = new Set<string>();
+          const removed = new Set<string>();
+          for (const ch of snap.docChanges()) {
+            if (ch.doc.metadata.hasPendingWrites) continue; // this device's own write, not yet confirmed
+            const head = ch.doc.id.replace(/~\d+$/, '');
+            if (ch.type === 'removed' && head === ch.doc.id) removed.add(head);
+            else touched.add(head);
+          }
+          if (!touched.size && !removed.size) return;
+          const docs: ChunkDoc[] = [];
+          snap.forEach((d) => {
+            const head = d.id.replace(/~\d+$/, '');
+            if (touched.has(head)) docs.push({ id: d.id, data: d.data() });
+          });
+          for (const id of removed) touched.delete(id);
+          applyRemotePages(assemblePages(docs), [...removed].filter((id) => !snap.docs.some((d) => d.id === id)));
+        } catch (e) {
+          // An exception inside a Firestore listener would take the client down; never let one out.
+          console.warn('[persistence] applying remote pages failed', e);
         }
-        if (!touched.size && !removed.size) return;
-        const docs: ChunkDoc[] = [];
-        snap.forEach((d) => {
-          const head = d.id.replace(/~\d+$/, '');
-          if (touched.has(head)) docs.push({ id: d.id, data: d.data() });
-        });
-        for (const id of removed) touched.delete(id);
-        applyRemotePages(assemblePages(docs), [...removed].filter((id) => !snap.docs.some((d) => d.id === id)));
       },
       (e) => console.warn('[persistence] live pages listener failed', e)
     )
@@ -696,18 +701,22 @@ function startLive(uid: string) {
     onSnapshot(
       mainRef,
       (snap) => {
-        if (snap.metadata.hasPendingWrites || !snap.exists()) return;
-        const data = snap.data() as { v?: number; order?: string[]; notebooks?: NotebookMeta[]; updatedAt?: number; snapshots?: BackupMeta[] };
-        if (Array.isArray(data.snapshots)) cloudSnapshots = data.snapshots.filter((s) => s && typeof s.id === 'string');
-        const at = data.updatedAt ?? 0;
-        if (data.v !== 2 || at <= lastMainAt) return;
-        lastMainAt = at;
-        const board = useBoard.getState();
-        if (data.notebooks) board.setNotebooks(mergeNotebooks(data.notebooks, board.notebooks));
-        const order = data.order ?? [];
-        const cur = board.pages.map((p) => p.id).filter((id) => order.includes(id));
-        const want = order.filter((id) => cur.includes(id));
-        if (cur.join() !== want.join()) board.applyRemote([], [], order);
+        try {
+          if (snap.metadata.hasPendingWrites || !snap.exists()) return;
+          const data = snap.data() as { v?: number; order?: string[]; notebooks?: NotebookMeta[]; updatedAt?: number; snapshots?: BackupMeta[] };
+          if (Array.isArray(data.snapshots)) cloudSnapshots = data.snapshots.filter((s) => s && typeof s.id === 'string');
+          const at = typeof data.updatedAt === 'number' ? data.updatedAt : 0;
+          if (data.v !== 2 || at <= lastMainAt) return;
+          lastMainAt = at;
+          const board = useBoard.getState();
+          if (Array.isArray(data.notebooks)) board.setNotebooks(mergeNotebooks(data.notebooks, board.notebooks));
+          const order = Array.isArray(data.order) ? data.order : [];
+          const cur = board.pages.map((p) => p.id).filter((id) => order.includes(id));
+          const want = order.filter((id) => cur.includes(id));
+          if (cur.join() !== want.join()) board.applyRemote([], [], order);
+        } catch (e) {
+          console.warn('[persistence] applying board order failed', e);
+        }
       },
       (e) => console.warn('[persistence] live board listener failed', e)
     )
@@ -740,7 +749,8 @@ function mergeEdits(base: CPage, local: CPage, remote: CPage): CPage {
 /** @internal exported for tests */
 export function applyRemotePages(remote: CPage[], removedIds: string[]) {
   const board = useBoard.getState();
-  const localById = new Map(encode(board.pages).map((p) => [p.id, p]));
+  const involved = new Set([...remote.map((p) => p.id), ...removedIds]);
+  const localById = new Map(encode(board.pages.filter((p) => involved.has(p.id))).map((p) => [p.id, p]));
   const apply: CPage[] = [];
   let needUpload = false;
   let inkReplaced = false;

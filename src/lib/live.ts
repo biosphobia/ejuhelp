@@ -84,7 +84,11 @@ export function initLive() {
     if (waiting && s.pages !== prev.pages && s.pages.some((p) => p.id === waiting!.pageId)) {
       const w = waiting;
       waiting = null;
-      apply(w);
+      try {
+        apply(w);
+      } catch (e) {
+        console.warn('[live] applying session failed', e);
+      }
       return;
     }
     if (s.notebook !== prev.notebook || s.currentPageId !== prev.currentPageId) schedule();
@@ -121,14 +125,18 @@ export function initLive() {
     unsub = onSnapshot(
       doc(db, 'users', s.user.uid, 'data', 'session'),
       (snap) => {
-        if (snap.metadata.hasPendingWrites || !snap.exists()) return;
-        const r = snap.data() as Session;
-        if (r.device === me || typeof r.updatedAt !== 'number' || r.updatedAt <= lastApplied) return;
-        // Both devices changed view at the same moment: the later one stands.
-        if (r.updatedAt < lastSentAt) return;
-        lastApplied = r.updatedAt;
-        waiting = null;
-        apply(r);
+        try {
+          if (snap.metadata.hasPendingWrites || !snap.exists()) return;
+          const r = snap.data() as Session;
+          if (!r || r.device === me || typeof r.updatedAt !== 'number' || r.updatedAt <= lastApplied) return;
+          // Both devices changed view at the same moment: the later one stands.
+          if (r.updatedAt < lastSentAt) return;
+          lastApplied = r.updatedAt;
+          waiting = null;
+          apply(r);
+        } catch (e) {
+          console.warn('[live] applying session failed', e); // never let an error escape into Firestore
+        }
       },
       (e) => console.warn('[live] session listener failed', e)
     );
