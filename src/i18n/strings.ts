@@ -307,10 +307,10 @@ export const strings = {
   apiKey: { en: 'API Key', ja: 'APIキー', zh: 'API 密钥', tr: 'API Anahtarı' },
   optional: { en: 'Optional', ja: '任意', zh: '可选', tr: 'İsteğe bağlı' },
   apiKeyStoredLocally: {
-    en: 'Stored locally on your device.',
-    ja: 'デバイスにローカル保存されます。',
-    zh: '保存在本设备上。',
-    tr: 'Cihazınızda yerel olarak saklanır.',
+    en: 'Saved on this device and, when signed in, to your account.',
+    ja: 'この端末に保存され、サインイン中はアカウントにも保存されます。',
+    zh: '保存在本设备上；登录后也会同步到你的账户。',
+    tr: 'Bu cihazda ve oturum açıkken hesabınızda saklanır.',
   },
   getKey: { en: 'Get Key ↗', ja: 'キーを取得 ↗', zh: '获取密钥 ↗', tr: 'Anahtar al ↗' },
   geminiKeyPlaceholder: {

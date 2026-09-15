@@ -3,13 +3,16 @@ import { useAsk } from './ask';
 import { useGenerated } from './generated';
 import { useReview } from './review';
 import { useProfile } from './profile';
+import { useApiStore } from './apiStore';
+import { useUI } from './ui';
 
 let started = false;
 
 /**
- * Persist the Ask Coach conversation and the generated practice questions.
- * Both are written to localStorage and (when signed in) Firestore the moment
- * they change — no debounce — and stay until the user clears them.
+ * Persist the Ask Coach conversation, the generated practice questions, the
+ * review plan, the handwriting profile, the AI keys and the app settings.
+ * Everything is written to localStorage and (when signed in) Firestore, so a
+ * second device signed into the same account picks it all up.
  *
  * Lives apart from initUserData() because ask.ts already imports userdata.ts;
  * registering here avoids a circular import.
@@ -58,5 +61,31 @@ export function initSync() {
     (s) => ({ sets: s.sets, pending: s.pending }),
     (s, data) => s.load(data?.sets ?? {}, data?.pending ?? null),
     0
+  );
+  // API keys + chosen model, and the app settings, follow the account so a new
+  // device is ready to use after signing in.
+  attachSync(
+    useApiStore,
+    'eju-api-sync',
+    'api',
+    (s) => ({ activeModel: s.activeModel, claudeKey: s.claudeKey, gptKey: s.gptKey, geminiKey: s.geminiKey }),
+    (s, data) => s.load(data),
+    500,
+    // A key entered on either device is kept: an empty field never wipes a
+    // saved key, and the newer side decides which model is active.
+    (local, cloud, localIsNewer) => {
+      const lead = localIsNewer ? local : cloud;
+      const other = localIsNewer ? cloud : local;
+      const key = (k: string) => (typeof lead?.[k] === 'string' && lead[k]) || (typeof other?.[k] === 'string' ? other[k] : '');
+      return { activeModel: lead?.activeModel ?? other?.activeModel, claudeKey: key('claudeKey'), gptKey: key('gptKey'), geminiKey: key('geminiKey') };
+    }
+  );
+  attachSync(
+    useUI,
+    'eju-settings-sync',
+    'settings',
+    (s) => ({ lang: s.lang, subject: s.subject, fingerDraw: s.fingerDraw }),
+    (s, data) => s.loadSettings(data),
+    500
   );
 }

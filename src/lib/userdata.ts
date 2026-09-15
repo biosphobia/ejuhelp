@@ -156,7 +156,10 @@ export function attachSync<S extends { rev: number }>(
   docId: string,
   getData: (s: S) => unknown,
   setData: (s: S, data: any) => void,
-  delay = 1000
+  delay = 1000,
+  /** Optional field-level merge used when both a device copy and an account copy
+   *  exist; without it the copy written last replaces the other. */
+  merge?: (local: any, cloud: any, localIsNewer: boolean) => any
 ) {
   let localUpdatedAt = 0;
   try {
@@ -221,7 +224,16 @@ export function attachSync<S extends { rev: number }>(
           const cloudAt = typeof cloud?.updatedAt === 'number' ? cloud.updatedAt : 0;
           // Whichever copy was written last wins; the other side is brought up to
           // date. A stale or empty cloud document can no longer wipe local data.
-          if (cloud && cloudAt >= localUpdatedAt) {
+          if (cloud && merge) {
+            hydratingFromCloud = true;
+            try {
+              setData(store.getState(), merge(getData(store.getState()), cloud, localUpdatedAt > cloudAt));
+            } finally {
+              hydratingFromCloud = false;
+            }
+            saveLocal();
+            void saveCloud();
+          } else if (cloud && cloudAt >= localUpdatedAt) {
             hydratingFromCloud = true;
             try {
               setData(store.getState(), cloud);

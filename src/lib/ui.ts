@@ -26,6 +26,8 @@ interface UIState {
   /** When true, a single finger (or a Pencil that reports as touch) draws; two fingers pan/zoom.
    *  When false, only a real pen/stylus draws and any touch navigates (palm rejection). */
   fingerDraw: boolean;
+  /** Bumped when a synced setting (lang, subject, fingerDraw) changes; see sync.ts. */
+  rev: number;
   setLang: (l: Lang) => void;
   toggleLang: () => void;
   setSubject: (s: Subject) => void;
@@ -33,6 +35,8 @@ interface UIState {
   closePanel: () => void;
   setLauncherOpen: (b: boolean) => void;
   setFingerDraw: (b: boolean) => void;
+  /** Apply settings from the device/cloud sync. Unknown or missing values keep the current ones. */
+  loadSettings: (data: { lang?: Lang; subject?: Subject; fingerDraw?: boolean } | null | undefined) => void;
 }
 
 export const useUI = create<UIState>()(
@@ -43,13 +47,21 @@ export const useUI = create<UIState>()(
       panel: null,
       launcherOpen: false,
       fingerDraw: false, // default: pen draws, fingers navigate (pan / pinch-zoom)
-      setLang: (lang) => set({ lang }),
-      toggleLang: () => set({ lang: LANGS[(LANGS.indexOf(get().lang) + 1) % LANGS.length] }),
-      setSubject: (subject) => set({ subject }),
+      rev: 0,
+      setLang: (lang) => set((s) => ({ lang, rev: s.rev + 1 })),
+      toggleLang: () => set((s) => ({ lang: LANGS[(LANGS.indexOf(get().lang) + 1) % LANGS.length], rev: s.rev + 1 })),
+      setSubject: (subject) => set((s) => ({ subject, rev: s.rev + 1 })),
       openPanel: (panel) => set({ panel, launcherOpen: false }),
       closePanel: () => set({ panel: null }),
       setLauncherOpen: (launcherOpen) => set({ launcherOpen }),
-      setFingerDraw: (fingerDraw) => set({ fingerDraw }),
+      setFingerDraw: (fingerDraw) => set((s) => ({ fingerDraw, rev: s.rev + 1 })),
+      loadSettings: (data) =>
+        set((s) => ({
+          lang: LANGS.includes(data?.lang as Lang) ? (data!.lang as Lang) : s.lang,
+          subject: SUBJECTS.includes(data?.subject as Subject) ? (data!.subject as Subject) : s.subject,
+          fingerDraw: typeof data?.fingerDraw === 'boolean' ? data.fingerDraw : s.fingerDraw,
+          rev: s.rev + 1,
+        })),
     }),
     {
       name: 'eju-ui',
