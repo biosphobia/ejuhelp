@@ -11,7 +11,7 @@ const LS_SNAPS = 'eju-board-snapshots';
 const IDB_BOARD = 'board';
 const IDB_SNAPS = 'board-snapshots';
 const LS_MIRROR_MAX = 1_500_000; // mirror to localStorage only while it comfortably fits
-const LOCAL_SNAPS_KEEP = 5;
+const LOCAL_SNAPS_KEEP = 12;
 const CLOUD_SNAPS_KEEP = 5;
 const AUTO_SNAPSHOT_MS = 20 * 3_600_000; // one automatic cloud snapshot a day
 
@@ -97,10 +97,21 @@ let localUpdatedAt = 0;
 type LocalBoard = { pages: CPage[]; currentPageId?: string; notebooks?: NotebookMeta[]; updatedAt?: number };
 let localSnaps: LocalSnap[] = [];
 
+let lastStructure = '';
 function saveLocal() {
   const { pages, currentPageId, notebooks } = useBoard.getState();
-  localUpdatedAt = Math.max(Date.now(), localUpdatedAt + 1);
-  const data: LocalBoard = { pages: encode(pages), currentPageId, notebooks, updatedAt: localUpdatedAt };
+  const enc = encode(pages);
+  // "When did this device last change the notebook" must mean real changes:
+  // ink (each page's own stamp), or pages added/removed/reordered/renamed
+  // notebooks. Merely opening the app or turning a page must not make a stale
+  // device copy look newer than the account copy.
+  const structure = JSON.stringify([pages.map((p) => p.id), notebooks]);
+  let at = localUpdatedAt;
+  for (const p of enc) if ((p.m ?? 0) > at) at = p.m!;
+  if (lastStructure && structure !== lastStructure) at = Math.max(at, Date.now(), localUpdatedAt + 1);
+  lastStructure = structure;
+  localUpdatedAt = at;
+  const data: LocalBoard = { pages: enc, currentPageId, notebooks, updatedAt: localUpdatedAt };
   void idbSet(IDB_BOARD, data);
   // Mirror into localStorage while small, so an older build or a blocked
   // IndexedDB still finds the notes. Never let this mirror fail loudly.
@@ -311,16 +322,24 @@ async function loadCloud(uid: string): Promise<CloudBoard | null> {
  * Union of two page sets by id. A page on only one side is always kept; a page on
  * both sides takes the newer side's version. Nothing is ever dropped.
  */
+const inkOf = (p: CPage) => (p.st?.length ?? 0) + (p.tx?.length ?? 0);
+/** Which of two copies of one page to keep. With a change time on both, the later
+ *  edit wins (that is how an erase travels). Without reliable times, the copy with
+ *  more ink wins: a stale device copy can never blank out a page. Ties keep `a`. */
+function pickPage(a: CPage, b: CPage): CPage {
+  const am = a.m ?? 0;
+  const bm = b.m ?? 0;
+  if (am > 0 && bm > 0 && am !== bm) return am > bm ? a : b;
+  return inkOf(b) > inkOf(a) ? b : a;
+}
 function mergePages(local: CPage[], cloud: CPage[], cloudNewer: boolean): CPage[] {
   const base = cloudNewer ? cloud : local;
   const other = cloudNewer ? local : cloud;
   const otherById = new Map(other.map((p) => [p.id, p]));
   const seen = new Set(base.map((p) => p.id));
-  // A page on both sides takes the copy whose content changed last; without
-  // timestamps (older saves) the newer side as a whole leads.
   const out = base.map((p) => {
     const o = otherById.get(p.id);
-    return o && typeof o.m === 'number' && typeof p.m === 'number' && o.m > p.m ? o : p;
+    return o ? pickPage(p, o) : p;
   });
   for (const p of other) if (!seen.has(p.id)) out.push(p);
   return out;
@@ -374,7 +393,20 @@ export async function restoreBackup(id: string, mode: 'merge' | 'replace'): Prom
   const st = useBoard.getState();
   const current = encode(st.pages);
   snapshotLocal('before-restore', current, st.notebooks);
-  const merged = mode === 'replace' ? mergePages(pages, current.filter((p) => !hasInk(p)), true) : mergePages(current, pages, false);
+  // Replace: the backup as it was, plus current pages the backup does not have.
+  // Merge: every page from both; a page in both keeps whichever copy has more ink.
+  const curById = new Map(current.map((p) => [p.id, p]));
+  const bakById = new Map(pages.map((p) => [p.id, p]));
+  let merged: CPage[];
+  if (mode === 'replace') {
+    merged = [...pages, ...current.filter((p) => !bakById.has(p.id) && hasInk(p))];
+  } else {
+    merged = current.map((p) => {
+      const b = bakById.get(p.id);
+      return b && inkOf(b) > inkOf(p) ? b : p;
+    });
+    for (const p of pages) if (!curById.has(p.id)) merged.push(p);
+  }
   const added = merged.length - (mode === 'replace' ? 0 : current.length);
   st.setNotebooks(mergeNotebooks(st.notebooks, notebooks));
   st.loadPages(decode(merged), st.currentPageId, useUI.getState().subject);
@@ -570,6 +602,8 @@ async function hydrateLocal(subject: string) {
   board.setNotebooks(mergeNotebooks(lead.notebooks, other?.notebooks));
   board.loadPages(decode(pages), lead.currentPageId, subject);
   board.setNotebooks(useBoard.getState().notebooks);
+  const st = useBoard.getState();
+  lastStructure = JSON.stringify([st.pages.map((p) => p.id), st.notebooks]);
 }
 
 /** Wire up local + cloud autosave. Call once at startup. */
@@ -767,6 +801,16 @@ export function applyRemotePages(remote: CPage[], removedIds: string[]) {
       }
       const base = lastCloudPage.get(rp.id);
       const localEdited = !base || contentKey(base) !== lk;
+      // A copy with no reliable change time (older build, stale device) or one
+      // older than ours must not take ink away. Keep ours and put it back up.
+      const stale = !(rp.m! > 0) || (lp.m! > 0 && rp.m! < lp.m!);
+      if (stale && inkOf(rp) < inkOf(lp)) {
+        lastCloud.set(rp.id, key);
+        lastCloudPage.set(rp.id, rp);
+        mtimes.set(rp.id, Math.max(Date.now(), (lp.m ?? 0) + 1, (rp.m ?? 0) + 1)); // ours goes up as the newer copy
+        needUpload = true;
+        continue;
+      }
       if (localEdited && base) {
         // edited here and there since the copies last agreed: keep both sets of edits
         const merged = mergeEdits(base, lp, rp);
@@ -806,7 +850,7 @@ export function applyRemotePages(remote: CPage[], removedIds: string[]) {
     if (needUpload) void saveCloud();
     return;
   }
-  if (inkReplaced && Date.now() - lastLiveSnapshot > 10 * 60_000) {
+  if (inkReplaced && Date.now() - lastLiveSnapshot > 60_000) {
     lastLiveSnapshot = Date.now();
     snapshotLocal('before-live-update');
   }

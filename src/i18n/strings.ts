@@ -630,6 +630,8 @@ export const strings = {
   reason_auto: { en: 'daily', ja: '自動', zh: '每日', tr: 'günlük' },
   reason_manual: { en: 'manual', ja: '手動', zh: '手动', tr: 'elle' },
   'reason_before-cloud-merge': { en: 'before cloud merge', ja: 'クラウド統合前', zh: '云端合并前', tr: 'bulut birleştirmesi öncesi' },
+  'reason_before-live-update': { en: 'before update from another device', ja: '他端末からの更新前', zh: '其他设备更新前', tr: 'diğer cihazdan güncelleme öncesi' },
+  'reason_before-recover': { en: 'before recovery', ja: '復旧前', zh: '恢复前', tr: 'kurtarma öncesi' },
   'reason_before-restore': { en: 'before restore', ja: '復元前', zh: '恢复前', tr: 'geri yükleme öncesi' },
   'reason_before-import': { en: 'before import', ja: '読み込み前', zh: '导入前', tr: 'içe aktarma öncesi' },
   'reason_legacy-board': { en: 'old cloud copy', ja: '旧クラウド版', zh: '旧云端副本', tr: 'eski bulut kopyası' },
