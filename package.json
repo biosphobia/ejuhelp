@@ -8,9 +8,12 @@
     "dev": "concurrently -k -n web,api -c blue,green \"vite\" \"tsx watch server/index.ts\"",
     "dev:web": "vite",
     "dev:api": "tsx watch server/index.ts",
-    "build": "vite build",
+    "build": "npm run test:sync && vite build",
+    "build:web": "vite build",
     "start": "tsx server/index.ts",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "test:sync": "node tests/sync/run.mjs",
+    "verify": "npm run typecheck && npm run test:sync && vite build"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.65.0",

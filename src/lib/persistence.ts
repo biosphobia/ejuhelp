@@ -4,12 +4,16 @@ import { useAuth } from './auth';
 import { useUI } from './ui';
 import { db } from './firebase';
 import { idbGet, idbSet, persistStorage } from './idb';
+import { create } from 'zustand';
 import { chunkPage, assemblePages, type ChunkDoc } from './chunk';
 
 const LS_KEY = 'eju-board-v1';
 const LS_SNAPS = 'eju-board-snapshots';
 const IDB_BOARD = 'board';
 const IDB_SNAPS = 'board-snapshots';
+const IDB_HISTORY = 'board-history';
+const HISTORY_KEEP = 400; // journal entries kept on the device (older ones fall off)
+const HISTORY_MAX_JSON = 40_000_000;
 const LS_MIRROR_MAX = 1_500_000; // mirror to localStorage only while it comfortably fits
 const LOCAL_SNAPS_KEEP = 12;
 const CLOUD_SNAPS_KEEP = 5;
@@ -32,7 +36,7 @@ function encodePage(pg: Page): CPage {
       i: s.id,
       c: s.color,
       s: s.size,
-      p: s.points.map((pt) => [Math.round(pt.x), Math.round(pt.y), round(pt.p, 2)]),
+      p: s.points.flatMap((pt) => [Math.round(pt.x), Math.round(pt.y), round(pt.p, 2)]),
       ...(s.shape ? { sh: s.shape } : {}),
     })),
     ...(pg.notebook ? { nb: pg.notebook } : {}),
@@ -46,7 +50,7 @@ function encodePage(pg: Page): CPage {
 const mtimes = new Map<string, number>();
 const lastContent = new Map<string, string>(); // pageId -> content key at the last stamp
 const contentKey = (cp: CPage) => {
-  const { v: _v, m: _m, ...rest } = cp;
+  const { v: _v, m: _m, pm: _pm, ...rest } = cp;
   return JSON.stringify(rest);
 };
 /** Encode pages and stamp the ones whose content changed since the last call. */
@@ -71,6 +75,14 @@ function noteKnown(pages: CPage[]) {
   }
 }
 
+function decodePoints(p: number[] | number[][] | undefined): { x: number; y: number; p: number }[] {
+  if (!Array.isArray(p) || !p.length) return [];
+  if (Array.isArray(p[0])) return (p as number[][]).map((t) => ({ x: t[0], y: t[1], p: t[2] })); // older saves
+  const flat = p as number[];
+  const out: { x: number; y: number; p: number }[] = [];
+  for (let i = 0; i + 2 < flat.length; i += 3) out.push({ x: flat[i], y: flat[i + 1], p: flat[i + 2] });
+  return out;
+}
 function decode(cps: CPage[]): Page[] {
   return cps.map((cp) => ({
     id: cp.id,
@@ -79,7 +91,7 @@ function decode(cps: CPage[]): Page[] {
       id: cs.i,
       color: cs.c,
       size: cs.s,
-      points: cs.p.map((t) => ({ x: t[0], y: t[1], p: t[2] })),
+      points: decodePoints(cs.p),
       ...(cs.sh ? { shape: cs.sh } : {}),
     })),
     ...(cp.nb ? { notebook: cp.nb } : {}),
@@ -90,6 +102,7 @@ function decode(cps: CPage[]): Page[] {
 }
 
 const hasInk = (p: CPage) => (p.st?.length ?? 0) > 0 || (p.tx?.length ?? 0) > 0;
+const inkOf = (p: CPage) => (p.st?.length ?? 0) + (p.tx?.length ?? 0);
 const inkPages = (pages: CPage[]) => pages.filter(hasInk).length;
 
 // ─────────────────────────── local ───────────────────────────
@@ -98,6 +111,7 @@ type LocalBoard = { pages: CPage[]; currentPageId?: string; notebooks?: Notebook
 let localSnaps: LocalSnap[] = [];
 
 let lastStructure = '';
+let lastSavedEnc: CPage[] | null = null;
 function saveLocal() {
   const { pages, currentPageId, notebooks } = useBoard.getState();
   const enc = encode(pages);
@@ -111,6 +125,13 @@ function saveLocal() {
   if (lastStructure && structure !== lastStructure) at = Math.max(at, Date.now(), localUpdatedAt + 1);
   lastStructure = structure;
   localUpdatedAt = at;
+  // A page deleted or cleared on this device is journaled before the copy is gone.
+  if (lastSavedEnc) {
+    const now = new Map(enc.map((p) => [p.id, p]));
+    const gone = lastSavedEnc.filter((p) => hasInk(p) && (!now.has(p.id) || !hasInk(now.get(p.id)!)));
+    if (gone.length) journal('deleted-here', gone);
+  }
+  lastSavedEnc = enc;
   const data: LocalBoard = { pages: enc, currentPageId, notebooks, updatedAt: localUpdatedAt };
   void idbSet(IDB_BOARD, data);
   // Mirror into localStorage while small, so an older build or a blocked
@@ -161,6 +182,98 @@ function snapshotLocal(reason: string, pages?: CPage[], notebooks?: NotebookMeta
   writeLocalSnaps([snap, ...readLocalSnaps()].slice(0, LOCAL_SNAPS_KEEP));
 }
 
+// ─────────────────────────── sync status (shown in Settings) ───────────────────────────
+export interface SyncStatus {
+  /** last successful cloud save of the notebook (ms), 0 = none this session */
+  cloudSavedAt: number;
+  /** pages in the cloud copy after the last save */
+  cloudPages: number;
+  /** last cloud error message, cleared by the next success */
+  cloudError: string | null;
+  /** true once this device has merged with the account copy (cloud writes are held until then) */
+  merged: boolean;
+  /** journal entries written this session (page versions kept before being replaced or removed) */
+  journaled: number;
+}
+export const useSyncStatus = create<SyncStatus>(() => ({ cloudSavedAt: 0, cloudPages: 0, cloudError: null, merged: false, journaled: 0 }));
+
+// ─────────────────────────── journal ───────────────────────────
+// Every page version that is about to lose ink or disappear through anything
+// other than the pen on this device (a merge, another device, a restore, an
+// import, a page delete or clear) is written to the journal first: on the
+// device (IndexedDB) and in the account (users/{uid}/history). The journal is
+// never trimmed by ink content, only by age on the device, and "Find lost
+// pages" searches it. So no update, sync rule or mistake can lose a page
+// without leaving a copy that can be put back.
+export interface JournalEntry {
+  id: string;
+  pageId: string;
+  ts: number;
+  reason: string;
+  page: CPage;
+}
+let history: JournalEntry[] = [];
+let historyLoaded = false;
+async function loadHistory() {
+  if (historyLoaded) return;
+  historyLoaded = true;
+  history = (await idbGet<JournalEntry[]>(IDB_HISTORY)) ?? [];
+}
+function journal(reason: string, pages: CPage[]) {
+  const inked = pages.filter(hasInk);
+  if (!inked.length) return;
+  const ts = Date.now();
+  const entries = inked.map((page, i) => ({ id: `${page.id}-${ts + i}`, pageId: page.id, ts: ts + i, reason, page }));
+  history = [...entries, ...history];
+  while (history.length > HISTORY_KEEP) history.pop();
+  try {
+    while (history.length > 1 && JSON.stringify(history).length > HISTORY_MAX_JSON) history.pop();
+  } catch {
+    /* ignore */
+  }
+  void idbSet(IDB_HISTORY, history);
+  useSyncStatus.setState((st) => ({ journaled: st.journaled + entries.length }));
+  const { user } = useAuth.getState();
+  if (!user || !db) return;
+  void (async () => {
+    try {
+      const col = collection(db!, 'users', user.uid, 'history');
+      let batch = writeBatch(db!);
+      let n = 0;
+      for (const e of entries) {
+        for (const part of chunkPage({ ...e.page, id: e.id })) {
+          batch.set(doc(col, part.id), { ...part.data, pageId: e.pageId, ts: e.ts, reason });
+          if (++n >= 20) {
+            await batch.commit();
+            batch = writeBatch(db!);
+            n = 0;
+          }
+        }
+      }
+      if (n) await batch.commit();
+    } catch (e) {
+      console.warn('[persistence] cloud journal failed', e);
+    }
+  })();
+}
+/**
+ * Compare the notebook before and after an automatic change and journal every
+ * page that lost ink or vanished. Called around every merge, remote update,
+ * restore and import — the one place that guarantees nothing is lost silently.
+ */
+function guardInk(reason: string, before: CPage[], after: CPage[]) {
+  const afterById = new Map(after.map((p) => [p.id, p]));
+  const lost = before.filter((p) => {
+    if (!hasInk(p)) return false;
+    const a = afterById.get(p.id);
+    return !a || inkOf(a) < inkOf(p);
+  });
+  if (lost.length) journal(reason, lost);
+}
+export function listJournal(): JournalEntry[] {
+  return history;
+}
+
 // ─────────────────────────── cloud ───────────────────────────
 // users/{uid}/board/main            → { v: 2, order: [pageId…], currentPageId, notebooks, updatedAt, snapshots: [...] }
 // users/{uid}/board/main/pages/{id} → one encoded page per doc
@@ -168,6 +281,19 @@ function snapshotLocal(reason: string, pages?: CPage[], notebooks?: NotebookMeta
 // One doc per page keeps every write far below Firestore's 1 MB document cap.
 const lastCloud = new Map<string, string>(); // pageId -> content key (see contentKey) as last written or received
 const lastCloudPage = new Map<string, CPage>(); // pageId -> that copy, the base for merging edits made on two devices
+// A few recent account copies per page, by version (`m`). When another device's
+// write was made from an older copy than the one we last synced, that older copy
+// is the right base for a three-way merge, so its erasures still count and
+// nothing of ours is dropped.
+const versions = new Map<string, Map<number, CPage>>();
+const VERSIONS_KEEP = 6;
+function rememberVersion(cp: CPage) {
+  if (typeof cp.m !== 'number') return;
+  let m = versions.get(cp.id);
+  if (!m) versions.set(cp.id, (m = new Map()));
+  m.set(cp.m, cp);
+  while (m.size > VERSIONS_KEEP) m.delete(m.keys().next().value!);
+}
 let cloudBusy = false;
 let cloudDirty = false;
 let cloudSnapshots: BackupMeta[] = [];
@@ -181,9 +307,14 @@ async function writePages(colRef: ReturnType<typeof collection>, pages: CPage[],
     batch = writeBatch(db!);
     n = 0;
   };
-  for (const enc of pages) {
+  for (let enc of pages) {
     const key = contentKey(enc);
     if (skipUnchanged && lastCloud.get(enc.id) === key) continue;
+    const prev = skipUnchanged ? lastCloudPage.get(enc.id) : undefined;
+    if (prev && hasInk(prev) && inkOf(enc) < inkOf(prev)) journal('replaced-in-cloud', [prev]);
+    // Record which account copy this write was made from, so other devices can
+    // tell a follow-on write from one made at the same time as theirs.
+    if (skipUnchanged) enc = { ...enc, pm: prev?.m ?? 0 };
     for (const part of chunkPage(enc)) {
       batch.set(doc(colRef, part.id), part.data);
       if (++n >= 20) await flush();
@@ -191,6 +322,7 @@ async function writePages(colRef: ReturnType<typeof collection>, pages: CPage[],
     if (skipUnchanged) {
       lastCloud.set(enc.id, key);
       lastCloudPage.set(enc.id, enc);
+      rememberVersion(enc);
     }
   }
   await flush();
@@ -211,9 +343,14 @@ async function deleteCollection(colRef: ReturnType<typeof collection>) {
   if (n) await batch.commit();
 }
 
+let mergedUid: string | null = null; // the account this device has merged with; cloud writes wait for it
+let merging = false;
 async function saveCloud() {
   const { user } = useAuth.getState();
   if (!user || !db) return;
+  // Never write to the account before this device has merged with its copy: a
+  // save that ran first would push a possibly stale device copy over it.
+  if (mergedUid !== user.uid) return;
   if (cloudBusy) {
     cloudDirty = true;
     return;
@@ -242,12 +379,14 @@ async function saveCloud() {
       updatedAt: localUpdatedAt || Date.now(),
       snapshots: cloudSnapshots,
     });
+    useSyncStatus.setState({ cloudSavedAt: Date.now(), cloudPages: enc.length, cloudError: null });
     if (Date.now() - lastAutoSnapshot > AUTO_SNAPSHOT_MS && inkPages(enc)) {
       lastAutoSnapshot = Date.now();
       await snapshotCloud('auto', enc, notebooks);
     }
   } catch (e) {
     console.warn('[persistence] cloud save failed', e);
+    useSyncStatus.setState({ cloudError: e instanceof Error ? e.message : String(e) });
   } finally {
     cloudBusy = false;
     if (cloudDirty) {
@@ -310,6 +449,7 @@ async function loadCloud(uid: string): Promise<CloudBoard | null> {
     for (const p of pages) {
       lastCloud.set(p.id, contentKey(p));
       lastCloudPage.set(p.id, p);
+      rememberVersion(p);
     }
     lastMainAt = data.updatedAt ?? 0;
     return { pages, currentPageId: data.currentPageId, notebooks: data.notebooks, updatedAt: data.updatedAt ?? 0, legacy: false };
@@ -322,7 +462,6 @@ async function loadCloud(uid: string): Promise<CloudBoard | null> {
  * Union of two page sets by id. A page on only one side is always kept; a page on
  * both sides takes the newer side's version. Nothing is ever dropped.
  */
-const inkOf = (p: CPage) => (p.st?.length ?? 0) + (p.tx?.length ?? 0);
 /** Which of two copies of one page to keep. With a change time on both, the later
  *  edit wins (that is how an erase travels). Without reliable times, the copy with
  *  more ink wins: a stale device copy can never blank out a page. Ties keep `a`. */
@@ -393,6 +532,7 @@ export async function restoreBackup(id: string, mode: 'merge' | 'replace'): Prom
   const st = useBoard.getState();
   const current = encode(st.pages);
   snapshotLocal('before-restore', current, st.notebooks);
+  guardInk('before-restore', current, mode === 'replace' ? pages : current);
   // Replace: the backup as it was, plus current pages the backup does not have.
   // Merge: every page from both; a page in both keeps whichever copy has more ink.
   const curById = new Map(current.map((p) => [p.id, p]));
@@ -480,6 +620,9 @@ export async function scanForLostPages(): Promise<ScanResult> {
   searched.push('device');
   for (const s of readLocalSnaps()) consider(s.pages, `device snapshot ${new Date(s.ts).toLocaleString()}`);
   if (readLocalSnaps().length) searched.push('device snapshots');
+  await loadHistory();
+  for (const e of history) consider([e.page], `journal ${new Date(e.ts).toLocaleString()} (${e.reason})`);
+  if (history.length) searched.push('journal');
 
   const { user } = useAuth.getState();
   if (user && db) {
@@ -504,6 +647,19 @@ export async function scanForLostPages(): Promise<ScanResult> {
         }
       }
       if (snaps.length) searched.push('cloud snapshots');
+      try {
+        const hq = await getDocs(collection(db, 'users', user.uid, 'history'));
+        const hdocs: { id: string; data: any }[] = [];
+        hq.forEach((d) => hdocs.push({ id: d.id, data: d.data() }));
+        const entries = assemblePages(hdocs) as (CPage & { pageId?: string; ts?: number; reason?: string })[];
+        for (const e of entries) {
+          const { pageId, ts, reason, ...page } = e;
+          if (pageId) consider([{ ...page, id: pageId }], `cloud journal ${new Date(ts ?? 0).toLocaleString()} (${reason ?? ''})`);
+        }
+        if (entries.length) searched.push('cloud journal');
+      } catch (e) {
+        console.warn('[persistence] cloud journal scan failed', e);
+      }
     } catch (e) {
       console.warn('[persistence] cloud scan failed', e);
     }
@@ -526,6 +682,7 @@ export function addPages(pages: CPage[]): number {
     const f = byId.get(p.id);
     return f && (f.st?.length ?? 0) + (f.tx?.length ?? 0) > (p.st?.length ?? 0) + (p.tx?.length ?? 0) ? f : p;
   });
+  guardInk('before-recover', current, out);
   st.setNotebooks(mergeNotebooks(st.notebooks, undefined));
   st.loadPages(decode(out), st.currentPageId, useUI.getState().subject);
   st.setNotebooks(useBoard.getState().notebooks);
@@ -549,6 +706,7 @@ export function importBoardJson(text: string): number {
   const current = encode(st.pages);
   snapshotLocal('before-import', current, st.notebooks);
   const merged = mergePages(current, raw.pages, false);
+  guardInk('before-import', current, merged);
   st.setNotebooks(mergeNotebooks(st.notebooks, raw.notebooks));
   st.loadPages(decode(merged), st.currentPageId, useUI.getState().subject);
   st.setNotebooks(useBoard.getState().notebooks);
@@ -589,11 +747,16 @@ async function hydrateLocal(subject: string) {
   } catch {
     /* ignore */
   }
+  await loadHistory();
   const a = idb?.pages?.length ? idb : undefined;
   const b = ls?.pages?.length ? ls : undefined;
   if (!a && !b) return;
   const idbNewer = (a?.updatedAt ?? 0) >= (b?.updatedAt ?? 0);
   const pages = a && b ? mergePages(a.pages, b.pages, !idbNewer) : (a ?? b)!.pages;
+  if (a && b) {
+    guardInk('device-copies-merged', a.pages, pages);
+    guardInk('device-copies-merged', b.pages, pages);
+  }
   const lead = (idbNewer ? a ?? b : b ?? a)!;
   const other = idbNewer ? b : a;
   localUpdatedAt = Math.max(a?.updatedAt ?? 0, b?.updatedAt ?? 0);
@@ -604,6 +767,7 @@ async function hydrateLocal(subject: string) {
   board.setNotebooks(useBoard.getState().notebooks);
   const st = useBoard.getState();
   lastStructure = JSON.stringify([st.pages.map((p) => p.id), st.notebooks]);
+  lastSavedEnc = pages;
 }
 
 /** Wire up local + cloud autosave. Call once at startup. */
@@ -641,21 +805,33 @@ export function initPersistence() {
   // 3) on sign-in, MERGE with the cloud board. Pages are joined by id, so a page
   //    that exists on only one side is always kept; the newer side wins for pages
   //    on both. A device snapshot is taken first, so nothing is ever lost silently.
-  useAuth.subscribe((st, prev) => {
-    if (st.user && st.user !== prev.user && db) {
-      void (async () => {
+  const mergeWithCloud = (st: { user: { uid: string } | null }) => {
+    if (!st.user || !db || merging) return;
+    merging = true;
+    void (async () => {
         try {
           await localReady; // never merge the cloud into a half-loaded device copy
           const cloud = await loadCloud(st.user!.uid);
           const board = useBoard.getState();
           const local = encode(board.pages);
           if (!cloud) {
+            mergedUid = st.user!.uid;
+            useSyncStatus.setState({ merged: true });
             await saveCloud();
+            merging = false;
             if (useAuth.getState().user === st.user) startLive(st.user!.uid);
             return;
           }
           const cloudNewer = cloud.updatedAt > localUpdatedAt;
-          const merged = mergePages(local, cloud.pages, cloudNewer);
+          // A blank page this device made on its own (the starter page of a fresh
+          // install) is not worth adding to an account that already has pages
+          // in that notebook; every page with ink always is.
+          const cloudNbs = new Set(cloud.pages.map((p) => p.nb ?? 'physics'));
+          const cloudIds = new Set(cloud.pages.map((p) => p.id));
+          const localKept = local.filter((p) => hasInk(p) || cloudIds.has(p.id) || !cloudNbs.has(p.nb ?? 'physics'));
+          const merged = mergePages(localKept, cloud.pages, cloudNewer);
+          guardInk('cloud-merge', local, merged);
+          guardInk('cloud-merge', cloud.pages, merged);
           const changed = JSON.stringify(merged) !== JSON.stringify(local);
           if (changed) {
             snapshotLocal('before-cloud-merge', local, board.notebooks);
@@ -668,15 +844,42 @@ export function initPersistence() {
           }
           // Legacy single-doc board: keep a cloud snapshot of it before migrating.
           if (cloud.legacy) await snapshotCloud('legacy-board', cloud.pages, board.notebooks);
+          mergedUid = st.user!.uid;
+          useSyncStatus.setState({ merged: true });
           await saveCloud();
         } catch (e) {
           console.warn('[persistence] cloud hydrate failed', e);
+          useSyncStatus.setState({ cloudError: e instanceof Error ? e.message : String(e) });
+          merging = false;
+          return; // not merged: cloud writes stay held, the device copy is untouched; retried when online
         }
+        merging = false;
         if (useAuth.getState().user === st.user) startLive(st.user!.uid);
-      })();
+    })();
+  };
+  useAuth.subscribe((st, prev) => {
+    if (st.user && st.user !== prev.user) {
+      mergedUid = null;
+      useSyncStatus.setState({ merged: false });
+      mergeWithCloud(st);
     }
-    if (!st.user) stopLive();
+    if (!st.user) {
+      stopLive();
+      mergedUid = null;
+      useSyncStatus.setState({ merged: false });
+    }
   });
+  // A merge that failed (offline at sign-in, a bad connection) is retried as soon
+  // as the connection is back; until then nothing is written to the account.
+  const retry = () => {
+    const st = useAuth.getState();
+    if (st.user && mergedUid !== st.user.uid) mergeWithCloud(st);
+  };
+  window.addEventListener('online', retry);
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible') retry();
+  });
+  setInterval(retry, 30_000);
 }
 
 // ─────────────────────────── live sync ───────────────────────────
@@ -780,6 +983,21 @@ function mergeEdits(base: CPage, local: CPage, remote: CPage): CPage {
   return { ...rest, st, ...(tx.length ? { tx } : {}), m: Math.max(Date.now(), (local.m ?? 0) + 1, (remote.m ?? 0) + 1) };
 }
 
+/** Two copies written at the same time from the same older version: union of
+ *  both, the more recent one leading for title, notebook and stroke order. */
+function mergeConcurrent(local: CPage, remote: CPage): CPage {
+  const lead = (local.m ?? 0) >= (remote.m ?? 0) ? local : remote;
+  const other = lead === local ? remote : local;
+  const st = [...lead.st];
+  const have = new Set(st.map((s) => s.i));
+  for (const s of other.st) if (!have.has(s.i)) st.push(s);
+  const tx = [...(lead.tx ?? [])];
+  const haveTx = new Set(tx.map((t) => t.id));
+  for (const t of other.tx ?? []) if (!haveTx.has(t.id)) tx.push(t);
+  const { tx: _tx, ...rest } = lead;
+  return { ...rest, st, ...(tx.length ? { tx } : {}), m: Math.max(Date.now(), (local.m ?? 0) + 1, (remote.m ?? 0) + 1) };
+}
+
 /** @internal exported for tests */
 export function applyRemotePages(remote: CPage[], removedIds: string[]) {
   const board = useBoard.getState();
@@ -797,6 +1015,7 @@ export function applyRemotePages(remote: CPage[], removedIds: string[]) {
       if (lk === key) {
         lastCloud.set(rp.id, key);
         lastCloudPage.set(rp.id, rp);
+        rememberVersion(rp);
         continue;
       }
       const base = lastCloudPage.get(rp.id);
@@ -811,11 +1030,28 @@ export function applyRemotePages(remote: CPage[], removedIds: string[]) {
         needUpload = true;
         continue;
       }
+      // Written from a different account copy than the one we last synced (or
+      // from none we can tell): the other device never saw our version, so it
+      // cannot have meant to erase anything of ours. Keep every stroke of both.
+      const concurrent = base ? (rp.pm ?? -1) !== (base.m ?? 0) : typeof rp.pm !== 'number';
+      if (concurrent && (localEdited || base)) {
+        // If we still hold the copy the other device wrote from, merge properly
+        // against it (its erasures count); otherwise keep every stroke of both.
+        const parent = typeof rp.pm === 'number' ? versions.get(rp.id)?.get(rp.pm) : undefined;
+        const merged = parent ? mergeEdits(parent, lp, rp) : mergeConcurrent(lp, rp);
+        lastCloud.set(rp.id, key);
+        lastCloudPage.set(rp.id, rp);
+        rememberVersion(rp);
+        if (contentKey(merged) !== lk) apply.push(merged);
+        if (contentKey(merged) !== key) needUpload = true;
+        continue;
+      }
       if (localEdited && base) {
         // edited here and there since the copies last agreed: keep both sets of edits
         const merged = mergeEdits(base, lp, rp);
         lastCloud.set(rp.id, key);
         lastCloudPage.set(rp.id, rp);
+        rememberVersion(rp);
         if (contentKey(merged) !== lk) apply.push(merged);
         needUpload = true; // the merged page goes back up so the other device gets our edits too
         continue;
@@ -828,6 +1064,7 @@ export function applyRemotePages(remote: CPage[], removedIds: string[]) {
     }
     lastCloud.set(rp.id, key);
     lastCloudPage.set(rp.id, rp);
+    rememberVersion(rp);
     apply.push(rp);
   }
   const drop: string[] = [];
@@ -854,6 +1091,8 @@ export function applyRemotePages(remote: CPage[], removedIds: string[]) {
     lastLiveSnapshot = Date.now();
     snapshotLocal('before-live-update');
   }
+  const localBefore = [...localById.values()];
+  guardInk('other-device', localBefore, localBefore.filter((p) => !drop.includes(p.id)).map((p) => apply.find((a) => a.id === p.id) ?? p));
   noteKnown(apply);
   board.applyRemote(decode(apply), drop);
   saveLocal();

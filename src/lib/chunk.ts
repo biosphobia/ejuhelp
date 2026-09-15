@@ -2,9 +2,25 @@
 // Pure functions with no browser or Firebase dependency, so they are unit-testable.
 import type { InkColor, ShapeKind, TextBlock } from './board';
 
-export type CStroke = { i: string; c: InkColor; s: number; p: number[][]; sh?: ShapeKind };
+/** Points are a flat number list [x0, y0, p0, x1, y1, p1, …]. Firestore rejects an
+ *  array nested directly inside an array, so the older [[x, y, p], …] shape could
+ *  never be saved to the account; it is still read (decode accepts both). */
+export type CStroke = { i: string; c: InkColor; s: number; p: number[] | number[][]; sh?: ShapeKind };
 /** `m` is when the page content last changed (ms), used to settle edits made on two devices. */
-export type CPage = { id: string; v: [number, number, number]; st: CStroke[]; nb?: string; t?: string; tx?: TextBlock[]; src?: string; m?: number };
+export type CPage = {
+  id: string;
+  v: [number, number, number];
+  st: CStroke[];
+  nb?: string;
+  t?: string;
+  tx?: TextBlock[];
+  src?: string;
+  /** when the content last changed (ms); also the version id of this copy */
+  m?: number;
+  /** the `m` of the account copy this copy was written from (0 = none). A receiver
+   *  whose last synced copy is not `pm` knows the write was concurrent with its own. */
+  pm?: number;
+};
 export type ChunkDoc = { id: string; data: any };
 
 const CLOUD_PART_MAX = 800_000; // bytes of JSON per Firestore doc (cap is ~1 MB)

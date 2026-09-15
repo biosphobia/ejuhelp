@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Label } from './atoms';
 import { useUI } from '../lib/ui';
 import { useAuth } from '../lib/auth';
-import { listBackups, backupNow, restoreBackup, exportBoardJson, importBoardJson, scanForLostPages, addPages, type BackupMeta, type ScanResult } from '../lib/persistence';
+import { listBackups, backupNow, restoreBackup, exportBoardJson, importBoardJson, scanForLostPages, addPages, useSyncStatus, type BackupMeta, type ScanResult } from '../lib/persistence';
 import { useBoard } from '../lib/board';
 import { useT } from '../i18n';
 
@@ -21,6 +21,8 @@ export default function Backups() {
   const refresh = () => setItems(listBackups());
   useEffect(refresh, [user]);
   const fmt = new Intl.DateTimeFormat(LOCALE[lang] ?? 'en-US', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+  const sync = useSyncStatus();
+  const pagesNow = useBoard((s) => s.pages.length);
 
   const run = async (key: string, fn: () => Promise<string>) => {
     setBusy(key);
@@ -37,6 +39,18 @@ export default function Backups() {
 
   return (
     <div className="mb-6">
+      {user && (
+        <p className={`mb-3 rounded-lg px-3 py-2 text-xs ${sync.cloudError ? 'bg-red-50 text-red-800' : 'bg-emerald-50 text-emerald-800'}`}>
+          {sync.cloudError
+            ? t('cloudErrorLine', { error: sync.cloudError })
+            : !sync.merged
+              ? t('cloudMerging')
+              : sync.cloudSavedAt
+                ? t('cloudSavedLine', { time: fmt.format(sync.cloudSavedAt), n: sync.cloudPages, local: pagesNow })
+                : t('cloudMergedLine')}
+          {sync.journaled > 0 && ` · ${t('journaledLine', { n: sync.journaled })}`}
+        </p>
+      )}
       <div className="mb-1 flex items-center justify-between">
         <Label>{t('backups')}</Label>
         <button type="button" disabled={busy !== null} onClick={() => void run('now', async () => { await backupNow(); return t('backupSaved'); })} className="text-xs font-semibold text-indigo-700 hover:underline disabled:opacity-40">
