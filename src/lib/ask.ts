@@ -6,7 +6,7 @@ import { useAnswers } from './answers';
 import { useProgress, useKeyPoints } from './userdata';
 import { useBoard } from './board';
 import { exportPagePng } from '../whiteboard/export';
-import { profileTexts } from './profile';
+import { profileTexts, coachStyleText } from './profile';
 import { useGenerated } from './generated';
 
 /** Verdict metadata attached to the assistant message produced by "Check my work". */
@@ -134,7 +134,7 @@ export const useAsk = create<AskState>((set, get) => ({
     set({ busy: true, error: null });
     try {
       const res = await askClaude(
-        { subject, lang, messages: get().messages.map(({ role, content }) => ({ role, content })), notes: p.notes },
+        { subject, lang, messages: get().messages.map(({ role, content }) => ({ role, content })), notes: p.notes, coachStyle: coachStyleText() },
         { jobId: p.jobId }
       );
       // Another device may have applied this answer meanwhile (it arrives via the account).
@@ -172,6 +172,7 @@ export const useAsk = create<AskState>((set, get) => ({
           notes: opts?.notes,
           imageDataUrl: image,
           profile: image ? profileTexts() : undefined,
+          coachStyle: coachStyleText(),
         },
         {
           // Saved before the request goes out, so even a crash right now can recover.
@@ -200,7 +201,7 @@ export const useAsk = create<AskState>((set, get) => ({
     const next: Message[] = trimMessages([...get().messages, { role: 'user', content: CHECK_REQUEST[lang] }]);
     set((s) => ({ messages: next, rev: s.rev + 1, busy: true, error: null, lastSaved: 0, lastAutoAnswered: false }));
     try {
-      const res = await checkWork({ subject, lang, imageDataUrl: img, question: activeQuestion ?? undefined, profile: profileTexts() });
+      const res = await checkWork({ subject, lang, imageDataUrl: img, question: activeQuestion ?? undefined, profile: profileTexts(), coachStyle: coachStyleText() });
       set((s) => ({
         messages: trimMessages([
           ...next,

@@ -439,6 +439,17 @@ function profileCtx(profile?: string[]): string | undefined {
     list.map((x) => `- ${x}`).join('\n')
   );
 }
+/** The student's standing instructions for how the coach should answer (set in Settings). */
+function coachStyleCtx(style?: string): string | undefined {
+  const t = style?.trim();
+  if (!t) return undefined;
+  return (
+    'The student has set these standing preferences for how you answer. Follow them in EVERY reply (tone, depth, ' +
+    'length, style of explanation), as long as they do not conflict with being correct or with the required output format ' +
+    `(markers, JSON, LaTeX):\n${TRIPLE}\n${t}\n${TRIPLE}`
+  );
+}
+
 const OBSERVE_DIRECTIVE =
   'Also return "observations": 0-4 short, specific, reusable facts about how THIS student writes that would help read their future pages ' +
   '(letter or kana shapes that look like something else, abbreviations and symbols they use, words they write in hiragana or in English, layout habits). ' +
@@ -456,6 +467,8 @@ export async function ask(args: {
   imageDataUrl?: string;
   /** Known handwriting / note habits of this student. */
   profile?: string[];
+  /** The student's standing instructions for how the coach should answer. */
+  coachStyle?: string;
   model?: string;
   userKey?: string;
 }): Promise<{ text: string; keyPoints: KeyPointDTO[]; summary: AskSummary | null; questions: GenQuestion[] }> {
@@ -494,7 +507,7 @@ export async function ask(args: {
     'Subtopic ids you may use for "topicId" (id = name): ' +
     subtopicsFor(args.subject, 'en').map((s) => `${s.id} = ${s.name}`).join('; ') +
     '.';
-  const extra = [ctx, notesCtx, imageCtx, imageCtx ? profileCtx(args.profile) : undefined, formatDirective(args.subject), ASK_DIRECTIVE, ids, QUESTIONS_DIRECTIVE]
+  const extra = [ctx, notesCtx, imageCtx, imageCtx ? profileCtx(args.profile) : undefined, formatDirective(args.subject), ASK_DIRECTIVE, ids, QUESTIONS_DIRECTIVE, coachStyleCtx(args.coachStyle)]
     .filter(Boolean)
     .join('\n\n');
 
@@ -682,6 +695,7 @@ export async function check(args: {
   imageDataUrl: string;
   question?: string;
   profile?: string[];
+  coachStyle?: string;
   model?: string;
   userKey?: string;
 }): Promise<CheckResult> {
@@ -703,6 +717,7 @@ export async function check(args: {
     `Then, on a new line, write exactly ${CHECK_META_MARK} and, on the next line, a single-line JSON object (and nothing after it):`,
     `{"correct":"yes"|"no"|"partial"|"unknown","topic":"<specific EJU sub-topic in English>","errorTags":[subset of ${JSON.stringify(ERROR_TAGS)}; use ["none"] when correct and [] when unknown],"studentAnswerIndex":<for a multiple-choice question, the 0-based index of the option the WRITTEN work clearly concludes, counting the listed choices in order; use -1 if it is not multiple-choice or no final choice is written>}`,
     '("partial" = on the right track but incomplete or with a fixable slip.)',
+    coachStyleCtx(args.coachStyle) ?? '',
   ].join('\n');
 
   const raw = await executeModelCall(

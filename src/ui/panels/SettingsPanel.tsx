@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import Panel, { SubjectChips } from '../Panel';
 import { Label } from '../atoms';
 import { useUI, type Lang } from '../../lib/ui';
@@ -5,7 +6,7 @@ import { useDebug } from '../../lib/debug';
 import { useT } from '../../i18n';
 import { GlobeIcon } from '../icons';
 import { useApiStore } from '../../lib/apiStore';
-import { useProfile } from '../../lib/profile';
+import { useProfile, COACH_STYLE_MAX } from '../../lib/profile';
 import Backups from '../Backups';
 import { TrashIcon } from '../icons';
 
@@ -141,6 +142,8 @@ export default function SettingsPanel() {
         <SubjectChips />
       </div>
 
+      <CoachProfile />
+
       <Backups />
 
       <div className="mb-6">
@@ -198,6 +201,57 @@ export default function SettingsPanel() {
         </div>
       </div>
     </Panel>
+  );
+}
+
+/** Standing instructions for the coach, saved explicitly and synced with the account. */
+function CoachProfile() {
+  const t = useT();
+  const saved = useProfile((s) => s.coachStyle);
+  const setCoachStyle = useProfile((s) => s.setCoachStyle);
+  const [draft, setDraft] = useState(saved);
+  const [justSaved, setJustSaved] = useState(false);
+  // Pick up a change that arrived from another device, unless the user is mid-edit.
+  const [base, setBase] = useState(saved);
+  useEffect(() => {
+    if (saved !== base) {
+      if (draft === base) setDraft(saved);
+      setBase(saved);
+    }
+  }, [saved, base, draft]);
+  const dirty = draft.trim() !== saved;
+
+  const save = () => {
+    setCoachStyle(draft);
+    setDraft(draft.trim());
+    setJustSaved(true);
+    setTimeout(() => setJustSaved(false), 1800);
+  };
+
+  return (
+    <div className="mb-6">
+      <Label>{t('coachProfile')}</Label>
+      <p className="mb-2 text-xs leading-relaxed text-slate-500">{t('coachProfileHint')}</p>
+      <textarea
+        value={draft}
+        onChange={(e) => setDraft(e.target.value)}
+        maxLength={COACH_STYLE_MAX}
+        rows={4}
+        placeholder={t('coachProfilePlaceholder')}
+        className="w-full resize-y rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm text-slate-800 placeholder:text-slate-400 focus:border-slate-800 focus:outline-none focus:ring-1 focus:ring-slate-800 transition"
+      />
+      <div className="mt-2 flex items-center justify-end gap-3">
+        {justSaved && !dirty ? <span className="text-xs text-emerald-600">{t('coachProfileSaved')}</span> : null}
+        <button
+          type="button"
+          onClick={save}
+          disabled={!dirty}
+          className="rounded-xl bg-slate-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-slate-700 disabled:bg-slate-100 disabled:text-slate-400"
+        >
+          {t('coachProfileSave')}
+        </button>
+      </div>
+    </div>
   );
 }
 

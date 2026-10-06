@@ -16,15 +16,21 @@ interface ProfileState {
   hand: HandStyle | null;
   /** Render tidied text in the student's own style (off = clean font). */
   matchHand: boolean;
+  /** Standing instructions from the student on how the coach should answer
+   *  (e.g. "explain simply, short steps"). Applies to every answer until changed. */
+  coachStyle: string;
   rev: number;
   learnHand: (h: HandStyle) => void;
   setMatchHand: (b: boolean) => void;
+  setCoachStyle: (text: string) => void;
   /** Merge new observations (deduplicated, newest kept, capped). */
   add: (texts: string[]) => number;
   remove: (id: string) => void;
   clear: () => void;
-  load: (habits: Habit[], hand?: HandStyle | null, matchHand?: boolean) => void;
+  load: (habits: Habit[], hand?: HandStyle | null, matchHand?: boolean, coachStyle?: string) => void;
 }
+
+export const COACH_STYLE_MAX = 1000;
 
 const CAP = 40;
 const norm = (s: string) => s.trim().toLowerCase().replace(/[\s。．.、,]+$/g, '');
@@ -33,9 +39,14 @@ export const useProfile = create<ProfileState>((set, get) => ({
   habits: [],
   hand: null,
   matchHand: true,
+  coachStyle: '',
   rev: 0,
   learnHand: (h) => set((s) => ({ hand: blendHandStyle(s.hand, h), rev: s.rev + 1 })),
   setMatchHand: (matchHand) => set((s) => ({ matchHand, rev: s.rev + 1 })),
+  setCoachStyle: (text) => {
+    const coachStyle = text.trim().slice(0, COACH_STYLE_MAX);
+    if (coachStyle !== get().coachStyle) set((s) => ({ coachStyle, rev: s.rev + 1 }));
+  },
   add: (texts) => {
     const cur = get().habits;
     const seen = new Set(cur.map((h) => norm(h.text)));
@@ -52,14 +63,19 @@ export const useProfile = create<ProfileState>((set, get) => ({
   },
   remove: (id) => set((s) => ({ habits: s.habits.filter((h) => h.id !== id), rev: s.rev + 1 })),
   clear: () => set((s) => ({ habits: [], rev: s.rev + 1 })),
-  load: (habits, hand, matchHand) =>
+  load: (habits, hand, matchHand, coachStyle) =>
     set((s) => ({
       habits: Array.isArray(habits) ? habits.filter((h) => h && typeof h.text === 'string' && h.text.trim()).slice(0, CAP) : [],
       hand: hand && typeof hand === 'object' && typeof hand.size === 'number' ? hand : s.hand,
       matchHand: typeof matchHand === 'boolean' ? matchHand : s.matchHand,
+      // Missing in copies saved by older builds: keep ours rather than wiping it.
+      coachStyle: typeof coachStyle === 'string' ? coachStyle.slice(0, COACH_STYLE_MAX) : s.coachStyle,
       rev: s.rev + 1,
     })),
 }));
 
 /** The habit texts, for sending with a request. */
 export const profileTexts = () => useProfile.getState().habits.map((h) => h.text);
+
+/** The student's standing instructions for the coach, if any. */
+export const coachStyleText = () => useProfile.getState().coachStyle.trim() || undefined;

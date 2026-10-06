@@ -407,6 +407,40 @@ scenario('a coach answer in flight is applied once, even when both devices poll 
   eq(B.useAsk.getState().pending, null, "B's pending cleared by the account copy");
 });
 
+scenario('coach profile follows the account, survives reload, and an older copy without it never wipes it', async () => {
+  const A = await device('A');
+  A.auth.signIn('u1');
+  await tick(SETTLE);
+  const p1 = A.useBoard.getState().currentPageId;
+  draw(A, p1);
+  A.useProfile.getState().setCoachStyle('  Explain simply, short steps.  ');
+  eq(A.useProfile.getState().coachStyle, 'Explain simply, short steps.', 'saved trimmed');
+  await tick(SETTLE);
+  eq(server().docs.get('users/u1/data/profile')?.coachStyle, 'Explain simply, short steps.', 'account has the coach profile');
+  const B = await device('B');
+  B.auth.signIn('u1');
+  await tick(SETTLE * 2);
+  eq(B.useProfile.getState().coachStyle, 'Explain simply, short steps.', 'B received the coach profile');
+  // changed on B: A follows live
+  B.useProfile.getState().setCoachStyle('Answer in detail with derivations.');
+  await tick(SETTLE * 2);
+  eq(A.useProfile.getState().coachStyle, 'Answer in detail with derivations.', 'A received the change');
+  // a copy from an older build has no coachStyle field: it must not wipe ours
+  A.useProfile.getState().load([], null, true, undefined);
+  eq(A.useProfile.getState().coachStyle, 'Answer in detail with derivations.', 'older copy kept the coach profile');
+  // reload keeps it
+  const A2 = await device('A', { fresh: false });
+  A2.auth.signIn('u1');
+  await tick(SETTLE * 2);
+  eq(A2.useProfile.getState().coachStyle, 'Answer in detail with derivations.', 'kept after reload');
+  ok(A2.useBoard.getState().pages.some((p) => p.strokes.length), 'ink still there after reload');
+  // clearing it is an explicit, saved change
+  A2.useProfile.getState().setCoachStyle('');
+  await tick(SETTLE * 2);
+  eq(B.useProfile.getState().coachStyle, '', 'clearing reached B');
+  await assertQuiet('after coach profile edits');
+});
+
 let failed = 0;
 for (const sc of scenarios) {
   if (process.env.SYNC_ONLY && !sc.name.includes(process.env.SYNC_ONLY)) continue;

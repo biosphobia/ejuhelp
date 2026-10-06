@@ -181,6 +181,8 @@ export const askClaude = (p: {
   /** PNG capture of the current whiteboard page, so the coach can read handwritten notes. */
   imageDataUrl?: string;
   profile?: string[];
+  /** How the student wants the coach to answer (set in Settings). */
+  coachStyle?: string;
 }, opts?: CallOpts) => call<AskResponse>('claude/ask', p, opts);
 
 export type Difficulty = 'easy' | 'medium' | 'hard';
@@ -235,6 +237,7 @@ export const checkWork = (p: {
   imageDataUrl: string;
   question?: string;
   profile?: string[];
+  coachStyle?: string;
 }, opts?: CallOpts) => call<CheckResponse>('claude/check', p, opts);
 
 export interface TidyBlock {

@@ -85,6 +85,9 @@ async function respondWithJob(req: Request, res: Response, fn: () => Promise<unk
 const cleanProfile = (v: unknown): string[] | undefined =>
   Array.isArray(v) ? v.filter((x) => typeof x === 'string' && x.trim()).map((x) => String(x).slice(0, 200)).slice(0, 40) : undefined;
 
+const cleanCoachStyle = (v: unknown): string | undefined =>
+  typeof v === 'string' && v.trim() ? v.trim().slice(0, 1000) : undefined;
+
 // Helper to extract BYOK credentials from requests
 const getAiContext = (req: Request) => {
   const model = req.body?.model || 'gemini'; 
@@ -94,7 +97,7 @@ const getAiContext = (req: Request) => {
 
 app.post('/api/claude/ask', requireAuth, async (req: Request, res: Response) => {
   try {
-    const { subject, lang, messages, context, notes, imageDataUrl, profile } = req.body ?? {};
+    const { subject, lang, messages, context, notes, imageDataUrl, profile, coachStyle } = req.body ?? {};
     const { model, userKey } = getAiContext(req);
     if (!isSubject(subject)) return res.status(400).json({ error: 'bad_subject' });
 
@@ -107,6 +110,7 @@ app.post('/api/claude/ask', requireAuth, async (req: Request, res: Response) => 
         notes: typeof notes === 'string' ? notes.slice(0, 12000) : undefined,
         imageDataUrl: typeof imageDataUrl === 'string' && imageDataUrl.startsWith('data:image/') ? imageDataUrl : undefined,
         profile: cleanProfile(profile),
+        coachStyle: cleanCoachStyle(coachStyle),
         model,
         userKey,
       })
@@ -153,7 +157,7 @@ app.post('/api/claude/generate', requireAuth, async (req: Request, res: Response
 
 app.post('/api/claude/check', requireAuth, async (req: Request, res: Response) => {
   try {
-    const { subject, lang, imageDataUrl, question, profile } = req.body ?? {};
+    const { subject, lang, imageDataUrl, question, profile, coachStyle } = req.body ?? {};
     const { model, userKey } = getAiContext(req);
     if (!isSubject(subject)) return res.status(400).json({ error: 'bad_subject' });
     if (typeof imageDataUrl !== 'string') return res.status(400).json({ error: 'missing_image' });
@@ -165,6 +169,7 @@ app.post('/api/claude/check', requireAuth, async (req: Request, res: Response) =
         imageDataUrl,
         question: typeof question === 'string' ? question : undefined,
         profile: cleanProfile(profile),
+        coachStyle: cleanCoachStyle(coachStyle),
         model,
         userKey,
       })
