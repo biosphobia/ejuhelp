@@ -2,10 +2,11 @@ import { useEffect, useRef, useState } from 'react';
 import Panel, { SubjectChips } from '../Panel';
 import Markdown, { Inline } from '../Markdown';
 import { ErrorNote, errorMessage } from '../atoms';
-import { SpinnerIcon, CheckIcon, TrashIcon } from '../icons';
+import { SpinnerIcon, CheckIcon, TrashIcon, PlusIcon } from '../icons';
 import { useAsk, type CheckMeta } from '../../lib/ask';
+import { useChats, listChats } from '../../lib/chats';
 import { usePractice } from '../../lib/practice';
-import { useUI } from '../../lib/ui';
+import { useUI, SUBJECTS, type Subject } from '../../lib/ui';
 import { errorTagLabel } from '../../lib/labels';
 import type { AskSummary } from '../../lib/api';
 import { useT, type TFunc } from '../../i18n';
@@ -99,6 +100,68 @@ function Takeaway({ s, t, onAsk, disabled }: { s: AskSummary; t: TFunc; onAsk: (
   );
 }
 
+/** Saved conversations: start a new one, or continue any of them. */
+function ChatList({ t, onDone }: { t: TFunc; onDone: () => void }) {
+  const chats = useChats((s) => s.chats);
+  const chatId = useAsk((s) => s.chatId);
+  const locked = useAsk((s) => s.busy || Boolean(s.pending));
+  const newChat = useAsk((s) => s.newChat);
+  const openChat = useAsk((s) => s.openChat);
+  const deleteChat = useAsk((s) => s.deleteChat);
+  const list = listChats(chats);
+  return (
+    <div className="space-y-2">
+      <button
+        type="button"
+        disabled={locked}
+        onClick={() => {
+          newChat();
+          onDone();
+        }}
+        className="flex w-full items-center justify-center gap-1.5 rounded-xl bg-slate-900 px-3 py-2.5 text-sm font-semibold text-white disabled:opacity-40"
+      >
+        <PlusIcon className="h-4 w-4" /> {t('newChat')}
+      </button>
+      <ul className="space-y-1.5">
+        {list.map((c) => {
+          const open = c.id === chatId;
+          return (
+            <li key={c.id} className={`flex items-stretch gap-1 rounded-xl ring-1 ${open ? 'bg-indigo-50 ring-indigo-200' : 'bg-white ring-slate-200'}`}>
+              <button
+                type="button"
+                disabled={locked && !open}
+                onClick={() => {
+                  openChat(c.id);
+                  onDone();
+                }}
+                className="min-w-0 flex-1 px-3 py-2 text-left disabled:opacity-40"
+              >
+                <div className="truncate text-sm font-medium text-slate-900">{c.title || '…'}</div>
+                <div className="mt-0.5 flex flex-wrap gap-x-2 text-xs text-slate-500">
+                  {open ? <span className="font-semibold text-indigo-700">{t('openChatLabel')}</span> : null}
+                  {SUBJECTS.includes(c.subject as Subject) ? <span>{t(c.subject as Subject)}</span> : null}
+                  <span>{new Date(c.updatedAt).toLocaleString(undefined, { dateStyle: 'medium', timeStyle: 'short' })}</span>
+                  <span>{t('chatMessages', { n: c.messages.length })}</span>
+                </div>
+              </button>
+              <button
+                type="button"
+                aria-label={t('deleteChat')}
+                title={t('deleteChat')}
+                disabled={open && locked}
+                onClick={() => deleteChat(c.id)}
+                className="shrink-0 px-2.5 text-slate-300 hover:text-red-600 disabled:opacity-40"
+              >
+                <TrashIcon className="h-4 w-4" />
+              </button>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  );
+}
+
 export default function AskPanel() {
   const t = useT();
   const messages = useAsk((s) => s.messages);
@@ -114,6 +177,7 @@ export default function AskPanel() {
   const setActiveQuestion = usePractice((s) => s.setActiveQuestion);
   const openPanel = useUI((s) => s.openPanel);
 
+  const [showChats, setShowChats] = useState(false);
   const [input, setInput] = useState('');
   const [checking, setChecking] = useState(false);
   const [attach, setAttach] = useState(false);
@@ -172,180 +236,200 @@ export default function AskPanel() {
       title={t('askCoach')}
       wide={wide}
       headerExtra={
-        <button
-          type="button"
-          onClick={() => setWide((w) => !w)}
-          title={wide ? t('narrowView') : t('wideView')}
-          aria-label={wide ? t('narrowView') : t('wideView')}
-          className="hidden h-9 w-9 place-items-center rounded-xl text-slate-500 hover:bg-slate-100 sm:grid"
-        >
-          <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            {wide ? (
-              <>
-                <path d="M9 4v16M15 4v16" />
-                <path d="M3 12h4M17 12h4" />
-              </>
-            ) : (
-              <>
-                <path d="M4 4v16M20 4v16" />
-                <path d="M8 12h8M8 12l3-3M8 12l3 3M16 12l-3-3M16 12l-3 3" />
-              </>
-            )}
-          </svg>
-        </button>
+        <>
+          <button
+            type="button"
+            onClick={() => setShowChats((v) => !v)}
+            aria-pressed={showChats}
+            className={`h-9 rounded-xl px-3 text-sm font-semibold transition ${
+              showChats ? 'bg-slate-900 text-white' : 'text-slate-600 hover:bg-slate-100'
+            }`}
+          >
+            {showChats ? t('backToChat') : t('chats')}
+          </button>
+          <button
+            type="button"
+            onClick={() => setWide((w) => !w)}
+            title={wide ? t('narrowView') : t('wideView')}
+            aria-label={wide ? t('narrowView') : t('wideView')}
+            className="hidden h-9 w-9 place-items-center rounded-xl text-slate-500 hover:bg-slate-100 sm:grid"
+          >
+            <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              {wide ? (
+                <>
+                  <path d="M9 4v16M15 4v16" />
+                  <path d="M3 12h4M17 12h4" />
+                </>
+              ) : (
+                <>
+                  <path d="M4 4v16M20 4v16" />
+                  <path d="M8 12h8M8 12l3-3M8 12l3 3M16 12l-3-3M16 12l-3 3" />
+                </>
+              )}
+            </svg>
+          </button>
+        </>
       }
       footer={
-        <div className="space-y-2">
-          <div className="flex gap-2">
-            <button
-              type="button"
-              onClick={() => void runCheck()}
-              disabled={busy}
-              className="flex flex-1 items-center justify-center gap-1.5 rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-50 disabled:opacity-40"
-            >
-              {checking ? <SpinnerIcon className="h-4 w-4" /> : <CheckIcon className="h-4 w-4" />}
-              {checking ? t('checking') : t('check')}
-            </button>
-            <button
-              type="button"
-              onClick={() => setAttach((v) => !v)}
-              disabled={busy}
-              aria-pressed={attach}
-              className={`flex flex-1 items-center justify-center gap-1.5 rounded-xl border px-3 py-2 text-sm font-semibold transition disabled:opacity-40 ${
-                attach ? 'border-indigo-300 bg-indigo-50 text-indigo-800' : 'border-slate-200 bg-white text-slate-700 hover:bg-slate-50'
-              }`}
-            >
-              📎 {t('attachPage')}
-            </button>
-          </div>
-          {attach ? (
-            <div className="rounded-xl bg-indigo-50 px-3 py-2 text-xs text-indigo-800 ring-1 ring-indigo-100">
-              <div className="flex flex-wrap gap-1.5">
-                <button type="button" onClick={() => sendWithPage(t('tidyNotesPrompt'))} className="rounded-full bg-white px-2.5 py-1 text-xs font-semibold text-indigo-800 ring-1 ring-indigo-200 hover:bg-indigo-100">
-                  ✨ {t('tidyNotes')}
+        showChats ? undefined : (
+            <div className="space-y-2">
+              <div className="flex gap-2">
+                <button
+                  type="button"
+                  onClick={() => void runCheck()}
+                  disabled={busy}
+                  className="flex flex-1 items-center justify-center gap-1.5 rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-50 disabled:opacity-40"
+                >
+                  {checking ? <SpinnerIcon className="h-4 w-4" /> : <CheckIcon className="h-4 w-4" />}
+                  {checking ? t('checking') : t('check')}
                 </button>
-                <button type="button" onClick={() => sendWithPage(t('explainPagePrompt'))} className="rounded-full bg-white px-2.5 py-1 text-xs font-semibold text-indigo-800 ring-1 ring-indigo-200 hover:bg-indigo-100">
-                  💡 {t('explainPage')}
+                <button
+                  type="button"
+                  onClick={() => setAttach((v) => !v)}
+                  disabled={busy}
+                  aria-pressed={attach}
+                  className={`flex flex-1 items-center justify-center gap-1.5 rounded-xl border px-3 py-2 text-sm font-semibold transition disabled:opacity-40 ${
+                    attach ? 'border-indigo-300 bg-indigo-50 text-indigo-800' : 'border-slate-200 bg-white text-slate-700 hover:bg-slate-50'
+                  }`}
+                >
+                  📎 {t('attachPage')}
                 </button>
-                <button type="button" onClick={() => sendWithPage(t('questionsFromPagePrompt'))} className="rounded-full bg-white px-2.5 py-1 text-xs font-semibold text-indigo-800 ring-1 ring-indigo-200 hover:bg-indigo-100">
-                  ❓ {t('makeQuestions')}
+              </div>
+              {attach ? (
+                <div className="rounded-xl bg-indigo-50 px-3 py-2 text-xs text-indigo-800 ring-1 ring-indigo-100">
+                  <div className="flex flex-wrap gap-1.5">
+                    <button type="button" onClick={() => sendWithPage(t('tidyNotesPrompt'))} className="rounded-full bg-white px-2.5 py-1 text-xs font-semibold text-indigo-800 ring-1 ring-indigo-200 hover:bg-indigo-100">
+                      ✨ {t('tidyNotes')}
+                    </button>
+                    <button type="button" onClick={() => sendWithPage(t('explainPagePrompt'))} className="rounded-full bg-white px-2.5 py-1 text-xs font-semibold text-indigo-800 ring-1 ring-indigo-200 hover:bg-indigo-100">
+                      💡 {t('explainPage')}
+                    </button>
+                    <button type="button" onClick={() => sendWithPage(t('questionsFromPagePrompt'))} className="rounded-full bg-white px-2.5 py-1 text-xs font-semibold text-indigo-800 ring-1 ring-indigo-200 hover:bg-indigo-100">
+                      ❓ {t('makeQuestions')}
+                    </button>
+                  </div>
+                </div>
+              ) : null}
+              <div className="flex items-end gap-2">
+                <textarea
+                  value={input}
+                  onChange={(e) => setInput(e.target.value)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' && (e.metaKey || e.ctrlKey)) {
+                      e.preventDefault();
+                      submit();
+                    }
+                  }}
+                  rows={2}
+                  placeholder={t('askPlaceholder')}
+                  className="thin-scroll max-h-32 flex-1 resize-none rounded-xl border border-slate-200 px-3 py-2 text-sm outline-none focus:border-slate-400"
+                />
+                <button
+                  type="button"
+                  onClick={submit}
+                  disabled={busy || !input.trim()}
+                  className="grid h-10 shrink-0 place-items-center rounded-xl bg-slate-900 px-4 text-sm font-semibold text-white disabled:opacity-40"
+                >
+                  {busy && !checking ? <SpinnerIcon className="h-4 w-4" /> : t('send')}
                 </button>
               </div>
             </div>
-          ) : null}
-          <div className="flex items-end gap-2">
-            <textarea
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter' && (e.metaKey || e.ctrlKey)) {
-                  e.preventDefault();
-                  submit();
-                }
-              }}
-              rows={2}
-              placeholder={t('askPlaceholder')}
-              className="thin-scroll max-h-32 flex-1 resize-none rounded-xl border border-slate-200 px-3 py-2 text-sm outline-none focus:border-slate-400"
-            />
-            <button
-              type="button"
-              onClick={submit}
-              disabled={busy || !input.trim()}
-              className="grid h-10 shrink-0 place-items-center rounded-xl bg-slate-900 px-4 text-sm font-semibold text-white disabled:opacity-40"
-            >
-              {busy && !checking ? <SpinnerIcon className="h-4 w-4" /> : t('send')}
-            </button>
-          </div>
-        </div>
+        )
       }
     >
-      <div className="mb-2 flex items-center justify-between">
-        <SubjectChips />
-        {messages.length ? (
-          <button
-            type="button"
-            onClick={reset}
-            title={t('clearChatHint')}
-            className="inline-flex shrink-0 items-center gap-1 text-xs font-semibold text-slate-400 hover:text-red-600"
-          >
-            <TrashIcon className="h-3.5 w-3.5" /> {t('clearChat')}
-          </button>
-        ) : null}
-      </div>
-
-      {activeQuestion ? (
-        <div className="mb-3 rounded-2xl bg-amber-50 p-3 ring-1 ring-amber-100">
-          <div className="mb-1 flex items-center justify-between">
-            <span className="text-xs font-semibold uppercase tracking-wide text-amber-700">
-              {t('activeQuestion')}
-            </span>
-            <button
-              type="button"
-              onClick={() => setActiveQuestion(null)}
-              className="text-xs font-semibold text-amber-700 underline"
-            >
-              {t('close')}
-            </button>
+      {showChats ? (
+        <ChatList t={t} onDone={() => setShowChats(false)} />
+      ) : (
+        <>
+          <div className="mb-2 flex items-center justify-between">
+            <SubjectChips />
+            {messages.length ? (
+              <button
+                type="button"
+                onClick={reset}
+                title={t('clearChatHint')}
+                className="inline-flex shrink-0 items-center gap-1 text-xs font-semibold text-slate-400 hover:text-red-600"
+              >
+                <TrashIcon className="h-3.5 w-3.5" /> {t('clearChat')}
+              </button>
+            ) : null}
           </div>
-          <div className="max-h-24 overflow-y-auto text-sm text-amber-900">
-            <Markdown text={activeQuestion} />
-          </div>
-        </div>
-      ) : null}
 
-      <div className="space-y-3">
-        {messages.map((m, i) => (
-          <div key={i} className={m.role === 'user' ? 'flex justify-end' : 'flex justify-start'}>
-            <div
-              className={`rounded-2xl px-3 py-2 ${
-                m.role === 'user'
-                  ? 'max-w-[92%] bg-slate-900 text-white'
-                  : 'w-full bg-slate-50 text-slate-800 ring-1 ring-slate-100'
-              }`}
-            >
-              {m.role === 'user' ? (
-                <span className="whitespace-pre-wrap text-sm">
-                  {m.attached ? <span className="mr-1 rounded-md bg-white/15 px-1.5 py-0.5 text-[11px]">📎 {t('attachPage')}</span> : null}
-                  {m.content}
+          {activeQuestion ? (
+            <div className="mb-3 rounded-2xl bg-amber-50 p-3 ring-1 ring-amber-100">
+              <div className="mb-1 flex items-center justify-between">
+                <span className="text-xs font-semibold uppercase tracking-wide text-amber-700">
+                  {t('activeQuestion')}
                 </span>
-              ) : (
-                <>
-                  {m.check ? <CheckVerdict meta={m.check} t={t} /> : null}
-                  <Markdown text={m.content} />
-                  {m.questionsAdded ? (
-                    <button
-                      type="button"
-                      onClick={() => openPanel('generate')}
-                      className="mt-2 inline-flex items-center gap-1.5 rounded-xl bg-indigo-50 px-3 py-1.5 text-xs font-semibold text-indigo-800 ring-1 ring-indigo-100 hover:bg-indigo-100"
-                    >
-                      ✓ {t('questionsSent', { n: m.questionsAdded })} →
-                    </button>
-                  ) : null}
-                  {m.summary ? (
-                    <Takeaway s={m.summary} t={t} disabled={busy} onAsk={(q) => void send(q)} />
-                  ) : null}
-                  {i === lastAssistantIdx && !busy && savedCount > 0 ? (
-                    <div className="mt-2 text-xs font-medium text-emerald-700">★ {t('savedKeyPoints', { n: savedCount })}</div>
-                  ) : null}
-                </>
-              )}
+                <button
+                  type="button"
+                  onClick={() => setActiveQuestion(null)}
+                  className="text-xs font-semibold text-amber-700 underline"
+                >
+                  {t('close')}
+                </button>
+              </div>
+              <div className="max-h-24 overflow-y-auto text-sm text-amber-900">
+                <Markdown text={activeQuestion} />
+              </div>
             </div>
+          ) : null}
+
+          <div className="space-y-3">
+            {messages.map((m, i) => (
+              <div key={i} className={m.role === 'user' ? 'flex justify-end' : 'flex justify-start'}>
+                <div
+                  className={`rounded-2xl px-3 py-2 ${
+                    m.role === 'user'
+                      ? 'max-w-[92%] bg-slate-900 text-white'
+                      : 'w-full bg-slate-50 text-slate-800 ring-1 ring-slate-100'
+                  }`}
+                >
+                  {m.role === 'user' ? (
+                    <span className="whitespace-pre-wrap text-sm">
+                      {m.attached ? <span className="mr-1 rounded-md bg-white/15 px-1.5 py-0.5 text-[11px]">📎 {t('attachPage')}</span> : null}
+                      {m.content}
+                    </span>
+                  ) : (
+                    <>
+                      {m.check ? <CheckVerdict meta={m.check} t={t} /> : null}
+                      <Markdown text={m.content} />
+                      {m.questionsAdded ? (
+                        <button
+                          type="button"
+                          onClick={() => openPanel('generate')}
+                          className="mt-2 inline-flex items-center gap-1.5 rounded-xl bg-indigo-50 px-3 py-1.5 text-xs font-semibold text-indigo-800 ring-1 ring-indigo-100 hover:bg-indigo-100"
+                        >
+                          ✓ {t('questionsSent', { n: m.questionsAdded })} →
+                        </button>
+                      ) : null}
+                      {m.summary ? (
+                        <Takeaway s={m.summary} t={t} disabled={busy} onAsk={(q) => void send(q)} />
+                      ) : null}
+                      {i === lastAssistantIdx && !busy && savedCount > 0 ? (
+                        <div className="mt-2 text-xs font-medium text-emerald-700">★ {t('savedKeyPoints', { n: savedCount })}</div>
+                      ) : null}
+                    </>
+                  )}
+                </div>
+              </div>
+            ))}
+            {busy ? (
+              <div className="flex items-start gap-2 text-sm text-slate-400">
+                <SpinnerIcon className="mt-0.5 h-4 w-4 shrink-0" />
+                <span>{checking ? t('checking') : pending ? t('stillWorking') : t('loading')}</span>
+              </div>
+            ) : null}
+            {!busy && autoAnswered ? (
+              <div className="rounded-xl bg-emerald-50 px-3 py-1.5 text-xs font-medium text-emerald-700 ring-1 ring-emerald-100">
+                ✓ {t('autoAnswered')}
+              </div>
+            ) : null}
+            {error ? <ErrorNote>{errorMessage(error, t)}</ErrorNote> : null}
+            <div ref={bottomRef} />
           </div>
-        ))}
-        {busy ? (
-          <div className="flex items-start gap-2 text-sm text-slate-400">
-            <SpinnerIcon className="mt-0.5 h-4 w-4 shrink-0" />
-            <span>{checking ? t('checking') : pending ? t('stillWorking') : t('loading')}</span>
-          </div>
-        ) : null}
-        {!busy && autoAnswered ? (
-          <div className="rounded-xl bg-emerald-50 px-3 py-1.5 text-xs font-medium text-emerald-700 ring-1 ring-emerald-100">
-            ✓ {t('autoAnswered')}
-          </div>
-        ) : null}
-        {error ? <ErrorNote>{errorMessage(error, t)}</ErrorNote> : null}
-        <div ref={bottomRef} />
-      </div>
+        </>
+      )}
     </Panel>
   );
 }

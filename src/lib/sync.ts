@@ -6,11 +6,12 @@ import { useProfile } from './profile';
 import { useApiStore } from './apiStore';
 import { useUI } from './ui';
 import { initLive } from './live';
+import { initChats } from './chats';
 
 let started = false;
 
 /**
- * Persist the Ask Coach conversation, the generated practice questions, the
+ * Persist the Ask Coach conversation (and the saved ones, chats.ts), the generated practice questions, the
  * review plan, the handwriting profile, the AI keys and the app settings.
  * Everything is written to localStorage and (when signed in) Firestore, so a
  * second device signed into the same account picks it all up.
@@ -30,15 +31,16 @@ export function initSync() {
   };
   setTimeout(resumeAll, 800);
   initLive();
+  initChats();
   document.addEventListener('visibilitychange', resumeAll);
   window.addEventListener('online', resumeAll);
   attachSync(
     useAsk,
     'eju-chat',
     'chat',
-    (s) => ({ messages: s.messages, pending: s.pending }),
+    (s) => ({ chatId: s.chatId, messages: s.messages, pending: s.pending }),
     (s, data) => {
-      s.load(data?.messages ?? [], data?.pending);
+      s.load(data?.messages ?? [], data?.pending, data?.chatId, data?.updatedAt);
       // A question asked on another device: pick up its answer here too.
       if (data?.pending) setTimeout(() => void useAsk.getState().resume(), 0);
     },

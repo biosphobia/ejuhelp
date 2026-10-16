@@ -129,6 +129,12 @@ export const strings = {
   pinAll: { en: 'Pin all to board', ja: 'すべてボードに固定', zh: '全部固定到白板', tr: 'Tümünü tahtaya sabitle' },
   explain: { en: 'Explain', ja: '解説', zh: '讲解', tr: 'Açıkla' },
   question: { en: 'Question', ja: '問題', zh: '题目', tr: 'Soru' },
+  chats: { en: 'Chats', ja: '会話一覧', zh: '对话列表', tr: 'Sohbetler' },
+  newChat: { en: 'New chat', ja: '新しい会話', zh: '新对话', tr: 'Yeni sohbet' },
+  backToChat: { en: 'Back to chat', ja: '会話に戻る', zh: '返回对话', tr: 'Sohbete dön' },
+  openChatLabel: { en: 'Open', ja: '表示中', zh: '当前', tr: 'Açık' },
+  deleteChat: { en: 'Delete chat', ja: '会話を削除', zh: '删除对话', tr: 'Sohbeti sil' },
+  chatMessages: { en: '{n} messages', ja: '{n}件', zh: '{n} 条消息', tr: '{n} mesaj' },
   clearChat: { en: 'Clear', ja: 'クリア', zh: '清空', tr: 'Temizle' },
   clearChatHint: {
     en: 'Also wipes the AI’s context for this chat to save tokens.',

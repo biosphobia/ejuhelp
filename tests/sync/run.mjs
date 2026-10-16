@@ -441,6 +441,103 @@ scenario('coach profile follows the account, survives reload, and an older copy 
   await assertQuiet('after coach profile edits');
 });
 
+// Coach conversations: a fake answer stands in for the model (no network in tests).
+function talk(d, text) {
+  d.useAsk.setState((s) => ({ messages: [...s.messages, { role: 'user', content: text }, { role: 'assistant', content: `re: ${text}` }], rev: s.rev + 1 }));
+  const s = d.useAsk.getState();
+  d.useChats.getState().upsert({ id: s.chatId, subject: 'physics', messages: s.messages });
+}
+const saved = (d) => d.listChats(d.useChats.getState().chats);
+const savedTexts = (d) => saved(d).map((c) => c.messages.map((m) => m.content).join('>')).sort();
+const cloudChats = () => [...server().docs].filter(([k]) => /^users\/u1\/chats\//.test(k)).map(([, v]) => v);
+
+scenario('coach conversations: several are saved, continued on another device, kept after reload', async () => {
+  const A = await device('A');
+  A.auth.signIn('u1');
+  await tick(SETTLE);
+  draw(A, A.useBoard.getState().currentPageId);
+  talk(A, 'momentum');
+  const first = A.useAsk.getState().chatId;
+  A.useAsk.getState().newChat();
+  ok(A.useAsk.getState().chatId !== first && A.useAsk.getState().messages.length === 0, 'new chat is empty with a new id');
+  talk(A, 'moles');
+  await tick(SETTLE);
+  eq(saved(A).length, 2, 'A has both chats saved');
+  eq(cloudChats().length, 2, 'account has both chats');
+  const B = await device('B');
+  B.auth.signIn('u1');
+  await tick(SETTLE * 2);
+  eq(savedTexts(B).join('|'), savedTexts(A).join('|'), 'B has the same chats');
+  // B continues the first conversation
+  B.useAsk.getState().openChat(first);
+  eq(B.useAsk.getState().messages.length, 2, 'B opened the first chat');
+  talk(B, 'impulse');
+  await tick(SETTLE * 2);
+  eq(A.useChats.getState().chats[first].messages.length, 4, 'A sees the continued chat');
+  eq(A.useAsk.getState().chatId, first, 'the open chat follows the account');
+  // reload keeps them
+  const A2 = await device('A', { fresh: false });
+  A2.auth.signIn('u1');
+  await tick(SETTLE * 2);
+  eq(saved(A2).length, 2, 'both chats after reload');
+  eq(A2.useChats.getState().chats[first].messages.length, 4, 'continued chat intact after reload');
+  // deleting one removes it everywhere
+  const other = saved(A2).find((c) => c.id !== first).id;
+  A2.useAsk.getState().deleteChat(other);
+  await tick(SETTLE * 2);
+  eq(saved(B).length, 1, 'deletion reached B');
+  ok(cloudChats().every((c) => c.id !== other || c.deleted === true), 'account keeps only a deletion marker');
+  await assertQuiet('after chat edits');
+});
+
+scenario('coach conversations: the same chat continued on two offline devices keeps both, a stale copy never shortens one', async () => {
+  const A = await device('A');
+  A.auth.signIn('u1');
+  await tick(SETTLE);
+  talk(A, 'waves');
+  const id = A.useAsk.getState().chatId;
+  await tick(SETTLE);
+  const B = await device('B');
+  B.auth.signIn('u1');
+  await tick(SETTLE * 2);
+  eq(B.useAsk.getState().chatId, id, 'B has the chat open');
+  A.fs.goOffline();
+  B.fs.goOffline();
+  talk(A, 'frequency');
+  await tick(50);
+  talk(B, 'amplitude');
+  await tick(SETTLE);
+  A.fs.goOnline();
+  await tick(SETTLE);
+  B.fs.goOnline();
+  await tick(SETTLE * 3);
+  for (const d of [A, B]) {
+    const all = saved(d).flatMap((c) => c.messages.map((m) => m.content));
+    ok(all.includes('frequency') && all.includes('amplitude'), `${d.name} kept both continuations: ${savedTexts(d).join(' | ')}`);
+  }
+  eq(savedTexts(A).join('|'), savedTexts(B).join('|'), 'both devices end with the same chats');
+  eq(saved(A).length, 2, 'one conflict copy, not more');
+  // a stale copy of the open chat (fewer messages) never shortens the saved one
+  const full = A.useChats.getState().chats[id].messages.length;
+  A.useChats.getState().upsert({ id, subject: 'physics', messages: [{ role: 'user', content: 'waves' }] });
+  eq(A.useChats.getState().chats[id].messages.length, full, 'stale copy ignored');
+  await assertQuiet('after chat conflict');
+});
+
+scenario('coach conversations: a chat saved by an older build gets one id on every device', async () => {
+  server().docs.set('users/u1/data/chat', { messages: [{ role: 'user', content: 'old q' }, { role: 'assistant', content: 'old a' }], pending: null, updatedAt: 1000 });
+  const A = await device('A');
+  A.auth.signIn('u1');
+  const B = await device('B');
+  B.auth.signIn('u1');
+  await tick(SETTLE * 3);
+  eq(A.useAsk.getState().chatId, B.useAsk.getState().chatId, 'same id on both devices');
+  eq(saved(A).length, 1, 'A saved the old chat once');
+  eq(saved(B).length, 1, 'B saved the old chat once');
+  eq(cloudChats().filter((c) => !c.deleted).length, 1, 'account has it once');
+  await assertQuiet('after legacy chat');
+});
+
 let failed = 0;
 for (const sc of scenarios) {
   if (process.env.SYNC_ONLY && !sc.name.includes(process.env.SYNC_ONLY)) continue;

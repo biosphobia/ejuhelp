@@ -8,6 +8,7 @@ import { useBoard } from './board';
 import { exportPagePng } from '../whiteboard/export';
 import { profileTexts, coachStyleText } from './profile';
 import { useGenerated } from './generated';
+import { useChats, newChatId } from './chats';
 
 /** Verdict metadata attached to the assistant message produced by "Check my work". */
 export interface CheckMeta {
@@ -65,7 +66,17 @@ export interface PendingAsk {
   ts: number;
 }
 
+/** Stable id for a conversation saved by a build that had no ids, so every device picks the same one. */
+function legacyChatId(messages: Message[]): string {
+  const src = messages.slice(0, 2).map((m) => m.role + ':' + m.content).join('|');
+  let h = 5381;
+  for (let i = 0; i < src.length; i++) h = ((h * 33) ^ src.charCodeAt(i)) >>> 0;
+  return 'legacy-' + h.toString(36);
+}
+
 interface AskState {
+  /** Id of the open conversation (see chats.ts for the saved ones). */
+  chatId: string;
   messages: Message[];
   /** Survives a reload: the answer is picked up when the app comes back. */
   pending: PendingAsk | null;
@@ -80,10 +91,21 @@ interface AskState {
   check: () => Promise<void>;
   /** Wipe the conversation (locally and in the cloud). */
   reset: () => void;
+  /** Start a new conversation; the current one stays saved. */
+  newChat: () => void;
+  /** Continue a saved conversation; the current one stays saved. */
+  openChat: (id: string) => void;
+  /** Delete a saved conversation (the open one is replaced by a new, empty one). */
+  deleteChat: (id: string) => void;
   /** Replace the conversation from a saved copy (localStorage / Firestore). */
-  load: (messages: Message[], pending?: PendingAsk | null) => void;
+  load: (messages: Message[], pending?: PendingAsk | null, chatId?: string, updatedAt?: number) => void;
   /** Pick up an answer whose request was interrupted (device slept, app closed). */
   resume: () => Promise<void>;
+}
+
+/** Record the open conversation in the saved list. */
+function remember(s: AskState) {
+  useChats.getState().upsert({ id: s.chatId, subject: useUI.getState().subject, messages: s.messages });
 }
 
 type SetFn = (fn: (s: AskState) => Partial<AskState>) => void;
@@ -101,9 +123,11 @@ function applyAnswer(set: any, get: () => AskState, res: AskResponse, subject: R
     rev: s.rev + 1,
     lastSaved: added,
   }));
+  remember(get());
 }
 
 export const useAsk = create<AskState>((set, get) => ({
+  chatId: newChatId(),
   messages: [],
   pending: null,
   rev: 0,
@@ -111,17 +135,47 @@ export const useAsk = create<AskState>((set, get) => ({
   error: null,
   lastSaved: 0,
   lastAutoAnswered: false,
-  reset: () =>
-    set((s) => ({ messages: [], pending: null, rev: s.rev + 1, error: null, lastSaved: 0, lastAutoAnswered: false })),
-  load: (messages, pending) =>
-    set((s) => ({
-      messages: Array.isArray(messages)
+  reset: () => {
+    const { chatId, messages } = get();
+    if (messages.length) useChats.getState().remove(chatId);
+    set((s) => ({ chatId: newChatId(), messages: [], pending: null, rev: s.rev + 1, error: null, lastSaved: 0, lastAutoAnswered: false }));
+  },
+  newChat: () => {
+    if (get().busy || get().pending) return;
+    remember(get());
+    set((s) => ({ chatId: newChatId(), messages: [], rev: s.rev + 1, error: null, lastSaved: 0, lastAutoAnswered: false }));
+  },
+  openChat: (id) => {
+    const c = useChats.getState().chats[id];
+    if (!c || c.deleted || get().busy || get().pending || id === get().chatId) return;
+    remember(get());
+    set((s) => ({ chatId: id, messages: trimMessages(c.messages), rev: s.rev + 1, error: null, lastSaved: 0, lastAutoAnswered: false }));
+  },
+  deleteChat: (id) => {
+    if (id === get().chatId) {
+      if (get().busy || get().pending) return;
+      get().reset();
+      return;
+    }
+    useChats.getState().remove(id);
+  },
+  load: (messages, pending, chatId, updatedAt) => {
+    set((s) => {
+      const msgs = Array.isArray(messages)
         ? trimMessages(messages.filter((m) => m && typeof m.content === 'string' && (m.role === 'user' || m.role === 'assistant')))
-        : [],
-      // undefined = the copy says nothing about it; null = cleared (answer already applied elsewhere)
-      pending: pending === undefined ? s.pending : pending && typeof pending.jobId === 'string' ? pending : null,
-      rev: s.rev + 1,
-    })),
+        : [];
+      return {
+        messages: msgs,
+        // Copies from builds without ids: the same id on every device.
+        chatId: typeof chatId === 'string' && chatId ? chatId : msgs.length ? legacyChatId(msgs) : s.chatId,
+        // undefined = the copy says nothing about it; null = cleared (answer already applied elsewhere)
+        pending: pending === undefined ? s.pending : pending && typeof pending.jobId === 'string' ? pending : null,
+        rev: s.rev + 1,
+      };
+    });
+    const s = get();
+    useChats.getState().adopt({ id: s.chatId, messages: s.messages, updatedAt: typeof updatedAt === 'number' ? updatedAt : 0 });
+  },
   resume: async () => {
     const p = get().pending;
     if (!p || get().busy) return;
@@ -161,6 +215,7 @@ export const useAsk = create<AskState>((set, get) => ({
     }
     const next: Message[] = trimMessages([...get().messages, { role: 'user', content: t, ...(image ? { attached: true } : {}) }]);
     set((s) => ({ messages: next, rev: s.rev + 1, busy: true, error: null, lastSaved: 0, lastAutoAnswered: false }));
+    remember(get());
     let jobId: string | undefined;
     try {
       const res = await askClaude(
@@ -209,6 +264,7 @@ export const useAsk = create<AskState>((set, get) => ({
         ]),
         rev: s.rev + 1,
       }));
+      remember(get());
       if (res.correct !== 'unknown') {
         useProgress.getState().addAttempt({
           subject,
