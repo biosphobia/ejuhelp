@@ -108,8 +108,10 @@ function assertNothingLost() {
 async function assertQuiet(label) {
   await tick(SETTLE);
   const before = server().writes;
+  const logAt = server().writeLog.length;
   await tick(2500);
-  if (server().writes !== before) throw new Error(`${label}: cloud kept being written while idle (${server().writes - before} writes)`);
+  if (server().writes !== before)
+    throw new Error(`${label}: cloud kept being written while idle (${server().writes - before} writes: ${server().writeLog.slice(logAt).join(', ')})`);
 }
 const eq = (a, b, msg) => {
   if (a !== b) throw new Error(`${msg}: expected ${JSON.stringify(b)}, got ${JSON.stringify(a)}`);
@@ -536,6 +538,47 @@ scenario('coach conversations: a chat saved by an older build gets one id on eve
   eq(saved(B).length, 1, 'B saved the old chat once');
   eq(cloudChats().filter((c) => !c.deleted).length, 1, 'account has it once');
   await assertQuiet('after legacy chat');
+});
+
+scenario('coach conversations: two copies that differ only in details settle on one, with no endless rewrites', async () => {
+  // The same conversation, same messages and time, but one copy has no subject and
+  // another creation time (it was picked up from the open chat). Each device used to
+  // keep its own and re-upload it forever.
+  const msgs = [{ role: 'user', content: 'lens' }, { role: 'assistant', content: 're: lens' }];
+  const a = { id: 'c1', title: 'lens', subject: 'physics', messages: msgs, createdAt: 100, updatedAt: 500 };
+  const b = { id: 'c1', title: 'lens', subject: '', messages: msgs, createdAt: 500, updatedAt: 500 };
+  const A = await device('A');
+  const B = await device('B');
+  A.useChats.setState({ chats: { c1: a } });
+  B.useChats.setState({ chats: { c1: b } });
+  A.auth.signIn('u1');
+  await tick(SETTLE);
+  B.auth.signIn('u1');
+  await tick(SETTLE * 2);
+  eq(JSON.stringify(B.useChats.getState().chats.c1), JSON.stringify(A.useChats.getState().chats.c1), 'both devices hold the same copy');
+  eq(A.useChats.getState().chats.c1.subject, 'physics', 'subject kept');
+  eq(A.useChats.getState().chats.c1.createdAt, 100, 'earliest creation time kept');
+  await assertQuiet('after settling the copies');
+
+  // The merge must not depend on which device runs it, and merging again changes nothing.
+  const more = [...msgs, { role: 'user', content: 'focal' }, { role: 'assistant', content: 're: focal' }];
+  const other = [...msgs, { role: 'user', content: 'mirror' }, { role: 'assistant', content: 're: mirror' }];
+  const pairs = [
+    [a, b],
+    [a, { ...b, updatedAt: 400 }],
+    [a, { ...b, messages: more, updatedAt: 400 }],
+    [a, { ...b, messages: other }],
+    [a, { ...b, messages: [], deleted: true }],
+    [{ ...a, messages: [], deleted: true, title: '', subject: '' }, { ...b, messages: [], deleted: true, title: '', subject: '', createdAt: 7 }],
+  ];
+  for (const [x, y] of pairs) {
+    const m1 = A.mergeChat(x, y);
+    const m2 = A.mergeChat(y, x);
+    eq(JSON.stringify(m1.keep), JSON.stringify(m2.keep), `same result either way (${JSON.stringify(y).slice(0, 60)})`);
+    eq(JSON.stringify(m1.fork ?? null), JSON.stringify(m2.fork ?? null), 'same conflict copy either way');
+    ok(!A.mergeChat(m1.keep, x).changed || JSON.stringify(A.mergeChat(m1.keep, x).keep) === JSON.stringify(m1.keep), 'merging again is stable');
+    eq(A.mergeChat(m1.keep, m1.keep).changed, false, 'merging a copy with itself changes nothing');
+  }
 });
 
 let failed = 0;

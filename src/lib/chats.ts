@@ -76,34 +76,56 @@ function normalize(c: any): SavedChat {
   return out;
 }
 
+/** Choose between two strings the same way on every device: a non-empty one, then the larger. */
+const pick = (a: string, b: string) => (!a ? b : !b ? a : a > b ? a : b);
+const same = (a: unknown, b: unknown) => JSON.stringify(a) === JSON.stringify(b);
+
+/** One copy made from two: `lead` gives the messages, the rest is combined so that
+ *  every device computing it gets exactly the same result (otherwise two devices
+ *  could keep re-uploading their own slightly different copies forever). */
+function combine(lead: SavedChat, other: SavedChat): SavedChat {
+  const out: SavedChat = {
+    id: lead.id,
+    title: lead.deleted ? '' : pick(lead.title, other.deleted ? '' : other.title),
+    subject: lead.deleted ? '' : (pick(lead.subject, other.deleted ? '' : other.subject) as Subject | ''),
+    messages: lead.deleted ? [] : lead.messages,
+    createdAt: Math.min(lead.createdAt, other.createdAt),
+    updatedAt: Math.max(lead.updatedAt, other.updatedAt),
+  };
+  if (lead.deleted) out.deleted = true;
+  return out;
+}
+
 /**
  * Combine our copy of a conversation with another one. Returns the copy to keep
- * and, when ours has messages the other lacks and the other wins, ours as a
- * separate conversation so nothing is lost.
+ * and, when both have messages the other lacks, the older one as a separate
+ * conversation so nothing is lost. The result does not depend on which side is
+ * "ours", so all devices settle on the same copy.
  */
 export function mergeChat(ours: SavedChat | undefined, theirs: SavedChat): { keep: SavedChat; fork?: SavedChat; changed: boolean } {
   if (!ours) return { keep: theirs, changed: true };
-  const at = Math.max(ours.updatedAt, theirs.updatedAt);
+  const result = (keep: SavedChat, fork?: SavedChat) => ({ keep, fork, changed: !same(keep, ours) });
+  const msgs = (c: SavedChat) => JSON.stringify(c.messages);
   if (ours.deleted || theirs.deleted) {
-    // A deletion stands unless the conversation was continued after it.
-    const win = theirs.updatedAt > ours.updatedAt ? theirs : ours;
-    return { keep: win, changed: win !== ours };
+    // A deletion stands unless the conversation was continued after it (at the same moment, the deletion wins).
+    const theirsLead = theirs.updatedAt !== ours.updatedAt ? theirs.updatedAt > ours.updatedAt : Boolean(theirs.deleted);
+    return result(theirsLead ? combine(theirs, ours) : combine(ours, theirs));
   }
   const oursInTheirs = covers(theirs.messages, ours.messages);
   const theirsInOurs = covers(ours.messages, theirs.messages);
   if (oursInTheirs && theirsInOurs) {
     // Same content (one may be trimmed): the newer copy leads.
-    if (theirs.updatedAt > ours.updatedAt) return { keep: { ...theirs, updatedAt: at }, changed: true };
-    return { keep: ours, changed: false };
+    const theirsLead = theirs.updatedAt !== ours.updatedAt ? theirs.updatedAt > ours.updatedAt : msgs(theirs) > msgs(ours);
+    return result(theirsLead ? combine(theirs, ours) : combine(ours, theirs));
   }
-  if (oursInTheirs) return { keep: { ...theirs, updatedAt: at, createdAt: Math.min(ours.createdAt, theirs.createdAt) }, changed: true };
-  if (theirsInOurs) return { keep: { ...ours, updatedAt: at }, changed: at !== ours.updatedAt };
+  if (oursInTheirs) return result(combine(theirs, ours));
+  if (theirsInOurs) return result(combine(ours, theirs));
   // Both continued separately: the newer one keeps the id and the other is kept as
   // its own conversation. The fork id depends only on the losing copy, so both
   // devices that resolve this conflict create the same conversation, not two.
-  const theirsWins = theirs.updatedAt !== ours.updatedAt ? theirs.updatedAt > ours.updatedAt : JSON.stringify(theirs) > JSON.stringify(ours);
+  const theirsWins = theirs.updatedAt !== ours.updatedAt ? theirs.updatedAt > ours.updatedAt : msgs(theirs) > msgs(ours);
   const [win, lose] = theirsWins ? [theirs, ours] : [ours, theirs];
-  return { keep: win, fork: { ...lose, id: `${lose.id}-${lose.updatedAt.toString(36)}` }, changed: theirsWins };
+  return result(win, { ...lose, id: `${lose.id}-${lose.updatedAt.toString(36)}` });
 }
 
 interface ChatsState {

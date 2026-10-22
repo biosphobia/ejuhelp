@@ -9,7 +9,7 @@ import { useGenerated } from '../../src/lib/generated';
 import { useAuth } from '../../src/lib/auth';
 import { useApiStore } from '../../src/lib/apiStore';
 import { useProfile } from '../../src/lib/profile';
-import { useChats, listChats } from '../../src/lib/chats';
+import { useChats, listChats, mergeChat } from '../../src/lib/chats';
 import { initPersistence, restoreBackup, listBackups, listJournal, scanForLostPages, addPages, useSyncStatus, applyRemotePages, backupNow } from '../../src/lib/persistence';
 import { initUserData, useProgress } from '../../src/lib/userdata';
 import { initSync } from '../../src/lib/sync';
@@ -30,6 +30,7 @@ export function boot() {
     useProfile,
     useChats,
     listChats,
+    mergeChat,
     useProgress,
     useSyncStatus,
     restoreBackup,
