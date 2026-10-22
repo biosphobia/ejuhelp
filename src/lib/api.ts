@@ -214,6 +214,8 @@ export const generateQuestions = (p: {
   subject: Subject;
   lang: Lang;
   topic?: string;
+  /** Several subtopics at once; the questions are spread across them. */
+  topics?: string[];
   difficulty: Difficulty;
   count: number;
   focus?: { topics?: string[]; tags?: string[] };

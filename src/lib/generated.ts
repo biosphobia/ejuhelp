@@ -14,6 +14,8 @@ export interface GeneratedSet {
 export interface GenRequest {
   subject: Subject;
   topic?: string;
+  /** Several subtopics at once (the questions are spread across them). */
+  topics?: string[];
   difficulty: Difficulty;
   count: number;
   focus?: { topics?: string[]; tags?: string[] };
@@ -48,12 +50,23 @@ interface GeneratedState {
 
 const SUBJECT_KEYS: Subject[] = ['physics', 'chemistry', 'biology', 'math'];
 
-/** The study note's core idea for a subtopic, so generated questions test what was read. */
-export async function noteCoreFor(subject: Subject, topic: string | undefined, lang: string): Promise<string | undefined> {
-  if (!topic) return undefined;
+/** The study notes' core idea for one or more subtopics, so generated questions test what was read. */
+export async function noteCoreFor(subject: Subject, topic: string | string[] | undefined, lang: string): Promise<string | undefined> {
+  const ids = (Array.isArray(topic) ? topic : [topic]).filter((x): x is string => !!x);
+  if (!ids.length) return undefined;
   const data = await loadNotes(subject).catch(() => null);
-  const n = data?.notes[topic];
-  return n ? n.core[lang === 'ja' ? 'ja' : 'en'] : undefined;
+  const cores = ids.map((id) => data?.notes[id]?.core[lang === 'ja' ? 'ja' : 'en']).filter((x): x is string => !!x);
+  return cores.length ? cores.join('\n\n') : undefined;
+}
+
+/** The request without empty fields: it is saved with the account, which rejects `undefined`. */
+function cleanReq(req: GenRequest): GenRequest {
+  const out: GenRequest = { subject: req.subject, difficulty: req.difficulty, count: req.count };
+  if (req.topic) out.topic = req.topic;
+  if (req.topics?.length) out.topics = [...req.topics];
+  if (req.focus) out.focus = { topics: [...(req.focus.topics ?? [])], tags: [...(req.focus.tags ?? [])] };
+  if (req.noteCore) out.noteCore = req.noteCore;
+  return out;
 }
 
 function sanitize(raw: any): Partial<Record<Subject, GeneratedSet>> {
@@ -82,11 +95,11 @@ export const useGenerated = create<GeneratedState>((set, get) => ({
     let jobId: string | undefined;
     try {
       const res = await generateQuestions(
-        { subject: req.subject, lang, topic: req.topic, difficulty: req.difficulty, count: req.count, focus: req.focus, noteCore: req.noteCore },
+        { subject: req.subject, lang, topic: req.topic, topics: req.topics, difficulty: req.difficulty, count: req.count, focus: req.focus, noteCore: req.noteCore },
         {
           onJob: (id) => {
             jobId = id;
-            set((s) => ({ pending: { ...req, jobId: id, ts: Date.now() }, rev: s.rev + 1 }));
+            set((s) => ({ pending: { ...cleanReq(req), jobId: id, ts: Date.now() }, rev: s.rev + 1 }));
           },
         }
       );
@@ -114,7 +127,7 @@ export const useGenerated = create<GeneratedState>((set, get) => ({
     set({ busy: true, error: null });
     try {
       const res = await generateQuestions(
-        { subject: p.subject, lang, topic: p.topic, difficulty: p.difficulty, count: p.count, focus: p.focus, noteCore: p.noteCore },
+        { subject: p.subject, lang, topic: p.topic, topics: Array.isArray(p.topics) ? p.topics : undefined, difficulty: p.difficulty, count: p.count, focus: p.focus, noteCore: p.noteCore },
         { jobId: p.jobId }
       );
       if (get().pending?.jobId === p.jobId) {

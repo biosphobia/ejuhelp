@@ -112,6 +112,9 @@ export const strings = {
   // Generate
   generateTitle: { en: 'EJU-style practice', ja: 'EJU形式の練習問題', zh: 'EJU 风格练习', tr: 'EJU tarzı alıştırma' },
   topic: { en: 'Topic', ja: '分野', zh: '主题', tr: 'Konu' },
+  topicsLabel: { en: 'Topics', ja: '分野（複数可）', zh: '主题（可多选）', tr: 'Konular' },
+  addTopic: { en: '+ Add a topic…', ja: '＋ 分野を追加…', zh: '＋ 添加主题…', tr: '+ Konu ekle…' },
+  removeTopic: { en: 'Remove {name}', ja: '{name} を外す', zh: '移除 {name}', tr: '{name} kaldır' },
   anyTopic: { en: 'Any topic', ja: 'すべての分野', zh: '任意主题', tr: 'Herhangi bir konu' },
   difficulty: { en: 'Difficulty', ja: '難易度', zh: '难度', tr: 'Zorluk' },
   diffEasy: { en: 'Easy', ja: 'やさしい', zh: '简单', tr: 'Kolay' },

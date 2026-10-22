@@ -122,7 +122,7 @@ app.post('/api/claude/ask', requireAuth, async (req: Request, res: Response) => 
 
 app.post('/api/claude/generate', requireAuth, async (req: Request, res: Response) => {
   try {
-    const { subject, lang, topic, difficulty, count, focus, similarTo, noteCore } = req.body ?? {};
+    const { subject, lang, topic, topics, difficulty, count, focus, similarTo, noteCore } = req.body ?? {};
     const { model, userKey } = getAiContext(req);
     if (!isSubject(subject)) return res.status(400).json({ error: 'bad_subject' });
     
@@ -138,6 +138,7 @@ app.post('/api/claude/generate', requireAuth, async (req: Request, res: Response
         subject,
         lang: toLang(lang),
         topic: typeof topic === 'string' && topic ? topic : undefined,
+        topics: Array.isArray(topics) ? topics.filter((x) => typeof x === 'string' && x).map((x) => String(x).slice(0, 100)).slice(0, 12) : undefined,
         difficulty: difficulty === 'easy' || difficulty === 'hard' ? difficulty : 'medium',
         count: Number(count) || 3,
         focus: cleanFocus,
@@ -145,7 +146,7 @@ app.post('/api/claude/generate', requireAuth, async (req: Request, res: Response
           similarTo && typeof similarTo === 'object' && typeof similarTo.prompt === 'string' && similarTo.prompt.trim()
             ? { prompt: similarTo.prompt.slice(0, 4000), answer: typeof similarTo.answer === 'string' ? similarTo.answer.slice(0, 500) : undefined }
             : undefined,
-        noteCore: typeof noteCore === 'string' && noteCore.trim() ? noteCore.slice(0, 3000) : undefined,
+        noteCore: typeof noteCore === 'string' && noteCore.trim() ? noteCore.slice(0, 6000) : undefined,
         model,
         userKey,
       })

@@ -567,6 +567,8 @@ export async function generate(args: {
   subject: Subject;
   lang: Lang;
   topic?: string;
+  /** Several subtopics at once: the questions are spread across them. */
+  topics?: string[];
   difficulty: 'easy' | 'medium' | 'hard';
   count: number;
   focus?: { topics?: string[]; tags?: string[] };
@@ -578,8 +580,17 @@ export async function generate(args: {
   userKey?: string;
 }): Promise<{ questions: GenQuestion[] }> {
   const n = Math.max(1, Math.min(5, args.count || 3));
-  const tName = args.topic ? labelFor(args.subject, args.topic, args.lang) : null;
-  const exemplars = exemplarsFor(args.subject, args.topic, args.lang, args.similarTo ? 1 : 3);
+  const picked = [...new Set([args.topic, ...(args.topics ?? [])].filter((x): x is string => typeof x === 'string' && !!x))];
+  const multi = !args.similarTo && picked.length > 1;
+  const single = multi ? undefined : picked[0];
+  const tName = single ? labelFor(args.subject, single, args.lang) : null;
+  const seen = new Set<string>();
+  const exemplars = (multi
+    ? picked.flatMap((id) => exemplarsFor(args.subject, id, args.lang, 1))
+    : exemplarsFor(args.subject, single, args.lang, args.similarTo ? 1 : 3)
+  )
+    .filter((e) => !seen.has(e.prompt) && seen.add(e.prompt))
+    .slice(0, 4);
 
   const parts: string[] = [];
   if (args.similarTo) {
@@ -587,6 +598,13 @@ export async function generate(args: {
       `Write ${n} NEW question(s) that test the same concept as the question below, but with different numbers, a different situation or a different angle (for example swap what is given and what is asked). Never repeat the original.`,
       `Original question:\n${TRIPLE}\n${args.similarTo.prompt.trim()}\n${TRIPLE}` +
         (args.similarTo.answer ? `\nIts answer: ${args.similarTo.answer.trim()}` : '')
+    );
+  } else if (multi) {
+    parts.push(
+      `Generate ${n} EJU-style ${args.subject} question(s) covering these topics chosen by the student:\n` +
+        picked.map((id) => `- ${id} = ${labelFor(args.subject, id, args.lang)}`).join('\n') +
+        `\nSpread the questions across them: cover each topic at least once when there are enough questions, otherwise pick the most exam-relevant ones and do not repeat a topic. ` +
+        'A "hard" question may combine two of the topics. For every question set "topicId" to the id of the topic it mainly tests (one of the ids above).'
     );
   } else {
     parts.push(
@@ -601,7 +619,7 @@ export async function generate(args: {
   );
   if (exemplars.length) {
     parts.push(
-      'Here are real past EJU questions on this topic. Imitate their STYLE, scope and difficulty only — do NOT copy their numbers, wording or answers:\n' +
+      `Here are real past EJU questions on ${multi ? 'these topics' : 'this topic'}. Imitate their STYLE, scope and difficulty only — do NOT copy their numbers, wording or answers:\n` +
         exemplars
           .map(
             (e, i) =>
@@ -613,7 +631,7 @@ export async function generate(args: {
     );
   }
   if (args.noteCore) {
-    parts.push(`The student has just studied this core idea; make sure the questions test it directly:\n${TRIPLE}\n${args.noteCore.trim()}\n${TRIPLE}`);
+    parts.push(`The student has just studied ${multi ? 'these core ideas' : 'this core idea'}; make sure the questions test ${multi ? 'them' : 'it'} directly:\n${TRIPLE}\n${args.noteCore.trim()}\n${TRIPLE}`);
   }
   if (args.focus && (args.focus.topics?.length || args.focus.tags?.length)) {
     if (args.focus.topics?.length)
@@ -631,7 +649,7 @@ export async function generate(args: {
   parts.push(`Write everything in ${writeLang(args.lang)}.`);
   parts.push(
     'Respond with ONLY a single JSON object, no other text or code fences: ' +
-      '{"questions":[{"topic":"<sub-topic name>","prompt":"...","choices":["..."],"answerIndex":<0-based index of the correct choice, or -1 if not multiple-choice>,' +
+      '{"questions":[{"topic":"<sub-topic name>",' + (multi ? '"topicId":"<one of the ids above>",' : '') + '"prompt":"...","choices":["..."],"answerIndex":<0-based index of the correct choice, or -1 if not multiple-choice>,' +
       '"answer":"<correct answer in words>","hint":"...","keyIdea":"...","choiceNotes":["<one per choice, same order>"],"trap":"...","explanation":"<beginner-friendly worked solution in Markdown with LaTeX>"}]}.'
   );
 
@@ -640,11 +658,23 @@ export async function generate(args: {
   );
 
   const parsed = extractJson<{ questions?: any[] }>(raw, { questions: [] });
-  return { questions: cleanQuestions(parsed.questions, tName, args.topic) };
+  if (multi) {
+    // Each question is filed under the topic it tests (links back to the notes and progress).
+    const own = (q: any) =>
+      typeof q?.topicId === 'string' && picked.includes(q.topicId) ? { topicId: q.topicId, topic: labelFor(args.subject, q.topicId, args.lang) } : undefined;
+    return { questions: cleanQuestions(parsed.questions, null, undefined, own) };
+  }
+  return { questions: cleanQuestions(parsed.questions, tName, single) };
 }
 
 /** Sanitise model-written questions into GenQuestion objects (shared by generate and ask). */
-function cleanQuestions(list: any, fallbackTopic: string | null | undefined, topicId?: string): GenQuestion[] {
+function cleanQuestions(
+  list: any,
+  fallbackTopic: string | null | undefined,
+  topicId?: string,
+  /** Per-question topic, when one request covers several. */
+  own?: (q: any) => { topicId: string; topic: string } | undefined
+): GenQuestion[] {
   const stamp = Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
   const str = (v: any) => (typeof v === 'string' && v.trim() ? v.trim() : undefined);
   return (Array.isArray(list) ? list : [])
@@ -652,10 +682,11 @@ function cleanQuestions(list: any, fallbackTopic: string | null | undefined, top
       const choices = Array.isArray(q.choices) && q.choices.length ? q.choices.map(String) : undefined;
       const idx = Number.isInteger(q.answerIndex) ? q.answerIndex : -1;
       const notes = Array.isArray(q.choiceNotes) && choices && q.choiceNotes.length === choices.length ? q.choiceNotes.map(String) : undefined;
+      const mine = own?.(q);
       return {
         id: `${stamp}-${i}`,
-        topic: String(q.topic ?? fallbackTopic ?? ''),
-        topicId,
+        topic: mine?.topic ?? String(q.topic ?? fallbackTopic ?? ''),
+        topicId: mine?.topicId ?? topicId,
         prompt: String(q.prompt ?? ''),
         choices,
         answerIndex: choices && idx >= 0 && idx < choices.length ? idx : -1,

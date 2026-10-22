@@ -43,7 +43,8 @@ export default function GeneratePanel() {
 
   const [topics, setTopics] = useState<{ id: string; name: string }[]>([]);
   const [subtopics, setSubtopics] = useState<{ id: string; name: string; group: string }[]>([]);
-  const [topic, setTopic] = useState('');
+  const [topic, setTopic] = useState(''); // past papers: one topic at a time
+  const [picked, setPicked] = useState<string[]>([]); // AI questions: any number of topics (none = mixed)
   const [difficulty, setDifficulty] = useState<Difficulty>('medium');
   const [count, setCount] = useState(3);
   const [focus, setFocus] = useState(false);
@@ -70,6 +71,7 @@ export default function GeneratePanel() {
   useEffect(() => {
     let alive = true;
     setTopic('');
+    setPicked([]);
     fetchTopics({ subject, lang })
       .then((r) => {
         if (!alive) return;
@@ -82,6 +84,7 @@ export default function GeneratePanel() {
         const want = usePractice.getState().wantTopic;
         const known = want && (r.subtopics?.some((x) => x.id === want) || r.topics?.some((x) => x.id === want));
         setTopic(known ? want! : first);
+        setPicked(known ? [want!] : first ? [first] : []);
         if (want) usePractice.getState().setWantTopic(null);
       })
       .catch(() => {
@@ -99,6 +102,7 @@ export default function GeneratePanel() {
     if (!wantTopic) return;
     if (subtopics.some((x) => x.id === wantTopic) || topics.some((x) => x.id === wantTopic)) {
       setTopic(wantTopic);
+      setPicked([wantTopic]);
       setFocus(false);
       setWantTopic(null);
     }
@@ -112,6 +116,11 @@ export default function GeneratePanel() {
     }
     return [...m.entries()];
   }, [subtopics]);
+  const nameOf = useMemo(() => {
+    const m = new Map<string, string>();
+    for (const x of [...topics, ...subtopics]) m.set(x.id, x.name);
+    return m;
+  }, [topics, subtopics]);
 
   const pastMode = source === 'past' && useSub;
 
@@ -129,10 +138,12 @@ export default function GeneratePanel() {
         focus && hasWeakData ? focusFromSummary(summarize(subjectAttempts)) : undefined;
       // If the study notes cover this topic, hand the coach the note's core idea so
       // the questions test exactly what the student just read.
-      const noteCore = focusPayload ? undefined : await noteCoreFor(subject, topic, lang);
+      const ids = focusPayload ? [] : picked;
+      const noteCore = focusPayload ? undefined : await noteCoreFor(subject, ids, lang);
       await runGenerate({
         subject,
-        topic: focusPayload ? undefined : topic || undefined,
+        topic: ids.length === 1 ? ids[0] : undefined,
+        topics: ids.length > 1 ? ids : undefined,
         difficulty,
         count,
         focus: focusPayload,
@@ -164,7 +175,11 @@ export default function GeneratePanel() {
               <button
                 key={k}
                 type="button"
-                onClick={() => setSource(k)}
+                onClick={() => {
+                  // Past papers are looked up one topic at a time: start from the first one picked.
+                  if (k === 'past' && picked[0]) setTopic(picked[0]);
+                  setSource(k);
+                }}
                 className={`rounded-lg px-2 py-1.5 text-sm font-medium transition ${
                   source === k ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-500 hover:text-slate-700'
                 }`}
@@ -177,32 +192,87 @@ export default function GeneratePanel() {
       ) : null}
 
       <div className="grid grid-cols-2 gap-3">
-        <div className="col-span-2">
-          <Label>{t('topic')}</Label>
-          <select
-            value={topic}
-            disabled={focus && hasWeakData}
-            onChange={(e) => setTopic(e.target.value)}
-            className="w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:border-slate-400 disabled:opacity-50"
-          >
-            {useSub
-              ? grouped.map(([group, items]) => (
-                  <optgroup key={group} label={group}>
-                    {items.map((s) => (
-                      <option key={s.id} value={s.id}>
-                        {s.name}
-                      </option>
-                    ))}
-                  </optgroup>
+        {pastMode ? (
+          <div className="col-span-2">
+            <Label>{t('topic')}</Label>
+            <select
+              value={topic}
+              disabled={focus && hasWeakData}
+              onChange={(e) => setTopic(e.target.value)}
+              className="w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:border-slate-400 disabled:opacity-50"
+            >
+              {useSub
+                ? grouped.map(([group, items]) => (
+                    <optgroup key={group} label={group}>
+                      {items.map((s) => (
+                        <option key={s.id} value={s.id}>
+                          {s.name}
+                        </option>
+                      ))}
+                    </optgroup>
+                  ))
+                : topics.map((tp) => (
+                    <option key={tp.id} value={tp.id}>
+                      {tp.name}
+                    </option>
+                  ))}
+            </select>
+          </div>
+        ) : (
+          <div className="col-span-2">
+            <Label>{t('topicsLabel')}</Label>
+            <div className={`mb-2 flex flex-wrap gap-1.5 ${focus && hasWeakData ? 'opacity-50' : ''}`}>
+              {picked.length ? (
+                picked.map((id) => (
+                  <span key={id} className="inline-flex max-w-full items-center gap-1 rounded-full bg-slate-900 py-1 pl-3 pr-1 text-xs font-medium text-white">
+                    <span className="truncate">{nameOf.get(id) ?? id}</span>
+                    <button
+                      type="button"
+                      disabled={focus && hasWeakData}
+                      aria-label={t('removeTopic', { name: nameOf.get(id) ?? id })}
+                      onClick={() => setPicked((p) => p.filter((x) => x !== id))}
+                      className="grid h-5 w-5 shrink-0 place-items-center rounded-full text-white/70 hover:bg-white/20 hover:text-white"
+                    >
+                      ×
+                    </button>
+                  </span>
                 ))
-              : topics.map((tp) => (
-                  <option key={tp.id} value={tp.id}>
-                    {tp.name}
-                  </option>
-                ))}
-            {!pastMode ? <option value="">{t('mixedTopics')}</option> : null}
-          </select>
-        </div>
+              ) : (
+                <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-600">{t('mixedTopics')}</span>
+              )}
+            </div>
+            <select
+              value=""
+              disabled={focus && hasWeakData}
+              onChange={(e) => {
+                const v = e.target.value;
+                if (v === '__mixed') setPicked([]);
+                else if (v) setPicked((p) => (p.includes(v) ? p : [...p, v]));
+              }}
+              className="w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:border-slate-400 disabled:opacity-50"
+            >
+              <option value="">{t('addTopic')}</option>
+              {useSub
+                ? grouped.map(([group, items]) => (
+                    <optgroup key={group} label={group}>
+                      {items.map((s) => (
+                        <option key={s.id} value={s.id} disabled={picked.includes(s.id)}>
+                          {picked.includes(s.id) ? '✓ ' : ''}
+                          {s.name}
+                        </option>
+                      ))}
+                    </optgroup>
+                  ))
+                : topics.map((tp) => (
+                    <option key={tp.id} value={tp.id} disabled={picked.includes(tp.id)}>
+                      {picked.includes(tp.id) ? '✓ ' : ''}
+                      {tp.name}
+                    </option>
+                  ))}
+              {picked.length ? <option value="__mixed">{t('mixedTopics')}</option> : null}
+            </select>
+          </div>
+        )}
         {pastMode ? (
           <div className="col-span-2">
             <Label>{t('count')}</Label>
