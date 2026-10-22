@@ -563,7 +563,56 @@ export interface GenQuestion {
   trap?: string;
 }
 
-export async function generate(args: {
+/** Most questions one request may ask for; larger sets are written in batches. */
+export const MAX_QUESTIONS = 20;
+const BATCH = 5;
+/** Each batch of a large set leans a different way, so parallel batches do not repeat each other. */
+const BATCH_ANGLES = [
+  'favour straightforward calculations with concrete numbers',
+  'favour conceptual questions that need little or no arithmetic (which statement is correct, how a quantity changes and why)',
+  'favour questions where the student must extract the needed quantities from a described setup, table or graph',
+  'favour multi-step questions that link two ideas',
+];
+
+type GenerateArgs = Parameters<typeof generateBatch>[0];
+
+/**
+ * Generate a practice set. Up to 5 questions come from one model call; a larger
+ * set is split into batches of at most 5 that are written in parallel, each with
+ * its own angle (and, with several topics, its own share of them), then merged.
+ */
+export async function generate(args: Omit<GenerateArgs, 'angle'>): Promise<{ questions: GenQuestion[] }> {
+  const total = Math.max(1, Math.min(MAX_QUESTIONS, Math.floor(args.count) || 3));
+  if (total <= BATCH) return generateBatch({ ...args, count: total });
+  const m = Math.ceil(total / BATCH);
+  const sizes = Array.from({ length: m }, (_, b) => Math.floor(total / m) + (b < total % m ? 1 : 0));
+  const picked = [...new Set([args.topic, ...(args.topics ?? [])].filter((x): x is string => typeof x === 'string' && !!x))];
+  const results = await Promise.allSettled(
+    sizes.map((n, b) => {
+      let { topic, topics } = args;
+      if (!args.similarTo && picked.length >= m) {
+        const share = picked.filter((_, i) => i % m === b);
+        topic = share.length === 1 ? share[0] : undefined;
+        topics = share.length > 1 ? share : undefined;
+      }
+      return generateBatch({ ...args, topic, topics, count: n, angle: BATCH_ANGLES[b % BATCH_ANGLES.length] });
+    })
+  );
+  const ok = results.filter((r): r is PromiseFulfilledResult<{ questions: GenQuestion[] }> => r.status === 'fulfilled');
+  if (!ok.length) throw (results[0] as PromiseRejectedResult).reason;
+  const seen = new Set<string>();
+  const questions = ok
+    .flatMap((r) => r.value.questions)
+    .filter((q) => {
+      const k = q.prompt.replace(/\s+/g, ' ').trim().toLowerCase();
+      if (seen.has(k)) return false;
+      seen.add(k);
+      return true;
+    });
+  return { questions };
+}
+
+async function generateBatch(args: {
   subject: Subject;
   lang: Lang;
   topic?: string;
@@ -576,10 +625,12 @@ export async function generate(args: {
   similarTo?: { prompt: string; answer?: string };
   /** The note's core idea for this topic, so questions test what the notes teach. */
   noteCore?: string;
+  /** Set when this call is one batch of a larger set (see generate). */
+  angle?: string;
   model?: string;
   userKey?: string;
 }): Promise<{ questions: GenQuestion[] }> {
-  const n = Math.max(1, Math.min(5, args.count || 3));
+  const n = Math.max(1, Math.min(BATCH, args.count || 3));
   const picked = [...new Set([args.topic, ...(args.topics ?? [])].filter((x): x is string => typeof x === 'string' && !!x))];
   const multi = !args.similarTo && picked.length > 1;
   const single = multi ? undefined : picked[0];
@@ -610,6 +661,9 @@ export async function generate(args: {
     parts.push(
       `Generate ${n} EJU-style ${args.subject} question(s)${tName ? ` specifically on: ${tName}` : ' across the most exam-relevant topics'}.`
     );
+  }
+  if (args.angle) {
+    parts.push(`These questions are one part of a larger set written in parallel. To avoid overlapping with the other parts, ${args.angle}.`);
   }
   parts.push(`Difficulty: ${args.difficulty} ("medium" = typical EJU exam level; "easy" = the first step a beginner must master; "hard" = combines two ideas like the hardest EJU items).`);
   parts.push(
@@ -662,9 +716,9 @@ export async function generate(args: {
     // Each question is filed under the topic it tests (links back to the notes and progress).
     const own = (q: any) =>
       typeof q?.topicId === 'string' && picked.includes(q.topicId) ? { topicId: q.topicId, topic: labelFor(args.subject, q.topicId, args.lang) } : undefined;
-    return { questions: cleanQuestions(parsed.questions, null, undefined, own) };
+    return { questions: cleanQuestions(parsed.questions, null, undefined, own).slice(0, n) };
   }
-  return { questions: cleanQuestions(parsed.questions, tName, single) };
+  return { questions: cleanQuestions(parsed.questions, tName, single).slice(0, n) };
 }
 
 /** Sanitise model-written questions into GenQuestion objects (shared by generate and ask). */

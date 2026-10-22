@@ -308,7 +308,7 @@ export default function GeneratePanel() {
             onChange={(e) => setCount(Number(e.target.value))}
             className="w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:border-slate-400"
           >
-            {[1, 2, 3, 4, 5].map((n) => (
+            {[1, 2, 3, 4, 5, 10, 15, 20].map((n) => (
               <option key={n} value={n}>
                 {n}
               </option>
