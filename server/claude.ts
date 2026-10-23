@@ -389,7 +389,7 @@ const ASK_DIRECTIVE =
   'using the formatting toolkit above where it helps. Do NOT wrap the reply in JSON and do NOT put the whole reply in a code fence. ' +
   'Do NOT write an "Exam essentials" section in the prose — that information goes in the summary block instead. ' +
   // Structured summary (machine-parsed → shown as a takeaway card).
-  `After the reply, write a line that is exactly "${SUMMARY_MARK}" and then ONE JSON object on the following lines and nothing after it: ` +
+  `After the reply, write a line that is exactly "${SUMMARY_MARK}" and then ONE JSON object on the following lines, and nothing after it except the "${QUESTIONS_MARK}" block when practice questions were asked for (see below): ` +
   '{"keyIdea":"<one or two plain sentences: the single thing to remember>","formulas":["<formula or fact to memorise, LaTeX allowed>", ...up to 4],' +
   '"traps":["<a specific EJU mistake and how to avoid it>", ...up to 3],"nextQuestions":["<short follow-up question the student could ask next to deepen understanding or check themselves>", ...2-3],' +
   '"topicId":"<the knowledge-base subtopic id this is mostly about, or empty>"}. ' +
@@ -511,33 +511,100 @@ export async function ask(args: {
     .filter(Boolean)
     .join('\n\n');
 
-  const raw = await executeModelCall(args.model, args.userKey, args.subject, args.lang, extra, messages, 8000);
+  // Room for up to 8 fully explained questions plus the reply (thinking shares this budget).
+  const raw = await executeModelCall(args.model, args.userKey, args.subject, args.lang, extra, messages, 16000);
+  return parseAskReply(raw, args.subject, args.lang);
+}
 
-  const si = raw.indexOf(SUMMARY_MARK);
-  const ki = raw.indexOf(KEYPOINTS_MARK);
-  const qi = raw.indexOf(QUESTIONS_MARK);
-  const cut = [si, ki, qi].filter((i) => i >= 0);
-  const end = cut.length ? Math.min(...cut) : -1;
-  const text = (end >= 0 ? raw.slice(0, end) : raw).trim();
+/** Where a marker line is, tolerating what models add around it (**###X###**, ### X ###, `###X###`). */
+function findMark(raw: string, word: string): { start: number; end: number } | null {
+  const m = new RegExp(`[*\`_]*#{2,}[ \t]*${word}[ \t]*#{2,}[*\`_]*`, 'i').exec(raw);
+  return m ? { start: m.index, end: m.index + m[0].length } : null;
+}
 
-  let summary: AskSummary | null = null;
-  if (si >= 0) {
-    const stop = qi > si ? qi : raw.length;
-    summary = cleanSummary(extractJson<any>(raw.slice(si + SUMMARY_MARK.length, stop), null));
+/** Practice questions in a "questions" array, keeping every complete one even when the reply was cut off mid-way. */
+function salvageQuestions(s: string): any[] {
+  const whole = extractJson<any>(s, null);
+  if (Array.isArray(whole?.questions)) return whole.questions;
+  const k = s.search(/"questions"\s*:\s*\[/);
+  if (k < 0) return [];
+  const out: any[] = [];
+  let depth = 0;
+  let inStr = false;
+  let esc = false;
+  let start = -1;
+  for (let i = s.indexOf('[', k) + 1; i < s.length; i++) {
+    const c = s[i];
+    if (inStr) {
+      if (esc) esc = false;
+      else if (c === '\\') esc = true;
+      else if (c === '"') inStr = false;
+      continue;
+    }
+    if (c === '"') inStr = true;
+    else if (c === '{') {
+      if (depth === 0) start = i;
+      depth++;
+    } else if (c === '}') {
+      depth--;
+      if (depth === 0 && start >= 0) {
+        const q = tryParse<any>(s.slice(start, i + 1));
+        if (q && typeof q === 'object') out.push(q);
+        start = -1;
+      }
+    } else if (c === ']' && depth === 0) break;
+  }
+  return out;
+}
+
+/** Split a coach reply into the visible text, the takeaway card, key points and practice questions. */
+export function parseAskReply(raw: string, subject: Subject, lang: Lang) {
+  const marks = (
+    [
+      ['summary', findMark(raw, 'SUMMARY')],
+      ['keypoints', findMark(raw, 'KEYPOINTS')],
+      ['questions', findMark(raw, 'QUESTIONS')],
+    ] as const
+  )
+    .filter((m): m is readonly ['summary' | 'keypoints' | 'questions', { start: number; end: number }] => m[1] !== null)
+    .sort((a, b) => a[1].start - b[1].start);
+  const section = (kind: string) => {
+    const i = marks.findIndex((m) => m[0] === kind);
+    return i < 0 ? null : raw.slice(marks[i][1].end, i + 1 < marks.length ? marks[i + 1][1].start : raw.length);
+  };
+  let text = (marks.length ? raw.slice(0, marks[0][1].start) : raw).trim();
+
+  const sumPart = section('summary');
+  const summary = sumPart !== null ? cleanSummary(extractJson<any>(sumPart, null)) : null;
+
+  // The questions belong after their own marker, but models also put them inside the
+  // summary JSON, in the reply text, or forget the marker: look wherever they are.
+  let qPart = section('questions');
+  if (qPart === null || !/"questions"\s*:\s*\[/.test(qPart)) {
+    const k = raw.search(/"questions"\s*:\s*\[/);
+    if (k >= 0) {
+      qPart = raw.slice(k - 1);
+      // Dumped into the reply text: show only the prose before it.
+      const textEnd = marks.length ? marks[0][1].start : raw.length;
+      if (k < textEnd) {
+        const fence = raw.lastIndexOf('```', k);
+        const brace = raw.lastIndexOf('{', k);
+        text = raw.slice(0, Math.max(0, fence >= 0 ? fence : brace)).trim() || text;
+      }
+    }
   }
   let questions: GenQuestion[] = [];
-  if (qi >= 0) {
-    const stop = si > qi ? si : raw.length;
-    const parsed = extractJson<{ questions?: any[] }>(raw.slice(qi + QUESTIONS_MARK.length, stop), { questions: [] });
-    const known = summary?.topicId && subtopicsFor(args.subject, 'en').some((st) => st.id === summary!.topicId) ? summary.topicId : undefined;
-    questions = cleanQuestions(parsed.questions, known ? labelFor(args.subject, known, args.lang) : null, known);
+  if (qPart !== null) {
+    const known = summary?.topicId && subtopicsFor(subject, 'en').some((st) => st.id === summary!.topicId) ? summary.topicId : undefined;
+    questions = cleanQuestions(salvageQuestions(qPart), known ? labelFor(subject, known, lang) : null, known);
   }
 
   let keyPoints: KeyPointDTO[] = [];
+  const kpPart = section('keypoints');
   if (summary) {
     keyPoints = summary.formulas.map((f) => ({ kind: 'formula' as const, text: f, topic: summary!.topicId }));
-  } else if (ki >= 0) {
-    keyPoints = parseKeyPointLines(raw.slice(ki + KEYPOINTS_MARK.length));
+  } else if (kpPart !== null) {
+    keyPoints = parseKeyPointLines(kpPart);
   }
   return { text: text || raw.trim(), keyPoints, summary, questions };
 }
