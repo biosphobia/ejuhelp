@@ -1,0 +1,1104 @@
+{
+  "id": "2024-1-physics",
+  "year": 2024,
+  "session": 1,
+  "subject": "physics",
+  "title": "EJU 2024 · Session 1 · Physics",
+  "source": "2024年度 日本留学試験（第1回）理科〈物理〉 © Japan Student Services Organization (JASSO) — from the published question booklet; the session is not printed on the photographed pages",
+  "attribution": "EJU past questions © JASSO. Question text transcribed from the official past paper; figures described in text; correct answers taken from the official JASSO answer key and independently re-solved for verification.",
+  "languages": [
+    "ja",
+    "en"
+  ],
+  "answerKeyVerified": true,
+  "structure": {
+    "blocks": [
+      {
+        "id": "I",
+        "topicId": "mech",
+        "name": {
+          "ja": "力学",
+          "en": "Mechanics"
+        },
+        "questionCount": 6
+      },
+      {
+        "id": "II",
+        "topicId": "thermo",
+        "name": {
+          "ja": "熱力学",
+          "en": "Thermodynamics"
+        },
+        "questionCount": 3
+      },
+      {
+        "id": "III",
+        "topicId": "waves",
+        "name": {
+          "ja": "波動",
+          "en": "Waves"
+        },
+        "questionCount": 3
+      },
+      {
+        "id": "IV",
+        "topicId": "em",
+        "name": {
+          "ja": "電気と磁気",
+          "en": "Electricity & Magnetism"
+        },
+        "questionCount": 6
+      },
+      {
+        "id": "V",
+        "topicId": "atoms",
+        "name": {
+          "ja": "原子",
+          "en": "Atoms"
+        },
+        "questionCount": 1
+      }
+    ],
+    "totalQuestions": 19,
+    "givens": {
+      "ja": "重力加速度の大きさを g とし，空気の抵抗は無視できるものとする。",
+      "en": "Take the magnitude of gravitational acceleration as g; air resistance is negligible."
+    }
+  },
+  "questions": [
+    {
+      "id": "2024-1-phy-1",
+      "answerRow": 1,
+      "block": "I",
+      "topicId": "mech",
+      "subtopic": "Equilibrium of concurrent forces (three strings, right angle)",
+      "patternTags": [
+        "plug-in-numbers",
+        "statics",
+        "force-resolution",
+        "tension",
+        "3-4-5-geometry",
+        "ratio"
+      ],
+      "hasFigure": true,
+      "figure": {
+        "ja": "水平な天井の2点から糸a（長さ3L，左側）と糸b（長さ4L，右側）が下がり，結び目で互いに90°をなしてつながる（天井上の2点間の距離は5L）。結び目から糸cが鉛直に下がり，質量Mの小物体をつるしている。",
+        "en": "From two points on a horizontal ceiling hang string a (length 3L, on the left) and string b (length 4L, on the right); they meet at a knot where they make a 90° angle (the two ceiling points are 5L apart). String c hangs vertically from the knot and holds a small object of mass M."
+      },
+      "ja": {
+        "prompt": "次の図のように，質量の無視できる3本の糸a，b，cをつなぎ，質量 $M$ の小物体を天井からつるして静止させた。aの長さは $3L$，bの長さは $4L$ であり，aとbのなす角は $90^\\circ$ である。aの張力の大きさを $T$ とする。$\\dfrac{T}{Mg}$ はいくらか。",
+        "choices": [
+          "$\\dfrac{3}{5}$",
+          "$\\dfrac{5}{8}$",
+          "$\\dfrac{4}{5}$",
+          "$\\dfrac{5}{6}$"
+        ]
+      },
+      "en": {
+        "prompt": "As shown, three massless strings a, b, c are tied together and a small object of mass $M$ hangs at rest from the ceiling. String a has length $3L$, string b has length $4L$, and the angle between a and b is $90^\\circ$. Let $T$ be the tension in a. What is $\\dfrac{T}{Mg}$?",
+        "choices": [
+          "$\\dfrac{3}{5}$",
+          "$\\dfrac{5}{8}$",
+          "$\\dfrac{4}{5}$",
+          "$\\dfrac{5}{6}$"
+        ]
+      },
+      "answerIndex": 2,
+      "answerOption": 3,
+      "answer": {
+        "ja": "$\\dfrac{4}{5}$",
+        "en": "$\\dfrac{4}{5}$"
+      },
+      "explanation": {
+        "en": "The ceiling, a and b form a 3–4–5 right triangle (hypotenuse $5L$ on the ceiling). Since a ⊥ b, resolve the weight $Mg$ (tension in c) along a and b: the angle between a and the vertical equals the angle between b and the ceiling, whose cosine is $4/5$. So $T=Mg\\cdot\\frac45$, $T/(Mg)=4/5$.",
+        "ja": "天井とa，bは3:4:5の直角三角形（斜辺5Lが天井）。aとbは直交するので，cの張力 $Mg$ をa，b方向に分解する。aと鉛直のなす角の余弦は $4/5$ なので $T=\\frac45Mg$，$T/(Mg)=4/5$。"
+      }
+    },
+    {
+      "id": "2024-1-phy-2",
+      "answerRow": 2,
+      "block": "I",
+      "topicId": "mech",
+      "subtopic": "Projectile motion (force, acceleration and speed along the trajectory)",
+      "patternTags": [
+        "conceptual",
+        "projectile-motion",
+        "energy-conservation",
+        "pick-statement"
+      ],
+      "hasFigure": true,
+      "figure": {
+        "ja": "地表の点Oから斜めに投げ上げた小物体が破線の放物線を描き，地表の点Pに落下する。軌道上の点Aは上昇途中（Oと最高点の間），点Bは最高点，点Cは下降途中でPのすぐ上（地表に近い）。AはCより高い位置にある。",
+        "en": "A small object thrown obliquely from point O on the ground follows the dashed parabola and lands at point P. On the path, A is on the way up (between O and the top), B is the highest point, and C is on the way down just above P (close to the ground). A is higher than C."
+      },
+      "ja": {
+        "prompt": "次の図のように，地表の点Oから小物体を斜めに投げ上げたところ，小物体は図中の破線のような放物線の軌道を描いて地表の点Pに落下した。図中の点A，B，Cはこの軌道上の点である。次の文(a)，(b)，(c)は正しいか誤っているか。正しいときは正と，誤っているときは誤と表して，正と誤の最も適当な組み合わせを選びなさい。\n(a) Aにおいて小物体が受けている力の大きさは，Bにおいて小物体が受けている力の大きさよりも小さい。\n(b) Bにおける小物体の加速度の大きさと，Cにおける小物体の加速度の大きさは等しい。\n(c) Aにおける小物体の速度の大きさは，Cにおける小物体の速度の大きさよりも小さい。",
+        "choices": [
+          "(a) 正 (b) 正 (c) 正",
+          "(a) 正 (b) 正 (c) 誤",
+          "(a) 正 (b) 誤 (c) 正",
+          "(a) 正 (b) 誤 (c) 誤",
+          "(a) 誤 (b) 正 (c) 正",
+          "(a) 誤 (b) 正 (c) 誤",
+          "(a) 誤 (b) 誤 (c) 正",
+          "(a) 誤 (b) 誤 (c) 誤"
+        ]
+      },
+      "en": {
+        "prompt": "As shown, a small object thrown obliquely from point O on the ground follows the parabolic path (dashed) and lands at point P on the ground. Points A, B, C lie on this path. Are statements (a), (b), (c) true or false? Choose the most appropriate combination.\n(a) The magnitude of the force on the object at A is smaller than at B.\n(b) The magnitude of the object's acceleration at B equals that at C.\n(c) The object's speed at A is smaller than its speed at C.",
+        "choices": [
+          "(a) true (b) true (c) true",
+          "(a) true (b) true (c) false",
+          "(a) true (b) false (c) true",
+          "(a) true (b) false (c) false",
+          "(a) false (b) true (c) true",
+          "(a) false (b) true (c) false",
+          "(a) false (b) false (c) true",
+          "(a) false (b) false (c) false"
+        ]
+      },
+      "answerIndex": 4,
+      "answerOption": 5,
+      "answer": {
+        "ja": "(a) 誤 (b) 正 (c) 正",
+        "en": "(a) false (b) true (c) true"
+      },
+      "explanation": {
+        "en": "(a) False: the only force everywhere is gravity $mg$, the same at A and B. (b) True: the acceleration is $g$ everywhere. (c) True: A is higher than C, so by energy conservation $\\frac12mv^2+mgh$ = const the speed at A is smaller. ⇒ (a) false (b) true (c) true.",
+        "ja": "(a) 誤：どこでも働く力は重力 $mg$ のみで等しい。(b) 正：加速度はどこでも $g$。(c) 正：AはCより高いので，力学的エネルギー保存よりAでの速さの方が小さい。"
+      }
+    },
+    {
+      "id": "2024-1-phy-3",
+      "answerRow": 3,
+      "block": "I",
+      "topicId": "mech",
+      "subtopic": "Equation of motion with kinetic friction (doubling the mass)",
+      "patternTags": [
+        "express-formula",
+        "newtons-second-law",
+        "friction"
+      ],
+      "hasFigure": true,
+      "figure": {
+        "ja": "図1：摩擦のある水平な床の上の質量mの小物体に水平右向きの力Tが働き，加速度aで右へ運動。図2：同じ床の上で，その小物体の上に質量mの小物体を固定し，下の物体に水平右向きの力3Tを加えると，2つは一体で加速度Aで右へ運動。",
+        "en": "Fig 1: on a rough horizontal floor a small object of mass m is pulled by a horizontal rightward force T and accelerates rightward at a. Fig 2: on the same floor another object of mass m is fixed on top of it; a horizontal rightward force 3T on the lower object makes the pair accelerate rightward at A."
+      },
+      "ja": {
+        "prompt": "図1のように，摩擦のある水平な床の上に質量 $m$ の小物体を置き，水平方向に一定の大きさ $T$ の力を加えたとき，小物体の加速度の大きさは $a$ であった。次に，同じ床の上で，図2のように，小物体の上にさらに質量 $m$ の小物体を固定して，水平方向に一定の大きさ $3T$ の力を加えたとき，2つの小物体の加速度の大きさは $A$ であった。$A$ はどのように表されるか。",
+        "choices": [
+          "$\\dfrac{a}{2}$",
+          "$\\dfrac{3a}{2}$",
+          "$a-\\dfrac{3T}{2m}$",
+          "$a-\\dfrac{T}{2m}$",
+          "$a+\\dfrac{T}{2m}$",
+          "$a+\\dfrac{3T}{2m}$"
+        ]
+      },
+      "en": {
+        "prompt": "As in Fig 1, a small object of mass $m$ is placed on a rough horizontal floor; when a constant horizontal force of magnitude $T$ is applied, its acceleration has magnitude $a$. Next, on the same floor, another object of mass $m$ is fixed on top of it (Fig 2) and a constant horizontal force of magnitude $3T$ is applied; the two objects then accelerate with magnitude $A$. Express $A$.",
+        "choices": [
+          "$\\dfrac{a}{2}$",
+          "$\\dfrac{3a}{2}$",
+          "$a-\\dfrac{3T}{2m}$",
+          "$a-\\dfrac{T}{2m}$",
+          "$a+\\dfrac{T}{2m}$",
+          "$a+\\dfrac{3T}{2m}$"
+        ]
+      },
+      "answerIndex": 4,
+      "answerOption": 5,
+      "answer": {
+        "ja": "$a+\\dfrac{T}{2m}$",
+        "en": "$a+\\dfrac{T}{2m}$"
+      },
+      "explanation": {
+        "en": "Fig 1: $ma=T-\\mu'mg$, so $\\mu'g=\\frac{T}{m}-a$. Fig 2: $2mA=3T-2\\mu'mg$, so $A=\\frac{3T}{2m}-\\mu'g=\\frac{3T}{2m}-\\frac{T}{m}+a=a+\\frac{T}{2m}$.",
+        "ja": "図1：$ma=T-\\mu'mg$ より $\\mu'g=\\frac{T}{m}-a$。図2：$2mA=3T-2\\mu'mg$ より $A=\\frac{3T}{2m}-\\mu'g=a+\\frac{T}{2m}$。"
+      }
+    },
+    {
+      "id": "2024-1-phy-4",
+      "answerRow": 4,
+      "block": "I",
+      "topicId": "mech",
+      "subtopic": "Vertical spring oscillation vs free fall (energy conservation)",
+      "patternTags": [
+        "ratio",
+        "energy-conservation",
+        "spring",
+        "simple-harmonic-motion"
+      ],
+      "hasFigure": true,
+      "figure": {
+        "ja": "図1：天井からつるしたばねに質量mの小物体が付き，ばねが自然長からL伸びた位置で静止。図2：小物体を手で支えてばねが自然長となる位置まで持ち上げる。図3：ばねから外した小物体を手から静かにはなし，距離Lだけ自由落下させる。",
+        "en": "Fig 1: a mass m on a spring hung from the ceiling rests where the spring is stretched L beyond its natural length. Fig 2: the mass is held by hand and raised to where the spring has its natural length. Fig 3: the mass, removed from the spring, is released from the hand and falls freely through a distance L."
+      },
+      "ja": {
+        "prompt": "質量 $m$ の小物体を，質量の無視できるばねに付けて鉛直につるしたところ，図1のように，ばねが自然長から長さ $L$ だけ伸びた位置で，小物体は静止した。この小物体を手で支えながら，図2のように，ばねが自然長となる位置まで持ち上げて，静かに手をはなしたところ，小物体は上下に振動した。このときの小物体の速さの最大値を $v_1$ とする。次に，この小物体をばねから取りはずし，図3のように，自由落下（重力だけを受け，初速度0で鉛直に落下する運動）をさせたところ，距離 $L$ だけ落下した瞬間の速さは $v_2$ であった。$\\dfrac{v_2}{v_1}$ はいくらか。",
+        "choices": [
+          "$\\dfrac{1}{2}$",
+          "$\\dfrac{\\sqrt{2}}{2}$",
+          "$1$",
+          "$\\sqrt{2}$",
+          "$2$"
+        ]
+      },
+      "en": {
+        "prompt": "A small object of mass $m$ is attached to a massless spring and hung vertically; as in Fig 1 it rests with the spring stretched by $L$ from its natural length. Supporting the object by hand, it is raised to the position where the spring has its natural length (Fig 2) and gently released; the object oscillates up and down. Let $v_1$ be its maximum speed. Next the object is removed from the spring and, as in Fig 3, falls freely (only gravity, from rest, vertically); its speed after falling a distance $L$ is $v_2$. What is $\\dfrac{v_2}{v_1}$?",
+        "choices": [
+          "$\\dfrac{1}{2}$",
+          "$\\dfrac{\\sqrt{2}}{2}$",
+          "$1$",
+          "$\\sqrt{2}$",
+          "$2$"
+        ]
+      },
+      "answerIndex": 3,
+      "answerOption": 4,
+      "answer": {
+        "ja": "$\\sqrt{2}$",
+        "en": "$\\sqrt{2}$"
+      },
+      "explanation": {
+        "en": "Equilibrium: $kL=mg$. The maximum speed occurs at the equilibrium point, a drop $L$ below the release point: $mgL=\\frac12kL^2+\\frac12mv_1^2\\Rightarrow\\frac12mv_1^2=mgL-\\frac12mgL\\Rightarrow v_1^2=gL$. Free fall: $v_2^2=2gL$. So $v_2/v_1=\\sqrt2$.",
+        "ja": "つり合い $kL=mg$。速さが最大になるのはつり合いの位置（L下）：$mgL=\\frac12kL^2+\\frac12mv_1^2$ より $v_1^2=gL$。自由落下 $v_2^2=2gL$。よって $v_2/v_1=\\sqrt2$。"
+      }
+    },
+    {
+      "id": "2024-1-phy-5",
+      "answerRow": 5,
+      "block": "I",
+      "topicId": "mech",
+      "subtopic": "Perfectly inelastic collision then sliding to rest with kinetic friction",
+      "patternTags": [
+        "express-formula",
+        "momentum-conservation",
+        "perfectly-inelastic-collision",
+        "friction",
+        "work-energy-theorem"
+      ],
+      "hasFigure": true,
+      "figure": {
+        "ja": "摩擦のある水平面上で，質量mの小物体A（左）が右向きに速さv0で，静止している質量2mの小物体B（右）に向かって進む。",
+        "en": "On a rough horizontal surface, small object A (mass m, left) moves right at speed v0 toward small object B (mass 2m, right), which is at rest."
+      },
+      "ja": {
+        "prompt": "次の図のように，質量 $m$ の小物体Aが速さ $v_0$ で，摩擦のある水平面上で静止している質量 $2m$ の小物体Bに水平方向に衝突した。衝突直後AとBは一体となり，その後，水平面上を距離 $d$ だけ進んで停止した。一体となった物体（AとB）と水平面との間の動摩擦係数は $\\mu'$ である。$d$ はどのように表されるか。",
+        "choices": [
+          "$\\dfrac{v_0^2}{18\\mu'g}$",
+          "$\\dfrac{\\mu'v_0^2}{18g}$",
+          "$\\dfrac{v_0^2}{9\\mu'g}$",
+          "$\\dfrac{\\mu'v_0^2}{9g}$",
+          "$\\dfrac{v_0^2}{8\\mu'g}$",
+          "$\\dfrac{\\mu'v_0^2}{8g}$"
+        ]
+      },
+      "en": {
+        "prompt": "As shown, a small object A of mass $m$ moving at speed $v_0$ collides horizontally with a small object B of mass $2m$ at rest on a rough horizontal surface. Right after the collision A and B move as one body, which then slides a distance $d$ on the surface and stops. The coefficient of kinetic friction between the combined body and the surface is $\\mu'$. Express $d$.",
+        "choices": [
+          "$\\dfrac{v_0^2}{18\\mu'g}$",
+          "$\\dfrac{\\mu'v_0^2}{18g}$",
+          "$\\dfrac{v_0^2}{9\\mu'g}$",
+          "$\\dfrac{\\mu'v_0^2}{9g}$",
+          "$\\dfrac{v_0^2}{8\\mu'g}$",
+          "$\\dfrac{\\mu'v_0^2}{8g}$"
+        ]
+      },
+      "answerIndex": 0,
+      "answerOption": 1,
+      "answer": {
+        "ja": "$\\dfrac{v_0^2}{18\\mu'g}$",
+        "en": "$\\dfrac{v_0^2}{18\\mu'g}$"
+      },
+      "explanation": {
+        "en": "Momentum: $mv_0=3mV\\Rightarrow V=v_0/3$. Work–energy: $\\frac12(3m)V^2=\\mu'(3m)g\\,d\\Rightarrow d=\\frac{V^2}{2\\mu'g}=\\frac{v_0^2}{18\\mu'g}$.",
+        "ja": "運動量保存 $mv_0=3mV$ より $V=v_0/3$。仕事とエネルギー：$\\frac12(3m)V^2=\\mu'(3m)gd$ より $d=\\frac{V^2}{2\\mu'g}=\\frac{v_0^2}{18\\mu'g}$。"
+      }
+    },
+    {
+      "id": "2024-1-phy-6",
+      "answerRow": 6,
+      "block": "I",
+      "topicId": "mech",
+      "subtopic": "Simple pendulum: maximum string tension (energy + circular motion)",
+      "patternTags": [
+        "express-formula",
+        "circular-motion",
+        "energy-conservation",
+        "tension",
+        "simple-pendulum"
+      ],
+      "hasFigure": true,
+      "figure": {
+        "ja": "天井の1点から長さLの糸でつるした質量mのおもり。おもりは鉛直線から右へθ0の位置（実線）から放され，鉛直線の左θ0の位置（破線）との間を点線の円弧に沿って振動する。最下点も破線で示される。",
+        "en": "A bob of mass m hangs from a point on the ceiling by a string of length L. It is released at angle θ0 to the right of the vertical (solid) and swings along the dotted arc to θ0 on the left (dashed); the lowest point is also shown dashed."
+      },
+      "ja": {
+        "prompt": "質量の無視できる伸び縮みしない長さ $L$ の糸の一端を天井に固定し，他端に質量 $m$ のおもりを付けた振り子がある。糸がたるまないようにして，糸と鉛直線とのなす角が $\\theta_0\\ \\left(0<\\theta_0<\\dfrac{\\pi}{2}\\right)$ になる位置までおもりを持ち上げ，静かに手をはなしたところ，次の図のように，振り子は鉛直面内で振動した。この振動中の糸の張力の大きさの最大値を $F$ とする。$F$ はどのように表されるか。",
+        "choices": [
+          "$mg$",
+          "$2mg(1-\\cos\\theta_0)$",
+          "$mg(2-\\cos\\theta_0)$",
+          "$3mg(1-\\cos\\theta_0)$",
+          "$mg(3-2\\cos\\theta_0)$",
+          "$mg(3-\\cos\\theta_0)$"
+        ]
+      },
+      "en": {
+        "prompt": "A pendulum consists of a massless inextensible string of length $L$, one end fixed to the ceiling, with a bob of mass $m$ on the other end. Keeping the string taut, the bob is raised until the string makes an angle $\\theta_0\\ \\left(0<\\theta_0<\\dfrac{\\pi}{2}\\right)$ with the vertical and gently released; the pendulum oscillates in a vertical plane. Let $F$ be the maximum tension in the string during the oscillation. Express $F$.",
+        "choices": [
+          "$mg$",
+          "$2mg(1-\\cos\\theta_0)$",
+          "$mg(2-\\cos\\theta_0)$",
+          "$3mg(1-\\cos\\theta_0)$",
+          "$mg(3-2\\cos\\theta_0)$",
+          "$mg(3-\\cos\\theta_0)$"
+        ]
+      },
+      "answerIndex": 4,
+      "answerOption": 5,
+      "answer": {
+        "ja": "$mg(3-2\\cos\\theta_0)$",
+        "en": "$mg(3-2\\cos\\theta_0)$"
+      },
+      "explanation": {
+        "en": "Tension is maximal at the lowest point. Energy: $v^2=2gL(1-\\cos\\theta_0)$. Radial equation: $F-mg=\\frac{mv^2}{L}=2mg(1-\\cos\\theta_0)$, so $F=mg(3-2\\cos\\theta_0)$.",
+        "ja": "張力は最下点で最大。エネルギー保存 $v^2=2gL(1-\\cos\\theta_0)$。円運動の式 $F-mg=\\frac{mv^2}{L}=2mg(1-\\cos\\theta_0)$ より $F=mg(3-2\\cos\\theta_0)$。"
+      }
+    },
+    {
+      "id": "2024-1-phy-7",
+      "answerRow": 7,
+      "block": "II",
+      "topicId": "thermo",
+      "subtopic": "Calorimetry: specific heat of a metal from mixing",
+      "patternTags": [
+        "plug-in-numbers",
+        "calorimetry",
+        "specific-heat",
+        "conservation-of-heat",
+        "ratio"
+      ],
+      "hasFigure": false,
+      "ja": {
+        "prompt": "質量 $100\\,\\text{g}$，温度 $95\\,^\\circ\\text{C}$ の金属球を，質量 $100\\,\\text{g}$，温度 $5\\,^\\circ\\text{C}$ の水の中に入れた。じゅうぶん時間がたった後，両者の温度はともに $13\\,^\\circ\\text{C}$ となった。外部との熱の出入りはないものとする。この金属の比熱は水の比熱の何倍か。最も適当な値を選びなさい。",
+        "choices": [
+          "0.1",
+          "0.2",
+          "0.3",
+          "0.4",
+          "0.5",
+          "0.6"
+        ]
+      },
+      "en": {
+        "prompt": "A metal ball of mass $100\\,\\text{g}$ at $95\\,^\\circ\\text{C}$ is placed in $100\\,\\text{g}$ of water at $5\\,^\\circ\\text{C}$. After a long time both are at $13\\,^\\circ\\text{C}$. No heat is exchanged with the surroundings. The specific heat of the metal is how many times that of water? Choose the most appropriate value.",
+        "choices": [
+          "0.1",
+          "0.2",
+          "0.3",
+          "0.4",
+          "0.5",
+          "0.6"
+        ]
+      },
+      "answerIndex": 0,
+      "answerOption": 1,
+      "answer": {
+        "ja": "0.1 倍",
+        "en": "0.1 times"
+      },
+      "explanation": {
+        "en": "Heat lost by metal = heat gained by water: $100\\,c\\,(95-13)=100\\,c_w\\,(13-5)$, so $c/c_w=8/82\\approx0.098\\approx0.1$.",
+        "ja": "金属が失う熱＝水が得る熱：$100c(95-13)=100c_w(13-5)$ より $c/c_w=8/82\\approx0.1$。"
+      }
+    },
+    {
+      "id": "2024-1-phy-8",
+      "answerRow": 8,
+      "block": "II",
+      "topicId": "thermo",
+      "subtopic": "Isothermal mixing of two gas regions through a valve (Boyle's law, piston at atmospheric pressure)",
+      "patternTags": [
+        "ratio",
+        "ideal-gas",
+        "isothermal",
+        "boyle",
+        "pressure-force-balance"
+      ],
+      "hasFigure": true,
+      "figure": {
+        "ja": "熱をよく通す円筒容器が固定壁で左の領域Aと右の領域Bに分かれ，Bの右端はなめらかに動くピストン（外側は大気）。AとBはコックのある細管で上部がつながる。図1（コック閉）：Aの気体部分の長さh0，Bの気体部分の長さh1。図2（コック開・十分時間後）：Aの長さh0のまま，Bの長さh2（ピストンが右へ移動）。",
+        "en": "A heat-conducting cylinder is split by a fixed wall into region A (left) and region B (right); B is closed on the right by a smoothly moving piston (atmosphere outside). A and B are joined at the top by a thin tube with a valve. Fig 1 (valve closed): gas length h0 in A, h1 in B. Fig 2 (valve open, long after): A still h0, B now h2 (piston moved right)."
+      },
+      "ja": {
+        "prompt": "熱をよく通す円筒容器があり，その内部が固定壁によって2つの領域AとBに分かれている。Bにはなめらかに動くピストンがついている。AとBはコックのある細管でつながれている。図1のように，コックを閉じた状態で，AとBに同じ種類の理想気体を入れた。このとき，A内の気体の圧力は大気圧 $p_0$ の $\\dfrac{5}{3}$ 倍であり，気体部分の長さは $h_0$ であった。また，B内の気体の圧力は $p_0$ であり，気体部分の長さは $h_1$ であった。次に，コックを開き細管でAとBをつないだところ，Bのピストンがゆっくり移動し，じゅうぶん時間がたった後，図2のように，その気体部分の長さが $h_2$ になった（$h_2>h_1$）。大気圧 $p_0$ と外部の気温 $T_0$ は一定であり，気体の温度は常に $T_0$ であった。細管とコックの体積は無視できるものとする。$\\dfrac{h_2-h_1}{h_0}$ はいくらか。",
+        "choices": [
+          "$\\dfrac{1}{5}$",
+          "$\\dfrac{1}{3}$",
+          "$\\dfrac{2}{5}$",
+          "$\\dfrac{3}{5}$",
+          "$\\dfrac{2}{3}$",
+          "$1$"
+        ]
+      },
+      "en": {
+        "prompt": "A heat-conducting cylindrical container is divided by a fixed wall into two regions A and B. B has a smoothly moving piston. A and B are connected by a thin tube with a valve. As in Fig 1, with the valve closed, the same kind of ideal gas is put in A and B. The pressure in A is $\\dfrac{5}{3}$ times atmospheric pressure $p_0$ and its gas length is $h_0$; the pressure in B is $p_0$ and its gas length is $h_1$. The valve is then opened; B's piston moves slowly and, after a long time, B's gas length becomes $h_2$ ($h_2>h_1$) as in Fig 2. Atmospheric pressure $p_0$ and outside temperature $T_0$ stay constant, and the gas is always at $T_0$. The volumes of the tube and valve are negligible. What is $\\dfrac{h_2-h_1}{h_0}$?",
+        "choices": [
+          "$\\dfrac{1}{5}$",
+          "$\\dfrac{1}{3}$",
+          "$\\dfrac{2}{5}$",
+          "$\\dfrac{3}{5}$",
+          "$\\dfrac{2}{3}$",
+          "$1$"
+        ]
+      },
+      "answerIndex": 4,
+      "answerOption": 5,
+      "answer": {
+        "ja": "$\\dfrac{2}{3}$",
+        "en": "$\\dfrac{2}{3}$"
+      },
+      "explanation": {
+        "en": "Isothermal, total amount conserved ($pV$ sum constant, cross-section $S$). Final pressure is $p_0$ (free piston). $\\frac53p_0h_0S+p_0h_1S=p_0(h_0+h_2)S\\Rightarrow h_2-h_1=\\frac23h_0$. So the ratio is $\\frac23$.",
+        "ja": "等温で物質量の和が一定（$pV$ の和が一定，断面積 $S$）。最終圧力はピストンより $p_0$。$\\frac53p_0h_0+p_0h_1=p_0(h_0+h_2)$ より $h_2-h_1=\\frac23h_0$。"
+      }
+    },
+    {
+      "id": "2024-1-phy-9",
+      "answerRow": 9,
+      "block": "II",
+      "topicId": "thermo",
+      "subtopic": "Thermal efficiency of a rectangular p–V cycle (heat engine)",
+      "patternTags": [
+        "express-formula",
+        "pv-cycle",
+        "thermal-efficiency",
+        "first-law",
+        "heat-engine"
+      ],
+      "hasFigure": true,
+      "figure": {
+        "ja": "p–V図の長方形サイクル（時計回り）。A(V0, p0) → B(V0, 2p0)：定積で圧力増加（上向き矢印）；B → C(2V0, 2p0)：定圧膨張（右向き）；C → D(2V0, p0)：定積で圧力減少（下向き）；D → A：定圧圧縮（左向き）。",
+        "en": "Rectangular cycle on a p–V diagram (clockwise). A(V0, p0) → B(V0, 2p0): isochoric pressure rise (arrow up); B → C(2V0, 2p0): isobaric expansion (right); C → D(2V0, p0): isochoric pressure drop (down); D → A: isobaric compression (left)."
+      },
+      "ja": {
+        "prompt": "物質量 $n\\,[\\text{mol}]$ の理想気体をなめらかに動くピストンでシリンダー内に閉じ込める。次の $p$–$V$ 図のように，この理想気体の状態を状態A→状態B→状態C→状態D→状態Aと変化させ，これを熱機関のサイクルと考える。状態Aの圧力は $p_0$，体積は $V_0$，絶対温度は $T_0$ であり，状態Bの圧力は $2p_0$，状態Cの体積は $2V_0$ である。状態A→状態Bと状態C→状態Dは定積変化であり，状態B→状態Cと状態D→状態Aは定圧変化である。この理想気体の定積モル比熱を $C_V$，気体定数を $R$ とする。この熱機関の熱効率はどのように表されるか。",
+        "choices": [
+          "$\\dfrac{R}{3(C_V+R)}$",
+          "$\\dfrac{R}{3C_V+2R}$",
+          "$\\dfrac{R}{3C_V+R}$",
+          "$\\dfrac{R}{2(C_V+R)}$",
+          "$\\dfrac{R}{2C_V+R}$",
+          "$\\dfrac{R}{C_V+2R}$",
+          "$\\dfrac{R}{C_V+R}$"
+        ]
+      },
+      "en": {
+        "prompt": "An ideal gas of $n\\,[\\text{mol}]$ is confined in a cylinder by a smoothly moving piston. As in the $p$–$V$ diagram, the gas is taken A→B→C→D→A, regarded as a heat-engine cycle. State A has pressure $p_0$, volume $V_0$, absolute temperature $T_0$; state B has pressure $2p_0$; state C has volume $2V_0$. A→B and C→D are isochoric, B→C and D→A are isobaric. The molar specific heat at constant volume is $C_V$ and the gas constant is $R$. Express the thermal efficiency of this engine.",
+        "choices": [
+          "$\\dfrac{R}{3(C_V+R)}$",
+          "$\\dfrac{R}{3C_V+2R}$",
+          "$\\dfrac{R}{3C_V+R}$",
+          "$\\dfrac{R}{2(C_V+R)}$",
+          "$\\dfrac{R}{2C_V+R}$",
+          "$\\dfrac{R}{C_V+2R}$",
+          "$\\dfrac{R}{C_V+R}$"
+        ]
+      },
+      "answerIndex": 1,
+      "answerOption": 2,
+      "answer": {
+        "ja": "$\\dfrac{R}{3C_V+2R}$",
+        "en": "$\\dfrac{R}{3C_V+2R}$"
+      },
+      "explanation": {
+        "en": "Temperatures: $T_A=T_0$, $T_B=2T_0$, $T_C=4T_0$, $T_D=2T_0$. Heat absorbed: A→B $nC_VT_0$; B→C $n(C_V+R)\\cdot2T_0$; total $Q_{in}=nT_0(3C_V+2R)$. Net work = rectangle area $=p_0V_0=nRT_0$. Efficiency $=\\frac{R}{3C_V+2R}$.",
+        "ja": "温度は $T_A=T_0$，$T_B=2T_0$，$T_C=4T_0$，$T_D=2T_0$。吸熱：A→B $nC_VT_0$，B→C $n(C_V+R)\\cdot2T_0$，合計 $nT_0(3C_V+2R)$。正味の仕事は長方形の面積 $p_0V_0=nRT_0$。効率 $=\\frac{R}{3C_V+2R}$。"
+      }
+    },
+    {
+      "id": "2024-1-phy-10",
+      "answerRow": 10,
+      "block": "III",
+      "topicId": "waves",
+      "subtopic": "Sinusoidal travelling wave: from y–t graph at a point to the y–x snapshot",
+      "patternTags": [
+        "choose-from-graph",
+        "read-from-graph",
+        "travelling-wave",
+        "wave-equation"
+      ],
+      "hasFigure": true,
+      "figure": {
+        "ja": "x=0 m における変位y[m]と時刻t[s]のグラフ：振幅1 m，t=0でy=0から正へ上昇，t=1で山(y=1)，t=2で0，t=3で谷(y=−1)，t=4で0（周期4 s）。選択肢①〜⑧はt=3.0 sのy–xグラフ（x目盛10, 20, 30, 40 m，振幅1 m）で，波長20 mの4つ（①sin型，②cos型，③−sin型，④−cos型）と波長40 mの4つ（⑤sin型，⑥cos型，⑦−sin型，⑧−cos型）。",
+        "en": "Graph of displacement y [m] vs time t [s] at x=0 m: amplitude 1 m; y=0 rising at t=0, crest (y=1) at t=1, 0 at t=2, trough (y=−1) at t=3, 0 at t=4 (period 4 s). Options ①–⑧ are y–x graphs at t=3.0 s (x ticks 10, 20, 30, 40 m; amplitude 1 m): four with wavelength 20 m (① sine, ② cosine, ③ −sine, ④ −cosine shape) and four with wavelength 40 m (⑤ sine, ⑥ cosine, ⑦ −sine, ⑧ −cosine shape)."
+      },
+      "ja": {
+        "prompt": "$x$ 軸上を，$x$ 軸の正の向きに速さ $5.0\\,\\text{m/s}$ で進む正弦波がある。図は，座標 $x=0\\,\\text{m}$ の位置における変位 $y$ と時刻 $t$ の関係を示したグラフである（振幅 $1\\,\\text{m}$，$t=0$ で $y=0$ から増加し $t=1\\,\\text{s}$ で山，周期 $4\\,\\text{s}$）。この正弦波の時刻 $t=3.0\\,\\text{s}$ における変位 $y$ と位置座標 $x$ の関係を示したグラフはどうなるか。最も適当なものを選びなさい。",
+        "choices": [
+          "①（波長20 m：$x=0$ で $y=0$ から正へ上昇，$y=\\sin\\frac{\\pi x}{10}$ 型）",
+          "②（波長20 m：$x=0$ で $y=1$（山），$x=10,30$ で谷，$y=\\cos\\frac{\\pi x}{10}$ 型）",
+          "③（波長20 m：$x=0$ で $y=0$ から負へ下降，$y=-\\sin\\frac{\\pi x}{10}$ 型）",
+          "④（波長20 m：$x=0$ で $y=-1$（谷），$x=10,30$ で山，$y=-\\cos\\frac{\\pi x}{10}$ 型）",
+          "⑤（波長40 m：$x=0$ で $y=0$ から上昇，$x=10$ で山，$x=30$ で谷）",
+          "⑥（波長40 m：$x=0$ で $y=1$（山），$x=20$ で谷，$x=40$ で山）",
+          "⑦（波長40 m：$x=0$ で $y=0$ から下降，$x=10$ で谷，$x=30$ で山）",
+          "⑧（波長40 m：$x=0$ で $y=-1$（谷），$x=20$ で山，$x=40$ で谷）"
+        ]
+      },
+      "en": {
+        "prompt": "A sinusoidal wave travels along the $x$-axis in the $+x$ direction at $5.0\\,\\text{m/s}$. The figure shows displacement $y$ vs time $t$ at $x=0\\,\\text{m}$ (amplitude $1\\,\\text{m}$; $y=0$ rising at $t=0$, crest at $t=1\\,\\text{s}$, period $4\\,\\text{s}$). Which graph shows $y$ vs position $x$ at $t=3.0\\,\\text{s}$?",
+        "choices": [
+          "① (λ=20 m: $y=0$ at $x=0$ rising, $y=\\sin\\frac{\\pi x}{10}$ shape)",
+          "② (λ=20 m: crest $y=1$ at $x=0$, troughs at $x=10,30$, $y=\\cos\\frac{\\pi x}{10}$ shape)",
+          "③ (λ=20 m: $y=0$ at $x=0$ falling, $y=-\\sin\\frac{\\pi x}{10}$ shape)",
+          "④ (λ=20 m: trough $y=-1$ at $x=0$, crests at $x=10,30$, $y=-\\cos\\frac{\\pi x}{10}$ shape)",
+          "⑤ (λ=40 m: $y=0$ at $x=0$ rising, crest at $x=10$, trough at $x=30$)",
+          "⑥ (λ=40 m: crest $y=1$ at $x=0$, trough at $x=20$, crest at $x=40$)",
+          "⑦ (λ=40 m: $y=0$ at $x=0$ falling, trough at $x=10$, crest at $x=30$)",
+          "⑧ (λ=40 m: trough $y=-1$ at $x=0$, crest at $x=20$, trough at $x=40$)"
+        ]
+      },
+      "answerIndex": 3,
+      "answerOption": 4,
+      "answer": {
+        "ja": "④（波長20 m：$x=0$ で $y=-1$（谷），$x=10,30$ で山，$y=-\\cos\\frac{\\pi x}{10}$ 型）",
+        "en": "④ (λ=20 m: trough $y=-1$ at $x=0$, crests at $x=10,30$, $y=-\\cos\\frac{\\pi x}{10}$ shape)"
+      },
+      "explanation": {
+        "en": "Period $T=4$ s, so $\\lambda=vT=20$ m. At $x=0$, $y=\\sin\\frac{\\pi t}{2}$; for a $+x$ wave $y(x,t)=\\sin\\frac{\\pi}{2}\\left(t-\\frac{x}{5}\\right)$. At $t=3$: $y=\\sin\\left(\\frac{3\\pi}{2}-\\frac{\\pi x}{10}\\right)=-\\cos\\frac{\\pi x}{10}$: trough at $x=0$, crests at $x=10,30$, λ=20 m ⇒ ④.",
+        "ja": "周期 $4$ s，波長 $\\lambda=vT=20$ m。$x=0$ で $y=\\sin\\frac{\\pi t}{2}$，正の向きに進むので $y=\\sin\\frac{\\pi}{2}\\left(t-\\frac{x}{5}\\right)$。$t=3$ で $y=-\\cos\\frac{\\pi x}{10}$：$x=0$ で谷，$x=10,30$ で山，波長20 m ⇒ ④。"
+      }
+    },
+    {
+      "id": "2024-1-phy-11",
+      "answerRow": 11,
+      "block": "III",
+      "topicId": "waves",
+      "subtopic": "Doppler effect with a moving reflector; beats",
+      "patternTags": [
+        "plug-in-numbers",
+        "doppler-effect",
+        "wave-reflection",
+        "beats"
+      ],
+      "hasFigure": true,
+      "figure": {
+        "ja": "一直線上に左から観測者（静止），音源（静止），反射板が並ぶ。反射板は台車に載り，右向き（音源から遠ざかる向き）に1 m/sで動く。",
+        "en": "On one straight line, from left to right: an observer (at rest), a sound source (at rest), and a reflector on a cart moving right (away from the source) at 1 m/s."
+      },
+      "ja": {
+        "prompt": "次の図のように，観測者，音源，反射板が一直線上に並んでいる。観測者と音源は静止していて，反射板は直線上を $1\\,\\text{m/s}$ の速さで音源から遠ざかっている。このとき，音源から直接伝わる音と反射板で反射した音によって，観測者は毎秒 $n$ 回のうなりを観測した。音源の振動数は $682\\,\\text{Hz}$，音の速さは $340\\,\\text{m/s}$ である。$n$ はいくらか。最も適当な値を選びなさい。",
+        "choices": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6"
+        ]
+      },
+      "en": {
+        "prompt": "As shown, an observer, a sound source and a reflector lie on one straight line. The observer and the source are at rest, and the reflector moves along the line away from the source at $1\\,\\text{m/s}$. The observer hears $n$ beats per second between the sound coming directly from the source and the sound reflected by the reflector. The source frequency is $682\\,\\text{Hz}$ and the speed of sound is $340\\,\\text{m/s}$. What is $n$? Choose the most appropriate value.",
+        "choices": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6"
+        ]
+      },
+      "answerIndex": 3,
+      "answerOption": 4,
+      "answer": {
+        "ja": "4",
+        "en": "4"
+      },
+      "explanation": {
+        "en": "The receding reflector receives $f_1=f\\frac{V-u}{V}$ and re-emits it as a receding source, so the observer hears $f_2=f_1\\frac{V}{V+u}=f\\frac{V-u}{V+u}=682\\times\\frac{339}{341}=678$ Hz. Beats: $n=682-678=4$.",
+        "ja": "遠ざかる反射板が受ける振動数 $f_1=f\\frac{V-u}{V}$，反射板を遠ざかる音源とみて観測者には $f_2=f\\frac{V-u}{V+u}=682\\times\\frac{339}{341}=678$ Hz。うなり $n=682-678=4$。"
+      }
+    },
+    {
+      "id": "2024-1-phy-12",
+      "answerRow": 12,
+      "block": "III",
+      "topicId": "waves",
+      "subtopic": "Convex lens: object inside the focal length (magnifier)",
+      "patternTags": [
+        "direction-and-combination",
+        "geometric-optics",
+        "virtual-image"
+      ],
+      "hasFigure": true,
+      "figure": {
+        "ja": "凸レンズ（中心O）の光軸上に，左から焦点F，点A，O，焦点F′，点Bが並ぶ。AはOとFの中点で，Aに上向きの矢印（物体）が立つ。観察者はレンズの右側のBの側から見る。",
+        "en": "On the optical axis of a convex lens (center O), from left to right: focal point F, point A, O, focal point F′, point B. A is the midpoint of O and F, and an upward arrow (the object) stands at A. The image is viewed from the B side (right of the lens)."
+      },
+      "ja": {
+        "prompt": "次の図のように，凸レンズの光軸上に焦点F，F′があり，レンズの中心OとFの中点Aに物体が置かれている。図のBの側から物体の像を観察する。Bの側から観察する物体の像の種類は実像か虚像か。像の向きは正立か倒立か。また，像の倍率はいくらか。最も適当な組み合わせを選びなさい。",
+        "choices": [
+          "実像，正立，0.25",
+          "実像，正立，0.5",
+          "実像，倒立，0.25",
+          "実像，倒立，0.5",
+          "虚像，正立，2",
+          "虚像，正立，4",
+          "虚像，倒立，2",
+          "虚像，倒立，4"
+        ]
+      },
+      "en": {
+        "prompt": "As shown, a convex lens has focal points F and F′ on its optical axis, and an object is placed at A, the midpoint of the lens center O and F. The image is viewed from side B. Is the image real or virtual, upright or inverted, and what is its magnification? Choose the most appropriate combination.",
+        "choices": [
+          "real, upright, 0.25",
+          "real, upright, 0.5",
+          "real, inverted, 0.25",
+          "real, inverted, 0.5",
+          "virtual, upright, 2",
+          "virtual, upright, 4",
+          "virtual, inverted, 2",
+          "virtual, inverted, 4"
+        ]
+      },
+      "answerIndex": 4,
+      "answerOption": 5,
+      "answer": {
+        "ja": "虚像，正立，2",
+        "en": "virtual, upright, 2"
+      },
+      "explanation": {
+        "en": "Object distance $a=f/2<f$. Lens equation $\\frac1a+\\frac1b=\\frac1f\\Rightarrow\\frac1b=\\frac1f-\\frac2f=-\\frac1f$, $b=-f$: a virtual image on the object side, upright, magnification $|b|/a=f/(f/2)=2$.",
+        "ja": "物体距離 $a=f/2$。$\\frac1a+\\frac1b=\\frac1f$ より $\\frac1b=-\\frac1f$，$b=-f$。物体側にできる虚像で正立，倍率 $|b|/a=2$。"
+      }
+    },
+    {
+      "id": "2024-1-phy-13",
+      "answerRow": 13,
+      "block": "IV",
+      "topicId": "em",
+      "subtopic": "Work by an external force moving a charge in a Coulomb field (potential energy)",
+      "patternTags": [
+        "express-formula",
+        "coulomb-potential-energy",
+        "work",
+        "electric-potential"
+      ],
+      "hasFigure": true,
+      "figure": {
+        "ja": "x軸上，原点Oに点電荷Q，x=rに点電荷q。qをx=r（r>0）からx=R（R>r）まで矢印のようにx軸正の向きへ動かす。",
+        "en": "On the x-axis: point charge Q at the origin O, point charge q at x=r. q is moved (arrow) in the +x direction from x=r (r>0) to x=R (R>r)."
+      },
+      "ja": {
+        "prompt": "次の図のように，$x$ 軸上の原点Oの位置に電気量 $Q$ の点電荷を固定する。次に，電気量 $q$ の点電荷に静電気力とつりあう外力を加えて，$x=r\\ (r>0)$ の位置から $x=R\\ (R>r)$ の位置まで $x$ 軸上をゆっくりと移動させる。このとき，外力のした仕事は $W$ であった。クーロンの法則の比例定数を $k_0$ とする。$W$ はどのように表されるか。",
+        "choices": [
+          "$\\dfrac{k_0Qq}{r}+\\dfrac{k_0Qq}{R}$",
+          "$\\dfrac{k_0Qq}{r}-\\dfrac{k_0Qq}{R}$",
+          "$\\dfrac{k_0Qq}{R}-\\dfrac{k_0Qq}{r}$",
+          "$\\dfrac{k_0Qq}{r^2}+\\dfrac{k_0Qq}{R^2}$",
+          "$\\dfrac{k_0Qq}{r^2}-\\dfrac{k_0Qq}{R^2}$",
+          "$\\dfrac{k_0Qq}{R^2}-\\dfrac{k_0Qq}{r^2}$"
+        ]
+      },
+      "en": {
+        "prompt": "As shown, a point charge $Q$ is fixed at the origin O on the $x$-axis. A point charge $q$ is then moved slowly along the $x$-axis from $x=r\\ (r>0)$ to $x=R\\ (R>r)$ by an external force that balances the electrostatic force. The work done by the external force is $W$. Coulomb's constant is $k_0$. Express $W$.",
+        "choices": [
+          "$\\dfrac{k_0Qq}{r}+\\dfrac{k_0Qq}{R}$",
+          "$\\dfrac{k_0Qq}{r}-\\dfrac{k_0Qq}{R}$",
+          "$\\dfrac{k_0Qq}{R}-\\dfrac{k_0Qq}{r}$",
+          "$\\dfrac{k_0Qq}{r^2}+\\dfrac{k_0Qq}{R^2}$",
+          "$\\dfrac{k_0Qq}{r^2}-\\dfrac{k_0Qq}{R^2}$",
+          "$\\dfrac{k_0Qq}{R^2}-\\dfrac{k_0Qq}{r^2}$"
+        ]
+      },
+      "answerIndex": 2,
+      "answerOption": 3,
+      "answer": {
+        "ja": "$\\dfrac{k_0Qq}{R}-\\dfrac{k_0Qq}{r}$",
+        "en": "$\\dfrac{k_0Qq}{R}-\\dfrac{k_0Qq}{r}$"
+      },
+      "explanation": {
+        "en": "Moving slowly, the external work equals the change in electric potential energy: $W=\\frac{k_0Qq}{R}-\\frac{k_0Qq}{r}$ (negative for like charges, since repulsion does the work).",
+        "ja": "ゆっくり動かすので外力の仕事は静電気力による位置エネルギーの変化に等しい：$W=\\frac{k_0Qq}{R}-\\frac{k_0Qq}{r}$。"
+      }
+    },
+    {
+      "id": "2024-1-phy-14",
+      "answerRow": 14,
+      "block": "IV",
+      "topicId": "em",
+      "subtopic": "Capacitor charging and charge sharing via switches",
+      "patternTags": [
+        "plug-in-numbers",
+        "capacitors",
+        "charge-conservation",
+        "switches",
+        "series-parallel"
+      ],
+      "hasFigure": true,
+      "figure": {
+        "ja": "回路：左の縦の枝にC1（2.0 μF）。下の導線に6.0 Vの電池があり，左下の角と下の中央の節点の間に入る。上の導線で左上の角からスイッチS1を通って上の中央の節点へ。中央の縦の枝は上の節点からC2（4.0 μF），抵抗を通って下の節点へ。上の節点からスイッチS2を通って右上の角へ，右の縦の枝にC3（6.0 μF）があり右下の角から下の節点へ戻る。S1を閉じると電池・C1・C2・抵抗の直列回路，S2を閉じるとC2と抵抗の枝がC3と並列のループになる（電池を含まない）。",
+        "en": "Circuit: the left vertical branch holds C1 (2.0 μF). The bottom wire holds the 6.0 V battery between the bottom-left corner and the bottom middle node. The top wire runs from the top-left corner through switch S1 to the top middle node. The middle vertical branch runs from the top node through C2 (4.0 μF) and a resistor to the bottom node. From the top node, switch S2 leads to the top-right corner; the right vertical branch holds C3 (6.0 μF) and returns from the bottom-right corner to the bottom node. Closing S1 forms a series loop battery–C1–C2–resistor; closing S2 forms a loop of the C2+resistor branch with C3 (no battery)."
+      },
+      "ja": {
+        "prompt": "次の図のように，起電力 $6.0\\,\\text{V}$ の電池，電気容量 $2.0\\,\\mu\\text{F}$ のコンデンサーC$_1$，電気容量 $4.0\\,\\mu\\text{F}$ のコンデンサーC$_2$，電気容量 $6.0\\,\\mu\\text{F}$ のコンデンサーC$_3$，抵抗，2つのスイッチS$_1$，S$_2$ を接続した。最初，S$_1$，S$_2$ は開いていて，3つのコンデンサーに電荷は蓄えられていなかった。次に，S$_1$ を閉じてじゅうぶん時間がたった後，S$_1$ を開いた。続いて，S$_2$ を閉じてじゅうぶん時間がたった後，S$_2$ を開いた。このとき，C$_2$ に蓄えられている電気量を $Q_2$ とする。$Q_2$ は何 $\\mu\\text{C}$ か。最も適当な値を選びなさい。",
+        "choices": [
+          "1.6",
+          "3.2",
+          "4.8",
+          "6.4",
+          "8.0",
+          "9.6"
+        ]
+      },
+      "en": {
+        "prompt": "As shown, a $6.0\\,\\text{V}$ battery, capacitors C$_1$ ($2.0\\,\\mu\\text{F}$), C$_2$ ($4.0\\,\\mu\\text{F}$), C$_3$ ($6.0\\,\\mu\\text{F}$), a resistor and two switches S$_1$, S$_2$ are connected. Initially S$_1$ and S$_2$ are open and no capacitor is charged. S$_1$ is closed and, after a long time, opened. Then S$_2$ is closed and, after a long time, opened. Let $Q_2$ be the charge on C$_2$ at this point. What is $Q_2$ in $\\mu\\text{C}$? Choose the most appropriate value.",
+        "choices": [
+          "1.6",
+          "3.2",
+          "4.8",
+          "6.4",
+          "8.0",
+          "9.6"
+        ]
+      },
+      "answerIndex": 1,
+      "answerOption": 2,
+      "answer": {
+        "ja": "3.2",
+        "en": "3.2"
+      },
+      "explanation": {
+        "en": "S$_1$ closed: C$_1$ and C$_2$ in series with 6.0 V: $C=\\frac{2\\cdot4}{2+4}=\\frac43\\,\\mu$F, charge $=\\frac43\\times6.0=8.0\\,\\mu$C on C$_2$. S$_2$ closed: C$_2$ shares its 8.0 μC with uncharged C$_3$ in parallel: $V=\\frac{8.0}{4.0+6.0}=0.80$ V, $Q_2=4.0\\times0.80=3.2\\,\\mu$C.",
+        "ja": "S$_1$ を閉じるとC$_1$とC$_2$の直列：合成 $\\frac43\\,\\mu$F，電荷 $8.0\\,\\mu$C がC$_2$に。S$_2$ を閉じるとC$_2$の $8.0\\,\\mu$C をC$_3$と分け合い（並列），$V=8.0/10=0.80$ V，$Q_2=4.0\\times0.80=3.2\\,\\mu$C。"
+      }
+    },
+    {
+      "id": "2024-1-phy-15",
+      "answerRow": 15,
+      "block": "IV",
+      "topicId": "em",
+      "subtopic": "DC circuit with two batteries: galvanometer null condition (Kirchhoff)",
+      "patternTags": [
+        "plug-in-numbers",
+        "kirchhoff",
+        "dc-circuit",
+        "voltage-divider"
+      ],
+      "hasFigure": true,
+      "figure": {
+        "ja": "左の縦の枝：検流計と起電力4.0 Vの電池（正極が上）。下の導線に20 Ωの抵抗があり，下の中央の節点へ。上の導線は左上から上の中央の節点へ。中央の縦の枝：上の節点と下の節点の間に30 Ω。上の節点から可変抵抗を通って右上へ，右の縦の枝に起電力6.0 Vの電池（正極が上），右下から下の節点へ戻る。",
+        "en": "Left vertical branch: a galvanometer and a 4.0 V battery (positive terminal up). The bottom wire carries a 20 Ω resistor to the bottom middle node; the top wire goes from the top-left to the top middle node. Middle vertical branch: 30 Ω between the top and bottom nodes. From the top node a variable resistor leads to the top-right; the right vertical branch holds a 6.0 V battery (positive terminal up) and returns from the bottom-right to the bottom node."
+      },
+      "ja": {
+        "prompt": "次の図のように，起電力 $4.0\\,\\text{V}$ の電池，起電力 $6.0\\,\\text{V}$ の電池，抵抗値 $20\\,\\Omega$ の抵抗，抵抗値 $30\\,\\Omega$ の抵抗，可変抵抗，検流計を接続した。可変抵抗の抵抗値を変えながら，検流計に流れる電流を観測したところ，可変抵抗の抵抗値が $R$ のとき，検流計に電流が流れなかった。2つの電池の内部抵抗は無視できるものとする。$R$ は何 $\\Omega$ か。最も適当な値を選びなさい。",
+        "choices": [
+          "10",
+          "15",
+          "20",
+          "25",
+          "30",
+          "35",
+          "40",
+          "45"
+        ]
+      },
+      "en": {
+        "prompt": "As shown, a $4.0\\,\\text{V}$ battery, a $6.0\\,\\text{V}$ battery, a $20\\,\\Omega$ resistor, a $30\\,\\Omega$ resistor, a variable resistor and a galvanometer are connected. While varying the variable resistor, no current flowed through the galvanometer when its resistance was $R$. The internal resistances of both batteries are negligible. What is $R$ in $\\Omega$? Choose the most appropriate value.",
+        "choices": [
+          "10",
+          "15",
+          "20",
+          "25",
+          "30",
+          "35",
+          "40",
+          "45"
+        ]
+      },
+      "answerIndex": 1,
+      "answerOption": 2,
+      "answer": {
+        "ja": "15",
+        "en": "15"
+      },
+      "explanation": {
+        "en": "No current in the galvanometer branch ⇒ no current in the 20 Ω either, so the voltage across 30 Ω equals 4.0 V. The 6.0 V battery drives current $I$ through $R$ and 30 Ω in series: $30I=4.0\\Rightarrow I=\\frac{2}{15}$ A, and $6.0=I(R+30)\\Rightarrow R+30=45$, $R=15\\,\\Omega$.",
+        "ja": "検流計の枝に電流が流れないので20 Ωにも流れず，30 Ωの両端の電圧は4.0 V。6.0 Vの電池による電流 $I$ はRと30 Ωを直列に流れ，$30I=4.0$ より $I=\\frac{2}{15}$ A，$6.0=I(R+30)$ より $R=15\\,\\Omega$。"
+      }
+    },
+    {
+      "id": "2024-1-phy-16",
+      "answerRow": 16,
+      "block": "IV",
+      "topicId": "em",
+      "subtopic": "Magnetic field of two parallel currents; net force on a square coil",
+      "patternTags": [
+        "express-formula",
+        "magnetic-field-of-current",
+        "superposition",
+        "force-between-currents",
+        "force-on-current"
+      ],
+      "hasFigure": true,
+      "figure": {
+        "ja": "左に導線XX′（下端X′，上端X），右に導線YY′（下端Y′，上端Y）が間隔3aで平行（縦向き）。間に1辺aの正方形コイルABCD：A左上，B右上，C右下，D左下。AD（左辺）はXX′からa，BC（右辺）はYY′からa。XX′の電流Iは上向き（X′→X），YY′の電流I′も上向き（Y′→Y）。コイルの電流iはA→D（下向き），D→C（右向き），C→B（上向き），B→A（左向き）。",
+        "en": "Wire XX′ on the left (X′ bottom, X top) and wire YY′ on the right (Y′ bottom, Y top) are parallel and vertical, 3a apart. Between them is a square coil ABCD of side a: A top-left, B top-right, C bottom-right, D bottom-left. AD (left side) is a from XX′, BC (right side) is a from YY′. Current I in XX′ flows upward (X′→X); current I′ in YY′ also flows upward (Y′→Y). Coil current i flows A→D (down), D→C (right), C→B (up), B→A (left)."
+      },
+      "ja": {
+        "prompt": "次の図のように，じゅうぶんに長い2本の直線導線XX′とYY′を，平面上に $3a$ の間隔で平行に置く。同じ平面上に，1辺の長さが $a$ の正方形のコイルABCDを置く。辺ADと辺BCはXX′とYY′に平行である。ADとXX′の間隔は $a$ であり，BCとYY′の間隔も $a$ である。導線XX′には大きさ $I$ の電流をX′からXの向きに流し，導線YY′には大きさ $I'$ の電流をY′からYの向きに流す。最初，$I'$ を変化させてAD上で磁場の強さが0になるようにした。次に，コイルにA→D→C→B→Aの向きに大きさ $i$ の電流を流す。このとき，コイルは右向きに大きさ $F$ の力を受けた。空気の透磁率を $\\mu$ とする。$F$ はどのように表されるか。",
+        "choices": [
+          "$\\dfrac{\\mu Ii}{4\\pi}$",
+          "$\\dfrac{\\mu Ii}{2\\pi}$",
+          "$\\dfrac{3\\mu Ii}{4\\pi}$",
+          "$\\dfrac{\\mu Ii}{\\pi}$",
+          "$\\dfrac{\\mu Ii}{4}$",
+          "$\\dfrac{\\mu Ii}{2}$",
+          "$\\dfrac{3\\mu Ii}{4}$",
+          "$\\mu Ii$"
+        ]
+      },
+      "en": {
+        "prompt": "As shown, two long straight wires XX′ and YY′ are laid parallel on a plane, $3a$ apart. On the same plane lies a square coil ABCD of side $a$, with sides AD and BC parallel to XX′ and YY′; AD is a distance $a$ from XX′ and BC is a distance $a$ from YY′. Current $I$ flows in XX′ from X′ to X, and current $I'$ flows in YY′ from Y′ to Y. First, $I'$ is adjusted so that the magnetic field on AD is zero. Next, a current $i$ is sent around the coil in the sense A→D→C→B→A; the coil then experiences a rightward force of magnitude $F$. The permeability of air is $\\mu$. Express $F$.",
+        "choices": [
+          "$\\dfrac{\\mu Ii}{4\\pi}$",
+          "$\\dfrac{\\mu Ii}{2\\pi}$",
+          "$\\dfrac{3\\mu Ii}{4\\pi}$",
+          "$\\dfrac{\\mu Ii}{\\pi}$",
+          "$\\dfrac{\\mu Ii}{4}$",
+          "$\\dfrac{\\mu Ii}{2}$",
+          "$\\dfrac{3\\mu Ii}{4}$",
+          "$\\mu Ii$"
+        ]
+      },
+      "answerIndex": 2,
+      "answerOption": 3,
+      "answer": {
+        "ja": "$\\dfrac{3\\mu Ii}{4\\pi}$",
+        "en": "$\\dfrac{3\\mu Ii}{4\\pi}$"
+      },
+      "explanation": {
+        "en": "Zero field on AD (distance $a$ from XX′, $2a$ from YY′): $\\frac{\\mu I}{2\\pi a}=\\frac{\\mu I'}{2\\pi(2a)}\\Rightarrow I'=2I$. AD feels no force; the forces on AB and CD cancel. At BC ($2a$ from XX′, $a$ from YY′) the two fields oppose: $B=\\frac{\\mu(2I)}{2\\pi a}-\\frac{\\mu I}{2\\pi(2a)}=\\frac{3\\mu I}{4\\pi a}$ (YY′'s field dominates). BC carries $i$ upward (C→B), parallel to I′, so it is attracted to YY′ (rightward): $F=iaB=\\frac{3\\mu Ii}{4\\pi}$.",
+        "ja": "AD上で磁場0：$\\frac{\\mu I}{2\\pi a}=\\frac{\\mu I'}{2\\pi(2a)}$ より $I'=2I$。ADには力が働かず，ABとCDの力は打ち消し合う。BC（XX′から $2a$，YY′から $a$）では2つの磁場が逆向きで $B=\\frac{\\mu(2I)}{2\\pi a}-\\frac{\\mu I}{4\\pi a}=\\frac{3\\mu I}{4\\pi a}$。BCの電流は上向き（C→B）でI′と同じ向きなのでYY′側（右）へ引かれ，$F=iaB=\\frac{3\\mu Ii}{4\\pi}$。"
+      }
+    },
+    {
+      "id": "2024-1-phy-17",
+      "answerRow": 17,
+      "block": "IV",
+      "topicId": "em",
+      "subtopic": "Charged particle in a uniform magnetic field (field direction and q/m from a semicircle)",
+      "patternTags": [
+        "direction-and-combination",
+        "lorentz-force",
+        "circular-motion",
+        "period"
+      ],
+      "hasFigure": true,
+      "figure": {
+        "ja": "xy平面のy>0の領域に一様な磁場。粒子は点(−r, 0)をy軸正の向きに速さvで入射し，原点を中心とする半径rの半円（破線，最高点はy軸上）を時計回りに描いて，点(r, 0)をy軸負の向きに速さvで出る。",
+        "en": "Uniform magnetic field in the region y>0 of the xy-plane. The particle enters at (−r, 0) moving in +y at speed v, follows a dashed semicircle of radius r centred at the origin (top on the y-axis), clockwise, and leaves at (r, 0) moving in −y at speed v."
+      },
+      "ja": {
+        "prompt": "次の図のように，$xy$ 平面（紙面）の $y>0$ の領域に，紙面に垂直な向きに磁束密度の大きさが $B$ の一様な磁場が加えられている。質量 $m$，電気量 $q\\ (>0)$ の荷電粒子が，ある時刻に点 $(-r,0)\\ (r>0)$ を $y$ 軸の正の向きに速さ $v$ で通過して領域に入射したところ，時間 $t$ だけ経過した後，点 $(r,0)$ を $y$ 軸の負の向きに速さ $v$ で通過して領域の外に出た。磁場の向きは，紙面の裏から表の向き（裏→表）か，表から裏の向き（表→裏）か。また，$\\dfrac{q}{m}$ はどのように表されるか。正しい組み合わせを選びなさい。",
+        "choices": [
+          "裏→表，$\\dfrac{\\pi}{2Bt}$",
+          "裏→表，$\\dfrac{\\pi}{Bt}$",
+          "裏→表，$\\dfrac{2\\pi}{Bt}$",
+          "表→裏，$\\dfrac{\\pi}{2Bt}$",
+          "表→裏，$\\dfrac{\\pi}{Bt}$",
+          "表→裏，$\\dfrac{2\\pi}{Bt}$"
+        ]
+      },
+      "en": {
+        "prompt": "As shown, a uniform magnetic field of flux density $B$, perpendicular to the page, exists in the region $y>0$ of the $xy$-plane (the page). A particle of mass $m$ and charge $q\\ (>0)$ passes through $(-r,0)\\ (r>0)$ moving in the $+y$ direction at speed $v$ and enters the region; after a time $t$ it passes through $(r,0)$ moving in the $-y$ direction at speed $v$ and leaves. Is the field directed from the back of the page to the front (out of the page) or from the front to the back (into the page)? Also express $\\dfrac{q}{m}$. Choose the correct combination.",
+        "choices": [
+          "back→front (out of page), $\\dfrac{\\pi}{2Bt}$",
+          "back→front (out of page), $\\dfrac{\\pi}{Bt}$",
+          "back→front (out of page), $\\dfrac{2\\pi}{Bt}$",
+          "front→back (into page), $\\dfrac{\\pi}{2Bt}$",
+          "front→back (into page), $\\dfrac{\\pi}{Bt}$",
+          "front→back (into page), $\\dfrac{2\\pi}{Bt}$"
+        ]
+      },
+      "answerIndex": 1,
+      "answerOption": 2,
+      "answer": {
+        "ja": "裏→表，$\\dfrac{\\pi}{Bt}$",
+        "en": "back→front (out of page), $\\dfrac{\\pi}{Bt}$"
+      },
+      "explanation": {
+        "en": "At $(-r,0)$ the velocity is $+y$ and the centripetal force points to $+x$ (toward O). $\\vec F=q\\vec v\\times\\vec B$ with $q>0$: $\\hat y\\times\\hat z=\\hat x$, so $\\vec B$ is $+z$, out of the page (back→front). The path is half a circle: $t=\\frac{T}{2}=\\frac{\\pi m}{qB}\\Rightarrow\\frac{q}{m}=\\frac{\\pi}{Bt}$.",
+        "ja": "$(-r,0)$ で速度は $+y$，向心力は $+x$ 向き（O向き）。$q>0$ で $\\vec F=q\\vec v\\times\\vec B$，$\\hat y\\times\\hat z=\\hat x$ より磁場は紙面の裏→表。半円なので $t=\\frac{T}{2}=\\frac{\\pi m}{qB}$，$\\frac{q}{m}=\\frac{\\pi}{Bt}$。"
+      }
+    },
+    {
+      "id": "2024-1-phy-18",
+      "answerRow": 18,
+      "block": "IV",
+      "topicId": "em",
+      "subtopic": "Electromagnetic induction: rectangular coil crossing a field strip (I–t graph)",
+      "patternTags": [
+        "choose-from-graph",
+        "electromagnetic-induction",
+        "lenzs-law",
+        "motional-emf"
+      ],
+      "hasFigure": true,
+      "figure": {
+        "ja": "xy平面の0<x<dの帯状の領域（網掛け）に紙面の裏から表向き（⊙）の一様な磁場。その左に長方形コイル（x軸に平行な2辺の長さL>d）があり，x軸正の向きに速さvで進む。電流の正の向きはコイル上の矢印：上辺は左向き，左辺は下向き，下辺は右向き，右辺は上向き（反時計回り）。選択肢①〜⑥はI–tグラフ（長方形の波形）。",
+        "en": "A uniform field out of the page (⊙) fills the strip 0<x<d of the xy-plane (shaded). To its left, a rectangular coil (sides parallel to x of length L>d) moves in +x at speed v. Positive current direction (arrows on the coil): top side leftward, left side downward, bottom side rightward, right side upward (counterclockwise). Options ①–⑥ are I–t graphs made of rectangular pulses."
+      },
+      "ja": {
+        "prompt": "次の図のように，$xy$ 平面（紙面）の $0<x<d$ の領域に，紙面に垂直で紙面の裏から表の向きに一様な磁場が加えられている。長方形のコイルが，$x$ 軸の正の向きに一定の速さ $v$ で，磁場のある領域を横切る。コイルの2辺は $x$ 軸に平行であり，これらの辺の長さは $L$ である。ただし，$L>d$ である。時刻 $t$ のときにコイルに流れる誘導電流 $I$ を観測した。$I$ は，図中のコイル上の矢印の向き（反時計回り）に流れる場合を正とする。コイルの誘導電流がつくる磁場は無視できるものとする。$I$ は $t$ とともにどのように変化するか。最も適当なグラフを選びなさい。",
+        "choices": [
+          "①（正の一定値が1回，長く続く）",
+          "②（負の一定値が1回，長く続く）",
+          "③（正のパルス，0の区間，正のパルス）",
+          "④（負のパルス，0の区間，負のパルス）",
+          "⑤（正のパルス，0の区間，負のパルス）",
+          "⑥（負のパルス，0の区間，正のパルス）"
+        ]
+      },
+      "en": {
+        "prompt": "As shown, a uniform magnetic field perpendicular to the $xy$-plane (the page), pointing from the back to the front, exists in the region $0<x<d$. A rectangular coil crosses the field region moving in the $+x$ direction at constant speed $v$. Two sides of the coil are parallel to the $x$-axis and have length $L$, with $L>d$. The induced current $I$ in the coil is observed at time $t$; $I$ is positive when it flows in the direction of the arrows on the coil (counterclockwise). The magnetic field produced by the induced current is negligible. How does $I$ vary with $t$? Choose the most appropriate graph.",
+        "choices": [
+          "① one long positive constant interval",
+          "② one long negative constant interval",
+          "③ positive pulse, zero interval, positive pulse",
+          "④ negative pulse, zero interval, negative pulse",
+          "⑤ positive pulse, zero interval, negative pulse",
+          "⑥ negative pulse, zero interval, positive pulse"
+        ]
+      },
+      "answerIndex": 5,
+      "answerOption": 6,
+      "answer": {
+        "ja": "⑥（負のパルス，0の区間，正のパルス）",
+        "en": "⑥ negative pulse, zero interval, positive pulse"
+      },
+      "explanation": {
+        "en": "While the right side is inside the strip (time $d/v$), the outward flux increases, so the induced current opposes it: clockwise ⇒ negative. Since $L>d$, the strip then lies wholly inside the coil: constant flux, $I=0$ for $(L-d)/v$. While the left side crosses (time $d/v$), the outward flux decreases ⇒ counterclockwise ⇒ positive, with the same magnitude (emf $Bwv$, $w$ = side length along $y$). ⇒ ⑥.",
+        "ja": "右辺が領域内にある間（時間 $d/v$）は表向きの磁束が増加し，それを妨げる時計回り＝負の電流。$L>d$ なのでその後は領域全体がコイル内で磁束一定，$I=0$。左辺が領域を通る間は磁束が減少し反時計回り＝正（大きさは同じ）。⇒ ⑥。"
+      }
+    },
+    {
+      "id": "2024-1-phy-19",
+      "answerRow": 19,
+      "block": "V",
+      "topicId": "atoms",
+      "subtopic": "X-rays: short-wavelength limit of continuous X-rays",
+      "patternTags": [
+        "express-formula",
+        "x-rays",
+        "photon-energy",
+        "acceleration-by-voltage"
+      ],
+      "hasFigure": false,
+      "ja": {
+        "prompt": "加速電圧 $V$ のX線管があり，放出されるX線の最短波長は $\\lambda_0$ であった。電子の電気量の大きさを $e$，プランク定数を $h$，真空中の光の速さを $c$ とする。$\\lambda_0$ はどのように表されるか。最も適当なものを選びなさい。",
+        "choices": [
+          "$\\dfrac{eV}{h}$",
+          "$\\dfrac{h}{eV}$",
+          "$\\dfrac{ec}{hV}$",
+          "$\\dfrac{hV}{ec}$",
+          "$\\dfrac{eV}{hc}$",
+          "$\\dfrac{hc}{eV}$"
+        ]
+      },
+      "en": {
+        "prompt": "An X-ray tube operates at accelerating voltage $V$, and the shortest wavelength of the emitted X-rays is $\\lambda_0$. The magnitude of the electron charge is $e$, Planck's constant is $h$, and the speed of light in vacuum is $c$. Express $\\lambda_0$.",
+        "choices": [
+          "$\\dfrac{eV}{h}$",
+          "$\\dfrac{h}{eV}$",
+          "$\\dfrac{ec}{hV}$",
+          "$\\dfrac{hV}{ec}$",
+          "$\\dfrac{eV}{hc}$",
+          "$\\dfrac{hc}{eV}$"
+        ]
+      },
+      "answerIndex": 5,
+      "answerOption": 6,
+      "answer": {
+        "ja": "$\\dfrac{hc}{eV}$",
+        "en": "$\\dfrac{hc}{eV}$"
+      },
+      "explanation": {
+        "en": "The shortest wavelength corresponds to an electron giving all its kinetic energy $eV$ to one photon: $eV=\\frac{hc}{\\lambda_0}\\Rightarrow\\lambda_0=\\frac{hc}{eV}$.",
+        "ja": "最短波長は電子の運動エネルギー $eV$ がすべて1個の光子になる場合：$eV=\\frac{hc}{\\lambda_0}$ より $\\lambda_0=\\frac{hc}{eV}$。"
+      }
+    }
+  ],
+  "patterns": {
+    "blockSkeleton": "Same 5-block skeleton: I Mechanics ×6, II Thermodynamics ×3, III Waves ×3, IV Electricity & Magnetism ×6, V Atoms ×1.",
+    "answerFormat": "Single best choice, 4–8 options. Options are algebraic expressions, numeric values, true/false or property combination tables (Q2, Q12, Q17), or graph shapes (Q10, Q18).",
+    "archetypes": [
+      {
+        "tag": "express-formula",
+        "desc": "Derive a symbolic expression for a target quantity from given symbols.",
+        "examples": [
+          "Q3",
+          "Q5",
+          "Q6",
+          "Q9",
+          "Q13",
+          "Q16",
+          "Q19"
+        ]
+      },
+      {
+        "tag": "plug-in-numbers",
+        "desc": "Compute a numeric value (often with realistic constants/units).",
+        "examples": [
+          "Q1",
+          "Q7",
+          "Q11",
+          "Q14",
+          "Q15"
+        ]
+      },
+      {
+        "tag": "choose-from-graph",
+        "desc": "Pick the correct graph from qualitative or quantitative reasoning.",
+        "examples": [
+          "Q10",
+          "Q18"
+        ]
+      },
+      {
+        "tag": "direction-and-combination",
+        "desc": "Pick a combination of properties (image type/orientation/magnification; field direction + q/m).",
+        "examples": [
+          "Q12",
+          "Q17"
+        ]
+      },
+      {
+        "tag": "conceptual",
+        "desc": "Judge true/false statements without calculation.",
+        "examples": [
+          "Q2"
+        ]
+      },
+      {
+        "tag": "ratio",
+        "desc": "Answer is a dimensionless ratio.",
+        "examples": [
+          "Q1",
+          "Q4",
+          "Q7",
+          "Q8"
+        ]
+      }
+    ],
+    "distractorTactics": [
+      "Sign-swapped pairs of the same expression (Q3 a±T/2m, Q13 W sign, Q17 field direction).",
+      "Off-by-factor options from forgetting the reduced speed after a perfectly inelastic collision (Q5: 1/9 vs 1/18) or using the static stretch instead of the equilibrium point (Q4).",
+      "Right shape, wrong wavelength/phase in graph choices (Q10: λ=20 m vs 40 m, ±sin/±cos; Q18: sign order of the two pulses)."
+    ],
+    "difficulty": "Standard 'Basic + Advanced Physics' high-school level; concept-driven with light arithmetic; calculators not needed."
+  }
+}

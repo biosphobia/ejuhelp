@@ -19,6 +19,7 @@ Workflow per paper:
 
 | Year | Sess | Question fileId | Answer fileId | Status |
 |------|------|-----------------|---------------|--------|
+| 2025 | 1 | 1S_5yqTHmckXDNPhZ2Lv9GAbx9aP0sGBh | 1VQ9_IMPmueCR6Ew1n1dlc7oq5RCtZe7E | ✅ done (20, photographed booklet; 問7 ⑥ read as 82) |
 | 2021 | 1 | 18zMUZMALKNFNOSsNd2FP-l_BvxMOqdsA | 1CCQ3RloF9lVbnn0gxey8r3g5Oad4Nftx | ✅ done (20) |
 | 2020 | 2 | 1C3fgNrOPvXKGLSt_JMdsTfTcdmlqIfgI | 1aNaeDTdMeuGotg0ExquHyAJhOWxXuQ_t | ✅ done (20) |
 | 2019 | 1 | 12smUu1_-LP4ylDMBsGB9HQX4L5zt6cC7 | 1CW1ERITvvteo1AVSzz0oF7u02ukUEb39 | ✅ done (20) |

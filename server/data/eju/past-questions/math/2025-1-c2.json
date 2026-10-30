@@ -1,0 +1,629 @@
+{
+  "id": "2025-1-math-c2",
+  "year": 2025,
+  "session": 1,
+  "subject": "math",
+  "course": 2,
+  "title": "EJU 2025 · Session 1 · Mathematics (Course 2)",
+  "source": "2025年度 日本留学試験（第1回）数学 コース2 © Japan Student Services Organization (JASSO) — from the published question booklet; the session is not printed on the photographed pages",
+  "attribution": "EJU past questions © JASSO. Question text transcribed from the official past paper; option lists written out in text; correct answers taken from the official JASSO answer key and independently re-solved for verification.",
+  "languages": [
+    "ja",
+    "en"
+  ],
+  "answerKeyVerified": true,
+  "structure": {
+    "format": "blanks",
+    "course": 2,
+    "minutes": 80,
+    "blocks": [
+      {
+        "id": "I",
+        "parts": [
+          "問1",
+          "問2"
+        ],
+        "topicIds": [
+          "quadratic-functions",
+          "counting-probability"
+        ]
+      },
+      {
+        "id": "II",
+        "parts": [
+          "問1",
+          "問2"
+        ],
+        "topicIds": [
+          "sequences",
+          "expressions-proofs"
+        ]
+      },
+      {
+        "id": "III",
+        "parts": [],
+        "topicIds": [
+          "calculus"
+        ]
+      },
+      {
+        "id": "IV",
+        "parts": [],
+        "topicIds": [
+          "calculus"
+        ]
+      }
+    ]
+  },
+  "questions": [
+    {
+      "id": "2025-1-math-c2-1",
+      "answerRow": 1,
+      "block": "I",
+      "part": "問1",
+      "topicId": "quadratic-functions",
+      "subtopic": "Minimum of a quadratic on a half-line (axis case analysis)",
+      "patternTags": [
+        "vertex-form",
+        "min-on-interval",
+        "axis-case-analysis",
+        "reject-out-of-range-case",
+        "choose-from-list"
+      ],
+      "hasFigure": false,
+      "format": "blanks",
+      "ja": {
+        "prompt": "次の文中の空欄のうち，選択肢欄に記号を挙げたものには，下の選択肢 ⓪～⑤ の中から適するものを選びなさい。また，その他の空欄には，適する数を入れなさい。\n\n$f(x)$ は2次関数で，$x^2$ の係数は $2$ とする。また，$m$ は実数の定数で $m<7$ であるとし，\n$f(x)$ の $x\\leqq 0$ における最小値は $7$ であり，\n$f(x)$ の $x\\leqq 3$ における最小値は $m$ である\nとする。\nこのとき，$m$ を具体的に与えて，そのときの $f(x)$ を求めよう。\n\nまず，$y=f(x)$ の軸を $x=p$ とし，頂点の $y$ 座標を $q$ とすると，$f(x)$ は\n$$f(x)=2(x-p)^2+q \\quad \\cdots\\cdots ①$$\nと表せる。\nここで，$p\\leqq 0$ とすると，$y=f(x)$ のグラフの形により，$f(x)$ の $x\\leqq 0$ における最小値も，$x\\leqq 3$ における最小値も $q$ となり一致するので，条件 $m<7$ を満たさない。そこで，以下 $p>0$ とする。このとき，$y=f(x)$ のグラフの形により，$x\\leqq 0$ において $f(x)$ は $x=$ [A] で最小値をとるから，① より\n$$2p^2+q=[B] \\quad \\cdots\\cdots ②$$\nが成り立つ。\n\n(1) $m=1$ のとき，$f(x)$，すなわち $p$ と $q$ を求めよう。$p$ の値によって2つに場合分けして考える。\n(i) $0<p<3$ の場合。このとき，$y=f(x)$ のグラフの形により，$x\\leqq 3$ において，$f(x)$ は $x=$ [C] で最小値 $1$ をとるから，① より\n$$q=[D] \\quad \\cdots\\cdots ③$$\nとなる。よって，② と ③ より，$0<p<3$ を満たす $p$ として $p=\\sqrt{[E]}$ を得る。\n(ii) $3\\leqq p$ の場合。このとき，$y=f(x)$ のグラフの形により，$x\\leqq 3$ において，$f(x)$ は $x=$ [F] で最小値 $1$ をとるから，① より\n$$2([F]-p)^2+q=[G] \\quad \\cdots\\cdots ④$$\nとなる。よって，② と ④ より $p=$ [H] を得るが，これは条件 $3\\leqq p$ を満たさないので不適である。したがって，この場合には解は存在しない。\n\n(2) $m=-23$ のとき，$f(x)$，すなわち $p$ と $q$ を求めよう。(1) のときと同じ手順で計算することにより\n$$p=[I],\\qquad q=[JKL]$$\nを得る。\n\n選択肢（[A], [C], [F]）：⓪ $0$　① $1$　② $2$　③ $3$　④ $p$　⑤ $q$"
+      },
+      "en": {
+        "prompt": "In the following text, for the blanks named in the option list, choose the appropriate item from the options ⓪–⑤ below. Fill in each of the other blanks with the appropriate number.\n\n$f(x)$ is a quadratic function whose $x^2$ coefficient is $2$. Also, $m$ is a real constant with $m<7$, and\nthe minimum value of $f(x)$ on $x\\leqq 0$ is $7$,\nthe minimum value of $f(x)$ on $x\\leqq 3$ is $m$.\nWe will give $m$ specific values and find the corresponding $f(x)$.\n\nFirst, let the axis of $y=f(x)$ be $x=p$ and the $y$-coordinate of the vertex be $q$. Then $f(x)$ can be written as\n$$f(x)=2(x-p)^2+q \\quad \\cdots\\cdots ①$$\nIf $p\\leqq 0$, then from the shape of the graph of $y=f(x)$, the minimum of $f(x)$ on $x\\leqq 0$ and the minimum on $x\\leqq 3$ are both $q$ and coincide, so the condition $m<7$ is not satisfied. Hence assume $p>0$ from now on. Then, from the shape of the graph, on $x\\leqq 0$ the function $f(x)$ takes its minimum at $x=$ [A], so from ①\n$$2p^2+q=[B] \\quad \\cdots\\cdots ②$$\nholds.\n\n(1) For $m=1$, let us find $f(x)$, that is, $p$ and $q$. We split into two cases according to the value of $p$.\n(i) Case $0<p<3$. From the shape of the graph, on $x\\leqq 3$ the function $f(x)$ takes its minimum value $1$ at $x=$ [C], so from ①\n$$q=[D] \\quad \\cdots\\cdots ③$$\nHence, from ② and ③, the value of $p$ satisfying $0<p<3$ is $p=\\sqrt{[E]}$.\n(ii) Case $3\\leqq p$. From the shape of the graph, on $x\\leqq 3$ the function $f(x)$ takes its minimum value $1$ at $x=$ [F], so from ①\n$$2([F]-p)^2+q=[G] \\quad \\cdots\\cdots ④$$\nHence, from ② and ④ we get $p=$ [H], but this does not satisfy the condition $3\\leqq p$, so it is rejected. Therefore there is no solution in this case.\n\n(2) For $m=-23$, let us find $f(x)$, that is, $p$ and $q$. Calculating by the same procedure as in (1), we obtain\n$$p=[I],\\qquad q=[JKL]$$\n\nOptions (for [A], [C], [F]): ⓪ $0$　① $1$　② $2$　③ $3$　④ $p$　⑤ $q$"
+      },
+      "blanks": [
+        {
+          "label": "A",
+          "answer": "0"
+        },
+        {
+          "label": "B",
+          "answer": "7"
+        },
+        {
+          "label": "C",
+          "answer": "4"
+        },
+        {
+          "label": "D",
+          "answer": "1"
+        },
+        {
+          "label": "E",
+          "answer": "3"
+        },
+        {
+          "label": "F",
+          "answer": "3"
+        },
+        {
+          "label": "G",
+          "answer": "1"
+        },
+        {
+          "label": "H",
+          "answer": "2"
+        },
+        {
+          "label": "I",
+          "answer": "4"
+        },
+        {
+          "label": "JKL",
+          "answer": "-25"
+        }
+      ],
+      "answerIndex": -1,
+      "answer": {
+        "ja": "A=0, B=7, C=4, D=1, E=3, F=3, G=1, H=2, I=4, JKL=-25",
+        "en": "A=0, B=7, C=4, D=1, E=3, F=3, G=1, H=2, I=4, JKL=-25"
+      },
+      "explanation": {
+        "ja": "$p>0$ なので $x\\leqq 0$ では $f$ は減少し，最小は $x=0$（A=⓪）：$f(0)=2p^2+q=7$（B=7）。(1)(i) $0<p<3$ なら軸が範囲内で最小は頂点 $x=p$（C=④），$q=1$（D=1），$2p^2=6$ より $p=\\sqrt{3}$（E=3）。(ii) $p\\geqq 3$ なら最小は端点 $x=3$（F=③）：$2(3-p)^2+q=1$（G=1）。②から引くと $2p^2-2(3-p)^2=6\\Rightarrow 12p-18=6\\Rightarrow p=2$（H=2）で不適。(2) $m=-23$：(i) なら $q=-23$，$p^2=15$，$p=\\sqrt{15}>3$ で不適。(ii) なら $12p-18=7-(-23)=30$ より $p=4\\ (\\geqq 3)$（I=4），$q=7-2\\cdot 16=-25$（JKL=$-25$）。",
+        "en": "Since $p>0$, $f$ is decreasing on $x\\leqq 0$, so the minimum there is at $x=0$ (A=⓪): $f(0)=2p^2+q=7$ (B=7). (1)(i) If $0<p<3$ the vertex lies in $x\\leqq 3$, so the minimum is at $x=p$ (C=④): $q=1$ (D=1), then $2p^2=6$, $p=\\sqrt{3}$ (E=3). (ii) If $p\\geqq 3$ the minimum is at the endpoint $x=3$ (F=③): $2(3-p)^2+q=1$ (G=1). Subtracting from ②: $2p^2-2(3-p)^2=6\\Rightarrow 12p-18=6\\Rightarrow p=2$ (H=2), which violates $p\\geqq 3$. (2) $m=-23$: case (i) gives $q=-23$, $p^2=15$, $p=\\sqrt{15}>3$, rejected. Case (ii): $12p-18=7-(-23)=30$, so $p=4\\ (\\geqq 3)$ (I=4) and $q=7-2\\cdot 16=-25$ (JKL=$-25$)."
+      }
+    },
+    {
+      "id": "2025-1-math-c2-2",
+      "answerRow": 2,
+      "block": "I",
+      "part": "問2",
+      "topicId": "counting-probability",
+      "subtopic": "Drawing cards without replacement until a condition is met",
+      "patternTags": [
+        "draw-without-replacement",
+        "repeat-until-stop",
+        "complement",
+        "case-enumeration",
+        "conditional-sequence"
+      ],
+      "hasFigure": false,
+      "format": "blanks",
+      "ja": {
+        "prompt": "袋の中に，数字 $1$ が書かれたカードが $4$ 枚，数字 $2$ が書かれたカードが $3$ 枚，数字 $3$ が書かれたカードが $3$ 枚，合計 $10$ 枚のカードが入っている。\n袋の中から同時に $2$ 枚のカードを取り出す操作を，取り出した $2$ 枚のカードの中に $3$ が書かれたカードが少なくとも $1$ 枚含まれるまで続ける。ただし，取り出したカードは袋の中に戻さない。\n\n(1) $1$ 回の操作でこの試行が終わる確率は $\\dfrac{[M]}{[NO]}$ である。\n\n(2) この試行が終わるまでに要する操作の最大の回数は [P] である。ちょうど [P] 回の操作でこの試行が終わる確率は $\\dfrac{[Q]}{[RS]}$ である。\n\n(3) 試行が終わるまでに，試行で取り出されたカードの中に，$1$ が書かれたカードは含まれず，$2$ が書かれたカードは少なくとも $1$ 枚は含まれる確率は $\\dfrac{[T]}{[UV]}$ である。\n\n(4) 試行が終わったときに，試行で取り出されたカードに書かれた数の総和がちょうど $7$ となる確率は $\\dfrac{[W]}{[XY]}$ である。"
+      },
+      "en": {
+        "prompt": "A bag contains $4$ cards marked $1$, $3$ cards marked $2$ and $3$ cards marked $3$, $10$ cards in total.\nThe operation of drawing $2$ cards at the same time from the bag is repeated until the $2$ cards drawn include at least $1$ card marked $3$. Cards drawn are not returned to the bag.\n\n(1) The probability that this trial ends after $1$ operation is $\\dfrac{[M]}{[NO]}$.\n\n(2) The maximum number of operations needed until this trial ends is [P]. The probability that the trial ends after exactly [P] operations is $\\dfrac{[Q]}{[RS]}$.\n\n(3) The probability that, by the time the trial ends, the cards drawn include no card marked $1$ and at least $1$ card marked $2$ is $\\dfrac{[T]}{[UV]}$.\n\n(4) The probability that, when the trial ends, the sum of the numbers on all the cards drawn is exactly $7$ is $\\dfrac{[W]}{[XY]}$."
+      },
+      "blanks": [
+        {
+          "label": "M",
+          "answer": "8"
+        },
+        {
+          "label": "NO",
+          "answer": "15"
+        },
+        {
+          "label": "P",
+          "answer": "4"
+        },
+        {
+          "label": "Q",
+          "answer": "1"
+        },
+        {
+          "label": "RS",
+          "answer": "30"
+        },
+        {
+          "label": "T",
+          "answer": "3"
+        },
+        {
+          "label": "UV",
+          "answer": "14"
+        },
+        {
+          "label": "W",
+          "answer": "9"
+        },
+        {
+          "label": "XY",
+          "answer": "70"
+        }
+      ],
+      "answerIndex": -1,
+      "answer": {
+        "ja": "M=8, NO=15, P=4, Q=1, RS=30, T=3, UV=14, W=9, XY=70",
+        "en": "M=8, NO=15, P=4, Q=1, RS=30, T=3, UV=14, W=9, XY=70"
+      },
+      "explanation": {
+        "ja": "(1) $1-\\dfrac{{}_7C_2}{{}_{10}C_2}=1-\\dfrac{21}{45}=\\dfrac{8}{15}$。(2) $3$ 以外のカードは $7$ 枚なので，$3$ を含まない操作は最大 $3$ 回（$6$ 枚）。残り $4$ 枚は $3$ 以外 $1$ 枚と $3$ が $3$ 枚なので $4$ 回目で必ず終わる：最大 $4$ 回。確率は $\\dfrac{21}{45}\\cdot\\dfrac{{}_5C_2}{{}_8C_2}\\cdot\\dfrac{{}_3C_2}{{}_6C_2}=\\dfrac{21}{45}\\cdot\\dfrac{10}{28}\\cdot\\dfrac{3}{15}=\\dfrac{1}{30}$。(3) 1回で終わる：$\\{3,2\\}$ で $\\dfrac{3\\cdot3}{45}=\\dfrac15$。2回で終わる：$\\{2,2\\}$ $\\left(\\dfrac{3}{45}\\right)$ の後，残り8枚（1が4，2が1，3が3）から $\\{3,3\\}$ か $\\{3,2\\}$：$\\dfrac{3+3}{28}$。積 $\\dfrac{1}{70}$。3回以上は2のペアが足りず不可。計 $\\dfrac15+\\dfrac1{70}=\\dfrac{3}{14}$。(4) 最後の操作の和は $4,5,6$，それ以前の各操作の和は $2$ 以上。1回では最大6で不可，3回では $2+2+4=8>7$ で不可。2回：$\\{1,1\\}$ の後 $\\{3,2\\}$：$\\dfrac{6}{45}\\cdot\\dfrac{9}{28}$；$\\{1,2\\}$ の後 $\\{3,1\\}$：$\\dfrac{12}{45}\\cdot\\dfrac{9}{28}$。計 $\\dfrac{162}{1260}=\\dfrac{9}{70}$。",
+        "en": "(1) $1-\\dfrac{{}_7C_2}{{}_{10}C_2}=1-\\dfrac{21}{45}=\\dfrac{8}{15}$. (2) There are $7$ non-3 cards, so at most $3$ operations (6 cards) can avoid a 3; the remaining $4$ cards are one non-3 and three 3s, so the 4th operation always ends it: maximum $4$. Probability $\\dfrac{21}{45}\\cdot\\dfrac{{}_5C_2}{{}_8C_2}\\cdot\\dfrac{{}_3C_2}{{}_6C_2}=\\dfrac{21}{45}\\cdot\\dfrac{10}{28}\\cdot\\dfrac{3}{15}=\\dfrac{1}{30}$. (3) Ends in 1 operation with $\\{3,2\\}$: $\\dfrac{3\\cdot3}{45}=\\dfrac15$. Ends in 2: first $\\{2,2\\}$ $\\left(\\dfrac{3}{45}\\right)$, then from the 8 left (four 1s, one 2, three 3s) $\\{3,3\\}$ or $\\{3,2\\}$: $\\dfrac{3+3}{28}$; product $\\dfrac{1}{70}$. Three or more operations would need two pairs of 2s — impossible. Total $\\dfrac15+\\dfrac1{70}=\\dfrac{3}{14}$. (4) The final pair sums to $4,5$ or $6$; each earlier pair sums to at least $2$. One operation (max 6) and three operations (at least $2+2+4=8$) are impossible. Two operations: $\\{1,1\\}$ then $\\{3,2\\}$: $\\dfrac{6}{45}\\cdot\\dfrac{9}{28}$; $\\{1,2\\}$ then $\\{3,1\\}$: $\\dfrac{12}{45}\\cdot\\dfrac{9}{28}$. Total $\\dfrac{162}{1260}=\\dfrac{9}{70}$."
+      }
+    },
+    {
+      "id": "2025-1-math-c2-3",
+      "answerRow": 3,
+      "block": "II",
+      "part": "問1",
+      "topicId": "sequences",
+      "subtopic": "Common terms of arithmetic and geometric sequences",
+      "patternTags": [
+        "arithmetic-sequence",
+        "geometric-sequence",
+        "common-terms",
+        "linear-diophantine",
+        "residues-mod-3",
+        "general-term"
+      ],
+      "hasFigure": false,
+      "format": "blanks",
+      "ja": {
+        "prompt": "$2$ つの等差数列 $\\{a_n\\}$，$\\{b_n\\}$ と等比数列 $\\{c_n\\}$ がある。$\\{c_n\\}$ の公比は正である。\n$3$ つの数列は条件\n$$a_1=b_1=c_1=5,\\quad a_1a_2=2c_3,\\quad a_3+a_4=b_5,\\quad b_2=c_2$$\nを満たす。\n\n与えられた条件から，それぞれの数列の一般項は\n$$a_n=5+[A](n-1),\\qquad b_n=5+[B](n-1),\\qquad c_n=[C]\\cdot[D]^{\\,n-1}$$\nであることがわかる。\nこれら $3$ つの数列に共通に現れる数を小さい順に並べた数列を $\\{d_n\\}$ とする。$d_1=$ [E] である。$d_n$ の一般項を求めよう。\n\nまず，$2$ つの等差数列 $\\{a_n\\}$，$\\{b_n\\}$ に共通に現れる数を小さい順に並べた数列を $\\{e_n\\}$ とおく。$a_k=b_\\ell$ を満たす自然数 $k$，$\\ell$ は自然数 $i=1,2,3,\\ldots$ を用いて\n$$k=[F]i-4,\\qquad \\ell=[G]i-2$$\nと表されるので\n$$e_n=[H]\\left([I]n-[J]\\right)$$\nがわかる。\n次に，自然数 $k$，$\\ell$ が $c_k=e_\\ell$ を満たすとすると\n$$[D]^{\\,k-1}=[I]\\ell-[J]$$\nとなる。このような自然数 $k$ は自然数 $j=1,2,3,\\ldots$ を用いて\n$$k=[K]j-1$$\nと書けるので\n$$d_n=[L]\\cdot[M]^{\\,n-1}$$\nを得る。"
+      },
+      "en": {
+        "prompt": "There are two arithmetic sequences $\\{a_n\\}$, $\\{b_n\\}$ and a geometric sequence $\\{c_n\\}$. The common ratio of $\\{c_n\\}$ is positive.\nThe three sequences satisfy the conditions\n$$a_1=b_1=c_1=5,\\quad a_1a_2=2c_3,\\quad a_3+a_4=b_5,\\quad b_2=c_2.$$\n\nFrom the given conditions, the general terms of the sequences are found to be\n$$a_n=5+[A](n-1),\\qquad b_n=5+[B](n-1),\\qquad c_n=[C]\\cdot[D]^{\\,n-1}.$$\nLet $\\{d_n\\}$ be the sequence of numbers that appear in all three sequences, arranged in increasing order. Then $d_1=$ [E]. Let us find the general term of $d_n$.\n\nFirst, let $\\{e_n\\}$ be the sequence of numbers common to the two arithmetic sequences $\\{a_n\\}$ and $\\{b_n\\}$, arranged in increasing order. The natural numbers $k$, $\\ell$ satisfying $a_k=b_\\ell$ can be expressed with natural numbers $i=1,2,3,\\ldots$ as\n$$k=[F]i-4,\\qquad \\ell=[G]i-2,$$\nso we find\n$$e_n=[H]\\left([I]n-[J]\\right).$$\nNext, if natural numbers $k$, $\\ell$ satisfy $c_k=e_\\ell$, then\n$$[D]^{\\,k-1}=[I]\\ell-[J].$$\nSuch natural numbers $k$ can be written with natural numbers $j=1,2,3,\\ldots$ as\n$$k=[K]j-1,$$\nso we obtain\n$$d_n=[L]\\cdot[M]^{\\,n-1}.$$"
+      },
+      "blanks": [
+        {
+          "label": "A",
+          "answer": "3"
+        },
+        {
+          "label": "B",
+          "answer": "5"
+        },
+        {
+          "label": "C",
+          "answer": "5"
+        },
+        {
+          "label": "D",
+          "answer": "2"
+        },
+        {
+          "label": "E",
+          "answer": "5"
+        },
+        {
+          "label": "F",
+          "answer": "5"
+        },
+        {
+          "label": "G",
+          "answer": "3"
+        },
+        {
+          "label": "H",
+          "answer": "5"
+        },
+        {
+          "label": "I",
+          "answer": "3"
+        },
+        {
+          "label": "J",
+          "answer": "2"
+        },
+        {
+          "label": "K",
+          "answer": "2"
+        },
+        {
+          "label": "L",
+          "answer": "5"
+        },
+        {
+          "label": "M",
+          "answer": "4"
+        }
+      ],
+      "answerIndex": -1,
+      "answer": {
+        "ja": "A=3, B=5, C=5, D=2, E=5, F=5, G=3, H=5, I=3, J=2, K=2, L=5, M=4",
+        "en": "A=3, B=5, C=5, D=2, E=5, F=5, G=3, H=5, I=3, J=2, K=2, L=5, M=4"
+      },
+      "explanation": {
+        "ja": "公差を $\\alpha,\\beta$，公比を $r>0$ とする。$b_2=c_2$ より $5+\\beta=5r$，$a_3+a_4=b_5$ より $10+5\\alpha=5+4\\beta$，$a_1a_2=2c_3$ より $5(5+\\alpha)=10r^2$。代入して $20r=10r^2$，$r=2$，$\\beta=5$，$\\alpha=3$。よって $a_n=3n+2$，$b_n=5n$，$c_n=5\\cdot2^{n-1}$（A=3, B=5, C=5, D=2），$d_1=5$（E=5）。$3k+2=5\\ell$ の解は $k=5i-4,\\ \\ell=3i-2$（F=5, G=3），$e_n=5\\ell=5(3n-2)$（H=5, I=3, J=2）。$5\\cdot2^{k-1}=5(3\\ell-2)$ より $2^{k-1}\\equiv1\\pmod 3$，すなわち $k-1$ が偶数で $k=2j-1$（K=2）。$d_n=c_{2n-1}=5\\cdot4^{n-1}$（L=5, M=4）。",
+        "en": "Let the common differences be $\\alpha,\\beta$ and the ratio $r>0$. $b_2=c_2$: $5+\\beta=5r$; $a_3+a_4=b_5$: $10+5\\alpha=5+4\\beta$; $a_1a_2=2c_3$: $5(5+\\alpha)=10r^2$. Substituting gives $20r=10r^2$, so $r=2$, $\\beta=5$, $\\alpha=3$: $a_n=3n+2$, $b_n=5n$, $c_n=5\\cdot2^{n-1}$ (A=3, B=5, C=5, D=2), and $d_1=5$ (E=5). $3k+2=5\\ell$ has solutions $k=5i-4,\\ \\ell=3i-2$ (F=5, G=3), so $e_n=5\\ell=5(3n-2)$ (H=5, I=3, J=2). $5\\cdot2^{k-1}=5(3\\ell-2)$ requires $2^{k-1}\\equiv1\\pmod 3$, i.e. $k-1$ even: $k=2j-1$ (K=2). Hence $d_n=c_{2n-1}=5\\cdot4^{n-1}$ (L=5, M=4)."
+      }
+    },
+    {
+      "id": "2025-1-math-c2-4",
+      "answerRow": 4,
+      "block": "II",
+      "part": "問2",
+      "topicId": "expressions-proofs",
+      "subtopic": "Complex plane: locus (parabola) and range of the argument",
+      "patternTags": [
+        "complex-plane",
+        "locus",
+        "conjugate-real-part",
+        "parabola",
+        "tangent-from-origin",
+        "argument-range",
+        "choose-from-list"
+      ],
+      "hasFigure": false,
+      "format": "blanks",
+      "ja": {
+        "prompt": "次の文中の空欄のうち，選択肢欄に記号を挙げたものには，下の選択肢 ⓪～⑨ の中から適するものを選びなさい。また，その他の空欄には，適する数を入れなさい。\n\n$c$ は正の実数，$i=\\sqrt{-1}$ とする。複素数平面上で，複素数 $z$ が\n$$(z-c)i+\\overline{(z-c)i}+2|z-ci|=0 \\quad \\cdots\\cdots ①$$\nを満たすとき，$z$ の偏角の範囲を求めよう。\n\n以下，$x$，$y$ は実数とし，$z=x+yi$ とおく。\n(1) まず，$x$，$y$ を用いて ① を表し，$z$ が複素数平面上でどのような図形を描くか調べる。\n① は，$x$，$y$ を用いて整理すると\n$$y=\\left|x+\\left(y-[N]\\right)i\\right|$$\nと表せる。この式は\n$$y=\\frac{[O]}{[P]}x^2+\\frac{[Q]}{[R]} \\quad \\cdots\\cdots ②$$\nと書き直せるから，$z$ は複素数平面上で放物線を描く。\n\n(2) $\\theta=\\arg z\\ (0\\leqq\\theta\\leqq\\pi)$ とおく。原点 O と点 P$(z)$ を結ぶ半直線 OP の式が $y=mx$ と表されるとき，$m=$ [S] である。また，$y=mx$ と ② が接するとき，$m=$ [T] である。したがって，偏角 $\\theta$ の範囲は\n$$\\frac{[U]}{[V]}\\pi\\leqq\\theta\\leqq\\frac{[W]}{[X]}\\pi$$\nである。\n\n選択肢（[N], [O], [P], [Q], [R], [S], [T]）：⓪ $-1$　① $1$　② $2$　③ $\\pm1$　④ $c$　⑤ $2c$　⑥ $3c$　⑦ $\\sin\\theta$　⑧ $\\cos\\theta$　⑨ $\\tan\\theta$"
+      },
+      "en": {
+        "prompt": "In the following text, for the blanks named in the option list, choose the appropriate item from the options ⓪–⑨ below. Fill in each of the other blanks with the appropriate number.\n\nLet $c$ be a positive real number and $i=\\sqrt{-1}$. On the complex plane, when a complex number $z$ satisfies\n$$(z-c)i+\\overline{(z-c)i}+2|z-ci|=0 \\quad \\cdots\\cdots ①$$\nlet us find the range of the argument of $z$.\n\nIn what follows, $x$ and $y$ are real numbers and $z=x+yi$.\n(1) First, express ① in terms of $x$ and $y$, and examine what figure $z$ traces on the complex plane.\nRearranged in terms of $x$ and $y$, ① can be written as\n$$y=\\left|x+\\left(y-[N]\\right)i\\right|.$$\nThis equation can be rewritten as\n$$y=\\frac{[O]}{[P]}x^2+\\frac{[Q]}{[R]} \\quad \\cdots\\cdots ②$$\nso $z$ traces a parabola on the complex plane.\n\n(2) Let $\\theta=\\arg z\\ (0\\leqq\\theta\\leqq\\pi)$. When the equation of the half-line OP joining the origin O and the point P$(z)$ is written $y=mx$, we have $m=$ [S]. Also, when $y=mx$ is tangent to ②, $m=$ [T]. Therefore the range of the argument $\\theta$ is\n$$\\frac{[U]}{[V]}\\pi\\leqq\\theta\\leqq\\frac{[W]}{[X]}\\pi.$$\n\nOptions (for [N], [O], [P], [Q], [R], [S], [T]): ⓪ $-1$　① $1$　② $2$　③ $\\pm1$　④ $c$　⑤ $2c$　⑥ $3c$　⑦ $\\sin\\theta$　⑧ $\\cos\\theta$　⑨ $\\tan\\theta$"
+      },
+      "blanks": [
+        {
+          "label": "N",
+          "answer": "4"
+        },
+        {
+          "label": "O",
+          "answer": "1"
+        },
+        {
+          "label": "P",
+          "answer": "5"
+        },
+        {
+          "label": "Q",
+          "answer": "4"
+        },
+        {
+          "label": "R",
+          "answer": "2"
+        },
+        {
+          "label": "S",
+          "answer": "9"
+        },
+        {
+          "label": "T",
+          "answer": "3"
+        },
+        {
+          "label": "U",
+          "answer": "1"
+        },
+        {
+          "label": "V",
+          "answer": "4"
+        },
+        {
+          "label": "W",
+          "answer": "3"
+        },
+        {
+          "label": "X",
+          "answer": "4"
+        }
+      ],
+      "answerIndex": -1,
+      "answer": {
+        "ja": "N=4, O=1, P=5, Q=4, R=2, S=9, T=3, U=1, V=4, W=3, X=4",
+        "en": "N=4, O=1, P=5, Q=4, R=2, S=9, T=3, U=1, V=4, W=3, X=4"
+      },
+      "explanation": {
+        "ja": "$w+\\overline{w}=2\\,\\mathrm{Re}\\,w$ で，$(z-c)i=(x-c)i-y$ の実部は $-y$。よって ① は $-2y+2|z-ci|=0$，すなわち $y=|x+(y-c)i|$（N=④ $c$）。$y\\geqq0$ のもとで2乗して $y^2=x^2+(y-c)^2$，$y=\\dfrac{1}{2c}x^2+\\dfrac{c}{2}$（O=① $1$，P=⑤ $2c$，Q=④ $c$，R=② $2$）。半直線の傾きは $m=\\tan\\theta$（S=⑨）。$\\dfrac{x^2}{2c}+\\dfrac c2=mx$ すなわち $x^2-2cmx+c^2=0$ の判別式 $=0$ より $m^2=1$，$m=\\pm1$（T=③）。放物線は接線 $y=\\pm x$ の上側にあるので $\\dfrac14\\pi\\leqq\\theta\\leqq\\dfrac34\\pi$（U=1, V=4, W=3, X=4）。",
+        "en": "$w+\\overline{w}=2\\,\\mathrm{Re}\\,w$ and $(z-c)i=(x-c)i-y$ has real part $-y$, so ① becomes $-2y+2|z-ci|=0$, i.e. $y=|x+(y-c)i|$ (N=④ $c$). With $y\\geqq0$, squaring gives $y^2=x^2+(y-c)^2$, so $y=\\dfrac{1}{2c}x^2+\\dfrac{c}{2}$ (O=① $1$, P=⑤ $2c$, Q=④ $c$, R=② $2$). The slope of the half-line is $m=\\tan\\theta$ (S=⑨). Tangency: $\\dfrac{x^2}{2c}+\\dfrac c2=mx$, i.e. $x^2-2cmx+c^2=0$, has discriminant $0$ when $m^2=1$, $m=\\pm1$ (T=③). The parabola lies between (above) the tangents $y=\\pm x$, so $\\dfrac14\\pi\\leqq\\theta\\leqq\\dfrac34\\pi$ (U=1, V=4, W=3, X=4)."
+      }
+    },
+    {
+      "id": "2025-1-math-c2-5",
+      "answerRow": 5,
+      "block": "III",
+      "part": null,
+      "topicId": "calculus",
+      "subtopic": "Tangent lines through a point; perpendicular tangents (Vieta)",
+      "patternTags": [
+        "derivative-quotient",
+        "minimum-value",
+        "tangent-through-external-point",
+        "two-positive-roots",
+        "perpendicular-tangents",
+        "vieta",
+        "choose-from-list"
+      ],
+      "hasFigure": false,
+      "format": "blanks",
+      "ja": {
+        "prompt": "次の文中の空欄のうち，選択肢欄に記号を挙げたものには，下の選択肢 ⓪～⑨ の中から適するものを選びなさい。また，その他の空欄には，適する数を入れなさい。\n\n$x>0$ における曲線\n$$y=\\frac{2x^2+3}{x} \\quad \\cdots\\cdots ①$$\nと，その接線を考える。\n\n① を微分して\n$$y'=\\frac{[A]x^{[B]}-[C]}{x^{[D]}}$$\nを得る。したがって，$x=\\dfrac{\\sqrt{[E]}}{[F]}$ のとき，$y$ は最小値をとる。\n直線 $x=\\dfrac{\\sqrt{[E]}}{[F]}$ 上の点 $\\left(\\dfrac{\\sqrt{[E]}}{[F]},\\ p\\right)$ を通り，曲線 ① に接する直線が $2$ 本存在するような $p$ の値を調べる。\n曲線 ① の点 $\\left(t,\\ \\dfrac{2t^2+3}{t}\\right)$ における接線の方程式は $y=$ [G] である。この直線が点 $\\left(\\dfrac{\\sqrt{[E]}}{[F]},\\ p\\right)$ を通る条件は，$t$ が方程式\n$$[H]=0 \\quad \\cdots\\cdots ②$$\nを満たすことである。したがって，点 $\\left(\\dfrac{\\sqrt{[E]}}{[F]},\\ p\\right)$ を通る接線が $2$ 本存在する条件は\n$$\\sqrt{[I]}<p<[J]\\sqrt{[K]} \\quad \\cdots\\cdots ③$$\nである。\n\n次に，条件 ③ のもとで，点 $\\left(\\dfrac{\\sqrt{[E]}}{[F]},\\ p\\right)$ を通る $2$ 本の接線が直交するような $p$ の値を求める。\n方程式 ② の解を $\\alpha$，$\\beta$ とおくと，$2$ 本の接線が直交する条件は $\\alpha$，$\\beta$ を用いて\n$$[L]\\alpha^2\\beta^2-[M](\\alpha^2+\\beta^2)+[N]=0$$\nと表せる。一方，$\\alpha$，$\\beta$ は\n$$\\alpha+\\beta=\\frac{[O]}{p-\\sqrt{[P]}},\\qquad \\alpha\\beta=\\frac{[Q]\\sqrt{[R]}}{[S]\\left(p-\\sqrt{[T]}\\right)}$$\nを満たすので，求める $p$ は\n$$p=\\frac{[U]\\sqrt{[VW]}}{[X]}$$\nである。\n\n選択肢（[G], [H]）：⓪ $\\dfrac{2t^2+3}{t}x-\\dfrac{6}{t}$　① $\\dfrac{2t^2+3}{t}x+\\dfrac{4}{t}$　② $\\dfrac{2t^2-3}{t^2}x+\\dfrac{6}{t}$　③ $\\dfrac{2t^2-3}{t^2}x+4t$　④ $\\dfrac{2t^2-3}{t^2}x+\\dfrac{6}{t}+4t$　⑤ $(p-\\sqrt{2})t^2-3t+\\dfrac{2\\sqrt{6}}{3}$　⑥ $(p-\\sqrt{2})t^2-3t+\\dfrac{3\\sqrt{2}}{2}$　⑦ $(p-\\sqrt{3})t^2-6t+\\dfrac{\\sqrt{6}}{2}$　⑧ $(p-\\sqrt{6})t^2-6t+\\dfrac{3\\sqrt{6}}{2}$　⑨ $(p-\\sqrt{6})t^2-6t+\\dfrac{2\\sqrt{6}}{3}$"
+      },
+      "en": {
+        "prompt": "In the following text, for the blanks named in the option list, choose the appropriate item from the options ⓪–⑨ below. Fill in each of the other blanks with the appropriate number.\n\nConsider the curve, for $x>0$,\n$$y=\\frac{2x^2+3}{x} \\quad \\cdots\\cdots ①$$\nand its tangent lines.\n\nDifferentiating ① gives\n$$y'=\\frac{[A]x^{[B]}-[C]}{x^{[D]}}.$$\nHence $y$ takes its minimum value at $x=\\dfrac{\\sqrt{[E]}}{[F]}$.\nWe examine the values of $p$ for which exactly $2$ lines tangent to curve ① pass through the point $\\left(\\dfrac{\\sqrt{[E]}}{[F]},\\ p\\right)$ on the line $x=\\dfrac{\\sqrt{[E]}}{[F]}$.\nThe equation of the tangent line to curve ① at the point $\\left(t,\\ \\dfrac{2t^2+3}{t}\\right)$ is $y=$ [G]. The condition for this line to pass through the point $\\left(\\dfrac{\\sqrt{[E]}}{[F]},\\ p\\right)$ is that $t$ satisfies the equation\n$$[H]=0 \\quad \\cdots\\cdots ②$$\nTherefore the condition for $2$ tangent lines to pass through the point $\\left(\\dfrac{\\sqrt{[E]}}{[F]},\\ p\\right)$ is\n$$\\sqrt{[I]}<p<[J]\\sqrt{[K]} \\quad \\cdots\\cdots ③$$\n\nNext, under condition ③, we find the value of $p$ for which the $2$ tangent lines through the point $\\left(\\dfrac{\\sqrt{[E]}}{[F]},\\ p\\right)$ are perpendicular.\nLetting the solutions of equation ② be $\\alpha$ and $\\beta$, the condition that the $2$ tangents are perpendicular can be written in terms of $\\alpha$, $\\beta$ as\n$$[L]\\alpha^2\\beta^2-[M](\\alpha^2+\\beta^2)+[N]=0.$$\nOn the other hand, $\\alpha$, $\\beta$ satisfy\n$$\\alpha+\\beta=\\frac{[O]}{p-\\sqrt{[P]}},\\qquad \\alpha\\beta=\\frac{[Q]\\sqrt{[R]}}{[S]\\left(p-\\sqrt{[T]}\\right)}$$\nso the required $p$ is\n$$p=\\frac{[U]\\sqrt{[VW]}}{[X]}.$$\n\nOptions (for [G], [H]): ⓪ $\\dfrac{2t^2+3}{t}x-\\dfrac{6}{t}$　① $\\dfrac{2t^2+3}{t}x+\\dfrac{4}{t}$　② $\\dfrac{2t^2-3}{t^2}x+\\dfrac{6}{t}$　③ $\\dfrac{2t^2-3}{t^2}x+4t$　④ $\\dfrac{2t^2-3}{t^2}x+\\dfrac{6}{t}+4t$　⑤ $(p-\\sqrt{2})t^2-3t+\\dfrac{2\\sqrt{6}}{3}$　⑥ $(p-\\sqrt{2})t^2-3t+\\dfrac{3\\sqrt{2}}{2}$　⑦ $(p-\\sqrt{3})t^2-6t+\\dfrac{\\sqrt{6}}{2}$　⑧ $(p-\\sqrt{6})t^2-6t+\\dfrac{3\\sqrt{6}}{2}$　⑨ $(p-\\sqrt{6})t^2-6t+\\dfrac{2\\sqrt{6}}{3}$"
+      },
+      "blanks": [
+        {
+          "label": "A",
+          "answer": "2"
+        },
+        {
+          "label": "B",
+          "answer": "2"
+        },
+        {
+          "label": "C",
+          "answer": "3"
+        },
+        {
+          "label": "D",
+          "answer": "2"
+        },
+        {
+          "label": "E",
+          "answer": "6"
+        },
+        {
+          "label": "F",
+          "answer": "2"
+        },
+        {
+          "label": "G",
+          "answer": "2"
+        },
+        {
+          "label": "H",
+          "answer": "8"
+        },
+        {
+          "label": "I",
+          "answer": "6"
+        },
+        {
+          "label": "J",
+          "answer": "2"
+        },
+        {
+          "label": "K",
+          "answer": "6"
+        },
+        {
+          "label": "L",
+          "answer": "5"
+        },
+        {
+          "label": "M",
+          "answer": "6"
+        },
+        {
+          "label": "N",
+          "answer": "9"
+        },
+        {
+          "label": "O",
+          "answer": "6"
+        },
+        {
+          "label": "P",
+          "answer": "6"
+        },
+        {
+          "label": "Q",
+          "answer": "3"
+        },
+        {
+          "label": "R",
+          "answer": "6"
+        },
+        {
+          "label": "S",
+          "answer": "2"
+        },
+        {
+          "label": "T",
+          "answer": "6"
+        },
+        {
+          "label": "U",
+          "answer": "3"
+        },
+        {
+          "label": "VW",
+          "answer": "10"
+        },
+        {
+          "label": "X",
+          "answer": "2"
+        }
+      ],
+      "answerIndex": -1,
+      "answer": {
+        "ja": "A=2, B=2, C=3, D=2, E=6, F=2, G=2, H=8, I=6, J=2, K=6, L=5, M=6, N=9, O=6, P=6, Q=3, R=6, S=2, T=6, U=3, VW=10, X=2",
+        "en": "A=2, B=2, C=3, D=2, E=6, F=2, G=2, H=8, I=6, J=2, K=6, L=5, M=6, N=9, O=6, P=6, Q=3, R=6, S=2, T=6, U=3, VW=10, X=2"
+      },
+      "explanation": {
+        "ja": "$y=2x+\\dfrac3x$ より $y'=2-\\dfrac{3}{x^2}=\\dfrac{2x^2-3}{x^2}$（A=2, B=2, C=3, D=2）。$y'=0$ で $x=\\sqrt{\\tfrac32}=\\dfrac{\\sqrt6}{2}$ が最小（E=6, F=2）。接線：$y=\\left(2-\\dfrac{3}{t^2}\\right)(x-t)+2t+\\dfrac3t=\\dfrac{2t^2-3}{t^2}x+\\dfrac6t$（G=②）。$\\left(\\dfrac{\\sqrt6}2,p\\right)$ を代入し $t^2$ 倍：$(p-\\sqrt6)t^2-6t+\\dfrac{3\\sqrt6}{2}=0$（H=⑧）。接線の傾き $2-3/t^2$ は $t>0$ で単調なので，接線2本 $\\Leftrightarrow$ ② が異なる2つの正の解。解と係数より積 $\\dfrac{3\\sqrt6}{2(p-\\sqrt6)}>0$ で $p>\\sqrt6$，判別式 $36-6\\sqrt6(p-\\sqrt6)>0$ で $p<2\\sqrt6$：$\\sqrt6<p<2\\sqrt6$（I=6, J=2, K=6）。直交：$\\left(2-\\dfrac3{\\alpha^2}\\right)\\left(2-\\dfrac3{\\beta^2}\\right)=-1 \\Leftrightarrow 5\\alpha^2\\beta^2-6(\\alpha^2+\\beta^2)+9=0$（L=5, M=6, N=9）。$\\alpha+\\beta=\\dfrac{6}{p-\\sqrt6}$（O=6, P=6），$\\alpha\\beta=\\dfrac{3\\sqrt6}{2(p-\\sqrt6)}$（Q=3, R=6, S=2, T=6）。$u=p-\\sqrt6$ とおくと $\\alpha^2+\\beta^2=\\dfrac{36}{u^2}-\\dfrac{3\\sqrt6}{u}$，$\\alpha^2\\beta^2=\\dfrac{27}{2u^2}$。代入して $2u^2$ 倍：$18u^2+36\\sqrt6u-297=0$，$2u^2+4\\sqrt6u-33=0$，$u>0$ より $u=\\dfrac{3\\sqrt{10}-2\\sqrt6}{2}$。よって $p=\\dfrac{3\\sqrt{10}}{2}$（$\\approx4.74$ で ③ を満たす）（U=3, VW=10, X=2）。",
+        "en": "$y=2x+\\dfrac3x$, so $y'=2-\\dfrac{3}{x^2}=\\dfrac{2x^2-3}{x^2}$ (A=2, B=2, C=3, D=2). $y'=0$ at $x=\\sqrt{\\tfrac32}=\\dfrac{\\sqrt6}{2}$, the minimum (E=6, F=2). Tangent: $y=\\left(2-\\dfrac{3}{t^2}\\right)(x-t)+2t+\\dfrac3t=\\dfrac{2t^2-3}{t^2}x+\\dfrac6t$ (G=②). Substituting $\\left(\\dfrac{\\sqrt6}2,p\\right)$ and multiplying by $t^2$: $(p-\\sqrt6)t^2-6t+\\dfrac{3\\sqrt6}{2}=0$ (H=⑧). The slope $2-3/t^2$ is monotonic for $t>0$, so 2 tangents $\\Leftrightarrow$ ② has two distinct positive roots: product $\\dfrac{3\\sqrt6}{2(p-\\sqrt6)}>0$ gives $p>\\sqrt6$, discriminant $36-6\\sqrt6(p-\\sqrt6)>0$ gives $p<2\\sqrt6$: $\\sqrt6<p<2\\sqrt6$ (I=6, J=2, K=6). Perpendicular: $\\left(2-\\dfrac3{\\alpha^2}\\right)\\left(2-\\dfrac3{\\beta^2}\\right)=-1 \\Leftrightarrow 5\\alpha^2\\beta^2-6(\\alpha^2+\\beta^2)+9=0$ (L=5, M=6, N=9). $\\alpha+\\beta=\\dfrac{6}{p-\\sqrt6}$ (O=6, P=6), $\\alpha\\beta=\\dfrac{3\\sqrt6}{2(p-\\sqrt6)}$ (Q=3, R=6, S=2, T=6). With $u=p-\\sqrt6$: $\\alpha^2+\\beta^2=\\dfrac{36}{u^2}-\\dfrac{3\\sqrt6}{u}$, $\\alpha^2\\beta^2=\\dfrac{27}{2u^2}$. Substituting and multiplying by $2u^2$: $18u^2+36\\sqrt6u-297=0$, i.e. $2u^2+4\\sqrt6u-33=0$; $u>0$ gives $u=\\dfrac{3\\sqrt{10}-2\\sqrt6}{2}$, so $p=\\dfrac{3\\sqrt{10}}{2}$ ($\\approx4.74$, satisfies ③) (U=3, VW=10, X=2)."
+      }
+    },
+    {
+      "id": "2025-1-math-c2-6",
+      "answerRow": 6,
+      "block": "IV",
+      "part": null,
+      "topicId": "calculus",
+      "subtopic": "Extrema of a trigonometric rational function; integration by substitution",
+      "patternTags": [
+        "derivative-quotient",
+        "trig-composition",
+        "sign-chart",
+        "local-extrema",
+        "substitution-integral",
+        "log-result",
+        "choose-from-list"
+      ],
+      "hasFigure": false,
+      "format": "blanks",
+      "ja": {
+        "prompt": "次の文中の空欄のうち，選択肢欄に記号を挙げたものには，下の選択肢 ⓪～⑨ の中から適するものを選びなさい。また，その他の空欄には，適する数を入れなさい。\n\n関数\n$$f(x)=\\frac{\\sin x-\\cos x}{3+\\sin x+\\cos x}\\qquad(0<x<2\\pi)$$\nの極値と定積分について考えよう。\n\n(1) $f(x)$ を微分すると\n$$f'(x)=\\frac{[A](\\sin x+\\cos x)+[B]}{(3+\\sin x+\\cos x)^2}$$\nである。したがって，$f'(x)=0$ となるのは $x$ が\n$$\\sin x+\\cos x=-\\frac{[B]}{[A]} \\quad \\cdots\\cdots ①$$\nを満たすときである。① を書き換えると\n$$\\sin\\left(x+[C]\\right)=-\\frac{\\sqrt{[D]}}{[E]} \\quad \\cdots\\cdots ②$$\nとなる。② は $0<x<2\\pi$ においてちょうど $2$ 個の解をもつ。それらを $\\alpha$，$\\beta\\ (\\alpha<\\beta)$ とおくと，次の式が満たされる。\n$$\\sin\\left(\\alpha+[C]\\right)=\\sin\\left(\\beta+[C]\\right)=-\\frac{\\sqrt{[D]}}{[E]}$$\n$$\\cos\\left(\\alpha+[C]\\right)=-\\frac{\\sqrt{[F]}}{[G]} \\quad \\cdots\\cdots ③$$\n$$\\cos\\left(\\beta+[C]\\right)=\\frac{\\sqrt{[F]}}{[G]}$$\n\n(2) $0<x<2\\pi$ において\n$\\sin\\left(x+[C]\\right)<0$ かつ $\\cos\\left(x+[C]\\right)<0$ を満たす $x$ の範囲は [H] $<x<$ [I] であり，\n$\\sin\\left(x+[C]\\right)<0$ かつ $\\cos\\left(x+[C]\\right)>0$ を満たす $x$ の範囲は [I] $<x<$ [J] である。\nよって\n$$[H]<\\alpha<[I]<\\beta<[J]$$\nである。したがって，増減表を考えると，$y=f(x)$ は $0<x<2\\pi$ の範囲では $x=\\alpha$ で [K] をとり，$x=\\beta$ で [L] をとることがわかる。\n\n(3) 極値 $f(\\alpha)$ の値を求めよう。③ を書き換えると\n$$\\sin\\alpha-\\cos\\alpha=\\frac{\\sqrt{[MN]}}{[O]}$$\nとなる。これと ① に $x=\\alpha$ を代入した式を用いることにより\n$$f(\\alpha)=\\frac{\\sqrt{[PQ]}}{[R]}$$\nを得る。\n\n(4) [H] から $\\alpha$ までの $f(x)$ の定積分の値 $S$ を求めよう。\n$t=3+\\sin x+\\cos x$ とおいて置換積分することにより\n$$S=\\int_{[H]}^{\\alpha}f(x)\\,dx=\\int_{[S]}^{\\frac{[T]}{[U]}}\\left(-\\frac{1}{t}\\right)dt=\\log\\frac{[V]}{[W]}$$\nである。\n\n選択肢（[C], [H], [I], [J], [K], [L]）：⓪ $0$　① $\\dfrac{\\pi}{4}$　② $\\dfrac{\\pi}{2}$　③ $\\dfrac{3\\pi}{4}$　④ $\\pi$　⑤ $\\dfrac{5\\pi}{4}$　⑥ $\\dfrac{3\\pi}{2}$　⑦ $\\dfrac{7\\pi}{4}$　⑧ 極小値　⑨ 極大値"
+      },
+      "en": {
+        "prompt": "In the following text, for the blanks named in the option list, choose the appropriate item from the options ⓪–⑨ below. Fill in each of the other blanks with the appropriate number.\n\nLet us consider the extrema and a definite integral of the function\n$$f(x)=\\frac{\\sin x-\\cos x}{3+\\sin x+\\cos x}\\qquad(0<x<2\\pi).$$\n\n(1) Differentiating $f(x)$ gives\n$$f'(x)=\\frac{[A](\\sin x+\\cos x)+[B]}{(3+\\sin x+\\cos x)^2}.$$\nTherefore $f'(x)=0$ when $x$ satisfies\n$$\\sin x+\\cos x=-\\frac{[B]}{[A]} \\quad \\cdots\\cdots ①$$\nRewriting ① gives\n$$\\sin\\left(x+[C]\\right)=-\\frac{\\sqrt{[D]}}{[E]} \\quad \\cdots\\cdots ②$$\n② has exactly $2$ solutions in $0<x<2\\pi$. Calling them $\\alpha$, $\\beta\\ (\\alpha<\\beta)$, the following hold:\n$$\\sin\\left(\\alpha+[C]\\right)=\\sin\\left(\\beta+[C]\\right)=-\\frac{\\sqrt{[D]}}{[E]}$$\n$$\\cos\\left(\\alpha+[C]\\right)=-\\frac{\\sqrt{[F]}}{[G]} \\quad \\cdots\\cdots ③$$\n$$\\cos\\left(\\beta+[C]\\right)=\\frac{\\sqrt{[F]}}{[G]}$$\n\n(2) In $0<x<2\\pi$,\nthe range of $x$ satisfying $\\sin\\left(x+[C]\\right)<0$ and $\\cos\\left(x+[C]\\right)<0$ is [H] $<x<$ [I], and\nthe range of $x$ satisfying $\\sin\\left(x+[C]\\right)<0$ and $\\cos\\left(x+[C]\\right)>0$ is [I] $<x<$ [J].\nHence\n$$[H]<\\alpha<[I]<\\beta<[J].$$\nTherefore, considering the table of increase and decrease, $y=f(x)$ on $0<x<2\\pi$ takes a [K] at $x=\\alpha$ and a [L] at $x=\\beta$.\n\n(3) Let us find the extreme value $f(\\alpha)$. Rewriting ③ gives\n$$\\sin\\alpha-\\cos\\alpha=\\frac{\\sqrt{[MN]}}{[O]}.$$\nUsing this and ① with $x=\\alpha$ substituted, we obtain\n$$f(\\alpha)=\\frac{\\sqrt{[PQ]}}{[R]}.$$\n\n(4) Let us find the value $S$ of the definite integral of $f(x)$ from [H] to $\\alpha$.\nSubstituting $t=3+\\sin x+\\cos x$, we get\n$$S=\\int_{[H]}^{\\alpha}f(x)\\,dx=\\int_{[S]}^{\\frac{[T]}{[U]}}\\left(-\\frac{1}{t}\\right)dt=\\log\\frac{[V]}{[W]}.$$\n\nOptions (for [C], [H], [I], [J], [K], [L]): ⓪ $0$　① $\\dfrac{\\pi}{4}$　② $\\dfrac{\\pi}{2}$　③ $\\dfrac{3\\pi}{4}$　④ $\\pi$　⑤ $\\dfrac{5\\pi}{4}$　⑥ $\\dfrac{3\\pi}{2}$　⑦ $\\dfrac{7\\pi}{4}$　⑧ local minimum　⑨ local maximum"
+      },
+      "blanks": [
+        {
+          "label": "A",
+          "answer": "3"
+        },
+        {
+          "label": "B",
+          "answer": "2"
+        },
+        {
+          "label": "C",
+          "answer": "1"
+        },
+        {
+          "label": "D",
+          "answer": "2"
+        },
+        {
+          "label": "E",
+          "answer": "3"
+        },
+        {
+          "label": "F",
+          "answer": "7"
+        },
+        {
+          "label": "G",
+          "answer": "3"
+        },
+        {
+          "label": "H",
+          "answer": "3"
+        },
+        {
+          "label": "I",
+          "answer": "5"
+        },
+        {
+          "label": "J",
+          "answer": "7"
+        },
+        {
+          "label": "K",
+          "answer": "9"
+        },
+        {
+          "label": "L",
+          "answer": "8"
+        },
+        {
+          "label": "MN",
+          "answer": "14"
+        },
+        {
+          "label": "O",
+          "answer": "3"
+        },
+        {
+          "label": "PQ",
+          "answer": "14"
+        },
+        {
+          "label": "R",
+          "answer": "7"
+        },
+        {
+          "label": "S",
+          "answer": "3"
+        },
+        {
+          "label": "T",
+          "answer": "7"
+        },
+        {
+          "label": "U",
+          "answer": "3"
+        },
+        {
+          "label": "V",
+          "answer": "9"
+        },
+        {
+          "label": "W",
+          "answer": "7"
+        }
+      ],
+      "answerIndex": -1,
+      "answer": {
+        "ja": "A=3, B=2, C=1, D=2, E=3, F=7, G=3, H=3, I=5, J=7, K=9, L=8, MN=14, O=3, PQ=14, R=7, S=3, T=7, U=3, V=9, W=7",
+        "en": "A=3, B=2, C=1, D=2, E=3, F=7, G=3, H=3, I=5, J=7, K=9, L=8, MN=14, O=3, PQ=14, R=7, S=3, T=7, U=3, V=9, W=7"
+      },
+      "explanation": {
+        "ja": "$s=\\sin x,\\ c=\\cos x$ とすると $(s-c)'=s+c$，$(3+s+c)'=c-s$。分子は $(s+c)(3+s+c)+(s-c)^2=3(s+c)+(s+c)^2+(s-c)^2=3(s+c)+2$（A=3, B=2）。$s+c=\\sqrt2\\sin\\left(x+\\dfrac\\pi4\\right)=-\\dfrac23$ より $\\sin\\left(x+\\dfrac\\pi4\\right)=-\\dfrac{\\sqrt2}{3}$（C=① $\\frac\\pi4$, D=2, E=3），$\\cos^2=1-\\dfrac29=\\dfrac79$ で $\\cos=\\mp\\dfrac{\\sqrt7}{3}$（F=7, G=3）。$x+\\dfrac\\pi4\\in\\left(\\pi,\\dfrac{3\\pi}2\\right)$ なら $x\\in\\left(\\dfrac{3\\pi}4,\\dfrac{5\\pi}4\\right)$（H=③, I=⑤），$x+\\dfrac\\pi4\\in\\left(\\dfrac{3\\pi}2,2\\pi\\right)$ なら $x\\in\\left(\\dfrac{5\\pi}4,\\dfrac{7\\pi}4\\right)$（J=⑦）。$f'$ の符号は $s+c+\\dfrac23$ の符号で，$\\alpha$ では $s+c$ が減少しながら $-\\frac23$ を通るので $+\\to-$：極大（K=⑨），$\\beta$ では増加しながら通るので $-\\to+$：極小（L=⑧）。(3) $\\cos\\left(\\alpha+\\frac\\pi4\\right)=\\dfrac{\\cos\\alpha-\\sin\\alpha}{\\sqrt2}=-\\dfrac{\\sqrt7}{3}$ より $\\sin\\alpha-\\cos\\alpha=\\dfrac{\\sqrt{14}}{3}$（MN=14, O=3）。$f(\\alpha)=\\dfrac{\\sqrt{14}/3}{3-\\frac23}=\\dfrac{\\sqrt{14}}{7}$（PQ=14, R=7）。(4) $dt=(\\cos x-\\sin x)dx$ なので $f(x)dx=-\\dfrac{dt}{t}$。$x=\\dfrac{3\\pi}4$ で $t=3$（S=3），$x=\\alpha$ で $t=3-\\dfrac23=\\dfrac73$（T=7, U=3）。$S=-\\left[\\log t\\right]_3^{7/3}=\\log\\dfrac{3}{7/3}=\\log\\dfrac97$（V=9, W=7）。",
+        "en": "With $s=\\sin x,\\ c=\\cos x$: $(s-c)'=s+c$, $(3+s+c)'=c-s$. The numerator is $(s+c)(3+s+c)+(s-c)^2=3(s+c)+(s+c)^2+(s-c)^2=3(s+c)+2$ (A=3, B=2). $s+c=\\sqrt2\\sin\\left(x+\\dfrac\\pi4\\right)=-\\dfrac23$ gives $\\sin\\left(x+\\dfrac\\pi4\\right)=-\\dfrac{\\sqrt2}{3}$ (C=① $\\frac\\pi4$, D=2, E=3), and $\\cos^2=1-\\dfrac29=\\dfrac79$, so $\\cos=\\mp\\dfrac{\\sqrt7}{3}$ (F=7, G=3). $x+\\dfrac\\pi4\\in\\left(\\pi,\\dfrac{3\\pi}2\\right)$ means $x\\in\\left(\\dfrac{3\\pi}4,\\dfrac{5\\pi}4\\right)$ (H=③, I=⑤); $x+\\dfrac\\pi4\\in\\left(\\dfrac{3\\pi}2,2\\pi\\right)$ means $x\\in\\left(\\dfrac{5\\pi}4,\\dfrac{7\\pi}4\\right)$ (J=⑦). The sign of $f'$ is that of $s+c+\\dfrac23$; at $\\alpha$, $s+c$ is decreasing through $-\\frac23$, so $f'$ goes $+\\to-$: local maximum (K=⑨); at $\\beta$ it increases through $-\\frac23$: local minimum (L=⑧). (3) $\\cos\\left(\\alpha+\\frac\\pi4\\right)=\\dfrac{\\cos\\alpha-\\sin\\alpha}{\\sqrt2}=-\\dfrac{\\sqrt7}{3}$, so $\\sin\\alpha-\\cos\\alpha=\\dfrac{\\sqrt{14}}{3}$ (MN=14, O=3). $f(\\alpha)=\\dfrac{\\sqrt{14}/3}{3-\\frac23}=\\dfrac{\\sqrt{14}}{7}$ (PQ=14, R=7). (4) $dt=(\\cos x-\\sin x)dx$, so $f(x)dx=-\\dfrac{dt}{t}$. At $x=\\dfrac{3\\pi}4$, $t=3$ (S=3); at $x=\\alpha$, $t=3-\\dfrac23=\\dfrac73$ (T=7, U=3). $S=-\\left[\\log t\\right]_3^{7/3}=\\log\\dfrac{3}{7/3}=\\log\\dfrac97$ (V=9, W=7)."
+      }
+    }
+  ],
+  "patterns": {
+    "notes": "Course 2 is four blocks: I has two short 問 on Course-1-level material (here a quadratic minimum on a half-line with case analysis on the axis, and a draw-without-replacement probability), II has two 問 (here sequences — common terms of arithmetic/geometric sequences via a linear Diophantine equation and residues mod 3 — and the complex plane — locus as a parabola and argument range via tangent lines from the origin), III and IV are long calculus problems (tangent lines through an external point with perpendicularity via Vieta; extrema of a trigonometric rational function and a substitution integral giving a logarithm). Every 問 is a guided derivation: each box is one digit or sign (a minus sign takes its own box, e.g. [JKL] = -25), multi-letter boxes such as [NO] hold multi-digit numbers, fractions are given as separate numerator/denominator boxes and must be fully reduced, and roots in simplest form. Double-framed boxes are filled with the number of an item from an option list (⓪–⑤ or ⓪–⑨) of values, expressions, angles or words such as 極大値/極小値; earlier answers reappear shaded later in the text and must be reused consistently.",
+    "topicCounts": {
+      "quadratic-functions": 1,
+      "counting-probability": 1,
+      "sequences": 1,
+      "expressions-proofs": 1,
+      "calculus": 2
+    }
+  }
+}

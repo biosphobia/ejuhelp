@@ -8,6 +8,7 @@ import { requireAuth } from './auth';
 import { startJob, getJob, awaitJob } from './jobs';
 import { topicsFor, subtopicsFor, mockExamList, mockExam, pastQuestionsFor, SUBJECTS, type Subject } from './eju';
 import { hasApiKey, ask, generate, check, keypoints, tidy } from './claude';
+import { generateMockExam } from './mockexam';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const app = express();
@@ -139,7 +140,7 @@ app.post('/api/claude/generate', requireAuth, async (req: Request, res: Response
         lang: toLang(lang),
         topic: typeof topic === 'string' && topic ? topic : undefined,
         topics: Array.isArray(topics) ? topics.filter((x) => typeof x === 'string' && x).map((x) => String(x).slice(0, 100)).slice(0, 12) : undefined,
-        difficulty: difficulty === 'easy' || difficulty === 'hard' ? difficulty : 'medium',
+        difficulty: difficulty === 'easy' || difficulty === 'hard' || difficulty === 'exam' ? difficulty : 'medium',
         count: Number(count) || 3,
         focus: cleanFocus,
         similarTo:
@@ -147,6 +148,27 @@ app.post('/api/claude/generate', requireAuth, async (req: Request, res: Response
             ? { prompt: similarTo.prompt.slice(0, 4000), answer: typeof similarTo.answer === 'string' ? similarTo.answer.slice(0, 500) : undefined }
             : undefined,
         noteCore: typeof noteCore === 'string' && noteCore.trim() ? noteCore.slice(0, 6000) : undefined,
+        model,
+        userKey,
+      })
+    );
+  } catch (e) {
+    handleErr(e, res);
+  }
+});
+
+// A full mock exam written from the past-paper blueprint (several model calls in parallel).
+app.post('/api/claude/mockexam', requireAuth, async (req: Request, res: Response) => {
+  try {
+    const { subject, lang, difficulty, course } = req.body ?? {};
+    const { model, userKey } = getAiContext(req);
+    if (subject !== 'physics' && subject !== 'chemistry' && subject !== 'math') return res.status(400).json({ error: 'bad_subject' });
+    await respondWithJob(req, res, () =>
+      generateMockExam({
+        subject,
+        lang: toLang(lang),
+        difficulty: difficulty === 'easy' || difficulty === 'hard' ? difficulty : 'exam',
+        course: course === 1 ? 1 : 2,
         model,
         userKey,
       })

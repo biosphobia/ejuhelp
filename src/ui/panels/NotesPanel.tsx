@@ -32,11 +32,50 @@ export default function NotesPanel() {
   const [err, setErr] = useState<string | null>(null);
   const [added, setAdded] = useState<number | null>(null);
   const [showTable, setShowTable] = useState(false);
+  const [query, setQuery] = useState('');
+  const [kind, setKind] = useState<'all' | 'formula' | 'fact'>('all');
+  const [sort, setSort] = useState<'new' | 'old' | 'topic'>(() => {
+    try {
+      const v = localStorage.getItem('eju-notes-sort');
+      return v === 'old' || v === 'topic' ? v : 'new';
+    } catch {
+      return 'new';
+    }
+  });
+  useEffect(() => {
+    try {
+      localStorage.setItem('eju-notes-sort', sort);
+    } catch {
+      /* ignore */
+    }
+  }, [sort]);
 
   const mine = useMemo(
     () => items.filter((i) => i.subject === subject).sort((a, b) => b.ts - a.ts),
     [items, subject]
   );
+  const topicName = (id?: string) => {
+    if (!id) return '';
+    const hit = findSubtopic(subject, id);
+    return hit ? hit.sub.name[noteLang] : id;
+  };
+  // Search (text and topic), kind filter and sort, grouped by topic when sorted by topic.
+  const groups = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    const list = mine.filter(
+      (kp) => (kind === 'all' || kp.kind === kind) && (!q || kp.text.toLowerCase().includes(q) || topicName(kp.topic).toLowerCase().includes(q))
+    );
+    if (sort === 'old') list.reverse();
+    if (sort !== 'topic') return [{ name: '', items: list }];
+    const by = new Map<string, typeof list>();
+    for (const kp of list) {
+      const k = topicName(kp.topic);
+      if (!by.has(k)) by.set(k, []);
+      by.get(k)!.push(kp);
+    }
+    return [...by.entries()].sort((a, b) => (a[0] ? (b[0] ? a[0].localeCompare(b[0]) : -1) : 1)).map(([name, items]) => ({ name, items }));
+  }, [mine, query, kind, sort, subject, noteLang]); // eslint-disable-line react-hooks/exhaustive-deps
+  const shown = groups.reduce((a, g) => a + g.items.length, 0);
 
   useEffect(() => {
     let alive = true;
@@ -125,8 +164,43 @@ export default function NotesPanel() {
         <p className="text-sm italic text-slate-400">{t('noKeyPoints')}</p>
       ) : (
         <>
+          <div className="mb-2 space-y-2">
+            <input
+              type="search"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder={t('searchNotes')}
+              className="w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:border-slate-400"
+            />
+            <div className="flex flex-wrap items-center gap-2">
+              <div className="flex gap-1 rounded-lg bg-slate-100 p-0.5">
+                {(['all', 'formula', 'fact'] as const).map((k) => (
+                  <button
+                    key={k}
+                    type="button"
+                    onClick={() => setKind(k)}
+                    className={`rounded-md px-2 py-1 text-xs font-medium ${kind === k ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-500'}`}
+                  >
+                    {k === 'all' ? t('kindAll') : k === 'formula' ? t('kindFormula') : t('kindFact')}
+                  </button>
+                ))}
+              </div>
+              <select
+                value={sort}
+                onChange={(e) => setSort(e.target.value as 'new' | 'old' | 'topic')}
+                aria-label={t('sortBy')}
+                className="rounded-lg border border-slate-200 bg-white px-2 py-1 text-xs text-slate-700 outline-none"
+              >
+                <option value="new">{t('sortNewest')}</option>
+                <option value="old">{t('sortOldest')}</option>
+                <option value="topic">{t('sortByTopic')}</option>
+              </select>
+            </div>
+          </div>
           <div className="mb-2 flex items-center justify-between">
-            <Label>{t('notesTitle')} ({mine.length})</Label>
+            <Label>
+              {t('notesTitle')} ({shown === mine.length ? mine.length : `${shown}/${mine.length}`})
+            </Label>
             <button
               type="button"
               onClick={clearSubject}
@@ -135,53 +209,61 @@ export default function NotesPanel() {
               {t('clearAll')}
             </button>
           </div>
-          <ul className="space-y-2">
-            {mine.map((kp) => (
-              <li
-                key={kp.id}
-                className="group flex items-start gap-2 rounded-xl border border-slate-200 p-2.5"
-              >
-                <span
-                  className={`mt-0.5 shrink-0 rounded-md px-1.5 py-0.5 text-[10px] font-bold uppercase ${
-                    kp.kind === 'formula'
-                      ? 'bg-indigo-50 text-indigo-600'
-                      : 'bg-amber-50 text-amber-700'
-                  }`}
-                >
-                  {kp.kind === 'formula' ? t('kindFormula') : t('kindFact')}
-                </span>
-                <div className="min-w-0 flex-1">
-                  <div className="break-words text-sm text-slate-800">
-                    <Inline text={kp.text} />
-                  </div>
-                  {kp.topic ? (
-                    (() => {
-                      const hit = findSubtopic(subject, kp.topic);
-                      return hit ? (
-                        <button
-                          type="button"
-                          onClick={() => openNote(kp.topic!)}
-                          className="mt-0.5 text-xs font-medium text-indigo-600 hover:underline"
-                        >
-                          📖 {hit.sub.name[noteLang]}
-                        </button>
-                      ) : (
-                        <div className="mt-0.5 text-xs text-slate-400">{kp.topic}</div>
-                      );
-                    })()
-                  ) : null}
-                </div>
-                <button
-                  type="button"
-                  aria-label="remove"
-                  onClick={() => remove(kp.id)}
-                  className="shrink-0 rounded-md px-1.5 text-slate-300 hover:text-red-500"
-                >
-                  ✕
-                </button>
-              </li>
-            ))}
-          </ul>
+          {shown === 0 ? <p className="text-sm italic text-slate-400">{t('noMatches')}</p> : null}
+          {groups.map((g) => (
+            <div key={g.name || '_'} className="mb-3">
+              {sort === 'topic' && g.items.length ? (
+                <div className="mb-1.5 text-xs font-semibold uppercase tracking-wide text-slate-400">{g.name || t('noTopic')}</div>
+              ) : null}
+              <ul className="space-y-2">
+                {g.items.map((kp) => (
+                  <li
+                    key={kp.id}
+                    className="group flex items-start gap-2 rounded-xl border border-slate-200 p-2.5"
+                  >
+                    <span
+                      className={`mt-0.5 shrink-0 rounded-md px-1.5 py-0.5 text-[10px] font-bold uppercase ${
+                        kp.kind === 'formula'
+                          ? 'bg-indigo-50 text-indigo-600'
+                          : 'bg-amber-50 text-amber-700'
+                      }`}
+                    >
+                      {kp.kind === 'formula' ? t('kindFormula') : t('kindFact')}
+                    </span>
+                    <div className="min-w-0 flex-1">
+                      <div className="break-words text-sm text-slate-800">
+                        <Inline text={kp.text} />
+                      </div>
+                      {kp.topic ? (
+                        (() => {
+                          const hit = findSubtopic(subject, kp.topic);
+                          return hit ? (
+                            <button
+                              type="button"
+                              onClick={() => openNote(kp.topic!)}
+                              className="mt-0.5 text-xs font-medium text-indigo-600 hover:underline"
+                            >
+                              📖 {hit.sub.name[noteLang]}
+                            </button>
+                          ) : (
+                            <div className="mt-0.5 text-xs text-slate-400">{kp.topic}</div>
+                          );
+                        })()
+                      ) : null}
+                    </div>
+                    <button
+                      type="button"
+                      aria-label="remove"
+                      onClick={() => remove(kp.id)}
+                      className="shrink-0 rounded-md px-1.5 text-slate-300 hover:text-red-500"
+                    >
+                      ✕
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </>
       )}
     </Panel>

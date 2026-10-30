@@ -7,6 +7,7 @@ import { useApiStore } from './apiStore';
 import { useUI } from './ui';
 import { initLive } from './live';
 import { initChats } from './chats';
+import { useMockExams, mergeMockExams } from './mockexams';
 
 let started = false;
 
@@ -28,6 +29,7 @@ export function initSync() {
     if (document.visibilityState === 'hidden') return;
     void useAsk.getState().resume();
     void useGenerated.getState().resume();
+    void useMockExams.getState().resume();
   };
   setTimeout(resumeAll, 800);
   initLive();
@@ -72,6 +74,19 @@ export function initSync() {
       if (data?.pending) setTimeout(() => void useGenerated.getState().resume(), 0);
     },
     0
+  );
+  // Generated mock exams and exam results: kept from every device (deletions win).
+  attachSync(
+    useMockExams,
+    'eju-mockexams',
+    'mockexams',
+    (s) => ({ exams: s.exams, results: s.results, removed: s.removed, pending: s.pending }),
+    (s, data) => {
+      s.load(data);
+      if (data?.pending) setTimeout(() => void useMockExams.getState().resume(), 0);
+    },
+    500,
+    mergeMockExams
   );
   // API keys + chosen model, and the app settings, follow the account so a new
   // device is ready to use after signing in.

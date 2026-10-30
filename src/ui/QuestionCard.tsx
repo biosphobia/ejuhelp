@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Markdown, { Inline } from './Markdown';
+import Markdown, { Inline, boxify } from './Markdown';
 import { useAnswers } from '../lib/answers';
 import { usePinned } from '../lib/pinned';
 import { explainQuestion } from '../lib/ask';
@@ -22,10 +22,13 @@ export default function QuestionCard({
   subject,
   q,
   label,
+  blankValues,
 }: {
   subject: Subject;
   q: GenQuestion;
   label?: string | number;
+  /** What was written in each box (exam review). */
+  blankValues?: Record<string, string>;
 }) {
   const t = useT();
   const lang = useUI((s) => s.lang);
@@ -130,7 +133,7 @@ export default function QuestionCard({
           </button>
         ) : null}
       </div>
-      <Markdown text={q.prompt} />
+      <Markdown text={boxify(q.prompt, q.blanks?.map((b) => b.label))} />
       {hint && q.hint && !showFeedback ? (
         <div className="mt-2 rounded-xl bg-amber-50/80 px-3 py-2 text-sm text-amber-900 ring-1 ring-amber-100">
           💡 <Inline text={q.hint} />
@@ -170,6 +173,23 @@ export default function QuestionCard({
             </p>
           )}
         </div>
+      ) : null}
+
+      {!mcq && q.blanks?.length ? (
+        <BlankInputs
+          q={q}
+          initial={blankValues}
+          done={answered}
+          onChecked={(ok) => {
+            // Blanks have no option index: "right" is recorded as the question's own answerIndex.
+            answer(subject, q, ok ? q.answerIndex : q.answerIndex - 1);
+            setRevealed(true);
+            if (!ok && noteHit) {
+              useReview.getState().markDue(subject, q.topicId!);
+              setMarkedDue(true);
+            }
+          }}
+        />
       ) : null}
 
       <div className="mt-3 flex flex-wrap gap-2">
@@ -259,6 +279,59 @@ export default function QuestionCard({
           </div>
           {markedDue ? <p className="text-xs text-slate-500">📅 {t('reviewMarkedDue')}</p> : null}
         </div>
+      ) : null}
+    </div>
+  );
+}
+
+/** EJU math answers: one box per label ([A], [BC] in the prompt), each character a
+ *  digit or a minus sign, checked against the official answer box by box. */
+function BlankInputs({ q, initial, done, onChecked }: { q: GenQuestion; initial?: Record<string, string>; done: boolean; onChecked: (ok: boolean) => void }) {
+  const t = useT();
+  const blanks = q.blanks ?? [];
+  const [vals, setVals] = useState<Record<string, string>>(initial ?? {});
+  const [checked, setChecked] = useState(false);
+  const norm = (v: string) => v.replace(/[－−ー]/g, '-').replace(/\s+/g, '');
+  const right = (b: { label: string; answer: string }) => norm(vals[b.label] ?? '') === norm(b.answer);
+  const show = checked || done;
+  const check = () => {
+    setChecked(true);
+    onChecked(blanks.every(right));
+  };
+  return (
+    <div className="mt-2">
+      <div className="flex flex-wrap gap-2">
+        {blanks.map((b) => (
+          <label key={b.label} className="flex items-center gap-1 text-sm">
+            <span className="font-semibold text-slate-500">{b.label}</span>
+            <input
+              value={vals[b.label] ?? ''}
+              disabled={show}
+              inputMode="numeric"
+              maxLength={Math.max(1, b.label.length)}
+              onChange={(e) => setVals((v) => ({ ...v, [b.label]: e.target.value.replace(/[^0-9\-－−]/g, '') }))}
+              className={`rounded-lg border px-2 py-1 text-center font-mono text-sm outline-none focus:border-slate-500 ${
+                show ? (right(b) ? 'border-emerald-300 bg-emerald-50' : 'border-red-300 bg-red-50') : 'border-slate-200'
+              }`}
+              style={{ width: `${Math.max(1, b.label.length) * 1.1 + 1.6}rem` }}
+            />
+            {show && !right(b) ? <span className="text-xs font-semibold text-emerald-700">{b.answer}</span> : null}
+          </label>
+        ))}
+      </div>
+      {!show ? (
+        <button
+          type="button"
+          onClick={check}
+          disabled={!blanks.some((b) => (vals[b.label] ?? '').length)}
+          className="mt-2 rounded-lg bg-slate-900 px-3 py-1.5 text-xs font-semibold text-white disabled:opacity-40"
+        >
+          {t('checkBlanks')}
+        </button>
+      ) : checked ? (
+        <p className={`pt-1 text-sm font-semibold ${blanks.every(right) ? 'text-emerald-700' : 'text-red-600'}`}>
+          {blanks.every(right) ? t('correctMark') : t('blanksScore', { n: blanks.filter(right).length, total: blanks.length })}
+        </p>
       ) : null}
     </div>
   );

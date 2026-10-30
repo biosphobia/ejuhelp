@@ -11,7 +11,8 @@ import {
 } from '../lib/board';
 import { useUI } from '../lib/ui';
 import { useDebug } from '../lib/debug';
-import { drawStroke, strokeHit, drawText } from './render';
+import { drawStroke, drawStrokeTail, strokeBounds, strokeHit, drawText } from './render';
+import { setInking } from '../lib/inking';
 import { boardEvents } from './view';
 
 const ERASER_RADIUS = 14; // screen px
@@ -52,7 +53,11 @@ export default function Whiteboard() {
     let drawKind: 'pen' | 'finger' | 'touch-pen' | null = null; 
     let activeStylusTouchId: number | null = null; 
     let touchPenStartTime = 0; // Ensures we don't upgrade stale/stuck touches
-    let liveLastIdx = 0; // last live stroke point already painted incrementally
+    let liveLastIdx = 0; // last curve of the live stroke already painted (see drawStrokeTail)
+    let lastPenUp = 0; // perf time the pen last lifted: a touch right after it is a resting palm
+    let cacheVp = { scale: 1, x: 0, y: 0 }; // the view the cache bitmap was drawn for
+    let quickView = false; // pan/zoom in progress: move the cached image, redraw sharply after
+    let quickTimer: ReturnType<typeof setTimeout> | undefined;
 
     const touches = new Map<number, { x: number; y: number }>();
     let gestureActive = false;
@@ -85,7 +90,13 @@ export default function Whiteboard() {
       | null = null;
 
     // ---- geometry ----
-    const rect = () => canvas.getBoundingClientRect();
+    // The canvas position, read once per interaction: reading it for every input point
+    // can force the browser to lay out the page in the middle of a stroke.
+    let cachedRect: DOMRect | null = null;
+    const rect = () => (cachedRect ??= canvas.getBoundingClientRect());
+    const freshRect = () => {
+      cachedRect = null;
+    };
     function toWorld(clientX: number, clientY: number) {
       const r = rect();
       return { x: (clientX - r.left - vp.x) / vp.scale, y: (clientY - r.top - vp.y) / vp.scale };
@@ -150,10 +161,18 @@ export default function Whiteboard() {
       drawGrid(cctx);
       const page = useBoard.getState().getCurrentPage();
       for (const tb of page.texts ?? []) drawText(cctx, tb);
+      // Only strokes that can be seen are drawn.
+      const x0 = -vp.x / vp.scale;
+      const y0 = -vp.y / vp.scale;
+      const x1 = (canvas.clientWidth - vp.x) / vp.scale;
+      const y1 = (canvas.clientHeight - vp.y) / vp.scale;
       for (const s of page.strokes) {
         if (pendingErase.has(s.id) || manipHidden.has(s.id)) continue;
+        const b = strokeBounds(s);
+        if (b.maxX < x0 || b.minX > x1 || b.maxY < y0 || b.minY > y1) continue;
         drawStroke(cctx, s);
       }
+      cacheVp = { scale: vp.scale, x: vp.x, y: vp.y };
       cacheDirty = false;
     }
 
@@ -167,10 +186,21 @@ export default function Whiteboard() {
     }
 
     function render() {
-      if (cacheDirty) renderCache();
       ctx.setTransform(1, 0, 0, 1, 0, 0);
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.drawImage(cache, 0, 0);
+      if (quickView && !cacheDirty) {
+        // Panning / zooming: move the image already drawn instead of drawing every
+        // stroke again each frame; it is redrawn sharply once the view stops moving.
+        const k = vp.scale / cacheVp.scale;
+        ctx.fillStyle = '#ffffff';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.setTransform(k, 0, 0, k, (vp.x - k * cacheVp.x) * dpr, (vp.y - k * cacheVp.y) * dpr);
+        ctx.drawImage(cache, 0, 0);
+        ctx.setTransform(1, 0, 0, 1, 0, 0);
+      } else {
+        if (cacheDirty) renderCache();
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(cache, 0, 0);
+      }
       if (drawing && drawing.points.length) {
         setWorldTransform(ctx);
         drawStroke(ctx, { id: 'tmp', color: drawing.color, size: drawing.size, points: drawing.points });
@@ -313,12 +343,28 @@ export default function Whiteboard() {
       cacheDirty = true;
       schedule();
     }
+    /** The view is moving (pan, pinch, wheel): cheap frames now, one sharp redraw when it settles. */
+    function viewMoved(settleMs?: number) {
+      quickView = true;
+      schedule();
+      if (quickTimer) clearTimeout(quickTimer);
+      quickTimer = undefined;
+      if (settleMs !== undefined) quickTimer = setTimeout(viewSettled, settleMs);
+    }
+    function viewSettled() {
+      if (quickTimer) clearTimeout(quickTimer);
+      quickTimer = undefined;
+      if (!quickView) return;
+      quickView = false;
+      invalidate();
+    }
     function resize() {
       dpr = Math.max(1, window.devicePixelRatio || 1);
       canvas.width = Math.round(canvas.clientWidth * dpr);
       canvas.height = Math.round(canvas.clientHeight * dpr);
       cache.width = canvas.width;
       cache.height = canvas.height;
+      freshRect();
       invalidate();
     }
 
@@ -340,6 +386,7 @@ export default function Whiteboard() {
       lastPenDown = performance.now(); // mark that the pointer system handled this interaction
       drawId = e.pointerId;
       drawKind = kind;
+      setInking(true);
       const { tool, color, size } = useBoard.getState();
       const w = toWorld(e.clientX, e.clientY);
       if (tool === 'eraser') {
@@ -352,25 +399,13 @@ export default function Whiteboard() {
       }
     }
 
-    // Draw only the newest segment(s) of the in-progress stroke directly onto the
-    // canvas (no full clear/blit) — the lowest-latency path for live ink.
+    // Draw only the newest part of the in-progress stroke directly onto the canvas
+    // (no full clear/blit) — the lowest-latency path for live ink. It uses the same
+    // curves as the finished stroke, so nothing moves when the pen lifts.
     function drawLiveSegments() {
-      if (!drawing) return;
-      const pts = drawing.points;
-      if (pts.length < 2 || liveLastIdx >= pts.length - 1) {
-        liveLastIdx = Math.max(liveLastIdx, pts.length - 1);
-        return;
-      }
+      if (!drawing || quickView) return;
       setWorldTransform(ctx);
-      ctx.strokeStyle = INK_HEX[drawing.color];
-      ctx.lineWidth = drawing.size;
-      ctx.lineCap = 'round';
-      ctx.lineJoin = 'round';
-      ctx.beginPath();
-      ctx.moveTo(pts[liveLastIdx].x, pts[liveLastIdx].y);
-      for (let i = liveLastIdx + 1; i < pts.length; i++) ctx.lineTo(pts[i].x, pts[i].y);
-      ctx.stroke();
-      liveLastIdx = pts.length - 1;
+      liveLastIdx = drawStrokeTail(ctx, drawing.color, drawing.size, drawing.points, liveLastIdx);
     }
 
     function endStroke() {
@@ -383,10 +418,12 @@ export default function Whiteboard() {
           useBoard.getState().addStroke(committed);
           skipInvalidate = false;
         }
+        if (drawKind === 'pen' || drawKind === 'touch-pen') lastPenUp = performance.now();
         drawing = null;
         drawId = null;
         drawKind = null;
         activeStylusTouchId = null; // SAFEGUARD: clean up ghost touches
+        setInking(false);
         commitPresent();
         return;
       }
@@ -399,12 +436,15 @@ export default function Whiteboard() {
         }
         invalidate();
       }
+      if (drawKind === 'pen' || drawKind === 'touch-pen') lastPenUp = performance.now();
       drawId = null;
       drawKind = null;
       activeStylusTouchId = null; // SAFEGUARD: clean up ghost touches
+      setInking(false);
     }
 
     function abortStroke() {
+      setInking(false);
       drawing = null;
       erasing = false;
       eraserScreen = null;
@@ -510,7 +550,7 @@ export default function Whiteboard() {
       vp.scale = scale;
       vp.x = g.cx - anchorX * scale;
       vp.y = g.cy - anchorY * scale;
-      invalidate();
+      viewMoved();
     }
     function commitViewport() {
       useBoard.getState().setViewport({ scale: vp.scale, x: vp.x, y: vp.y });
@@ -518,6 +558,7 @@ export default function Whiteboard() {
     function cancelGesture() {
       gestureActive = false;
       gesture = null;
+      viewSettled();
     }
 
     // ---- selection helpers ----
@@ -769,6 +810,7 @@ export default function Whiteboard() {
     // ---- pointer events ----
     function onPointerDown(e: PointerEvent) {
       dbg(e);
+      if (drawId === null && !gestureActive) freshRect();
       if (e.pointerType === 'pen') {
         penSeen = true;
         e.preventDefault();
@@ -858,8 +900,11 @@ export default function Whiteboard() {
       }
 
       // TOUCH ────────────────────────────────────────────────
-      // While a stylus is drawing, ignore touches entirely (palm rejection).
-      if (drawId !== null && drawKind === 'pen') return;
+      // While a stylus is drawing, ignore touches entirely (palm rejection) — also when
+      // the stroke was started by the faster stylus touch path, before its pen pointer.
+      if (drawId !== null && (drawKind === 'pen' || drawKind === 'touch-pen')) return;
+      // A hand landing just after the pen lifted is a resting palm, not a pan.
+      if (penSeen && touches.size === 0 && performance.now() - lastPenUp < 350) return;
 
       touches.set(e.pointerId, { x: e.clientX, y: e.clientY });
       const fingerDraw = useUI.getState().fingerDraw;
@@ -965,6 +1010,7 @@ export default function Whiteboard() {
 
     // ---- Proactive touch handling for instant Apple Pencil response ----
     function onTouchStart(e: TouchEvent) {
+      if (drawId === null && !gestureActive) freshRect();
       let hasStylus = false;
       for (const t of Array.from(e.changedTouches)) {
         if (isStylus(t)) hasStylus = true;
@@ -988,6 +1034,7 @@ export default function Whiteboard() {
            }
            drawId = t.identifier;
            drawKind = 'touch-pen';
+           setInking(true);
            activeStylusTouchId = t.identifier;
            touchPenStartTime = performance.now();
            commitPresent();
@@ -1039,9 +1086,11 @@ export default function Whiteboard() {
       vp.scale = scale;
       vp.x = l.x - anchorX * scale;
       vp.y = l.y - anchorY * scale;
-      commitViewport();
-      invalidate();
+      viewMoved(150);
+      if (wheelCommit) clearTimeout(wheelCommit);
+      wheelCommit = setTimeout(commitViewport, 160);
     }
+    let wheelCommit: ReturnType<typeof setTimeout> | undefined;
 
     const stop = (e: Event) => e.preventDefault();
 

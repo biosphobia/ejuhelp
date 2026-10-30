@@ -185,10 +185,13 @@ export const askClaude = (p: {
   coachStyle?: string;
 }, opts?: CallOpts) => call<AskResponse>('claude/ask', p, opts);
 
-export type Difficulty = 'easy' | 'medium' | 'hard';
+/** "exam" = mixed like a real paper. */
+export type Difficulty = 'easy' | 'medium' | 'hard' | 'exam';
 export interface GenQuestion {
   id: string;
   topic: string;
+  /** EJU math style: boxes filled digit by digit ([A], [BC] in the prompt). */
+  blanks?: { label: string; answer: string }[];
   /** Knowledge-base subtopic id the question was generated for (links back to the notes). */
   topicId?: string;
   prompt: string;
@@ -302,3 +305,21 @@ export const fetchPastQuestions = (p: { subject: Subject; topic: string; lang: L
 
 export const fetchExams = () => call<{ exams: ExamMeta[] }>('eju/exams', {});
 export const fetchExam = (id: string, lang: Lang) => call<Exam>('eju/exam', { id, lang });
+
+export type MockDifficulty = 'easy' | 'exam' | 'hard';
+/** A full mock exam written from the past-paper blueprint (see server/mockexam.ts). */
+export interface GeneratedExam {
+  id: string;
+  subject: Subject;
+  course?: 1 | 2;
+  difficulty: MockDifficulty;
+  title: string;
+  minutes: number;
+  generatedAt: number;
+  blueprint: { id: string; name: string; count: number; topics: string[]; likely: string[] }[];
+  basedOn: string[];
+  questions: (GenQuestion & { number: number; block: string })[];
+  missing: string[];
+}
+export const generateMockExam = (p: { subject: Subject; lang: Lang; difficulty: MockDifficulty; course?: 1 | 2 }, opts?: CallOpts) =>
+  call<GeneratedExam>('claude/mockexam', p, opts);

@@ -299,6 +299,7 @@ export default function GeneratePanel() {
             <option value="easy">{t('diffEasy')}</option>
             <option value="medium">{t('diffMedium')}</option>
             <option value="hard">{t('diffHard')}</option>
+            <option value="exam">{t('diffLikeExam')}</option>
           </select>
         </div>
         <div hidden={pastMode}>

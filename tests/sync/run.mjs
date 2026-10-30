@@ -699,6 +699,73 @@ scenario('automatic snapshots of an unchanged notebook are not repeated; manual 
   eq(pageInk(A2, p1).length > 0, true, 'restore after reload works');
 });
 
+scenario('saves wait while the pen is on the board, then land; a long stroke never holds them back for long', async () => {
+  const A = await device('A');
+  A.auth.signIn('u1');
+  await tick(SETTLE);
+  const p1 = A.useBoard.getState().currentPageId;
+  draw(A, p1);
+  await tick(SETTLE);
+  const idb = globalThis.__idbOf('A');
+  const cloudHas = (id) => cloudPages().some((p) => p.st?.some((x) => x.i === id));
+  // a stroke is committed, and the next one starts right away
+  const s2 = draw(A, p1);
+  A.setInking(true);
+  await tick(1200);
+  ok(!idb.get(`bp:${p1}`)?.st?.some((x) => x.i === s2), 'not written to the device while the pen is down');
+  ok(!cloudHas(s2), 'not written to the account while the pen is down');
+  A.setInking(false);
+  await tick(SETTLE);
+  ok(idb.get(`bp:${p1}`)?.st?.some((x) => x.i === s2), 'written to the device after pen-up');
+  ok(cloudHas(s2), 'written to the account after pen-up');
+  // a pen that stays down (or a stuck pen state) holds a save back at most a few seconds
+  const s3 = draw(A, p1);
+  A.setInking(true);
+  await tick(5500);
+  ok(idb.get(`bp:${p1}`)?.st?.some((x) => x.i === s3), 'saved anyway after the hold limit');
+  A.setInking(false);
+  await assertQuiet('after writing');
+});
+
+scenario('generated mock exams: made on two devices (one offline) both kept, results travel, a deletion sticks', async () => {
+  const exam = (id, at) => ({
+    id, subject: 'physics', difficulty: 'exam', title: 'Physics', minutes: 40, generatedAt: at,
+    blueprint: [{ id: 'I', name: 'Mechanics', count: 1, topics: ['Forces'], likely: ['Forces'] }], basedOn: ['2025-1'], missing: [],
+    questions: [{ id: `${id}-q1`, topic: 'Forces', prompt: 'Q', choices: ['a', 'b'], answerIndex: 0, answer: 'a', explanation: 'e', number: 1, block: 'Mechanics' }],
+  });
+  const add = (d, e) => d.useMockExams.setState((s) => ({ exams: [e, ...s.exams], rev: s.rev + 1 }));
+  const A = await device('A');
+  A.auth.signIn('u1');
+  await tick(SETTLE);
+  const B = await device('B');
+  B.auth.signIn('u1');
+  await tick(SETTLE * 2);
+  B.fs.goOffline();
+  add(A, exam('gen-a', 1000));
+  add(B, exam('gen-b', 2000));
+  await tick(SETTLE);
+  B.fs.goOnline();
+  await tick(SETTLE * 3);
+  // the account copy merges both; a device catches up on its next change or reload
+  const B2 = await device('B', { fresh: false });
+  B2.auth.signIn('u1');
+  await tick(SETTLE * 2);
+  const ids = (d) => d.useMockExams.getState().exams.map((e) => e.id).sort().join();
+  eq(ids(B2), 'gen-a,gen-b', 'B has both exams');
+  B2.useMockExams.getState().saveResult({ examId: 'gen-a', picked: { 'gen-a-q1': 0 }, blanks: {}, correct: 1, total: 1, startedAt: 1, finishedAt: 2 });
+  await tick(SETTLE * 2);
+  eq(ids(A), 'gen-a,gen-b', 'A has both exams');
+  eq(A.useMockExams.getState().results['gen-a']?.correct, 1, 'result reached A');
+  A.useMockExams.getState().remove('gen-b');
+  await tick(SETTLE * 2);
+  eq(ids(B2), 'gen-a', 'deletion reached B');
+  const B3 = await device('B', { fresh: false });
+  B3.auth.signIn('u1');
+  await tick(SETTLE * 2);
+  eq(ids(B3), 'gen-a', 'deleted exam does not come back after reload');
+  await assertQuiet('after mock exams');
+});
+
 let failed = 0;
 for (const sc of scenarios) {
   if (process.env.SYNC_ONLY && !sc.name.includes(process.env.SYNC_ONLY)) continue;

@@ -15,6 +15,8 @@ Workflow per paper:
 
 | Year | Sess | Question fileId | Answer fileId | Status |
 |------|------|-----------------|---------------|--------|
+| 2025 | 1 | 1BBZvN5G2Jgh9HcogAnwIMFs2DKr17hTD | 1VQ9_IMPmueCR6Ew1n1dlc7oq5RCtZe7E | ✅ done (19, photographed booklet) |
+| 2024 | 1 | 1_wVnhlUkWV2jtfzrCuq1vrI6nx3kgpLI | 1Pwpm4YUZlbsE9QkBHYLdbYnNslotfzPy | ✅ done (19, photographed booklet) |
 | 2021 | 1 | 18zMUZMALKNFNOSsNd2FP-l_BvxMOqdsA | 1CCQ3RloF9lVbnn0gxey8r3g5Oad4Nftx | ✅ done (19) |
 | 2020 | 2 | 1C3fgNrOPvXKGLSt_JMdsTfTcdmlqIfgI | 1aNaeDTdMeuGotg0ExquHyAJhOWxXuQ_t | ✅ done (19) |
 | 2019 | 1 | 12smUu1_-LP4ylDMBsGB9HQX4L5zt6cC7 | 1CW1ERITvvteo1AVSzz0oF7u02ukUEb39 | ✅ done (19) |
@@ -37,6 +39,6 @@ Workflow per paper:
 | 2010 | 1 | 10PH9k2akTYBt0hiJc6VNU_jDjUDLDiwH | 1Q60uuxBPo43pxuzsHbOwRPn9le06Y_Qa | ✅ done (19, I×7 no-V) |
 
 ## Gaps (cannot fully verify — held)
-- No files for 2019-2, 2020-1, 2021-2, or 2022+.
+- No files for 2019-2, 2020-1, 2021-2, 2022, 2023. 2024 and 2025 are the photographed Session 1 booklets (the session is not printed on the photographed pages).
 
 Syllabus: `2026_syllabus_phy_e.pdf` (1BBjxCauM-RYkqsEkXeOM8tqipa0PEuzV) — extracted.

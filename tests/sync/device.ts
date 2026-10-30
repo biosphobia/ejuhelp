@@ -10,9 +10,11 @@ import { useAuth } from '../../src/lib/auth';
 import { useApiStore } from '../../src/lib/apiStore';
 import { useProfile } from '../../src/lib/profile';
 import { useChats, listChats, mergeChat } from '../../src/lib/chats';
+import { useMockExams } from '../../src/lib/mockexams';
 import { initPersistence, restoreBackup, listBackups, listJournal, scanForLostPages, addPages, useSyncStatus, applyRemotePages, backupNow } from '../../src/lib/persistence';
 import { initUserData, useProgress } from '../../src/lib/userdata';
 import { initSync } from '../../src/lib/sync';
+import { setInking } from '../../src/lib/inking';
 import { fsControl } from './fakeFirestore';
 import { authControl } from './fakeAuth';
 
@@ -29,6 +31,7 @@ export function boot() {
     useApiStore,
     useProfile,
     useChats,
+    useMockExams,
     listChats,
     mergeChat,
     useProgress,
@@ -40,6 +43,7 @@ export function boot() {
     addPages,
     backupNow,
     applyRemotePages,
+    setInking,
     fs: fsControl,
     auth: authControl,
   };

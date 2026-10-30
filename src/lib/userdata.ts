@@ -150,6 +150,13 @@ type AnyStore<S> = {
  * persist immediately (used for chat history and generated questions, which
  * change rarely but must never be lost).
  */
+/** JSON with object keys sorted, so two copies with the same content compare equal. */
+function stableJson(v: unknown): string {
+  return JSON.stringify(v, (_k, x) =>
+    x && typeof x === 'object' && !Array.isArray(x) ? Object.fromEntries(Object.keys(x).sort().map((k) => [k, x[k]])) : x
+  );
+}
+
 export function attachSync<S extends { rev: number }>(
   store: AnyStore<S>,
   lsKey: string,
@@ -261,8 +268,26 @@ export function attachSync<S extends { rev: number }>(
             else void saveCloud();
             return;
           }
-          if (!cloud || cloudAt <= localUpdatedAt) return;
-          applyCloud(merge ? merge(getData(store.getState()), cloud, false) : cloud, cloudAt);
+          if (!cloud) return;
+          if (!merge) {
+            if (cloudAt > localUpdatedAt) applyCloud(cloud, cloudAt);
+            return;
+          }
+          // With a field merge, a copy from another device is always merged, even when
+          // its time is not newer: two devices saving in the same millisecond, or an
+          // offline device's late write, must not quietly drop what this device has.
+          const localIsNewer = cloudAt <= localUpdatedAt;
+          const merged = merge(getData(store.getState()), cloud, localIsNewer);
+          applyCloud(merged, Math.max(cloudAt, localUpdatedAt));
+          // The account copy lacked something this device had (e.g. a device that
+          // was offline wrote over it): put the merged copy back, as a newer copy so
+          // the other devices take it. Compared ignoring key order, so two devices
+          // never keep re-uploading the same content to each other.
+          const { updatedAt: _at, ...cloudData } = cloud;
+          if (stableJson(merged) !== stableJson(cloudData)) {
+            saveLocal();
+            void saveCloud();
+          }
         } catch (e) {
           // An exception thrown inside a Firestore listener would take the whole
           // Firestore client down for this page; never let one out.

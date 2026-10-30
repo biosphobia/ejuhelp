@@ -250,3 +250,18 @@ export default function Markdown({ text }: { text: string }) {
 
   return <div className="text-[15px] text-slate-800">{blocks}</div>;
 }
+
+/** EJU math answer boxes: `[A]`, `[BC]` in a prompt become framed labels, inside or outside math. */
+export function boxify(text: string, labels: string[] | undefined): string {
+  if (!labels?.length) return text;
+  const want = new Set(labels);
+  const box = (l: string) => `\\boxed{\\mathrm{${l}}}`;
+  return text
+    .split(/(\$\$[\s\S]*?\$\$|\$[^$]*?\$)/)
+    .map((seg, i) =>
+      i % 2 === 1
+        ? seg.replace(/\[([A-Z]{1,8})\]/g, (m, l: string) => (want.has(l) ? box(l) : m))
+        : seg.replace(/\[([A-Z]{1,8})\]/g, (m, l: string) => (want.has(l) ? `$${box(l)}$` : m))
+    )
+    .join('');
+}

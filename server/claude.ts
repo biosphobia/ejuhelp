@@ -1,7 +1,7 @@
 import Anthropic from '@anthropic-ai/sdk';
 import OpenAI from 'openai';
 import { GoogleGenerativeAI } from '@google/generative-ai';
-import { systemContextFor, labelFor, exemplarsFor, subtopicsFor, type Subject } from './eju';
+import { systemContextFor, examPatternsFor, labelFor, exemplarsFor, subtopicsFor, type Subject } from './eju';
 
 const MODEL = process.env.ANTHROPIC_MODEL || 'claude-opus-5';
 const USE_THINKING = process.env.ANTHROPIC_THINKING !== 'off';
@@ -613,6 +613,8 @@ export function parseAskReply(raw: string, subject: Subject, lang: Lang) {
 export interface GenQuestion {
   id: string;
   topic: string;
+  /** EJU math style: boxes filled digit by digit ([A], [BC] in the prompt). */
+  blanks?: { label: string; answer: string }[];
   /** Knowledge-base subtopic id when the request targeted one (links back to notes). */
   topicId?: string;
   prompt: string;
@@ -685,13 +687,16 @@ async function generateBatch(args: {
   topic?: string;
   /** Several subtopics at once: the questions are spread across them. */
   topics?: string[];
-  difficulty: 'easy' | 'medium' | 'hard';
+  /** "exam" = mixed like a real paper (a few quick items, mostly exam level, one or two hard). */
+  difficulty: 'easy' | 'medium' | 'hard' | 'exam';
   count: number;
   focus?: { topics?: string[]; tags?: string[] };
   /** Make variants of this question (same concept, new numbers / situation). */
   similarTo?: { prompt: string; answer?: string };
   /** The note's core idea for this topic, so questions test what the notes teach. */
   noteCore?: string;
+  /** Where these questions sit, e.g. one block of a full mock exam. */
+  context?: string;
   /** Set when this call is one batch of a larger set (see generate). */
   angle?: string;
   model?: string;
@@ -729,14 +734,29 @@ async function generateBatch(args: {
       `Generate ${n} EJU-style ${args.subject} question(s)${tName ? ` specifically on: ${tName}` : ' across the most exam-relevant topics'}.`
     );
   }
+  if (args.context) parts.push(args.context);
   if (args.angle) {
     parts.push(`These questions are one part of a larger set written in parallel. To avoid overlapping with the other parts, ${args.angle}.`);
   }
-  parts.push(`Difficulty: ${args.difficulty} ("medium" = typical EJU exam level; "easy" = the first step a beginner must master; "hard" = combines two ideas like the hardest EJU items).`);
   parts.push(
-    'Match the authentic EJU question style: short scenario, concrete numbers with SI units, one clear thing asked, ' +
-      'usually 4-6 choices where every wrong choice is the result of a SPECIFIC common mistake (wrong sign, forgot a factor of 2, unit slip, used the wrong formula), not a random number. ' +
-      'Quantitative questions should be solvable in 2-4 lines by hand. Do not rely on a figure the student cannot see: describe any setup fully in words.'
+    args.difficulty === 'exam'
+      ? 'Difficulty: like the real EJU paper — about a quarter quick one-step items, most at typical exam level, and one hard item that combines two ideas (when there are 3 or more questions).'
+      : `Difficulty: ${args.difficulty} ("medium" = typical EJU exam level; "easy" = the first step a beginner must master; "hard" = combines two ideas like the hardest EJU items).`
+  );
+  const isMath = args.subject === 'math';
+  const patterns = examPatternsFor(args.subject);
+  if (patterns) parts.push(patterns);
+  parts.push(
+    isMath
+      ? 'Write it the way EJU Mathematics is set: a guided multi-step problem in which the student fills DIGIT BOXES, not multiple choice. ' +
+          'Mark each box in the text exactly as [A], [B], [CD], … with capital letters in order (A, B, C, … continuing through the problem). ' +
+          'A label of k letters holds a k-character answer: each character is one digit 0-9, and only the first may be a minus sign. ' +
+          'All answers are integers: write fractions as separate numerator and denominator boxes, roots as [E]√[F], and keep every fraction reduced and every root simplified so the answer is unique. ' +
+          'The steps should lead the student through the solution (e.g. first the vertex, then the case analysis, then the extreme value), 8-15 boxes per problem. ' +
+          'A few boxes may instead be chosen from a numbered option list ⓪–⑨ written at the end of the prompt (the answer is the option number). Use LaTeX for all math.'
+      : 'Match the authentic EJU question style: short scenario, concrete numbers with SI units, one clear thing asked, ' +
+          'usually 4-6 choices where every wrong choice is the result of a SPECIFIC common mistake (wrong sign, forgot a factor of 2, unit slip, used the wrong formula), not a random number. ' +
+          'Quantitative questions should be solvable in 2-4 lines by hand. Do not rely on a figure the student cannot see: describe any setup fully in words.'
   );
   if (exemplars.length) {
     parts.push(
@@ -763,15 +783,22 @@ async function generateBatch(args: {
       );
   }
   parts.push(
-    'For each question also write: a hint (a nudge toward the first step, never the answer), the key idea being tested (one sentence), ' +
-      'a note per choice explaining why that option is right or which mistake produces it, the trap most students fall into, ' +
-      'and an explanation written for a total beginner: state the idea in plain words, then show every step with numbers, then the answer, then a one-line "how to recognise this type next time".'
+    isMath
+      ? 'For each problem also write: a hint (a nudge toward the first step, never the answer), the key idea (one sentence), the trap most students fall into, ' +
+          'and an explanation for a beginner that derives the answer of every box in order. Before answering, solve the problem yourself and check every box: a wrong box answer is the worst possible mistake.'
+      : 'For each question also write: a hint (a nudge toward the first step, never the answer), the key idea being tested (one sentence), ' +
+          'a note per choice explaining why that option is right or which mistake produces it, the trap most students fall into, ' +
+          'and an explanation written for a total beginner: state the idea in plain words, then show every step with numbers, then the answer, then a one-line "how to recognise this type next time".'
   );
   parts.push(`Write everything in ${writeLang(args.lang)}.`);
   parts.push(
-    'Respond with ONLY a single JSON object, no other text or code fences: ' +
-      '{"questions":[{"topic":"<sub-topic name>",' + (multi ? '"topicId":"<one of the ids above>",' : '') + '"prompt":"...","choices":["..."],"answerIndex":<0-based index of the correct choice, or -1 if not multiple-choice>,' +
-      '"answer":"<correct answer in words>","hint":"...","keyIdea":"...","choiceNotes":["<one per choice, same order>"],"trap":"...","explanation":"<beginner-friendly worked solution in Markdown with LaTeX>"}]}.'
+    isMath
+      ? 'Respond with ONLY a single JSON object, no other text or code fences: ' +
+          '{"questions":[{"topic":"<sub-topic name>",' + (multi ? '"topicId":"<one of the ids above>",' : '') + '"prompt":"<the problem with [A], [BC] … boxes>",' +
+          '"blanks":[{"label":"A","answer":"3"},{"label":"BC","answer":"-2"}],"answer":"A=3, BC=-2, …","hint":"...","keyIdea":"...","trap":"...","explanation":"<derivation of every box, Markdown with LaTeX>"}]}.'
+      : 'Respond with ONLY a single JSON object, no other text or code fences: ' +
+          '{"questions":[{"topic":"<sub-topic name>",' + (multi ? '"topicId":"<one of the ids above>",' : '') + '"prompt":"...","choices":["..."],"answerIndex":<0-based index of the correct choice, or -1 if not multiple-choice>,' +
+          '"answer":"<correct answer in words>","hint":"...","keyIdea":"...","choiceNotes":["<one per choice, same order>"],"trap":"...","explanation":"<beginner-friendly worked solution in Markdown with LaTeX>"}]}.'
   );
 
   const raw = await executeModelCall(
@@ -786,6 +813,20 @@ async function generateBatch(args: {
     return { questions: cleanQuestions(parsed.questions, null, undefined, own).slice(0, n) };
   }
   return { questions: cleanQuestions(parsed.questions, tName, single).slice(0, n) };
+}
+
+/** Digit boxes of an EJU-math style question; dropped unless every box is marked in the prompt and every answer fits its box. */
+function cleanBlanks(v: any, prompt: string): { label: string; answer: string }[] | undefined {
+  if (!Array.isArray(v) || !v.length) return undefined;
+  const out: { label: string; answer: string }[] = [];
+  for (const b of v) {
+    const label = typeof b?.label === 'string' ? b.label.trim().toUpperCase() : '';
+    const answer = String(b?.answer ?? '').trim().replace(/[－−]/g, '-');
+    if (!/^[A-Z]{1,8}$/.test(label) || !/^-?\d+$/.test(answer) || answer.length > label.length) return undefined;
+    if (!prompt.includes(`[${label}]`)) return undefined;
+    out.push({ label, answer });
+  }
+  return out;
 }
 
 /** Sanitise model-written questions into GenQuestion objects (shared by generate and ask). */
@@ -804,10 +845,12 @@ function cleanQuestions(
       const idx = Number.isInteger(q.answerIndex) ? q.answerIndex : -1;
       const notes = Array.isArray(q.choiceNotes) && choices && q.choiceNotes.length === choices.length ? q.choiceNotes.map(String) : undefined;
       const mine = own?.(q);
+      const blanks = cleanBlanks(q.blanks, String(q.prompt ?? ''));
       return {
         id: `${stamp}-${i}`,
         topic: mine?.topic ?? String(q.topic ?? fallbackTopic ?? ''),
         topicId: mine?.topicId ?? topicId,
+        ...(blanks ? { blanks } : {}),
         prompt: String(q.prompt ?? ''),
         choices,
         answerIndex: choices && idx >= 0 && idx < choices.length ? idx : -1,

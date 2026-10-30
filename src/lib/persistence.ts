@@ -6,6 +6,7 @@ import { db } from './firebase';
 import { idbGet, idbGetMany, idbWrite, persistStorage } from './idb';
 import { create } from 'zustand';
 import { chunkPage, assemblePages, type ChunkDoc } from './chunk';
+import { inking } from './inking';
 
 const LS_KEY = 'eju-board-v1';
 const LS_SNAPS = 'eju-board-snapshots';
@@ -999,6 +1000,18 @@ function flushNow() {
   void saveCloud();
 }
 
+// A save waits while the pen is on the board (it would make the ink stutter), but
+// never longer than INK_HOLD_MAX_MS; hiding the app or leaving the page always saves at once.
+const INK_HOLD_MAX_MS = 4000;
+function saveWhenIdle() {
+  const ink = inking();
+  if (ink.on && ink.for < INK_HOLD_MAX_MS) {
+    saveTimer = setTimeout(saveWhenIdle, 250);
+    return;
+  }
+  flushNow();
+}
+
 /** Read the device copy: IndexedDB first, then the localStorage mirror (older builds
  *  saved only there). Both are merged and the newer one leads, so nothing is lost. */
 async function hydrateLocal(subject: string) {
@@ -1073,7 +1086,7 @@ export function initPersistence() {
     if (st.rev === lastSavedRev) return;
     lastSavedRev = st.rev;
     if (saveTimer) clearTimeout(saveTimer);
-    saveTimer = setTimeout(flushNow, 500);
+    saveTimer = setTimeout(saveWhenIdle, 500);
   });
   // The iPad kills background web apps without warning: write immediately when the
   // app is hidden or the page is being left, so the last strokes are never lost.

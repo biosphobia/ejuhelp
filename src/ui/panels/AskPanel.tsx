@@ -108,7 +108,12 @@ function ChatList({ t, onDone }: { t: TFunc; onDone: () => void }) {
   const newChat = useAsk((s) => s.newChat);
   const openChat = useAsk((s) => s.openChat);
   const deleteChat = useAsk((s) => s.deleteChat);
-  const list = listChats(chats);
+  const [query, setQuery] = useState('');
+  const [sort, setSort] = useState<'new' | 'old' | 'az'>('new');
+  const q = query.trim().toLowerCase();
+  const list = listChats(chats).filter((c) => !q || c.title.toLowerCase().includes(q) || c.messages.some((m) => m.content.toLowerCase().includes(q)));
+  if (sort === 'old') list.reverse();
+  if (sort === 'az') list.sort((a, b) => a.title.localeCompare(b.title));
   return (
     <div className="space-y-2">
       <button
@@ -122,6 +127,26 @@ function ChatList({ t, onDone }: { t: TFunc; onDone: () => void }) {
       >
         <PlusIcon className="h-4 w-4" /> {t('newChat')}
       </button>
+      <div className="flex gap-2">
+        <input
+          type="search"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          placeholder={t('searchChats')}
+          className="min-w-0 flex-1 rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:border-slate-400"
+        />
+        <select
+          value={sort}
+          onChange={(e) => setSort(e.target.value as 'new' | 'old' | 'az')}
+          aria-label={t('sortBy')}
+          className="shrink-0 rounded-xl border border-slate-200 bg-white px-2 text-sm text-slate-700 outline-none"
+        >
+          <option value="new">{t('sortNewest')}</option>
+          <option value="old">{t('sortOldest')}</option>
+          <option value="az">{t('sortAZ')}</option>
+        </select>
+      </div>
+      {q && !list.length ? <p className="px-1 text-sm italic text-slate-400">{t('noMatches')}</p> : null}
       <ul className="space-y-1.5">
         {list.map((c) => {
           const open = c.id === chatId;

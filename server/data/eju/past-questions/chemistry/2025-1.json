@@ -1,0 +1,1046 @@
+{
+  "id": "2025-1-chemistry",
+  "year": 2025,
+  "session": 1,
+  "subject": "chemistry",
+  "title": "EJU 2025 · Session 1 · Chemistry",
+  "source": "2025年度 日本留学試験（第1回）理科〈化学〉 © Japan Student Services Organization (JASSO) — from the published question booklet; the session is not printed on the photographed pages",
+  "attribution": "EJU past questions © JASSO. Question text transcribed from the official past paper; figures described in text; correct answers taken from the official JASSO answer key and independently re-solved for verification.",
+  "languages": [
+    "ja",
+    "en"
+  ],
+  "answerKeyVerified": true,
+  "structure": {
+    "format": "flat",
+    "totalQuestions": 20,
+    "note": "Chemistry is a flat list of 20 single-best-answer items (問1–問20, answer rows 1–20) — no Roman-numeral blocks. Order ≈ structure & bonding → states/energetics/electrochemistry/acids → inorganic → organic. This paper uses the traditional thermochemical convention where a heat of formation (生成熱) for an exothermic formation is reported as a positive value.",
+    "givens": {
+      "ja": "標準状態 $0\\,$°C・$1.01\\times10^5\\,$Pa（1 atm），標準状態における理想気体のモル体積 $22.4\\,$L/mol，気体定数 $R=8.31\\times10^3\\,$Pa·L/(K·mol)，アボガドロ定数 $N_A=6.02\\times10^{23}\\,$/mol，ファラデー定数 $F=9.65\\times10^4\\,$C/mol。原子量：H 1.0, He 4.0, C 12, N 14, O 16。気体は，ことわりがない限り，理想気体として扱う。族・周期は周期表の通り。",
+      "en": "STP $0\\,$°C, $1.01\\times10^5\\,$Pa (1 atm); molar volume of an ideal gas at STP $22.4\\,$L/mol; $R=8.31\\times10^3\\,$Pa·L/(K·mol); $N_A=6.02\\times10^{23}\\,$/mol; $F=9.65\\times10^4\\,$C/mol. Atomic weights: H 1.0, He 4.0, C 12, N 14, O 16. Gases are ideal unless stated otherwise. Groups/periods per the periodic table."
+    }
+  },
+  "questions": [
+    {
+      "id": "2025-1-chem-1",
+      "answerRow": 1,
+      "topicId": "matter-structure",
+      "subtopic": "Two correct statements about elements",
+      "patternTags": [
+        "atomic-structure",
+        "isotopes",
+        "periodic-table",
+        "true-false-combo"
+      ],
+      "hasFigure": false,
+      "figure": {
+        "ja": "",
+        "en": ""
+      },
+      "ja": {
+        "prompt": "元素に関する次の記述 a～e の中には，正しいものが二つある。その組み合わせを，下の①～⑥の中から一つ選びなさい。 a 原子番号が大きくなると，原子量も大きくなる。 b 118 種類の元素の半数以上は，非金属元素である。 c 第 3 周期までのすべての元素には，安定な原子核が存在する。 d 原子番号が大きくなると，原子半径も大きくなる。 e 同じ元素の同位体どうしは，中性子の数が異なる。",
+        "choices": [
+          "a, c",
+          "b, d",
+          "b, e",
+          "c, d",
+          "c, e",
+          "d, e"
+        ]
+      },
+      "en": {
+        "prompt": "Among statements a–e about the elements, two are correct. Choose the correct pair. a As the atomic number increases, the atomic weight also increases. b More than half of the 118 elements are nonmetallic elements. c Every element up to the 3rd period has a stable atomic nucleus. d As the atomic number increases, the atomic radius also increases. e Isotopes of the same element differ in their number of neutrons.",
+        "choices": [
+          "a, c",
+          "b, d",
+          "b, e",
+          "c, d",
+          "c, e",
+          "d, e"
+        ]
+      },
+      "answerIndex": 4,
+      "answerOption": 5,
+      "answer": {
+        "ja": "⑤ c, e",
+        "en": "⑤ c, e"
+      },
+      "explanation": {
+        "en": "a false: there are inversions such as Ar (39.9) > K (39.1) and Te > I. b false: most of the 118 elements (about 80 %) are metals. c true: H through Ar all have stable isotopes (elements with no stable nucleus are Tc (43), Pm (61) and Z ≥ 84, etc.). d false: across a period the radius decreases as Z increases (Na > Cl). e true: isotopes have the same number of protons but different numbers of neutrons. So c and e.",
+        "ja": "a 誤：Ar（39.9）＞ K（39.1），Te ＞ I などの逆転がある。b 誤：118 種類の大部分（約 8 割）は金属元素。c 正：H～Ar はすべて安定同位体をもつ（安定核をもたない元素は Tc（43），Pm（61），原子番号 84 以上など）。d 誤：同一周期では原子番号が大きいほど原子半径は小さくなる（Na ＞ Cl）。e 正：同位体は陽子数が同じで中性子数が異なる。よって c, e。"
+      }
+    },
+    {
+      "id": "2025-1-chem-2",
+      "answerRow": 2,
+      "topicId": "matter-structure",
+      "subtopic": "Ion–atom pair with different electron configurations",
+      "patternTags": [
+        "atomic-structure",
+        "electron-configuration",
+        "isoelectronic",
+        "ions",
+        "odd-one-out"
+      ],
+      "hasFigure": true,
+      "figure": {
+        "ja": "表（イオン / 原子）：① $\\mathrm{F^-}$ / He；② $\\mathrm{S^{2-}}$ / Ar；③ $\\mathrm{Li^+}$ / He；④ $\\mathrm{Al^{3+}}$ / Ne；⑤ $\\mathrm{O^{2-}}$ / Ne；⑥ $\\mathrm{Ca^{2+}}$ / Ar。",
+        "en": "Table (ion / atom): ① $\\mathrm{F^-}$ / He; ② $\\mathrm{S^{2-}}$ / Ar; ③ $\\mathrm{Li^+}$ / He; ④ $\\mathrm{Al^{3+}}$ / Ne; ⑤ $\\mathrm{O^{2-}}$ / Ne; ⑥ $\\mathrm{Ca^{2+}}$ / Ar."
+      },
+      "ja": {
+        "prompt": "次表のイオンと原子の組み合わせ①～⑥の中から，両者の電子配置が異なるものを一つ選びなさい。",
+        "choices": [
+          "$\\mathrm{F^-}$ / He",
+          "$\\mathrm{S^{2-}}$ / Ar",
+          "$\\mathrm{Li^+}$ / He",
+          "$\\mathrm{Al^{3+}}$ / Ne",
+          "$\\mathrm{O^{2-}}$ / Ne",
+          "$\\mathrm{Ca^{2+}}$ / Ar"
+        ]
+      },
+      "en": {
+        "prompt": "From the ion–atom pairs ①–⑥ in the table, choose the one in which the two have DIFFERENT electron configurations.",
+        "choices": [
+          "$\\mathrm{F^-}$ / He",
+          "$\\mathrm{S^{2-}}$ / Ar",
+          "$\\mathrm{Li^+}$ / He",
+          "$\\mathrm{Al^{3+}}$ / Ne",
+          "$\\mathrm{O^{2-}}$ / Ne",
+          "$\\mathrm{Ca^{2+}}$ / Ar"
+        ]
+      },
+      "answerIndex": 0,
+      "answerOption": 1,
+      "answer": {
+        "ja": "① $\\mathrm{F^-}$ と He",
+        "en": "① $\\mathrm{F^-}$ and He"
+      },
+      "explanation": {
+        "en": "$\\mathrm{F^-}$ has $9+1=10$ electrons, the Ne configuration (K2 L8), not that of He (K2). The others match: $\\mathrm{S^{2-}}$ (18) = Ar, $\\mathrm{Li^+}$ (2) = He, $\\mathrm{Al^{3+}}$ (10) = Ne, $\\mathrm{O^{2-}}$ (10) = Ne, $\\mathrm{Ca^{2+}}$ (18) = Ar.",
+        "ja": "$\\mathrm{F^-}$ は電子 $9+1=10$ 個で Ne と同じ電子配置（K2 L8）であり，He（K2）とは異なる。他は同じ：$\\mathrm{S^{2-}}$（18）＝Ar，$\\mathrm{Li^+}$（2）＝He，$\\mathrm{Al^{3+}}$（10）＝Ne，$\\mathrm{O^{2-}}$（10）＝Ne，$\\mathrm{Ca^{2+}}$（18）＝Ar。"
+      }
+    },
+    {
+      "id": "2025-1-chem-3",
+      "answerRow": 3,
+      "topicId": "matter-structure",
+      "subtopic": "Pairs in which both molecules have an unsaturated bond",
+      "patternTags": [
+        "chemical-bonds",
+        "double-bond",
+        "unsaturation",
+        "true-false-combo"
+      ],
+      "hasFigure": false,
+      "figure": {
+        "ja": "",
+        "en": ""
+      },
+      "ja": {
+        "prompt": "次の組み合わせ a～e の中には，どちらの分子も不飽和結合をもつものが二つある。その二つを含むものを，下の①～⑥の中から一つ選びなさい。 a $\\mathrm{CO_2}$，CO b $\\mathrm{C_6H_6}$，$\\mathrm{H_2O}$ c $\\mathrm{NH_3}$，HCHO d HCOOH，$\\mathrm{(CH_3)_2CO}$ e $\\mathrm{H_2O_2}$，HBr",
+        "choices": [
+          "a, b",
+          "a, d",
+          "b, c",
+          "b, d",
+          "c, e",
+          "d, e"
+        ]
+      },
+      "en": {
+        "prompt": "Among pairs a–e, two are pairs in which BOTH molecules have an unsaturated bond. Choose the option containing those two. a $\\mathrm{CO_2}$, CO b $\\mathrm{C_6H_6}$, $\\mathrm{H_2O}$ c $\\mathrm{NH_3}$, HCHO d HCOOH, $\\mathrm{(CH_3)_2CO}$ e $\\mathrm{H_2O_2}$, HBr",
+        "choices": [
+          "a, b",
+          "a, d",
+          "b, c",
+          "b, d",
+          "c, e",
+          "d, e"
+        ]
+      },
+      "answerIndex": 1,
+      "answerOption": 2,
+      "answer": {
+        "ja": "② a, d",
+        "en": "② a, d"
+      },
+      "explanation": {
+        "en": "a: $\\mathrm{O{=}C{=}O}$ and $\\mathrm{C{\\equiv}O}$ — both unsaturated. b: benzene is unsaturated but $\\mathrm{H_2O}$ has only single bonds. c: $\\mathrm{NH_3}$ has only single bonds (HCHO has C=O). d: both HCOOH and acetone contain C=O — both unsaturated. e: H–O–O–H and H–Br have only single bonds. So a and d.",
+        "ja": "a：$\\mathrm{O{=}C{=}O}$ と $\\mathrm{C{\\equiv}O}$ — どちらも不飽和。b：ベンゼンは不飽和だが $\\mathrm{H_2O}$ は単結合のみ。c：$\\mathrm{NH_3}$ は単結合のみ（HCHO は C=O）。d：HCOOH も アセトンも C=O をもつ — どちらも不飽和。e：H–O–O–H，H–Br はともに単結合のみ。よって a, d。"
+      }
+    },
+    {
+      "id": "2025-1-chem-4",
+      "answerRow": 4,
+      "topicId": "matter-structure",
+      "subtopic": "Compound with a double bond, polar, three or more lone pairs",
+      "patternTags": [
+        "chemical-bonds",
+        "polarity",
+        "lone-pairs",
+        "double-bond",
+        "compare-cases"
+      ],
+      "hasFigure": false,
+      "figure": {
+        "ja": "",
+        "en": ""
+      },
+      "ja": {
+        "prompt": "下の化合物①～⑥の中から，次の記述 a～c のすべてにあてはまるものを一つ選びなさい。 a 二重結合をもつ。 b 極性分子である。 c 非共有電子対を三つ以上もつ。 ① 二酸化炭素 ② エチレン（エテン） ③ ホルムアルデヒド ④ ギ酸 ⑤ 塩化水素 ⑥ アンモニア",
+        "choices": [
+          "二酸化炭素 $\\mathrm{CO_2}$",
+          "エチレン（エテン）$\\mathrm{C_2H_4}$",
+          "ホルムアルデヒド HCHO",
+          "ギ酸 HCOOH",
+          "塩化水素 HCl",
+          "アンモニア $\\mathrm{NH_3}$"
+        ]
+      },
+      "en": {
+        "prompt": "From compounds ①–⑥, choose the one that satisfies ALL of a–c. a It has a double bond. b It is a polar molecule. c It has three or more unshared electron pairs. ① carbon dioxide ② ethylene (ethene) ③ formaldehyde ④ formic acid ⑤ hydrogen chloride ⑥ ammonia",
+        "choices": [
+          "carbon dioxide $\\mathrm{CO_2}$",
+          "ethylene (ethene) $\\mathrm{C_2H_4}$",
+          "formaldehyde HCHO",
+          "formic acid HCOOH",
+          "hydrogen chloride HCl",
+          "ammonia $\\mathrm{NH_3}$"
+        ]
+      },
+      "answerIndex": 3,
+      "answerOption": 4,
+      "answer": {
+        "ja": "④ ギ酸",
+        "en": "④ formic acid"
+      },
+      "explanation": {
+        "en": "Formic acid H–CO–OH has a C=O bond (a), is polar (b), and has 2 lone pairs on each of its 2 O atoms, 4 in total (c). $\\mathrm{CO_2}$ has C=O and 4 lone pairs but is linear and nonpolar. Ethylene is nonpolar with no lone pairs. HCHO is polar with C=O but has only 2 lone pairs. HCl (3 pairs) and $\\mathrm{NH_3}$ (1 pair) have no double bond.",
+        "ja": "ギ酸 H–CO–OH は C=O をもち（a），極性分子で（b），2 個の O にそれぞれ 2 対，計 4 対の非共有電子対をもつ（c）。$\\mathrm{CO_2}$ は C=O と非共有電子対 4 対をもつが直線形で無極性。エチレンは無極性で非共有電子対なし。HCHO は極性で C=O をもつが非共有電子対は 2 対。HCl（3 対）と $\\mathrm{NH_3}$（1 対）は二重結合をもたない。"
+      }
+    },
+    {
+      "id": "2025-1-chem-5",
+      "answerRow": 5,
+      "topicId": "states-and-change",
+      "subtopic": "H:O atomic-weight ratio from CuO reduction by hydrogen",
+      "patternTags": [
+        "stoichiometry",
+        "atomic-weight",
+        "mole-ratio",
+        "plug-in-numbers"
+      ],
+      "hasFigure": true,
+      "figure": {
+        "ja": "装置図：左から乾燥した水素を流し込む。反応管の中央に酸化銅(II)があり，その下にバーナーがある。反応管の出口は塩化カルシウム管 I，続いて塩化カルシウム管 II に直列につながっている。",
+        "en": "Apparatus: dry hydrogen enters from the left into a reaction tube holding copper(II) oxide at its middle, heated from below by a burner. The outlet passes in series through calcium chloride tube I and then calcium chloride tube II."
+      },
+      "ja": {
+        "prompt": "水素 H と酸素 O の原子量の比を精確に求めるために，次の図に示す実験を行った。反応管に酸化銅(II) CuO を入れ，乾燥した水素 $\\mathrm{H_2}$ を流しながら加熱した。その結果，酸化銅(II)の入った反応管の質量は $2.645\\,$g 減少し，塩化カルシウム管 I は水 $\\mathrm{H_2O}$ を吸収して $2.979\\,$g 増加した。塩化カルシウム管 II の質量には変化がなかった。この実験から得られる水素と酸素の原子量の比として最も適当なものを，次の①～⑤の中から一つ選びなさい。",
+        "choices": [
+          "1.02 : 16.0",
+          "1.01 : 16.0",
+          "1.00 : 16.0",
+          "0.99 : 16.0",
+          "0.98 : 16.0"
+        ]
+      },
+      "en": {
+        "prompt": "To determine the ratio of the atomic weights of hydrogen H and oxygen O precisely, the experiment shown in the figure was carried out. Copper(II) oxide CuO was put in a reaction tube and heated while dry hydrogen $\\mathrm{H_2}$ was passed through. As a result, the mass of the reaction tube containing the copper(II) oxide decreased by $2.645\\,$g, and calcium chloride tube I absorbed water $\\mathrm{H_2O}$ and increased by $2.979\\,$g. The mass of calcium chloride tube II did not change. Which is the most appropriate H : O atomic-weight ratio obtained from this experiment?",
+        "choices": [
+          "1.02 : 16.0",
+          "1.01 : 16.0",
+          "1.00 : 16.0",
+          "0.99 : 16.0",
+          "0.98 : 16.0"
+        ]
+      },
+      "answerIndex": 1,
+      "answerOption": 2,
+      "answer": {
+        "ja": "② 1.01 : 16.0",
+        "en": "② 1.01 : 16.0"
+      },
+      "explanation": {
+        "en": "$\\mathrm{CuO+H_2\\to Cu+H_2O}$. The tube's mass loss is the O removed from CuO: $2.645\\,$g (all of it ends up in the water). Tube II is unchanged, so all the water is caught in tube I; H in the water $=2.979-2.645=0.334\\,$g. Water has H:O $=2:1$, so $2A_\\mathrm{H}:A_\\mathrm{O}=0.334:2.645$, giving $A_\\mathrm{H}=16.0\\times\\dfrac{0.334}{2\\times2.645}\\approx1.01$.",
+        "ja": "$\\mathrm{CuO+H_2\\to Cu+H_2O}$。反応管の減少分は CuO から奪われた O：$2.645\\,$g（すべて水中の O）。管 II が変化しないので水はすべて管 I に吸収され，水中の H $=2.979-2.645=0.334\\,$g。$\\mathrm{H_2O}$ は H:O $=2:1$ なので $2A_\\mathrm{H}:A_\\mathrm{O}=0.334:2.645$，$A_\\mathrm{H}=16.0\\times\\dfrac{0.334}{2\\times2.645}\\approx1.01$。"
+      }
+    },
+    {
+      "id": "2025-1-chem-6",
+      "answerRow": 6,
+      "topicId": "states-and-change",
+      "subtopic": "Mole fractions of He/O2 from mixture density",
+      "patternTags": [
+        "gas-law",
+        "density",
+        "mole-fraction",
+        "molar-mass",
+        "plug-in-numbers"
+      ],
+      "hasFigure": true,
+      "figure": {
+        "ja": "表（モル分率 ヘリウム / 酸素）：① 0.20 / 0.80；② 0.34 / 0.66；③ 0.50 / 0.50；④ 0.66 / 0.34；⑤ 0.80 / 0.20。",
+        "en": "Table (mole fraction helium / oxygen): ① 0.20 / 0.80; ② 0.34 / 0.66; ③ 0.50 / 0.50; ④ 0.66 / 0.34; ⑤ 0.80 / 0.20."
+      },
+      "ja": {
+        "prompt": "ヘリウムと酸素からなる混合気体がある。その混合気体の密度が標準状態で $0.60\\,$g/L であるとき，ヘリウムと酸素のモル分率として最も適当なものを，次表の①～⑤の中から一つ選びなさい。",
+        "choices": [
+          "ヘリウム 0.20 / 酸素 0.80",
+          "ヘリウム 0.34 / 酸素 0.66",
+          "ヘリウム 0.50 / 酸素 0.50",
+          "ヘリウム 0.66 / 酸素 0.34",
+          "ヘリウム 0.80 / 酸素 0.20"
+        ]
+      },
+      "en": {
+        "prompt": "A gas mixture consists of helium and oxygen. When its density at STP is $0.60\\,$g/L, which are the most appropriate mole fractions of helium and oxygen (table ①–⑤)?",
+        "choices": [
+          "helium 0.20 / oxygen 0.80",
+          "helium 0.34 / oxygen 0.66",
+          "helium 0.50 / oxygen 0.50",
+          "helium 0.66 / oxygen 0.34",
+          "helium 0.80 / oxygen 0.20"
+        ]
+      },
+      "answerIndex": 3,
+      "answerOption": 4,
+      "answer": {
+        "ja": "④ ヘリウム 0.66 / 酸素 0.34",
+        "en": "④ helium 0.66 / oxygen 0.34"
+      },
+      "explanation": {
+        "en": "Mean molar mass $=0.60\\times22.4=13.44\\,$g/mol. With He mole fraction $x$: $4.0x+32(1-x)=13.44\\Rightarrow28x=18.56$, $x\\approx0.66$; oxygen $0.34$.",
+        "ja": "平均分子量 $=0.60\\times22.4=13.44$。He のモル分率を $x$ とすると $4.0x+32(1-x)=13.44$ より $28x=18.56$，$x\\approx0.66$。酸素は $0.34$。"
+      }
+    },
+    {
+      "id": "2025-1-chem-7",
+      "answerRow": 7,
+      "topicId": "states-and-change",
+      "subtopic": "Heat of vaporization of water from heats of formation",
+      "patternTags": [
+        "thermochemistry",
+        "hess-law",
+        "heat-of-formation",
+        "heat-of-combustion",
+        "plug-in-numbers"
+      ],
+      "hasFigure": false,
+      "figure": {
+        "ja": "",
+        "en": ""
+      },
+      "ja": {
+        "prompt": "$1\\,$mol のメタン $\\mathrm{CH_4}$ が完全燃焼して二酸化炭素 $\\mathrm{CO_2}$ と液体の水 $\\mathrm{H_2O}$ が生成すると，$891\\,$kJ の熱が発生した。この結果から計算すると，水の蒸発熱は何 kJ/mol か。最も近い値を，次の①～⑥の中から一つ選びなさい。ただし，メタン（気体），二酸化炭素（気体），水（気体）の生成熱はそれぞれ，$75\\,$kJ/mol，$394\\,$kJ/mol，$242\\,$kJ/mol である。",
+        "choices": [
+          "6.5",
+          "19",
+          "31",
+          "44",
+          "64",
+          "82"
+        ]
+      },
+      "en": {
+        "prompt": "When $1\\,$mol of methane $\\mathrm{CH_4}$ burns completely to carbon dioxide $\\mathrm{CO_2}$ and liquid water $\\mathrm{H_2O}$, $891\\,$kJ of heat is released. Calculated from this result, what is the heat of vaporization of water in kJ/mol? Choose the closest value. The heats of formation of methane (gas), carbon dioxide (gas) and water (gas) are $75\\,$kJ/mol, $394\\,$kJ/mol and $242\\,$kJ/mol, respectively.",
+        "choices": [
+          "6.5",
+          "19",
+          "31",
+          "44",
+          "64",
+          "82"
+        ]
+      },
+      "answerIndex": 3,
+      "answerOption": 4,
+      "answer": {
+        "ja": "④ $44\\,$kJ/mol",
+        "en": "④ $44\\,$kJ/mol"
+      },
+      "explanation": {
+        "en": "Heat of reaction = Σ(heats of formation of products) − Σ(heats of formation of reactants). With $Q$ = heat of formation of liquid water: $891=394+2Q-75\\Rightarrow Q=286\\,$kJ/mol. Heat of vaporization $=286-242=44\\,$kJ/mol.",
+        "ja": "反応熱＝（生成物の生成熱の和）−（反応物の生成熱の和）。液体の水の生成熱を $Q$ とすると $891=394+2Q-75$ より $Q=286\\,$kJ/mol。蒸発熱 $=286-242=44\\,$kJ/mol。"
+      }
+    },
+    {
+      "id": "2025-1-chem-8",
+      "answerRow": 8,
+      "topicId": "states-and-change",
+      "subtopic": "Henry's law: volume of dissolved H2 vs pressure",
+      "patternTags": [
+        "solubility",
+        "henrys-law",
+        "gas-law",
+        "graph-reading",
+        "compare-cases"
+      ],
+      "hasFigure": true,
+      "figure": {
+        "ja": "5 つのグラフ（横軸 $P$，縦軸 $V$，原点 0）：① 縦軸の正の値から横軸に平行な水平線（$V$ 一定）；② 原点付近から右上がりの直線（$V\\propto P$）；③ 原点から急に立ち上がり次第に一定値に近づく曲線；④ 左上から右下へ下がり横軸に達する直線；⑤ $P$ が小さいと大きく，$P$ とともに急に減少して横軸に近づく曲線（反比例形）。",
+        "en": "Five graphs ($P$ on the horizontal axis, $V$ vertical, origin 0): ① a horizontal line at a positive $V$ (constant); ② a straight line rising from near the origin ($V\\propto P$); ③ a curve rising steeply from the origin and levelling off to a constant; ④ a straight line falling from upper left to the $P$ axis; ⑤ a curve that is large at small $P$ and falls steeply toward the $P$ axis (inverse-proportion shape)."
+      },
+      "ja": {
+        "prompt": "温度を一定に保ち，水素の圧力 $P$ を変えて，そのとき水 $1\\,$L に溶けた水素の体積 $V$ を測定した。$P$ と $V$ の関係を表すグラフを，次の①～⑤の中から一つ選びなさい。",
+        "choices": [
+          "①",
+          "②",
+          "③",
+          "④",
+          "⑤"
+        ]
+      },
+      "en": {
+        "prompt": "At constant temperature, the hydrogen pressure $P$ was varied and the volume $V$ of hydrogen dissolved in $1\\,$L of water at that pressure was measured. Which graph shows the relation between $P$ and $V$?",
+        "choices": [
+          "①",
+          "②",
+          "③",
+          "④",
+          "⑤"
+        ]
+      },
+      "answerIndex": 0,
+      "answerOption": 1,
+      "answer": {
+        "ja": "① $V$ は $P$ によらず一定",
+        "en": "① $V$ is constant, independent of $P$"
+      },
+      "explanation": {
+        "en": "By Henry's law the amount $n$ of gas dissolved is proportional to $P$. Measured at that same pressure $P$, its volume is $V=nRT/P$; since $n\\propto P$, $V$ is independent of $P$ — a horizontal line, graph ①.",
+        "ja": "ヘンリーの法則より，溶ける気体の物質量 $n$ は圧力 $P$ に比例する。その気体の体積をその圧力 $P$ のもとで測ると $V=nRT/P$ となり，$n\\propto P$ なので $V$ は $P$ によらず一定。よって横軸に平行な直線①。"
+      }
+    },
+    {
+      "id": "2025-1-chem-9",
+      "answerRow": 9,
+      "topicId": "states-and-change",
+      "subtopic": "Order of [OH-] in 0.1 mol/L acid and base solutions",
+      "patternTags": [
+        "acids-bases",
+        "ph-comparison",
+        "strong-weak",
+        "compare-cases"
+      ],
+      "hasFigure": false,
+      "figure": {
+        "ja": "",
+        "en": ""
+      },
+      "ja": {
+        "prompt": "$0.1\\,$mol/L の 4 種の水溶液（酢酸，塩酸，水酸化ナトリウム，硫酸）がある。これらの水溶液を，水酸化物イオンの濃度 $[\\mathrm{OH^-}]$ の大きいものから順に並べたものとして正しいものを，次の①～⑤の中から一つ選びなさい。",
+        "choices": [
+          "酢酸 ＞ 塩酸 ＞ 硫酸 ＞ 水酸化ナトリウム",
+          "酢酸 ＞ 塩酸 ＞ 水酸化ナトリウム ＞ 硫酸",
+          "硫酸 ＞ 塩酸 ＞ 酢酸 ＞ 水酸化ナトリウム",
+          "水酸化ナトリウム ＞ 硫酸 ＞ 塩酸 ＞ 酢酸",
+          "水酸化ナトリウム ＞ 酢酸 ＞ 塩酸 ＞ 硫酸"
+        ]
+      },
+      "en": {
+        "prompt": "There are four $0.1\\,$mol/L aqueous solutions (acetic acid, hydrochloric acid, sodium hydroxide, sulfuric acid). Which lists them correctly in order of decreasing hydroxide-ion concentration $[\\mathrm{OH^-}]$?",
+        "choices": [
+          "acetic acid > HCl > H₂SO₄ > NaOH",
+          "acetic acid > HCl > NaOH > H₂SO₄",
+          "H₂SO₄ > HCl > acetic acid > NaOH",
+          "NaOH > H₂SO₄ > HCl > acetic acid",
+          "NaOH > acetic acid > HCl > H₂SO₄"
+        ]
+      },
+      "answerIndex": 4,
+      "answerOption": 5,
+      "answer": {
+        "ja": "⑤ 水酸化ナトリウム ＞ 酢酸 ＞ 塩酸 ＞ 硫酸",
+        "en": "⑤ NaOH > acetic acid > HCl > H₂SO₄"
+      },
+      "explanation": {
+        "en": "$[\\mathrm{H^+}][\\mathrm{OH^-}]$ is constant, so the smaller $[\\mathrm{H^+}]$, the larger $[\\mathrm{OH^-}]$. NaOH, a base, has $[\\mathrm{OH^-}]=0.1\\,$mol/L, the largest. Among the acids $[\\mathrm{H^+}]$: sulfuric (diprotic strong, ≈ 0.2) > hydrochloric (0.1) > acetic (weak, slightly ionized). Hence $[\\mathrm{OH^-}]$: NaOH > acetic acid > HCl > H₂SO₄.",
+        "ja": "$[\\mathrm{H^+}][\\mathrm{OH^-}]$ は一定なので，$[\\mathrm{H^+}]$ が小さいほど $[\\mathrm{OH^-}]$ は大きい。NaOH は塩基で $[\\mathrm{OH^-}]=0.1\\,$mol/L と最大。酸の $[\\mathrm{H^+}]$ は 硫酸（2 価の強酸，約 $0.2$）＞ 塩酸（$0.1$）＞ 酢酸（弱酸，電離度小）なので，$[\\mathrm{OH^-}]$ は NaOH ＞ 酢酸 ＞ 塩酸 ＞ 硫酸。"
+      }
+    },
+    {
+      "id": "2025-1-chem-10",
+      "answerRow": 10,
+      "topicId": "states-and-change",
+      "subtopic": "Gas volumes at each electrode in dilute H2SO4 electrolysis",
+      "patternTags": [
+        "electrochemistry",
+        "electrolysis",
+        "faradays-law",
+        "gas-volume",
+        "plug-in-numbers"
+      ],
+      "hasFigure": true,
+      "figure": {
+        "ja": "表（発生する気体の体積 [L]　陽極 / 陰極）：① 0.0224 / 0.0112；② 0.0224 / 0.0224；③ 0.0224 / 0.0448；④ 0.0448 / 0.0224；⑤ 0.0448 / 0.0448；⑥ 0.0448 / 0.0896。",
+        "en": "Table (volume of gas produced [L], anode / cathode): ① 0.0224 / 0.0112; ② 0.0224 / 0.0224; ③ 0.0224 / 0.0448; ④ 0.0448 / 0.0224; ⑤ 0.0448 / 0.0448; ⑥ 0.0448 / 0.0896."
+      },
+      "ja": {
+        "prompt": "希硫酸を，白金電極を用いて電気分解した。$0.100\\,$A の電流を 3860 秒流したとき，陽極，陰極で発生する気体の体積はそれぞれ標準状態で何 L か。正しい組み合わせを，次表の①～⑥の中から一つ選びなさい。",
+        "choices": [
+          "陽極 0.0224 / 陰極 0.0112",
+          "陽極 0.0224 / 陰極 0.0224",
+          "陽極 0.0224 / 陰極 0.0448",
+          "陽極 0.0448 / 陰極 0.0224",
+          "陽極 0.0448 / 陰極 0.0448",
+          "陽極 0.0448 / 陰極 0.0896"
+        ]
+      },
+      "en": {
+        "prompt": "Dilute sulfuric acid was electrolysed with platinum electrodes. When a current of $0.100\\,$A flows for 3860 s, what volumes (L, at STP) of gas are produced at the anode and at the cathode? Choose the correct combination from the table.",
+        "choices": [
+          "anode 0.0224 / cathode 0.0112",
+          "anode 0.0224 / cathode 0.0224",
+          "anode 0.0224 / cathode 0.0448",
+          "anode 0.0448 / cathode 0.0224",
+          "anode 0.0448 / cathode 0.0448",
+          "anode 0.0448 / cathode 0.0896"
+        ]
+      },
+      "answerIndex": 2,
+      "answerOption": 3,
+      "answer": {
+        "ja": "③ 陽極 0.0224 L / 陰極 0.0448 L",
+        "en": "③ anode 0.0224 L / cathode 0.0448 L"
+      },
+      "explanation": {
+        "en": "Charge $=0.100\\times3860=386\\,$C, i.e. $386/(9.65\\times10^4)=4.00\\times10^{-3}\\,$mol e⁻. Anode $\\mathrm{2H_2O\\to O_2+4H^++4e^-}$: $\\mathrm{O_2}$ $1.00\\times10^{-3}\\,$mol $=0.0224\\,$L. Cathode $\\mathrm{2H^++2e^-\\to H_2}$: $\\mathrm{H_2}$ $2.00\\times10^{-3}\\,$mol $=0.0448\\,$L.",
+        "ja": "電気量 $=0.100\\times3860=386\\,$C，電子 $=386/(9.65\\times10^4)=4.00\\times10^{-3}\\,$mol。陽極 $\\mathrm{2H_2O\\to O_2+4H^++4e^-}$ で $\\mathrm{O_2}$ $1.00\\times10^{-3}\\,$mol $=0.0224\\,$L。陰極 $\\mathrm{2H^++2e^-\\to H_2}$ で $\\mathrm{H_2}$ $2.00\\times10^{-3}\\,$mol $=0.0448\\,$L。"
+      }
+    },
+    {
+      "id": "2025-1-chem-11",
+      "answerRow": 11,
+      "topicId": "inorganic",
+      "subtopic": "Acidic / amphoteric / basic oxide classification",
+      "patternTags": [
+        "inorganic",
+        "oxides",
+        "amphoteric",
+        "compare-cases"
+      ],
+      "hasFigure": true,
+      "figure": {
+        "ja": "表（酸性酸化物 / 両性酸化物 / 塩基性酸化物）：① $\\mathrm{CO_2}$ / MgO / CuO；② CuO / $\\mathrm{Al_2O_3}$ / MgO；③ $\\mathrm{P_4O_{10}}$ / $\\mathrm{SiO_2}$ / ZnO；④ $\\mathrm{SiO_2}$ / ZnO / $\\mathrm{Al_2O_3}$；⑤ $\\mathrm{CO_2}$ / $\\mathrm{Al_2O_3}$ / $\\mathrm{SiO_2}$；⑥ $\\mathrm{P_4O_{10}}$ / ZnO / CuO。",
+        "en": "Table (acidic / amphoteric / basic oxide): ① $\\mathrm{CO_2}$ / MgO / CuO; ② CuO / $\\mathrm{Al_2O_3}$ / MgO; ③ $\\mathrm{P_4O_{10}}$ / $\\mathrm{SiO_2}$ / ZnO; ④ $\\mathrm{SiO_2}$ / ZnO / $\\mathrm{Al_2O_3}$; ⑤ $\\mathrm{CO_2}$ / $\\mathrm{Al_2O_3}$ / $\\mathrm{SiO_2}$; ⑥ $\\mathrm{P_4O_{10}}$ / ZnO / CuO."
+      },
+      "ja": {
+        "prompt": "酸性酸化物，両性酸化物，塩基性酸化物の組み合わせとして正しいものを，次表の①～⑥の中から一つ選びなさい。",
+        "choices": [
+          "酸性 $\\mathrm{CO_2}$ / 両性 $\\mathrm{MgO}$ / 塩基性 $\\mathrm{CuO}$",
+          "酸性 $\\mathrm{CuO}$ / 両性 $\\mathrm{Al_2O_3}$ / 塩基性 $\\mathrm{MgO}$",
+          "酸性 $\\mathrm{P_4O_{10}}$ / 両性 $\\mathrm{SiO_2}$ / 塩基性 $\\mathrm{ZnO}$",
+          "酸性 $\\mathrm{SiO_2}$ / 両性 $\\mathrm{ZnO}$ / 塩基性 $\\mathrm{Al_2O_3}$",
+          "酸性 $\\mathrm{CO_2}$ / 両性 $\\mathrm{Al_2O_3}$ / 塩基性 $\\mathrm{SiO_2}$",
+          "酸性 $\\mathrm{P_4O_{10}}$ / 両性 $\\mathrm{ZnO}$ / 塩基性 $\\mathrm{CuO}$"
+        ]
+      },
+      "en": {
+        "prompt": "Choose the correct combination of an acidic oxide, an amphoteric oxide and a basic oxide from the table.",
+        "choices": [
+          "acidic $\\mathrm{CO_2}$ / amphoteric $\\mathrm{MgO}$ / basic $\\mathrm{CuO}$",
+          "acidic $\\mathrm{CuO}$ / amphoteric $\\mathrm{Al_2O_3}$ / basic $\\mathrm{MgO}$",
+          "acidic $\\mathrm{P_4O_{10}}$ / amphoteric $\\mathrm{SiO_2}$ / basic $\\mathrm{ZnO}$",
+          "acidic $\\mathrm{SiO_2}$ / amphoteric $\\mathrm{ZnO}$ / basic $\\mathrm{Al_2O_3}$",
+          "acidic $\\mathrm{CO_2}$ / amphoteric $\\mathrm{Al_2O_3}$ / basic $\\mathrm{SiO_2}$",
+          "acidic $\\mathrm{P_4O_{10}}$ / amphoteric $\\mathrm{ZnO}$ / basic $\\mathrm{CuO}$"
+        ]
+      },
+      "answerIndex": 5,
+      "answerOption": 6,
+      "answer": {
+        "ja": "⑥ 酸性 $\\mathrm{P_4O_{10}}$ / 両性 ZnO / 塩基性 CuO",
+        "en": "⑥ acidic $\\mathrm{P_4O_{10}}$ / amphoteric ZnO / basic CuO"
+      },
+      "explanation": {
+        "en": "Nonmetal oxides $\\mathrm{CO_2}$, $\\mathrm{SiO_2}$, $\\mathrm{P_4O_{10}}$ are acidic; the Al and Zn oxides $\\mathrm{Al_2O_3}$ and ZnO are amphoteric; MgO and CuO are basic. Only ⑥ fits (① calls MgO amphoteric, ② CuO acidic, ③ $\\mathrm{SiO_2}$ amphoteric, ④ $\\mathrm{Al_2O_3}$ basic, ⑤ $\\mathrm{SiO_2}$ basic).",
+        "ja": "非金属の酸化物 $\\mathrm{CO_2}$，$\\mathrm{SiO_2}$，$\\mathrm{P_4O_{10}}$ は酸性酸化物，Al・Zn の酸化物 $\\mathrm{Al_2O_3}$，ZnO は両性酸化物，MgO，CuO は塩基性酸化物。すべて合うのは⑥のみ（①は MgO を両性，②は CuO を酸性，③は $\\mathrm{SiO_2}$ を両性，④は $\\mathrm{Al_2O_3}$ を塩基性，⑤は $\\mathrm{SiO_2}$ を塩基性としていて誤り）。"
+      }
+    },
+    {
+      "id": "2025-1-chem-12",
+      "answerRow": 12,
+      "topicId": "inorganic",
+      "subtopic": "Gas that can be collected by upward delivery",
+      "patternTags": [
+        "inorganic",
+        "gas-preparation",
+        "gas-collection",
+        "compare-cases"
+      ],
+      "hasFigure": false,
+      "figure": {
+        "ja": "",
+        "en": ""
+      },
+      "ja": {
+        "prompt": "次の操作①～⑥の中から，発生する気体を上方置換で捕集できるものを一つ選びなさい。 ① 亜硫酸水素ナトリウム $\\mathrm{NaHSO_3}$ に希硫酸を加える。 ② 酸化マンガン(IV) $\\mathrm{MnO_2}$ に濃塩酸を加えて加熱する。 ③ 石灰石に希塩酸を加える。 ④ 酸化マンガン(IV)に過酸化水素水 $\\mathrm{H_2O_2}$ aq を加える。 ⑤ 硫化鉄(II) FeS に希硫酸を加える。 ⑥ 塩化アンモニウム $\\mathrm{NH_4Cl}$ に水酸化カルシウム $\\mathrm{Ca(OH)_2}$ を加えて加熱する。",
+        "choices": [
+          "亜硫酸水素ナトリウム $\\mathrm{NaHSO_3}$ に希硫酸を加える。",
+          "酸化マンガン(IV) $\\mathrm{MnO_2}$ に濃塩酸を加えて加熱する。",
+          "石灰石に希塩酸を加える。",
+          "酸化マンガン(IV)に過酸化水素水 $\\mathrm{H_2O_2}$ aq を加える。",
+          "硫化鉄(II) FeS に希硫酸を加える。",
+          "塩化アンモニウム $\\mathrm{NH_4Cl}$ に水酸化カルシウム $\\mathrm{Ca(OH)_2}$ を加えて加熱する。"
+        ]
+      },
+      "en": {
+        "prompt": "From operations ①–⑥, choose the one whose gas can be collected by upward delivery (displacement of air upward). ① Add dilute $\\mathrm{H_2SO_4}$ to sodium hydrogensulfite $\\mathrm{NaHSO_3}$. ② Add concentrated HCl to manganese(IV) oxide $\\mathrm{MnO_2}$ and heat. ③ Add dilute HCl to limestone. ④ Add hydrogen peroxide solution $\\mathrm{H_2O_2}$ aq to manganese(IV) oxide. ⑤ Add dilute $\\mathrm{H_2SO_4}$ to iron(II) sulfide FeS. ⑥ Add calcium hydroxide $\\mathrm{Ca(OH)_2}$ to ammonium chloride $\\mathrm{NH_4Cl}$ and heat.",
+        "choices": [
+          "Add dilute $\\mathrm{H_2SO_4}$ to sodium hydrogensulfite $\\mathrm{NaHSO_3}$.",
+          "Add concentrated HCl to manganese(IV) oxide $\\mathrm{MnO_2}$ and heat.",
+          "Add dilute HCl to limestone.",
+          "Add hydrogen peroxide solution $\\mathrm{H_2O_2}$ aq to manganese(IV) oxide.",
+          "Add dilute $\\mathrm{H_2SO_4}$ to iron(II) sulfide FeS.",
+          "Add calcium hydroxide $\\mathrm{Ca(OH)_2}$ to ammonium chloride $\\mathrm{NH_4Cl}$ and heat."
+        ]
+      },
+      "answerIndex": 5,
+      "answerOption": 6,
+      "answer": {
+        "ja": "⑥ $\\mathrm{NH_3}$（空気より軽く水に溶けやすい）",
+        "en": "⑥ $\\mathrm{NH_3}$ (lighter than air, very soluble in water)"
+      },
+      "explanation": {
+        "en": "Upward delivery is used for gases lighter than air that dissolve well in water. Gases formed: ① $\\mathrm{SO_2}$, ② $\\mathrm{Cl_2}$, ③ $\\mathrm{CO_2}$, ⑤ $\\mathrm{H_2S}$ (all heavier than air → downward delivery), ④ $\\mathrm{O_2}$ (over water), ⑥ $\\mathrm{NH_3}$ (M = 17, lighter than air, very soluble → upward delivery).",
+        "ja": "上方置換は空気より軽く水に溶けやすい気体に用いる。発生する気体：① $\\mathrm{SO_2}$，② $\\mathrm{Cl_2}$，③ $\\mathrm{CO_2}$，⑤ $\\mathrm{H_2S}$（いずれも空気より重く下方置換），④ $\\mathrm{O_2}$（水上置換），⑥ $\\mathrm{NH_3}$（分子量 17 で空気より軽く水によく溶ける → 上方置換）。"
+      }
+    },
+    {
+      "id": "2025-1-chem-13",
+      "answerRow": 13,
+      "topicId": "inorganic",
+      "subtopic": "Compound fitting basicity, gas with HCl and the Solvay process",
+      "patternTags": [
+        "inorganic",
+        "solvay-process",
+        "alkali-metals",
+        "compare-cases"
+      ],
+      "hasFigure": false,
+      "figure": {
+        "ja": "",
+        "en": ""
+      },
+      "ja": {
+        "prompt": "下の化合物①～④のうち，次の記述 a～c のすべてにあてはまるものを一つ選びなさい。 a 水に溶けやすく，水溶液が塩基性になる。 b 希塩酸を加えると，気体が発生する。 c アンモニアソーダ法（ソルベー法）の原料または最終生成物である。 ① $\\mathrm{NaHCO_3}$ ② $\\mathrm{Na_2CO_3}$ ③ $\\mathrm{Ca(OH)_2}$ ④ $\\mathrm{CaCO_3}$",
+        "choices": [
+          "$\\mathrm{NaHCO_3}$",
+          "$\\mathrm{Na_2CO_3}$",
+          "$\\mathrm{Ca(OH)_2}$",
+          "$\\mathrm{CaCO_3}$"
+        ]
+      },
+      "en": {
+        "prompt": "Of compounds ①–④, choose the one that satisfies ALL of a–c. a It dissolves readily in water and its solution is basic. b It evolves a gas when dilute hydrochloric acid is added. c It is a raw material or the final product of the ammonia-soda (Solvay) process. ① $\\mathrm{NaHCO_3}$ ② $\\mathrm{Na_2CO_3}$ ③ $\\mathrm{Ca(OH)_2}$ ④ $\\mathrm{CaCO_3}$",
+        "choices": [
+          "$\\mathrm{NaHCO_3}$",
+          "$\\mathrm{Na_2CO_3}$",
+          "$\\mathrm{Ca(OH)_2}$",
+          "$\\mathrm{CaCO_3}$"
+        ]
+      },
+      "answerIndex": 1,
+      "answerOption": 2,
+      "answer": {
+        "ja": "② $\\mathrm{Na_2CO_3}$",
+        "en": "② $\\mathrm{Na_2CO_3}$"
+      },
+      "explanation": {
+        "en": "$\\mathrm{Na_2CO_3}$ dissolves readily giving a basic solution (a), releases $\\mathrm{CO_2}$ with HCl (b), and is the final product of the Solvay process (c). $\\mathrm{NaHCO_3}$ is only moderately soluble (it precipitates as an intermediate, neither raw material nor final product); $\\mathrm{Ca(OH)_2}$ is sparingly soluble and gives no gas with HCl; $\\mathrm{CaCO_3}$ is a raw material but insoluble in water.",
+        "ja": "$\\mathrm{Na_2CO_3}$ は水によく溶けて塩基性を示し（a），塩酸で $\\mathrm{CO_2}$ を発生し（b），ソルベー法の最終生成物である（c）。$\\mathrm{NaHCO_3}$ は溶解度が比較的小さく（ソルベー法で沈殿する中間生成物で，原料・最終生成物ではない），$\\mathrm{Ca(OH)_2}$ は水に溶けにくく塩酸で気体を出さない，$\\mathrm{CaCO_3}$ は原料だが水に溶けない。"
+      }
+    },
+    {
+      "id": "2025-1-chem-14",
+      "answerRow": 14,
+      "topicId": "inorganic",
+      "subtopic": "Unsuitable method to distinguish two ions",
+      "patternTags": [
+        "inorganic",
+        "ion-analysis",
+        "qualitative-analysis",
+        "pick-false-statement"
+      ],
+      "hasFigure": true,
+      "figure": {
+        "ja": "表（イオン / 区別する方法）：① $\\mathrm{Na^+}$，$\\mathrm{K^+}$ / 白金線で炎色反応を観察；② $\\mathrm{Cu^{2+}}$，$\\mathrm{Fe^{2+}}$ / 塩酸で酸性にして $\\mathrm{H_2S}$ を通じ沈殿を観察；③ $\\mathrm{Ag^+}$，$\\mathrm{Ba^{2+}}$ / NaCl aq を加え沈殿を観察；④ $\\mathrm{Al^{3+}}$，$\\mathrm{Zn^{2+}}$ / $\\mathrm{NH_3}$ aq を過剰に加え沈殿が溶けるか観察；⑤ $\\mathrm{Fe^{2+}}$，$\\mathrm{Fe^{3+}}$ / 希硫酸を加え沈殿を観察。",
+        "en": "Table (ions / method): ① $\\mathrm{Na^+}$, $\\mathrm{K^+}$ / flame test with a Pt wire; ② $\\mathrm{Cu^{2+}}$, $\\mathrm{Fe^{2+}}$ / acidify with HCl, pass $\\mathrm{H_2S}$, look for a precipitate; ③ $\\mathrm{Ag^+}$, $\\mathrm{Ba^{2+}}$ / add NaCl aq, look for a precipitate; ④ $\\mathrm{Al^{3+}}$, $\\mathrm{Zn^{2+}}$ / add excess $\\mathrm{NH_3}$ aq, see if the precipitate dissolves; ⑤ $\\mathrm{Fe^{2+}}$, $\\mathrm{Fe^{3+}}$ / add dilute $\\mathrm{H_2SO_4}$, look for a precipitate."
+      },
+      "ja": {
+        "prompt": "次表に示した二つのイオンを区別する方法として適当でないものを，①～⑤の中から一つ選びなさい。",
+        "choices": [
+          "$\\mathrm{Na^+}$，$\\mathrm{K^+}$：水溶液に浸した白金線を炎の中に入れ，炎の色を観察する。",
+          "$\\mathrm{Cu^{2+}}$，$\\mathrm{Fe^{2+}}$：水溶液に塩酸 HCl aq を加えて酸性にし，硫化水素 $\\mathrm{H_2S}$ を通じて沈殿が生じるかどうか観察する。",
+          "$\\mathrm{Ag^+}$，$\\mathrm{Ba^{2+}}$：水溶液に塩化ナトリウム水溶液 NaCl aq を加え，沈殿が生じるかどうか観察する。",
+          "$\\mathrm{Al^{3+}}$，$\\mathrm{Zn^{2+}}$：水溶液にアンモニア水 $\\mathrm{NH_3}$ aq を過剰に加え，いったん生じた沈殿が溶けるかどうか観察する。",
+          "$\\mathrm{Fe^{2+}}$，$\\mathrm{Fe^{3+}}$：水溶液に希硫酸 dil. $\\mathrm{H_2SO_4}$ を加え，沈殿が生じるかどうか観察する。"
+        ]
+      },
+      "en": {
+        "prompt": "Which method in the table is NOT appropriate for distinguishing the two ions shown?",
+        "choices": [
+          "$\\mathrm{Na^+}$, $\\mathrm{K^+}$: dip a platinum wire in the solution, put it in a flame and observe the flame colour.",
+          "$\\mathrm{Cu^{2+}}$, $\\mathrm{Fe^{2+}}$: acidify the solution with HCl aq, pass hydrogen sulfide $\\mathrm{H_2S}$ and observe whether a precipitate forms.",
+          "$\\mathrm{Ag^+}$, $\\mathrm{Ba^{2+}}$: add NaCl aq and observe whether a precipitate forms.",
+          "$\\mathrm{Al^{3+}}$, $\\mathrm{Zn^{2+}}$: add aqueous ammonia $\\mathrm{NH_3}$ aq in excess and observe whether the precipitate first formed dissolves.",
+          "$\\mathrm{Fe^{2+}}$, $\\mathrm{Fe^{3+}}$: add dilute $\\mathrm{H_2SO_4}$ and observe whether a precipitate forms."
+        ]
+      },
+      "answerIndex": 4,
+      "answerOption": 5,
+      "answer": {
+        "ja": "⑤（どちらも希硫酸で沈殿しない）",
+        "en": "⑤ (neither ion precipitates with dilute $\\mathrm{H_2SO_4}$)"
+      },
+      "explanation": {
+        "en": "⑤ $\\mathrm{FeSO_4}$ and $\\mathrm{Fe_2(SO_4)_3}$ are both soluble, so dilute $\\mathrm{H_2SO_4}$ gives no precipitate with either — no distinction. ① Flame test: Na yellow, K violet. ② In acid, $\\mathrm{H_2S}$ precipitates black CuS but not FeS. ③ White AgCl precipitates; $\\mathrm{BaCl_2}$ is soluble. ④ $\\mathrm{Zn(OH)_2}$ dissolves in excess $\\mathrm{NH_3}$ as $\\mathrm{[Zn(NH_3)_4]^{2+}}$, $\\mathrm{Al(OH)_3}$ does not.",
+        "ja": "⑤ $\\mathrm{FeSO_4}$，$\\mathrm{Fe_2(SO_4)_3}$ はどちらも水に溶けるので，希硫酸を加えても沈殿は生じず区別できない。① 炎色反応 Na 黄色，K 赤紫色。② 酸性で $\\mathrm{H_2S}$ を通じると CuS（黒）は沈殿するが FeS は沈殿しない。③ AgCl（白）は沈殿，$\\mathrm{BaCl_2}$ は溶ける。④ $\\mathrm{Zn(OH)_2}$ は過剰の $\\mathrm{NH_3}$ で $\\mathrm{[Zn(NH_3)_4]^{2+}}$ となり溶けるが，$\\mathrm{Al(OH)_3}$ は溶けない。"
+      }
+    },
+    {
+      "id": "2025-1-chem-15",
+      "answerRow": 15,
+      "topicId": "states-and-change",
+      "subtopic": "Reaction in which the underlined atom's oxidation number increases",
+      "patternTags": [
+        "redox",
+        "oxidation-number",
+        "compare-cases"
+      ],
+      "hasFigure": false,
+      "figure": {
+        "ja": "",
+        "en": ""
+      },
+      "ja": {
+        "prompt": "次の反応①～⑤のうち，下線部の原子の酸化数が増加しているものを一つ選びなさい。 ① $\\mathrm{2KI+H_2\\underline{O}_2+H_2SO_4\\to I_2+2H_2O+K_2SO_4}$ ② $\\mathrm{2K\\underline{Mn}O_4+5H_2O_2+3H_2SO_4\\to K_2SO_4+2MnSO_4+5O_2+8H_2O}$ ③ $\\mathrm{K_2\\underline{Cr}_2O_7+6FeSO_4+7H_2SO_4\\to 3Fe_2(SO_4)_3+Cr_2(SO_4)_3+K_2SO_4+7H_2O}$ ④ $\\mathrm{\\underline{Mn}O_2+4HCl\\to MnCl_2+Cl_2+2H_2O}$ ⑤ $\\mathrm{I_2+\\underline{S}O_2+2H_2O\\to 2HI+H_2SO_4}$",
+        "choices": [
+          "$\\mathrm{2KI+H_2\\underline{O}_2+H_2SO_4\\to I_2+2H_2O+K_2SO_4}$",
+          "$\\mathrm{2K\\underline{Mn}O_4+5H_2O_2+3H_2SO_4\\to K_2SO_4+2MnSO_4+5O_2+8H_2O}$",
+          "$\\mathrm{K_2\\underline{Cr}_2O_7+6FeSO_4+7H_2SO_4\\to 3Fe_2(SO_4)_3+Cr_2(SO_4)_3+K_2SO_4+7H_2O}$",
+          "$\\mathrm{\\underline{Mn}O_2+4HCl\\to MnCl_2+Cl_2+2H_2O}$",
+          "$\\mathrm{I_2+\\underline{S}O_2+2H_2O\\to 2HI+H_2SO_4}$"
+        ]
+      },
+      "en": {
+        "prompt": "In which of reactions ①–⑤ does the oxidation number of the underlined atom INCREASE? ① $\\mathrm{2KI+H_2\\underline{O}_2+H_2SO_4\\to I_2+2H_2O+K_2SO_4}$ ② $\\mathrm{2K\\underline{Mn}O_4+5H_2O_2+3H_2SO_4\\to K_2SO_4+2MnSO_4+5O_2+8H_2O}$ ③ $\\mathrm{K_2\\underline{Cr}_2O_7+6FeSO_4+7H_2SO_4\\to 3Fe_2(SO_4)_3+Cr_2(SO_4)_3+K_2SO_4+7H_2O}$ ④ $\\mathrm{\\underline{Mn}O_2+4HCl\\to MnCl_2+Cl_2+2H_2O}$ ⑤ $\\mathrm{I_2+\\underline{S}O_2+2H_2O\\to 2HI+H_2SO_4}$",
+        "choices": [
+          "$\\mathrm{2KI+H_2\\underline{O}_2+H_2SO_4\\to I_2+2H_2O+K_2SO_4}$",
+          "$\\mathrm{2K\\underline{Mn}O_4+5H_2O_2+3H_2SO_4\\to K_2SO_4+2MnSO_4+5O_2+8H_2O}$",
+          "$\\mathrm{K_2\\underline{Cr}_2O_7+6FeSO_4+7H_2SO_4\\to 3Fe_2(SO_4)_3+Cr_2(SO_4)_3+K_2SO_4+7H_2O}$",
+          "$\\mathrm{\\underline{Mn}O_2+4HCl\\to MnCl_2+Cl_2+2H_2O}$",
+          "$\\mathrm{I_2+\\underline{S}O_2+2H_2O\\to 2HI+H_2SO_4}$"
+        ]
+      },
+      "answerIndex": 4,
+      "answerOption": 5,
+      "answer": {
+        "ja": "⑤ S：$+4\\to+6$",
+        "en": "⑤ S: $+4\\to+6$"
+      },
+      "explanation": {
+        "en": "Changes of the underlined atom: ① O in $\\mathrm{H_2O_2}$ $-1\\to-2$ (decrease), ② Mn $+7\\to+2$ (decrease), ③ Cr $+6\\to+3$ (decrease), ④ Mn $+4\\to+2$ (decrease), ⑤ S in $\\mathrm{SO_2}$ $+4\\to+6$ in $\\mathrm{H_2SO_4}$ (increase). In ⑤ $\\mathrm{SO_2}$ acts as the reducing agent.",
+        "ja": "下線部の酸化数変化：① $\\mathrm{H_2O_2}$ の O $-1\\to-2$（減少），② Mn $+7\\to+2$（減少），③ Cr $+6\\to+3$（減少），④ Mn $+4\\to+2$（減少），⑤ $\\mathrm{SO_2}$ の S $+4\\to\\mathrm{H_2SO_4}$ の $+6$（増加）。$\\mathrm{SO_2}$ が還元剤としてはたらく⑤が答え。"
+      }
+    },
+    {
+      "id": "2025-1-chem-16",
+      "answerRow": 16,
+      "topicId": "organic",
+      "subtopic": "Distinguishing 1-butanol from diethyl ether",
+      "patternTags": [
+        "organic",
+        "alcohols",
+        "alcohol-reactions",
+        "isomers",
+        "compare-cases"
+      ],
+      "hasFigure": false,
+      "figure": {
+        "ja": "",
+        "en": ""
+      },
+      "ja": {
+        "prompt": "次の記述①～④のうち，1-ブタノール $\\mathrm{CH_3CH_2CH_2CH_2OH}$ とジエチルエーテル $\\mathrm{CH_3CH_2OCH_2CH_3}$ を区別する方法として正しいものを一つ選びなさい。 ① ナトリウムを加える。 ② 炭酸水素ナトリウムを加える。 ③ 塩化鉄(III)水溶液を加える。 ④ アンモニア性硝酸銀水溶液を加えてあたためる。",
+        "choices": [
+          "ナトリウムを加える。",
+          "炭酸水素ナトリウムを加える。",
+          "塩化鉄(III)水溶液を加える。",
+          "アンモニア性硝酸銀水溶液を加えてあたためる。"
+        ]
+      },
+      "en": {
+        "prompt": "Which of ①–④ is a correct way to distinguish 1-butanol $\\mathrm{CH_3CH_2CH_2CH_2OH}$ from diethyl ether $\\mathrm{CH_3CH_2OCH_2CH_3}$? ① Add sodium. ② Add sodium hydrogencarbonate. ③ Add aqueous iron(III) chloride. ④ Add ammoniacal silver nitrate solution and warm.",
+        "choices": [
+          "Add sodium.",
+          "Add sodium hydrogencarbonate.",
+          "Add aqueous iron(III) chloride.",
+          "Add ammoniacal silver nitrate solution and warm."
+        ]
+      },
+      "answerIndex": 0,
+      "answerOption": 1,
+      "answer": {
+        "ja": "① ナトリウムを加える",
+        "en": "① add sodium"
+      },
+      "explanation": {
+        "en": "1-Butanol has an –OH group and reacts with Na to give $\\mathrm{H_2}$; the ether does not — so ① works. ② $\\mathrm{NaHCO_3}$ reacts with carboxylic acids, not with either compound. ③ $\\mathrm{FeCl_3}$ tests for phenols; neither gives a colour. ④ The silver-mirror test detects aldehydes; neither responds.",
+        "ja": "1-ブタノールはヒドロキシ基をもち，Na と反応して $\\mathrm{H_2}$ を発生するが，エーテルは反応しない — ①で区別できる。② $\\mathrm{NaHCO_3}$ はカルボン酸と反応するがどちらとも反応しない。③ $\\mathrm{FeCl_3}$ はフェノール類の検出でどちらも呈色しない。④ 銀鏡反応はアルデヒドの検出でどちらも示さない。"
+      }
+    },
+    {
+      "id": "2025-1-chem-17",
+      "answerRow": 17,
+      "topicId": "organic",
+      "subtopic": "Alkenes whose Br2 adduct has exactly one asymmetric carbon",
+      "patternTags": [
+        "organic",
+        "bromine-addition",
+        "asymmetric-carbon",
+        "chirality",
+        "true-false-combo"
+      ],
+      "hasFigure": false,
+      "figure": {
+        "ja": "",
+        "en": ""
+      },
+      "ja": {
+        "prompt": "次の化合物 a～f の中には，臭素 $\\mathrm{Br_2}$ を付加したとき，不斉炭素原子を一つだけもつ生成物を与えるものが二つある。その組み合わせとして正しいものを，下の①～⑥の中から一つ選びなさい。 a $\\mathrm{BrHC{=}CHBr}$ b $\\mathrm{CH_3HC{=}CHBr}$ c $\\mathrm{H_2C{=}C(CH_3)_2}$ d $\\mathrm{CH_3HC{=}CHCH_3}$ e $\\mathrm{H_2C{=}CHCl}$ f $\\mathrm{CH_3HC{=}CHCl}$",
+        "choices": [
+          "a, d",
+          "a, f",
+          "b, d",
+          "b, e",
+          "c, e",
+          "c, f"
+        ]
+      },
+      "en": {
+        "prompt": "Among compounds a–f, two give a product with EXACTLY ONE asymmetric carbon atom when bromine $\\mathrm{Br_2}$ is added. Choose the correct pair. a $\\mathrm{BrHC{=}CHBr}$ b $\\mathrm{CH_3HC{=}CHBr}$ c $\\mathrm{H_2C{=}C(CH_3)_2}$ d $\\mathrm{CH_3HC{=}CHCH_3}$ e $\\mathrm{H_2C{=}CHCl}$ f $\\mathrm{CH_3HC{=}CHCl}$",
+        "choices": [
+          "a, d",
+          "a, f",
+          "b, d",
+          "b, e",
+          "c, e",
+          "c, f"
+        ]
+      },
+      "answerIndex": 3,
+      "answerOption": 4,
+      "answer": {
+        "ja": "④ b, e",
+        "en": "④ b, e"
+      },
+      "explanation": {
+        "en": "Adducts: a $\\mathrm{CHBr_2{-}CHBr_2}$ (none), b $\\mathrm{CH_3{-}C^*HBr{-}CHBr_2}$ (one), c $\\mathrm{CH_2Br{-}CBr(CH_3)_2}$ (none), d $\\mathrm{CH_3{-}C^*HBr{-}C^*HBr{-}CH_3}$ (two), e $\\mathrm{CH_2Br{-}C^*HBrCl}$ (one), f $\\mathrm{CH_3{-}C^*HBr{-}C^*HBrCl}$ (two). Exactly one: b and e.",
+        "ja": "付加生成物：a $\\mathrm{CHBr_2{-}CHBr_2}$（不斉炭素なし），b $\\mathrm{CH_3{-}C^*HBr{-}CHBr_2}$（1 個），c $\\mathrm{CH_2Br{-}CBr(CH_3)_2}$（なし），d $\\mathrm{CH_3{-}C^*HBr{-}C^*HBr{-}CH_3}$（2 個），e $\\mathrm{CH_2Br{-}C^*HBrCl}$（1 個），f $\\mathrm{CH_3{-}C^*HBr{-}C^*HBrCl}$（2 個）。一つだけなのは b と e。"
+      }
+    },
+    {
+      "id": "2025-1-chem-18",
+      "answerRow": 18,
+      "topicId": "organic",
+      "subtopic": "Cumene route to methyl salicylate and acetylsalicylic acid",
+      "patternTags": [
+        "organic",
+        "aromatic",
+        "synthesis",
+        "esterification",
+        "reaction-products"
+      ],
+      "hasFigure": true,
+      "figure": {
+        "ja": "経路図：ベンゼン →（$\\mathrm{CH_2{=}CH{-}CH_3}$，触媒）→ クメン $\\mathrm{C_6H_5CH(CH_3)_2}$ →（$\\mathrm{O_2}$）→（$\\mathrm{H_2SO_4}$）→ A ＋ アセトン $\\mathrm{CH_3COCH_3}$。A →（NaOH）→（$\\mathrm{CO_2}$，高温・高圧）→（$\\mathrm{H_2SO_4}$）→ サリチル酸 $o$-$\\mathrm{C_6H_4(OH)COOH}$。サリチル酸 →（B）→ サリチル酸メチル $o$-$\\mathrm{C_6H_4(OH)COOCH_3}$；サリチル酸 →（C）→ アセチルサリチル酸 $o$-$\\mathrm{C_6H_4(OCOCH_3)COOH}$。表は (A, B, C) の組み合わせ①～⑥：A は 安息香酸（①②）・トルエン（③④）・フェノール（⑤⑥），B/C は「無水酢酸 / $\\mathrm{CH_3OH}$，$\\mathrm{H_2SO_4}$」（①③⑤）または「$\\mathrm{CH_3OH}$，$\\mathrm{H_2SO_4}$ / 無水酢酸」（②④⑥）。",
+        "en": "Route: benzene → ($\\mathrm{CH_2{=}CH{-}CH_3}$, catalyst) → cumene $\\mathrm{C_6H_5CH(CH_3)_2}$ → ($\\mathrm{O_2}$) → ($\\mathrm{H_2SO_4}$) → A + acetone $\\mathrm{CH_3COCH_3}$. A → (NaOH) → ($\\mathrm{CO_2}$, high temperature and pressure) → ($\\mathrm{H_2SO_4}$) → salicylic acid $o$-$\\mathrm{C_6H_4(OH)COOH}$. Salicylic acid → (B) → methyl salicylate $o$-$\\mathrm{C_6H_4(OH)COOCH_3}$; salicylic acid → (C) → acetylsalicylic acid $o$-$\\mathrm{C_6H_4(OCOCH_3)COOH}$. The table gives (A, B, C) options ①–⑥: A is benzoic acid (①②), toluene (③④) or phenol (⑤⑥); B / C is 'acetic anhydride / $\\mathrm{CH_3OH}$, $\\mathrm{H_2SO_4}$' (①③⑤) or '$\\mathrm{CH_3OH}$, $\\mathrm{H_2SO_4}$ / acetic anhydride' (②④⑥)."
+      },
+      "ja": {
+        "prompt": "次の図はベンゼンからサリチル酸メチルおよびアセチルサリチル酸を合成する経路を示している。図中の A～C にあてはまる化合物の組み合わせとして正しいものを，下表の①～⑥の中から一つ選びなさい。",
+        "choices": [
+          "A 安息香酸 $\\mathrm{C_6H_5COOH}$ / B 無水酢酸 $\\mathrm{(CH_3CO)_2O}$ / C $\\mathrm{CH_3OH}$，$\\mathrm{H_2SO_4}$",
+          "A 安息香酸 $\\mathrm{C_6H_5COOH}$ / B $\\mathrm{CH_3OH}$，$\\mathrm{H_2SO_4}$ / C 無水酢酸 $\\mathrm{(CH_3CO)_2O}$",
+          "A トルエン $\\mathrm{C_6H_5CH_3}$ / B 無水酢酸 $\\mathrm{(CH_3CO)_2O}$ / C $\\mathrm{CH_3OH}$，$\\mathrm{H_2SO_4}$",
+          "A トルエン $\\mathrm{C_6H_5CH_3}$ / B $\\mathrm{CH_3OH}$，$\\mathrm{H_2SO_4}$ / C 無水酢酸 $\\mathrm{(CH_3CO)_2O}$",
+          "A フェノール $\\mathrm{C_6H_5OH}$ / B 無水酢酸 $\\mathrm{(CH_3CO)_2O}$ / C $\\mathrm{CH_3OH}$，$\\mathrm{H_2SO_4}$",
+          "A フェノール $\\mathrm{C_6H_5OH}$ / B $\\mathrm{CH_3OH}$，$\\mathrm{H_2SO_4}$ / C 無水酢酸 $\\mathrm{(CH_3CO)_2O}$"
+        ]
+      },
+      "en": {
+        "prompt": "The figure shows a route for synthesizing methyl salicylate and acetylsalicylic acid from benzene. Choose the correct combination of the compounds A–C from the table.",
+        "choices": [
+          "A benzoic acid $\\mathrm{C_6H_5COOH}$ / B acetic anhydride $\\mathrm{(CH_3CO)_2O}$ / C $\\mathrm{CH_3OH}$, $\\mathrm{H_2SO_4}$",
+          "A benzoic acid $\\mathrm{C_6H_5COOH}$ / B $\\mathrm{CH_3OH}$, $\\mathrm{H_2SO_4}$ / C acetic anhydride $\\mathrm{(CH_3CO)_2O}$",
+          "A toluene $\\mathrm{C_6H_5CH_3}$ / B acetic anhydride $\\mathrm{(CH_3CO)_2O}$ / C $\\mathrm{CH_3OH}$, $\\mathrm{H_2SO_4}$",
+          "A toluene $\\mathrm{C_6H_5CH_3}$ / B $\\mathrm{CH_3OH}$, $\\mathrm{H_2SO_4}$ / C acetic anhydride $\\mathrm{(CH_3CO)_2O}$",
+          "A phenol $\\mathrm{C_6H_5OH}$ / B acetic anhydride $\\mathrm{(CH_3CO)_2O}$ / C $\\mathrm{CH_3OH}$, $\\mathrm{H_2SO_4}$",
+          "A phenol $\\mathrm{C_6H_5OH}$ / B $\\mathrm{CH_3OH}$, $\\mathrm{H_2SO_4}$ / C acetic anhydride $\\mathrm{(CH_3CO)_2O}$"
+        ]
+      },
+      "answerIndex": 5,
+      "answerOption": 6,
+      "answer": {
+        "ja": "⑥ A フェノール / B $\\mathrm{CH_3OH}$，$\\mathrm{H_2SO_4}$ / C 無水酢酸",
+        "en": "⑥ A phenol / B $\\mathrm{CH_3OH}$, $\\mathrm{H_2SO_4}$ / C acetic anhydride"
+      },
+      "explanation": {
+        "en": "Cumene process: benzene + propene → cumene; oxidation by $\\mathrm{O_2}$ then decomposition with $\\mathrm{H_2SO_4}$ gives phenol (A) and acetone. Phenol → (NaOH) sodium phenoxide → ($\\mathrm{CO_2}$, high T and P) → ($\\mathrm{H_2SO_4}$) salicylic acid. Esterifying its –COOH with methanol + conc. $\\mathrm{H_2SO_4}$ gives methyl salicylate (B); acetylating its –OH with acetic anhydride gives acetylsalicylic acid (C).",
+        "ja": "クメン法：ベンゼン＋プロペン → クメン，$\\mathrm{O_2}$ で酸化後 $\\mathrm{H_2SO_4}$ で分解するとフェノール（A）とアセトンが得られる。フェノール → NaOH でナトリウムフェノキシド → $\\mathrm{CO_2}$（高温・高圧）→ $\\mathrm{H_2SO_4}$ でサリチル酸。サリチル酸の –COOH をメタノール＋濃硫酸でエステル化するとサリチル酸メチル（B），–OH を無水酢酸でアセチル化するとアセチルサリチル酸（C）。"
+      }
+    },
+    {
+      "id": "2025-1-chem-19",
+      "answerRow": 19,
+      "topicId": "organic",
+      "subtopic": "Iodoform-positive compound identified from combustion data",
+      "patternTags": [
+        "organic",
+        "combustion-analysis",
+        "iodoform",
+        "molecular-formula",
+        "plug-in-numbers"
+      ],
+      "hasFigure": false,
+      "figure": {
+        "ja": "",
+        "en": ""
+      },
+      "ja": {
+        "prompt": "次の化合物①～⑥のうち，ヨードホルム反応を示し，化合物 $58\\,$mg を完全燃焼させると $\\mathrm{CO_2}$ $132\\,$mg と $\\mathrm{H_2O}$ $54\\,$mg を生成するものを，一つ選びなさい。 ① $\\mathrm{CH_3CH(OH)CH_3}$ ② $\\mathrm{CH_3COCH_3}$ ③ $\\mathrm{CH_3CH_2CHO}$ ④ $\\mathrm{CH_3CH_2CH(OH)CH_3}$ ⑤ $\\mathrm{CH_3CH_2COCH_3}$ ⑥ $\\mathrm{CH_3CH_2CH_2CHO}$",
+        "choices": [
+          "$\\mathrm{CH_3CH(OH)CH_3}$",
+          "$\\mathrm{CH_3COCH_3}$",
+          "$\\mathrm{CH_3CH_2CHO}$",
+          "$\\mathrm{CH_3CH_2CH(OH)CH_3}$",
+          "$\\mathrm{CH_3CH_2COCH_3}$",
+          "$\\mathrm{CH_3CH_2CH_2CHO}$"
+        ]
+      },
+      "en": {
+        "prompt": "Which of ①–⑥ gives a positive iodoform reaction and, when $58\\,$mg of it is burned completely, produces $132\\,$mg of $\\mathrm{CO_2}$ and $54\\,$mg of $\\mathrm{H_2O}$? ① $\\mathrm{CH_3CH(OH)CH_3}$ ② $\\mathrm{CH_3COCH_3}$ ③ $\\mathrm{CH_3CH_2CHO}$ ④ $\\mathrm{CH_3CH_2CH(OH)CH_3}$ ⑤ $\\mathrm{CH_3CH_2COCH_3}$ ⑥ $\\mathrm{CH_3CH_2CH_2CHO}$",
+        "choices": [
+          "$\\mathrm{CH_3CH(OH)CH_3}$",
+          "$\\mathrm{CH_3COCH_3}$",
+          "$\\mathrm{CH_3CH_2CHO}$",
+          "$\\mathrm{CH_3CH_2CH(OH)CH_3}$",
+          "$\\mathrm{CH_3CH_2COCH_3}$",
+          "$\\mathrm{CH_3CH_2CH_2CHO}$"
+        ]
+      },
+      "answerIndex": 1,
+      "answerOption": 2,
+      "answer": {
+        "ja": "② $\\mathrm{CH_3COCH_3}$（アセトン）",
+        "en": "② $\\mathrm{CH_3COCH_3}$ (acetone)"
+      },
+      "explanation": {
+        "en": "C $=132\\times\\tfrac{12}{44}=36\\,$mg (3.0 mmol), H $=54\\times\\tfrac{2}{18}=6\\,$mg (6.0 mmol), O $=58-36-6=16\\,$mg (1.0 mmol): $\\mathrm{C_3H_6O}$ (M = 58). Candidates are acetone ② and propanal ③; only acetone has the $\\mathrm{CH_3CO{-}}$ group and gives the iodoform reaction.",
+        "ja": "C $=132\\times\\tfrac{12}{44}=36\\,$mg（3.0 mmol），H $=54\\times\\tfrac{2}{18}=6\\,$mg（6.0 mmol），O $=58-36-6=16\\,$mg（1.0 mmol）。組成式 $\\mathrm{C_3H_6O}$（式量 58）。候補はアセトン②とプロパナール③で，ヨードホルム反応（$\\mathrm{CH_3CO{-}}$ 構造）を示すのはアセトン。"
+      }
+    },
+    {
+      "id": "2025-1-chem-20",
+      "answerRow": 20,
+      "topicId": "organic",
+      "subtopic": "Number of peptides from one glutamic acid and two glycines",
+      "patternTags": [
+        "organic",
+        "amino-acids",
+        "peptides",
+        "isomers",
+        "counting"
+      ],
+      "hasFigure": true,
+      "figure": {
+        "ja": "構造式：グルタミン酸 $\\mathrm{H_2N{-}CH(COOH){-}CH_2{-}CH_2{-}COOH}$（$\\alpha$ 炭素に COOH と H，側鎖末端にもう一つの COOH），グリシン $\\mathrm{H_2N{-}CH_2{-}COOH}$。",
+        "en": "Structures: glutamic acid $\\mathrm{H_2N{-}CH(COOH){-}CH_2{-}CH_2{-}COOH}$ (COOH and H on the $\\alpha$ carbon, a second COOH at the side-chain end); glycine $\\mathrm{H_2N{-}CH_2{-}COOH}$."
+      },
+      "ja": {
+        "prompt": "グルタミン酸 1 分子とグリシン 2 分子が二つのアミド結合を形成してできる鎖式ペプチドは何種類あるか。正しいものを次の①～⑤の中から一つ選びなさい。ただし，立体異性体は区別しないものとする。",
+        "choices": [
+          "3",
+          "4",
+          "5",
+          "6",
+          "7"
+        ]
+      },
+      "en": {
+        "prompt": "How many acyclic peptides can be formed when one molecule of glutamic acid and two molecules of glycine are joined by two amide bonds? Stereoisomers are not distinguished.",
+        "choices": [
+          "3",
+          "4",
+          "5",
+          "6",
+          "7"
+        ]
+      },
+      "answerIndex": 3,
+      "answerOption": 4,
+      "answer": {
+        "ja": "④ 6 種類",
+        "en": "④ 6"
+      },
+      "explanation": {
+        "en": "Glutamic acid (Glu) has two carboxyl groups (the $\\alpha$-COOH and the side-chain COOH) and one amino group. Writing N→C: Gly-Gly-Glu (1); Gly-Glu-Gly with Glu linking through its $\\alpha$- or side-chain COOH (2); Glu-Gly-Gly, again via either COOH (2); and Glu with a Gly on each of its two COOH groups (1). Total 6.",
+        "ja": "グルタミン酸（Glu）は $\\alpha$-COOH と側鎖の COOH の 2 つのカルボキシ基と 1 つのアミノ基をもつ。N 末端→C 末端で数えると：Gly-Gly-Glu（1），Gly-Glu-Gly で Glu が $\\alpha$-COOH または側鎖 COOH を使う（2），Glu-Gly-Gly で同様に 2 通り（2），さらに Glu の 2 つの COOH の両方にそれぞれ Gly が結合したもの（1）。計 6 種類。"
+      }
+    }
+  ],
+  "patterns": {
+    "archetypes": [
+      "Two correct statements about elements (stable nuclei up to period 3; isotopes differ in neutrons).",
+      "Ion–atom pair with different electron configurations (F⁻ vs He).",
+      "Pairs where both molecules have unsaturated bonds (CO₂/CO, HCOOH/acetone).",
+      "Compound with a double bond, polar, ≥3 lone pairs (formic acid).",
+      "H:O atomic-weight ratio from CuO reduction and CaCl₂ absorption.",
+      "He/O₂ mole fractions from mixture density at STP.",
+      "Heat of vaporization of water from heats of formation (Hess).",
+      "Henry's law: dissolved-gas volume at its own pressure is constant.",
+      "Order of [OH⁻] in 0.1 mol/L acids and base.",
+      "Anode/cathode gas volumes in dilute H₂SO₄ electrolysis.",
+      "Acidic / amphoteric / basic oxide classification.",
+      "Gas collectable by upward delivery (NH₃).",
+      "Compound fitting basicity, gas with HCl and the Solvay process (Na₂CO₃).",
+      "Unsuitable method to distinguish two ions (Fe²⁺/Fe³⁺ with dilute H₂SO₄).",
+      "Underlined atom whose oxidation number increases (S in SO₂).",
+      "Distinguishing 1-butanol from diethyl ether (sodium).",
+      "Alkenes whose Br₂ adduct has exactly one asymmetric carbon.",
+      "Cumene route to methyl salicylate and aspirin (A, B, C reagents).",
+      "Iodoform-positive C₃H₆O from combustion data (acetone).",
+      "Number of peptides from one Glu and two Gly (6)."
+    ],
+    "recurring": [
+      "Structure and bonding screens open the paper: element facts, electron configurations, unsaturation, polarity/lone pairs.",
+      "Quantitative core: atomic-weight ratio from masses, gas density → mole fraction, Hess's law, electrolysis volumes, combustion analysis.",
+      "Concept graphs and orderings: Henry's law graph, [OH⁻] ranking, oxidation-number changes.",
+      "Qualitative inorganic: oxide classification, gas collection, Solvay process, ion-distinguishing tests.",
+      "Organic: functional-group tests, asymmetric-carbon counting after Br₂ addition, aromatic synthesis route, iodoform, peptide counting."
+    ],
+    "examTacticNotes": [
+      "Atomic weight is not monotonic in Z (Ar > K, Te > I); most elements are metals.",
+      "Count electrons for ions: F⁻ has 10 (Ne), Li⁺ has 2 (He).",
+      "CO₂ is polar-bonded but nonpolar overall; HCOOH has 4 lone pairs and a C=O.",
+      "CuO + H₂: tube mass loss = O; water gain − O = H; remember H₂O has 2 H.",
+      "Mean M = density × 22.4; solve for the mole fraction linearly.",
+      "Heat of vaporization = Qf(liquid) − Qf(gas); get Qf(liquid) from the combustion heat.",
+      "Henry's law: dissolved moles ∝ P, so volume measured at P is constant.",
+      "[OH⁻] order is the reverse of [H⁺]; H₂SO₄ is diprotic.",
+      "Electrolysis of dilute H₂SO₄: O₂ = n/4, H₂ = n/2 mol for n mol e⁻.",
+      "Nonmetal oxides acidic; Al, Zn (Sn, Pb) oxides amphoteric; MgO, CuO basic.",
+      "Upward delivery only for NH₃ among common lab gases.",
+      "Solvay: raw materials NaCl, CaCO₃; final product Na₂CO₃ (NaHCO₃ is the precipitated intermediate).",
+      "Fe²⁺ and Fe³⁺ sulfates are both soluble.",
+      "SO₂ is oxidized (+4 → +6) when it reduces I₂.",
+      "Na metal distinguishes alcohols (H₂) from ethers.",
+      "Br₂ adducts: count carbons bearing four different groups; symmetric alkenes give 0 or 2.",
+      "Cumene process gives phenol; methanol/H₂SO₄ esterifies –COOH, acetic anhydride acetylates –OH.",
+      "Combustion analysis C₃H₆O + iodoform ⇒ acetone.",
+      "Glu has two COOH groups: count linkage through either, plus the branched Glu(Gly)₂."
+    ],
+    "difficulty": "Standard EJU chemistry with a broad syllabus sweep. The more discriminating items are the atomic-weight ratio from the CuO experiment (Q5), the Henry's-law graph (Q8), the asymmetric-carbon count after Br₂ addition (Q17) and the Glu–Gly peptide count (Q20)."
+  }
+}
