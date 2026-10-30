@@ -31,10 +31,11 @@ class MemoryStorage {
   }
 }
 
-// The smallest IndexedDB that idb.ts needs: open → objectStore get/put, transaction events.
+// The smallest IndexedDB that idb.ts needs: open → objectStore get/put/delete, transaction events.
 class FakeIDB {
   constructor() {
     this.stores = new Map();
+    this.log = []; // keys written, in order (tests check that a save writes only what changed)
   }
   open(name) {
     const req = {};
@@ -45,6 +46,12 @@ class FakeIDB {
           const tx = {};
           const store = this.stores.get(s) ?? new Map();
           this.stores.set(s, store);
+          let done = false;
+          const complete = () => {
+            if (done) return;
+            done = true;
+            setTimeout(() => tx.oncomplete?.(), 0);
+          };
           tx.objectStore = () => ({
             get: (key) => {
               const r = {};
@@ -55,8 +62,13 @@ class FakeIDB {
               return r;
             },
             put: (value, key) => {
+              this.log.push(key);
               store.set(key, JSON.stringify(value));
-              setTimeout(() => tx.oncomplete?.(), 0);
+              complete();
+            },
+            delete: (key) => {
+              store.delete(key);
+              complete();
             },
           });
           return tx;
@@ -82,6 +94,19 @@ globalThis.__idbFor = (url) => {
   const n = devName(url);
   if (!idbs.has(n)) idbs.set(n, new FakeIDB());
   return idbs.get(n);
+};
+/** A device's IndexedDB contents and write log, for tests that seed or inspect it. */
+globalThis.__idbOf = (name) => {
+  if (!idbs.has(name)) idbs.set(name, new FakeIDB());
+  const f = idbs.get(name);
+  if (!f.stores.has('kv')) f.stores.set('kv', new Map());
+  const kv = f.stores.get('kv');
+  return {
+    get: (k) => (kv.has(k) ? JSON.parse(kv.get(k)) : undefined),
+    set: (k, v) => kv.set(k, JSON.stringify(v)),
+    keys: () => [...kv.keys()],
+    log: f.log,
+  };
 };
 globalThis.__resetDevice = (name) => {
   stores.delete(name);

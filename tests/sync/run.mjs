@@ -92,17 +92,21 @@ const pageInk = (d, pageId) => (d.useBoard.getState().pages.find((p) => p.id ===
 const cloudPages = () => [...server().docs].filter(([k]) => /^users\/[^/]+\/board\/main\/pages\//.test(k)).map(([, v]) => v);
 
 /** Every stroke drawn (and not erased) must still exist somewhere it can be recovered from. */
-function whereIsStroke(id) {
+function whereIsStroke(id, journals) {
   const places = [];
   for (const d of devices.values()) {
     if (d.useBoard.getState().pages.some((p) => p.strokes.some((s) => s.id === id))) places.push(`device ${d.name}`);
-    if (d.listJournal().some((e) => e.page.st.some((s) => s.i === id))) places.push(`journal ${d.name}`);
+    if (journals.get(d).some((e) => e.page.st.some((s) => s.i === id))) places.push(`journal ${d.name}`);
+    const idb = globalThis.__idbOf(d.name);
+    for (const k of idb.keys()) if (k.startsWith('bs:') && idb.get(k)?.pages?.some((p) => p.st?.some((s) => s.i === id))) places.push(`snapshot ${d.name}`);
   }
   for (const [k, v] of server().docs) if (v?.st?.some?.((s) => s.i === id)) places.push(`cloud ${k}`);
   return places;
 }
-function assertNothingLost() {
-  const lost = [...strokesDrawn.keys()].filter((id) => whereIsStroke(id).length === 0);
+async function assertNothingLost() {
+  const journals = new Map();
+  for (const d of devices.values()) journals.set(d, await d.listJournal());
+  const lost = [...strokesDrawn.keys()].filter((id) => whereIsStroke(id, journals).length === 0);
   if (lost.length) throw new Error(`strokes lost everywhere: ${lost.join(', ')}`);
 }
 async function assertQuiet(label) {
@@ -190,7 +194,7 @@ scenario('same page edited on two devices at once: both edits survive, erase hol
   await tick(20);
   const b = draw(B, p1);
   await tick(SETTLE * 2);
-  if (process.env.SYNC_DEBUG) console.log('DBG concurrent', JSON.stringify({ A: pageInk(A, p1), B: pageInk(B, p1), cloud: cloudPages().map((p) => p.st.map((x) => x.i)), jA: A.listJournal().length, jB: B.listJournal().length }));
+  if (process.env.SYNC_DEBUG) console.log('DBG concurrent', JSON.stringify({ A: pageInk(A, p1), B: pageInk(B, p1), cloud: cloudPages().map((p) => p.st.map((x) => x.i)), jA: (await A.listJournal()).length, jB: (await B.listJournal()).length }));
   eq(pageInk(A, p1), pageInk(B, p1), 'both devices agree');
   ok(pageInk(A, p1).includes(a) && pageInk(A, p1).includes(b), 'both strokes kept');
   erase(A, [a]);
@@ -358,8 +362,8 @@ scenario('deleting a page journals it on both devices and in the account; restor
   B.useBoard.getState().deletePage(p1);
   await tick(SETTLE * 2);
   ok(!A.useBoard.getState().pages.some((p) => p.id === p1), 'delete reached A');
-  ok(B.listJournal().some((e) => e.pageId === p1), 'B journaled the page it deleted');
-  ok(A.listJournal().some((e) => e.pageId === p1), 'A journaled the page removed by B');
+  ok((await B.listJournal()).some((e) => e.pageId === p1), 'B journaled the page it deleted');
+  ok((await A.listJournal()).some((e) => e.pageId === p1), 'A journaled the page removed by B');
   ok([...server().docs.keys()].some((k) => k.startsWith('users/u1/history/') && k.includes(p1)), 'account journal has the page');
   const scan = await A.scanForLostPages();
   ok(scan.missing.some((f) => f.id === p1), 'Find lost pages finds it');
@@ -382,7 +386,7 @@ scenario('restore from a backup keeps the fuller copy of every page', async () =
   A.useBoard.getState().clearCurrentPage();
   await tick(SETTLE);
   eq(pageInk(A, p1), '', 'page cleared');
-  ok(A.listJournal().some((e) => e.pageId === p1 && e.page.st.length === 2), 'cleared page journaled');
+  ok((await A.listJournal()).some((e) => e.pageId === p1 && e.page.st.length === 2), 'cleared page journaled');
   const backups = A.listBackups();
   ok(backups.length > 0, 'a backup exists');
   await A.restoreBackup(backups.find((b) => b.reason === 'manual').id, 'merge');
@@ -581,6 +585,120 @@ scenario('coach conversations: two copies that differ only in details settle on 
   }
 });
 
+// ─── device storage layout (one record per page / snapshot / journal entry) ───
+const enc = (id, strokeIds, m = 1000) => ({ id, v: [1, 0, 0], st: strokeIds.map((i) => ({ i, c: 'black', s: 4, p: [1, 1, 0.5, 5, 5, 0.5] })), nb: 'physics', m });
+
+scenario('device storage from an older build (one big record each) is read, moved over, and nothing in it is lost', async () => {
+  // What an older build left on the device: the board, 2 snapshots and a journal entry, each as one record.
+  globalThis.__resetDevice('C');
+  const idb = globalThis.__idbOf('C');
+  idb.set('board', { pages: [enc('c1', ['old1', 'old2']), enc('c2', ['old3'])], currentPageId: 'c1', updatedAt: 5000 });
+  idb.set('board-snapshots', [
+    { id: 'dold1', ts: 4000, reason: 'manual', pages: [enc('c1', ['old1', 'old2', 'snapOnly'])] },
+    { id: 'dold2', ts: 3000, reason: 'before-cloud-merge', pages: [enc('c9', ['gone1'])] },
+  ]);
+  idb.set('board-history', [{ id: 'c8-1', pageId: 'c8', ts: 2000, reason: 'other-device', page: enc('c8', ['journalOnly']) }]);
+  for (const id of ['old1', 'old2', 'old3', 'snapOnly', 'gone1', 'journalOnly']) strokesDrawn.set(id, true);
+  const C = await device('C', { fresh: false });
+  await tick(SETTLE * 2); // old snapshots are moved a moment after the notebook has loaded
+  eq(pageInk(C, 'c1'), 'old1,old2', 'old board read');
+  eq(pageInk(C, 'c2'), 'old3', 'second page read');
+  const backups = C.listBackups().filter((b) => b.where === 'device').map((b) => b.id).sort().join();
+  eq(backups, 'dold1,dold2', 'old snapshots listed');
+  ok((await C.listJournal()).some((e) => e.page.st.some((x) => x.i === 'journalOnly')), 'old journal entry kept');
+  // the first save moves the board to one record per page and retires the old record
+  draw(C, 'c1');
+  await tick(SETTLE);
+  ok(idb.get('board2')?.order?.includes('c1'), 'board index written');
+  ok(idb.get('bp:c2')?.st?.length === 1, `each page has its own record (${idb.keys().join(' ')} | ${JSON.stringify(idb.get('board2'))?.slice(0, 200)})`);
+  eq(idb.get('board')?.pages?.length ?? 0, 0, 'old board record retired');
+  ok(idb.keys().includes('bs:dold1') && idb.keys().includes('bs:dold2'), 'snapshots stored one per record');
+  eq((idb.get('board-snapshots') ?? []).length, 0, 'old snapshot record emptied');
+  // restoring an old snapshot still works and brings back what only it had
+  await C.restoreBackup('dold1', 'merge');
+  await C.restoreBackup('dold2', 'merge');
+  ok(C.useBoard.getState().pages.some((p) => p.id === 'c9'), 'page only in an old snapshot restored');
+  // a newer copy written later in the old record (an older build opened again) is still merged in
+  idb.set('board', { pages: [enc('c1', ['old1', 'old2', 'fromOldBuild'], 9e12)], currentPageId: 'c1', updatedAt: 9e12 });
+  strokesDrawn.set('fromOldBuild', true);
+  const C2 = await device('C', { fresh: false });
+  await tick(SETTLE);
+  ok(pageInk(C2, 'c1').includes('fromOldBuild'), 'newer old-layout copy merged');
+  ok(C2.useBoard.getState().pages.some((p) => p.id === 'c9'), 'restored page kept after reload');
+});
+
+scenario('a save writes only the page that changed; reload reads every page back', async () => {
+  const A = await device('A');
+  const p1 = A.useBoard.getState().currentPageId;
+  draw(A, p1);
+  A.useBoard.getState().addPage();
+  const p2 = A.useBoard.getState().currentPageId;
+  draw(A, p2);
+  A.useBoard.getState().addPage();
+  const p3 = A.useBoard.getState().currentPageId;
+  draw(A, p3);
+  await tick(SETTLE);
+  const idb = globalThis.__idbOf('A');
+  const before = idb.log.length;
+  draw(A, p2);
+  await tick(SETTLE);
+  const pagesWritten = idb.log.slice(before).filter((k) => k.startsWith('bp:'));
+  eq(pagesWritten.join(), `bp:${p2}`, 'only the changed page written');
+  // deleting a page removes its record
+  A.useBoard.getState().goToPage(p3);
+  A.useBoard.getState().deletePage(p3);
+  await tick(SETTLE);
+  ok(!A.useBoard.getState().pages.some((p) => p.id === p3), 'page deleted');
+  ok(!idb.keys().includes(`bp:${p3}`), 'deleted page record removed');
+  ok((await A.listJournal()).some((e) => e.pageId === p3), 'deleted page journaled');
+  const A2 = await device('A', { fresh: false });
+  await tick(SETTLE);
+  eq(pageInk(A2, p1), pageInk(A, p1), 'page 1 after reload');
+  eq(pageInk(A2, p2), pageInk(A, p2), 'page 2 after reload');
+});
+
+scenario('erasing stroke after stroke (signed in) keeps one journal copy, not one per erase, and loses nothing', async () => {
+  const A = await device('A');
+  A.auth.signIn('u1');
+  await tick(SETTLE);
+  const p1 = A.useBoard.getState().currentPageId;
+  const ids = [draw(A, p1), draw(A, p1), draw(A, p1), draw(A, p1), draw(A, p1)];
+  await tick(SETTLE);
+  for (const id of ids.slice(0, 4)) {
+    erase(A, [id]);
+    await tick(SETTLE);
+  }
+  const entries = (await A.listJournal()).filter((e) => e.pageId === p1);
+  ok(entries.length >= 1, 'the page before erasing is journaled');
+  ok(entries.length <= 1, `one journal copy, not ${entries.length}`);
+  ok(ids.every((id) => entries.some((e) => e.page.st.some((x) => x.i === id))), 'every erased stroke is in that copy');
+  const cloudJournal = [...server().docs.keys()].filter((k) => k.startsWith('users/u1/history/'));
+  ok(cloudJournal.length <= 2, `account journal not flooded (${cloudJournal.length})`);
+  await assertQuiet('after erasing');
+});
+
+scenario('automatic snapshots of an unchanged notebook are not repeated; manual backups always are', async () => {
+  const A = await device('A');
+  const p1 = A.useBoard.getState().currentPageId;
+  draw(A, p1);
+  await tick(SETTLE);
+  await A.backupNow();
+  await A.backupNow();
+  eq(A.listBackups().filter((b) => b.where === 'device').length, 2, 'two manual backups');
+  const id = A.listBackups()[0].id;
+  draw(A, p1); // the notebook now differs from the backups
+  await tick(SETTLE);
+  await A.restoreBackup(id, 'merge'); // takes a "before-restore" snapshot; the second restore finds the same content
+  await A.restoreBackup(id, 'merge');
+  const auto = A.listBackups().filter((b) => b.where === 'device' && b.reason === 'before-restore');
+  eq(auto.length, 1, 'identical before-restore snapshot taken once');
+  const A2 = await device('A', { fresh: false });
+  await tick(SETTLE);
+  eq(A2.listBackups().filter((b) => b.where === 'device').length, 3, 'snapshot list survives reload');
+  await A2.restoreBackup(id, 'replace');
+  eq(pageInk(A2, p1).length > 0, true, 'restore after reload works');
+});
+
 let failed = 0;
 for (const sc of scenarios) {
   if (process.env.SYNC_ONLY && !sc.name.includes(process.env.SYNC_ONLY)) continue;
@@ -589,7 +707,7 @@ for (const sc of scenarios) {
   const t0 = Date.now();
   try {
     await sc.fn();
-    assertNothingLost();
+    await assertNothingLost();
     console.log(`PASS ${sc.name} (${((Date.now() - t0) / 1000).toFixed(1)}s)`);
   } catch (e) {
     failed++;
