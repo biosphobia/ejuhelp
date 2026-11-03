@@ -20,6 +20,8 @@ export interface GenRequest {
   count: number;
   focus?: { topics?: string[]; tags?: string[] };
   noteCore?: string;
+  /** The student's own wishes for the set (topic weighting, kind of questions). */
+  instructions?: string;
 }
 export interface PendingGen extends GenRequest {
   jobId: string;
@@ -66,6 +68,7 @@ function cleanReq(req: GenRequest): GenRequest {
   if (req.topics?.length) out.topics = [...req.topics];
   if (req.focus) out.focus = { topics: [...(req.focus.topics ?? [])], tags: [...(req.focus.tags ?? [])] };
   if (req.noteCore) out.noteCore = req.noteCore;
+  if (req.instructions) out.instructions = req.instructions;
   return out;
 }
 
@@ -95,7 +98,7 @@ export const useGenerated = create<GeneratedState>((set, get) => ({
     let jobId: string | undefined;
     try {
       const res = await generateQuestions(
-        { subject: req.subject, lang, topic: req.topic, topics: req.topics, difficulty: req.difficulty, count: req.count, focus: req.focus, noteCore: req.noteCore },
+        { subject: req.subject, lang, topic: req.topic, topics: req.topics, difficulty: req.difficulty, count: req.count, focus: req.focus, noteCore: req.noteCore, instructions: req.instructions },
         {
           onJob: (id) => {
             jobId = id;
@@ -127,7 +130,7 @@ export const useGenerated = create<GeneratedState>((set, get) => ({
     set({ busy: true, error: null });
     try {
       const res = await generateQuestions(
-        { subject: p.subject, lang, topic: p.topic, topics: Array.isArray(p.topics) ? p.topics : undefined, difficulty: p.difficulty, count: p.count, focus: p.focus, noteCore: p.noteCore },
+        { subject: p.subject, lang, topic: p.topic, topics: Array.isArray(p.topics) ? p.topics : undefined, difficulty: p.difficulty, count: p.count, focus: p.focus, noteCore: p.noteCore, instructions: typeof p.instructions === 'string' ? p.instructions : undefined },
         { jobId: p.jobId }
       );
       if (get().pending?.jobId === p.jobId) {

@@ -659,12 +659,13 @@ export async function generate(args: Omit<GenerateArgs, 'angle'>): Promise<{ que
   const results = await Promise.allSettled(
     sizes.map((n, b) => {
       let { topic, topics } = args;
-      if (!args.similarTo && picked.length >= m) {
+      // With the student's own weighting, every batch sees every topic and applies it to its share.
+      if (!args.similarTo && !args.instructions && picked.length >= m) {
         const share = picked.filter((_, i) => i % m === b);
         topic = share.length === 1 ? share[0] : undefined;
         topics = share.length > 1 ? share : undefined;
       }
-      return generateBatch({ ...args, topic, topics, count: n, angle: BATCH_ANGLES[b % BATCH_ANGLES.length] });
+      return generateBatch({ ...args, topic, topics, count: n, angle: BATCH_ANGLES[b % BATCH_ANGLES.length], setSize: total });
     })
   );
   const ok = results.filter((r): r is PromiseFulfilledResult<{ questions: GenQuestion[] }> => r.status === 'fulfilled');
@@ -697,8 +698,12 @@ async function generateBatch(args: {
   noteCore?: string;
   /** Where these questions sit, e.g. one block of a full mock exam. */
   context?: string;
+  /** The student's own wishes for this set: how to weight the topics, what kind of questions. */
+  instructions?: string;
   /** Set when this call is one batch of a larger set (see generate). */
   angle?: string;
+  /** Size of the whole set this batch belongs to. */
+  setSize?: number;
   model?: string;
   userKey?: string;
 }): Promise<{ questions: GenQuestion[] }> {
@@ -726,7 +731,9 @@ async function generateBatch(args: {
     parts.push(
       `Generate ${n} EJU-style ${args.subject} question(s) covering these topics chosen by the student:\n` +
         picked.map((id) => `- ${id} = ${labelFor(args.subject, id, args.lang)}`).join('\n') +
-        `\nSpread the questions across them: cover each topic at least once when there are enough questions, otherwise pick the most exam-relevant ones and do not repeat a topic. ` +
+        (args.instructions
+          ? '\nShare the questions between them the way the student asks below; where the student says nothing about it, spread them evenly. '
+          : `\nSpread the questions across them: cover each topic at least once when there are enough questions, otherwise pick the most exam-relevant ones and do not repeat a topic. `) +
         'A "hard" question may combine two of the topics. For every question set "topicId" to the id of the topic it mainly tests (one of the ids above).'
     );
   } else {
@@ -735,8 +742,19 @@ async function generateBatch(args: {
     );
   }
   if (args.context) parts.push(args.context);
+  if (args.instructions) {
+    parts.push(
+      `The student added these wishes for this set (how much of each topic, what kind of questions, anything else). Follow them closely; ` +
+        `they override the defaults above and below on topic weighting, question type, style and focus, but every question must still be ` +
+        `correct, at EJU scope, and in the answer format asked for at the end:\n${TRIPLE}\n${args.instructions}\n${TRIPLE}`
+    );
+  }
   if (args.angle) {
-    parts.push(`These questions are one part of a larger set written in parallel. To avoid overlapping with the other parts, ${args.angle}.`);
+    parts.push(
+      args.instructions
+        ? `These ${n} questions are one part of a set of ${args.setSize ?? n} written in parallel. Apply the student's wishes to this part in proportion (scale any numbers they give to ${n} of ${args.setSize ?? n}). To avoid overlapping with the other parts, ${args.angle}, as far as the student's wishes allow.`
+        : `These questions are one part of a larger set written in parallel. To avoid overlapping with the other parts, ${args.angle}.`
+    );
   }
   parts.push(
     args.difficulty === 'exam'

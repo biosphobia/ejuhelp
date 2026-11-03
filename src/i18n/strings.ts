@@ -370,6 +370,14 @@ export const strings = {
   sortAZ: { en: 'A–Z', ja: '名前順', zh: '按名称', tr: 'A–Z' },
   noMatches: { en: 'Nothing matches.', ja: '該当なし。', zh: '没有匹配项。', tr: 'Eşleşen yok.' },
   noTopic: { en: 'No topic', ja: '分野なし', zh: '无主题', tr: 'Konusuz' },
+  genInstructionsAdd: { en: 'Add instructions (optional)', ja: '出題の希望を追加（任意）', zh: '添加出题要求（可选）', tr: 'Talimat ekle (isteğe bağlı)' },
+  genInstructions: { en: 'Your instructions', ja: '出題の希望', zh: '出题要求', tr: 'Talimatların' },
+  genInstructionsPlaceholder: {
+    en: 'e.g. Mostly circuits, a few on waves. Only calculation questions. Include graph-reading like the 2024 paper.',
+    ja: '例：回路を多めに、波動は少しだけ。計算問題のみ。2024年のようなグラフ読み取り問題を入れて。',
+    zh: '例如：电路多一些，波动少一些。只出计算题。加入像2024年那样的读图题。',
+    tr: 'ör. Çoğu devreler, birkaçı dalgalar. Sadece hesaplama soruları. 2024 sınavındaki gibi grafik okuma soruları ekle.',
+  },
   examsTitle: { en: 'Mock exams', ja: '模擬試験', zh: '模拟考试', tr: 'Deneme sınavları' },
   examsHint: {
     en: 'Real past EJU questions with the official answers. Pick a paper to review.',

@@ -226,6 +226,8 @@ export const generateQuestions = (p: {
   similarTo?: { prompt: string; answer?: string };
   /** The note's core idea so questions test what was just studied. */
   noteCore?: string;
+  /** The student's own wishes: how to weight the topics, what kind of questions. */
+  instructions?: string;
 }, opts?: CallOpts) => call<GenerateResponse>('claude/generate', p, opts);
 
 export interface CheckResponse {

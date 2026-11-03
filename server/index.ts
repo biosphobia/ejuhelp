@@ -123,7 +123,7 @@ app.post('/api/claude/ask', requireAuth, async (req: Request, res: Response) => 
 
 app.post('/api/claude/generate', requireAuth, async (req: Request, res: Response) => {
   try {
-    const { subject, lang, topic, topics, difficulty, count, focus, similarTo, noteCore } = req.body ?? {};
+    const { subject, lang, topic, topics, difficulty, count, focus, similarTo, noteCore, instructions } = req.body ?? {};
     const { model, userKey } = getAiContext(req);
     if (!isSubject(subject)) return res.status(400).json({ error: 'bad_subject' });
     
@@ -148,6 +148,7 @@ app.post('/api/claude/generate', requireAuth, async (req: Request, res: Response
             ? { prompt: similarTo.prompt.slice(0, 4000), answer: typeof similarTo.answer === 'string' ? similarTo.answer.slice(0, 500) : undefined }
             : undefined,
         noteCore: typeof noteCore === 'string' && noteCore.trim() ? noteCore.slice(0, 6000) : undefined,
+        instructions: typeof instructions === 'string' && instructions.trim() ? instructions.trim().slice(0, 1500) : undefined,
         model,
         userKey,
       })

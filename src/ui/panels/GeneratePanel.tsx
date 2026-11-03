@@ -52,6 +52,25 @@ export default function GeneratePanel() {
   const [source, setSource] = useState<'ai' | 'past'>('ai');
   const [pastCount, setPastCount] = useState(10);
   const [busy, setBusy] = useState(false);
+  // Optional wishes for the set (topic weighting, kind of questions), remembered per subject on this device.
+  const [instructions, setInstructions] = useState('');
+  const [showInstr, setShowInstr] = useState(false);
+  useEffect(() => {
+    try {
+      setInstructions(localStorage.getItem(`eju-gen-instr-${subject}`) ?? '');
+    } catch {
+      setInstructions('');
+    }
+  }, [subject]);
+  const saveInstructions = (v: string) => {
+    setInstructions(v);
+    try {
+      if (v.trim()) localStorage.setItem(`eju-gen-instr-${subject}`, v);
+      else localStorage.removeItem(`eju-gen-instr-${subject}`);
+    } catch {
+      /* ignore */
+    }
+  };
   const [err, setErr] = useState<string | null>(null);
   const working = busy || genBusy;
 
@@ -148,6 +167,7 @@ export default function GeneratePanel() {
         count,
         focus: focusPayload,
         noteCore,
+        ...(instructions.trim() ? { instructions: instructions.trim().slice(0, 1500) } : {}),
       });
     } catch (e) {
       setErr(errorMessage(e, t));
@@ -334,6 +354,41 @@ export default function GeneratePanel() {
           {hasWeakData ? null : <span className="block text-xs text-slate-500">{t('noWeakDataShort')}</span>}
         </span>
       </label>
+      )}
+
+      {pastMode ? null : showInstr ? (
+        <div className="mt-2">
+          <div className="mb-1 flex items-center justify-between">
+            <Label>{t('genInstructions')}</Label>
+            <button type="button" onClick={() => setShowInstr(false)} className="text-xs font-semibold text-slate-400 hover:text-slate-700">
+              {t('close')}
+            </button>
+          </div>
+          <textarea
+            value={instructions}
+            onChange={(e) => saveInstructions(e.target.value)}
+            maxLength={1500}
+            rows={3}
+            placeholder={t('genInstructionsPlaceholder')}
+            className="w-full resize-y rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-800 outline-none placeholder:text-slate-400 focus:border-slate-400"
+          />
+          {instructions.trim() ? (
+            <button type="button" onClick={() => saveInstructions('')} className="mt-1 text-xs font-semibold text-slate-400 hover:text-red-600">
+              {t('clearChat')}
+            </button>
+          ) : null}
+        </div>
+      ) : (
+        <button
+          type="button"
+          onClick={() => setShowInstr(true)}
+          className="mt-2 flex w-full items-center justify-between gap-2 rounded-xl p-2 text-left text-sm hover:bg-slate-50"
+        >
+          <span className="font-medium text-slate-800">✎ {t('genInstructionsAdd')}</span>
+          {instructions.trim() ? (
+            <span className="min-w-0 truncate rounded-full bg-indigo-50 px-2 py-0.5 text-xs text-indigo-700">{instructions.trim()}</span>
+          ) : null}
+        </button>
       )}
 
       {working ? (
